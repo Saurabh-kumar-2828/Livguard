@@ -125,7 +125,7 @@ export const action: ActionFunction = async ({request}) => {
         phoneNumber == null ||
         phoneNumber.match(indianPhoneNumberValidationPattern) == null ||
         email == null ||
-        email.match(emailIdValidationPattern) ||
+        email.match(emailIdValidationPattern) == null ||
         organisation == null ||
         isServiceRequestFormTermsAndConditionsChecked == null ||
         otp == null ||
@@ -253,12 +253,12 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                     userPreferences={userPreferences}
                     linkClassName=" md:max-lg:tw-text-[12px] md:max-lg:tw-py-1 md:max-lg:tw-px-3"
                 /> */}
-            <div className="lg-px-screen-edge-2 tw-items-center tw-grid tw-grid-flow-col tw-gap-4 lg:tw-gap-6 tw-row-start-2  2xl:tw-row-start-3 sm:tw-col-start-1 sm:tw-justify-start sm:tw-place-self-start tw-place-self-center sm:tw-relative max-2xl:tw-top-[90%] lg:tw-left-[3%] 2xl:tw-left-[4.5%] tw-w-fit">
+            <div className="lg-px-screen-edge-2 tw-items-center tw-grid tw-grid-flow-col tw-gap-4 lg:tw-gap-6 tw-row-start-2  2xl:tw-row-start-3 sm:tw-col-start-1 sm:tw-justify-start sm:tw-place-self-start tw-place-self-center sm:tw-relative xl:tw-p-[60px] max-xl:tw-top-[90%]  tw-w-fit [@media(min-width:2100px)]:tw-left-[3%] [@media(min-width:1280px)]:tw-top-[30%] [@media(min-width:1535px)]:tw-top-[15%]">
                 <Link
                     to="#reachoutForm"
                     className="lg-cta-button tw-grid tw-place-items-center !tw-px-4"
                 >
-                    {getVernacularString("d0a88af5-fba8-43cd-bda5-813e7363db53", userPreferences.language)}
+                    {getVernacularString("4bcb03e4-9c03-4cf1-8fd3-605340796364", userPreferences.language)}
                 </Link>
                 <CtaOutlineButtonLink
                     to="https://www.livguard.com/static-assets/floor-plan.pdf"
@@ -493,7 +493,8 @@ function ExpoHighlights({userPreferences}: {userPreferences: UserPreferences}) {
 
                         <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4">
                             <div>
-                                <FullWidthImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard-solar/renewable/5/hand-solar.svg" : "/livguard-solar/renewable/5/5.svg"} />
+                                {/* <FullWidthImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard-solar/renewable/5/hand-solar.svg" : "/livguard-solar/renewable/5/5.svg"} /> */}
+                                <FullWidthImage relativePath="/livguard-solar/renewable/5/hand-solar.svg" />
                             </div>
                             <div className="tw-self-center lg-text-title2">{getVernacularString("8f25eea9-7b97-42d2-8152-1ebf67c2e849", userPreferences.language)}</div>
                         </div>
@@ -522,7 +523,7 @@ function ExpoHighlights({userPreferences}: {userPreferences: UserPreferences}) {
     );
 }
 
-function SocialMediaFeeds({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+export function SocialMediaFeeds({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     enum SocialMediaPosts {
         facebook,
         instagram,
@@ -653,11 +654,46 @@ function SocialMediaFeeds({userPreferences, className}: {userPreferences: UserPr
 }
 
 function GallerySection({userPreferences}: {userPreferences: UserPreferences}) {
+    const [selectedYear, setSelectedYear] = useState(0);
+    const years = [
+        [
+            "/livguard-solar/renewable/6/image1.png",
+            "/livguard-solar/renewable/6/2.JPG",
+            "/livguard-solar/renewable/6/3.JPG",
+            "/livguard-solar/renewable/6/image2.png",
+            "/livguard-solar/renewable/6/5.JPG",
+        ],
+        [
+           "/livguard-solar/renewable/gallery/1.JPG",
+           "/livguard-solar/renewable/gallery/2.JPG",
+           "/livguard-solar/renewable/gallery/3.JPG",
+           "/livguard-solar/renewable/gallery/4.JPG",
+           "/livguard-solar/renewable/gallery/5.JPG",
+        ],
+    ];
     return (
         <div className="tw-grid tw-gap-6 lg-px-screen-edge-2 tw-w-full tw-max-w-7xl tw-mx-auto">
             <div className="lg-text-headline tw-text-center">{getVernacularString("28b1f0d5-c206-45ad-9673-5b2d93e1e1b5", userPreferences.language)}</div>
+            <div className="tw-flex tw-place-self-center tw-gap-4">
+                <button
+                    className={concatenateNonNullStringsWithSpaces(
+                        "tw-max-w-fit tw-p-4 tw-rounded-md tw-grid tw-items-center tw-justify-center tw-col-start-1 hover:tw-cursor-pointer lg-text-body-bold lg-text-secondary-900",
+                        `${selectedYear == 0 ? "tw-bg-primary-500-light !tw-text-secondary-900-dark" : "lg-card"}`,
+                    )}
+                    onClick={() => setSelectedYear(0)}
+                    dangerouslySetInnerHTML={{__html: getVernacularString("03954a87-ce9d-4852-92d0-97aa7fa0379f", userPreferences.language)}}
+                />
+                <button
+                    className={concatenateNonNullStringsWithSpaces(
+                        "tw-max-w-fit tw-p-4 tw-rounded-md tw-grid tw-items-center tw-justify-center tw-col-start-1 hover:tw-cursor-pointer lg-text-body-bold lg-text-secondary-900",
+                        `${selectedYear == 1 ? "tw-bg-primary-500-light !tw-text-secondary-900-dark" : "lg-card"}`,
+                    )}
+                    onClick={() => setSelectedYear(1)}
+                    dangerouslySetInnerHTML={{__html: getVernacularString("0057d3d3-9147-4975-b299-fefc8a50f91a", userPreferences.language)}}
+                />
+            </div>
             <div className="tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:tw-grid-cols-[repeat(3,minmax(0,1fr))] tw-gap-3 lg:tw-gap-6">
-                <div className="sm:tw-row-span-2 sm:tw-col-span-1 tw-row-span-1 tw-col-span-2 tw-overflow-hidden tw-rounded-lg">
+                {/* <div className="sm:tw-row-span-2 sm:tw-col-span-1 tw-row-span-1 tw-col-span-2 tw-overflow-hidden tw-rounded-lg">
                     <FullHeightImage relativePath="/livguard-solar/renewable/6/image1.png" />
                 </div>
                 <div className="tw-overflow-hidden tw-rounded-lg">
@@ -671,7 +707,22 @@ function GallerySection({userPreferences}: {userPreferences: UserPreferences}) {
                 </div>
                 <div className="tw-overflow-hidden tw-rounded-lg">
                     <FullHeightImage relativePath="/livguard-solar/renewable/6/5.JPG" />
-                </div>
+                </div> */}
+                <ItemBuilder
+                    items={years[selectedYear]}
+                    itemBuilder={(item, itemIndex) => {
+                        return (
+                            <div
+                                className={concatenateNonNullStringsWithSpaces(
+                                    itemIndex === 0 ? "sm:tw-row-span-2 sm:tw-col-span-1 tw-row-span-1 tw-col-span-2 tw-overflow-hidden tw-rounded-lg" : "tw-overflow-hidden tw-rounded-lg",
+                                )}
+                                key={itemIndex}
+                            >
+                                <FullHeightImage relativePath={item} />
+                            </div>
+                        );
+                    }}
+                />
             </div>
         </div>
     );
@@ -1057,7 +1108,7 @@ function ReachOutForAnyQuery({
 
                         <Form
                             method="post"
-                            className="tw-grid tw-gap-4 lg:tw-gap-6"
+                            className="tw-grid"
                         >
                             <div className="tw-grid tw-gap-2">
                                 <div className="lg-text-button">{getVernacularString("6801bb72-ee1d-42ae-8f4a-a08848f267fa", userPreferences.language)}</div>
@@ -1075,7 +1126,7 @@ function ReachOutForAnyQuery({
                                     required
                                 />
                             </div>
-
+                            <VerticalSpacer className="tw-h-4 lg:tw-h-6" />
                             <div className="tw-grid tw-gap-2">
                                 <div className="lg-text-button">{getVernacularString("e7117c35-13c8-4282-98d3-f5c955238da8", userPreferences.language)}</div>
                                 <input
@@ -1093,7 +1144,7 @@ function ReachOutForAnyQuery({
                                     required
                                 />
                             </div>
-
+                            <VerticalSpacer className="tw-h-4 lg:tw-h-6" />
                             <div className="tw-grid lg:tw-col-start-1 tw-grid-flow-row">
                                 {!showOtpField ? (
                                     <>
@@ -1230,7 +1281,8 @@ function ReachOutForAnyQuery({
                                     </div>
                                 </div>
                             </div>
-
+                            {/* <VerticalSpacer className="tw-h-4 lg:tw-h-6" /> */}
+                            <VerticalSpacer className={concatenateNonNullStringsWithSpaces("tw-h-4 lg:tw-h-6", resendTimeOut > 0 || isOtpResent ? "tw-hidden" : "")} />
                             <div className="tw-grid tw-gap-2">
                                 <div className="lg-text-button">{getVernacularString("4af1d7d6-25cb-4bfe-b3f3-efc6fbf991e1", userPreferences.language)}</div>
                                 <input
@@ -1247,7 +1299,7 @@ function ReachOutForAnyQuery({
                                     required
                                 />
                             </div>
-
+                            <VerticalSpacer className="tw-h-4 lg:tw-h-6" />
                             <div className="tw-grid tw-grid-flow-col tw-gap-2 tw-items-start tw-justify-center tw-my-3 lg:tw-mt-0 lg:tw-mb-3 tw-col-start-1 tw-col-span-full">
                                 <input
                                     type="checkbox"

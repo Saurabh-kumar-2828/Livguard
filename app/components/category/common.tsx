@@ -81,7 +81,7 @@ export function OurSuggestionsComponent({
                     <VerticalSpacer className="tw-h-4" />
 
                     <DefaultTextAnimation>
-                        <div className="lg-text-title1 tw-text-center lg:tw-text-left">{vernacularContent.heading}</div>
+                        <div className="lg-text-title1 tw-text-center lg:tw-text-left">{allProductDetails[vernacularContent.heading.toLocaleLowerCase()][userPreferences.language].humanReadableModelNumber}</div>
                     </DefaultTextAnimation>
 
                     <VerticalSpacer className="tw-h-4" />
@@ -180,7 +180,8 @@ export function OurSuggestionsComponent({
                                         className="lg-card tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center tw-w-[200px] tw-w-max-[200px] lg:tw-items-center"
                                         key={itemIndex}
                                     >
-                                        <div className="tw-w-full lg-text-body-bold tw-text-center">{convertProductInternalNameToPublicName(item)}</div>
+                                        {/* <div className="tw-w-full lg-text-body-bold tw-text-center">{convertProductInternalNameToPublicName(item)}</div> */}
+                                        <div className="tw-w-full lg-text-body-bold tw-text-center">{allProductDetails[item][userPreferences.language].humanReadableModelNumber}</div>
                                         <FullWidthImage relativePath={`${vernacularContent.imagesRelativePath}${item}/thumbnail.png`} />
                                     </Link>
                                 )}

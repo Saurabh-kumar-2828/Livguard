@@ -16,11 +16,11 @@ export const action: ActionFunction = async ({request, params}) => {
     const name = safeParse(getStringFromUnknown, body.get("name"));
     const email = safeParse(getStringFromUnknown, body.get("email"));
     const phoneNumber = safeParse(getStringFromUnknown, body.get("phoneNumber"));
-    const couponCode = safeParse(getStringFromUnknown, body.get("couponCode"));
+    const userName = safeParse(getStringFromUnknown, body.get("userName"));
     const otpSubmitted = safeParse(getStringFromUnknown, body.get("otpSubmitted"));
     const utmParameters = safeParse(getStringFromUnknown, body.get("utmParameters"));
 
-    if (name == null || email == null || phoneNumber == null || couponCode == null || otpSubmitted == null || utmParameters == null) {
+    if (name == null || email == null || phoneNumber == null || userName == null || otpSubmitted == null || utmParameters == null) {
         const actionData: ActionData = {
             error: "Inputs cannot be null! Error code: de48144e-bfe9-4296-a580-bd88b3d545da",
         };
@@ -45,7 +45,7 @@ export const action: ActionFunction = async ({request, params}) => {
         name: name,
         email: email,
         phoneNumber: phoneNumber,
-        couponCode: couponCode,
+        userName: userName,
         utmParameters: utmParameters,
     });
 

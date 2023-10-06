@@ -681,13 +681,15 @@ export function WhyLivguardCombo({userPreferences, className}: {userPreferences:
                 <VerticalSpacer className="tw-h-10" />
 
                 <div>
-                    <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-3 tw-flex-1">
+                    <div className="tw-grid tw-grid-cols-[minmax(0,1fr),auto,minmax(0,1fr)] tw-gap-3 tw-flex-1">
                         <ItemBuilder
                             items={sectionData}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     key={itemIndex}
-                                    className={`tw-col-start-${itemIndex + 1} lg-card tw-rounded-lg tw-p-3 lg:tw-px-6 tw-flex tw-flex-col tw-justify-center`}
+                                    className={`tw-col-start-${
+                                        itemIndex == 0 ? itemIndex + 1 : itemIndex + 2
+                                    } lg-bg-secondary-100 tw-rounded-lg tw-p-3 lg:tw-px-6 tw-flex tw-flex-col tw-justify-center lg-card-shadow`}
                                 >
                                     <div className="tw-flex tw-items-center tw-justify-center">
                                         <FixedWidthImage
@@ -754,6 +756,10 @@ export function WhyLivguardCombo({userPreferences, className}: {userPreferences:
                                 </div>
                             )}
                         />
+
+                        {/* <div className="tw-col-start-2 tw-row-start-1 tw-place-self-center">
+                            V/S
+                        </div> */}
                     </div>
                 </div>
             </div>

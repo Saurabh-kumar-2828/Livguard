@@ -11,7 +11,7 @@ export function Thief({
     direction,
 }: {
     currentThiefLocation: number | null;
-    onClick: MouseEventHandler<HTMLDivElement>;
+    onClick?: MouseEventHandler<HTMLDivElement>;
     thiefShowLocation: number;
     thiefClassName?: string;
     direction: "left" | "right";

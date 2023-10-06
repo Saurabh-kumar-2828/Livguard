@@ -4757,7 +4757,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             metadata: {
                 canonicalUrl: "/product/it1648tt",
                 title: "Livguard INVERTUFF IT1648TT Inverter Battery 160 Ah",
-                description: "The Livguard INVERTUFF Tall Tubular 160 Ah Battery with a 27+21* month warranty is built with a 3D grid design and high storage capacity.",
+                description: "The Livguard INVERTUFF Tall Tubular 160 Ah Battery with a 24+24* month warranty is built with a 3D grid design and high storage capacity.",
                 schema: '"<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "BreadcrumbList",\n  "itemListElement": [\n    {\n      "@type": "ListItem",\n      "position": 1,\n      "name": "LivGuard",\n      "item": "https://www.livguard.com/",\n        "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",\n    "image": [" https://files.growthjockey.com/livguard/icons/logo-dark.svg" ]\n        },\n    {\n      "@type": "ListItem",\n      "position": 2,\n      "name": "Inverters Batteries",\n      "item": "https://www.livguard.com/inverter-batteries",\n        "description": " Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need" ,\n        "image":["https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"\n        ]\n    },\n    {\n      "@type": "ListItem",\n      "position": 3,\n      "name": "IT1648TT",\n      "item": "https://www.livguard.com/product/IT1648TT",\n      //  "image": "https://growthjockey.imgix.net/livguard/product/Batteries/Battery%20-1645TT/infographic/1.jpg?w=598.4000244140625",\n        "description": "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |160Ah | Max. Warranty | Long Life Battery | Tall Tubular Battery "\n    },\n{\n  "@type": "SiteNavigationElement",\n  "name": "Livguard",\n  "url": "https://www.livguard.com/",\n  "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",\n    "image": ["https://files.growthjockey.com/livguard/icons/logo-dark.svg" ]\n},\n{\n \n  "@type": "SiteNavigationElement",\n  "name": "Inverters",\n  "url": "https://www.livguard.com/inverter-for-home",\n  "description": "Inverters made with high quality materials to ensure a unlimited flow of energy for you" ,\n        "image":["https://growthjockey.imgix.net/livguard/product/inverter/LG1550i/infographic/1.jpg?w=598.4000244140625" ]\n},\n{\n \n  "@type": "SiteNavigationElement",\n     "name": "IT1648TT",\n      "url": "https://www.livguard.com/product/IT1648TT",\n     //   "image": "https://growthjockey.imgix.net/livguard/product/Batteries/Battery%20-1645TT/infographic/1.jpg?w=598.4000244140625",\n        "description": "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |160Ah | Max. Warranty | Long Life Battery | Tall Tubular Battery "\n \n  }\n \n \n  ]\n}\n</script>"',
             },
             price: 13299,
@@ -4777,14 +4777,14 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             ],
             slug: "it1648tt",
             humanReadableModelNumber: "Inverter Battery | 160Ah Capacity | 48 Months Warranty",
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी 48+24* महीने की सबसे अधिक वारंटी और अल्ट्रा लौंग लाइफ के साथ",
+            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी 24+24* महीने की सबसे अधिक वारंटी और अल्ट्रा लौंग लाइफ के साथ",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "हमारी लिवगार्ड बैटरी अपने घर लाएँ और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी अल्ट्रा लौंग लास्टिंग बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "27 + 21*",
+                    text: "24 + 24*",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -4806,7 +4806,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
                 },
                 {
                     title: "वारंटी",
-                    value: "27 + 21*",
+                    value: "24 + 24*",
                 },
                 {
                     title: "पैकेज सामग्री",

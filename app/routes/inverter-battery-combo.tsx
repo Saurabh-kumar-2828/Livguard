@@ -39,6 +39,7 @@ import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import {ContactFormSection} from "~/routes/campaigns/energy-storage-solution";
+import {PageScaffold} from "~/components/pageScaffold";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -165,7 +166,7 @@ export default function () {
 
     return (
         <>
-            <CampaignPageScaffold
+            {/* <PageScaffold
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
                 showMobileMenuIcon={false}
@@ -183,7 +184,29 @@ export default function () {
                         secondaryNavigationController={secondaryNavigationController}
                     />
                 </SecondaryNavigationControllerContext.Provider>
-            </CampaignPageScaffold>
+            </PageScaffold> */}
+
+            <PageScaffold
+                userPreferences={userPreferences}
+                redirectTo={redirectTo}
+                showMobileMenuIcon={false}
+                utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "fd6848f1-04eb-4f76-845f-e56d93835de6", link: "#"},
+                ]}
+                secondaryNavigationController={secondaryNavigationController}
+            >
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <LandingPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
+            </PageScaffold>
 
             <StickyLandingPage3BottomBar
                 userPreferences={userPreferences}
@@ -306,7 +329,7 @@ function LandingPage({
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 lg:tw-row-start-5 tw-col-start-1 tw-col-span-full" />
             <WhyLivguardComboSection
                 userPreferences={userPreferences}
-                className="tw-row-start-5 lg:tw-row-start-6 lg:tw-col-span-full lg:tw-pr-[72px] xl:tw-pr-[120px]"
+                className="tw-row-start-5 lg:tw-row-start-6 lg:tw-col-span-full"
             />
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-row-start-7 tw-col-start-1 tw-col-span-full" />
             <OurCombos

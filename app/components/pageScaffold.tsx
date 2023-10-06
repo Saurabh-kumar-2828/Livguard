@@ -1,5 +1,6 @@
 import {Link} from "@remix-run/react";
 import {useEffect, useState} from "react";
+import {Whatsapp} from "react-bootstrap-icons";
 import {CookieDialog} from "~/components/cookieDialog";
 import {FindTheThiefDialog} from "~/components/find-the-thief/findTheThiefDialog";
 import {InitialFindTheThiefDialogComponent} from "~/components/find-the-thief/initialFindTheThiefDialogComponent";
@@ -72,6 +73,13 @@ export function PageScaffold({
                     showContactDetails={true}
                     pageUrl={pageUrl}
                 />
+
+                <Link
+                    to="https://api.whatsapp.com/send?phone=9599198444"
+                    className="tw-fixed tw-z-[64] tw-bottom-[85px] sm:tw-bottom-[30px] tw-right-[16px] tw-w-[46px] tw-aspect-square tw-rounded-full tw-flex tw-items-center tw-justify-center tw-bg-[#25D366] lg:tw-hidden tw-text-secondary-100-light"
+                >
+                    <Whatsapp />
+                </Link>
 
                 {children}
                 <div className="tw-flex-grow" />

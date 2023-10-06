@@ -1,4 +1,4 @@
-import {useFetcher} from "@remix-run/react";
+import {Link, useFetcher} from "@remix-run/react";
 import {useEffect, useState} from "react";
 import {Oval} from "react-loader-spinner";
 import {toast} from "react-toastify";
@@ -73,22 +73,22 @@ export function FirstRewardDialogComponent({userPreferences, buttonClickFunction
                     {getVernacularString("011c1d97-5ae2-4392-b789-a422bc75b9ee", userPreferences.language)}
                 </div>
 
-                <VerticalSpacer className="lg:tw-h-6" />
+                <VerticalSpacer className="lg:tw-h-2" />
 
                 <div
                     className="lg-text-body"
                     dangerouslySetInnerHTML={{__html: getVernacularString("773cc962-c03e-4643-9f7b-bb9d6eeab67b", userPreferences.language)}}
                 />
 
-                <VerticalSpacer className="tw-h-3" />
+                <VerticalSpacer className="tw-h-6" />
 
                 <div className="tw-grid tw-grid-flow-col tw-gap-x-3 tw-grid-cols-[1.5rem_auto]">
                     <div className="lg-bg-primary-500 !tw-text-secondary-900-dark tw-grid tw-place-items-center tw-w-full tw-aspect-square tw-rounded-full">1</div>
                     <div>{getVernacularString("4c03ff14-2235-45bd-a773-cf027c81fd86", userPreferences.language)}</div>
                 </div>
-                <VerticalSpacer className="tw-h-3" />
+                <VerticalSpacer className="tw-h-6" />
 
-                <div
+                {/* <div
                     onClick={() => {
                         if (couponCode != null) {
                             navigator.clipboard.writeText(couponCode);
@@ -128,20 +128,28 @@ export function FirstRewardDialogComponent({userPreferences, buttonClickFunction
                     </button>
                 </div>
 
-                <VerticalSpacer className="tw-h-3" />
+                <VerticalSpacer className="tw-h-3" /> */}
 
                 <div className="tw-grid tw-grid-flow-col tw-grid-cols-[max-content_auto] tw-gap-x-3">
                     <div className="lg-bg-primary-500 !tw-text-secondary-900-dark tw-grid tw-place-items-center tw-h-6 tw-w-6 tw-rounded-full">2</div>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("8e337c72-d495-4840-9fcc-3670a8e9bd83", userPreferences.language)}} />
                 </div>
-                <VerticalSpacer className="tw-h-3" />
+                {/* <VerticalSpacer className="tw-h-3" />
 
                 <div className="tw-grid tw-grid-flow-col tw-grid-cols-[max-content_auto] tw-gap-x-3">
                     <div className="lg-bg-primary-500 !tw-text-secondary-900-dark tw-grid tw-place-items-center tw-h-6 tw-w-6 tw-rounded-full">3</div>
                     <div>{getVernacularString("10f2f51f-a177-48ec-be50-990650be4f59", userPreferences.language)}</div>
-                </div>
+                </div> */}
 
-                <VerticalSpacer className="tw-h-8" />
+                <VerticalSpacer className="tw-h-10 md:tw-h-20" />
+
+                <div
+                    className="tw-place-self-center"
+                    dangerouslySetInnerHTML={{__html: getVernacularString("e8190da2-de31-41e3-a749-f3e77acc2807", userPreferences.language)}}
+                />
+
+                <VerticalSpacer className="tw-h-2" />
+
                 <button
                     onClick={buttonClickFunction}
                     className="lg-cta-button tw-place-self-center tw-w-fit lg:tw-px-24"
@@ -149,12 +157,16 @@ export function FirstRewardDialogComponent({userPreferences, buttonClickFunction
                     {getVernacularString("bc3184f6-0f40-4633-bca8-1e9c2c21852a", userPreferences.language)}
                 </button>
 
-                <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
+                <VerticalSpacer className="tw-h-4" />
 
-                <div
-                    className="tw-place-self-center"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("e8190da2-de31-41e3-a749-f3e77acc2807", userPreferences.language)}}
-                />
+                <Link
+                    to="/terms-and-conditions/social-media"
+                    className="tw-place-self-center lg-text-icon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("98395654-ab14-47c2-9ba8-bb52a9297368", userPreferences.language)}} />
+                </Link>
             </div>
         </div>
     );

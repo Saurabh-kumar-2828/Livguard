@@ -942,12 +942,14 @@ export function FooterComponent({
                 <VerticalSpacer className="tw-h-5 lg:tw-hidden" />
 
                 <div className="lg:tw-row-start-5 lg:tw-col-start-1 tw-flex tw-flex-col lg-text-secondary-900 tw-px-10 lg:tw-px-0 tw-text-center tw-items-center lg:tw-items-start lg:tw-text-left lg:tw-pl-[4.5rem]">
+                    <div className="lg-text-body-bold">{getVernacularString("c1e1b2f0-d75f-409c-b0f3-cbc9c2adeb00", userPreferences.language)}</div>
+                    <VerticalSpacer className="tw-h-3" />
                     <div className="tw-w-fit tw-overflow-hidden tw-relative tw-group tw-transition !tw-text-center">
                         <ContactUsCta
                             utmParameters={utmParameters}
                             pageUrl={pageUrl}
                             userPreferences={userPreferences}
-                            buttonClassName="!tw-bg-none !tw-px-0 lg:!tw-pb-1 !lg-text-body-bold !tw-text-secondary-900-light hover:!tw-text-primary-500-light hover:dark:!tw-text-primary-500-dark !tw-duration-200 dark:!tw-text-secondary-900-dark !tw-text-center"
+                            buttonClassName="!tw-bg-none !tw-p-0 !lg-text-body-bold !tw-text-secondary-900-light hover:!tw-text-primary-500-light hover:dark:!tw-text-primary-500-dark !tw-duration-200 dark:!tw-text-secondary-900-dark !tw-text-center"
                             textVernacId="639fd244-9283-4467-b186-6ee26321127b"
                             className="tw-overflow-hidden tw-text-center"
                         />
@@ -955,6 +957,10 @@ export function FooterComponent({
                     </div>
 
                     <VerticalSpacer className="tw-h-3" />
+
+                    <div className="lg-text-body-bold tw-underline">{getVernacularString("6074c564-2033-43e5-8d9f-02d5c9052ca4", userPreferences.language)}</div>
+
+                    {/* <VerticalSpacer className="tw-h-3" /> */}
 
                     <div>{getVernacularString("22156ff3-a4a5-4d59-ab0c-902c21b667f9", userPreferences.language)}</div>
 
@@ -965,7 +971,22 @@ export function FooterComponent({
                             className="tw-overflow-hidden tw-relative tw-group tw-transition"
                             href="tel:+911244987400"
                         >
-                            +91-124-4987 400
+                            {getVernacularString("6055a64a-ea5b-4d3d-b74d-bd999d984e2d", userPreferences.language)}
+                            <span className="tw-hidden lg:tw-block tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                        </a>
+                    </div>
+                    <VerticalSpacer className="tw-h-3" />
+
+                    <div>{getVernacularString("3e0fdf22-5ffc-4168-b4a6-3bf6e47e197d", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-3" />
+
+                    <div className="tw-overflow-hidden hover:lg-text-primary-500 lg-text-secondary-900 tw-duration-200">
+                        <a
+                            className="tw-overflow-hidden tw-relative tw-group tw-transition"
+                            href="https://www.livguard.com/"
+                        >
+                            www.livguard.com
                             <span className="tw-hidden lg:tw-block tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
                         </a>
                     </div>

@@ -7001,11 +7001,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 160,
         finalUrl: "/livguard-solar/renewable/5/hand-icon-731a8b.png",
     },
-    "/livguard-solar/renewable/5/hand-solar.svg": {
-        width: 40,
-        height: 40,
-        finalUrl: "/livguard-solar/renewable/5/hand-solar-62826c.svg",
-    },
     "/livguard-solar/renewable/dark-solar-logo.svg": {
         width: 528,
         height: 264,
@@ -7037,14 +7032,49 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         finalUrl: "/livguard-solar/renewable/9/dark-home-856733.svg",
     },
     "/livguard-solar/renewable/9/light-calender.svg": {
-        "width": 32,
-        "height": 33,
-        "finalUrl": "/livguard-solar/renewable/9/light-calender-1d3327.svg"
+        width: 32,
+        height: 33,
+        finalUrl: "/livguard-solar/renewable/9/light-calender-1d3327.svg",
     },
     "/livguard-solar/renewable/9/light-home.svg": {
-        "width": 32,
-        "height": 33,
-        "finalUrl": "/livguard-solar/renewable/9/light-home-070335.svg"
+        width: 32,
+        height: 33,
+        finalUrl: "/livguard-solar/renewable/9/light-home-070335.svg",
+    },
+    "/livguard-solar/renewable/5/hand-solar.svg": {
+        width: 40,
+        height: 40,
+        finalUrl: "/livguard-solar/renewable/5/hand-solar-16c61c.svg",
+    },
+    "/livguard-solar/renewable/gallery/1.JPG": {
+        "width": 3376,
+        "height": 6000,
+        "finalUrl": "/livguard-solar/renewable/gallery/1-0e67bf.JPG"
+    },
+    "/livguard-solar/renewable/gallery/2.JPG": {
+        "width": 6000,
+        "height": 3376,
+        "finalUrl": "/livguard-solar/renewable/gallery/2-7f96b0.JPG"
+    },
+    "/livguard-solar/renewable/gallery/3.JPG": {
+        "width": 6000,
+        "height": 3376,
+        "finalUrl": "/livguard-solar/renewable/gallery/3-255d1e.JPG"
+    },
+    "/livguard-solar/renewable/gallery/4.JPG": {
+        "width": 6000,
+        "height": 3376,
+        "finalUrl": "/livguard-solar/renewable/gallery/4-2bc736.JPG"
+    },
+    "/livguard-solar/renewable/gallery/5.JPG": {
+        "width": 6000,
+        "height": 3376,
+        "finalUrl": "/livguard-solar/renewable/gallery/5-d442c0.JPG"
+    },
+    "/livguard/find-the-thief/arrow.svg": {
+        "width": 44,
+        "height": 29,
+        "finalUrl": "/livguard/find-the-thief/arrow-0a3e67.svg"
     },
     "/livguard/two-wheeler/2/battery-life.jpg": {
         "width": 855,

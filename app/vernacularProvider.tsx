@@ -1089,8 +1089,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "आपकी शहरी जीवन शैली की जरूरतों को कुशलता से पूरा करने के लिए एक आदर्श कॉम्बो। शुद्ध साइन वेव आउटपुट और स्मार्ट एआई चार्जिंग के साथ, यह कॉम्बो घंटों तक चल सकती है और उपकरणों का भारी लोड उठा सकती है।",
     },
     landingPage2S4J1Specification1Content: {
-        [Language.English]: "60 Months",
-        [Language.Hindi]: "60 महीने",
+        [Language.English]: "3 Years | 36 + 24* Months",
+        [Language.Hindi]: "3 साल | 36 + 24* महीने",
     },
     landingPage2S4J1Specification2Content: {
         [Language.English]: "3500 VA",
@@ -1115,8 +1115,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "एक कॉम्बो जो अपने लंबे जीवन और उच्च बैकअप शक्ति के साथ आपके मन की शांति सुनिश्चित करेगी। मजबूत इनवर्टर के साथ सटीक रूप से चुनी गई बैटरी आपकी आवश्यकताओं को पूरा करने के लिए ऊर्जा का निर्बाध प्रवाह सुनिश्चित करती है।",
     },
     landingPage2S4J2Specification1Content: {
-        [Language.English]: "60 Months",
-        [Language.Hindi]: "60 महीने",
+        [Language.English]: "3 Years | 36 + 24* Months",
+        [Language.Hindi]: "3 साल | 36 + 24* महीने",
     },
     landingPage2S4J2Specification2Content: {
         [Language.English]: "1500 VA",
@@ -1127,6 +1127,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "200 एएच",
     },
     landingPage2S4J2Specification4Content: {
+        [Language.English]: "Square Wave",
         [Language.English]: "Square Wave",
         [Language.Hindi]: "चौकोर तरंग",
     },
@@ -1139,8 +1140,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "बेस्ट-इन-क्लास वारंटी और लंबे समय तक चलने वाले इनवर्टर के साथ समर्थित बैटरी के साथ, यह कॉम्बो आपकी रोजमर्रा की ऊर्जा आवश्यकताओं के लिए बिल्कुल सही विकल्प है।",
     },
     landingPage2S4J3Specification1Content: {
-        [Language.English]: "84 Months",
-        [Language.Hindi]: "84 महीने",
+        [Language.English]: "3 Years | 60 + 24* Months",
+        [Language.Hindi]: "3 साल | 60 + 24* महीने",
     },
     landingPage2S4J3Specification2Content: {
         [Language.English]: "3500 VA",
@@ -1165,8 +1166,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "लंबे समय तक बैकअप आवश्यकताओं को पूरा करने के लिए एकदम सही कॉम्बो। शुद्ध साइनवेव आउटपुट के साथ स्मार्ट एआई चार्जिंग बेहतर जीवन के साथ एक सहज और कुशल ऊर्जा प्रवाह प्रदान करता है।",
     },
     landingPage2S4J4Specification1Content: {
-        [Language.English]: "72 Months",
-        [Language.Hindi]: "72 महीने",
+        [Language.English]: "3 Years | 42 + 30* Months",
+        [Language.Hindi]: "3 साल | 42 + 30* महीने",
     },
     landingPage2S4J4Specification2Content: {
         [Language.English]: "800 VA",
@@ -2157,64 +2158,64 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "विस्तार से देखें",
     },
     review1Name: {
-        [Language.English]: "Rehan",
-        [Language.Hindi]: "रेहान",
+        [Language.English]: "Pankaj Kumar Verma",
+        [Language.Hindi]: "?????",
     },
     review1State: {
         [Language.English]: "Uttar Pradesh",
         [Language.Hindi]: "उत्तर प्रदेश",
     },
     review1Message: {
-        [Language.English]: `"Small issues are easily solved through video calls. Moreover, maintenance also poses zero issues. If you ask me for feedback, I would give Livguard combo a 10/10!"`,
-        [Language.Hindi]: `"छोटी-मोटी परेशानियाँ वीडियो कॉल के साथ ही सुलझा दी जाती हैं। मेंटेनेंस को लेकर भी कोई दिक़्क़त नहीं है। यदि आप मुझसे पूछें, तो मैं लिवगार्ड कॉम्बो को 10/10 दूंगा!"`,
+        [Language.English]: `"Purchased Livguard's Inverter Battery after a thorough research, and it's safe to say Livguard is the leading brand in energy solutions based on their prices and performance."`,
+        [Language.Hindi]: `?????`,
     },
     review1ProductName: {
         [Language.English]: "Inverter",
         [Language.Hindi]: "इनवर्टर",
     },
     review2Name: {
-        [Language.English]: "Rishab",
-        [Language.Hindi]: "रिषभ",
+        [Language.English]: "Shravan Pathak",
+        [Language.Hindi]: "?????",
     },
     review2State: {
-        [Language.English]: "Uttar Pradesh",
-        [Language.Hindi]: "उत्तर प्रदेश",
+        [Language.English]: "",
+        [Language.Hindi]: "?????",
     },
     review2Message: {
-        [Language.English]: `"I have been using Livguard inverter and batteries from the past 3 years now, and they are still performing so well!"`,
-        [Language.Hindi]: `"मैं पिछले 3 साल से लिवगार्ड इनवर्टर और बैटरी का इस्तेमाल कर रहा हूँ, घर पर भी और अपने शो रूम में भी, और यह आज भी पहले जैसे ही काम कर रहे हैं!"`,
+        [Language.English]: `"For over a year now, I've been experiencing the reliable power of Livguard's exceptional inverter and battery combo without a single issue."`,
+        [Language.Hindi]: `?????`,
     },
     review2ProductName: {
         [Language.English]: "Inverter Battery",
         [Language.Hindi]: "इनवर्टर बैटरी",
     },
     review3Name: {
-        [Language.English]: "Ganesh",
-        [Language.Hindi]: "गणेश",
+        [Language.English]: "Rohit Singh ",
+        [Language.Hindi]: "?????",
     },
     review3State: {
-        [Language.English]: "Maharashtra",
+        [Language.English]: "",
         [Language.Hindi]: "महाराष्ट्र",
     },
     review3Message: {
-        [Language.English]: `"Great product. Great product. Go for it without a doubt."`,
-        [Language.Hindi]: `"अच्छा उत्पाद। अच्छा उत्पाद। इसके लिए बिना किसी संदेह के जाएं।"`,
+        [Language.English]: `"Enjoying seamless and maintanence free experience of Long-Lasting Livguard batteries for over 2 years."`,
+        [Language.Hindi]: `?????`,
     },
     review3ProductName: {
         [Language.English]: "Inverter",
         [Language.Hindi]: "इनवर्टर",
     },
     review4Name: {
-        [Language.English]: "Dev Chauhan",
-        [Language.Hindi]: "देव चौहान",
+        [Language.English]: "Sudhanshu",
+        [Language.Hindi]: "?????",
     },
     review4State: {
-        [Language.English]: "Uttar Pradesh",
-        [Language.Hindi]: "उत्तर प्रदेश",
+        [Language.English]: "Delhi",
+        [Language.Hindi]: "?????",
     },
     review4Message: {
-        [Language.English]: `"Deliver on time & battery backup is very good. Installation services was very good."`,
-        [Language.Hindi]: `"समय पर डिलीवरी और बैटरी बैकअप बहुत अच्छा है। स्थापना सर्विसएं बहुत अच्छी थीं।"`,
+        [Language.English]: `"Livguard is lighting up lives, even in the remotest corners of India, with uninterrupted power for essentials like fans, lights, and even television."`,
+        [Language.Hindi]: `"?????`,
     },
     review4ProductName: {
         [Language.English]: "Combo",
@@ -9953,850 +9954,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `E-Mobility`,
         [Language.Hindi]: `?????`,
     },
-    "58790af6-e242-4064-9f92-8c7af56524f9": {
-        [Language.English]: `Calling all Detectives!`,
-        [Language.Hindi]: "?????",
-    },
-    "474f66f2-b713-4581-85de-39cad89f813f": {
-        [Language.English]: `Earn Exciting <span class="lg-text-primary-500">Rewards</span>`,
-        [Language.Hindi]: "?????",
-    },
-    "a8794019-66aa-4fa3-bd6d-4376e703626e": {
-        [Language.English]: `The mischievous energy thief 'Natwarlal' is on the move with an inverter and battery combo! Help us in this quest to find and catch him. Follow the clues, unmask the mystery, and seize unique rewards along the way!`,
-        [Language.Hindi]: "?????",
-    },
-    "850e8c45-a6a4-428b-9e11-4acd93205160": {
-        [Language.English]: `<span class="tw-font-semibold">Where is Natwarlal?</span> He is hiding somewhere on the website, with the stolen inverter and battery. Catch him before he escapes!`,
-        [Language.Hindi]: "?????",
-    },
-    "af17ff8e-ce85-491e-ba24-b430a512162a": {
-        [Language.English]: `Find Natwarlal`,
-        [Language.Hindi]: "?????",
-    },
-    "6b3b89fd-ba28-481a-86ee-8932e25ef249": {
-        [Language.English]: `<span class="lg-text-primary-500">Amazing!</span>`,
-        [Language.Hindi]: "?????",
-    },
-    "9d0d2fb1-93ce-40e7-ae8a-afd396c7159f": {
-        [Language.English]: `Your detective skills found the <span class="tw-font-bold">stolen inverter</span>`,
-        [Language.Hindi]: "?????",
-    },
-    "011c1d97-5ae2-4392-b789-a422bc75b9ee": {
-        [Language.English]: `Continue Your Quest`,
-        [Language.Hindi]: "?????",
-    },
-    "773cc962-c03e-4643-9f7b-bb9d6eeab67b": {
-        [Language.English]: `You have <span class="tw-font-semibold">15 minutes</span> to redeem your first reward!`,
-        [Language.Hindi]: "?????",
-    },
-    "4c03ff14-2235-45bd-a773-cf027c81fd86": {
-        [Language.English]: `Copy the code below`,
-        [Language.Hindi]: "?????",
-    },
-    "8e337c72-d495-4840-9fcc-3670a8e9bd83": {
-        [Language.English]: `Comment your code under the Livguard Treasure Hunt post`,
-        [Language.Hindi]: "?????",
-    },
-    "10f2f51f-a177-48ec-be50-990650be4f59": {
-        [Language.English]: `Tag 3 friends along the code`,
-        [Language.Hindi]: "?????",
-    },
-    "bc3184f6-0f40-4633-bca8-1e9c2c21852a": {
-        [Language.English]: `Continue`,
-        [Language.Hindi]: "?????",
-    },
-    "e8190da2-de31-41e3-a749-f3e77acc2807": {
-        [Language.English]: `Press <span class="tw-font-bold">"Continue"</span> to get more rewards`,
-        [Language.Hindi]: "?????",
-    },
-    "a71eedc4-b0f8-46b3-88d1-c7427315de8c": {
-        [Language.English]: `Copy`,
-        [Language.Hindi]: "?????",
-    },
-    "eee1a98d-b9ab-4ee5-bde6-bcb2cdc26ece": {
-        [Language.English]: `Copied`,
-        [Language.Hindi]: "?????",
-    },
-    "6dd8ca3b-6542-4fc4-81ce-6183b8359ec5": {
-        [Language.English]: `Natwarlal is still on the move!`,
-        [Language.Hindi]: "?????",
-    },
-    "99a6da97-c8bf-4ce3-b95a-611ec00c880a": {
-        [Language.English]: `Follow him`,
-        [Language.Hindi]: "?????",
-    },
-    "23992b81-60ed-4164-9e5c-91dcc6752f39": {
-        [Language.English]: `Second Clue: Find Natwarlal with the stolen inverter battery and end the quest.`,
-        [Language.Hindi]: "?????",
-    },
-    "7ec1488f-530c-40b6-a86b-dc2ea8840310": {
-        [Language.English]: `Uh-oh! Natwarlal just took the inverter battery and he's off to the Load Calculator. Hurry! Spot him before he makes it home with our product! Ready for the chase?`,
-        [Language.Hindi]: "?????",
-    },
-    "3e9f691e-f760-4691-b6d8-85733ce4d416": {
-        [Language.English]: `Catch Natwarlal`,
-        [Language.Hindi]: "?????",
-    },
-    "e6419d6a-b775-4e93-81e5-9a18b1a1c809": {
-        [Language.English]: `Victory!`,
-        [Language.Hindi]: "?????",
-    },
-    "fb5b1b3a-a82c-4968-a9da-25b3cd9d62db": {
-        [Language.English]: `You successfully found the <span class="tw-font-bold">stolen inverter battery</span>`,
-        [Language.Hindi]: "?????",
-    },
-    "f34a013d-dc49-425b-bc87-984766a35a2d": {
-        [Language.English]: `You can now claim your reward`,
-        [Language.Hindi]: "?????",
-    },
-    "78b0281f-e8cf-4b38-82c0-23382b168795": {
-        [Language.English]: `Claim Now`,
-        [Language.Hindi]: "?????",
-    },
-    "79436419-5a42-4720-be85-19bc0b46c7bb": {
-        [Language.English]: `Your Name`,
-        [Language.Hindi]: "?????",
-    },
-    "fe032013-d1e7-45d7-9c0c-d289c5f80c52": {
-        [Language.English]: `Your Email`,
-        [Language.Hindi]: "?????",
-    },
-    "b24cf3a3-c834-487e-8ca3-5f78e02a267e": {
-        [Language.English]: `Your Mobile`,
-        [Language.Hindi]: "?????",
-    },
-    "3942668d-37f8-4964-ac34-5eaef54e3f77": {
-        [Language.English]: `Username`,
-        [Language.Hindi]: "?????",
-    },
-    "88d4bc6f-64ee-4910-8b1e-27ad5aea32c1": {
-        [Language.English]: `Coupon Code`,
-        [Language.Hindi]: "?????",
-    },
-    "2a9b9149-ae09-452b-b02d-8ab5b8850557": {
-        [Language.English]: `Submit Now`,
-        [Language.Hindi]: "?????",
-    },
-    "29a1dc30-0f20-4075-b14e-52197e83f059": {
-        [Language.English]: `Perfect!`,
-        [Language.Hindi]: "?????",
-    },
-    "1a109702-9407-4945-aa54-acde384ace7a": {
-        [Language.English]: `Your detective skills found the <span class="tw-font-bold">inverter & battery!</span>`,
-        [Language.Hindi]: "?????",
-    },
-    "37118df1-c2d2-4cbb-af54-288487236384": {
-        [Language.English]: `Your efforts deserve another amazing reward!`,
-        [Language.Hindi]: "?????",
-    },
-    "38d347bc-e85b-46f2-82a0-dd41a118daaf": {
-        [Language.English]: `Our team will reach out to you with your reward shortly.`,
-        [Language.Hindi]: "?????",
-    },
-    "69d20806-45ec-42e0-951e-54a4d0f46b14": {
-        [Language.English]: `More About Livguard`,
-        [Language.Hindi]: "?????",
-    },
-    "b65da678-f08a-46fd-ae2a-b2df56391d4d": {
-        [Language.English]: `Welcome to Livguard - Your Premier Destination for Inverter Batteries and More`,
-        [Language.Hindi]: "?????",
-    },
-    "74a5eaf0-dc22-4227-8c5c-c1ee276a56bf": {
-        [Language.English]: `If you're in search of the best inverter battery to keep your home, office, or industrial setup powered during outages, Livguard has you covered with an extensive range of inverter batteries at competitive prices. Whether you need a mini inverter for your home office or a high-capacity 200Ah battery for industrial use, we offer top-quality products that cater to all your power backup needs.`,
-        [Language.Hindi]: "?????",
-    },
-    "573743ba-bd29-40fc-80e6-cd6fa1ce085f": {
-        [Language.English]: `Our Inverter Battery Range:`,
-        [Language.Hindi]: "?????",
-    },
-    "474e6e60-db1c-4c7e-b158-caf6a2425ee8": {
-        [Language.English]: `Inverter Batteries for Home and Office: Find the perfect inverter for home, office, or shop use with Livguard. We offer a variety of options, including tubular batteries and 150Ah battery choices like short tubular and tall tubular, ensuring that your workspaces stay powered up efficiently.`,
-        [Language.Hindi]: "?????",
-    },
-    "2f15fc7f-1e7f-4a5d-a97b-899fdb3062f3": {
-        [Language.English]: `Best Inverter Battery: At Livguard, we take pride in providing the best inverter batteries on the market. Our extensive selection ensures you get the ideal combination of performance and value.`,
-        [Language.Hindi]: "?????",
-    },
-    "8756b065-a52e-46d2-adfb-bc8ce1df4823": {
-        [Language.English]: `Inverter Shops Near Me: Locate Livguard inverter batteries at stores near you. Our wide distribution network ensures that you can easily find inverter dealers nearby, whether for office or industrial use.`,
-        [Language.Hindi]: "?????",
-    },
-    "53da8188-f07f-45dc-82fd-5ce27696264c": {
-        [Language.English]: `Inverters for Offices: Need a compact power solution for your office or shop? Explore our range of mini inverters that are perfect for small spaces and low-power requirements.`,
-        [Language.Hindi]: "?????",
-    },
-    "3bce3717-9177-40a1-8099-179e3f142d0a": {
-        [Language.English]: `High-Capacity Batteries for Industrial Use: For those with higher power needs in industrial settings, our 200Ah batteries are a reliable choice. Get the best inverter with a battery for your industrial applications.`,
-        [Language.Hindi]: "?????",
-    },
-    "ae660408-b213-4060-9059-3b53544297fa": {
-        [Language.English]: `Sine Wave Inverters for Office and Industrial Use: Experience smooth and consistent power output with our sine wave inverters, ideal for sensitive electronic devices in office and industrial environments.`,
-        [Language.Hindi]: "?????",
-    },
-    "6a5d55f0-21cd-47a8-8f9d-7c0e1ec61e95": {
-        [Language.English]: `Hybrid Inverters for Office and Industrial Settings: Looking for a versatile solution for your office or industrial space? Consider our hybrid inverters that integrate solar power and grid electricity seamlessly.`,
-        [Language.Hindi]: "?????",
-    },
-    "a5d385c8-e00d-4be5-826d-5bd117552929": {
-        [Language.English]: `Why Choose Livguard:`,
-        [Language.Hindi]: "?????",
-    },
-    "ba2310a2-9823-4536-8697-1cc83da9aa39": {
-        [Language.English]: `Quality Assurance: Livguard is synonymous with quality. Our inverter batteries are built to last, ensuring long-term reliability and performance in both office and industrial settings.`,
-        [Language.Hindi]: "?????",
-    },
-    "c174476d-747e-44a8-8af6-41a6e5f26c92": {
-        [Language.English]: `Wide Variety for Office and Industrial Needs: No matter your specific requirements, we have an inverter and battery combination that fits your office or industrial power backup needs.`,
-        [Language.Hindi]: "?????",
-    },
-    "9285e6dc-7554-4b8d-b83b-1c462f3b315a": {
-        [Language.English]: `Expert Guidance: Our knowledgeable staff can guide you in selecting the perfect inverter and battery setup for your office, shop, or industrial setup.`,
-        [Language.Hindi]: "?????",
-    },
-    "7da9aca6-1493-44e1-9a51-e79f9b4be665": {
-        [Language.English]: `Competitive Prices: We offer competitive inverter battery prices, ensuring you get the best value for your money, whether it's for your office or industrial use.`,
-        [Language.Hindi]: "?????",
-    },
-    "f6ee6026-c1bc-4814-aaca-86b62c56080f": {
-        [Language.English]: `Find the Right Inverter Battery for Your Office or Industrial Space:`,
-        [Language.Hindi]: "?????",
-    },
-    "2d795937-f920-49a8-b19d-6cb8073d4db3": {
-        [Language.English]: `Livguard's extensive range of inverter batteries, including 150Ah and 200Ah options, ensures that you find the perfect fit for your office, shop, or industrial power backup needs. Whether it's for backup power in your office, shop, or industrial facility, we have the solution.`,
-        [Language.Hindi]: "?????",
-    },
-    "65b60823-257a-4725-99a7-77ce25e91288": {
-        [Language.English]: `Explore Our Products for Office and Industrial Use:`,
-        [Language.Hindi]: "?????",
-    },
-    "0a491c8b-0c8a-406c-a482-89b144758687": {
-        [Language.English]: `Tubular Batteries: Discover the durability and performance of our tubular batteries, designed for long-lasting power backup in office and industrial settings.`,
-        [Language.Hindi]: "?????",
-    },
-    "af744aeb-e34f-45e3-9372-27b08e600fbc": {
-        [Language.English]: `Online Inverter & Inverter Battery Shopping: Shop online at Livguard from the comfort of your office or home, and we'll deliver your chosen inverter battery right to your doorstep.`,
-        [Language.Hindi]: "?????",
-    },
-    "dfa119d7-cdb6-46b8-83c4-9883e5a092b6": {
-        [Language.English]: `Inverter Battery Accessories: Find inverter battery boxes, converters, and other accessories to complement your power setup, whether it's for your office, shop, or industrial facility.`,
-        [Language.Hindi]: "?????",
-    },
-    "c842a2c6-1a3b-488e-a3ad-a668f45de854": {
-        [Language.English]: `Experience Uninterrupted Power in Your Office or Industrial Space with Livguard:`,
-        [Language.Hindi]: "?????",
-    },
-    "5956a05a-dd59-4e9a-aa1d-48aa55f236f5": {
-        [Language.English]: `Don't let power interruptions disrupt your work. Livguard's inverter batteries are your reliable source of backup power for your office, shop, or industrial setup. Explore our range today and ensure uninterrupted power when you need it the most.`,
-        [Language.Hindi]: "?????",
-    },
-    "86526c6c-8a27-4e06-b4fa-da1b82cc3967": {
-        [Language.English]: `Livguard Solar - Your Comprehensive Destination for Power Solutions`,
-        [Language.Hindi]: "?????",
-    },
-    "797afe89-61fe-487d-924e-2975a3e29b34": {
-        [Language.English]: `Are you searching for the best inverter battery, solar solutions, automotive batteries, or E-mobility products for your home, office, or industrial needs? Look no further! Livguard offers a diverse range of high-quality power solutions, ensuring uninterrupted power supply in any setting.`,
-        [Language.Hindi]: "?????",
-    },
-    "86184562-2338-4444-a867-bcabc36fd280": {
-        [Language.English]: `Our Comprehensive Product Range:`,
-        [Language.Hindi]: "?????",
-    },
-    "fdbebfc5-96cd-4191-934b-e7e89e58d702": {
-        [Language.English]: `Top-Notch Solar Solutions: Harness the power of the sun with our cutting-edge solar products. From solar panels to solar inverters and batteries, we offer complete solar solutions for residential, commercial, and industrial applications.`,
-        [Language.Hindi]: "?????",
-    },
-    "f9523785-9cb1-4f13-a127-f7a5b579510b": {
-        [Language.English]: `Automotive Batteries: Livguard provides high-performance automotive batteries suitable for cars, trucks, and other vehicles. Our automotive batteries ensure reliable power on the road.`,
-        [Language.Hindi]: "?????",
-    },
-    "da5cb87b-923e-40a1-b390-c3a5d28240d6": {
-        [Language.English]: `E-mobility Products for a Sustainable Future: Embrace the future of mobility with Livguard's E-mobility products. From electric vehicle batteries to charging solutions, we contribute to a sustainable transportation ecosystem.`,
-        [Language.Hindi]: "?????",
-    },
-    "7e6f0e05-9a06-4a17-9f8c-3cbf7dc65cf9": {
-        [Language.English]: `Why Choose Livguard Solar:`,
-        [Language.Hindi]: "?????",
-    },
-    "71defc8f-1ed1-4932-838c-96f54b881195": {
-        [Language.English]: `Quality Assured: Livguard is synonymous with top-notch quality. Our products, including inverter batteries, solar solutions, automotive batteries, and E-mobility products, are built to last and perform consistently.`,
-        [Language.Hindi]: "?????",
-    },
-    "1c938afb-620f-4fa7-b810-a0620654761c": {
-        [Language.English]: `Wide Variety for Every Need: Whether you need an inverter battery for your home office, a solar solution for your industrial facility, or an automotive battery for your vehicle, Livguard offers diverse options tailored to your requirements.`,
-        [Language.Hindi]: "?????",
-    },
-    "b0a7b74d-f238-4b96-8a8d-95eb3890620c": {
-        [Language.English]: `Expert Guidance: Count on our knowledgeable staff to assist you in selecting the perfect power solution for your specific needs, whether it's for home, office, or industrial use.`,
-        [Language.Hindi]: "?????",
-    },
-    "4a719966-301a-4806-b94e-c7ab92349a1b": {
-        [Language.English]: `Competitive Pricing: We provide competitive prices across our product range, ensuring you receive the best value for your investment, no matter your application.`,
-        [Language.Hindi]: "?????",
-    },
-    "2f3afb31-1745-461a-b06c-b6f82dad8007": {
-        [Language.English]: `Finding the Right Power & Solar Solution:`,
-        [Language.Hindi]: "?????",
-    },
-    "29323849-e8a8-4a1c-9ef9-792453e5aab3": {
-        [Language.English]: `Livguard's extensive product range ensures you find the ideal power & solar solution for your home, office, or industrial space. Whether you require backup power, solar energy solutions, automotive batteries, or E-mobility products, we have you covered.`,
-        [Language.Hindi]: "?????",
-    },
-    "2105f9c8-df34-4807-97d6-eb502582c907": {
-        [Language.English]: `Explore Our Offerings:`,
-        [Language.Hindi]: "?????",
-    },
-    "27e83276-648e-44cb-8025-ebd5cfffa066": {
-        [Language.English]: `Online Shopping Convenience: Shop online at Livguard from the comfort of your home or office, and we'll deliver your chosen Solar solution right to your doorstep.`,
-        [Language.Hindi]: "?????",
-    },
-    "20d810c2-8da8-4505-917a-26f1ccbd3dc2": {
-        [Language.English]: `Accessories and Charging Solutions: Find essential accessories and charging solutions to complement your power setup, ensuring smooth operations in your chosen application.`,
-        [Language.Hindi]: "?????",
-    },
-    "618931ac-9e6c-4492-b9d1-2243eabbb2b6": {
-        [Language.English]: `Experience Uninterrupted Power with Livguard:`,
-        [Language.Hindi]: "?????",
-    },
-    "ef416060-345e-45c1-a6cb-763e9e6a12b7": {
-        [Language.English]: `Don't let power interruptions disrupt your daily life, work, or industrial processes. Livguard's power solutions, including inverter batteries, solar products, automotive batteries, and E-mobility solutions, are your reliable sources of energy. Explore our range today and ensure uninterrupted power when you need it the most.`,
-        [Language.Hindi]: "?????",
-    },
-    "8fd0b5be-f173-41dd-b9d3-3deddb5c11ba": {
-        [Language.English]: `Tailor made solutions to fit your exact requirements`,
-        [Language.Hindi]: `?????`,
-    },
-    "25fd206a-06bb-4672-a35f-1399865203d4": {
-        [Language.English]: `Long lasting installation`,
-        [Language.Hindi]: `?????`,
-    },
-    "d791b39f-14fd-4c40-8433-ec925424664f": {
-        [Language.English]: `24X7 monitoring through app`,
-        [Language.Hindi]: `?????`,
-    },
-    "e37bfec4-dc83-429c-9a67-7071555b9e59": {
-        [Language.English]: `One click service support`,
-        [Language.Hindi]: `?????`,
-    },
-    "304bb4e0-bdb6-4262-962d-38e6a7da770c": {
-        [Language.English]: `<span class="lg-text-highlighted">Benefits</span> of Solar`,
-        [Language.Hindi]: `?????`,
-    },
-    "cdd10c2f-5e3b-422c-82a0-0bab45cdc28b": {
-        [Language.English]: `Reduce your electricity Bill`,
-        [Language.Hindi]: `?????`,
-    },
-    "afd8b2c4-4569-40e8-80c8-51cbdaf216aa": {
-        [Language.English]: `Renewable energy contribute to a Greener Planet to avoid natural disaster`,
-        [Language.Hindi]: `?????`,
-    },
-    "99f54955-32c7-4a5e-adb0-042ff473e4b6": {
-        [Language.English]: `Protection against rising Electricity cost`,
-        [Language.Hindi]: `?????`,
-    },
-    "773154e0-c198-4bbe-8217-b32405b19f49": {
-        [Language.English]: `Lower maintenance cost compare to other electricity generation system`,
-        [Language.Hindi]: `?????`,
-    },
-    "9b537612-c051-4b32-8430-ac84431b06da": {
-        [Language.English]: `Noise free, easy to maintain`,
-        [Language.Hindi]: `?????`,
-    },
-    "0306168f-91be-4091-8a51-8b714976fd51": {
-        [Language.English]: `Natural cooling due to roof mounted solar Panels`,
-        [Language.Hindi]: `?????`,
-    },
-    "80c6554e-9b6f-40a0-b2d1-66dc980523eb": {
-        [Language.English]: `Answer to your big Question`,
-        [Language.Hindi]: `?????`,
-    },
-    "ea9fdf49-ad11-4d5a-9a12-73dc0de5d1f1": {
-        [Language.English]: `Should I Get Solar?`,
-        [Language.Hindi]: `?????`,
-    },
-    "8b2953ed-b530-499e-a3fe-92e64d0bba76": {
-        [Language.English]: `1 BHK Home`,
-        [Language.Hindi]: `?????`,
-    },
-    "f900391f-bcad-4185-adf2-ec61b74662fe": {
-        [Language.English]: `2 BHK Home`,
-        [Language.Hindi]: `?????`,
-    },
-    "fb4c3130-3c4e-4f47-984d-977afcdd8380": {
-        [Language.English]: `3 BHK Home`,
-        [Language.Hindi]: `?????`,
-    },
-    "c9ab50c2-797b-45e5-af4d-91b3a9b475d0": {
-        [Language.English]: `Area Required`,
-        [Language.Hindi]: `?????`,
-    },
-    "f863e274-dbb8-4d2f-8afb-f0e855d66600": {
-        [Language.English]: `*Ideal system size. Final solution post site survey`,
-        [Language.Hindi]: `?????`,
-    },
-    "cca0be55-8a1e-414a-bedf-4503980a95f1": {
-        [Language.English]: `Your Monthly Bill <span class="tw-text-primary-500-light">with Solar</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "ec96e9b6-7bba-4a4f-915c-c8134c03fbb5": {
-        [Language.English]: `Your Monthly Savnig <span class="tw-text-primary-500-light">with Solar</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "6940b06d-192b-4c64-a38d-39c08ba585ec": {
-        [Language.English]: `Your Solar System Can generate`,
-        [Language.Hindi]: `?????`,
-    },
-    "b9d9380d-e638-47f6-8a9f-3c9aa6c5d485": {
-        [Language.English]: `of your <span class="tw-text-primary-500-light">Energy Consumption</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "6db60a24-510a-443d-a7e4-9de505a047ac": {
-        [Language.English]: `Your Lifetime Saving`,
-        [Language.Hindi]: `?????`,
-    },
-    "f2dcb78d-2566-465a-ac08-df42e2ed8a45": {
-        [Language.English]: `Your Estimate For Solar Solution`,
-        [Language.Hindi]: `?????`,
-    },
-    "1228daec-fb96-4fa6-8760-818d97a7cf83": {
-        [Language.English]: `Payback`,
-        [Language.Hindi]: `?????`,
-    },
-    "673c90b0-b6fb-4ddd-9e0e-b8f6e1abdbae": {
-        [Language.English]: `Return on Investment`,
-        [Language.Hindi]: `?????`,
-    },
-    "549aaae6-7b4f-4bea-8f89-4254d36fb069": {
-        [Language.English]: `Your Solar System Can Generate <span class="tw-text-primary-500-light lg-text-title2">85%</span> of Your Energy Consumption`,
-        [Language.Hindi]: `?????`,
-    },
-    "378c005c-263e-436e-a034-1e8b4b121f50": {
-        [Language.English]: `Impact on Environment`,
-        [Language.Hindi]: `?????`,
-    },
-    "4723e954-2c41-42a9-ab54-69f518c422fd": {
-        [Language.English]: `CO2 Emissions Mitigated`,
-        [Language.Hindi]: `?????`,
-    },
-    "3dfa0f92-bb81-4e09-9f25-92ad66afa93b": {
-        [Language.English]: `Trees Added`,
-        [Language.Hindi]: `?????`,
-    },
-    "3280fde0-f2d3-4627-b829-5956d59109a3": {
-        [Language.English]: `Calculate My Savings`,
-        [Language.Hindi]: `?????`,
-    },
-    "6a1cc5f2-af32-474c-8676-6b851064daa1": {
-        [Language.English]: `Livguard <span class="lg-text-highlighted">Solar Diaries</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "865b7e53-039d-4ecc-9958-97f2527aecf7": {
-        [Language.English]: `Rakesh Kansal`,
-        [Language.Hindi]: `?????`,
-    },
-    "8841827d-7aeb-4047-83ec-c4efd56a8586": {
-        [Language.English]: `A solar solution built for expert performance and extra savings`,
-        [Language.Hindi]: `?????`,
-    },
-    "0602f1f2-b5aa-4f3e-b9c0-8e73dda79c19": {
-        [Language.English]: `Being involved in the dairy business in Bikaner, Rajasthan, I was thinking about switching to solar for some time. After multiple enquiries about the right solar solution, one of my close friends advised me about the Livguard expert solar solution. Paying attention to his suggestion, I decided to install a 3KWp residential on-grid solar solution at home.`,
-        [Language.Hindi]: `?????`,
-    },
-    "c0caac80-005c-4acf-aa47-0262d063f5c5": {
-        [Language.English]: `After making the first call with team Livguard, they guided me properly and helped in necessary government approvals and civil work. The entire installation process was a seamless experience due to the active team involvement.`,
-        [Language.Hindi]: `?????`,
-    },
-    "5a609ab9-7e6b-4707-8973-3cfe855555db": {
-        [Language.English]: `Talking about the expert performance of my solar solution, it is generating around 12-13 units of electricity every day along with my less electricity bill. I am extremely satisfied with its overall working and it is clearly a true value for money.`,
-        [Language.Hindi]: `?????`,
-    },
-    "2f603908-119c-43b4-b4d3-8b372ed3828b": {
-        [Language.English]: `Overall Satisfaction`,
-        [Language.Hindi]: `?????`,
-    },
-    "68f6bb6e-b78e-4b1d-86d3-8eb004ee22cf": {
-        [Language.English]: `How Our <span class="lg-text-highlighted tw-whitespace-nowrap">Solar Experts Deliver?</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "2768e014-aad2-4622-a7e0-39cd685d5be9": {
-        [Language.English]: `Using the decades of research in the energy space, we not only build the best in class products but also recommend the right fit as per your needs and budget- a skillset that is rare to find. Our cost effective solar installations run effortlessly with minimum maintenance, providing a clean and effective energy solution to our clients.`,
-        [Language.Hindi]: `?????`,
-    },
-    "1059a000-dbab-47e4-b0cd-93544b69bb2e": {
-        [Language.English]: `Residential Projects`,
-        [Language.Hindi]: `?????`,
-    },
-    "b62c72cb-60bb-4b9f-b595-f3676d094c51": {
-        [Language.English]: `Commercial Projects`,
-        [Language.Hindi]: `?????`,
-    },
-    "63860595-70df-4712-9a6c-e6e33d10a914": {
-        [Language.English]: `5 KW, Solar PV Plant`,
-        [Language.Hindi]: `?????`,
-    },
-    "a3d089fc-43a3-43ff-a3c2-707b0f2fcaf9": {
-        [Language.English]: `Abha Rawat , Lucknow, UP`,
-        [Language.Hindi]: `?????`,
-    },
-    "06ebf062-5f30-493d-b9d1-66a76e1f01a3": {
-        [Language.English]: `10 KW, Solar PV Plant`,
-        [Language.Hindi]: `?????`,
-    },
-    "b9e3baef-45fa-4393-96da-3f9601c9294e": {
-        [Language.English]: `Anil Kapoor, Gwalior, MP`,
-        [Language.Hindi]: `?????`,
-    },
-    "c1a8f49a-ea90-4afc-8d58-dcd44d636095": {
-        [Language.English]: `20 KW, Solar PV Plant`,
-        [Language.Hindi]: `?????`,
-    },
-    "85586cdb-f74e-45bf-8a62-760b2ceebd27": {
-        [Language.English]: `Mumukshu Bhawan, Varanasi, UP`,
-        [Language.Hindi]: `?????`,
-    },
-    "2983a6e2-3c39-4c79-bc38-68eeeb9179e8": {
-        [Language.English]: `50 KW, Solar PV Plant`,
-        [Language.Hindi]: `?????`,
-    },
-    "5fb6dae9-e71a-4bcd-930d-f011e443edf9": {
-        [Language.English]: `Mewar University, Gaziabad, UP`,
-        [Language.Hindi]: `?????`,
-    },
-    "a11142cf-bb40-464e-8c8f-98b61b7490ba": {
-        [Language.English]: `20 KW, Solar PV Plant`,
-        [Language.Hindi]: `?????`,
-    },
-    "dde60104-112a-4410-ac02-8a8cad238964": {
-        [Language.English]: `Unnao Development Authority, Unnao, UP`,
-        [Language.Hindi]: `?????`,
-    },
-    "ef03ae52-e01e-43ce-9d96-361aa4076400": {
-        [Language.English]: `7.5 KW, Solar PV Plant`,
-        [Language.Hindi]: `?????`,
-    },
-    "329095b3-25a6-469f-a8bb-4cf67670f963": {
-        [Language.English]: `GAIL, Haryana`,
-        [Language.Hindi]: `?????`,
-    },
-    "ca0ebdba-61a5-4385-9013-2b8b234dc798": {
-        [Language.English]: `How <span class="lg-text-highlighted">Livguard</span> Stands Apart`,
-        [Language.Hindi]: `?????`,
-    },
-    "9e8c1d8a-6814-443a-be82-9e59b278386d": {
-        [Language.English]: `Our <span class="lg-text-highlighted">Success Stories</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "a4807688-807d-40e8-a710-84364086a4ed": {
-        [Language.English]: `About <br/><span class="lg-text-highlighted">Livguard Solar</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "ecbb4510-50c9-41e4-89be-576378f00266": {
-        [Language.English]: `With a remarkable vision and foresight for the growing energy solutions industry, today the brand boasts of an incredible legacy of 30 years. Powered by passion and fuelled by innovation, Livguard has established itself as a strong player in the energy solution space in India. With our offerings in automotive batteries, Inverters and Inverter Batteries, Stabilizers, Solar Solutions, we are bringing in a new dimension of smart energy products.`,
-        [Language.Hindi]: `?????`,
-    },
-    "3a4ebae0-bd7e-4c9c-8cf1-9575437fa8a4": {
-        [Language.English]: `Join Expo`,
-        [Language.Hindi]: `?????`,
-    },
-    "0877ced7-a85d-4005-8c7c-4300c5ac19da": {
-        [Language.English]: `Solar Solution for Small Commercials`,
-        [Language.Hindi]: `?????`,
-    },
-    "70e5d67b-ad2d-4ac8-96ad-3e384d7d299a": {
-        [Language.English]: `<span class="lg-text-highlighted">Key Highlights</span> Of The REI EXPO 2023 with Livguard`,
-        [Language.Hindi]: `?????`,
-    },
-    "78a4d9e3-73bb-4730-baeb-f919d8142cdc": {
-        [Language.English]: `Solar Solutions for Industries`,
-        [Language.Hindi]: `?????`,
-    },
-    "38028f16-3ded-4d92-8374-ed03005ba2d9": {
-        [Language.English]: `Residential Solar Solution`,
-        [Language.Hindi]: `?????`,
-    },
-    "82986ede-25e4-4dfc-b17e-08b4bf792ab7": {
-        [Language.English]: `Energy Storage System (ESS)`,
-        [Language.Hindi]: `?????`,
-    },
-    "8f25eea9-7b97-42d2-8152-1ebf67c2e849": {
-        [Language.English]: `Service`,
-        [Language.Hindi]: `?????`,
-    },
-    "28b1f0d5-c206-45ad-9673-5b2d93e1e1b5": {
-        [Language.English]: `Gallery`,
-        [Language.Hindi]: `?????`,
-    },
-    "d1a5c759-8829-414c-81f9-49983b2ec16e": {
-        [Language.English]: `Our <span class="lg-text-highlighted">Products & Services</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "1e937877-23fb-4cef-9f70-aba46b1491f3": {
-        [Language.English]: `What <span class="lg-text-highlighted">Our Customers</span> Say About Us`,
-        [Language.Hindi]: `?????`,
-    },
-    "ad74b4d0-ec97-493a-8f69-2c9025a84dc2": {
-        [Language.English]: "Phone Number",
-        [Language.Hindi]: "मोबाइल नंबर",
-    },
-    "10b102a7-4be9-4832-9240-f747cf81a855": {
-        [Language.English]: "Please Enter Your Mobile Number",
-        [Language.Hindi]: "कृपया अपना मोबाइल नंबर डालें",
-    },
-    "6801bb72-ee1d-42ae-8f4a-a08848f267fa": {
-        [Language.English]: "Name",
-        [Language.Hindi]: "नाम",
-    },
-    "7ce2eaa7-4d46-4f80-80d2-b91b81085a49": {
-        [Language.English]: "Please Enter Your Name",
-        [Language.Hindi]: "कृपया अपना नाम डालें",
-    },
-    "e7117c35-13c8-4282-98d3-f5c955238da8": {
-        [Language.English]: "Email",
-        [Language.Hindi]: "ई-मेल",
-    },
-    "29ca1701-2fb9-49ec-a4d6-3af793c194b1": {
-        [Language.English]: "Please Enter Your Email",
-        [Language.Hindi]: "कृपया अपनी ई-मेल डालें",
-    },
-    "4af1d7d6-25cb-4bfe-b3f3-efc6fbf991e1": {
-        [Language.English]: "Organisation",
-        [Language.Hindi]: "कृपया अपनी ई-मेल डालें",
-    },
-    "2f91bf98-978c-4534-864b-b49790ab4b6f": {
-        [Language.English]: "Please Enter Your Mobile Organisation",
-        [Language.Hindi]: "कृपया अपनी ई-मेल डालें",
-    },
-    "1daf5d8c-9c04-4345-a0f2-7ee5b05b629e": {
-        [Language.English]: "Indian Expo Centre, Greater Noida",
-        [Language.Hindi]: "??????",
-    },
-    "b6d8dfb6-5b39-4a18-9329-14b7b5599c67": {
-        [Language.English]: `Find us at <span class="lgs-text-gradient" style="font-family: stencil">Renewable Energy Expo</span> 2023`,
-        [Language.Hindi]: "??????",
-    },
-    "247863ed-0f07-4278-89f8-485c1a1d4f00": {
-        [Language.English]: "We are Exhibiting at REI expo this year with our advanced products, cutting edge technology, and expert support at every step of you.",
-        [Language.Hindi]: "??????",
-    },
-    "9bda580e-5bbd-4c5f-9354-1ac2b4f93913": {
-        [Language.English]: "October 2023",
-        [Language.Hindi]: "??????",
-    },
-    "fb5dcae7-729f-44ac-9877-e57eb921e71c": {
-        [Language.English]: "4th to 6th",
-        [Language.Hindi]: "??????",
-    },
-    "afd8d1a0-c28e-424d-8d0f-01d30e0017e8": {
-        [Language.English]: "Stand no.",
-        [Language.Hindi]: "??????",
-    },
-    "86815d1a-3e79-4965-9417-bfc3705cbcde": {
-        [Language.English]: "10.166",
-        [Language.Hindi]: "??????",
-    },
-    "578a2977-c953-42a1-9866-4a9cc7d79202": {
-        [Language.English]: "Find us at REI",
-        [Language.Hindi]: "हमें REI में खोजें",
-    },
-    "0e9460fa-70dc-46e6-a7e9-eb390658befe": {
-        [Language.English]: `<span class="lg-text-highlighted">Reach Out</span> For Any Query`,
-        [Language.Hindi]: `?????`,
-    },
-    "f9a8c47e-852e-42c5-9942-9991eb7773e8": {
-        [Language.English]: `Contact us`,
-        [Language.Hindi]: "?????",
-    },
-    "f6b3804e-752e-46bd-aef0-c5421a9110f7": {
-        [Language.English]: `Submit`,
-        [Language.Hindi]: `?????`,
-    },
-    "64794c5f-21b8-49a8-9ad8-4bd9ed02c221": {
-        [Language.English]: `Solar Street Lights`,
-        [Language.Hindi]: `?????`,
-    },
-    "036fe73d-7d0c-4221-ae1d-3101139338c6": {
-        [Language.English]: `Solar Battery`,
-        [Language.Hindi]: `?????`,
-    },
-    "fe5908ec-3337-4b25-814d-1324313fa03d": {
-        [Language.English]: `Off-Grid Inverters`,
-        [Language.Hindi]: `?????`,
-    },
-    "03ccdaa3-1eaf-4ffa-8851-aab6ab979092": {
-        [Language.English]: `SOLCULATOR®`,
-        [Language.Hindi]: "?????",
-    },
-    "feb2e012-474a-4ad1-a166-335db53d222f": {
-        [Language.English]: `Charge Controller/SMU`,
-        [Language.Hindi]: `?????`,
-    },
-    "9cafbfcc-4dc4-4a85-a168-bebb2bebcb84": {
-        [Language.English]: `Hybrid Inverters`,
-        [Language.Hindi]: `?????`,
-    },
-    "3cb60479-da6d-462c-879c-5a1b510630a4": {
-        [Language.English]: `GMB Dealer Locator`,
-        [Language.Hindi]: `GMB डीलर ढूंढें`,
-    },
-    "a92d2d4c-be7d-4b41-8f8f-32ad2e427a3a": {
-        [Language.English]: `Till then, shower some love on our Social <b>Handles</b>`,
-        [Language.Hindi]: "?????",
-    },
-    "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541": {
-        [Language.English]: `<span class="lg-text-highlighted">Social Media</span> Feed`,
-        [Language.Hindi]: "?????",
-    },
-    "a96ea06b-50d5-4cc6-be0c-abfc5d8dac0d": {
-        [Language.English]: `Facebook`,
-        [Language.Hindi]: "?????",
-    },
-    "a6fcf6d7-0527-4ada-8c13-203a0986437a": {
-        [Language.English]: `Instagram`,
-        [Language.Hindi]: "?????",
-    },
-    "64f7cb15-0cf3-4ee1-876c-250408c8dcc6": {
-        [Language.English]: `X (formerly Twitter)`,
-        [Language.Hindi]: "?????",
-    },
-    "f3e7ee9a-6310-49fd-b839-2d9908ff104a": {
-        [Language.English]: `AG`,
-        [Language.Hindi]: `????`,
-    },
-    "2032253c-afd1-41e5-9b25-516daa8b8d18": {
-        [Language.English]: `Gujarat`,
-        [Language.Hindi]: `????`,
-    },
-    "dc3676da-4762-4731-ba15-6fae0a60dfd8": {
-        [Language.English]: `Happy Customer AG Joins Livguard's 2 Cr+ Family!`,
-        [Language.Hindi]: `????`,
-    },
-    "c74c645b-7c6b-47c8-8ddc-a7f9c6bc5f94": {
-        [Language.English]: `Mrunal Maya Mohanty`,
-        [Language.Hindi]: `????`,
-    },
-    "1b042682-79c2-4f08-8155-2f7668844609": {
-        [Language.English]: `Telangana`,
-        [Language.Hindi]: `????`,
-    },
-    "d9619759-9a53-470a-a956-fb6d51f18951": {
-        [Language.English]: `Happy Customer Review: Mrunal Joins Livguard Family!`,
-        [Language.Hindi]: `????`,
-    },
-    "3eb9cad0-bbd1-4dad-967f-1073a6adaf2e": {
-        [Language.English]: `Rohit Singh`,
-        [Language.Hindi]: `????`,
-    },
-    "f66aed4d-418d-4d55-8ab0-6548030e3af6": {
-        [Language.English]: `Rohit Singh's 2-Year Livguard Inverter & Battery Experience | Join Our Satisfied Livguard Family!`,
-        [Language.Hindi]: `????`,
-    },
-    "986605b0-30a0-433b-ac6a-10e8deba3063": {
-        [Language.English]: `Delhi`,
-        [Language.Hindi]: `????`,
-    },
-    "676de8c8-861f-48d7-9111-5fc01c2aae76": {
-        [Language.English]: `Touseef Ahmad`,
-        [Language.Hindi]: `????`,
-    },
-    "f21fbe4a-86f4-4ab8-a0fb-37ae42578b29": {
-        [Language.English]: `From Installation to Savings: Touseef Ahmed's Livguard Solar Journey`,
-        [Language.Hindi]: `????`,
-    },
-    "df0d4329-4cb4-4a4b-a23c-84ad9c7ed2dd": {
-        [Language.English]: `Uttar Pradesh`,
-        [Language.Hindi]: `????`,
-    },
-    "92471019-483f-4429-8234-42df112baa9c": {
-        [Language.English]: `Shravan Pathak`,
-        [Language.Hindi]: `????`,
-    },
-    "607cc572-1388-4e27-9c1b-80f38e7a2173": {
-        [Language.English]: `Madhya Pradesh`,
-        [Language.Hindi]: `????`,
-    },
-    "41d5f089-f510-4e71-934d-7ccddcb97aef": {
-        [Language.English]: `Livguard Customer Spotlight: Shravan's Year of Reliability`,
-        [Language.Hindi]: `????`,
-    },
-    "ecc2a101-772c-4fcb-a2c3-586d13f19ed2": {
-        [Language.English]: `Smita Singh`,
-        [Language.Hindi]: `????`,
-    },
-    "ce6c76b0-217b-45f7-a388-8aba61437ae0": {
-        [Language.English]: `Livguard On Grid Solar | 10KW On Grid Solar System | Solar Panels For Home | On Grid Solar System`,
-        [Language.Hindi]: `????`,
-    },
-    "e6fc8d59-9517-4499-bfc5-857986597848": {
-        [Language.English]: `Touseef Ahmed`,
-        [Language.Hindi]: `????`,
-    },
-    "1614092f-20cb-4aa8-8286-32b713e295cb": {
-        [Language.English]: `From Installation to Savings: Touseef Ahmed's Livguard Solar Journey`,
-        [Language.Hindi]: `????`,
-    },
-    "4f13dc23-7b2e-40ff-91ce-301cd8d82096": {
-        [Language.English]: `Anil`,
-        [Language.Hindi]: `????`,
-    },
-    "4a14b5c9-567e-4e8a-a677-395e94e53300": {
-        [Language.English]: `Uninterrupted Power with Livguard: Lighting Up Lives Across India!`,
-        [Language.Hindi]: `????`,
-    },
-    "2a4ae964-e66a-4d30-a63a-31409941b4c8": {
-        [Language.English]: `Ashique`,
-        [Language.Hindi]: `????`,
-    },
-    "8a4d79a9-cafb-4d8b-8728-93635a6f77fd": {
-        [Language.English]: `Customer Spotlight: Ashique MK's Thriving Solar Journey with Livguard!`,
-        [Language.Hindi]: `????`,
-    },
-    "643c1563-8e87-419b-bab3-b5aba48a287f": {
-        [Language.English]: `Deepak Kumar`,
-        [Language.Hindi]: `????`,
-    },
-    "6224275a-5742-404b-9a36-ade2c73fa3f6": {
-        [Language.English]: `From Issue to Solution: Deepak Kumar's Livguard Battery Testimonial!`,
-        [Language.Hindi]: `????`,
-    },
-    "b19e5cee-bb1f-43c3-800c-2111e3daa16b": {
-        [Language.English]: `Kalu Fouzdar`,
-        [Language.Hindi]: `????`,
-    },
-    "5663c56f-07d1-4b58-9321-5e0cbc26eee2": {
-        [Language.English]: `Kalu Fouzdar Shares His Exceptional Experience with Livguard!`,
-        [Language.Hindi]: `????`,
-    },
-    "77291687-8e86-4a62-9f58-b1b85ea18cea": {
-        [Language.English]: `Khempal Singh`,
-        [Language.Hindi]: `????`,
-    },
-    "0fc85540-fa81-4814-86b3-1e1b6b7d5b84": {
-        [Language.English]: `Empowering Lives: Khempal Singh Livguard Testimonial!`,
-        [Language.Hindi]: `????`,
-    },
-    "f80e57d8-a4bc-4a77-b4b7-2933b54a4d59": {
-        [Language.English]: `Nagender Choudhury`,
-        [Language.Hindi]: `????`,
-    },
-    "f6a385b5-b45e-4350-9d0b-2b309e8f6c03": {
-        [Language.English]: `Where Quality Meets Satisfaction: Nagender Chowdhry Testimonial`,
-        [Language.Hindi]: `????`,
-    },
-    "4b1b2126-7ed2-4a31-98d8-74158e31022f": {
-        [Language.English]: `Combos`,
-        [Language.Hindi]: `कॉम्बो`,
-    },
-    "7e54165c-1ab3-4284-8a68-7db0515f1c66": {
-        [Language.English]: `Inverter and Battery Combo`,
-        [Language.Hindi]: `इनवर्टर और बैटरी कॉम्बो`,
-    },
-    "af709c5d-4066-419b-b775-17a43a234c9f": {
-        [Language.English]: `Events`,
-        [Language.Hindi]: `आयोजन`,
-    },
-    "72516e54-5c6d-4723-a2b9-06ed6d3ae2c3": {
-        [Language.English]: `REI`,
-        [Language.Hindi]: `?????`,
-    },
     "10a057de-1158-4f8b-8186-48571a720fc5": {
         [Language.English]: `Lithium Battery`,
         [Language.Hindi]: `?????`,
@@ -11653,5 +10810,917 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "5b6a1674-797b-430e-a1d0-19a052886b10": {
         [Language.English]: `Visit Website`,
         [Language.Hindi]: "वेबसाइट पर जाएं",
+    },
+    "58790af6-e242-4064-9f92-8c7af56524f9": {
+        [Language.English]: `Calling all Detectives!`,
+        [Language.Hindi]: "?????",
+    },
+    "474f66f2-b713-4581-85de-39cad89f813f": {
+        [Language.English]: `Earn Exciting <span class="lg-text-primary-500">Rewards</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "a8794019-66aa-4fa3-bd6d-4376e703626e": {
+        [Language.English]: `The mischievous energy thief 'Wattson' is on the move with an inverter and battery combo! Help us in this quest to find and catch him. Follow the clues, unmask the mystery, and seize unique rewards along the way!`,
+        [Language.Hindi]: "?????",
+    },
+    "850e8c45-a6a4-428b-9e11-4acd93205160": {
+        [Language.English]: `<span class="tw-font-semibold">First Clue :</span> He is hiding somewhere on the homepage. Catch him before he escapes!`,
+        [Language.Hindi]: "?????",
+    },
+    "af17ff8e-ce85-491e-ba24-b430a512162a": {
+        [Language.English]: `Find Natwarlal`,
+        [Language.Hindi]: "?????",
+    },
+    "6b3b89fd-ba28-481a-86ee-8932e25ef249": {
+        [Language.English]: `<span class="lg-text-primary-500">Congrats!</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "9d0d2fb1-93ce-40e7-ae8a-afd396c7159f": {
+        [Language.English]: `Your detective skills found the <span class="tw-font-bold">stolen inverter</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "011c1d97-5ae2-4392-b789-a422bc75b9ee": {
+        [Language.English]: `Continue Your Quest`,
+        [Language.Hindi]: "?????",
+    },
+    "773cc962-c03e-4643-9f7b-bb9d6eeab67b": {
+        [Language.English]: `Don’t forget to do the following <br/> at the END of the quest.`,
+        [Language.Hindi]: "?????",
+    },
+    "4c03ff14-2235-45bd-a773-cf027c81fd86": {
+        [Language.English]: `Submit your contact details`,
+        [Language.Hindi]: "?????",
+    },
+    "8e337c72-d495-4840-9fcc-3670a8e9bd83": {
+        [Language.English]: `Share on livguard <a class="tw-underline tw-decoration-red-500" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/livguardenergy/"><b>social post</b></a> as to which page have you found the  inverter and batttery`,
+        [Language.Hindi]: "?????",
+    },
+    "10f2f51f-a177-48ec-be50-990650be4f59": {
+        [Language.English]: `Tag 3 friends along the code`,
+        [Language.Hindi]: "?????",
+    },
+    "bc3184f6-0f40-4633-bca8-1e9c2c21852a": {
+        [Language.English]: `Continue`,
+        [Language.Hindi]: "?????",
+    },
+    "e8190da2-de31-41e3-a749-f3e77acc2807": {
+        [Language.English]: `Press <span class="tw-font-bold">"Continue"</span> to get second clue 👉💡!`,
+        [Language.Hindi]: "?????",
+    },
+    "98395654-ab14-47c2-9ba8-bb52a9297368": {
+        [Language.English]: `Terms & Conditions  - Social Media`,
+        [Language.Hindi]: "?????",
+    },
+    "a71eedc4-b0f8-46b3-88d1-c7427315de8c": {
+        [Language.English]: `Copy`,
+        [Language.Hindi]: "?????",
+    },
+    "eee1a98d-b9ab-4ee5-bde6-bcb2cdc26ece": {
+        [Language.English]: `Copied`,
+        [Language.Hindi]: "?????",
+    },
+    "6dd8ca3b-6542-4fc4-81ce-6183b8359ec5": {
+        [Language.English]: `Find The Thief`,
+        [Language.Hindi]: "?????",
+    },
+    "99a6da97-c8bf-4ce3-b95a-611ec00c880a": {
+        [Language.English]: `Follow <span class="tw-text-primary-500-light">him</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "23992b81-60ed-4164-9e5c-91dcc6752f39": {
+        [Language.English]: `<b>2nd Clue</b> 💡:Find Wattson with the stolen inverter battery and end the quest.`,
+        [Language.Hindi]: "?????",
+    },
+    "7ec1488f-530c-40b6-a86b-dc2ea8840310": {
+        [Language.English]: `<b>Wattson</b> now has the stolen inverter battery, and is going towards the Power Planner. Find him before he calculates his power consumption and takes the inverter battery home!`,
+        [Language.Hindi]: "?????",
+    },
+    "3e9f691e-f760-4691-b6d8-85733ce4d416": {
+        [Language.English]: `Find Him`,
+        [Language.Hindi]: "?????",
+    },
+    "e6419d6a-b775-4e93-81e5-9a18b1a1c809": {
+        [Language.English]: `Victory!`,
+        [Language.Hindi]: "?????",
+    },
+    "fb5b1b3a-a82c-4968-a9da-25b3cd9d62db": {
+        [Language.English]: `You successfully found the <span class="tw-font-bold">stolen inverter battery</span> and completed <b>the Quest</b>`,
+        [Language.Hindi]: "?????",
+    },
+    "f34a013d-dc49-425b-bc87-984766a35a2d": {
+        [Language.English]: `Share your details to complete your <b>participation</b>.`,
+        [Language.Hindi]: "?????",
+    },
+    "78b0281f-e8cf-4b38-82c0-23382b168795": {
+        [Language.English]: `Claim Now`,
+        [Language.Hindi]: "?????",
+    },
+    "79436419-5a42-4720-be85-19bc0b46c7bb": {
+        [Language.English]: `Your Name*`,
+        [Language.Hindi]: "?????",
+    },
+    "fe032013-d1e7-45d7-9c0c-d289c5f80c52": {
+        [Language.English]: `Your Email*`,
+        [Language.Hindi]: "?????",
+    },
+    "b24cf3a3-c834-487e-8ca3-5f78e02a267e": {
+        [Language.English]: `Your Mobile*`,
+        [Language.Hindi]: "?????",
+    },
+    "3942668d-37f8-4964-ac34-5eaef54e3f77": {
+        [Language.English]: `Username`,
+        [Language.Hindi]: "?????",
+    },
+    "88d4bc6f-64ee-4910-8b1e-27ad5aea32c1": {
+        [Language.English]: `Instagram UserName*`,
+        [Language.Hindi]: "?????",
+    },
+    "2a9b9149-ae09-452b-b02d-8ab5b8850557": {
+        [Language.English]: `Submit Now`,
+        [Language.Hindi]: "?????",
+    },
+    "29a1dc30-0f20-4075-b14e-52197e83f059": {
+        [Language.English]: `Perfect!`,
+        [Language.Hindi]: "?????",
+    },
+    "1a109702-9407-4945-aa54-acde384ace7a": {
+        [Language.English]: `Your detective skills found the <span class="tw-font-bold">inverter & battery!</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "37118df1-c2d2-4cbb-af54-288487236384": {
+        [Language.English]: `Your efforts deserve another amazing reward!`,
+        [Language.Hindi]: "?????",
+    },
+    "38d347bc-e85b-46f2-82a0-dd41a118daaf": {
+        [Language.English]: `Our team will reach out to you with your reward shortly.`,
+        [Language.Hindi]: "?????",
+    },
+    "69d20806-45ec-42e0-951e-54a4d0f46b14": {
+        [Language.English]: `More About Livguard`,
+        [Language.Hindi]: "?????",
+    },
+    "b65da678-f08a-46fd-ae2a-b2df56391d4d": {
+        [Language.English]: `Welcome to Livguard - Your Premier Destination for Inverter Batteries and More`,
+        [Language.Hindi]: "?????",
+    },
+    "74a5eaf0-dc22-4227-8c5c-c1ee276a56bf": {
+        [Language.English]: `If you're in search of the best inverter battery to keep your home, office, or industrial setup powered during outages, Livguard has you covered with an extensive range of inverter batteries at competitive prices. Whether you need a mini inverter for your home office or a high-capacity 200Ah battery for industrial use, we offer top-quality products that cater to all your power backup needs.`,
+        [Language.Hindi]: "?????",
+    },
+    "573743ba-bd29-40fc-80e6-cd6fa1ce085f": {
+        [Language.English]: `Our Inverter Battery Range:`,
+        [Language.Hindi]: "?????",
+    },
+    "474e6e60-db1c-4c7e-b158-caf6a2425ee8": {
+        [Language.English]: `Inverter Batteries for Home and Office: Find the perfect inverter for home, office, or shop use with Livguard. We offer a variety of options, including tubular batteries and 150Ah battery choices like short tubular and tall tubular, ensuring that your workspaces stay powered up efficiently.`,
+        [Language.Hindi]: "?????",
+    },
+    "2f15fc7f-1e7f-4a5d-a97b-899fdb3062f3": {
+        [Language.English]: `Best Inverter Battery: At Livguard, we take pride in providing the best inverter batteries on the market. Our extensive selection ensures you get the ideal combination of performance and value.`,
+        [Language.Hindi]: "?????",
+    },
+    "8756b065-a52e-46d2-adfb-bc8ce1df4823": {
+        [Language.English]: `Inverter Shops Near Me: Locate Livguard inverter batteries at stores near you. Our wide distribution network ensures that you can easily find inverter dealers nearby, whether for office or industrial use.`,
+        [Language.Hindi]: "?????",
+    },
+    "53da8188-f07f-45dc-82fd-5ce27696264c": {
+        [Language.English]: `Inverters for Offices: Need a compact power solution for your office or shop? Explore our range of mini inverters that are perfect for small spaces and low-power requirements.`,
+        [Language.Hindi]: "?????",
+    },
+    "3bce3717-9177-40a1-8099-179e3f142d0a": {
+        [Language.English]: `High-Capacity Batteries for Industrial Use: For those with higher power needs in industrial settings, our 200Ah batteries are a reliable choice. Get the best inverter with a battery for your industrial applications.`,
+        [Language.Hindi]: "?????",
+    },
+    "ae660408-b213-4060-9059-3b53544297fa": {
+        [Language.English]: `Sine Wave Inverters for Office and Industrial Use: Experience smooth and consistent power output with our sine wave inverters, ideal for sensitive electronic devices in office and industrial environments.`,
+        [Language.Hindi]: "?????",
+    },
+    "6a5d55f0-21cd-47a8-8f9d-7c0e1ec61e95": {
+        [Language.English]: `Hybrid Inverters for Office and Industrial Settings: Looking for a versatile solution for your office or industrial space? Consider our hybrid inverters that integrate solar power and grid electricity seamlessly.`,
+        [Language.Hindi]: "?????",
+    },
+    "a5d385c8-e00d-4be5-826d-5bd117552929": {
+        [Language.English]: `Why Choose Livguard:`,
+        [Language.Hindi]: "?????",
+    },
+    "ba2310a2-9823-4536-8697-1cc83da9aa39": {
+        [Language.English]: `Quality Assurance: Livguard is synonymous with quality. Our inverter batteries are built to last, ensuring long-term reliability and performance in both office and industrial settings.`,
+        [Language.Hindi]: "?????",
+    },
+    "c174476d-747e-44a8-8af6-41a6e5f26c92": {
+        [Language.English]: `Wide Variety for Office and Industrial Needs: No matter your specific requirements, we have an inverter and battery combination that fits your office or industrial power backup needs.`,
+        [Language.Hindi]: "?????",
+    },
+    "9285e6dc-7554-4b8d-b83b-1c462f3b315a": {
+        [Language.English]: `Expert Guidance: Our knowledgeable staff can guide you in selecting the perfect inverter and battery setup for your office, shop, or industrial setup.`,
+        [Language.Hindi]: "?????",
+    },
+    "7da9aca6-1493-44e1-9a51-e79f9b4be665": {
+        [Language.English]: `Competitive Prices: We offer competitive inverter battery prices, ensuring you get the best value for your money, whether it's for your office or industrial use.`,
+        [Language.Hindi]: "?????",
+    },
+    "f6ee6026-c1bc-4814-aaca-86b62c56080f": {
+        [Language.English]: `Find the Right Inverter Battery for Your Office or Industrial Space:`,
+        [Language.Hindi]: "?????",
+    },
+    "2d795937-f920-49a8-b19d-6cb8073d4db3": {
+        [Language.English]: `Livguard's extensive range of inverter batteries, including 150Ah and 200Ah options, ensures that you find the perfect fit for your office, shop, or industrial power backup needs. Whether it's for backup power in your office, shop, or industrial facility, we have the solution.`,
+        [Language.Hindi]: "?????",
+    },
+    "65b60823-257a-4725-99a7-77ce25e91288": {
+        [Language.English]: `Explore Our Products for Office and Industrial Use:`,
+        [Language.Hindi]: "?????",
+    },
+    "0a491c8b-0c8a-406c-a482-89b144758687": {
+        [Language.English]: `Tubular Batteries: Discover the durability and performance of our tubular batteries, designed for long-lasting power backup in office and industrial settings.`,
+        [Language.Hindi]: "?????",
+    },
+    "af744aeb-e34f-45e3-9372-27b08e600fbc": {
+        [Language.English]: `Online Inverter & Inverter Battery Shopping: Shop online at Livguard from the comfort of your office or home, and we'll deliver your chosen inverter battery right to your doorstep.`,
+        [Language.Hindi]: "?????",
+    },
+    "dfa119d7-cdb6-46b8-83c4-9883e5a092b6": {
+        [Language.English]: `Inverter Battery Accessories: Find inverter battery boxes, converters, and other accessories to complement your power setup, whether it's for your office, shop, or industrial facility.`,
+        [Language.Hindi]: "?????",
+    },
+    "c842a2c6-1a3b-488e-a3ad-a668f45de854": {
+        [Language.English]: `Experience Uninterrupted Power in Your Office or Industrial Space with Livguard:`,
+        [Language.Hindi]: "?????",
+    },
+    "5956a05a-dd59-4e9a-aa1d-48aa55f236f5": {
+        [Language.English]: `Don't let power interruptions disrupt your work. Livguard's inverter batteries are your reliable source of backup power for your office, shop, or industrial setup. Explore our range today and ensure uninterrupted power when you need it the most.`,
+        [Language.Hindi]: "?????",
+    },
+    "86526c6c-8a27-4e06-b4fa-da1b82cc3967": {
+        [Language.English]: `Livguard Solar - Your Comprehensive Destination for Power Solutions`,
+        [Language.Hindi]: "?????",
+    },
+    "797afe89-61fe-487d-924e-2975a3e29b34": {
+        [Language.English]: `Are you searching for the best inverter battery, solar solutions, automotive batteries, or E-mobility products for your home, office, or industrial needs? Look no further! Livguard offers a diverse range of high-quality power solutions, ensuring uninterrupted power supply in any setting.`,
+        [Language.Hindi]: "?????",
+    },
+    "86184562-2338-4444-a867-bcabc36fd280": {
+        [Language.English]: `Our Comprehensive Product Range:`,
+        [Language.Hindi]: "?????",
+    },
+    "fdbebfc5-96cd-4191-934b-e7e89e58d702": {
+        [Language.English]: `Top-Notch Solar Solutions: Harness the power of the sun with our cutting-edge solar products. From solar panels to solar inverters and batteries, we offer complete solar solutions for residential, commercial, and industrial applications.`,
+        [Language.Hindi]: "?????",
+    },
+    "f9523785-9cb1-4f13-a127-f7a5b579510b": {
+        [Language.English]: `Automotive Batteries: Livguard provides high-performance automotive batteries suitable for cars, trucks, and other vehicles. Our automotive batteries ensure reliable power on the road.`,
+        [Language.Hindi]: "?????",
+    },
+    "da5cb87b-923e-40a1-b390-c3a5d28240d6": {
+        [Language.English]: `E-mobility Products for a Sustainable Future: Embrace the future of mobility with Livguard's E-mobility products. From electric vehicle batteries to charging solutions, we contribute to a sustainable transportation ecosystem.`,
+        [Language.Hindi]: "?????",
+    },
+    "7e6f0e05-9a06-4a17-9f8c-3cbf7dc65cf9": {
+        [Language.English]: `Why Choose Livguard Solar:`,
+        [Language.Hindi]: "?????",
+    },
+    "71defc8f-1ed1-4932-838c-96f54b881195": {
+        [Language.English]: `Quality Assured: Livguard is synonymous with top-notch quality. Our products, including inverter batteries, solar solutions, automotive batteries, and E-mobility products, are built to last and perform consistently.`,
+        [Language.Hindi]: "?????",
+    },
+    "1c938afb-620f-4fa7-b810-a0620654761c": {
+        [Language.English]: `Wide Variety for Every Need: Whether you need an inverter battery for your home office, a solar solution for your industrial facility, or an automotive battery for your vehicle, Livguard offers diverse options tailored to your requirements.`,
+        [Language.Hindi]: "?????",
+    },
+    "b0a7b74d-f238-4b96-8a8d-95eb3890620c": {
+        [Language.English]: `Expert Guidance: Count on our knowledgeable staff to assist you in selecting the perfect power solution for your specific needs, whether it's for home, office, or industrial use.`,
+        [Language.Hindi]: "?????",
+    },
+    "4a719966-301a-4806-b94e-c7ab92349a1b": {
+        [Language.English]: `Competitive Pricing: We provide competitive prices across our product range, ensuring you receive the best value for your investment, no matter your application.`,
+        [Language.Hindi]: "?????",
+    },
+    "2f3afb31-1745-461a-b06c-b6f82dad8007": {
+        [Language.English]: `Finding the Right Power & Solar Solution:`,
+        [Language.Hindi]: "?????",
+    },
+    "29323849-e8a8-4a1c-9ef9-792453e5aab3": {
+        [Language.English]: `Livguard's extensive product range ensures you find the ideal power & solar solution for your home, office, or industrial space. Whether you require backup power, solar energy solutions, automotive batteries, or E-mobility products, we have you covered.`,
+        [Language.Hindi]: "?????",
+    },
+    "2105f9c8-df34-4807-97d6-eb502582c907": {
+        [Language.English]: `Explore Our Offerings:`,
+        [Language.Hindi]: "?????",
+    },
+    "27e83276-648e-44cb-8025-ebd5cfffa066": {
+        [Language.English]: `Online Shopping Convenience: Shop online at Livguard from the comfort of your home or office, and we'll deliver your chosen Solar solution right to your doorstep.`,
+        [Language.Hindi]: "?????",
+    },
+    "20d810c2-8da8-4505-917a-26f1ccbd3dc2": {
+        [Language.English]: `Accessories and Charging Solutions: Find essential accessories and charging solutions to complement your power setup, ensuring smooth operations in your chosen application.`,
+        [Language.Hindi]: "?????",
+    },
+    "618931ac-9e6c-4492-b9d1-2243eabbb2b6": {
+        [Language.English]: `Experience Uninterrupted Power with Livguard:`,
+        [Language.Hindi]: "?????",
+    },
+    "ef416060-345e-45c1-a6cb-763e9e6a12b7": {
+        [Language.English]: `Don't let power interruptions disrupt your daily life, work, or industrial processes. Livguard's power solutions, including inverter batteries, solar products, automotive batteries, and E-mobility solutions, are your reliable sources of energy. Explore our range today and ensure uninterrupted power when you need it the most.`,
+        [Language.Hindi]: "?????",
+    },
+    "8fd0b5be-f173-41dd-b9d3-3deddb5c11ba": {
+        [Language.English]: `Tailor made solutions to fit your exact requirements`,
+        [Language.Hindi]: `आपकी सटीक जरूरतों के लिए बनाए गए समाधान`,
+    },
+    "25fd206a-06bb-4672-a35f-1399865203d4": {
+        [Language.English]: `Long lasting installation`,
+        [Language.Hindi]: `लंबे समय तक चलने वाली फिटिंग`,
+    },
+    "d791b39f-14fd-4c40-8433-ec925424664f": {
+        [Language.English]: `24X7 monitoring through app`,
+        [Language.Hindi]: `ऐप के जरिए 24X7 निगरानी`,
+    },
+    "e37bfec4-dc83-429c-9a67-7071555b9e59": {
+        [Language.English]: `One click service support`,
+        [Language.Hindi]: `एक क्लिक सेवा समर्थन`,
+    },
+    "304bb4e0-bdb6-4262-962d-38e6a7da770c": {
+        [Language.English]: `<span class="lg-text-highlighted">Benefits</span> of Solar`,
+        [Language.Hindi]: `?????`,
+    },
+    "cdd10c2f-5e3b-422c-82a0-0bab45cdc28b": {
+        [Language.English]: `Reduce your electricity Bill`,
+        [Language.Hindi]: `?????`,
+    },
+    "afd8b2c4-4569-40e8-80c8-51cbdaf216aa": {
+        [Language.English]: `Renewable energy contribute to a Greener Planet to avoid natural disaster`,
+        [Language.Hindi]: `?????`,
+    },
+    "99f54955-32c7-4a5e-adb0-042ff473e4b6": {
+        [Language.English]: `Protection against rising Electricity cost`,
+        [Language.Hindi]: `?????`,
+    },
+    "773154e0-c198-4bbe-8217-b32405b19f49": {
+        [Language.English]: `Lower maintenance cost compare to other electricity generation system`,
+        [Language.Hindi]: `?????`,
+    },
+    "9b537612-c051-4b32-8430-ac84431b06da": {
+        [Language.English]: `Noise free, easy to maintain`,
+        [Language.Hindi]: `?????`,
+    },
+    "0306168f-91be-4091-8a51-8b714976fd51": {
+        [Language.English]: `Natural cooling due to roof mounted solar Panels`,
+        [Language.Hindi]: `?????`,
+    },
+    "80c6554e-9b6f-40a0-b2d1-66dc980523eb": {
+        [Language.English]: `Answer to your big Question`,
+        [Language.Hindi]: `?????`,
+    },
+    "ea9fdf49-ad11-4d5a-9a12-73dc0de5d1f1": {
+        [Language.English]: `Should I Get Solar?`,
+        [Language.Hindi]: `?????`,
+    },
+    "8b2953ed-b530-499e-a3fe-92e64d0bba76": {
+        [Language.English]: `1 BHK Home`,
+        [Language.Hindi]: `?????`,
+    },
+    "f900391f-bcad-4185-adf2-ec61b74662fe": {
+        [Language.English]: `2 BHK Home`,
+        [Language.Hindi]: `?????`,
+    },
+    "fb4c3130-3c4e-4f47-984d-977afcdd8380": {
+        [Language.English]: `3 BHK Home`,
+        [Language.Hindi]: `?????`,
+    },
+    "c9ab50c2-797b-45e5-af4d-91b3a9b475d0": {
+        [Language.English]: `Area Required`,
+        [Language.Hindi]: `?????`,
+    },
+    "f863e274-dbb8-4d2f-8afb-f0e855d66600": {
+        [Language.English]: `*Ideal system size. Final solution post site survey`,
+        [Language.Hindi]: `?????`,
+    },
+    "cca0be55-8a1e-414a-bedf-4503980a95f1": {
+        [Language.English]: `Your Monthly Bill <span class="tw-text-primary-500-light">with Solar</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "ec96e9b6-7bba-4a4f-915c-c8134c03fbb5": {
+        [Language.English]: `Your Monthly Savnig <span class="tw-text-primary-500-light">with Solar</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "6940b06d-192b-4c64-a38d-39c08ba585ec": {
+        [Language.English]: `Your Solar System Can generate`,
+        [Language.Hindi]: `?????`,
+    },
+    "b9d9380d-e638-47f6-8a9f-3c9aa6c5d485": {
+        [Language.English]: `of your <span class="tw-text-primary-500-light">Energy Consumption</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "6db60a24-510a-443d-a7e4-9de505a047ac": {
+        [Language.English]: `Your Lifetime Saving`,
+        [Language.Hindi]: `?????`,
+    },
+    "f2dcb78d-2566-465a-ac08-df42e2ed8a45": {
+        [Language.English]: `Your Estimate For Solar Solution`,
+        [Language.Hindi]: `?????`,
+    },
+    "1228daec-fb96-4fa6-8760-818d97a7cf83": {
+        [Language.English]: `Payback`,
+        [Language.Hindi]: `?????`,
+    },
+    "673c90b0-b6fb-4ddd-9e0e-b8f6e1abdbae": {
+        [Language.English]: `Return on Investment`,
+        [Language.Hindi]: `?????`,
+    },
+    "549aaae6-7b4f-4bea-8f89-4254d36fb069": {
+        [Language.English]: `Your Solar System Can Generate <span class="tw-text-primary-500-light lg-text-title2">85%</span> of Your Energy Consumption`,
+        [Language.Hindi]: `?????`,
+    },
+    "378c005c-263e-436e-a034-1e8b4b121f50": {
+        [Language.English]: `Impact on Environment`,
+        [Language.Hindi]: `?????`,
+    },
+    "4723e954-2c41-42a9-ab54-69f518c422fd": {
+        [Language.English]: `CO2 Emissions Mitigated`,
+        [Language.Hindi]: `?????`,
+    },
+    "3dfa0f92-bb81-4e09-9f25-92ad66afa93b": {
+        [Language.English]: `Trees Added`,
+        [Language.Hindi]: `?????`,
+    },
+    "3280fde0-f2d3-4627-b829-5956d59109a3": {
+        [Language.English]: `Calculate My Savings`,
+        [Language.Hindi]: `?????`,
+    },
+    "6a1cc5f2-af32-474c-8676-6b851064daa1": {
+        [Language.English]: `Livguard <span class="lg-text-highlighted">Solar Diaries</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "865b7e53-039d-4ecc-9958-97f2527aecf7": {
+        [Language.English]: `Rakesh Kansal`,
+        [Language.Hindi]: `?????`,
+    },
+    "8841827d-7aeb-4047-83ec-c4efd56a8586": {
+        [Language.English]: `A solar solution built for expert performance and extra savings`,
+        [Language.Hindi]: `?????`,
+    },
+    "0602f1f2-b5aa-4f3e-b9c0-8e73dda79c19": {
+        [Language.English]: `Being involved in the dairy business in Bikaner, Rajasthan, I was thinking about switching to solar for some time. After multiple enquiries about the right solar solution, one of my close friends advised me about the Livguard expert solar solution. Paying attention to his suggestion, I decided to install a 3KWp residential on-grid solar solution at home.`,
+        [Language.Hindi]: `?????`,
+    },
+    "c0caac80-005c-4acf-aa47-0262d063f5c5": {
+        [Language.English]: `After making the first call with team Livguard, they guided me properly and helped in necessary government approvals and civil work. The entire installation process was a seamless experience due to the active team involvement.`,
+        [Language.Hindi]: `?????`,
+    },
+    "5a609ab9-7e6b-4707-8973-3cfe855555db": {
+        [Language.English]: `Talking about the expert performance of my solar solution, it is generating around 12-13 units of electricity every day along with my less electricity bill. I am extremely satisfied with its overall working and it is clearly a true value for money.`,
+        [Language.Hindi]: `?????`,
+    },
+    "2f603908-119c-43b4-b4d3-8b372ed3828b": {
+        [Language.English]: `Overall Satisfaction`,
+        [Language.Hindi]: `?????`,
+    },
+    "68f6bb6e-b78e-4b1d-86d3-8eb004ee22cf": {
+        [Language.English]: `How Our <span class="lg-text-highlighted tw-whitespace-nowrap">Solar Experts Deliver?</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "2768e014-aad2-4622-a7e0-39cd685d5be9": {
+        [Language.English]: `Using the decades of research in the energy space, we not only build the best in class products but also recommend the right fit as per your needs and budget- a skillset that is rare to find. Our cost effective solar installations run effortlessly with minimum maintenance, providing a clean and effective energy solution to our clients.`,
+        [Language.Hindi]: `ऊर्जा क्षेत्र में बहुत सालों के अनुभव का इस्तेमाल कर, हम सिर्फ अच्छे उत्पाद नहीं बनाते, बल्कि आपकी जरूरत और बजट के हिसाब से सही सलाह भी देते हैं - जो एक दुर्लभ कौशल है।। हमारी सोलर फिटिंग सस्ती और आसानी से चलती है, कम देखभाल में। ये हमारे ग्राहकों को साफ और अच्छी ऊर्जा देती है।`,
+    },
+    "1059a000-dbab-47e4-b0cd-93544b69bb2e": {
+        [Language.English]: `Residential Projects`,
+        [Language.Hindi]: `आवासीय परियोजनाएं`,
+    },
+    "b62c72cb-60bb-4b9f-b595-f3676d094c51": {
+        [Language.English]: `Commercial Projects`,
+        [Language.Hindi]: `व्यापारिक परियोजनाएं`,
+    },
+    "63860595-70df-4712-9a6c-e6e33d10a914": {
+        [Language.English]: `5 KW, Solar PV Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "a3d089fc-43a3-43ff-a3c2-707b0f2fcaf9": {
+        [Language.English]: `Abha Rawat , Lucknow, UP`,
+        [Language.Hindi]: `?????`,
+    },
+    "06ebf062-5f30-493d-b9d1-66a76e1f01a3": {
+        [Language.English]: `10 KW, Solar PV Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "b9e3baef-45fa-4393-96da-3f9601c9294e": {
+        [Language.English]: `Anil Kapoor, Gwalior, MP`,
+        [Language.Hindi]: `?????`,
+    },
+    "c1a8f49a-ea90-4afc-8d58-dcd44d636095": {
+        [Language.English]: `20 KW, Solar PV Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "85586cdb-f74e-45bf-8a62-760b2ceebd27": {
+        [Language.English]: `Mumukshu Bhawan, Varanasi, UP`,
+        [Language.Hindi]: `?????`,
+    },
+    "2983a6e2-3c39-4c79-bc38-68eeeb9179e8": {
+        [Language.English]: `50 KW, Solar PV Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "5fb6dae9-e71a-4bcd-930d-f011e443edf9": {
+        [Language.English]: `Mewar University, Gaziabad, UP`,
+        [Language.Hindi]: `?????`,
+    },
+    "a11142cf-bb40-464e-8c8f-98b61b7490ba": {
+        [Language.English]: `20 KW, Solar PV Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "dde60104-112a-4410-ac02-8a8cad238964": {
+        [Language.English]: `Unnao Development Authority, Unnao, UP`,
+        [Language.Hindi]: `?????`,
+    },
+    "ef03ae52-e01e-43ce-9d96-361aa4076400": {
+        [Language.English]: `7.5 KW, Solar PV Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "329095b3-25a6-469f-a8bb-4cf67670f963": {
+        [Language.English]: `GAIL, Haryana`,
+        [Language.Hindi]: `?????`,
+    },
+    "ca0ebdba-61a5-4385-9013-2b8b234dc798": {
+        [Language.English]: `How <span class="lg-text-highlighted">Livguard</span> Stands Apart`,
+        [Language.Hindi]: ` <span class="lg-text-highlighted">लिवगार्ड</span> कैसे अलग है`,
+    },
+    "9e8c1d8a-6814-443a-be82-9e59b278386d": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Success Stories</span>`,
+        [Language.Hindi]: `हमारी <span class="lg-text-highlighted">सफलता की कहानियाँ</span>`,
+    },
+    "a4807688-807d-40e8-a710-84364086a4ed": {
+        [Language.English]: `About <br/><span class="lg-text-highlighted">Livguard Solar</span>`,
+        [Language.Hindi]: `जानिए <br/><span class="lg-text-highlighted">लिवगार्ड सोलर</span>`,
+    },
+    "ecbb4510-50c9-41e4-89be-576378f00266": {
+        [Language.English]: `With a remarkable vision and foresight for the growing energy solutions industry, today the brand boasts of an incredible legacy of 30 years. Powered by passion and fuelled by innovation, Livguard has established itself as a strong player in the energy solution space in India. With our offerings in automotive batteries, Inverters and Inverter Batteries, Stabilizers, Solar Solutions, we are bringing in a new dimension of smart energy products.`,
+        [Language.Hindi]: `बढ़ती हुई ऊर्जा समाधान उद्योग के लिए अद्भुत दृष्टिकोण और दूरदृष्टिता के साथ, आज यह ब्रांड 30 साल की अद्भुत परंपरा का गर्व अनुभव कर रहा है। जुनून से संचालित और नवाचार से प्रेरित, लिवगार्ड ने अपने आप को भारत में ऊर्जा समाधान स्थल पर मजबूत खिलाड़ी के रूप में स्थापित किया है। हमारी ऑटोमोटिव बैटरी, इन्वर्टर और इन्वर्टर बैटरी, स्टेबिलाइज़र, सोलर समाधान में प्रस्तावित सेवाओं के साथ, हम स्मार्ट ऊर्जा उत्पादों की एक नई परिभाषा लाए जा रहे हैं।`,
+    },
+    "3a4ebae0-bd7e-4c9c-8cf1-9575437fa8a4": {
+        [Language.English]: `Join Expo`,
+        [Language.Hindi]: `?????`,
+    },
+    "0877ced7-a85d-4005-8c7c-4300c5ac19da": {
+        [Language.English]: `Solar Solution for Small Commercials`,
+        [Language.Hindi]: `छोटे व्यापारिक उद्देश्यों के लिए सोलर समाधान`,
+    },
+    "70e5d67b-ad2d-4ac8-96ad-3e384d7d299a": {
+        [Language.English]: `<span class="lg-text-highlighted">Key Highlights</span> Of The REI EXPO 2023 with Livguard`,
+        [Language.Hindi]: `REI एक्स्पो 2023 की <span class="lg-text-highlighted">मुख्य बातें</span> लिवगार्ड के साथ`,
+    },
+    "78a4d9e3-73bb-4730-baeb-f919d8142cdc": {
+        [Language.English]: `Solar Solutions for Industries`,
+        [Language.Hindi]: `उद्योगों के लिए सोलर समाधान`,
+    },
+    "38028f16-3ded-4d92-8374-ed03005ba2d9": {
+        [Language.English]: `Residential Solar Solution`,
+        [Language.Hindi]: `घरेलू सोलर समाधान`,
+    },
+    "82986ede-25e4-4dfc-b17e-08b4bf792ab7": {
+        [Language.English]: `Energy Storage System (ESS)`,
+        [Language.Hindi]: `ऊर्जा संग्रहण प्रणाली (ईएसएस)।`,
+    },
+    "8f25eea9-7b97-42d2-8152-1ebf67c2e849": {
+        [Language.English]: `Service`,
+        [Language.Hindi]: `सेवा`,
+    },
+    "28b1f0d5-c206-45ad-9673-5b2d93e1e1b5": {
+        [Language.English]: `Gallery`,
+        [Language.Hindi]: `गैलरी`,
+    },
+    "d1a5c759-8829-414c-81f9-49983b2ec16e": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Products & Services</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "1e937877-23fb-4cef-9f70-aba46b1491f3": {
+        [Language.English]: `What <span class="lg-text-highlighted">Our Customers</span> Say About Us`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">हमारे ग्राहक</span> हमारे बारे में क्या कहते हैं`,
+    },
+    "ad74b4d0-ec97-493a-8f69-2c9025a84dc2": {
+        [Language.English]: "Phone Number",
+        [Language.Hindi]: "मोबाइल नंबर",
+    },
+    "10b102a7-4be9-4832-9240-f747cf81a855": {
+        [Language.English]: "Please Enter Your Mobile Number",
+        [Language.Hindi]: "कृपया अपना मोबाइल नंबर डालें",
+    },
+    "6801bb72-ee1d-42ae-8f4a-a08848f267fa": {
+        [Language.English]: "Name",
+        [Language.Hindi]: "नाम",
+    },
+    "7ce2eaa7-4d46-4f80-80d2-b91b81085a49": {
+        [Language.English]: "Please Enter Your Name",
+        [Language.Hindi]: "कृपया अपना नाम डालें",
+    },
+    "e7117c35-13c8-4282-98d3-f5c955238da8": {
+        [Language.English]: "Email",
+        [Language.Hindi]: "ई-मेल",
+    },
+    "29ca1701-2fb9-49ec-a4d6-3af793c194b1": {
+        [Language.English]: "Please Enter Your Email",
+        [Language.Hindi]: "कृपया अपनी ई-मेल डालें",
+    },
+    "4af1d7d6-25cb-4bfe-b3f3-efc6fbf991e1": {
+        [Language.English]: "Organisation",
+        [Language.Hindi]: "संगठन",
+    },
+    "2f91bf98-978c-4534-864b-b49790ab4b6f": {
+        [Language.English]: "Please Enter Your Mobile Organisation",
+        [Language.Hindi]: "कृपया अपना संगठन डालें",
+    },
+    "1daf5d8c-9c04-4345-a0f2-7ee5b05b629e": {
+        [Language.English]: "Indian Expo Centre, Greater Noida",
+        [Language.Hindi]: "??????",
+    },
+    "b6d8dfb6-5b39-4a18-9329-14b7b5599c67": {
+        [Language.English]: `Find us at <span class="lgs-text-gradient" style="font-family: stencil">Renewable Energy Expo</span> 2023`,
+        [Language.Hindi]: `हमें 2023 <span class="lgs-text-gradient" style="font-family: stencil">REI एक्स्पो</span> में देखें`,
+    },
+    "247863ed-0f07-4278-89f8-485c1a1d4f00": {
+        [Language.English]: "We are Exhibiting at REI expo this year with our advanced products, cutting edge technology, and expert support at every step of you.",
+        [Language.Hindi]: "हम इस साल अपने उन्नत उत्पादों, आधुनिक प्रौद्योगिकी और हर कदम पर विशेषज्ञ समर्थन के साथ REI एक्स्पो में प्रदर्शन कर रहे हैं।",
+    },
+    "9bda580e-5bbd-4c5f-9354-1ac2b4f93913": {
+        [Language.English]: "October 2023",
+        [Language.Hindi]: "अक्टूबर 2023",
+    },
+    "fb5dcae7-729f-44ac-9877-e57eb921e71c": {
+        [Language.English]: "4th to 6th",
+        [Language.Hindi]: "4 से 6 ",
+    },
+    "afd8d1a0-c28e-424d-8d0f-01d30e0017e8": {
+        [Language.English]: "Stand no.",
+        [Language.Hindi]: "स्टाल संख्या",
+    },
+    "86815d1a-3e79-4965-9417-bfc3705cbcde": {
+        [Language.English]: "10.166",
+        [Language.Hindi]: "10.166",
+    },
+    "578a2977-c953-42a1-9866-4a9cc7d79202": {
+        [Language.English]: "Find us at REI",
+        [Language.Hindi]: "हमें REI में खोजें",
+    },
+    "0e9460fa-70dc-46e6-a7e9-eb390658befe": {
+        [Language.English]: `<span class="lg-text-highlighted">Reach Out</span> For Any Query`,
+        [Language.Hindi]: `किसी प्रश्न के लिए <span class="lg-text-highlighted">हमसे संपर्क करें</span>`,
+    },
+    "f9a8c47e-852e-42c5-9942-9991eb7773e8": {
+        [Language.English]: `Contact us`,
+        [Language.Hindi]: "हमसे जुड़िए",
+    },
+    "f6b3804e-752e-46bd-aef0-c5421a9110f7": {
+        [Language.English]: `Submit`,
+        [Language.Hindi]: `सबमिट करें`,
+    },
+    "64794c5f-21b8-49a8-9ad8-4bd9ed02c221": {
+        [Language.English]: `Solar Street Lights`,
+        [Language.Hindi]: `?????`,
+    },
+    "036fe73d-7d0c-4221-ae1d-3101139338c6": {
+        [Language.English]: `Solar Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "fe5908ec-3337-4b25-814d-1324313fa03d": {
+        [Language.English]: `Off-Grid Inverters`,
+        [Language.Hindi]: `?????`,
+    },
+    "03ccdaa3-1eaf-4ffa-8851-aab6ab979092": {
+        [Language.English]: `SOLCULATOR®`,
+        [Language.Hindi]: "?????",
+    },
+    "feb2e012-474a-4ad1-a166-335db53d222f": {
+        [Language.English]: `Charge Controller/SMU`,
+        [Language.Hindi]: `?????`,
+    },
+    "9cafbfcc-4dc4-4a85-a168-bebb2bebcb84": {
+        [Language.English]: `Hybrid Inverters`,
+        [Language.Hindi]: `?????`,
+    },
+    "3cb60479-da6d-462c-879c-5a1b510630a4": {
+        [Language.English]: `GMB Dealer Locator`,
+        [Language.Hindi]: `GMB डीलर ढूंढें`,
+    },
+    "a92d2d4c-be7d-4b41-8f8f-32ad2e427a3a": {
+        [Language.English]: `Till then, shower some love on our Social <b>Handles</b>`,
+        [Language.Hindi]: "तब तक, हमारे सोशल हैंडल पर थोड़ा प्यार बरसाएँ",
+    },
+    "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541": {
+        [Language.English]: `<span class="lg-text-highlighted">Social Media</span> Feed`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">सोशल मीडिया</span> फीड`,
+    },
+    "a96ea06b-50d5-4cc6-be0c-abfc5d8dac0d": {
+        [Language.English]: `Facebook`,
+        [Language.Hindi]: "?????",
+    },
+    "a6fcf6d7-0527-4ada-8c13-203a0986437a": {
+        [Language.English]: `Instagram`,
+        [Language.Hindi]: "?????",
+    },
+    "64f7cb15-0cf3-4ee1-876c-250408c8dcc6": {
+        [Language.English]: `X (formerly Twitter)`,
+        [Language.Hindi]: "?????",
+    },
+    "f3e7ee9a-6310-49fd-b839-2d9908ff104a": {
+        [Language.English]: `AG`,
+        [Language.Hindi]: `????`,
+    },
+    "2032253c-afd1-41e5-9b25-516daa8b8d18": {
+        [Language.English]: `Gujarat`,
+        [Language.Hindi]: `????`,
+    },
+    "dc3676da-4762-4731-ba15-6fae0a60dfd8": {
+        [Language.English]: `Happy Customer AG Joins Livguard's 2 Cr+ Family!`,
+        [Language.Hindi]: `????`,
+    },
+    "c74c645b-7c6b-47c8-8ddc-a7f9c6bc5f94": {
+        [Language.English]: `Mrunal Maya Mohanty`,
+        [Language.Hindi]: `????`,
+    },
+    "1b042682-79c2-4f08-8155-2f7668844609": {
+        [Language.English]: `Telangana`,
+        [Language.Hindi]: `????`,
+    },
+    "d9619759-9a53-470a-a956-fb6d51f18951": {
+        [Language.English]: `Happy Customer Review: Mrunal Joins Livguard Family!`,
+        [Language.Hindi]: `????`,
+    },
+    "3eb9cad0-bbd1-4dad-967f-1073a6adaf2e": {
+        [Language.English]: `Rohit Singh`,
+        [Language.Hindi]: `????`,
+    },
+    "f66aed4d-418d-4d55-8ab0-6548030e3af6": {
+        [Language.English]: `Rohit Singh's 2-Year Livguard Inverter & Battery Experience | Join Our Satisfied Livguard Family!`,
+        [Language.Hindi]: `????`,
+    },
+    "986605b0-30a0-433b-ac6a-10e8deba3063": {
+        [Language.English]: `Delhi`,
+        [Language.Hindi]: `????`,
+    },
+    "676de8c8-861f-48d7-9111-5fc01c2aae76": {
+        [Language.English]: `Touseef Ahmad`,
+        [Language.Hindi]: `????`,
+    },
+    "f21fbe4a-86f4-4ab8-a0fb-37ae42578b29": {
+        [Language.English]: `From Installation to Savings: Touseef Ahmed's Livguard Solar Journey`,
+        [Language.Hindi]: `????`,
+    },
+    "df0d4329-4cb4-4a4b-a23c-84ad9c7ed2dd": {
+        [Language.English]: `Uttar Pradesh`,
+        [Language.Hindi]: `????`,
+    },
+    "92471019-483f-4429-8234-42df112baa9c": {
+        [Language.English]: `Shravan Pathak`,
+        [Language.Hindi]: `????`,
+    },
+    "607cc572-1388-4e27-9c1b-80f38e7a2173": {
+        [Language.English]: `Madhya Pradesh`,
+        [Language.Hindi]: `????`,
+    },
+    "41d5f089-f510-4e71-934d-7ccddcb97aef": {
+        [Language.English]: `Livguard Customer Spotlight: Shravan's Year of Reliability`,
+        [Language.Hindi]: `????`,
+    },
+    "ecc2a101-772c-4fcb-a2c3-586d13f19ed2": {
+        [Language.English]: `Smita Singh`,
+        [Language.Hindi]: `????`,
+    },
+    "ce6c76b0-217b-45f7-a388-8aba61437ae0": {
+        [Language.English]: `Livguard On Grid Solar | 10KW On Grid Solar System | Solar Panels For Home | On Grid Solar System`,
+        [Language.Hindi]: `????`,
+    },
+    "e6fc8d59-9517-4499-bfc5-857986597848": {
+        [Language.English]: `Touseef Ahmed`,
+        [Language.Hindi]: `????`,
+    },
+    "1614092f-20cb-4aa8-8286-32b713e295cb": {
+        [Language.English]: `From Installation to Savings: Touseef Ahmed's Livguard Solar Journey`,
+        [Language.Hindi]: `????`,
+    },
+    "4f13dc23-7b2e-40ff-91ce-301cd8d82096": {
+        [Language.English]: `Anil`,
+        [Language.Hindi]: `????`,
+    },
+    "4a14b5c9-567e-4e8a-a677-395e94e53300": {
+        [Language.English]: `Uninterrupted Power with Livguard: Lighting Up Lives Across India!`,
+        [Language.Hindi]: `????`,
+    },
+    "2a4ae964-e66a-4d30-a63a-31409941b4c8": {
+        [Language.English]: `Ashique`,
+        [Language.Hindi]: `????`,
+    },
+    "8a4d79a9-cafb-4d8b-8728-93635a6f77fd": {
+        [Language.English]: `Customer Spotlight: Ashique MK's Thriving Solar Journey with Livguard!`,
+        [Language.Hindi]: `????`,
+    },
+    "643c1563-8e87-419b-bab3-b5aba48a287f": {
+        [Language.English]: `Deepak Kumar`,
+        [Language.Hindi]: `????`,
+    },
+    "6224275a-5742-404b-9a36-ade2c73fa3f6": {
+        [Language.English]: `From Issue to Solution: Deepak Kumar's Livguard Battery Testimonial!`,
+        [Language.Hindi]: `????`,
+    },
+    "b19e5cee-bb1f-43c3-800c-2111e3daa16b": {
+        [Language.English]: `Kalu Fouzdar`,
+        [Language.Hindi]: `????`,
+    },
+    "5663c56f-07d1-4b58-9321-5e0cbc26eee2": {
+        [Language.English]: `Kalu Fouzdar Shares His Exceptional Experience with Livguard!`,
+        [Language.Hindi]: `????`,
+    },
+    "77291687-8e86-4a62-9f58-b1b85ea18cea": {
+        [Language.English]: `Khempal Singh`,
+        [Language.Hindi]: `????`,
+    },
+    "0fc85540-fa81-4814-86b3-1e1b6b7d5b84": {
+        [Language.English]: `Empowering Lives: Khempal Singh Livguard Testimonial!`,
+        [Language.Hindi]: `????`,
+    },
+    "f80e57d8-a4bc-4a77-b4b7-2933b54a4d59": {
+        [Language.English]: `Nagender Choudhury`,
+        [Language.Hindi]: `????`,
+    },
+    "f6a385b5-b45e-4350-9d0b-2b309e8f6c03": {
+        [Language.English]: `Where Quality Meets Satisfaction: Nagender Chowdhry Testimonial`,
+        [Language.Hindi]: `????`,
+    },
+    "4b1b2126-7ed2-4a31-98d8-74158e31022f": {
+        [Language.English]: `Combos`,
+        [Language.Hindi]: `कॉम्बो`,
+    },
+    "7e54165c-1ab3-4284-8a68-7db0515f1c66": {
+        [Language.English]: `Inverter and Battery Combo`,
+        [Language.Hindi]: `इनवर्टर और बैटरी कॉम्बो`,
+    },
+    "af709c5d-4066-419b-b775-17a43a234c9f": {
+        [Language.English]: `Events`,
+        [Language.Hindi]: `आयोजन`,
+    },
+    "72516e54-5c6d-4723-a2b9-06ed6d3ae2c3": {
+        [Language.English]: `REI`,
+        [Language.Hindi]: `?????`,
+    },
+    "4bcb03e4-9c03-4cf1-8fd3-605340796364": {
+        [Language.English]: `Book Appointment`,
+        [Language.Hindi]: `अपॉइंटमेंट बुक करें`,
+    },
+    "97b49871-9e97-48b9-af09-e2b931a8e071": {
+        [Language.English]: `Tools`,
+        [Language.Hindi]: `उपकरण`,
+    },
+    "6055a64a-ea5b-4d3d-b74d-bd999d984e2d": {
+        [Language.English]: `+91-124-4987 400`,
+        [Language.Hindi]: `+91-124-4987 400`,
+    },
+    "3e0fdf22-5ffc-4168-b4a6-3bf6e47e197d": {
+        [Language.English]: `CIN: U51909HR2014FTC091348`,
+        [Language.Hindi]: `CIN: U51909HR2014FTC091348`,
+    },
+    "ead3f26e-89df-44b3-8237-774b924f13eb": {
+        [Language.English]: `Accessories`,
+        [Language.Hindi]: `?????`,
+    },
+    "6074c564-2033-43e5-8d9f-02d5c9052ca4": {
+        [Language.English]: `Registered Office`,
+        [Language.Hindi]: `?????`,
+    },
+    "c1e1b2f0-d75f-409c-b0f3-cbc9c2adeb00": {
+        [Language.English]: `LIVGUARD ENERGY TECHNOLOGIES PRIVATE LIMITED`,
+        [Language.Hindi]: `?????`,
+    },
+    "3aa92d4a-6977-4381-82ab-240477064ea6": {
+        [Language.English]: `Pankaj Kumar Verma`,
+        [Language.Hindi]: `?????`,
+    },
+    "3ae30ba6-92d9-4b8f-b347-f77aa5b28db1": {
+        [Language.English]: `Shravan Pathak`,
+        [Language.Hindi]: `?????`,
+    },
+    "84aa7183-9c17-47fb-b528-6c9e159e1ae3": {
+        [Language.English]: `Rohit Singh`,
+        [Language.Hindi]: `?????`,
+    },
+    "b7f38972-802c-4910-afd9-f174c62b7859": {
+        [Language.English]: `Sudhanshu`,
+        [Language.Hindi]: `?????`,
+    },
+    "03954a87-ce9d-4852-92d0-97aa7fa0379f": {
+        [Language.English]: `REI 2022`,
+        [Language.Hindi]: `?????`,
+    },
+    "0057d3d3-9147-4975-b299-fefc8a50f91a": {
+        [Language.English]: `REI 2023`,
+        [Language.Hindi]: `?????`,
+    },
+    "f3abeab1-a2c7-46c1-8111-72c3145fd5c7": {
+        [Language.English]: `Find Wattson`,
+        [Language.Hindi]: `?????`,
+    },
+    "5614a9cb-7935-49de-a887-d129b9bd27a4": {
+        [Language.English]: `Terms & Conditions  - Social Media`,
+        [Language.Hindi]: `?????`,
+    },
+    "eb76fa52-9cc6-4ce5-b570-2bbd8f606dac": {
+        [Language.English]: `Find him`,
+        [Language.Hindi]: `?????`,
     },
 };

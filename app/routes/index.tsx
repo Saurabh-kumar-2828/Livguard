@@ -1,6 +1,6 @@
 import {ChevronDoubleDownIcon, ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
-import {Link, useFetcher} from "@remix-run/react";
+import {Link, useFetcher, useNavigate} from "@remix-run/react";
 import useEmblaCarousel from "embla-carousel-react";
 import React, {useContext, useEffect, useReducer, useRef, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
@@ -51,6 +51,7 @@ import type {UserPreferences} from "~/typeDefinitions";
 import {FormType, Language, Theme} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+import {SocialMediaFeeds} from "./events/renewable-energy-india-expo";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -294,6 +295,7 @@ function HomePage({
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [dialogType, setDialogType] = useState<DialogType | null>(null);
     const [currentThiefLocation, setCurrentThiefLocation] = useState<number | null>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const treasureHuntStep = localStorage.getItem("treasureHuntStep");
@@ -373,7 +375,7 @@ function HomePage({
 
             <MiniPowerPlannerTeaserContainer
                 userPreferences={userPreferences}
-                className="tw-row-start-4 lg:tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-2 lg:tw-self-end lg:tw-pl-[40px] xl:tw-pl-[120px] tw-h-full"
+                className="tw-row-start-4 lg:tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-3 lg:tw-self-end lg:tw-pl-[40px] xl:tw-pl-[120px] tw-h-full"
                 currentThiefLocation={currentThiefLocation}
                 setCurrentThiefLocation={setCurrentThiefLocation}
                 setDialogType={setDialogType}
@@ -383,45 +385,52 @@ function HomePage({
             <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
-                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-6 lg:tw-col-start-3 lg:tw-col-span-2 lg:tw-self-end lg:tw-h-full"
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-6 lg:tw-col-start-4 lg:tw-col-span-3 lg:tw-self-end lg:tw-h-full lg:tw-pr-[72px] xl:tw-pr-[120px]"
                 currentThiefLocation={currentThiefLocation}
                 setCurrentThiefLocation={setCurrentThiefLocation}
                 setDialogType={setDialogType}
                 setIsDialogOpen={setIsDialogOpen}
             />
 
-            <ShowerSomeLoveOnSocialHandles
+            {/* <ShowerSomeLoveOnSocialHandles
                 userPreferences={userPreferences}
                 heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
                 className="tw-row-start-6 lg:tw-row-start-6 lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end lg:tw-pr-[40px] xl:tw-pr-[120px] lg:tw-h-full"
-            />
+            /> */}
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-7 tw-col-span-full" />
 
-            <TransformingLives
+            <SocialMediaFeeds
                 userPreferences={userPreferences}
-                className="tw-row-start-7 lg:tw-row-start-8 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-8 tw-col-span-full"
             />
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-9 tw-col-span-full" />
 
-            <FaqSection
+            <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-8 lg:tw-row-start-10 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-10 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-11 tw-col-span-full" />
 
-            <InTheNewsSection
+            <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-12 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-12 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-13 tw-col-span-full" />
 
+            <InTheNewsSection
+                userPreferences={userPreferences}
+                className="tw-row-start-14 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
+
+            <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-15 tw-col-span-full" />
+
             <PowerfulPurposePowerfulImpact
                 userPreferences={userPreferences}
-                className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-14 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-16 tw-col-start-1 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             {cookiesAccepted == null ? null : (
@@ -456,6 +465,7 @@ function HomePage({
                             buttonClickFunction={() => {
                                 setIsDialogOpen(false);
                                 localStorage.setItem("treasureHuntStep", "3");
+                                navigate("/load-calculator");
                             }}
                         />
                     )}
@@ -603,7 +613,7 @@ function HeroSection({
                                 <DefaultElementAnimation
                                     className={concatenateNonNullStringsWithSpaces(
                                         "tw-row-start-6 tw-col-start-1 tw-z-10 ",
-                                        itemIndex == 1 ? "tw-relative max-lg:tw-top-[3rem] lg:max-xl:tw-top-2" : "",
+                                        itemIndex == 1 ? "tw-relative max-lg:tw-top-[3rem] lg:max-xl:tw-top-2 max-sm:tw-top-0" : "",
                                     )}
                                 >
                                     <ContactUsCta
@@ -619,7 +629,7 @@ function HeroSection({
                             {item.buttonLink != null && (
                                 <DefaultElementAnimation className={concatenateNonNullStringsWithSpaces("tw-row-start-6 tw-col-start-1 tw-z-10")}>
                                     <Link
-                                        className="lg-cta-button tw-z-10 tw-grid tw-place-items-center lg:tw-top-6 tw-top-20 md:tw-top-24 xl:tw-top-0 tw-relative tw-w-full"
+                                        className="lg-cta-button tw-z-10 tw-grid tw-place-items-center lg:tw-top-6 tw-top-20 max-sm:tw-top-14 md:tw-top-24 xl:tw-top-0 tw-relative tw-w-full"
                                         to={item.buttonLink}
                                     >
                                         {getVernacularString(item.contactButtonVernacId, userPreferences.language)}
@@ -1096,7 +1106,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                     {
                         video: (
                             <EmbeddedYoutubeVideo
-                                id="rVC-ncTBhls"
+                                id="c1Y5SuVDPi0"
                                 style={{aspectRatio: "560/315"}}
                                 className="tw-rounded-lg"
                             />
@@ -1106,12 +1116,12 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         state: `${getVernacularString("review1State", userPreferences.language)}`,
                         message: `${getVernacularString("review1Message", userPreferences.language)}`,
                         productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
-                        productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
+                        // productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
                     },
                     {
                         video: (
                             <EmbeddedYoutubeVideo
-                                id="pNMTMVDWtiU"
+                                id="pNHmKwg073g"
                                 style={{aspectRatio: "560/315"}}
                                 className="tw-rounded-lg"
                             />
@@ -1121,69 +1131,37 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         state: `${getVernacularString("review2State", userPreferences.language)}`,
                         message: `${getVernacularString("review2Message", userPreferences.language)}`,
                         productImage: "/livguard/products/urban-combo/thumbnail.png",
-                        productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
-                    },
-                    {
-                        name: `${getVernacularString("review3Name", userPreferences.language)}`,
-                        rating: 5,
-                        state: `${getVernacularString("review3State", userPreferences.language)}`,
-                        message: `${getVernacularString("review3Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/lgs1100i/thumbnail.png",
-                        productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
-                    },
-                    {
-                        name: `${getVernacularString("review4Name", userPreferences.language)}`,
-                        rating: 4,
-                        state: `${getVernacularString("review4State", userPreferences.language)}`,
-                        message: `${getVernacularString("review4Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/urban-combo/thumbnail.png",
-                        productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
+                        // productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
                     },
                     {
                         video: (
                             <EmbeddedYoutubeVideo
-                                id="rVC-ncTBhls"
+                                id="RbRSzFRHkzo"
                                 style={{aspectRatio: "560/315"}}
                                 className="tw-rounded-lg"
                             />
                         ),
-                        name: `${getVernacularString("review1Name", userPreferences.language)}`,
+                        name: `${getVernacularString("review3Name", userPreferences.language)}`,
                         rating: 5,
-                        state: `${getVernacularString("review1State", userPreferences.language)}`,
-                        message: `${getVernacularString("review1Message", userPreferences.language)}`,
+                        state: `${getVernacularString("review3State", userPreferences.language)}`,
+                        message: `${getVernacularString("review3Message", userPreferences.language)}`,
                         productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
-                        productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
+                        // productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
                     },
                     {
                         video: (
                             <EmbeddedYoutubeVideo
-                                id="pNMTMVDWtiU"
+                                id="Oaj6OiYSlYQ"
                                 style={{aspectRatio: "560/315"}}
                                 className="tw-rounded-lg"
                             />
                         ),
-                        name: `${getVernacularString("review2Name", userPreferences.language)}`,
-                        rating: 5,
-                        state: `${getVernacularString("review2State", userPreferences.language)}`,
-                        message: `${getVernacularString("review2Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/urban-combo/thumbnail.png",
-                        productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
-                    },
-                    {
-                        name: `${getVernacularString("review3Name", userPreferences.language)}`,
-                        rating: 5,
-                        state: `${getVernacularString("review3State", userPreferences.language)}`,
-                        message: `${getVernacularString("review3Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/lgs1100i/thumbnail.png",
-                        productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
-                    },
-                    {
                         name: `${getVernacularString("review4Name", userPreferences.language)}`,
-                        rating: 4,
+                        rating: 5,
                         state: `${getVernacularString("review4State", userPreferences.language)}`,
                         message: `${getVernacularString("review4Message", userPreferences.language)}`,
                         productImage: "/livguard/products/urban-combo/thumbnail.png",
-                        productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
+                        // productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
                     },
                     {
                         video: (

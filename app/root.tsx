@@ -18,6 +18,7 @@ import tailwindStylesheet from "~/tailwind.css";
 import type {UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
 import {Language, Theme} from "~/typeDefinitions";
 import {useExternalScript} from "~/hooks/useExternalScript";
+import useIsScreenSizeBelow from "./hooks/useIsScreenSizeBelow";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -114,7 +115,9 @@ export default function Root() {
         });
     }, []);
 
-    useExternalScript("https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js", {removeOnUnmount: true, appendInHead: true, timeoutDuration: 5000}, "true", () => {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
+    useExternalScript("https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js", {removeOnUnmount: true, appendInHead: true, timeoutDuration: 5000}, isScreenSizeBelow? "false" : "true", () => {
         document.addEventListener("haptik_sdk", () => setHaptikLanguage(userPreferences.language));
     });
     useExternalScript(
@@ -307,14 +310,17 @@ export default function Root() {
                                 @media (max-width: 640px) {
                                     iframe#haptik-xdk-main-view {
                                         bottom: 115px !important;
+                                        display: none;
                                     }
 
                                     iframe.xdk-iframe {
                                         bottom: 75px !important;
+                                        display: none;
                                     }
 
                                     iframe#haptik-xdk {
                                         bottom: 135px !important;
+                                        display: none;
                                     }
                                 }
                             `,

@@ -33,7 +33,7 @@ export function SecondClueDialogComponent({userPreferences, buttonClickFunction}
 
                 <VerticalSpacer className="tw-h-2" />
 
-                <div className="lg-text-body">{getVernacularString("23992b81-60ed-4164-9e5c-91dcc6752f39", userPreferences.language)}</div>
+                <div dangerouslySetInnerHTML={{__html: getVernacularString("23992b81-60ed-4164-9e5c-91dcc6752f39", userPreferences.language)}} className="lg-text-body"/>
 
                 <VerticalSpacer className="tw-h-4" />
 
@@ -44,7 +44,7 @@ export function SecondClueDialogComponent({userPreferences, buttonClickFunction}
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="lg-text-body">{getVernacularString("7ec1488f-530c-40b6-a86b-dc2ea8840310", userPreferences.language)}</div>
+                <div dangerouslySetInnerHTML={{__html: getVernacularString("7ec1488f-530c-40b6-a86b-dc2ea8840310", userPreferences.language)}} className="lg-text-body"/>
 
                 <VerticalSpacer className="tw-h-4" />
 

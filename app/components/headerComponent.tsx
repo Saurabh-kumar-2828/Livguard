@@ -803,8 +803,7 @@ const headerMenuItems: Array<HeaderItem> = [
                         to: "/inverter-batteries?id=2",
                     },
                 ],
-                desktopClassName:
-                    "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-content-start tw-pl-5 tw-pr-5 tw-pt-0 tw-pb-10 dark:tw-bg-new-background-border-500-dark",
+                desktopClassName: "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-content-start tw-pl-5 tw-pr-5 tw-pt-0 tw-pb-10 dark:tw-bg-new-background-border-500-dark",
                 col: 1,
             },
             // {
@@ -820,22 +819,6 @@ const headerMenuItems: Array<HeaderItem> = [
             //     col: 1,
             // },
             {
-                contentId: "ba80271b-d0ce-4762-b82c-96c984f3d55c",
-                children: [
-                    {
-                        contentId: "0e58360b-6e83-47da-a0c5-afca55819e50",
-                        to: "/load-calculator",
-                    },
-                    {
-                        contentId: "e31c0b34-e22a-4cf2-a890-15a7356188d1",
-                        to: "/inverter-trolley",
-                    },
-                ],
-                desktopClassName:
-                    "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-content-start tw-pl-5 tw-pr-5 tw-pt-4 tw-pb-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
-                col: 2,
-            },
-            {
                 contentId: "4b1b2126-7ed2-4a31-98d8-74158e31022f",
                 children: [
                     {
@@ -843,8 +826,33 @@ const headerMenuItems: Array<HeaderItem> = [
                         to: "/inverter-battery-combo",
                     },
                 ],
-                desktopClassName:
-                    "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-h-full tw-content-start tw-pl-5 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                desktopClassName: "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-content-start tw-pl-5 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                col: 2,
+            },
+            {
+                contentId: "ead3f26e-89df-44b3-8237-774b924f13eb",
+                children: [
+                    // {
+                    //     contentId: "0e58360b-6e83-47da-a0c5-afca55819e50",
+                    //     to: "/load-calculator",
+                    // },
+                    {
+                        contentId: "e31c0b34-e22a-4cf2-a890-15a7356188d1",
+                        to: "/inverter-trolley",
+                    },
+                ],
+                desktopClassName: "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-content-start tw-pl-5 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                col: 2,
+            },
+            {
+                contentId: "97b49871-9e97-48b9-af09-e2b931a8e071",
+                children: [
+                    {
+                        contentId: "0e58360b-6e83-47da-a0c5-afca55819e50",
+                        to: "/load-calculator",
+                    },
+                ],
+                desktopClassName: "tw-row-start-3 tw-col-start-2 tw-row-span-2 tw-h-full tw-content-start tw-pl-5 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
                 col: 2,
             },
             // {
@@ -987,7 +995,7 @@ const headerMenuItems: Array<HeaderItem> = [
         contentId: "3a186513-50e2-4738-8d17-0f8691fa7b1c",
         children: [
             {
-                contentId: "d5cf31f9-8ae3-48e5-afae-067d2844400f",
+                contentId: "97b49871-9e97-48b9-af09-e2b931a8e071",
                 children: [
                     {
                         contentId: "9b76016a-c05d-4687-899f-aa6157ebc51c",
@@ -1149,24 +1157,35 @@ const headerMenuItems: Array<HeaderItem> = [
                         contentId: "8c1d602c-9b8c-42db-a63f-da5e63490357",
                         to: "/e-rickshaw-batteries",
                     },
-                    {
-                        contentId: "7d99e64e-9019-4cb3-9331-c5232bf040df",
-                        to: "/battery-finder",
-                    },
+                    // {
+                    //     contentId: "7d99e64e-9019-4cb3-9331-c5232bf040df",
+                    //     to: "/battery-finder",
+                    // },
                 ],
                 desktopClassName: "tw-row-start-1 tw-col-start-1 tw-row-span-3 tw-h-full tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-10 dark:tw-bg-new-background-border-500-dark",
                 col: 1,
             },
             {
-                contentId: "ba80271b-d0ce-4762-b82c-96c984f3d55c",
+                contentId: "ead3f26e-89df-44b3-8237-774b924f13eb",
                 children: [
                     {
                         contentId: "dc3dacb5-baa4-4fa3-8d27-a4b87fcd0158",
                         to: "/e-rickshaw-charger",
                     },
                 ],
+                desktopClassName: "tw-row-start-1 tw-col-start-2 tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                col: 2,
+            },
+            {
+                contentId: "97b49871-9e97-48b9-af09-e2b931a8e071",
+                children: [
+                    {
+                        contentId: "7d99e64e-9019-4cb3-9331-c5232bf040df",
+                        to: "/battery-finder",
+                    },
+                ],
                 desktopClassName:
-                    "tw-row-start-1 tw-col-start-2 tw-row-[1/4] tw-h-full tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-10 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                    "tw-row-start-3 tw-col-start-1 tw-row-span-3 tw-content-start tw-h-full tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-6 tw-pb-10 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
                 col: 2,
             },
         ],
@@ -1295,8 +1314,7 @@ const headerMenuItems: Array<HeaderItem> = [
                         to: "/events/renewable-energy-india-expo",
                     },
                 ],
-                desktopClassName:
-                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-6 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-border-500-dark",
+                desktopClassName: "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-6 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-border-500-dark",
                 col: 1,
             },
         ],

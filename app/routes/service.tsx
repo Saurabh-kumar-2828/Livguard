@@ -1311,7 +1311,7 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                             state: `${getVernacularString("review1State", userPreferences.language)}`,
                             message: `${getVernacularString("review1Message", userPreferences.language)}`,
                             productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
-                            productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
+                            // productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
                         },
                         // {
                         //     video: (
@@ -1333,7 +1333,7 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                             state: `${getVernacularString("review3State", userPreferences.language)}`,
                             message: `${getVernacularString("review3Message", userPreferences.language)}`,
                             productImage: "/livguard/products/lgs1100i/thumbnail.png",
-                            productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
+                            // productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
                         },
                         {
                             name: `${getVernacularString("review4Name", userPreferences.language)}`,
@@ -1341,7 +1341,7 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                             state: `${getVernacularString("review4State", userPreferences.language)}`,
                             message: `${getVernacularString("review4Message", userPreferences.language)}`,
                             productImage: "/livguard/products/urban-combo/thumbnail.png",
-                            productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
+                            // productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
                         },
                     ]}
                 />

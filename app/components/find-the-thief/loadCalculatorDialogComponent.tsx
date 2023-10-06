@@ -136,9 +136,7 @@ function VictoryComponent({userPreferences, setStep, className}: {userPreference
                 className=" tw-place-self-center lg:tw-justify-self-start tw-text-center lg:tw-text-left tw-text-[1.5rem] md:tw-text-[2.125rem] tw-leading-[1.75rem] md:tw-leading-[2.5rem]"
                 dangerouslySetInnerHTML={{__html: getVernacularString("fb5b1b3a-a82c-4968-a9da-25b3cd9d62db", userPreferences.language)}}
             />
-            <div className="lg-text-body tw-place-self-center lg:tw-justify-self-start tw-text-center lg:tw-hidden">
-                {getVernacularString("f34a013d-dc49-425b-bc87-984766a35a2d", userPreferences.language)}
-            </div>
+            <div dangerouslySetInnerHTML={{__html: getVernacularString("f34a013d-dc49-425b-bc87-984766a35a2d", userPreferences.language)}} className="lg-text-body tw-place-self-center lg:tw-justify-self-start tw-text-center lg:tw-hidden"/>
 
             <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
             <div className="tw-w-2/3 tw-max-w-xs tw-h-full tw-px-4 tw-place-self-center tw-relative tw-z-10">
@@ -250,9 +248,7 @@ function FormSection({
                 className="lg:tw-hidden tw-place-self-center tw-text-center tw-text-[1.5rem] md:tw-text-[2.125rem] tw-leading-[1.75rem] md:tw-leading-[2.5rem]"
                 dangerouslySetInnerHTML={{__html: getVernacularString("fb5b1b3a-a82c-4968-a9da-25b3cd9d62db", userPreferences.language)}}
             />
-            <div className="lg-text-body tw-place-self-center lg:tw-justify-self-start tw-text-center lg:tw-text-left">
-                {getVernacularString("f34a013d-dc49-425b-bc87-984766a35a2d", userPreferences.language)}
-            </div>
+            <div dangerouslySetInnerHTML={{__html: getVernacularString("f34a013d-dc49-425b-bc87-984766a35a2d", userPreferences.language)}} className="lg-text-body tw-place-self-center lg:tw-justify-self-start tw-text-center lg:tw-text-left"/>
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -262,7 +258,7 @@ function FormSection({
                 action="/find-the-thief/lead-submission"
             >
                 <div className="tw-gap-2 tw-grid">
-                    <label htmlFor="name">{getVernacularString("79436419-5a42-4720-be85-19bc0b46c7bb", userPreferences.language)}</label>
+                    {/* <label htmlFor="name">{getVernacularString("79436419-5a42-4720-be85-19bc0b46c7bb", userPreferences.language)}</label> */}
                     <input
                         type="text"
                         name="name"
@@ -275,7 +271,7 @@ function FormSection({
                 </div>
 
                 <div className="tw-gap-2 tw-grid">
-                    <label htmlFor="email">{getVernacularString("fe032013-d1e7-45d7-9c0c-d289c5f80c52", userPreferences.language)}</label>
+                    {/* <label htmlFor="email">{getVernacularString("fe032013-d1e7-45d7-9c0c-d289c5f80c52", userPreferences.language)}</label> */}
                     <input
                         type="email"
                         name="email"
@@ -286,7 +282,8 @@ function FormSection({
                 </div>
                 <div className="tw-grid tw-grid-flow-row tw-gap-2">
                     {!showOtpField ? (
-                        <label>{getVernacularString("b24cf3a3-c834-487e-8ca3-5f78e02a267e", userPreferences.language)}</label>
+                        // <label>{getVernacularString("b24cf3a3-c834-487e-8ca3-5f78e02a267e", userPreferences.language)}</label>
+                        ""
                     ) : (
                         // <div className="lg-text-secondary-900">{getVernacularString("17cfa283-6fcc-4a49-9dfe-a392e0310b27", userPreferences.language)}</div>
                         <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
@@ -393,13 +390,13 @@ function FormSection({
                 </div>
 
                 <div className="tw-gap-2 tw-grid">
-                    <label htmlFor="couponCode">{getVernacularString("88d4bc6f-64ee-4910-8b1e-27ad5aea32c1", userPreferences.language)}</label>
+                    {/* <label htmlFor="couponCode">{getVernacularString("88d4bc6f-64ee-4910-8b1e-27ad5aea32c1", userPreferences.language)}</label> */}
                     <input
                         type="text"
-                        name="couponCode"
+                        name="userName"
                         required
                         readOnly
-                        defaultValue={couponCode}
+                        // defaultValue={couponCode}
                         className="lg-text-secondary-900 lg-text-input !tw-bg-transparent placeholder:tw-font-semibold placeholder:tw-text-secondary-700 dark:placeholder:tw-text-secondary-700-dark tw-w-full tw-rounded-full"
                         placeholder={getVernacularString("88d4bc6f-64ee-4910-8b1e-27ad5aea32c1", userPreferences.language)}
                     />
