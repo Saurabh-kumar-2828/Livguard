@@ -1,4 +1,4 @@
-import { Language } from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
 
 export function getVernacularString(textContentPiece: string, language: Language): string {
     if (!(textContentPiece in vernacularStrings)) {
@@ -8160,7 +8160,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "d27c24dd-40a2-4373-99b3-eb71ccfc2b98": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span>Disclosure and Retention of User Information</div>`,
-        [Language.Hindi]:  `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span>उपयोगकर्ता जानकारी का प्रकटीकरण और प्रतिधारण</div>`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span>उपयोगकर्ता जानकारी का प्रकटीकरण और प्रतिधारण</div>`,
     },
     "cd391409-5d57-498e-9257-9ab02d05a788": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>LIVGUARD considers the Information about its customers as an important part of its business. Accordingly, LIVGUARD shall not engage in sale of Information
@@ -9233,7 +9233,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "92511aa0-4496-4329-801a-e584523f43d3": {
         [Language.English]:
             "When you communicate with Livguard through WhatsApp, we may collect personal information provided by you, such as your name, phone number, and any other data you choose to share. We use this information solely for the purpose of responding to your inquiries, providing customer support, and delivering relevant information about our products and services.",
-        [Language.Hindi]: "जब आप व्हाट्सएप के माध्यम से लिवगार्ड के साथ संवाद करते हैं, तो हम आपके द्वारा प्रदान की गई व्यक्तिगत जानकारी, जैसे आपका नाम, फोन नंबर और आपके द्वारा साझा करने के लिए चुना गया कोई अन्य डेटा एकत्र कर सकते हैं। हम इस जानकारी का उपयोग केवल आपकी पूछताछ का जवाब देने, ग्राहक सहायता प्रदान करने और हमारे उत्पादों और सेवाओं के बारे में प्रासंगिक जानकारी देने के उद्देश्य से करते हैं।",
+        [Language.Hindi]:
+            "जब आप व्हाट्सएप के माध्यम से लिवगार्ड के साथ संवाद करते हैं, तो हम आपके द्वारा प्रदान की गई व्यक्तिगत जानकारी, जैसे आपका नाम, फोन नंबर और आपके द्वारा साझा करने के लिए चुना गया कोई अन्य डेटा एकत्र कर सकते हैं। हम इस जानकारी का उपयोग केवल आपकी पूछताछ का जवाब देने, ग्राहक सहायता प्रदान करने और हमारे उत्पादों और सेवाओं के बारे में प्रासंगिक जानकारी देने के उद्देश्य से करते हैं।",
     },
     "68324170-b75f-47cc-9aaa-a476e21b39d2": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>WhatsApp Data Retention</div>`,
@@ -9242,7 +9243,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "41a34384-a068-4c8d-b5c5-6445391e5cde": {
         [Language.English]:
             "Livguard retains your WhatsApp chat history to ensure continuous and efficient customer support. However, we do not use this information for any other purpose beyond what is stated in this Privacy Policy. Your chat data is securely stored on WhatsApp's servers and is subject to their respective privacy policies.",
-        [Language.Hindi]: "निरंतर और कुशल ग्राहक सहायता सुनिश्चित करने के लिए लिवगार्ड आपके व्हाट्सएप चैट इतिहास को बरकरार रखता है। हालाँकि, हम इस जानकारी का उपयोग इस गोपनीयता नीति में बताई गई बातों से परे किसी अन्य उद्देश्य के लिए नहीं करते हैं। आपका चैट डेटा व्हाट्सएप के सर्वर पर सुरक्षित रूप से संग्रहीत है और उनकी संबंधित गोपनीयता नीतियों के अधीन है।",
+        [Language.Hindi]:
+            "निरंतर और कुशल ग्राहक सहायता सुनिश्चित करने के लिए लिवगार्ड आपके व्हाट्सएप चैट इतिहास को बरकरार रखता है। हालाँकि, हम इस जानकारी का उपयोग इस गोपनीयता नीति में बताई गई बातों से परे किसी अन्य उद्देश्य के लिए नहीं करते हैं। आपका चैट डेटा व्हाट्सएप के सर्वर पर सुरक्षित रूप से संग्रहीत है और उनकी संबंधित गोपनीयता नीतियों के अधीन है।",
     },
     "94a1d750-46d5-44d6-a7bb-b3c618d5c3d3": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>Third-Party Services</div>`,
@@ -9251,7 +9253,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "f640f948-c51f-4108-9a2d-819ac11a4dc1": {
         [Language.English]:
             "Livguard uses WhatsApp as a third-party messaging service to interact with users. (Please note that while we are committed to protecting your privacy), You understand and are aware that WhatsApp has its own privacy practices, which are governed by their Terms of Service and Privacy Policy. We recommend reviewing WhatsApp's policies (hyperlink:https://www.whatsapp.com/privacy) to understand how they handle your data.",
-        [Language.Hindi]: "लिवगार्ड उपयोगकर्ताओं के साथ बातचीत करने के लिए व्हाट्सएप को तीसरे पक्ष की मैसेजिंग सेवा के रूप में उपयोग करता है। (कृपया ध्यान दें कि यद्यपि हम आपकी गोपनीयता की रक्षा करने के लिए प्रतिबद्ध हैं), आप समझते हैं और जानते हैं कि व्हाट्सएप की अपनी गोपनीयता प्रथाएं हैं, जो उनकी सेवा की शर्तों और गोपनीयता नीति द्वारा शासित होती हैं। हम यह समझने के लिए व्हाट्सएप की नीतियों (हाइपरलिंक:https://www.whatsapp.com/privacy) की समीक्षा करने की सलाह देते हैं कि वे आपके डेटा को कैसे संभालते हैं।",
+        [Language.Hindi]:
+            "लिवगार्ड उपयोगकर्ताओं के साथ बातचीत करने के लिए व्हाट्सएप को तीसरे पक्ष की मैसेजिंग सेवा के रूप में उपयोग करता है। (कृपया ध्यान दें कि यद्यपि हम आपकी गोपनीयता की रक्षा करने के लिए प्रतिबद्ध हैं), आप समझते हैं और जानते हैं कि व्हाट्सएप की अपनी गोपनीयता प्रथाएं हैं, जो उनकी सेवा की शर्तों और गोपनीयता नीति द्वारा शासित होती हैं। हम यह समझने के लिए व्हाट्सएप की नीतियों (हाइपरलिंक:https://www.whatsapp.com/privacy) की समीक्षा करने की सलाह देते हैं कि वे आपके डेटा को कैसे संभालते हैं।",
     },
 
     "f53f571a-74d1-4104-b9da-1820dbff78be": {
@@ -9261,7 +9264,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "91471559-ce87-4196-b5de-2187d80cccb2": {
         [Language.English]:
             "By initiating conversations with Livguard on WhatsApp, you consent to the collection and use of your personal information as outlined in this Privacy Policy. If you wish to stop receiving messages or have your data deleted from our WhatsApp records, you can opt out at any time.",
-        [Language.Hindi]: "व्हाट्सएप पर लिवगार्ड के साथ बातचीत शुरू करके, आप इस गोपनीयता नीति में उल्लिखित अपनी व्यक्तिगत जानकारी के संग्रह और उपयोग के लिए सहमति देते हैं। यदि आप संदेश प्राप्त करना बंद करना चाहते हैं या अपना डेटा हमारे व्हाट्सएप रिकॉर्ड से हटाना चाहते हैं, तो आप किसी भी समय ऑप्ट आउट कर सकते हैं।",
+        [Language.Hindi]:
+            "व्हाट्सएप पर लिवगार्ड के साथ बातचीत शुरू करके, आप इस गोपनीयता नीति में उल्लिखित अपनी व्यक्तिगत जानकारी के संग्रह और उपयोग के लिए सहमति देते हैं। यदि आप संदेश प्राप्त करना बंद करना चाहते हैं या अपना डेटा हमारे व्हाट्सएप रिकॉर्ड से हटाना चाहते हैं, तो आप किसी भी समय ऑप्ट आउट कर सकते हैं।",
     },
     "14bec3cc-b2cf-44f3-9443-835bd126bf0a": {
         [Language.English]: "By interacting with Livguard through WhatsApp, you acknowledge that you have read and understood this Privacy Policy and consent to the practices described herein",
@@ -11651,11 +11655,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `????`,
     },
     "f80e57d8-a4bc-4a77-b4b7-2933b54a4d59": {
-        [Language.English]: `Nagender Choudhury`,
+        [Language.English]: `Nagendra Choudhury`,
         [Language.Hindi]: `????`,
     },
     "f6a385b5-b45e-4350-9d0b-2b309e8f6c03": {
-        [Language.English]: `Where Quality Meets Satisfaction: Nagender Chowdhry Testimonial`,
+        [Language.English]: `Where Quality Meets Satisfaction: Nagendra Choudhury Testimonial`,
         [Language.Hindi]: `????`,
     },
     "4b1b2126-7ed2-4a31-98d8-74158e31022f": {

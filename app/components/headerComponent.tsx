@@ -185,7 +185,7 @@ function FirstBar({showContactDetails, userPreferences, redirectTo}: {showContac
                                         <li
                                             className={concatenateNonNullStringsWithSpaces(
                                                 "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
-                                                active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
+                                                active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-100",
                                             )}
                                         >
                                             <div>{themeToHumanFriendlyString(userPreferences, item)}</div>
@@ -466,7 +466,7 @@ function SecondBar({
                                         <li
                                             className={concatenateNonNullStringsWithSpaces(
                                                 "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
-                                                active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
+                                                active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-100",
                                             )}
                                         >
                                             <div>{themeToHumanFriendlyString(userPreferences, item)}</div>

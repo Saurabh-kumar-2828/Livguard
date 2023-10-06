@@ -1161,97 +1161,97 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         productImage: "/livguard/products/urban-combo/thumbnail.png",
                         // productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
                     },
-                    {
-                        video: (
-                            <EmbeddedYoutubeVideo
-                                id="rVC-ncTBhls"
-                                style={{aspectRatio: "560/315"}}
-                            />
-                        ),
-                        name: `${getVernacularString("review1Name", userPreferences.language)}`,
-                        rating: 5,
-                        state: `${getVernacularString("review1State", userPreferences.language)}`,
-                        message: `${getVernacularString("review1Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
-                        productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
-                    },
-                    {
-                        video: (
-                            <EmbeddedYoutubeVideo
-                                id="pNMTMVDWtiU"
-                                style={{aspectRatio: "560/315"}}
-                                className="tw-rounded-lg"
-                            />
-                        ),
-                        name: `${getVernacularString("review2Name", userPreferences.language)}`,
-                        rating: 5,
-                        state: `${getVernacularString("review2State", userPreferences.language)}`,
-                        message: `${getVernacularString("review2Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/urban-combo/thumbnail.png",
-                        productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
-                    },
-                    {
-                        name: `${getVernacularString("review3Name", userPreferences.language)}`,
-                        rating: 5,
-                        state: `${getVernacularString("review3State", userPreferences.language)}`,
-                        message: `${getVernacularString("review3Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/lgs1100i/thumbnail.png",
-                        productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
-                    },
-                    {
-                        name: `${getVernacularString("review4Name", userPreferences.language)}`,
-                        rating: 4,
-                        state: `${getVernacularString("review4State", userPreferences.language)}`,
-                        message: `${getVernacularString("review4Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/urban-combo/thumbnail.png",
-                        productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
-                    },
-                    {
-                        video: (
-                            <EmbeddedYoutubeVideo
-                                id="rVC-ncTBhls"
-                                style={{aspectRatio: "560/315"}}
-                                className="tw-rounded-lg"
-                            />
-                        ),
-                        name: `${getVernacularString("review1Name", userPreferences.language)}`,
-                        rating: 5,
-                        state: `${getVernacularString("review1State", userPreferences.language)}`,
-                        message: `${getVernacularString("review1Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
-                        productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
-                    },
-                    {
-                        video: (
-                            <EmbeddedYoutubeVideo
-                                id="pNMTMVDWtiU"
-                                style={{aspectRatio: "560/315"}}
-                                className="tw-rounded-lg"
-                            />
-                        ),
-                        name: `${getVernacularString("review2Name", userPreferences.language)}`,
-                        rating: 5,
-                        state: `${getVernacularString("review2State", userPreferences.language)}`,
-                        message: `${getVernacularString("review2Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/urban-combo/thumbnail.png",
-                        productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
-                    },
-                    {
-                        name: `${getVernacularString("review3Name", userPreferences.language)}`,
-                        rating: 5,
-                        state: `${getVernacularString("review3State", userPreferences.language)}`,
-                        message: `${getVernacularString("review3Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/lgs1100i/thumbnail.png",
-                        productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
-                    },
-                    {
-                        name: `${getVernacularString("review4Name", userPreferences.language)}`,
-                        rating: 4,
-                        state: `${getVernacularString("review4State", userPreferences.language)}`,
-                        message: `${getVernacularString("review4Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/urban-combo/thumbnail.png",
-                        productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
-                    },
+                    // {
+                    //     video: (
+                    //         <EmbeddedYoutubeVideo
+                    //             id="rVC-ncTBhls"
+                    //             style={{aspectRatio: "560/315"}}
+                    //         />
+                    //     ),
+                    //     name: `${getVernacularString("review1Name", userPreferences.language)}`,
+                    //     rating: 5,
+                    //     state: `${getVernacularString("review1State", userPreferences.language)}`,
+                    //     message: `${getVernacularString("review1Message", userPreferences.language)}`,
+                    //     productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
+                    //     productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
+                    // },
+                    // {
+                    //     video: (
+                    //         <EmbeddedYoutubeVideo
+                    //             id="pNMTMVDWtiU"
+                    //             style={{aspectRatio: "560/315"}}
+                    //             className="tw-rounded-lg"
+                    //         />
+                    //     ),
+                    //     name: `${getVernacularString("review2Name", userPreferences.language)}`,
+                    //     rating: 5,
+                    //     state: `${getVernacularString("review2State", userPreferences.language)}`,
+                    //     message: `${getVernacularString("review2Message", userPreferences.language)}`,
+                    //     productImage: "/livguard/products/urban-combo/thumbnail.png",
+                    //     productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
+                    // },
+                    // {
+                    //     name: `${getVernacularString("review3Name", userPreferences.language)}`,
+                    //     rating: 5,
+                    //     state: `${getVernacularString("review3State", userPreferences.language)}`,
+                    //     message: `${getVernacularString("review3Message", userPreferences.language)}`,
+                    //     productImage: "/livguard/products/lgs1100i/thumbnail.png",
+                    //     productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
+                    // },
+                    // {
+                    //     name: `${getVernacularString("review4Name", userPreferences.language)}`,
+                    //     rating: 4,
+                    //     state: `${getVernacularString("review4State", userPreferences.language)}`,
+                    //     message: `${getVernacularString("review4Message", userPreferences.language)}`,
+                    //     productImage: "/livguard/products/urban-combo/thumbnail.png",
+                    //     productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
+                    // },
+                    // {
+                    //     video: (
+                    //         <EmbeddedYoutubeVideo
+                    //             id="rVC-ncTBhls"
+                    //             style={{aspectRatio: "560/315"}}
+                    //             className="tw-rounded-lg"
+                    //         />
+                    //     ),
+                    //     name: `${getVernacularString("review1Name", userPreferences.language)}`,
+                    //     rating: 5,
+                    //     state: `${getVernacularString("review1State", userPreferences.language)}`,
+                    //     message: `${getVernacularString("review1Message", userPreferences.language)}`,
+                    //     productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
+                    //     productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
+                    // },
+                    // {
+                    //     video: (
+                    //         <EmbeddedYoutubeVideo
+                    //             id="pNMTMVDWtiU"
+                    //             style={{aspectRatio: "560/315"}}
+                    //             className="tw-rounded-lg"
+                    //         />
+                    //     ),
+                    //     name: `${getVernacularString("review2Name", userPreferences.language)}`,
+                    //     rating: 5,
+                    //     state: `${getVernacularString("review2State", userPreferences.language)}`,
+                    //     message: `${getVernacularString("review2Message", userPreferences.language)}`,
+                    //     productImage: "/livguard/products/urban-combo/thumbnail.png",
+                    //     productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
+                    // },
+                    // {
+                    //     name: `${getVernacularString("review3Name", userPreferences.language)}`,
+                    //     rating: 5,
+                    //     state: `${getVernacularString("review3State", userPreferences.language)}`,
+                    //     message: `${getVernacularString("review3Message", userPreferences.language)}`,
+                    //     productImage: "/livguard/products/lgs1100i/thumbnail.png",
+                    //     productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
+                    // },
+                    // {
+                    //     name: `${getVernacularString("review4Name", userPreferences.language)}`,
+                    //     rating: 4,
+                    //     state: `${getVernacularString("review4State", userPreferences.language)}`,
+                    //     message: `${getVernacularString("review4Message", userPreferences.language)}`,
+                    //     productImage: "/livguard/products/urban-combo/thumbnail.png",
+                    //     productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
+                    // },
                 ]}
             />
         </div>
