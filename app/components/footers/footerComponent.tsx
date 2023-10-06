@@ -942,7 +942,7 @@ export function FooterComponent({
                 <VerticalSpacer className="tw-h-5 lg:tw-hidden" />
 
                 <div className="lg:tw-row-start-5 lg:tw-col-start-1 tw-flex tw-flex-col lg-text-secondary-900 tw-px-10 lg:tw-px-0 tw-text-center tw-items-center lg:tw-items-start lg:tw-text-left lg:tw-pl-[4.5rem]">
-                    <div className="lg-text-body-bold">{getVernacularString("c1e1b2f0-d75f-409c-b0f3-cbc9c2adeb00", userPreferences.language)}</div>
+                    <div className="lg-text-body-bold lg-text-secondary-900">{getVernacularString("c1e1b2f0-d75f-409c-b0f3-cbc9c2adeb00", userPreferences.language)}</div>
                     <VerticalSpacer className="tw-h-3" />
                     <div className="tw-w-fit tw-overflow-hidden tw-relative tw-group tw-transition !tw-text-center">
                         <ContactUsCta
@@ -958,7 +958,7 @@ export function FooterComponent({
 
                     <VerticalSpacer className="tw-h-3" />
 
-                    <div className="lg-text-body-bold tw-underline">{getVernacularString("6074c564-2033-43e5-8d9f-02d5c9052ca4", userPreferences.language)}</div>
+                    <div className="lg-text-body-bold tw-underline lg-text-secondary-900">{getVernacularString("6074c564-2033-43e5-8d9f-02d5c9052ca4", userPreferences.language)}</div>
 
                     {/* <VerticalSpacer className="tw-h-3" /> */}
 
