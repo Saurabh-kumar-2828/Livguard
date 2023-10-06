@@ -57,6 +57,36 @@ function rowToDealerInformation(row: any): Dealer {
     return dealer;
 }
 
+export async function getDistinctCity(): Promise<Array<{city: string}> | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            SELECT
+                DISTINCT city
+            FROM
+                livguard.dealer
+        `
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+
+    return result.rows.map((row) => rowToCity(row));
+}
+
+function rowToCity(row: any) {
+    const city = {
+        city: row.city,
+    };
+
+    return city;
+}
+
 export async function insertOrUpdateDealerLeads(
     leadId: string,
     formResponse: {
@@ -136,6 +166,8 @@ export async function insertOrUpdateLeadFormDetails(
         phoneNumber: string;
         name: string;
         emailId?: string;
+        city?: string;
+        dealer?: string;
         otpVerified: boolean;
         utmParameters: {
             [searchParameter: string]: string;
@@ -592,9 +624,9 @@ export async function updateWarrantyRecordWithDob(uuid: string, dob: string) {
                 livguard.warranty_entries
             SET
                 form_response = JSONB_SET(
-                    CAST(form_response AS jsonb), 
-                    '{dateOfBirth}', 
-                    $1, 
+                    CAST(form_response AS jsonb),
+                    '{dateOfBirth}',
+                    $1,
                     true
                 )
             WHERE

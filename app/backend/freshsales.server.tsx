@@ -5,7 +5,7 @@ import {getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utili
 
 export async function sendDataToFreshsales(
     leadId: Uuid,
-    formResponse: {mobile_number?: string; first_name?: string; email?: string; city?: string; otpVerified?: boolean},
+    formResponse: {mobile_number?: string; first_name?: string; email?: string; city?: string; dealer?: string, otpVerified?: boolean},
     utmParameters: {[searchParameter: string]: string},
     pageUrl: string,
 ): Promise<void | Error> {

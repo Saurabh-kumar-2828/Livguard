@@ -185,7 +185,6 @@ export const action: ActionFunction = async ({request, params}) => {
         dealerList: dealerList,
         error: null,
     };
-
     return actionData;
 };
 

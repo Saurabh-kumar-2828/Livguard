@@ -4,6 +4,7 @@ export enum FormStateInputsActionType {
     SetPhoneNumber,
     SetOtpSubmitted,
     SetCity,
+    setDealer,
     SetFormSuccessfullySubmited,
     SetShowOtpButton,
     SetShowOtpField,
@@ -22,6 +23,7 @@ export type FormStateInputs = {
         email: string;
         phoneNumber: string;
         city: string;
+        dealer: string;
         otpSubmitted: string;
         termsAndConditionsChecked: boolean;
     };
@@ -77,6 +79,16 @@ export function FormStateInputsReducer(state: FormStateInputs, action: FormState
             const newState: FormStateInputs = structuredClone(state);
 
             newState.inputData.city = city;
+
+            return newState;
+        }
+        case FormStateInputsActionType.setDealer: {
+            // TODO: Validate that these exist?
+            const dealer = action.payload;
+
+            const newState: FormStateInputs = structuredClone(state);
+
+            newState.inputData.dealer = dealer;
 
             return newState;
         }

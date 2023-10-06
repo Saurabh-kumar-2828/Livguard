@@ -1,7 +1,6 @@
 import {ChevronDoubleDownIcon, ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useFetcher, useNavigate} from "@remix-run/react";
-import useEmblaCarousel from "embla-carousel-react";
 import React, {useContext, useEffect, useReducer, useRef, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {useInView} from "react-intersection-observer";
@@ -19,7 +18,6 @@ import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FaqSectionInternal} from "~/components/faqs";
 import {FindTheThiefDialog} from "~/components/find-the-thief/findTheThiefDialog";
 import {FirstRewardDialogComponent} from "~/components/find-the-thief/firstRewardDialogComponent";
-import {InitialFindTheThiefDialogComponent} from "~/components/find-the-thief/initialFindTheThiefDialogComponent";
 import {SecondClueDialogComponent} from "~/components/find-the-thief/secondClueDialogComponent";
 import {Thief} from "~/components/find-the-thief/thiefComponent";
 import {CoverImage} from "~/components/images/coverImage";
@@ -28,9 +26,10 @@ import {InTheNewsCarousel} from "~/components/inTheNewsCarousel";
 import {LeadersCarousel} from "~/components/leadersCarousel";
 import LivguardDialog from "~/components/livguardDialog";
 import {PageScaffold} from "~/components/pageScaffold";
-import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {FancySearchableSelect, SearchableSelect} from "~/components/scratchpad";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -45,9 +44,8 @@ import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters
 import type {FormStateInputsAction} from "~/routes/lead-form.state";
 import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {MiniPowerPlannerTeaser} from "~/routes/load-calculator";
-import renewableEnergy from "~/routes/renewable-energy";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import type {UserPreferences} from "~/typeDefinitions";
+import type {Dealer, UserPreferences} from "~/typeDefinitions";
 import {FormType, Language, Theme} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
@@ -1724,17 +1722,29 @@ export function ContactUsCta({
     buttonClassName?: string;
 }) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
+    const cityFetcher = useFetcher();
 
     function tryToOpenContactUsDialog() {
         setIsContactUsDialogOpen(true);
     }
+
+    const [cities, setCities] = useState(null);
+
+    useEffect(() => {
+        if (cityFetcher.data != null) {
+            setCities(cityFetcher.data.cityList);
+        }
+    }, [cityFetcher.data]);
 
     return (
         <div className={className}>
             <button
                 type="button"
                 className={concatenateNonNullStringsWithSpaces("lg-cta-button", buttonClassName)}
-                onClick={tryToOpenContactUsDialog}
+                onClick={() => {
+                    tryToOpenContactUsDialog();
+                    cityFetcher.submit(null, {method: "get", action: "/get-city-of-dealers"});
+                }}
             >
                 {getVernacularString(textVernacId, userPreferences.language)}
             </button>
@@ -1745,6 +1755,7 @@ export function ContactUsCta({
                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
                 utmParameters={utmParameters}
                 pageUrl={pageUrl}
+                cityFetcherData={cities}
             />
         </div>
     );
@@ -1756,12 +1767,14 @@ export function ContactUsDialog({
     setIsContactUsDialogOpen,
     utmParameters,
     pageUrl,
+    cityFetcherData,
 }: {
     userPreferences: UserPreferences;
     isContactUsDialogOpen: boolean;
     setIsContactUsDialogOpen: React.Dispatch<boolean>;
     utmParameters: {[searchParameter: string]: string};
     pageUrl: string;
+    cityFetcherData: Array<{city: string}> | null;
 }) {
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
@@ -1769,6 +1782,10 @@ export function ContactUsDialog({
     const otpFieldRef = useRef(null);
     const phoneNumberRef = useRef(null);
     const leadId = useRef<Uuid>(generateUuid());
+    const dealerFetcher = useFetcher();
+    const [selectedCityIndex, setSelectedCityIndex] = useState<number | null>(null);
+    const [selectedDealerIndex, setSelectedDealerIndex] = useState<number | null>(null);
+    const [dealerList, setDealerList] = useState<Array<{name: string; code: string}>>([]);
 
     const [formStateInputs, dispatch] = useReducer(FormStateInputsReducer, createInitialFormState());
 
@@ -1829,6 +1846,13 @@ export function ContactUsDialog({
         }
     }, [formStateInputs.resendTimeOut]);
 
+    useEffect(() => {
+        if (dealerFetcher.data != null) {
+            setDealerList([]);
+            dealerFetcher.data.dealerList.map((item: Dealer) => setDealerList((prev) => [...prev, {name: item.name, code: item.dealerCode}]));
+        }
+    }, [dealerFetcher.data]);
+
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
         const action: FormStateInputsAction = {
@@ -1860,6 +1884,7 @@ export function ContactUsDialog({
                         name="name"
                         required
                         className="lg-text-input"
+                        placeholder={getVernacularString("7ce2eaa7-4d46-4f80-80d2-b91b81085a49", userPreferences.language)}
                         onChange={(e) => {
                             const action: FormStateInputsAction = {
                                 actionType: FormStateInputsActionType.SetName,
@@ -1878,6 +1903,7 @@ export function ContactUsDialog({
                     <input
                         type="text"
                         name="emailId"
+                        placeholder={getVernacularString("29ca1701-2fb9-49ec-a4d6-3af793c194b1", userPreferences.language)}
                         className="lg-text-input"
                         pattern={emailIdValidationPattern}
                         required
@@ -1888,6 +1914,119 @@ export function ContactUsDialog({
                             };
                             dispatch(action);
                         }}
+                    />
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("5132b06f-9057-4e22-a21e-aca383247dda", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-1" />
+
+                    <SearchableSelect
+                        items={
+                            cityFetcherData == null
+                                ? []
+                                : cityFetcherData.map((city, cityIndex) => {
+                                      return {
+                                          city: city.city,
+                                          index: cityIndex,
+                                      };
+                                  })
+                        }
+                        selectedItem={
+                            cityFetcherData == null || selectedCityIndex == null
+                                ? null
+                                : {
+                                      city: cityFetcherData[selectedCityIndex].city,
+                                      index: selectedCityIndex,
+                                  }
+                        }
+                        placeholder={getVernacularString("91cb41a5-571d-4516-91fb-fc5e67266990", userPreferences.language)}
+                        setSelectedItem={(item: {city: string; index: number} | null) => {
+                            if (item == null) {
+                                return null;
+                            }
+                            setSelectedCityIndex(item.index);
+                            const data = new FormData();
+                            data.append("query", item.city);
+                            dealerFetcher.submit(data, {method: "post", action: "/dealer-for-inverters-and-batteries"});
+                            const action: FormStateInputsAction = {
+                                actionType: FormStateInputsActionType.SetCity,
+                                payload: item.city,
+                            };
+                            dispatch(action);
+                            return {
+                                city: item.city,
+                            };
+                        }}
+                        filterFunction={(items: Array<{city: string; index: number}>, query: string) => items.filter((item) => item.city.toLowerCase().startsWith(query.toLowerCase()))}
+                        renderFunction={(item: {city: string; index: number}) => {
+                            if (item == null) {
+                                return "";
+                            }
+                            return item.city;
+                        }}
+                        disabled={cityFetcherData == null}
+                        inputClassName="disabled:tw-opacity-[0.6] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
+                    />
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("76bb0c30-c244-4815-b68d-a1780f8c697e", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-1" />
+
+                    <FancySearchableSelect
+                        items={
+                            dealerList == null
+                                ? []
+                                : dealerList.sort().map((dealer, dealerIndex) => {
+                                      return {
+                                          dealer: {
+                                              name: dealer.name,
+                                              code: dealer.code,
+                                          },
+                                          index: dealerIndex,
+                                      };
+                                  })
+                        }
+                        selectedItem={
+                            dealerList == null || selectedDealerIndex == null
+                                ? null
+                                : {
+                                      dealer: {
+                                          name: dealerList[selectedDealerIndex].name,
+                                          code: dealerList[selectedDealerIndex].code,
+                                      },
+                                      index: selectedDealerIndex,
+                                  }
+                        }
+                        placeholder={getVernacularString("11eba4f7-13aa-45bd-93bd-31d98b72531a", userPreferences.language)}
+                        setSelectedItem={(item: {dealer: {name: string; code: string}; index: number} | null) => {
+                            if (item == null) {
+                                return null;
+                            }
+                            setSelectedDealerIndex(item.index);
+                            const action: FormStateInputsAction = {
+                                actionType: FormStateInputsActionType.setDealer,
+                                payload: item.dealer.code,
+                            };
+                            dispatch(action);
+                            return {
+                                dealer: item,
+                            };
+                        }}
+                        filterFunction={(items: Array<{dealer: {name: string; code: string}; index: number}>, query: string) =>
+                            items.filter((item) => item.dealer.name.toLowerCase().startsWith(query.toLowerCase()))
+                        }
+                        renderFunction={(item: {dealer: {name: string; code: string}; index: number}) => {
+                            if (item == null) {
+                                return "";
+                            }
+                            return item.dealer.name;
+                        }}
+                        disabled={cityFetcherData == null}
+                        inputClassName="disabled:tw-opacity-[0.6] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
                     />
 
                     <VerticalSpacer className="tw-h-2" />
@@ -1922,6 +2061,7 @@ export function ContactUsDialog({
                             <input
                                 type="text"
                                 name="phoneNumber"
+                                placeholder={getVernacularString("10b102a7-4be9-4832-9240-f747cf81a855", userPreferences.language)}
                                 pattern={indianPhoneNumberValidationPattern}
                                 required
                                 autoFocus={true}
@@ -2095,6 +2235,16 @@ export function ContactUsDialog({
                         className="tw-hidden"
                         readOnly
                         value={pageUrl}
+                    />
+
+                    <HiddenFormField
+                        name="city"
+                        value={cityFetcherData && selectedCityIndex != null ? cityFetcherData[selectedCityIndex].city : ""}
+                    />
+
+                    <HiddenFormField
+                        name="dealer"
+                        value={dealerList && selectedDealerIndex != null ? dealerList[selectedDealerIndex] : ""}
                     />
 
                     <div className="tw-w-full tw-flex tw-flex-row tw-gap-x-2 tw-justify-center tw-items-center">
