@@ -522,14 +522,14 @@ function HeroSection({
             >
                 <ItemBuilder
                     items={[
-                        {
-                            mobileImageRelativePath: "/livguard/home/1/mobile-banner-2.jpg",
-                            desktopImageRelativePath: "/livguard/home/1/desktop-banner2.jpg",
-                            titleVernacId: "",
-                            subTitleVernacId: "",
-                            contactButtonVernacId: "8b6be5de-9c57-461a-8ec5-106f29eccaca",
-                            buttonLink: "/events/renewable-energy-india-expo",
-                        },
+                        // {
+                        //     mobileImageRelativePath: "/livguard/home/1/mobile-banner-2.jpg",
+                        //     desktopImageRelativePath: "/livguard/home/1/desktop-banner2.jpg",
+                        //     titleVernacId: "",
+                        //     subTitleVernacId: "",
+                        //     contactButtonVernacId: "8b6be5de-9c57-461a-8ec5-106f29eccaca",
+                        //     buttonLink: "/events/renewable-energy-india-expo",
+                        // },
                         {
                             mobileImageRelativePath: "/livguard/home/1/new-mobile.jpg",
                             desktopImageRelativePath: "/livguard/home/1/new-desktop.jpg",
@@ -627,7 +627,7 @@ function HeroSection({
                                 </DefaultElementAnimation>
                             )}
 
-                            {item.buttonLink != null && (
+                            {/* {item.buttonLink != null && (
                                 <DefaultElementAnimation className={concatenateNonNullStringsWithSpaces("tw-row-start-6 tw-col-start-1 tw-z-10")}>
                                     <Link
                                         className="lg-cta-button tw-z-10 tw-grid tw-place-items-center lg:tw-top-6 tw-top-20 max-sm:tw-top-14 md:tw-top-24 xl:tw-top-0 tw-relative tw-w-full"
@@ -636,7 +636,7 @@ function HeroSection({
                                         {getVernacularString(item.contactButtonVernacId, userPreferences.language)}
                                     </Link>
                                 </DefaultElementAnimation>
-                            )}
+                            )} */}
 
                             <Link
                                 to="#energy-storage-solutions"
@@ -649,7 +649,7 @@ function HeroSection({
                 />
             </div>
             {/* <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center tw-absolute tw-top-0 tw-bottom-0 tw-right-0 tw-left-0 tw-px-6"> */}
-            <button
+            {/* <button
                 type="button"
                 className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-left-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
                 onClick={() => {
@@ -667,7 +667,7 @@ function HeroSection({
                 }}
             >
                 <ChevronRightIcon className="tw-w-6 tw-h-6" />
-            </button>
+            </button> */}
             {/* </div> */}
         </div>
     );

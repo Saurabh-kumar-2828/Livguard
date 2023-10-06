@@ -58,7 +58,7 @@ function rowToDealerInformation(row: any): Dealer {
 }
 
 export async function getDistinctCity(): Promise<Array<{city: string}> | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -69,7 +69,7 @@ export async function getDistinctCity(): Promise<Array<{city: string}> | Error> 
                 DISTINCT city
             FROM
                 livguard.dealer
-        `
+        `,
     );
 
     if (result instanceof Error) {
