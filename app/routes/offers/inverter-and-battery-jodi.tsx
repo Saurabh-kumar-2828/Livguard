@@ -13,7 +13,7 @@ import {CoverImage} from "~/components/images/coverImage";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import type {Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {Uuid} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";

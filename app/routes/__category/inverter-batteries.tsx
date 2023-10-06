@@ -46,7 +46,7 @@ import {
 import {getVernacularString} from "~/vernacularProvider";
 import batteryFinder from "../battery-finder";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {

@@ -1,7 +1,7 @@
 import type {LoaderFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
 import {getSearchTermFrequencies, getSearchTermFrequenciesCount} from "~/backend/dealer.server";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
+import {getRequiredEnvironmentVariable} from "~/common-remix--utilities/utilities.server";
 import {getIntegerFromUnknown, getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import type {TermFrequency} from "~/typeDefinitions";
 
@@ -12,7 +12,7 @@ type LoaderData = {
 
 export const loader: LoaderFunction = async ({request, params}) => {
     const authorization = safeParse(getStringFromUnknown, request.headers.get("Authorization"));
-    if (authorization != `Bearer ${getRequiredEnvironmentVariableNew("INTELLSYS_TOKEN")}`) {
+    if (authorization != `Bearer ${getRequiredEnvironmentVariable("INTELLSYS_TOKEN")}`) {
         return new Response("Authorization error: 3029d69b-ab53-46e1-9f2d-93cdb0c461e8", {
             status: 401,
         });

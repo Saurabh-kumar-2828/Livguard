@@ -8,7 +8,7 @@ import {HorizontalSpacer} from "~/global-common-typescript/components/horizontal
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import { ImageCdnProvider } from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {setHaptikLanguage} from "~/root";
 import {OfferContactUsCta} from "~/routes/offers/inverter-and-battery-jodi";
@@ -806,6 +806,7 @@ const headerMenuItems: Array<HeaderItem> = [
                 desktopClassName: "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-content-start tw-pl-5 tw-pr-5 tw-pt-0 tw-pb-10 dark:tw-bg-new-background-border-500-dark",
                 col: 1,
             },
+
             // {
             //     contentId: "4b1b2126-7ed2-4a31-98d8-74158e31022f",
             //     children: [

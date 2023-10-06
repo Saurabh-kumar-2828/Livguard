@@ -5,7 +5,7 @@ import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/components/images/coverImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import type {Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {Uuid} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import type {FormStateInputs, FormStateInputsAction} from "~/routes/lead-form.state";

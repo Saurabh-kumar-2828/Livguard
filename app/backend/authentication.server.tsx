@@ -1,7 +1,7 @@
 import {logBackendError} from "~/global-common-typescript/server/logging.server";
 import {getErrorFromUnknown, getObjectFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {generateUuid, getCurrentIsoTimestamp, getUnixTimeInSeconds, getUnixTimeInSecondsFromDate} from "~/global-common-typescript/utilities/utilities";
-
+import {generateUuid, getCurrentIsoTimestamp, getUnixTimeInSeconds} from "~/global-common-typescript/utilities/utilities";
+import {getUnixTimeInSecondsFromDate, safeExecute} from "~/utilities";
 // TODO: Remove this, and store the OTPs in database instead
 declare global {
     var _activeOtps: {[phoneNumber: string]: {otp: string; issuedAt: number}};

@@ -1,5 +1,5 @@
 import {ActionFunction, LoaderFunction, redirect} from "@remix-run/node";
-import {NonEmptyString} from "~/global-common-typescript/typeDefinitions";
+import {NonEmptyString} from "~/common--type-definitions/typeDefinitions";
 import {getNonEmptyStringFromUnknown, getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {commitUserPreferencesCookie, getUserPreferencesCookie} from "~/server/userPreferencesCookie.server";
 import {getThemeFromUnknown} from "~/typeDefinitions";
@@ -50,4 +50,4 @@ export const loader: LoaderFunction = async ({request}) => {
             "Set-Cookie": await commitUserPreferencesCookie(userPreferencesCookie),
         },
     });
-}
+};

@@ -152,11 +152,6 @@ export function FooterComponent({
             link: "/dealer-for-inverters-and-batteries",
             target: false,
         },
-        {
-            title: `${getVernacularString("3cb60479-da6d-462c-879c-5a1b510630a4", userPreferences.language)}`,
-            link: "https://battery-inverter-dealers.livguard.com/",
-            target: true,
-        },
 
         // {
         //     title: `${getVernacularString("footerDisclosure3T6", userPreferences.language)}`,
@@ -189,6 +184,45 @@ export function FooterComponent({
         //     target: true,
         // },
     ];
+
+    // const mediaAndGalleryAccordianList = [
+    //     {
+    //         title: `${getVernacularString("3cb60479-da6d-462c-879c-5a1b510630a4", userPreferences.language)}`,
+    //         link: "https://battery-inverter-dealers.livguard.com/",
+    //         target: true,
+    //     },
+
+    //     // {
+    //     //     title: `${getVernacularString("footerDisclosure3T6", userPreferences.language)}`,
+    //     //     link: "/car-and-suv-batteries/",
+    //     //     target: true,
+    //     // },
+    //     // {
+    //     //     title: `${getVernacularString("footerDisclosure3T1", userPreferences.language)}`,
+    //     //     link: "/three-wheeler-batteries/",
+    //     //     target: true,
+    //     // },
+    //     // {
+    //     //     title: `${getVernacularString("footerDisclosure3T2", userPreferences.language)}`,
+    //     //     link: "/tractor-batteries/",
+    //     //     target: true,
+    //     // },
+    //     // {
+    //     //     title: `${getVernacularString("footerDisclosure3T3", userPreferences.language)}`,
+    //     //     link: "/bus-and-truck-batteries/",
+    //     //     target: true,
+    //     // },
+    //     // {
+    //     //     title: `${getVernacularString("footerDisclosure3T4", userPreferences.language)}`,
+    //     //     link: "/two-wheeler-batteries/",
+    //     //     target: true,
+    //     // },
+    //     // {
+    //     //     title: `${getVernacularString("footerDisclosure3T5", userPreferences.language)}`,
+    //     //     link: "/e-rickshaw-batteries/",
+    //     //     target: true,
+    //     // },
+    // ];
 
     const mediaAndGalleryAccordianList = [
         {

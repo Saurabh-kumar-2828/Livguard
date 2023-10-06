@@ -2,8 +2,8 @@ import {useContext, useEffect} from "react";
 import {FullWidthImageInternal} from "~/global-common-typescript/components/images/fullWidthImage";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {WebsiteConfigurationContext} from "~/global-common-typescript/contexts/websiteConfigurationContext";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {getMetadataForImage} from "~/utilities";
 
 export function FullWidthImage({relativePath, className, loading}: {relativePath: string; className?: string; loading?: "eager" | "lazy"}) {

@@ -3,7 +3,7 @@ import {CarouselStyle4} from "~/components/carouselStyle4";
 import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import type {ProductType} from "~/productData.types";
 import type {UserPreferences} from "~/typeDefinitions";

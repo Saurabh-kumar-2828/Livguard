@@ -11,7 +11,7 @@ import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import confettiAnimationData from "~/components/find-the-thief/confetti-lottie.json";
-import Lottie from "lottie-react";
+import Lottie from "react-lottie-player";
 
 export function LoadCalculatorDialogComponent({
     userPreferences,
@@ -144,8 +144,9 @@ function VictoryComponent({userPreferences, setStep, className}: {userPreference
                 <div className="tw-absolute tw-inset-0 tw-m-auto">
                     <Lottie
                         animationData={confettiAnimationData}
-                        loop={true}
-                        autoplay={true}
+                        loop
+                        play
+                        className="tw-w-full tw-h-full"
                     />
                 </div>
             </div>

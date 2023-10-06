@@ -1,8 +1,8 @@
 import AWS from "aws-sdk";
+import {Uuid} from "~/common--type-definitions/typeDefinitions";
+import {getRequiredEnvironmentVariable} from "~/common-remix--utilities/utilities.server";
+import {getPostgresDatabaseManager} from "~/common--database-manager--postgres/postgresDatabaseManager.server";
 import {sendDataToFreshsales} from "~/backend/freshsales.server";
-import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {getStringFromUnknown, getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 import {DealerForHaptik} from "~/routes/api/haptik/dealer-locator";
@@ -10,7 +10,7 @@ import type {ContactUsLead, Dealer, TermFrequency} from "~/typeDefinitions";
 import {getExtensionFromFilename} from "~/utilities";
 
 export async function getDealerForCity(query: string): Promise<Array<Dealer> | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -102,7 +102,7 @@ export async function insertOrUpdateDealerLeads(
         termsAndConditionsChecked: boolean;
     },
 ): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -176,7 +176,7 @@ export async function insertOrUpdateLeadFormDetails(
         termsAndConditionsChecked: boolean;
     },
 ): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -235,7 +235,7 @@ export async function insertOrUpdateLeadFormDetails(
 }
 
 export async function getContactUsLeads(startDate: string, endDate: string, limit: number, offset: number): Promise<Array<ContactUsLead> | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -267,7 +267,7 @@ export async function getContactUsLeads(startDate: string, endDate: string, limi
 }
 
 export async function getContactUsLeadsCount(startDate: string, endDate: string): Promise<number | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -306,7 +306,7 @@ function rowToContactUsLead(row: unknown): ContactUsLead {
 }
 
 export async function getSearchTermFrequencies(startDate: string, endDate: string, limit: number, offset: number): Promise<Array<TermFrequency> | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -341,7 +341,7 @@ export async function getSearchTermFrequencies(startDate: string, endDate: strin
 }
 
 export async function getSearchTermFrequenciesCount(startDate: string, endDate: string): Promise<number | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -385,7 +385,7 @@ export async function insertSubscriptionLeads(formResponse: {
         [searchParameter: string]: string;
     };
 }): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -409,7 +409,7 @@ export async function insertSubscriptionLeads(formResponse: {
 }
 
 export async function insertQueryLeads(query: string): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -435,7 +435,7 @@ export async function insertQueryLeads(query: string): Promise<void | Error> {
 }
 
 export async function insertSearchQuery(searchTerm: string): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -472,7 +472,7 @@ export async function insertContactFormLeads(
         otpVerified?: boolean;
     },
 ): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -501,7 +501,7 @@ export async function insertContactFormLeads(
 }
 
 export async function insertServiceRequests(requestId: string, formResponse: any): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -525,7 +525,7 @@ export async function insertServiceRequests(requestId: string, formResponse: any
 }
 
 export async function getDealersForHaptik(latitude: number, longitude: number): Promise<Array<DealerForHaptik> | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -566,7 +566,7 @@ function rowToDealerForHaptik(row: unknown): DealerForHaptik {
 }
 
 export async function insertInternationalPageLeads(leadId: string, formResponse: any): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -589,7 +589,7 @@ export async function insertInternationalPageLeads(leadId: string, formResponse:
     }
 }
 export async function insertWarrantyFormLeads(leadId: Uuid, formResponse: any): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -613,7 +613,7 @@ export async function insertWarrantyFormLeads(leadId: Uuid, formResponse: any): 
 }
 
 export async function updateWarrantyRecordWithDob(uuid: string, dob: string) {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -647,15 +647,15 @@ export async function uploadFileToS3(file: {fileBlob: any; name: any}): Promise<
         return new Error("Invalid file extension! Error code: 216991c9-36a5-4c49-9f05-39fb446fc38b");
     }
     const s3 = new AWS.S3({
-        accessKeyId: getRequiredEnvironmentVariableNew("AWS_S3_ACCESS_KEY"),
-        secretAccessKey: getRequiredEnvironmentVariableNew("AWS_S3_SECRET_ACCESS_KEY"),
+        accessKeyId: getRequiredEnvironmentVariable("AWS_S3_ACCESS_KEY"),
+        secretAccessKey: getRequiredEnvironmentVariable("AWS_S3_SECRET_ACCESS_KEY"),
     });
 
     const imageBuffer = Buffer.from(await fileBlob.arrayBuffer());
 
     const result = await s3
         .upload({
-            Bucket: getRequiredEnvironmentVariableNew("AWS_S3_BUCKET"),
+            Bucket: getRequiredEnvironmentVariable("AWS_S3_BUCKET"),
             Key: `${generateUuid()}-${extension}`,
             Body: imageBuffer,
             ACL: "public-read",
@@ -670,7 +670,7 @@ export async function uploadFileToS3(file: {fileBlob: any; name: any}): Promise<
 }
 
 export async function getDealersForPinCode(pinCode: string): Promise<Array<Dealer> | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -697,7 +697,7 @@ export async function getDealersForPinCode(pinCode: string): Promise<Array<Deale
 }
 
 export async function verifyGoogleRecaptcha(token: string): Promise<Error | void> {
-    const secretKey = getStringFromUnknown(getRequiredEnvironmentVariableNew("GOOGLE_RECAPTCHA_SECRET_KEY"));
+    const secretKey = getStringFromUnknown(getRequiredEnvironmentVariable("GOOGLE_RECAPTCHA_SECRET_KEY"));
 
     const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
         method: "POST",

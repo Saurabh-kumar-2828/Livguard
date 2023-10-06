@@ -1,17 +1,17 @@
+
 import {Link, useFetcher} from "@remix-run/react";
 import {useEffect, useState} from "react";
-import {Oval} from "react-loader-spinner";
 import {toast} from "react-toastify";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {Theme, UserPreferences} from "~/typeDefinitions";
 import {getMetadataForImage} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import confettiAnimationData from "~/components/find-the-thief/confetti-lottie.json";
-import Lottie from "lottie-react";
+import Lottie from "react-lottie-player";
 
 export function FirstRewardDialogComponent({userPreferences, buttonClickFunction}: {userPreferences: UserPreferences; buttonClickFunction: React.MouseEventHandler<HTMLButtonElement>}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
@@ -59,8 +59,9 @@ export function FirstRewardDialogComponent({userPreferences, buttonClickFunction
                     <div className="tw-absolute tw-inset-0 tw-m-auto">
                         <Lottie
                             animationData={confettiAnimationData}
-                            loop={true}
-                            autoplay={true}
+                            loop
+                            play
+                            className="tw-w-full tw-h-full"
                         />
                     </div>
                 </div>

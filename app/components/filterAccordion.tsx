@@ -5,7 +5,7 @@ import {getVernacularString} from "~/vernacularProvider";
 import {UserPreferences} from "~/typeDefinitions";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {getMetadataForImage} from "~/utilities";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 
 export function FilterAccordion({
     userPreferences,

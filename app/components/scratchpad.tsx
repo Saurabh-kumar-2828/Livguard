@@ -4,11 +4,11 @@ import {Link} from "@remix-run/react";
 import React, {MouseEventHandler, useState} from "react";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
-import {UserPreferences} from "~/typeDefinitions";
 import {getMetadataForImage} from "~/utilities";
+import {Theme, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function FancySearchableSelect<T>({
@@ -438,6 +438,20 @@ export function ButtonWithIconAndText({
                 className={`tw-col-start-4 ${isSelected ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900"}`}
                 dangerouslySetInnerHTML={{__html: getVernacularString(contentId, userPreferences.language)}}
             />
+        </div>
+    );
+}
+
+export function Loader({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    return (
+        <div
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-inline-block tw-h-10 tw-w-10 tw-animate-spin tw-rounded-full tw-border-4 tw-border-solid tw-motion-reduce:animate-[spin_1.5s_linear_infinite]",
+                userPreferences.theme === Theme.Light ? "tw-border-l-[#1f2022] tw-border-[#b1b1b1]" : "tw-border-l-[#f2f2f2] tw-border-[#f2f2f280]",
+                className,
+            )}
+        >
+            <span className="!tw-absolute !-tw-m-px !tw-h-px !tw-w-px !tw-overflow-hidden !tw-whitespace-nowrap !tw-border-0 !tw-p-0 !tw-[clip:rect(0,0,0,0)]"></span>
         </div>
     );
 }

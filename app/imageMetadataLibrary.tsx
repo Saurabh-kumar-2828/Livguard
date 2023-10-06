@@ -1,4 +1,4 @@
-import type {ImageMetadata} from "~/global-common-typescript/typeDefinitions";
+import type {ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 
 export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | undefined} = {
     "/livguard/battery-images/IT1048ST.png": {

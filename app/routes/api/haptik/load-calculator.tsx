@@ -3,8 +3,8 @@ import {json} from "@remix-run/node";
 import type {LoadCalculatorOutputs} from "~/backend/loadCalculator.server";
 import {getLoadCalculatorOutputs} from "~/backend/loadCalculator.server";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {getRequiredEnvironmentVariable} from "~/common-remix--utilities/utilities.server";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {propertyTemplatesNewUi} from "~/routes/load-calculator/index.types";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
@@ -15,7 +15,7 @@ type LoaderData = LoadCalculatorOutputs;
 export const loader: LoaderFunction = async ({request, params}) => {
     const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     const authorization = safeParse(getStringFromUnknown, request.headers.get("Authorization"));
-    if (authorization != `Bearer ${getRequiredEnvironmentVariableNew("HAPTIK_API_TOKEN")}`) {
+    if (authorization != `Bearer ${getRequiredEnvironmentVariable("HAPTIK_API_TOKEN")}`) {
         return new Response("Authorization error: 1f293705-48ee-4da6-b3c5-7f6c84d027fc", {
             status: 401,
         });

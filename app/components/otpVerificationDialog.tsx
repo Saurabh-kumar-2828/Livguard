@@ -6,7 +6,7 @@ import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import LivguardDialog from "~/components/livguardDialog";
 import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import type {Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {Uuid} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import type {UserPreferences} from "~/typeDefinitions";

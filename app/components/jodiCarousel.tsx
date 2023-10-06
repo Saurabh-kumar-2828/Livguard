@@ -1,4 +1,5 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
+
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";

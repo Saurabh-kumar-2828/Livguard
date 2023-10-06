@@ -19,8 +19,8 @@ import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormF
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {getRequiredEnvironmentVariable} from "~/common-remix--utilities/utilities.server";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
@@ -210,7 +210,7 @@ export const loader: LoaderFunction = async ({request}) => {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
-        recaptchaSiteKey: getStringFromUnknown(getRequiredEnvironmentVariableNew("GOOGLE_RECAPTCHA_SITE_KEY")),
+        recaptchaSiteKey: getStringFromUnknown(getRequiredEnvironmentVariable("GOOGLE_RECAPTCHA_SITE_KEY")),
     };
 
     return loaderData;

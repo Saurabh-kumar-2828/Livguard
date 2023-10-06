@@ -1,7 +1,7 @@
 import type {LoaderFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
 import {getDealersForHaptik} from "~/backend/dealer.server";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
+import {getRequiredEnvironmentVariable} from "~/common-remix--utilities/utilities.server";
 import {getNumberFromUnknown, getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 
 export type DealerForHaptik = {
@@ -16,7 +16,7 @@ type LoaderData = {
 
 export const loader: LoaderFunction = async ({request, params}) => {
     const authorization = safeParse(getStringFromUnknown, request.headers.get("Authorization"));
-    if (authorization != `Bearer ${getRequiredEnvironmentVariableNew("HAPTIK_API_TOKEN")}`) {
+    if (authorization != `Bearer ${getRequiredEnvironmentVariable("HAPTIK_API_TOKEN")}`) {
         return new Response("Authorization error: c9c1f9cc-2643-41c4-b5b8-15cb1ae76eba", {
             status: 401,
         });

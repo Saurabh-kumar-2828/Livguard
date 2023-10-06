@@ -5,7 +5,7 @@ import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {getMetadataForImage} from "~/utilities";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 
 export type ProductCardTwoDetailsType = {

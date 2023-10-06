@@ -3,7 +3,7 @@ import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {CoverImage} from "~/components/images/coverImage";
 import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import type {Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {Uuid} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import type {UserPreferences} from "~/typeDefinitions";

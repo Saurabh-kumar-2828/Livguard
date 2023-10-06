@@ -1,14 +1,15 @@
 import type {ActionFunction} from "@remix-run/node";
 import {sendGoogleLeadDataToFreshsales} from "~/backend/freshsales.server";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import {getSingletonValue, safeExecute} from "~/global-common-typescript/utilities/utilities";
+import {getRequiredEnvironmentVariable} from "~/common-remix--utilities/utilities.server";
+import {getSingletonValue} from "~/global-common-typescript/utilities/utilities";
+import {safeExecute} from "~/utilities";
 
 type ResponseData = {
     message: string;
 };
 
 export const action: ActionFunction = async ({request, params}) => {
-    const authorizationPasscode = getRequiredEnvironmentVariableNew("GOOGLE_WEBHOOK_AUTHORIZATION_CODE");
+    const authorizationPasscode = getRequiredEnvironmentVariable("GOOGLE_WEBHOOK_AUTHORIZATION_CODE");
     const requestBody = await request.json();
     const authorization = requestBody.google_key;
 

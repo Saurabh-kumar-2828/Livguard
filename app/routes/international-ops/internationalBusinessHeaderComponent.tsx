@@ -5,7 +5,7 @@ import {BrightnessHighFill, Check2, ChevronDown, MoonStarsFill} from "react-boot
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language, Theme, themeToHumanFriendlyString} from "~/typeDefinitions";

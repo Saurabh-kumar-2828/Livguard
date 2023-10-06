@@ -1,11 +1,11 @@
-import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import {NonEmptyString, Uuid} from "~/global-common-typescript/typeDefinitions";
+import {getPostgresDatabaseManager} from "~/common--database-manager--postgres/postgresDatabaseManager.server";
+import {getRequiredEnvironmentVariable} from "~/common-remix--utilities/utilities.server";
+import {NonEmptyString, Uuid} from "~/common--type-definitions/typeDefinitions";
 import {getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 
 export async function insertSubscriptionLeads(formResponse: {emailId: NonEmptyString}, utmParameters: {[searchParameter: string]: string}): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }

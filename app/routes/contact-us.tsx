@@ -28,12 +28,11 @@ import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, g
 import {getVernacularString} from "~/vernacularProvider";
 import type {DealerActionData} from "~/routes/contact-us/get-dealers-for-pin-code";
 import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
-import {Oval} from "react-loader-spinner";
-import {FancySearchableSelect} from "~/components/scratchpad";
+import {FancySearchableSelect, Loader} from "~/components/scratchpad";
 import {verifyOtp} from "~/backend/authentication.server";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
@@ -1312,16 +1311,9 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                             <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
 
                             {dealerFetcher.state !== "idle" ? (
-                                <Oval
-                                    height={40}
-                                    width={40}
-                                    color={userPreferences.theme === Theme.Light ? "#1F2022" : "#F2F2F2"}
-                                    wrapperStyle={{}}
-                                    wrapperClass="lg:tw-col-span-full tw-justify-self-center"
-                                    ariaLabel="oval-loading"
-                                    secondaryColor={userPreferences.theme === Theme.Light ? "#474546" : "#F2F2F280"}
-                                    strokeWidth={4}
-                                    strokeWidthSecondary={4}
+                                <Loader
+                                    userPreferences={userPreferences}
+                                    className="lg:tw-col-span-full tw-justify-self-center"
                                 />
                             ) : (
                                 <div className="tw-grid tw-gap-2 lg:tw-col-span-full">

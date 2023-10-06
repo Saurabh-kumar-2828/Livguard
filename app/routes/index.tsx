@@ -34,7 +34,7 @@ import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormF
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider, type Uuid} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider, type Uuid} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
@@ -1101,7 +1101,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
             <VerticalSpacer className="tw-h-8" />
 
             <TestimonialsCarousel
-                snapDotsDivisionFactor={2}
+                // snapDotsDivisionFactor={2}
                 userPreferences={userPreferences}
                 testimonials={[
                     {

@@ -21,7 +21,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
 import React, {useContext, useEffect, useState} from "react";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import LivguardDialog from "~/components/livguardDialog";
 import {StickyBottomBar} from "~/components/bottomBar";

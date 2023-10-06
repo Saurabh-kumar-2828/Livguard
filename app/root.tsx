@@ -9,8 +9,8 @@ import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
 import {ErrorHeaderComponent} from "~/components/errorHeaderComponent";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {WebsiteConfigurationContext} from "~/global-common-typescript/contexts/websiteConfigurationContext";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {getRequiredEnvironmentVariable} from "~/common-remix--utilities/utilities.server";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {getBooleanFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
@@ -37,11 +37,11 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
-    const websiteBaseUrl = getRequiredEnvironmentVariableNew("WEBSITE_BASE_URL");
+    const websiteBaseUrl = getRequiredEnvironmentVariable("WEBSITE_BASE_URL");
 
-    const debugMode = getBooleanFromUnknown(getRequiredEnvironmentVariableNew("DEBUG_MODE"));
+    const debugMode = getBooleanFromUnknown(getRequiredEnvironmentVariable("DEBUG_MODE"));
 
-    const imageCdnProviderStr = getRequiredEnvironmentVariableNew("IMAGE_CDN_PROVIDER");
+    const imageCdnProviderStr = getRequiredEnvironmentVariable("IMAGE_CDN_PROVIDER");
     // TODO: Do this properly
     const imageCdnProvider = imageCdnProviderStr == "imgix" ? ImageCdnProvider.Imgix : imageCdnProviderStr == "bunny" ? ImageCdnProvider.Bunny : ImageCdnProvider.GrowthJockey;
 
@@ -52,12 +52,12 @@ export const loader: LoaderFunction = async ({request}) => {
     };
 
     const haptikInitSettings = {
-        businessId: getRequiredEnvironmentVariableNew("HAPTIK_BUSINESS_ID"),
-        clientId: getRequiredEnvironmentVariableNew("HAPTIK_CLIENT_ID"),
-        baseUrl: getRequiredEnvironmentVariableNew("HAPTIK_BASE_URL"),
+        businessId: getRequiredEnvironmentVariable("HAPTIK_BUSINESS_ID"),
+        clientId: getRequiredEnvironmentVariable("HAPTIK_CLIENT_ID"),
+        baseUrl: getRequiredEnvironmentVariable("HAPTIK_BASE_URL"),
     };
 
-    const requestUrl = request.url.replace(/^http:\/\/localhost:\d+/, getRequiredEnvironmentVariableNew("WEBSITE_BASE_URL"));
+    const requestUrl = request.url.replace(/^http:\/\/localhost:\d+/, getRequiredEnvironmentVariable("WEBSITE_BASE_URL"));
     // TODO: This is probably incorrect, shift canonical url handling to each separate page
     const canonicalUrlUnnormalized = requestUrl.split("?")[0];
     const canonicalUrl = canonicalUrlUnnormalized.endsWith("/") ? canonicalUrlUnnormalized : `${canonicalUrlUnnormalized}/`;
@@ -138,6 +138,20 @@ export default function Root() {
         // cookiesAccepted,
         "true",
     );
+
+    //         // Meta Pixel
+    //         addScript(
+    //             `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '635911646858607');fbq('track', 'PageView');`,
+    //         );
+    //     }, 2500);
+
+    //     setTimeout(() => {
+    //         // Microsoft Clarity
+    //         addScript(
+    //             `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "ganufjw8cz");`,
+    //         );
+    //     }, 5000);
+    // }, []);
 
     // TODO: Maintain state for this
     // useEffect(() => {

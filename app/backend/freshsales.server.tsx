@@ -1,11 +1,11 @@
 import {logBackendError} from "~/global-common-typescript/server/logging.server";
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
+import {Uuid} from "~/common--type-definitions/typeDefinitions";
 import {getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 
 export async function sendDataToFreshsales(
     leadId: Uuid,
-    formResponse: {mobile_number?: string; first_name?: string; email?: string; city?: string; dealer?: string, otpVerified?: boolean},
+    formResponse: {mobile_number?: string; first_name?: string; email?: string; city?: string; otpVerified?: boolean},
     utmParameters: {[searchParameter: string]: string},
     pageUrl: string,
 ): Promise<void | Error> {

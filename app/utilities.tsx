@@ -1,4 +1,4 @@
-import type {ImageMetadata} from "~/global-common-typescript/typeDefinitions";
+import type {ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {imageMetadataLibrary} from "~/imageMetadataLibrary";
 import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductType} from "~/productData.types";
 
@@ -226,4 +226,16 @@ export function getBreadcrumbsConditionally(
             : {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"};
 
     return breadcrumb;
+}
+
+export function getUnixTimeInSecondsFromDate(date: string): number {
+    return Math.trunc(new Date(date).getMilliseconds() / 1000);
+}
+export function safeExecute<T, U>(func: (input: T) => U, input: T): U | null {
+    try {
+        const output = func(input);
+        return output;
+    } catch {
+        return null;
+    }
 }

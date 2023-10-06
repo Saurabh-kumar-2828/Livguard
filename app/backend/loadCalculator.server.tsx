@@ -1,7 +1,7 @@
+import {getPostgresDatabaseManager} from "~/common--database-manager--postgres/postgresDatabaseManager.server";
+import {getRequiredEnvironmentVariable} from "~/common-remix--utilities/utilities.server";
+import type {Integer, Uuid} from "~/common--type-definitions/typeDefinitions";
 import {getProductFromSlugAndLanguage} from "~/backend/product.server";
-import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import type {Integer, Uuid} from "~/global-common-typescript/typeDefinitions";
 import {getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {generateUuid, getCurrentIsoTimestamp, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
 import type {LoadCalculatorInputs} from "~/routes/load-calculator/index.types";
@@ -11,7 +11,7 @@ import type {UserPreferences} from "~/typeDefinitions";
 export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): Promise<Uuid | Error> {
     const id = generateUuid();
 
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -42,7 +42,7 @@ export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): P
 }
 
 export async function getLoadCalculatorEntry(id: Uuid): Promise<LoadCalculatorInputs | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }

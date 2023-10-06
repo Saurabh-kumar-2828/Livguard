@@ -16,7 +16,7 @@ import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFi
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider, type Uuid} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider, type Uuid} from "~/common--type-definitions/typeDefinitions";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";

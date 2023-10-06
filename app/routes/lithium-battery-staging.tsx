@@ -17,7 +17,7 @@ import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 import {CarouselStyle7} from "~/components/carouselStyle7";
 import {InfiniteHorizontalScroller, HorizontalScrollDirection} from "~/livguard-common-typescript/infiniteHorizontalScroller";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {ContactUsCta} from "~/routes/index";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";

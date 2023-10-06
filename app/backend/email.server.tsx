@@ -1,15 +1,15 @@
 import nodemailer from "nodemailer";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
+import {getRequiredEnvironmentVariable} from "~/common-remix--utilities/utilities.server";
 import {getNumberFromUnknown, getStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 
 const transporter = nodemailer.createTransport({
-    host: getStringFromUnknown(getRequiredEnvironmentVariableNew("SMTP_HOST")),
-    port: getNumberFromUnknown(getRequiredEnvironmentVariableNew("SMTP_PORT")),
+    host: getStringFromUnknown(getRequiredEnvironmentVariable("SMTP_HOST")),
+    port: getNumberFromUnknown(getRequiredEnvironmentVariable("SMTP_PORT")),
     secure: false,
     tls: {},
     auth: {
-        user: getStringFromUnknown(getRequiredEnvironmentVariableNew("SMTP_USERNAME")),
-        pass: getStringFromUnknown(getRequiredEnvironmentVariableNew("SMTP_PASSWORD")),
+        user: getStringFromUnknown(getRequiredEnvironmentVariable("SMTP_USERNAME")),
+        pass: getStringFromUnknown(getRequiredEnvironmentVariable("SMTP_PASSWORD")),
     },
 });
 
@@ -24,7 +24,7 @@ export async function sendEmail(data: string, recepients: Array<string>, subject
     emailHtml += "<br><br><br>";
 
     const result = await transporter.sendMail({
-        from: getStringFromUnknown(getRequiredEnvironmentVariableNew("SMTP_FROM_EMAIL")), // sender address
+        from: getStringFromUnknown(getRequiredEnvironmentVariable("SMTP_FROM_EMAIL")), // sender address
         to: recepients.join(","), // list of receivers
         cc: ccList,
         subject: subject, // Subject line

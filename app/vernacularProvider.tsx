@@ -9623,7 +9623,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "43953acd-0fe3-40a8-a307-297f4bb7124b": {
         [Language.English]: "Sales Return Policy",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "बिक्री वापसी नीति",
     },
     "10963071-3787-457b-a98b-79067ec8a07c": {
         [Language.English]: "Terms and Conditions",
@@ -9719,7 +9719,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "3078ed43-6580-4fbf-a6d9-773638087e13": {
         [Language.English]: `< 18 Months`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "<span 18 महीने",
     },
     "be9cbbd6-b37d-479d-af08-433917c1be45": {
         [Language.English]: `18 Months - 36 Months`,
@@ -9871,7 +9871,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "93e0fa70-2449-4565-a741-ea91931b2864": {
         [Language.English]: `Sales Return Policy`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बिक्री वापसी नीति`,
     },
     "096a9841-f21e-4920-adc9-1bcb10a4f35f": {
         [Language.English]: `Presence in India`,

@@ -3,7 +3,7 @@ import {getVernacularString} from "~/vernacularProvider";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {getMetadataForImage} from "~/utilities";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {ProductType} from "~/productData.types";
 import {Link} from "@remix-run/react";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
