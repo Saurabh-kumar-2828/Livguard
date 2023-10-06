@@ -2,6 +2,7 @@ import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
 import {useEffect, useState, useContext} from "react";
 import {useInView} from "react-intersection-observer";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {SocialHandles} from "~/components/category/common";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -20,7 +21,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
-import {allProductDetails} from "~/productData";
+import {ProductDetails, allProductDetails} from "~/productData.types";
 import {DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
@@ -117,6 +118,7 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    products: Array<ProductDetails>;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -125,17 +127,22 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const slugs = ["lg2350ixl", "lgs2500", "lgs3000", "lg3500", "lgs4000", "lgs5000"];
+
+    const products = slugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        products: products,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, products} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     const secondaryNavigationController = useSecondaryNavigationController();
@@ -158,6 +165,7 @@ export default () => {
                     <HKVAPage
                         userPreferences={userPreferences}
                         secondaryNavigationController={secondaryNavigationController}
+                        products={products}
                     />
                 </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
@@ -171,7 +179,15 @@ export default () => {
     );
 };
 
-function HKVAPage({userPreferences, secondaryNavigationController}: {userPreferences: UserPreferences; secondaryNavigationController?: SecondaryNavigationController}) {
+function HKVAPage({
+    userPreferences,
+    secondaryNavigationController,
+    products,
+}: {
+    userPreferences: UserPreferences;
+    secondaryNavigationController?: SecondaryNavigationController;
+    products: Array<ProductDetails>;
+}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
@@ -201,6 +217,7 @@ function HKVAPage({userPreferences, secondaryNavigationController}: {userPrefere
                 <PowerhouseInverters
                     userPreferences={userPreferences}
                     className="tw-row-start-7 tw-col-start-1 lg:tw-col-span-full tw-w-full"
+                    products={products}
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 tw-col-start-1 lg:tw-col-span-full" />
@@ -208,6 +225,7 @@ function HKVAPage({userPreferences, secondaryNavigationController}: {userPrefere
                 <PowerUpWithHighCapacityInverters
                     userPreferences={userPreferences}
                     className="tw-row-start-9 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
+                    products={products}
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10 tw-col-start-1 lg:tw-col-span-full" />
@@ -552,77 +570,17 @@ function ChooseYourInverterInternal({userPreferences}: {userPreferences: UserPre
     );
 }
 
-function PowerhouseInverters({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const inverters = [
-        allProductDetails["lg2350ixl"][userPreferences.language],
-        allProductDetails["lgs2500"][userPreferences.language],
-        allProductDetails["lgs3000"][userPreferences.language],
-        allProductDetails["lg3500"][userPreferences.language],
-        allProductDetails["lgs4000"][userPreferences.language],
-        allProductDetails["lgs5000"][userPreferences.language],
-    ];
-    const inverterData = [
-        {
-            inverterSlug: "lg2350ixl",
-            imageRelativeUrl: "/livguard/products/lg2350ixl/thumbnail.png",
-            name: inverters[0].humanReadableModelNumber,
-            description: inverters[0].description,
-            warranty: inverters[0].productIcons[0].text,
-            capacity: inverters[0].specifications[1].value,
-            technology: inverters[0].specifications[2].value,
-            dimensions: inverters[0].specifications[3].value,
-        },
-        {
-            inverterSlug: "lgs2500",
-            imageRelativeUrl: "/livguard/products/lgs2500/thumbnail.png",
-            name: inverters[1].humanReadableModelNumber,
-            description: inverters[1].description,
-            warranty: inverters[1].productIcons[0].text,
-            capacity: inverters[1].specifications[1].value,
-            technology: inverters[1].specifications[2].value,
-            dimensions: inverters[1].specifications[3].value,
-        },
-        {
-            inverterSlug: "lgs3000",
-            imageRelativeUrl: "/livguard/products/lgs3000/thumbnail.png",
-            name: inverters[2].humanReadableModelNumber,
-            description: inverters[2].description,
-            warranty: inverters[2].productIcons[0].text,
-            capacity: inverters[2].specifications[1].value,
-            technology: inverters[2].specifications[2].value,
-            dimensions: inverters[2].specifications[3].value,
-        },
-        {
-            inverterSlug: "lg3500",
-            imageRelativeUrl: "/livguard/products/lg3500/thumbnail.png",
-            name: inverters[3].humanReadableModelNumber,
-            description: inverters[3].description,
-            warranty: inverters[3].productIcons[0].text,
-            capacity: inverters[3].specifications[1].value,
-            technology: inverters[3].specifications[2].value,
-            dimensions: inverters[3].specifications[3].value,
-        },
-        {
-            inverterSlug: "lgs4000",
-            imageRelativeUrl: "/livguard/products/lgs4000/thumbnail.png",
-            name: inverters[4].humanReadableModelNumber,
-            description: inverters[4].description,
-            warranty: inverters[4].productIcons[0].text,
-            capacity: inverters[4].specifications[1].value,
-            technology: inverters[4].specifications[2].value,
-            dimensions: inverters[4].specifications[3].value,
-        },
-        {
-            inverterSlug: "lgs5000",
-            imageRelativeUrl: "/livguard/products/lgs5000/thumbnail.png",
-            name: inverters[5].humanReadableModelNumber,
-            description: inverters[5].description,
-            warranty: inverters[5].productIcons[0].text,
-            capacity: inverters[5].specifications[1].value,
-            technology: inverters[5].specifications[2].value,
-            dimensions: inverters[5].specifications[3].value,
-        },
-    ];
+function PowerhouseInverters({userPreferences, className, products}: {userPreferences: UserPreferences; className?: string; products: Array<ProductDetails>}) {
+    const inverterData = products.map((product) => ({
+        inverterSlug: product.slug,
+        imageRelativeUrl: `/livguard/products/${product.slug}/thumbnail.png`,
+        name: product.humanReadableModelNumber,
+        description: product.description,
+        warranty: product.productIcons[0].text,
+        capacity: product.specifications[1].value,
+        technology: product.specifications[2].value,
+        dimensions: product.specifications[3].value,
+    }));
 
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -788,7 +746,7 @@ function InverterCard({
     );
 }
 
-function PowerUpWithHighCapacityInverters({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function PowerUpWithHighCapacityInverters({userPreferences, className, products}: {userPreferences: UserPreferences; className?: string; products: Array<ProductDetails>}) {
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
@@ -801,65 +759,14 @@ function PowerUpWithHighCapacityInverters({userPreferences, className}: {userPre
         }));
     }, [sectionRef, sectionInView]);
 
-    const inverters = [
-        allProductDetails["lg2350ixl"][userPreferences.language],
-        allProductDetails["lgs2500"][userPreferences.language],
-        allProductDetails["lgs3000"][userPreferences.language],
-        allProductDetails["lg3500"][userPreferences.language],
-        allProductDetails["lgs4000"][userPreferences.language],
-        allProductDetails["lgs5000"][userPreferences.language],
-    ];
-
-    const featuredProducts = [
-        {
-            name: inverters[0].humanReadableModelNumber,
-            slug: "lg2350ixl",
-            capacity: inverters[0].productIcons[1].text,
-            warranty: inverters[0].productIcons[0].text,
-            price: inverters[0].price,
-            imageRelativeUrl: "/livguard/products/lg2350ixl/thumbnail.png",
-        },
-        {
-            name: inverters[1].humanReadableModelNumber,
-            slug: "lgs2500",
-            capacity: inverters[1].productIcons[1].text,
-            warranty: inverters[1].productIcons[0].text,
-            price: inverters[1].price,
-            imageRelativeUrl: "/livguard/products/lgs2500/thumbnail.png",
-        },
-        {
-            name: inverters[2].humanReadableModelNumber,
-            slug: "lgs3000",
-            capacity: inverters[2].productIcons[1].text,
-            warranty: inverters[2].productIcons[0].text,
-            price: inverters[2].price,
-            imageRelativeUrl: "/livguard/products/lgs3000/thumbnail.png",
-        },
-        {
-            name: inverters[3].humanReadableModelNumber,
-            slug: "lg3500",
-            capacity: inverters[3].productIcons[1].text,
-            warranty: inverters[3].productIcons[0].text,
-            price: inverters[3].price,
-            imageRelativeUrl: "/livguard/products/lg3500/thumbnail.png",
-        },
-        {
-            name: inverters[4].humanReadableModelNumber,
-            slug: "lgs4000",
-            capacity: inverters[4].productIcons[1].text,
-            warranty: inverters[4].productIcons[0].text,
-            price: inverters[4].price,
-            imageRelativeUrl: "/livguard/products/lgs4000/thumbnail.png",
-        },
-        {
-            name: inverters[5].humanReadableModelNumber,
-            slug: "lgs5000",
-            capacity: inverters[5].productIcons[1].text,
-            warranty: inverters[5].productIcons[0].text,
-            price: inverters[5].price,
-            imageRelativeUrl: "/livguard/products/lgs5000/thumbnail.png",
-        },
-    ];
+    const featuredProducts = products.map((product) => ({
+        name: product.humanReadableModelNumber,
+        slug: product.slug,
+        capacity: product.productIcons[1].text,
+        warranty: product.productIcons[0].text,
+        price: product.price,
+        imageRelativeUrl: `/livguard/products/${product.slug}/thumbnail.png`,
+    }));
 
     function InverterCard({
         slug,

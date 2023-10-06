@@ -1,6 +1,6 @@
 import type {ProductCardTwoDetailsType} from "~/components/reusable-components/productCardTwoDetails";
-import type {ProductDetails} from "~/productData";
-import {AutomotiveSubType, ProductType} from "~/productData";
+import type {ProductDetails} from "~/productData.types";
+import {AutomotiveSubType, ProductType} from "~/productData.types";
 import {getCapacityFromProduct, getWarrantyFromProduct} from "~/routes/pricing/index.state";
 
 export type PricingPageState = {

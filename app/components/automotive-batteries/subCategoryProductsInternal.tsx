@@ -5,7 +5,7 @@ import {getAbsolutePathForRelativePath} from "~/global-common-typescript/compone
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import type {ProductType} from "~/productData";
+import type {ProductType} from "~/productData.types";
 import type {UserPreferences} from "~/typeDefinitions";
 import {getMetadataForImage} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";

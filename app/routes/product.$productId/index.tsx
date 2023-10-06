@@ -4,6 +4,7 @@ import React, {useContext, useEffect, useState} from "react";
 import {CircleFill, StarFill} from "react-bootstrap-icons";
 import {useInView} from "react-intersection-observer";
 import {useLoaderData} from "react-router";
+import {getProductFromSlug, getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {SocialHandles} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -24,8 +25,8 @@ import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/gl
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
-import type {ProductDetails} from "~/productData";
-import {ProductType, allProductDetails} from "~/productData";
+import type {ProductDetails} from "~/productData.server";
+import {ProductType, allProductDetails} from "~/productData.server";
 import {ContactUsCta, DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
@@ -105,7 +106,7 @@ export const loader: LoaderFunction = async ({request, params}) => {
 
     const productId = getNonEmptyStringFromUnknown(params.productId as string);
 
-    const productData = allProductDetails[productId];
+    const productData = getProductFromSlug(productId);
     if (productData == null) {
         throw new Response(null, {status: 404});
     }
@@ -115,17 +116,16 @@ export const loader: LoaderFunction = async ({request, params}) => {
     const recommendedProducts: Array<RecommendedProducts> = recommendedProductsSlug.map((slug) => {
         return {
             slug: slug,
-            productType: allProductDetails[slug][userPreferences.language].type,
-            productName: allProductDetails[slug][userPreferences.language].humanReadableModelNumber,
-            productPrice: allProductDetails[slug][userPreferences.language].price == null ? null : `${allProductDetails[slug][userPreferences.language].price}`,
-            specification1Icon: allProductDetails[slug][userPreferences.language].productIcons[1].icon,
-            specification1: allProductDetails[slug][userPreferences.language].productIcons[1].text,
-            specification2Icon: allProductDetails[slug][userPreferences.language].productIcons[0].icon,
-            specification2: allProductDetails[slug][userPreferences.language].productIcons[0].text,
+            productType: getProductFromSlugAndLanguage(slug, userPreferences.language).type,
+            productName: getProductFromSlugAndLanguage(slug, userPreferences.language).humanReadableModelNumber,
+            productPrice: getProductFromSlugAndLanguage(slug, userPreferences.language).price == null ? null : `${getProductFromSlugAndLanguage(slug, userPreferences.language).price}`,
+            specification1Icon: getProductFromSlugAndLanguage(slug, userPreferences.language).productIcons[1].icon,
+            specification1: getProductFromSlugAndLanguage(slug, userPreferences.language).productIcons[1].text,
+            specification2Icon: getProductFromSlugAndLanguage(slug, userPreferences.language).productIcons[0].icon,
+            specification2: getProductFromSlugAndLanguage(slug, userPreferences.language).productIcons[0].text,
         };
     });
 
-    // console.log(recommendedProducts)
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),

@@ -21,7 +21,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
-import {ProductType} from "~/productData";
+import {ProductType} from "~/productData.types";
 import {DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";

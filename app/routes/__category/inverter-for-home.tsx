@@ -4,6 +4,7 @@ import {useContext, useEffect, useState} from "react";
 import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, SocialHandles, WhatsBestForYouComponent} from "~/components/category/common";
 import {CategoryCarousel1} from "~/components/categoryCarousel1";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
@@ -16,16 +17,17 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
-import { getAbsolutePathForRelativePath } from "~/global-common-typescript/components/images/growthJockeyImage";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import { ImageCdnProvider } from "~/global-common-typescript/typeDefinitions";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {concatenateNonNullStringsWithSpaces, distinct} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
-import type {ProductDetailsRecommendedProduct} from "~/productData";
+import type {ProductDetailsRecommendedProduct} from "~/productData.types";
 import {DealerLocator} from "~/routes";
+import {HumanReadableModelNumbersForSuggestions} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {InverterType, Language} from "~/typeDefinitions";
@@ -161,6 +163,7 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -169,17 +172,24 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const slugs = ["lgs900i", "lgs1000i", "lgs1600", "lgs1700", "lg700e", "lg900", "lg1100", "lg1450i", "lg1950i"];
+    let humanReadableModelNumbersForSuggestionsObj: HumanReadableModelNumbersForSuggestions = {};
+    slugs.forEach((slug) => {
+        humanReadableModelNumbersForSuggestionsObj[slug] = getProductFromSlugAndLanguage(slug, userPreferences.language).humanReadableModelNumber;
+    });
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        humanReadableModelNumbersForSuggestions: humanReadableModelNumbersForSuggestionsObj,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, humanReadableModelNumbersForSuggestions} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -205,6 +215,7 @@ export default function () {
                         utmParameters={utmSearchParameters}
                         pageUrl={pageUrl}
                         secondaryNavigationController={secondaryNavigationController}
+                        humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
                     />
                 </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
@@ -223,11 +234,13 @@ function CategoryPage({
     utmParameters,
     pageUrl,
     secondaryNavigationController,
+    humanReadableModelNumbersForSuggestions,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {[searchParameter: string]: string};
     pageUrl: string;
     secondaryNavigationController?: SecondaryNavigationController;
+    humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
@@ -258,6 +271,7 @@ function CategoryPage({
             <OurSuggestionsSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
+                humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
@@ -543,7 +557,15 @@ export function InvertersAreMeantToLast({userPreferences, className}: {userPrefe
     );
 }
 
-export function OurSuggestionsSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+export function OurSuggestionsSection({
+    userPreferences,
+    className,
+    humanReadableModelNumbersForSuggestions,
+}: {
+    userPreferences: UserPreferences;
+    className: string;
+    humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
+}) {
     const [selectedInverterType, setSelectedInverterType] = useState(InverterType.sine);
 
     const sectionData: Array<{
@@ -683,7 +705,10 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                                     key={itemIndex}
                                 >
                                     <div className="tw-h-8 tw-w-8 tw-bg-secondary-100-light dark:tw-bg-secondary-100-dark tw-rounded-full tw-p-2">
-                                        <FullWidthImage relativePath={item.icon} className="dark:tw-invert"/>
+                                        <FullWidthImage
+                                            relativePath={item.icon}
+                                            className="dark:tw-invert"
+                                        />
                                     </div>
                                     <div className="tw-text-body">{getVernacularString(item.textContentId, userPreferences.language)}</div>
                                     <div
@@ -705,6 +730,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                     // backgroundColor={selectedInverterType == InverterType.sine ? "primary-500" : "secondary-100"}
                     userPreferences={userPreferences}
                     className={"lg-card"}
+                    humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
                 />
             </div>
         </div>

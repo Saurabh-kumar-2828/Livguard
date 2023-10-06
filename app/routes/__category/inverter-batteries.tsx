@@ -24,11 +24,11 @@ import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFi
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces, distinct} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
-import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductType} from "~/productData";
+import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductDetails, ProductType} from "~/productData.types";
 import {DealerLocator} from "~/routes";
 import {SuggestedComboSection} from "~/routes/__category/inverter-for-home";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
@@ -47,6 +47,7 @@ import {getVernacularString} from "~/vernacularProvider";
 import batteryFinder from "../battery-finder";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -213,11 +214,14 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
     }
 };
 
+export type HumanReadableModelNumbersForSuggestions = {[slug: string]: string};
+
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
     id: string | null;
+    humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -229,20 +233,46 @@ export const loader: LoaderFunction = async ({request}) => {
     const url = new URL(request.url);
     const id = url.searchParams.get("id");
 
-    //   console.log("<<<<>>>>>>>>>>>>>>",id)
+    const slugs = [
+        "it1048st",
+        "it1560stt",
+        "it1550tt",
+        "it1584tt",
+        "it1642tt",
+        "it1648tt",
+        "it1672tt",
+        "it1860tt",
+        "it1872tt",
+        "it2048tt",
+        "it2060tt",
+        "it2072tt",
+        "it2272tt",
+        "it2360tt",
+        "it2672tt",
+        "it1172stt",
+        "it1548stt",
+        "it9048st",
+    ];
+    let humanReadableModelNumbersForSuggestionsObj: HumanReadableModelNumbersForSuggestions = {};
+    slugs.forEach((slug) => {
+        humanReadableModelNumbersForSuggestionsObj[slug] = getProductFromSlugAndLanguage(slug, userPreferences.language).humanReadableModelNumber;
+    });
+
+    console.log(humanReadableModelNumbersForSuggestionsObj);
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
         id: id,
+        humanReadableModelNumbersForSuggestions: humanReadableModelNumbersForSuggestionsObj,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl, id} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, id, humanReadableModelNumbersForSuggestions} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -269,6 +299,7 @@ export default function () {
                         pageUrl={pageUrl}
                         secondaryNavigationController={secondaryNavigationController}
                         id={id}
+                        humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
                     />
                 </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
@@ -288,12 +319,14 @@ function CategoryPage({
     pageUrl,
     secondaryNavigationController,
     id,
+    humanReadableModelNumbersForSuggestions,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {[searchParameter: string]: string};
     pageUrl: string;
     secondaryNavigationController?: SecondaryNavigationController;
     id?: string | null;
+    humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
@@ -326,6 +359,7 @@ function CategoryPage({
                 userPreferences={userPreferences}
                 id={id}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
+                humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
@@ -828,7 +862,17 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
     );
 }
 
-export function OurSuggestionsSection({userPreferences, className, id}: {userPreferences: UserPreferences; className?: string; id?: string | null}) {
+export function OurSuggestionsSection({
+    userPreferences,
+    className,
+    id,
+    humanReadableModelNumbersForSuggestions,
+}: {
+    userPreferences: UserPreferences;
+    className?: string;
+    id?: string | null;
+    humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
+}) {
     const [selectedBatteryTypeIndex, setSelectedBatteryTypeIndex] = useState(0);
 
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
@@ -891,7 +935,7 @@ export function OurSuggestionsSection({userPreferences, className, id}: {userPre
                 },
             ],
             imagesRelativePath: "/livguard/products/",
-            link: "/product/it1584tt",
+            link: "/product/it1048st",
             exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
             relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
             relatedProducts: ["it1550tt", "it1584tt", "it1642tt", "it1648tt", "it1672tt", "it1860tt", "it1872tt", "it2048tt", "it2060tt", "it2072tt", "it2272tt", "it2360tt", "it2672tt"],
@@ -924,7 +968,7 @@ export function OurSuggestionsSection({userPreferences, className, id}: {userPre
                 },
             ],
             imagesRelativePath: "/livguard/products/",
-            link: "/product/it1048st",
+            link: "/product/it1560stt",
             exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
             relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
             relatedProducts: ["it9048st"],
@@ -1032,6 +1076,7 @@ export function OurSuggestionsSection({userPreferences, className, id}: {userPre
                     // className={selectedBatteryType == BatteryType.flat ? "lg-bg-secondary-300" : "lg-bg-secondary-100"}
                     userPreferences={userPreferences}
                     className="lg-card"
+                    humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
                 />
             </div>
         </div>

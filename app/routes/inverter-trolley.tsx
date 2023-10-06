@@ -18,7 +18,7 @@ import {CarouselStyle5} from "~/components/carouselStyle5";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {ProductType, allProductDetails} from "~/productData";
+import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
 import React, {useContext, useEffect, useState} from "react";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
@@ -34,6 +34,7 @@ import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigati
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
 import {useInView} from "react-intersection-observer";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -124,6 +125,7 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    products: Array<ProductDetails>;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -132,17 +134,21 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const slugs = ["trolley"];
+    const products = slugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        products: products,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, products} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     const secondaryNavigationController = useSecondaryNavigationController();
@@ -165,6 +171,7 @@ export default () => {
                     <InverterTrolleyPage
                         userPreferences={userPreferences}
                         secondaryNavigationController={secondaryNavigationController}
+                        products={products}
                     />
                 </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
@@ -178,7 +185,15 @@ export default () => {
     );
 };
 
-function InverterTrolleyPage({userPreferences, secondaryNavigationController}: {userPreferences: UserPreferences; secondaryNavigationController?: SecondaryNavigationController}) {
+function InverterTrolleyPage({
+    userPreferences,
+    secondaryNavigationController,
+    products,
+}: {
+    userPreferences: UserPreferences;
+    secondaryNavigationController?: SecondaryNavigationController;
+    products: Array<ProductDetails>;
+}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
@@ -201,6 +216,7 @@ function InverterTrolleyPage({userPreferences, secondaryNavigationController}: {
                 <OurSuggestionsBasedOnYourChoice
                     userPreferences={userPreferences}
                     className="tw-row-start-5 tw-col-start-1 lg:tw-col-span-full tw-max-w-7xl tw-mx-auto"
+                    products={products}
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
@@ -400,7 +416,7 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
     );
 }
 
-function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function OurSuggestionsBasedOnYourChoice({userPreferences, className, products}: {userPreferences: UserPreferences; className?: string; products: Array<ProductDetails>}) {
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
@@ -412,17 +428,17 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
             },
         }));
     }, [sectionRef, sectionInView]);
-    const trolley = allProductDetails["trolley"][userPreferences.language];
 
+    // Implement UI for multiple elements if needed, using only one product for now
     const trolleyData = {
-        batterySlug: "/product/trolley",
-        imageRelativeUrl: "/livguard/products/trolley/thumbnail.png",
-        name: "Livguard Trolley",
-        description: trolley.description,
-        warranty: trolley.specifications[1].value,
-        capacity: trolley.specifications[0].value,
-        grid: trolley.specifications[2].value,
-        dimensions: trolley.specifications[3].value,
+        batterySlug: products[0].slug,
+        imageRelativeUrl: `/livguard/products/${products[0].slug}/thumbnail.png`,
+        name: products[0].humanReadableModelNumber,
+        description: products[0].description,
+        warranty: products[0].specifications[1].value,
+        capacity: products[0].specifications[0].value,
+        grid: products[0].specifications[2].value,
+        dimensions: products[0].specifications[3].value,
     };
 
     return (
@@ -441,7 +457,7 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
 
             <InverterCard
                 userPreferences={userPreferences}
-                batterySlug={trolleyData.batterySlug}
+                batterySlug={`/product/${trolleyData.batterySlug}`}
                 imageRelativeUrl={trolleyData.imageRelativeUrl}
                 name={trolleyData.name}
                 description={trolleyData.description}

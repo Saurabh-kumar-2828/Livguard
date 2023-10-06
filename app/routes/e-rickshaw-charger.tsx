@@ -27,12 +27,13 @@ import {StickyBottomBar} from "~/components/bottomBar";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 import {DealerLocator} from "~/routes";
 import {SocialHandles} from "~/components/category/common";
-import {allProductDetails} from "~/productData";
+import {ProductDetails, allProductDetails} from "~/productData.types";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {useInView} from "react-intersection-observer";
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -123,6 +124,7 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    products: Array<ProductDetails>;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -131,10 +133,15 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const slugs = ["e-rickshaw-charger", "e-rickshaw-charger-black"];
+
+    const products = slugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        products: products,
     };
 
     return loaderData;
@@ -167,6 +174,7 @@ export default () => {
                         utmParameters={utmSearchParameters}
                         pageUrl={pageUrl}
                         secondaryNavigationController={secondaryNavigationController}
+                        products={products}
                     />
                 </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
@@ -185,6 +193,7 @@ function ERickshawChargerPage({
     utmParameters,
     pageUrl,
     secondaryNavigationController,
+    products,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -192,6 +201,7 @@ function ERickshawChargerPage({
     };
     pageUrl: string;
     secondaryNavigationController?: SecondaryNavigationController;
+    products: Array<ProductDetails>;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
@@ -396,31 +406,18 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
     );
 }
 
-function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const chargers = [allProductDetails["e-rickshaw-charger"][userPreferences.language], allProductDetails["e-rickshaw-charger-black"][userPreferences.language]];
+function OurSuggestionsBasedOnYourChoice({userPreferences, className, products}: {userPreferences: UserPreferences; className?: string; products: Array<ProductDetails>}) {
+    const chargersData = products.map((product) => ({
+        batterySlug: product.slug,
+        imageRelativeUrl: product.images[0].image,
+        name: product.title,
+        description: product.description,
+        warranty: product.specifications[1].value,
+        capacity: product.specifications[2].value,
+        grid: product.specifications[3].value,
+        dimensions: product.specifications[4].value,
+    }));
 
-    const chargersData = [
-        {
-            batterySlug: "/product/e-rickshaw-charger",
-            imageRelativeUrl: chargers[0].images[0].image,
-            name: chargers[0].title,
-            description: chargers[0].description,
-            warranty: chargers[0].specifications[1].value,
-            capacity: chargers[0].specifications[2].value,
-            grid: chargers[0].specifications[3].value,
-            dimensions: chargers[0].specifications[4].value,
-        },
-        {
-            batterySlug: "/product/e-rickshaw-charger-black",
-            imageRelativeUrl: chargers[1].images[0].image,
-            name: chargers[1].title,
-            description: chargers[1].description,
-            warranty: chargers[1].specifications[1].value,
-            capacity: chargers[1].specifications[2].value,
-            grid: chargers[1].specifications[3].value,
-            dimensions: chargers[1].specifications[4].value,
-        },
-    ];
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
@@ -508,7 +505,7 @@ function BatteryCard({
 
                 <Link
                     className="tw-hidden lg:tw-block"
-                    to={batterySlug}
+                    to={`/product/${batterySlug}`}
                 >
                     <button className="lg-cta-button">{getVernacularString("e48d4eeb-f921-45f5-b023-680f699816c5", userPreferences.language)}</button>
                 </Link>
@@ -573,7 +570,7 @@ function BatteryCard({
 
                 <Link
                     className="tw-place-self-center lg:tw-hidden"
-                    to={batterySlug}
+                    to={`/product/${batterySlug}`}
                 >
                     <button className="lg-cta-button">{getVernacularString("e48d4eeb-f921-45f5-b023-680f699816c5", userPreferences.language)}</button>
                 </Link>

@@ -1,4 +1,4 @@
-import {ProductType} from "~/productData";
+import {ProductType} from "~/productData.types";
 import {UserPreferences} from "~/typeDefinitions";
 
 export enum VehicleCategory {

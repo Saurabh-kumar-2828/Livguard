@@ -3,6 +3,7 @@ import {Link, useLoaderData} from "@remix-run/react";
 import React, {useContext, useEffect} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {useInView} from "react-intersection-observer";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -23,7 +24,7 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import {allProductDetails} from "~/productData";
+import {ProductDetails, allProductDetails} from "~/productData.types";
 import {DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
@@ -120,6 +121,7 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    products: Array<ProductDetails>;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -128,17 +130,22 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const slugs = ["lgmf0ar32r", "lgmf0ar60l"];
+
+    const products = slugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        products: products,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, products} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     const secondaryNavigationController = useSecondaryNavigationController();
@@ -161,6 +168,7 @@ export default () => {
                     <ThreeWheelerBatteriesPage
                         userPreferences={userPreferences}
                         secondaryNavigationController={secondaryNavigationController}
+                        products={products}
                     />
                 </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
@@ -174,7 +182,15 @@ export default () => {
     );
 };
 
-function ThreeWheelerBatteriesPage({userPreferences, secondaryNavigationController}: {userPreferences: UserPreferences; secondaryNavigationController?: SecondaryNavigationController}) {
+function ThreeWheelerBatteriesPage({
+    userPreferences,
+    secondaryNavigationController,
+    products,
+}: {
+    userPreferences: UserPreferences;
+    secondaryNavigationController?: SecondaryNavigationController;
+    products: Array<ProductDetails>;
+}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
@@ -197,6 +213,7 @@ function ThreeWheelerBatteriesPage({userPreferences, secondaryNavigationControll
                 <ThreeWheelerBatteriesForUnmatchedPower
                     userPreferences={userPreferences}
                     className="tw-row-start-5 tw-col-start-1 lg:tw-col-span-full tw-w-full"
+                    products={products}
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
@@ -393,7 +410,7 @@ function ReliabilityYouCanExperience({userPreferences, className}: {userPreferen
     );
 }
 
-function ThreeWheelerBatteriesForUnmatchedPower({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function ThreeWheelerBatteriesForUnmatchedPower({userPreferences, className, products}: {userPreferences: UserPreferences; className?: string; products: Array<ProductDetails>}) {
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
@@ -406,27 +423,15 @@ function ThreeWheelerBatteriesForUnmatchedPower({userPreferences, className}: {u
         }));
     }, [sectionRef, sectionInView]);
 
-    const products = [allProductDetails["lgmf0ar32r"][userPreferences.language], allProductDetails["lgmf0ar60l"][userPreferences.language]];
-    const brandBatteries = [
-        {
-            batterySlug: "lgmf0ar32r",
-            name: products[0].humanReadableModelNumber,
-            description: products[0].description,
-            warranty: products[0].specifications[1].value,
-            capacity: products[0].specifications[2].value,
-            polarity: products[0].specifications[3].value,
-            dimensions: products[0].specifications[4].value,
-        },
-        {
-            batterySlug: "lgmf0ar60l",
-            name: products[1].humanReadableModelNumber,
-            description: products[1].description,
-            warranty: products[1].specifications[1].value,
-            capacity: products[1].specifications[2].value,
-            polarity: products[1].specifications[3].value,
-            dimensions: products[1].specifications[4].value,
-        },
-    ];
+    const batteries = products.map((product) => ({
+        batterySlug: product.slug,
+        name: product.humanReadableModelNumber,
+        description: product.description,
+        warranty: product.specifications[1].value,
+        capacity: product.specifications[2].value,
+        polarity: product.specifications[3].value,
+        dimensions: product.specifications[4].value,
+    }));
 
     return (
         <div
@@ -448,7 +453,7 @@ function ThreeWheelerBatteriesForUnmatchedPower({userPreferences, className}: {u
 
             <CarouselStyle5
                 // @ts-ignore
-                items={brandBatteries.map((battery, batteryIndex) => {
+                items={batteries.map((battery, batteryIndex) => {
                     return (
                         <BatteryCard
                             userPreferences={userPreferences}

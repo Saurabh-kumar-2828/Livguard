@@ -1010,8 +1010,7 @@ function ReachOutForAnyQuery({
                     return;
                 }
                 setInvalidOtp(false);
-                console.log(actionData.error);
-                toast.error("Error in submitting form");
+                toast.error(actionData.error);
                 return;
             }
 

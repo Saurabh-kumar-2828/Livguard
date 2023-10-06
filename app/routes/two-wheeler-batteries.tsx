@@ -1,8 +1,10 @@
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
-import {Link, useLoaderData} from "@remix-run/react";
+import {FetcherWithComponents, Link, useFetcher, useLoaderData} from "@remix-run/react";
 import React, {useContext, useEffect, useReducer, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {useInView} from "react-intersection-observer";
+import {twoWheelerBatteryBrands} from "~/backend/battery-finder.server";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {CarouselStyle5} from "~/components/carouselStyle5";
@@ -24,7 +26,7 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import {ProductType, allProductDetails} from "~/productData";
+import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
 import {DealerLocator} from "~/routes";
 import type {BatteryFinderAction} from "~/routes/two-wheeler/index.state";
 import {BatteryFinderActionType, batteryFinderInitialState, batteryFinderReducer} from "~/routes/two-wheeler/index.state";
@@ -124,6 +126,9 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    products: Array<ProductDetails>;
+    batteryFinderBrands: Array<string>;
+    initialRecommendedBatteries: Array<ProductDetails>;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -132,17 +137,28 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const slugs = ["lgbtx2.5l", "lgbtx7l", "lgbtx9l", "lgzhhtx5", "lgzhhtz4", "lgzhhtz5"];
+    const products = slugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+
+    const batteryFinderBrands = twoWheelerBatteryBrands;
+
+    const initialRecommendedBatterySlugs = ["lgzhhtz4", "lgzhhtx5"];
+    const initialRecommendedBatteries = initialRecommendedBatterySlugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        products: products,
+        batteryFinderBrands: batteryFinderBrands,
+        initialRecommendedBatteries: initialRecommendedBatteries,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, products, batteryFinderBrands, initialRecommendedBatteries} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     const secondaryNavigationController = useSecondaryNavigationController();
@@ -165,6 +181,9 @@ export default () => {
                     <TwoWheelerBatteriesPage
                         userPreferences={userPreferences}
                         secondaryNavigationController={secondaryNavigationController}
+                        products={products}
+                        batteryFinderBrands={batteryFinderBrands}
+                        initialRecommendedBatteries={initialRecommendedBatteries}
                     />
                 </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
@@ -180,9 +199,19 @@ export default () => {
     );
 };
 
-function TwoWheelerBatteriesPage({userPreferences, secondaryNavigationController}: {userPreferences: UserPreferences; secondaryNavigationController?: SecondaryNavigationController}) {
-    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
+function TwoWheelerBatteriesPage({
+    userPreferences,
+    secondaryNavigationController,
+    products,
+    batteryFinderBrands,
+    initialRecommendedBatteries,
+}: {
+    userPreferences: UserPreferences;
+    secondaryNavigationController?: SecondaryNavigationController;
+    products: Array<ProductDetails>;
+    batteryFinderBrands: Array<string>;
+    initialRecommendedBatteries: Array<ProductDetails>;
+}) {
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -203,6 +232,8 @@ function TwoWheelerBatteriesPage({userPreferences, secondaryNavigationController
                 <OurSuggestionsBasedOnYourChoice
                     userPreferences={userPreferences}
                     className="tw-row-start-6 tw-col-start-1 lg:tw-col-span-full tw-w-full"
+                    batteryFinderBrands={batteryFinderBrands}
+                    initialRecommendedBatteries={initialRecommendedBatteries}
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-7 tw-col-start-1 lg:tw-col-span-full" />
@@ -210,6 +241,7 @@ function TwoWheelerBatteriesPage({userPreferences, secondaryNavigationController
                 <TopTwoWheelerBatteryPicks
                     userPreferences={userPreferences}
                     className="tw-row-start-8 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
+                    products={products}
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-9 tw-col-start-1 lg:tw-col-span-full" />
@@ -407,60 +439,15 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
     );
 }
 
-function TopTwoWheelerBatteryPicks({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const featuredProducts = [
-        {
-            productType: ProductType.automotiveBattery,
-            name: allProductDetails["lgbtx2.5l"][userPreferences.language].humanReadableModelNumber,
-            slug: "lgbtx2.5l",
-            isBestSeller: true,
-            capacity: allProductDetails["lgbtx2.5l"][userPreferences.language].specifications[2].value,
-            // warranty: allProductDetails["lgbtx2.5l"][userPreferences.language].specifications[1].value,
-            warranty: "48 + 30 * Months",
-            price: allProductDetails["lgbtx2.5l"][userPreferences.language].price || null,
-        },
-        {
-            productType: ProductType.automotiveBattery,
-            name: allProductDetails["lgbtx7l"][userPreferences.language].humanReadableModelNumber,
-            slug: "lgbtx7l",
-            capacity: allProductDetails["lgbtx7l"][userPreferences.language].specifications[2].value,
-            warranty: allProductDetails["lgbtx7l"][userPreferences.language].specifications[1].value,
-            price: allProductDetails["lgbtx7l"][userPreferences.language].price || null,
-        },
-        {
-            productType: ProductType.automotiveBattery,
-            name: allProductDetails["lgbtx9l"][userPreferences.language].humanReadableModelNumber,
-            slug: "lgbtx9l",
-            capacity: allProductDetails["lgbtx9l"][userPreferences.language].specifications[2].value,
-            warranty: allProductDetails["lgbtx9l"][userPreferences.language].specifications[1].value,
-            price: allProductDetails["lgbtx9l"][userPreferences.language].price || null,
-        },
-        {
-            productType: ProductType.automotiveBattery,
-            name: allProductDetails["lgzhhtx5"][userPreferences.language].humanReadableModelNumber,
-            slug: "lgzhhtx5",
-            capacity: allProductDetails["lgzhhtx5"][userPreferences.language].specifications[2].value,
-            warranty: allProductDetails["lgzhhtx5"][userPreferences.language].specifications[1].value,
-            price: allProductDetails["lgzhhtx5"][userPreferences.language].price || null,
-        },
-        {
-            productType: ProductType.automotiveBattery,
-            name: allProductDetails["lgzhhtz4"][userPreferences.language].humanReadableModelNumber,
-            slug: "lgzhhtz4",
-            isBestSeller: true,
-            capacity: allProductDetails["lgzhhtz4"][userPreferences.language].specifications[2].value,
-            warranty: allProductDetails["lgzhhtz4"][userPreferences.language].specifications[1].value,
-            price: allProductDetails["lgzhhtz4"][userPreferences.language].price || null,
-        },
-        {
-            productType: ProductType.automotiveBattery,
-            name: allProductDetails["lgzhhtz5"][userPreferences.language].humanReadableModelNumber,
-            slug: "lgzhhtz5",
-            capacity: allProductDetails["lgzhhtz5"][userPreferences.language].specifications[2].value,
-            warranty: allProductDetails["lgzhhtz5"][userPreferences.language].specifications[1].value,
-            price: allProductDetails["lgzhhtz5"][userPreferences.language].price || null,
-        },
-    ];
+function TopTwoWheelerBatteryPicks({userPreferences, className, products}: {userPreferences: UserPreferences; className?: string; products: Array<ProductDetails>}) {
+    const featuredProducts = products.map((product) => ({
+        productType: ProductType.automotiveBattery,
+        name: product.humanReadableModelNumber,
+        slug: product.slug,
+        capacity: product.specifications[2].value,
+        warranty: product.specifications[1].value,
+        price: product.price || null,
+    }));
 
     function BatteryCard({
         slug,
@@ -634,10 +621,50 @@ function TopTwoWheelerBatteryPicks({userPreferences, className}: {userPreference
     );
 }
 
-function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const [batteryFinderState, dispatch] = useReducer(batteryFinderReducer, batteryFinderInitialState(userPreferences.language));
+function OurSuggestionsBasedOnYourChoice({
+    userPreferences,
+    className,
+    batteryFinderBrands,
+    initialRecommendedBatteries,
+}: {
+    userPreferences: UserPreferences;
+    className?: string;
+    batteryFinderBrands: Array<string>;
+    initialRecommendedBatteries: Array<ProductDetails>;
+}) {
+    const [batteryFinderState, dispatch] = useReducer(batteryFinderReducer, batteryFinderInitialState(userPreferences.language, batteryFinderBrands, initialRecommendedBatteries));
 
-    const brands = batteryFinderState.brands;
+    const brands = batteryFinderBrands;
+    const segmentFetcher = useFetcher();
+    const modelFetcher = useFetcher();
+    const findBatteryFetcher = useFetcher();
+
+    useEffect(() => {
+        if (segmentFetcher.data != null) {
+            dispatch({
+                actionType: BatteryFinderActionType.setSegments,
+                payload: segmentFetcher.data.segments,
+            });
+        }
+    }, [segmentFetcher.data]);
+
+    useEffect(() => {
+        if (modelFetcher.data != null) {
+            dispatch({
+                actionType: BatteryFinderActionType.setModels,
+                payload: modelFetcher.data.models,
+            });
+        }
+    }, [modelFetcher.data]);
+
+    useEffect(() => {
+        if (findBatteryFetcher.data != null) {
+            dispatch({
+                actionType: BatteryFinderActionType.setRecommendedBatteries,
+                payload: findBatteryFetcher.data.recommendedBatteries,
+            });
+        }
+    }, [findBatteryFetcher.data]);
 
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
@@ -682,6 +709,7 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                                 actionType: BatteryFinderActionType.setSelectedBrand,
                                 payload: item,
                             });
+                            segmentFetcher.submit({selectedBrand: item}, {method: "GET", action: "/battery-finder/get-segments"});
                         }}
                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light"
                     />
@@ -698,6 +726,7 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                                 actionType: BatteryFinderActionType.setSelectedSegment,
                                 payload: item,
                             });
+                            modelFetcher.submit({selectedBrand: batteryFinderState.selectedBrand, selectedSegment: item}, {method: "GET", action: "/battery-finder/get-models"});
                         }}
                         disabled={batteryFinderState.selectedBrand == null}
                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
@@ -722,16 +751,27 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                 </div>
 
                 <div
-                    onClick={() => {
-                        dispatch({
-                            actionType: BatteryFinderActionType.findBatteries,
-                            payload: userPreferences.language,
-                        });
-                    }}
+                // onClick={() => {
+                //     dispatch({
+                //         actionType: BatteryFinderActionType.findBatteries,
+                //         payload: userPreferences.language,
+                //     });
+                // }}
                 >
                     <button
                         className="lg-cta-button disabled:!tw-bg-none disabled:!tw-bg-secondary-300-light disabled:dark:!tw-bg-secondary-300-dark disabled:!tw-text-secondary-700-light disabled:dark:!tw-text-secondary-700-dark"
                         disabled={batteryFinderState.selectedModel == null}
+                        onClick={() => {
+                            findBatteryFetcher.submit(
+                                {
+                                    selectedBrand: batteryFinderState.selectedBrand,
+                                    selectedSegment: batteryFinderState.selectedSegment,
+                                    selectedModel: batteryFinderState.selectedModel,
+                                    vtype: "2W",
+                                },
+                                {method: "GET", action: "/battery-finder/get-recommended-batteries"},
+                            );
+                        }}
                     >
                         {getVernacularString("3231d38a-1950-46eb-be3b-76bd8bce6998", userPreferences.language)}
                     </button>
@@ -747,6 +787,10 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                                 userPreferences={userPreferences}
                                 batteryFinderState={batteryFinderState}
                                 dispatch={dispatch}
+                                brands={batteryFinderBrands}
+                                segmentFetcher={segmentFetcher}
+                                modelFetcher={modelFetcher}
+                                findBatteryFetcher={findBatteryFetcher}
                             />
                         </div>
                     }
@@ -1135,13 +1179,19 @@ export function FilterMobile({
     userPreferences,
     dispatch,
     batteryFinderState,
+    brands,
+    segmentFetcher,
+    modelFetcher,
+    findBatteryFetcher,
 }: {
     userPreferences: UserPreferences;
     batteryFinderState: BatteryFinderState;
     dispatch: React.Dispatch<BatteryFinderAction>;
+    brands: Array<string>;
+    segmentFetcher: FetcherWithComponents<any>;
+    modelFetcher: FetcherWithComponents<any>;
+    findBatteryFetcher: FetcherWithComponents<any>;
 }) {
-    const brands = batteryFinderState.brands;
-
     return (
         <>
             <div className="tw-place-self-center tw-w-full tw-grid tw-grid-flow-row tw-gap-y-6">
@@ -1157,6 +1207,7 @@ export function FilterMobile({
                                 actionType: BatteryFinderActionType.setSelectedBrand,
                                 payload: item,
                             });
+                            segmentFetcher.submit({selectedBrand: item}, {method: "GET", action: "/battery-finder/get-segments"});
                         }}
                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light"
                     />
@@ -1173,6 +1224,7 @@ export function FilterMobile({
                                 actionType: BatteryFinderActionType.setSelectedSegment,
                                 payload: item,
                             });
+                            modelFetcher.submit({selectedBrand: batteryFinderState.selectedBrand, selectedSegment: item}, {method: "GET", action: "/battery-finder/get-models"});
                         }}
                         disabled={batteryFinderState.selectedBrand == null}
                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
@@ -1197,16 +1249,27 @@ export function FilterMobile({
                 </div>
 
                 <div
-                    onClick={() => {
-                        dispatch({
-                            actionType: BatteryFinderActionType.findBatteries,
-                            payload: userPreferences.language,
-                        });
-                    }}
+                // onClick={() => {
+                //     dispatch({
+                //         actionType: BatteryFinderActionType.findBatteries,
+                //         payload: userPreferences.language,
+                //     });
+                // }}
                 >
                     <button
                         className="tw-w-full lg-cta-button disabled:!tw-bg-none disabled:!tw-bg-secondary-300-light disabled:dark:!tw-bg-secondary-300-dark disabled:!tw-text-secondary-700-light disabled:dark:!tw-text-secondary-700-dark"
                         disabled={batteryFinderState.selectedModel == null}
+                        onClick={() => {
+                            findBatteryFetcher.submit(
+                                {
+                                    selectedBrand: batteryFinderState.selectedBrand,
+                                    selectedSegment: batteryFinderState.selectedSegment,
+                                    selectedModel: batteryFinderState.selectedModel,
+                                    vtype: "2W",
+                                },
+                                {method: "GET", action: "/battery-finder/get-recommended-batteries"},
+                            );
+                        }}
                     >
                         {getVernacularString("3231d38a-1950-46eb-be3b-76bd8bce6998", userPreferences.language)}
                     </button>

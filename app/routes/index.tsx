@@ -7,6 +7,7 @@ import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {CarouselStyle1Video} from "~/components/carouselStyle1Video";
 import {CarouselStyle2} from "~/components/carouselStyle2";
@@ -233,6 +234,8 @@ export const loader: LoaderFunction = async ({request}) => {
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
     };
+
+    getProductFromSlugAndLanguage("ze38b20l", userPreferences.language);
 
     return loaderData;
 };
@@ -1835,7 +1838,6 @@ export function ContactUsDialog({
                 clearTimeout(timeoutId);
             }
             let timeout = setTimeout(() => {
-                console.log("action dispatching", formStateInputs.resendTimeOut);
                 const action: FormStateInputsAction = {
                     actionType: FormStateInputsActionType.SetResendTimeOut,
                     payload: formStateInputs.resendTimeOut - 1,
