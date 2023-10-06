@@ -290,7 +290,7 @@ function ChooseYourVehicle({
 }) {
     return (
         <div className="lg-px-screen-edge-2 tw-z-10 tw-w-full tw-max-w-7xl tw-mx-auto">
-            <div className="tw-w-full tw-rounded-lg lg-bg-secondary-100 lg-card-shadow -tw-mt-16 lg:-tw-mt-28">
+            <div className="tw-w-full tw-rounded-lg lg-bg-secondary-100 lg-card -tw-mt-16 lg:-tw-mt-28">
                 <div className="tw-p-4 ">
                     <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
@@ -947,7 +947,7 @@ function VehicleCategoryDetails({
             </div>
 
             <div className="lg-px-screen-edge-2 tw-z-10 tw-max-w-7xl tw-mx-auto">
-                <div className="tw-w-full tw-rounded-lg lg-bg-secondary-100 lg-card-shadow -tw-mt-4 lg:-tw-mt-4 tw-p-4 tw-grid tw-grid-cols-1 tw-gap-x-4 tw-gap-y-4 tw-p-9">
+                <div className="tw-w-full tw-rounded-lg lg-bg-secondary-100 lg-card -tw-mt-4 lg:-tw-mt-4 tw-grid tw-grid-cols-1 tw-gap-x-4 tw-gap-y-4 tw-p-9">
                     <div className="tw-row-start-1 tw-col-start-1 tw-self-center tw-text-center">
                         {getVernacularString(categories[batteryFinderState.selectedCategoryIndex].bodyContentId, userPreferences.language)}
                     </div>

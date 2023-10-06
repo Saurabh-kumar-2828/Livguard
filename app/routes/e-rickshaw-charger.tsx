@@ -311,7 +311,7 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
                 )}
             >
                 <div className="tw-row-start-2">
-                    <FullWidthImage relativePath={imageRelativePath} />
+                    <FullWidthImage relativePath={imageRelativePath} className="tw-rounded-lg"/>
                 </div>
 
                 <div className="tw-row-start-4 tw-text-center lg-text-title1">{title}</div>
@@ -325,7 +325,7 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
         {
             titleTextContentPiece: "21748a0f-e0be-44cd-923a-11ae935b45eb",
             bodyTextContentPiece: "82f2e4a8-15fb-4550-99f8-2fc0237de6d8",
-            imageRelativePath: "/livguard/e-rickshaw-charger/2/long-battery-life.jpg",
+            imageRelativePath: "/livguard/e-rickshaw-charger/2/battery-life.jpg",
         },
         {
             titleTextContentPiece: "b36f8113-ef64-414d-b594-6bb905020b19",
@@ -350,7 +350,7 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
         {
             titleTextContentPiece: "16dd3897-b1b3-4de7-92f0-f602d56b2b7f",
             bodyTextContentPiece: "9361ff0a-c2ac-4582-b8fd-cc9273f05058",
-            imageRelativePath: "/livguard/e-rickshaw-charger/2/fast-charging.jpg",
+            imageRelativePath: "/livguard/e-rickshaw-charger/2/deep-discharge.jpg",
         },
     ];
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
@@ -434,7 +434,7 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
     }, [sectionRef, sectionInView]);
     return (
         <div
-            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-bg-our-suggestions tw-rounded-lg", className)}
+            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-card tw-rounded-lg", className)}
             id="featured-products"
             ref={sectionRef}
         >
@@ -499,7 +499,7 @@ function BatteryCard({
     dimensions: string;
 }) {
     return (
-        <div className="tw-max-w-3xl tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:tw-gap-x-2 lg-bg-our-suggestions-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-pr-8 lg:tw-pl-4">
+        <div className="tw-max-w-3xl tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:tw-gap-x-2 lg-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-pr-8 lg:tw-pl-4">
             <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-place-items-center">
                 <div className="lg:tw-hidden tw-bg-[#c5c5c5] dark:tw-bg-[#3a3a3a] tw-p-2">{getVernacularString("22669d2d-400b-4699-9d1c-2dd7078949b5", userPreferences.language)}</div>
                 <div className="tw-w-full tw-h-full tw-grid tw-place-items-center">

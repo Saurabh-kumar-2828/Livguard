@@ -312,7 +312,7 @@ function PowerThatEmpowersLives({
     pageUrl: string;
 }) {
     return (
-        <div className="tw-w-4/5 lg:tw-w-full tw-place-self-center tw-relative tw-bottom-4 tw-z-[2] tw-p-4 tw-rounded-lg tw-row-start-2 tw-col-start-1 tw-bg-secondary-100-light dark:tw-bg-secondary-100-dark lg:!tw-bg-transparent tw-grid tw-grid-rows-[repeat(4,auto)] max-lg:lg-ops-pages-shadow">
+        <div className="tw-w-4/5 lg:tw-w-full tw-place-self-center tw-relative tw-bottom-4 tw-z-[2] tw-p-4 tw-rounded-lg tw-row-start-2 tw-col-start-1 lg-bg-secondary-100 max-lg:lg-card lg:!tw-bg-transparent tw-grid tw-grid-rows-[repeat(4,auto)] max-lg:lg-card">
             <div className="lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-z-[2] lg:tw-justify-self-start lg:tw-ml-20 lg-text-headline lg:tw-text-secondary-900-dark">
                 {getVernacularString("d1c50aa6-1529-4fe4-8e3b-b526888ec7e9", userPreferences.language)}
             </div>
@@ -348,7 +348,7 @@ function InternationalOperations({userPreferences, className}: {userPreferences:
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-grid tw-grid-flow-row tw-place-items-center lg:tw-grid-rows-[max-content_1.5rem_minmax(0,1fr)] lg:tw-items-start lg-px-screen-edge-2 lg:lg-bg-secondary-100 lg:tw-rounded-lg lg:tw-px-6 lg:tw-py-12 lg:lg-ops-pages-shadow",
+                "tw-grid tw-grid-flow-row tw-place-items-center lg:tw-grid-rows-[max-content_1.5rem_minmax(0,1fr)] lg:tw-items-start lg-px-screen-edge-2 lg:lg-card lg:tw-rounded-lg lg:tw-px-6 lg:tw-py-12 ",
                 className,
             )}
             id="international-business-operations"
@@ -385,7 +385,7 @@ function WhyLivguard({userPreferences, className}: {userPreferences: UserPrefere
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-grid tw-grid-flow-row tw-place-items-center lg:tw-grid-rows-[max-content_1.5rem_minmax(0,1fr)] lg:tw-items-start lg-px-screen-edge-2 lg:lg-bg-secondary-100 lg:tw-rounded-lg lg:tw-px-6 lg:tw-py-12 lg:lg-ops-pages-shadow",
+                "tw-grid tw-grid-flow-row tw-place-items-center lg:tw-grid-rows-[max-content_1.5rem_minmax(0,1fr)] lg:tw-items-start lg-px-screen-edge-2 lg:lg-card lg:tw-rounded-lg lg:tw-px-6 lg:tw-py-12",
                 className,
             )}
             id="why-livguard"
@@ -439,7 +439,7 @@ function InternationalPresence({userPreferences, className}: {userPreferences: U
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[repeat(4,auto)_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1.25rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
+                "tw-grid tw-grid-rows-[repeat(4,auto)_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1.25rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
                 className,
             )}
             id="international-presence"
@@ -457,7 +457,7 @@ function InternationalPresence({userPreferences, className}: {userPreferences: U
                 {presenceData.map((presence, presenceIndex) => {
                     return (
                         <div
-                            className="tw-grid tw-grid-flow-row tw-gap-y-2 lg-bg-secondary-100 tw-px-0 tw-py-3 tw-w-full tw-rounded-lg lg-ops-pages-shadow"
+                            className="tw-grid tw-grid-flow-row tw-gap-y-2 lg-card tw-px-0 tw-py-3 tw-w-full tw-rounded-lg lg-card"
                             key={presenceIndex}
                         >
                             <div
@@ -492,11 +492,11 @@ function InternationalPresence({userPreferences, className}: {userPreferences: U
                 </div>
             </DefaultTextAnimation>
 
-            <div className="tw-hidden lg:tw-row-start-5 tw-col-start-1 lg:tw-col-span-full lg:tw-px-60 tw-justify-self-center lg:tw-grid lg:tw-grid-flow-col lg:tw-grid-cols-3 lg:tw-gap-x-6 lg:tw-justify-center lg:tw-content-center lg:tw-justify-items-center">
+            <div className="tw-hidden lg:tw-row-start-5 tw-col-start-1 lg:tw-col-span-full tw-justify-self-center lg:tw-grid lg:tw-grid-flow-col lg:tw-grid-cols-3 lg:tw-gap-x-6 lg:tw-justify-center lg:tw-content-center lg:tw-justify-items-center">
                 {presenceData.map((presence, presenceIndex) => {
                     return (
                         <div
-                            className="tw-grid tw-grid-flow-row tw-grid-rows-[max-content,max-content] tw-gap-y-2 tw-bg-secondary-100-light tw-px-8 tw-py-4 tw-w-full tw-rounded-lg lg-ops-pages-shadow"
+                            className="tw-grid tw-grid-flow-row tw-grid-rows-[max-content,max-content] tw-gap-y-2 tw-bg-secondary-100-light tw-px-8 tw-py-4 tw-w-full tw-rounded-lg lg-card"
                             key={presenceIndex}
                         >
                             <div
@@ -577,7 +577,7 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
                         >
                             <div
                                 className={concatenateNonNullStringsWithSpaces(
-                                    "tw-w-12 tw-h-12 tw-rounded-full tw-flex tw-flex-row tw-items-center tw-justify-center tw-duration-200 lg-ops-pages-shadow",
+                                    "tw-w-12 tw-h-12 tw-rounded-full tw-flex tw-flex-row tw-items-center tw-justify-center tw-duration-200 lg-card",
                                     `${itemIndex == selectedIndex ? "lg-bg-primary-500 tw-scale-110" : "lg-bg-secondary-100"}`,
                                 )}
                             >
@@ -753,7 +753,7 @@ function InnovationSolution({userPreferences, className}: {userPreferences: User
             id="innovative-solutions"
             ref={sectionRef}
         >
-            <div className="tw-rounded-lg tw-py-8 tw-px-4 lg-bg-secondary-100 lg-ops-pages-shadow tw-grid tw-grid-flow-row tw-auto-rows-auto tw-h-full tw-w-full">
+            <div className="tw-rounded-lg tw-py-8 tw-px-4 lg-card tw-grid tw-grid-flow-row tw-auto-rows-auto tw-h-full tw-w-full">
                 <DefaultElementAnimation className="tw-px-3">
                     <div
                         className="tw-text-center lg-text-headline"
@@ -1050,7 +1050,7 @@ function Line({orientation, className}: {orientation: "vertical" | "horizontal";
 
 function TimelineCard({descriptionText, yearText}: {descriptionText: string; yearText: string}) {
     return (
-        <div className="tw-w-full tw-grid tw-grid-flow-row tw-p-4 lg-bg-secondary-100 tw-rounded-lg tw-my-2 lg-ops-pages-shadow">
+        <div className="tw-w-full tw-grid tw-grid-flow-row tw-p-4 tw-rounded-lg tw-my-2 lg-card">
             <div className="lg-text-body !lg-text-secondary-900">{descriptionText}</div>
 
             <VerticalSpacer className="tw-h-2" />

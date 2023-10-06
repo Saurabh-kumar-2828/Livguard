@@ -660,7 +660,7 @@ export function FooterComponent({
                             items={shoppingToolsAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
-                                    className="lg-text-secondary-900"
+                                    className="lg-text-secondary-900 hover:lg-text-primary-500"
                                     key={itemIndex}
                                 >
                                     {item.target ? (
@@ -697,7 +697,7 @@ export function FooterComponent({
                             items={companyAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
-                                    className="lg-text-secondary-900"
+                                    className="lg-text-secondary-900 hover:lg-text-primary-500"
                                     key={itemIndex}
                                 >
                                     <Link
@@ -1447,8 +1447,55 @@ export function FooterComponent({
                         </div>
                     </div>
                 </div>
+                <div className="tw-hidden lg:tw-grid lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[4.5rem]">
+                    <div className="tw-grid tw-gap-4">
+                        <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4 tw-items-center">
+                            <div className="lg-text-title2 lg-text-primary-500">{getVernacularString("642467c3-8136-4523-b231-fa5aae9a075a", userPreferences.language)}</div>{" "}
+                            <hr className="tw-border-new-foreground-500-light dark:tw-border-new-foreground-500-dark" />
+                        </div>
+                        <div className="tw-flex tw-flex-wrap tw-gap-2 lg:tw-pr-[4.5rem]">
+                            <ItemBuilder
+                                items={homeSolutionsAccordianList}
+                                itemBuilder={(item, itemIndex) => (
+                                    <div
+                                        className={concatenateNonNullStringsWithSpaces(
+                                            "lg-text-secondary-900 hover:lg-text-primary-500 tw-duration-3000 tw-overflow-hidden tw-relative tw-group tw-transition",
+                                            itemIndex === homeSolutionsAccordianList.length - 1 ? "" : "tw-border-r tw-pr-4 tw-border-new-foreground-500-light dark:tw-border-new-foreground-500-dark",
+                                        )}
+                                        key={itemIndex}
+                                    >
+                                        {item.target ? (
+                                            <Link
+                                                to={item.link}
+                                                target="_blank"
+                                            >
+                                                {item.title}
+                                                <span
+                                                    className={concatenateNonNullStringsWithSpaces(
+                                                        "tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-[calc(100%-1rem)] lg-bg-primary-500",
+                                                        itemIndex === homeSolutionsAccordianList.length - 1 ? "tw-w-full" : "tw-w-[calc(100%-1rem)]",
+                                                    )}
+                                                ></span>
+                                            </Link>
+                                        ) : (
+                                            <Link to={item.link}>
+                                                {item.title}
+                                                <span
+                                                    className={concatenateNonNullStringsWithSpaces(
+                                                        "tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-[calc(100%-1rem)] lg-bg-primary-500",
+                                                        itemIndex === homeSolutionsAccordianList.length - 1 ? "tw-w-full" : "tw-w-[calc(100%-1rem)]",
+                                                    )}
+                                                ></span>
+                                            </Link>
+                                        )}
+                                    </div>
+                                )}
+                            />
+                        </div>
+                    </div>
+                </div>
 
-                <div className="lg:tw-row-start-10 tw-col-start-1 max-lg:tw-mx-[-24px] max-lg:tw-px-[24px] lg:tw-col-span-full tw-bg-new-background-border-500-light lg:tw-px-[72px]">
+                <div className="lg:tw-row-start-10 tw-col-start-1 max-lg:tw-mx-[-24px] max-lg:tw-px-[24px] lg:tw-col-span-full lg-card lg-text-secondary-900 lg:tw-px-[72px]">
                     <MoreAboutLivguardAccordian
                         title={getVernacularString("69d20806-45ec-42e0-951e-54a4d0f46b14", userPreferences.language)}
                         panelItem={<MoreAboutLivguard userPreferences={userPreferences} />}
@@ -1496,13 +1543,13 @@ function MoreAboutLivguard({userPreferences}: {userPreferences: UserPreferences}
     return (
         <div className="tw-grid tw-gap-6 md:tw-gap-8 md:tw-py-5 tw-pb-5">
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
-                <div className="lg-text-title2">{getVernacularString("b65da678-f08a-46fd-ae2a-b2df56391d4d", userPreferences.language)}</div>
-                <div className="lg-text-body">{getVernacularString("74a5eaf0-dc22-4227-8c5c-c1ee276a56bf", userPreferences.language)}</div>
+                <div className="lg-text-title2 lg-text-secondary-900">{getVernacularString("b65da678-f08a-46fd-ae2a-b2df56391d4d", userPreferences.language)}</div>
+                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("74a5eaf0-dc22-4227-8c5c-c1ee276a56bf", userPreferences.language)}</div>
             </div>
 
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
-                <div className="lg-text-title2">{getVernacularString("573743ba-bd29-40fc-80e6-cd6fa1ce085f", userPreferences.language)}</div>
-                <ul className="lg-text-body tw-pl-[2rem] md:tw-pl-[3rem]">
+                <div className="lg-text-title2 lg-text-secondary-900">{getVernacularString("573743ba-bd29-40fc-80e6-cd6fa1ce085f", userPreferences.language)}</div>
+                <ul className="lg-text-body lg-text-secondary-900 tw-pl-[2rem] md:tw-pl-[3rem]">
                     <ItemBuilder
                         items={batteryRangeList}
                         itemBuilder={(item, itemIndex) => (
@@ -1518,8 +1565,8 @@ function MoreAboutLivguard({userPreferences}: {userPreferences: UserPreferences}
             </div>
 
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
-                <div className="lg-text-title2">{getVernacularString("a5d385c8-e00d-4be5-826d-5bd117552929", userPreferences.language)}</div>
-                <ul className="lg-text-body tw-pl-[2rem] md:tw-pl-[3rem]">
+                <div className="lg-text-title2 lg-text-secondary-900">{getVernacularString("a5d385c8-e00d-4be5-826d-5bd117552929", userPreferences.language)}</div>
+                <ul className="lg-text-body lg-text-secondary-900 tw-pl-[2rem] md:tw-pl-[3rem]">
                     <ItemBuilder
                         items={chooseLivguardList}
                         itemBuilder={(item, itemIndex) => (
@@ -1535,13 +1582,13 @@ function MoreAboutLivguard({userPreferences}: {userPreferences: UserPreferences}
             </div>
 
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
-                <div className="lg-text-title2">{getVernacularString("f6ee6026-c1bc-4814-aaca-86b62c56080f", userPreferences.language)}</div>
-                <div className="lg-text-body">{getVernacularString("2d795937-f920-49a8-b19d-6cb8073d4db3", userPreferences.language)}</div>
+                <div className="lg-text-title2 lg-text-secondary-900">{getVernacularString("f6ee6026-c1bc-4814-aaca-86b62c56080f", userPreferences.language)}</div>
+                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("2d795937-f920-49a8-b19d-6cb8073d4db3", userPreferences.language)}</div>
             </div>
 
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
-                <div className="lg-text-title2">{getVernacularString("65b60823-257a-4725-99a7-77ce25e91288", userPreferences.language)}</div>
-                <ul className="lg-text-body tw-pl-[2rem] md:tw-pl-[3rem]">
+                <div className="lg-text-title2 lg-text-secondary-900">{getVernacularString("65b60823-257a-4725-99a7-77ce25e91288", userPreferences.language)}</div>
+                <ul className="lg-text-body lg-text-secondary-900 tw-pl-[2rem] md:tw-pl-[3rem]">
                     <ItemBuilder
                         items={exploreProductsList}
                         itemBuilder={(item, itemIndex) => (
@@ -1557,18 +1604,18 @@ function MoreAboutLivguard({userPreferences}: {userPreferences: UserPreferences}
             </div>
 
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
-                <div className="lg-text-title2">{getVernacularString("c842a2c6-1a3b-488e-a3ad-a668f45de854", userPreferences.language)}</div>
-                <div className="lg-text-body">{getVernacularString("5956a05a-dd59-4e9a-aa1d-48aa55f236f5", userPreferences.language)}</div>
+                <div className="lg-text-title2 lg-text-secondary-900">{getVernacularString("c842a2c6-1a3b-488e-a3ad-a668f45de854", userPreferences.language)}</div>
+                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("5956a05a-dd59-4e9a-aa1d-48aa55f236f5", userPreferences.language)}</div>
             </div>
 
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
-                <div className="lg-text-title2">{getVernacularString("86526c6c-8a27-4e06-b4fa-da1b82cc3967", userPreferences.language)}</div>
-                <div className="lg-text-body">{getVernacularString("797afe89-61fe-487d-924e-2975a3e29b34", userPreferences.language)}</div>
+                <div className="lg-text-title2 lg-text-secondary-900">{getVernacularString("86526c6c-8a27-4e06-b4fa-da1b82cc3967", userPreferences.language)}</div>
+                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("797afe89-61fe-487d-924e-2975a3e29b34", userPreferences.language)}</div>
             </div>
 
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
-                <div className="lg-text-title2">{getVernacularString("86184562-2338-4444-a867-bcabc36fd280", userPreferences.language)}</div>
-                <ul className="lg-text-body tw-pl-[2rem] md:tw-pl-[3rem]">
+                <div className="lg-text-title2 lg-text-secondary-900">{getVernacularString("86184562-2338-4444-a867-bcabc36fd280", userPreferences.language)}</div>
+                <ul className="lg-text-body lg-text-secondary-900 tw-pl-[2rem] md:tw-pl-[3rem]">
                     <ItemBuilder
                         items={comprehensiveProductList}
                         itemBuilder={(item, itemIndex) => (
@@ -1584,8 +1631,8 @@ function MoreAboutLivguard({userPreferences}: {userPreferences: UserPreferences}
             </div>
 
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
-                <div className="lg-text-title2">{getVernacularString("7e6f0e05-9a06-4a17-9f8c-3cbf7dc65cf9", userPreferences.language)}</div>
-                <ul className="lg-text-body tw-pl-[2rem] md:tw-pl-[3rem]">
+                <div className="lg-text-title2 lg-text-secondary-900">{getVernacularString("7e6f0e05-9a06-4a17-9f8c-3cbf7dc65cf9", userPreferences.language)}</div>
+                <ul className="lg-text-body lg-text-secondary-900 tw-pl-[2rem] md:tw-pl-[3rem]">
                     <ItemBuilder
                         items={chooseLivguardSolarList}
                         itemBuilder={(item, itemIndex) => (
@@ -1601,13 +1648,13 @@ function MoreAboutLivguard({userPreferences}: {userPreferences: UserPreferences}
             </div>
 
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
-                <div className="lg-text-title2">{getVernacularString("2f3afb31-1745-461a-b06c-b6f82dad8007", userPreferences.language)}</div>
-                <div className="lg-text-body">{getVernacularString("29323849-e8a8-4a1c-9ef9-792453e5aab3", userPreferences.language)}</div>
+                <div className="lg-text-title2 lg-text-secondary-900">{getVernacularString("2f3afb31-1745-461a-b06c-b6f82dad8007", userPreferences.language)}</div>
+                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("29323849-e8a8-4a1c-9ef9-792453e5aab3", userPreferences.language)}</div>
             </div>
 
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
-                <div className="lg-text-title2">{getVernacularString("2105f9c8-df34-4807-97d6-eb502582c907", userPreferences.language)}</div>
-                <ul className="lg-text-body tw-pl-[2rem] md:tw-pl-[3rem]">
+                <div className="lg-text-title2 lg-text-secondary-900">{getVernacularString("2105f9c8-df34-4807-97d6-eb502582c907", userPreferences.language)}</div>
+                <ul className="lg-text-body lg-text-secondary-900 tw-pl-[2rem] md:tw-pl-[3rem]">
                     <ItemBuilder
                         items={exploreOfferingsList}
                         itemBuilder={(item, itemIndex) => (
@@ -1623,8 +1670,8 @@ function MoreAboutLivguard({userPreferences}: {userPreferences: UserPreferences}
             </div>
 
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
-                <div className="lg-text-title2">{getVernacularString("618931ac-9e6c-4492-b9d1-2243eabbb2b6", userPreferences.language)}</div>
-                <div className="lg-text-body">{getVernacularString("ef416060-345e-45c1-a6cb-763e9e6a12b7", userPreferences.language)}</div>
+                <div className="lg-text-title2 lg-text-secondary-900">{getVernacularString("618931ac-9e6c-4492-b9d1-2243eabbb2b6", userPreferences.language)}</div>
+                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("ef416060-345e-45c1-a6cb-763e9e6a12b7", userPreferences.language)}</div>
             </div>
         </div>
     );

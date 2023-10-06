@@ -1127,7 +1127,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "200 एएच",
     },
     landingPage2S4J2Specification4Content: {
-        [Language.English]: "Sqaure Wave",
+        [Language.English]: "Square Wave",
         [Language.Hindi]: "चौकोर तरंग",
     },
     landingPage2S4J3Title: {
@@ -8300,8 +8300,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `<div class="tw-text-center">लिवगार्ड में, कॉरपोरेट सोशल रिस्पॉन्सिबिलिटी (सीएसआर) के प्रति हमारा समर्पण हमारे हितधारकों के प्रति हमारी प्रतिबद्धता को रेखांकित करता है - हमारे समुदाय के भीतर और बाहर, जहां भी जरूरत हो वहां पहुंचना। हमारी आकांक्षा हमारे समुदायों में जीवन को बेहतर बनाकर सकारात्मक बदलाव लाना है। हम सामाजिक प्रगति के चार मूलभूत क्षेत्रों में योगदान करते हैं: शिक्षा का पोषण, स्वास्थ्य देखभाल को बढ़ावा देना, आजीविका को बढ़ावा देना और पर्यावरणीय स्थिरता को बढ़ावा देना।`,
     },
     "9b48da94-c77c-433d-a704-12c87673d23a": {
-        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold !tw-text-secondary-900-dark">Promotion of Education</div>`,
-        [Language.Hindi]: `<div class="lg-text-highlighted lg-text-body-bold !tw-text-secondary-900-dark">शिक्षा का प्रचार</div>`,
+        [Language.English]: `Promotion of Education`,
+        [Language.Hindi]: "शिक्षा का प्रचार",
     },
     "998c7be8-35d4-4f1e-ba7c-b1ead3af22ae": {
         [Language.English]:
@@ -8310,8 +8310,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "शिक्षा समाज का आधार है। यह लिवगार्ड के लिए एक महत्वपूर्ण क्षेत्र है, क्योंकि हम ज्ञान से व्यक्तियों को सशक्त बनाने में विश्वास करते हैं, ताकि वे अपने खुद के अवसर बना सकें। उच्च गुणवत्ता वाली शिक्षा प्रदान करना और इसे सभी के लिए उपलब्ध कराना समृद्ध, जागरूक समाज की ओर महत्वपूर्ण कदम है।",
     },
     "7ecc798a-b004-4363-b6c4-109b214a9c56": {
-        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold !tw-text-secondary-900-dark">Promotion of Healthcare</div>`,
-        [Language.Hindi]: `<div class="lg-text-highlighted lg-text-body-bold !tw-text-secondary-900-dark">स्वास्थ्य सेवा का प्रचार</div>`,
+        [Language.English]: `Promotion of Healthcare`,
+        [Language.Hindi]: "स्वास्थ्य सेवा का प्रचार",
     },
     "714cb12b-e61e-45cc-8bf5-efe8f05313f6": {
         [Language.English]:
@@ -8320,8 +8320,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "स्वास्थ्य सेवा एक मूलाधिकार है और जीवन की गुणवत्ता में सुधार करने में एक महत्वपूर्ण कारक है। लिवगार्ड स्वास्थ्य सेवा को बढ़ावा देने के प्रति समर्पित है, क्योंकि यह सीधे समुदायों के स्वास्थ्य पर प्रभाव डालता है। हम स्वास्थ्य सुविधाओं को सुधारने, बीमारियों के बारे में जागरूकता बढ़ाने और सभी को चिकित्सा सहायता के लिए उपलब्ध कराने पर ध्यान केंद्रित करते हैं।",
     },
     "69e2dcc3-d054-4201-91f2-0d615de566db": {
-        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold !tw-text-secondary-900-dark">Promotion of Livelihood</div>`,
-        [Language.Hindi]: `<div class="lg-text-highlighted lg-text-body-bold !tw-text-secondary-900-dark">आजीविका का प्रचार</div>`,
+        [Language.English]: `Promotion of Livelihood`,
+        [Language.Hindi]: "आजीविका का प्रचार",
     },
     "4fdfc3c9-3c2d-4b98-9a6c-8da1a66b2c88": {
         [Language.English]:
@@ -8330,8 +8330,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "व्यक्तियों को आर्थिक रूप से सशक्त बनाना समाजिक विकास की मूल बात है। लिवगार्ड कौशल विकास को समर्थन देने, रोजगार के अवसर प्रदान करने में विश्वास रखता है, और स्वरोजगार योजनाओं का समर्थन करके जीविका को प्रोत्साहित करता है। इससे आर्थिक रूप से सुरक्षित और स्वावलंबी समाज का निर्माण होता है।",
     },
     "4415a7de-a118-45ab-beaf-095576d3d2dc": {
-        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold tw-text-center !tw-text-secondary-900-dark">Environmental Sustainability</div>`,
-        [Language.Hindi]: `<div class="lg-text-highlighted lg-text-body-bold tw-text-center !tw-text-secondary-900-dark">पर्यावरणीय स्थिरता</div>`,
+        [Language.English]: `Environmental Sustainability`,
+        [Language.Hindi]: "पर्यावरणीय स्थिरता",
     },
     "06174709-99f2-4a5e-8db2-e499622975dc": {
         [Language.English]:
@@ -9603,7 +9603,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "43953acd-0fe3-40a8-a307-297f4bb7124b": {
         [Language.English]: "Sales Return Policy",
-        [Language.Hindi]: "बिक्री वापसी नीति",
+        [Language.Hindi]: "?????",
     },
     "10963071-3787-457b-a98b-79067ec8a07c": {
         [Language.English]: "Terms and Conditions",
@@ -9699,7 +9699,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "3078ed43-6580-4fbf-a6d9-773638087e13": {
         [Language.English]: `< 18 Months`,
-        [Language.Hindi]: "<span 18 महीने",
+        [Language.Hindi]: "??????",
     },
     "be9cbbd6-b37d-479d-af08-433917c1be45": {
         [Language.English]: `18 Months - 36 Months`,
@@ -9851,7 +9851,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "93e0fa70-2449-4565-a741-ea91931b2864": {
         [Language.English]: `Sales Return Policy`,
-        [Language.Hindi]: `बिक्री वापसी नीति`,
+        [Language.Hindi]: `?????`,
     },
     "096a9841-f21e-4920-adc9-1bcb10a4f35f": {
         [Language.English]: `Presence in India`,
@@ -9952,867 +9952,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "380adfbe-cb27-4b22-b601-db704a8d13ce": {
         [Language.English]: `E-Mobility`,
         [Language.Hindi]: `?????`,
-    },
-    "10a057de-1158-4f8b-8186-48571a720fc5": {
-        [Language.English]: `Lithium Battery`,
-        [Language.Hindi]: `?????`,
-    },
-    "ac7ae8d2-3f3c-49a6-a6db-e8cbb8b3ed07": {
-        [Language.English]: `DC-DC`,
-        [Language.Hindi]: `?????`,
-    },
-    "7596543b-c504-4ca0-817d-fc7f5dcefea7": {
-        [Language.English]: `Controllers`,
-        [Language.Hindi]: `?????`,
-    },
-    "8ccc369c-daa0-47d7-a568-1752d660d737": {
-        [Language.English]: `Motor`,
-        [Language.Hindi]: `?????`,
-    },
-    "b42973cc-d1f0-4ddb-aba7-a030b7398ccb": {
-        [Language.English]: `Charger`,
-        [Language.Hindi]: `?????`,
-    },
-    "e720a43a-b9cc-4925-9dcb-e37abb16ac28": {
-        [Language.English]: `BMS/IoT*`,
-        [Language.Hindi]: `?????`,
-    },
-    "ba80271b-d0ce-4762-b82c-96c984f3d55c": {
-        [Language.English]: `Others`,
-        [Language.Hindi]: `अन्य`,
-    },
-    "dc3dacb5-baa4-4fa3-8d27-a4b87fcd0158": {
-        [Language.English]: `E-Rickshaw Charger`,
-        [Language.Hindi]: `ई-रिक्शा चार्जर`,
-    },
-    "3a186513-50e2-4738-8d17-0f8691fa7b1c": {
-        [Language.English]: `Solar Solutions`,
-        [Language.Hindi]: `सोलर समाधान`,
-    },
-    "d5cf31f9-8ae3-48e5-afae-067d2844400f": {
-        [Language.English]: `Solutions`,
-        [Language.Hindi]: `समाधान`,
-    },
-    "9b76016a-c05d-4687-899f-aa6157ebc51c": {
-        [Language.English]: `Solar Saving Calculator`,
-        [Language.Hindi]: `सोलर बचत कैलकुलेटर`,
-    },
-    "267b476e-74fa-4648-a5f8-8129bbfaa8ce": {
-        [Language.English]: `LivMonitor App`,
-        [Language.Hindi]: `?????`,
-    },
-    "6d5d47a4-ef2f-40c4-b364-1b4f96d47af9": {
-        [Language.English]: `Solar Battery`,
-        [Language.Hindi]: `सोलर बैटरी`,
-    },
-    "e45100e2-66ca-4476-9822-c37e64ae5356": {
-        [Language.English]: `Understanding Solar`,
-        [Language.Hindi]: `समझिए सोलर`,
-    },
-    // "f1d3fff0-6f22-4b2c-b891-8f1304c583a7": {
-    //     [Language.English]: `Find my battery`,
-    //     [Language.Hindi]: `अपनी बैटरी खोजें`,
-    // },
-    "f996231c-b2f6-41f8-82bb-dea49b2c9a3d": {
-        [Language.English]: `Solar Inverter`,
-        [Language.Hindi]: `सोलर इनवर्टर`,
-    },
-    "f9e6a204-a3e8-4725-b7f2-c03231a28813": {
-        [Language.English]: `Off-Grid Inverter`,
-        [Language.Hindi]: `?????`,
-    },
-    "c6c9f0ec-ff71-4a10-9bc6-5dbde9ef8a81": {
-        [Language.English]: `On-Grid Inverter`,
-        [Language.Hindi]: `?????`,
-    },
-    "ebb7642d-4c02-426e-83c0-06acd292ec33": {
-        [Language.English]: `Hybrid Inverter`,
-        [Language.Hindi]: `?????`,
-    },
-    "b78fac32-d1d1-4775-ad04-de991106a491": {
-        [Language.English]: `Solar Panels`,
-        [Language.Hindi]: `?????`,
-    },
-    "53d8effd-c423-465b-b273-b2e6ab17020a": {
-        [Language.English]: `Polycrystalline Solar Panel`,
-        [Language.Hindi]: `?????`,
-    },
-    "ea7d6d75-5e3f-4ad7-a72b-10e9e9449618": {
-        [Language.English]: `Mono PERC Solar Panel`,
-        [Language.Hindi]: `?????`,
-    },
-    "6fc7c58e-1eb3-4600-a449-daaa702eb619": {
-        [Language.English]: `Mono PERC Half Cut Solar Panel`,
-        [Language.Hindi]: `?????`,
-    },
-    "cd9df738-ed03-4cf5-8440-c15ee171ee0f": {
-        [Language.English]: `Charger Controller / SMU`,
-        [Language.Hindi]: `चार्जर कंट्रोलर / एसएमयू`,
-    },
-    "f5986d46-458c-4fde-9516-56dee3d6d94b": {
-        [Language.English]: `Charger Controller`,
-        [Language.Hindi]: `चार्जर कंट्रोलर`,
-    },
-    "4e6fe38c-6d65-4fa0-a321-72eb79c840aa": {
-        [Language.English]: `Solar Management Unit`,
-        [Language.Hindi]: `सोलर मैनेजमेंट यूनिट`,
-    },
-    "7596edad-f993-41bf-a344-577762691d53": {
-        [Language.English]: `Solar Street Light`,
-        [Language.Hindi]: `सोलर स्ट्रीट लाईट`,
-    },
-    "54c5d2f5-501d-4bbe-bbde-f8ea37fa1f21": {
-        [Language.English]: `Accessories`,
-        [Language.Hindi]: `सहायक उपकरण`,
-    },
-    "8fa18bba-da04-43ad-aba1-9b0192f4a9db": {
-        [Language.English]: `AC-DB`,
-        [Language.Hindi]: `?????`,
-    },
-    "f9f3bfd2-74d3-4e42-8b0f-3ef0ecd469a9": {
-        [Language.English]: `DC-DB`,
-        [Language.Hindi]: `?????`,
-    },
-    "dac9e320-4f31-4ea0-8cbc-742f69286b2f": {
-        [Language.English]: `Zero Export Device`,
-        [Language.Hindi]: `?????`,
-    },
-    "32fe5fcc-99bb-4dad-a0e5-feb4b9e3963a": {
-        [Language.English]: `Monitoring Device`,
-        [Language.Hindi]: `?????`,
-    },
-    "b137744d-bc16-4100-afb4-8d3c2fb07793": {
-        [Language.English]: `Shopping Tools`,
-        [Language.Hindi]: `खरीदारी उपकरण`,
-    },
-    "c577a2cf-745c-40b6-a9fa-cb1ef88d7cd3": {
-        [Language.English]: `Check Price`,
-        [Language.Hindi]: `कीमत जाँचे`,
-    },
-    "f008f7bb-e106-4e04-8654-8f3e1d517979": {
-        [Language.English]: `Offers`,
-        [Language.Hindi]: `ऑफर्स`,
-    },
-    "739577f2-3578-4eaf-8b45-8b3de3372aa9": {
-        [Language.English]: `Home Load Calculator`,
-        [Language.Hindi]: `घर का लोड कैलकुलेटर`,
-    },
-    "0476c521-6376-4411-ba07-10ab93e5982f": {
-        [Language.English]: `Automotive Battery Finder`,
-        [Language.Hindi]: `ऑटोमोटिव बैटरी खोजें`,
-    },
-    "454a8070-92b6-419a-af59-6f6253283c07": {
-        [Language.English]: `Download brochures`,
-        [Language.Hindi]: `?????`,
-    },
-    "1a1fc6c9-a8b2-4ae7-9154-9999e251449c": {
-        [Language.English]: `Owners`,
-        [Language.Hindi]: `मालिक`,
-    },
-    "96e824a1-876e-42ec-a9b5-2f68fea3a6d3": {
-        [Language.English]: `Service`,
-        [Language.Hindi]: `सर्विस`,
-    },
-    "4f0455d6-1f64-4f56-9cea-3d1655b10c5c": {
-        [Language.English]: `Warranty registration`,
-        [Language.Hindi]: `वारंटी पंजीकरण`,
-    },
-    "86de9899-69e7-4cca-bc82-4f2e9efe405a": {
-        [Language.English]: `Dealer Locator`,
-        [Language.Hindi]: `डीलर ढूँढें`,
-    },
-    "ff7689df-232c-4839-a1ef-2d7fa388c667": {
-        [Language.English]: `About us`,
-        [Language.Hindi]: `हमारे बारे में`,
-    },
-    "96c7b4e3-edf0-4ec8-aa70-67f7ee2ef73a": {
-        [Language.English]: `Contact us`,
-        [Language.Hindi]: `हमसे संपर्क करें`,
-    },
-    "902ff240-2339-4be5-98f0-741f1162f27f": {
-        [Language.English]: `Company`,
-        [Language.Hindi]: `कंपनी`,
-    },
-    "06bdee07-e0a5-418c-8aab-90a5debb6b61": {
-        [Language.English]: `Check Price`,
-        [Language.Hindi]: "कीमत जाँचे",
-    },
-    "a934d750-a5a0-4b8b-b343-e6af45966c63": {
-        [Language.English]: `Offers`,
-        [Language.Hindi]: "ऑफर्स",
-    },
-    "095a8a44-87c6-454e-8b5f-abed73e54c54": {
-        [Language.English]: `Download brochures`,
-        [Language.Hindi]: "?????",
-    },
-    "be39d262-3769-4f4c-8d54-3ed7d6500101": {
-        [Language.English]: `Load Calculator - Home`,
-        [Language.Hindi]: "लोड कैलकुलेटर - होम",
-    },
-    "09d8b17e-501d-4fcd-8371-930579ff3265": {
-        [Language.English]: `Battery Finder - Automotive`,
-        [Language.Hindi]: "ऑटोमोटिव बैटरी खोजें",
-    },
-    "1ab892b7-3762-49a6-a36b-205ed0980f2a": {
-        [Language.English]: `Solar Saving Calculator`,
-        [Language.Hindi]: "सोलर बचत कैलकुलेटर",
-    },
-    "7a2b7f51-c58b-4f43-bdf4-881209fe2acd": {
-        [Language.English]: `Blogs`,
-        [Language.Hindi]: "ब्लॉग",
-    },
-    "eb4e6810-b019-4d59-94b2-41351f268590": {
-        [Language.English]: `Shopping Tools`,
-        [Language.Hindi]: "खरीदारी उपकरण",
-    },
-    "bf233b5c-c4e0-4161-aa37-8d0eba708d4c": {
-        [Language.English]: `Company`,
-        [Language.Hindi]: "कंपनी",
-    },
-    "8c28a7c5-2e4e-4708-bd33-80358a9acaf2": {
-        [Language.English]: `About Us`,
-        [Language.Hindi]: "हमारे बारे में",
-    },
-    "121206cf-56f5-443a-a624-21cfe2d38070": {
-        [Language.English]: `India Operations`,
-        [Language.Hindi]: "भारत संचालन",
-    },
-    "453c92b4-5576-4452-a2ce-92586e5eda28": {
-        [Language.English]: `Global Operations`,
-        [Language.Hindi]: "वैश्विक संचालन",
-    },
-    "1acc9d47-614a-4fc6-8f8e-ab8d6ebc1ae6": {
-        [Language.English]: `Corporate Social Responsibility`,
-        [Language.Hindi]: "कॉर्पोरेट सामाजिक उत्तरदायित्व",
-    },
-    "636ca3f4-627f-48c3-9f1b-d3490094d536": {
-        [Language.English]: `E-Waste Management`,
-        [Language.Hindi]: "ई-वेस्ट मैनेजमेंट",
-    },
-    "69838ae8-eb67-4ea5-9179-990db737a138": {
-        [Language.English]: `Governance`,
-        [Language.Hindi]: "शासन",
-    },
-    "fc828855-64e1-4be5-b95f-bee9fe4a3262": {
-        [Language.English]: `Dealer Locator`,
-        [Language.Hindi]: "डीलर ढूँढें",
-    },
-    "35178fbf-bc7e-4b8b-a49a-17bff7feaa18": {
-        [Language.English]: `Dealer Near Me`,
-        [Language.Hindi]: "मेरे निकट डीलर",
-    },
-    "c54ca3ff-b15f-445a-8e7b-c85985e5d355": {
-        [Language.English]: `Customer Policies`,
-        [Language.Hindi]: "ग्राहक नीतियां",
-    },
-    "0c031708-7b42-4db6-ac33-902a7f0492f5": {
-        [Language.English]: `Terms & Conditions`,
-        [Language.Hindi]: "नियम और शर्तें",
-    },
-    "286aa9a0-fadc-4b90-b967-3d300307fdbe": {
-        [Language.English]: `Sales Return Policy`,
-        [Language.Hindi]: "बिक्री वापसी नीति",
-    },
-    "dd2edb48-b8fa-4f95-b0a0-5581ec7e8ad6": {
-        [Language.English]: `Privacy policy`,
-        [Language.Hindi]: "गोपनीयता नीति",
-    },
-    "31850c84-bfb5-42cb-b470-489a351c2d99": {
-        [Language.English]: `Support`,
-        [Language.Hindi]: "सहायता",
-    },
-    "f1ab4d68-c36d-4484-851d-58a6c48bc4ee": {
-        [Language.English]: `Contact Us`,
-        [Language.Hindi]: "हमसे संपर्क करें",
-    },
-    "4316557c-1532-401f-8030-390ea9bf4790": {
-        [Language.English]: `Customer Care`,
-        [Language.Hindi]: "?????",
-    },
-    "5d9b749d-0a6e-42a2-abbb-bc2e441bb655": {
-        [Language.English]: `Feedback`,
-        [Language.Hindi]: "?????",
-    },
-    "90920b9e-0139-4f28-a126-1768bc703953": {
-        [Language.English]: `FAQ's`,
-        [Language.Hindi]: "?????",
-    },
-    "6d46ed34-f819-4c0a-a7ca-29ac67f6486b": {
-        [Language.English]: `Media & Gallery`,
-        [Language.Hindi]: "मीडिया और गैलरी",
-    },
-    "ff612253-40bd-4b64-b93d-955ff8097afd": {
-        [Language.English]: `Videos`,
-        [Language.Hindi]: "वीडियो",
-    },
-    "b58e0802-9926-42c7-8b21-b9bcac8f895f": {
-        [Language.English]: `Testimonials`,
-        [Language.Hindi]: "?????",
-    },
-    "bfaf5f70-76d6-41fe-b11a-bf91f00af887": {
-        [Language.English]: `Downloads`,
-        [Language.Hindi]: "?????",
-    },
-    "639fd244-9283-4467-b186-6ee26321127b": {
-        [Language.English]: `Get In Touch`,
-        [Language.Hindi]: "संपर्क करें",
-    },
-    "22156ff3-a4a5-4d59-ab0c-902c21b667f9": {
-        [Language.English]: `Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India`,
-        [Language.Hindi]: "?????",
-    },
-    "1f8b2070-1c48-4396-999d-3195c96cabd7": {
-        [Language.English]: `Inverter`,
-        [Language.Hindi]: "?????",
-    },
-    "89f3948f-ec87-4fd9-aaf7-b7ee99b2d900": {
-        [Language.English]: `Home Inverter`,
-        [Language.Hindi]: "होम इनवर्टर",
-    },
-    "4b6c134b-096e-49cf-9e12-d53c0e3cf059": {
-        [Language.English]: `High Capacity Inverter`,
-        [Language.Hindi]: "हाय-कैपेसिटी इनवर्टर",
-    },
-    "0e58360b-6e83-47da-a0c5-afca55819e50": {
-        [Language.English]: `Load Calculator`,
-        [Language.Hindi]: "लोड कैलकुलेटर",
-    },
-    "f76f3bd2-566f-44fe-bedb-c66cdfc42a0e": {
-        [Language.English]: `Inverter Trolley`,
-        [Language.Hindi]: "इनवर्टर ट्राली",
-    },
-    "5e7fac2e-dfcc-4fde-90ac-99fec03abb21": {
-        [Language.English]: `Inverter Battery`,
-        [Language.Hindi]: "इनवर्टर बैटरी",
-    },
-    "3b12adfb-c368-4141-bd61-b15487af1696": {
-        [Language.English]: `Battery Trolley`,
-        [Language.Hindi]: "?????",
-    },
-    "27a6ac19-b8ed-43e6-927a-562bf232d8d6": {
-        [Language.English]: `Two Wheeler Battery`,
-        [Language.Hindi]: "2-पहिया बैटरी",
-    },
-    "b56af9ea-2d7d-45e5-8886-d4a367bc7e89": {
-        [Language.English]: `Three Wheeler Battery`,
-        [Language.Hindi]: "3-पहिया बैटरी",
-    },
-    "fa4d03f8-1288-4254-8af9-6135a878df8e": {
-        [Language.English]: `Passenger Vehicle Battery`,
-        [Language.Hindi]: "यात्री वाहन बैटरी",
-    },
-    "831ac44b-7d9d-472f-8377-a700b9bd6596": {
-        [Language.English]: `Commercial Vehicle Battery`,
-        [Language.Hindi]: "व्यापारिक वाहन बैटरी",
-    },
-    "10a9d622-6fcc-4689-9fdb-d245d46a491e": {
-        [Language.English]: `Farm Vehicle Battery`,
-        [Language.Hindi]: "खेत वाहन बैटरी",
-    },
-    "8aea3499-6fc0-40b3-b7fe-93f8504e9d7e": {
-        [Language.English]: `E-Rickshaw Battery`,
-        [Language.Hindi]: "ई-रिक्शा बैटरी",
-    },
-    "54504980-d98c-4f68-a7cc-bf716ecb905d": {
-        [Language.English]: `Battery Finder - Automotive`,
-        [Language.Hindi]: "ऑटोमोटिव बैटरी खोजें",
-    },
-    "4f427a78-8c4f-4c36-833f-545a0d2a775d": {
-        [Language.English]: `E-Rickshaw Charger`,
-        [Language.Hindi]: "ई-रिक्शा चार्जर",
-    },
-    "e233aa7a-2374-4239-8653-db42cdae6e0d": {
-        [Language.English]: `Power Solutions`,
-        [Language.Hindi]: "ऊर्जा समाधान",
-    },
-    "c5d478da-fd36-446a-aae6-1bfe13607be1": {
-        [Language.English]: `Solar Saving Calculator`,
-        [Language.Hindi]: "सोलर बचत कैलकुलेटर",
-    },
-    "1bb35c7d-3856-46ef-a49e-cd0241c6f828": {
-        [Language.English]: `LivMonitor App*`,
-        [Language.Hindi]: "?????",
-    },
-    "6017a74c-fd49-4086-892d-e0548e7c7e51": {
-        [Language.English]: `Solar Battery`,
-        [Language.Hindi]: "सोलर बैटरी",
-    },
-    "f3ba3cad-77ef-4a58-9760-2ef4cd33bb11": {
-        [Language.English]: `Find My Battery`,
-        [Language.Hindi]: "?????",
-    },
-    "d1df7722-e72b-4c08-94d9-5e8adc4d5a93": {
-        [Language.English]: `Solar Inverter`,
-        [Language.Hindi]: "सोलर इनवर्टर",
-    },
-    "f262e016-6ca4-44af-a202-a3ab02100dbb": {
-        [Language.English]: `Off-Grid Inverter`,
-        [Language.Hindi]: "?????",
-    },
-    "ea124d83-7e89-4cdf-b968-fc241583ce35": {
-        [Language.English]: `On-Grid Inverter`,
-        [Language.Hindi]: "?????",
-    },
-    "05b8415f-616b-4aed-8c0b-fd31305c6026": {
-        [Language.English]: `Hybrid Inverter`,
-        [Language.Hindi]: "?????",
-    },
-    "2f4de646-0e7c-424f-bcd4-52deb4003705": {
-        [Language.English]: `Solar Panels`,
-        [Language.Hindi]: "?????",
-    },
-    "369e90db-f15f-4ec7-834f-46e460f1e0fd": {
-        [Language.English]: `Polycrystalline Solar Panel`,
-        [Language.Hindi]: "?????",
-    },
-    "e9218e48-d0fa-40b4-9189-39e4d37c847d": {
-        [Language.English]: `Mono PERC Solar Panel`,
-        [Language.Hindi]: "?????",
-    },
-    "e02353bf-c629-4104-8b43-6fe8a43610cc": {
-        [Language.English]: `Mono PERC Half Cut Solar Panel`,
-        [Language.Hindi]: "?????",
-    },
-    "d590735a-b2e3-4e86-a9e6-7a3991bd8956": {
-        [Language.English]: `Charger Controller / SMU`,
-        [Language.Hindi]: "चार्जर कंट्रोलर / एसएमयू",
-    },
-    "f12df3fc-ddaf-4809-b2dc-d34c218db76f": {
-        [Language.English]: `Solar Management Unit`,
-        [Language.Hindi]: "सोलर मैनेजमेंट यूनिट",
-    },
-    "93c283cc-941d-4382-aabb-67f017dd119b": {
-        [Language.English]: `Solar Street Light`,
-        [Language.Hindi]: "सोलर स्ट्रीट लाईट",
-    },
-    "3387d316-f651-4fec-82e4-8b25c923a1b2": {
-        [Language.English]: `AC-DB`,
-        [Language.Hindi]: "?????",
-    },
-    "8641e5e9-7f63-49a8-9586-30d0be4a8e98": {
-        [Language.English]: `DC-DB`,
-        [Language.Hindi]: "?????",
-    },
-    "d000e8b7-9e75-48b2-a131-39864fe80130": {
-        [Language.English]: `Zero Export Device`,
-        [Language.Hindi]: "?????",
-    },
-    "58860329-bf1a-40c4-ba47-6103a0b013db": {
-        [Language.English]: `Monitoring Device`,
-        [Language.Hindi]: "?????",
-    },
-    "b9996d74-d519-40a8-bbad-b27d3479236b": {
-        [Language.English]: `Solar Solutions`,
-        [Language.Hindi]: "सोलर समाधान",
-    },
-    "ee76a8f5-ba19-4a3e-ad60-67de3b59a6d2": {
-        [Language.English]: `Energy Solutions`,
-        [Language.Hindi]: "?????",
-    },
-    "9fc64723-0e15-4211-983a-ba03cf9a4d41": {
-        [Language.English]: `Top`,
-        [Language.Hindi]: "?????",
-    },
-    "ccf268de-2880-455f-9cc3-bdc066866b2c": {
-        [Language.English]: `One of a Kind`,
-        [Language.Hindi]: "?????",
-    },
-    "02e2e193-5c13-4674-93cb-02d15e2b71da": {
-        [Language.English]: `Power Planner`,
-        [Language.Hindi]: "?????",
-    },
-    "bc9269a0-800f-4adf-ac22-d866887da9f4": {
-        [Language.English]: `Find My Dealer`,
-        [Language.Hindi]: "?????",
-    },
-    "01553562-bafd-4ad3-a18c-7b6cc113f03f": {
-        [Language.English]: `Our Social Handles`,
-        [Language.Hindi]: "?????",
-    },
-    "ab5df361-c4a5-4f3a-b26e-21eff3cb23bc": {
-        [Language.English]: `Testimonials`,
-        [Language.Hindi]: "?????",
-    },
-    "3479de37-c724-4254-a536-acf8c8de4c20": {
-        [Language.English]: `FAQs`,
-        [Language.Hindi]: "?????",
-    },
-    "30174373-893d-4b43-82e5-30969f80385b": {
-        [Language.English]: `In The News`,
-        [Language.Hindi]: "?????",
-    },
-    "3011d264-9e86-4df5-a284-154c88e54209": {
-        [Language.English]: `CSR`,
-        [Language.Hindi]: "?????",
-    },
-    "8bb57774-d155-41f1-bf07-6906c1026203": {
-        [Language.English]: `Meant To Last`,
-        [Language.Hindi]: "?????",
-    },
-    "32d2e95f-02b6-49fe-b1c3-cee4542e202b": {
-        [Language.English]: `Our Batteries`,
-        [Language.Hindi]: "?????",
-    },
-    "0620b5a6-a7bb-4d55-84fb-6a3202439edb": {
-        [Language.English]: `Our Suggestions`,
-        [Language.Hindi]: "?????",
-    },
-    "5270f2b4-c38b-45b7-8dac-0434f3e7bfcf": {
-        [Language.English]: `Suggested Combos`,
-        [Language.Hindi]: "?????",
-    },
-    "4364581e-7ad6-4f87-9c83-66bf480d3fab": {
-        [Language.English]: `Plan Your Power`,
-        [Language.Hindi]: "?????",
-    },
-    "eb553bbb-e1af-4d2a-923a-096c297441e2": {
-        [Language.English]: `Livguard Inverter`,
-        [Language.Hindi]: "?????",
-    },
-    "fdb7fec0-6865-44e5-a84c-73b11f76c326": {
-        [Language.English]: `Choose Your Inverter`,
-        [Language.Hindi]: "?????",
-    },
-    "1048c716-f3d1-4740-90b8-99e7d1e3b80d": {
-        [Language.English]: `Who We Are`,
-        [Language.Hindi]: "?????",
-    },
-    "b1387a67-2e83-4f5f-b794-3cf1c7bc61fd": {
-        [Language.English]: `Meet Our Leaders`,
-        [Language.Hindi]: "?????",
-    },
-    "591ebee7-9d2d-416f-8942-29e3840cc4c4": {
-        [Language.English]: `Our Operations`,
-        [Language.Hindi]: "?????",
-    },
-    "35610704-9140-46c7-a510-9365b19f837d": {
-        [Language.English]: `Our Values`,
-        [Language.Hindi]: "?????",
-    },
-    "fe6d299f-3f6a-44fe-9b3a-877ff0d423d2": {
-        [Language.English]: `Empowered By SAR`,
-        [Language.Hindi]: "?????",
-    },
-    "b907dc0e-a480-49e8-ae9d-3943d5d3c69e": {
-        [Language.English]: `Superior Features`,
-        [Language.Hindi]: "उत्कृष्ट सुविधा",
-    },
-    "a2f95300-c1a1-45f4-a151-3f4b81b66e39": {
-        [Language.English]: `Our Range`,
-        [Language.Hindi]: "हमारी श्रेणी",
-    },
-    "5401aff8-4337-470a-8d9d-7da5591a1118": {
-        [Language.English]: `Find My Battery`,
-        [Language.Hindi]: "अपनी बैटरी खोजें",
-    },
-    "68d32e0c-2f0b-4686-b208-c4ff6c633bd5": {
-        [Language.English]: `Automotive-Batteries`,
-        [Language.Hindi]: "?????",
-    },
-    "5fdd2cb0-7333-4a30-998c-7bdef3e2319d": {
-        [Language.English]: `Battery Picks`,
-        [Language.Hindi]: "?????",
-    },
-    "96713da3-cefd-4b58-9fb7-eca758ca2214": {
-        [Language.English]: `We Are Listening`,
-        [Language.Hindi]: "?????",
-    },
-    "7ec2537f-9154-4f04-a3ad-d7a33fa78494": {
-        [Language.English]: `Click Connect`,
-        [Language.Hindi]: "?????",
-    },
-    "8fc9ce3b-96c8-4ed0-aa3e-f479d5f0d762": {
-        [Language.English]: `CSR Journey`,
-        [Language.Hindi]: "?????",
-    },
-    "8adac62a-bc43-4744-aa00-339d0624248f": {
-        [Language.English]: `Our Vision`,
-        [Language.Hindi]: "?????",
-    },
-    "e2178aa3-294f-4cf6-a5c4-eecdd2b63217": {
-        [Language.English]: `Our Projects`,
-        [Language.Hindi]: "?????",
-    },
-    "6eaa372b-cfbe-434f-8dfb-cf31db5a1f35": {
-        [Language.English]: `CSR Commitee`,
-        [Language.Hindi]: "?????",
-    },
-    "ac4503ae-ef14-4618-900a-7cfe181b3e45": {
-        [Language.English]: `Superior Features`,
-        [Language.Hindi]: "उत्कृष्ट सुविधा",
-    },
-    "f455acf2-de2a-48bb-afa1-c1b400f1fc09": {
-        [Language.English]: `Our Range`,
-        [Language.Hindi]: "हमारी श्रेणी",
-    },
-    "067bdc8d-d3a5-4f85-b579-4655b69b6a16": {
-        [Language.English]: `Video Guide`,
-        [Language.Hindi]: "वीडियो गाइड",
-    },
-    "361b437f-a453-40f8-8ea5-1d89d31ed8aa": {
-        [Language.English]: `E Rickshaw Charger`,
-        [Language.Hindi]: "?????",
-    },
-    "6024f455-325b-4981-bb40-0dd3b35c6446": {
-        [Language.English]: `Unmatched Performance`,
-        [Language.Hindi]: "?????",
-    },
-    "86aa4572-0487-4dcd-a8fd-bcf887b6e296": {
-        [Language.English]: `Featured Products`,
-        [Language.Hindi]: "विशेष उत्पाद",
-    },
-    "afef1fab-9606-4ee8-b11c-d9aad18a9cf0": {
-        [Language.English]: `E Rickshaw Battery`,
-        [Language.Hindi]: "?????",
-    },
-    "3b3c4911-9f88-4c2b-a7e9-255c83f18ebd": {
-        [Language.English]: `Understanding E Waste Management`,
-        [Language.Hindi]: "?????",
-    },
-    "49f87968-94f3-4a60-8afa-830ef171f29b": {
-        [Language.English]: `Why E Waste Management`,
-        [Language.Hindi]: "?????",
-    },
-    "789b2fd5-46ee-4b76-b2a4-a73074021f6a": {
-        [Language.English]: `Waves Of Impact`,
-        [Language.Hindi]: "प्रभाव की लहरें",
-    },
-    "4dfaa3c8-918c-46d3-a2a7-865f2ac6a9b7": {
-        [Language.English]: `Testimonials`,
-        [Language.Hindi]: "?????",
-    },
-    "fd6848f1-04eb-4f76-845f-e56d93835de6": {
-        [Language.English]: `Inverter and Battery Combo`,
-        [Language.Hindi]: "इनवर्टर और बैटरी कॉम्बो",
-    },
-    "a80664dd-7225-4870-9254-dc4ae03ecbc8": {
-        [Language.English]: `<span class="lg-text-highlighted">Inverter and Battery Combo</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर और बैटरी कॉम्बो</span> से`,
-    },
-    "88365f6c-f815-461c-8dc2-7b6b51ebc61a": {
-        [Language.English]: `<span class="lg-text-highlighted">Tractor Battery</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted">ट्रैक्टर बैटरी</span> से`,
-    },
-    "bc58eec8-4bcf-4539-8a63-fbb7f40b1718": {
-        [Language.English]: `<span class="lg-text-highlighted">Car And SUV Battery</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted">गाड़ी और SUV बैटरी</span> से`,
-    },
-    "7ac7ba45-39e6-44a8-88a1-9e6f74d19f9d": {
-        [Language.English]: `<span class="lg-text-highlighted">Home Inverter</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted">होम इनवर्टर</span> से`,
-    },
-    "e55064a2-1958-4dbd-88c2-4174886c1164": {
-        [Language.English]: `<span class="lg-text-highlighted">High Capacity Inverter</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted">हाय-कैपेसिटी इनवर्टर</span> से`,
-    },
-    "46ede266-bd2f-44bc-b18e-05380293c4a4": {
-        [Language.English]: `<span class="lg-text-highlighted">Inverter Battery</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर बैटरी</span> से`,
-    },
-    "305a3a77-0276-46aa-883c-68951e32dac1": {
-        [Language.English]: `<span class="lg-text-highlighted">Two Wheeler Battery</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted">2-पहिया बैटरी</span> से`,
-    },
-    "cba7f5de-c5ef-4fd7-a5d0-187da1bda0d9": {
-        [Language.English]: `<span class="lg-text-highlighted">Three Wheeler Battery</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted">3-पहिया बैटरी</span> से`,
-    },
-    "c7c35500-944e-40b6-9dd0-8d4d8b55fdae": {
-        [Language.English]: `<span class="lg-text-highlighted">Commercial Vehicle Battery</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted">व्यापारिक वाहन बैटरी</span> से`,
-    },
-    "afbac94d-3beb-4bee-9dbf-fb3561fabcee": {
-        [Language.English]: `<span class="lg-text-highlighted">E Rickshaw Battery</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted">ई-रिक्शा बैटरी</span> से`,
-    },
-    "12ad1435-4d7e-4208-a4a8-621772455013": {
-        [Language.English]: `<span class="lg-text-highlighted">Inverter Trolley</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर ट्राली</span> से`,
-    },
-    "ccad5a29-0772-48cd-9ef7-cf443b5a9657": {
-        [Language.English]: `<span class="lg-text-highlighted">E Rickshaw Charger</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted"></span> से`,
-    },
-    "f73b94be-d44a-48f8-a1b7-623071cf1fe0": {
-        [Language.English]: `Energy Solutions`,
-        [Language.Hindi]: "?????",
-    },
-    "adfcccd0-8c11-4545-8773-5ff7fe6f6215": {
-        [Language.English]: `Meets Expertise`,
-        [Language.Hindi]: "?????",
-    },
-    "11372be1-3074-49ea-aaf7-ec9d0b3ca48e": {
-        [Language.English]: `Reliable Power`,
-        [Language.Hindi]: "?????",
-    },
-    "556945af-1937-475d-8e41-0bea36fb1a86": {
-        [Language.English]: `Limitless Energy`,
-        [Language.Hindi]: "?????",
-    },
-    "8d7859c7-a9d9-44e9-a854-d43697bc3abd": {
-        [Language.English]: `Power Planner`,
-        [Language.Hindi]: "?????",
-    },
-    "b708a357-961a-4b28-afec-1e538023a140": {
-        [Language.English]: `Livguard Combo`,
-        [Language.Hindi]: "?????",
-    },
-    "e0e7bba0-3200-4edf-870d-4c03a86ce636": {
-        [Language.English]: `Our Combos`,
-        [Language.Hindi]: "?????",
-    },
-    "e543a55b-6744-49a7-8d5f-6cf2641ca056": {
-        [Language.English]: `Watch Digital Film`,
-        [Language.Hindi]: "?????",
-    },
-    "0778c1ff-2e3c-4773-889f-6f01e0e58f0e": {
-        [Language.English]: `Battery Combo`,
-        [Language.Hindi]: "?????",
-    },
-    "1f5379fc-7cc5-40f6-8715-6a86a77073cc": {
-        [Language.English]: `Our Top Combo`,
-        [Language.Hindi]: "?????",
-    },
-    "a70a34a0-4f68-4ff6-9bc5-3000c1191f7d": {
-        [Language.English]: `Why Livguard Combo`,
-        [Language.Hindi]: "?????",
-    },
-    "9dc9953c-6891-4dd0-a5f2-70eafce21303": {
-        [Language.English]: `Star Products`,
-        [Language.Hindi]: "?????",
-    },
-
-    "d4e9cca1-8968-4759-b83b-0e5b5354934e": {
-        [Language.English]: "Explore Products",
-        [Language.Hindi]: "इनवर्टर देखें",
-    },
-    "b59605a7-e182-46d3-a704-9c492604dfc4": {
-        [Language.English]: "International Business Oprations",
-        [Language.Hindi]: "????",
-    },
-    "16d054b7-e1e8-4a21-b9b9-b99c4ec7ad97": {
-        [Language.English]: `Why Livguard`,
-        [Language.Hindi]: `????`,
-    },
-    "3d9d6727-c879-4b32-a9d0-829ac636f865": {
-        [Language.English]: `Innovative Solutions`,
-        [Language.Hindi]: `आधुनिक समाधान`,
-    },
-    "6791d4aa-ae4c-4145-a535-b0bec4de6d64": {
-        [Language.English]: `Our Journey`,
-        [Language.Hindi]: `?????`,
-    },
-    "16248ec0-c540-495b-9340-724bc296c3cf": {
-        [Language.English]: `CSR Efforts`,
-        [Language.Hindi]: `सीएसआर प्रयास`,
-    },
-    "b2a44a66-bdca-45c5-b848-a103cc193da4": {
-        [Language.English]: `Financials at a Glance`,
-        [Language.Hindi]: `एक नजर वित्तीय जानकारी</span>`,
-    },
-    "57e5cba3-9ffe-47dd-b584-1a8f2f8aaf8b": {
-        [Language.English]: `Experience High Power`,
-        [Language.Hindi]: `अनुभव करें उच्च शक्ति`,
-    },
-    "4c457900-7da0-4e38-ad3f-732e9ab35335": {
-        [Language.English]: `Heavy Duty Inverters`,
-        [Language.Hindi]: `हेवी ड्यूटी इनवर्टर`,
-    },
-    "2223a612-f480-45b4-86fb-d5d02dc1a69d": {
-        [Language.English]: `Your Guide to Finding The Right Inverter`,
-        [Language.Hindi]: `??????`,
-    },
-    "bd35a39d-092b-4a59-bb3b-6f60086a9e01": {
-        [Language.English]: `Our Head Office`,
-        [Language.Hindi]: `हमारा मुख्य कार्यालय`,
-    },
-    "ed9a0f62-e79d-49e0-a10f-784e4587a699": {
-        [Language.English]: `Our Regional Office`,
-        [Language.Hindi]: `????`,
-    },
-    "cc0aca43-72cc-446a-9a6c-8243c3364c7b": {
-        [Language.English]: `Strength And Stability`,
-        [Language.Hindi]: `????`,
-    },
-    "59edff64-f0e3-4d70-be9a-14f568f43f2f": {
-        [Language.English]: `Your Power Your Choice`,
-        [Language.Hindi]: `????`,
-    },
-    "c7712522-8ed0-4081-b015-bad7c20015a1": {
-        [Language.English]: `Best Offers`,
-        [Language.Hindi]: `????`,
-    },
-    "20672940-27d8-4e36-a37e-cdabf2bfedb1": {
-        [Language.English]: `Effortless Services`,
-        [Language.Hindi]: `????`,
-    },
-    "91a2a7a5-561e-4fd7-bb9f-76969e89b296": {
-        [Language.English]: `Request A Service`,
-        [Language.Hindi]: `सर्विस अनुरोध करें`,
-    },
-    "8241d91a-5895-4c2f-bb29-81f1d508f4f9": {
-        [Language.English]: `Connect`,
-        [Language.Hindi]: `कनेक्ट`,
-    },
-    "c00d2678-dc68-4ded-99aa-4612742a4542": {
-        [Language.English]: `Stabilizers for Home`,
-        [Language.Hindi]: "?????",
-    },
-    "c5937b05-1396-4be3-a508-6478d48700aa": {
-        [Language.English]: `Choose the Best Stabilizer`,
-        [Language.Hindi]: "?????",
-    },
-    "fdbf482e-5a9b-42b3-a012-95b00e93e2dc": {
-        [Language.English]: `Reliabiality`,
-        [Language.Hindi]: "विश्वसनीयता",
-    },
-    "a72629ee-930b-4f47-9d31-f630e2db0709": {
-        [Language.English]: `Find the Right Battery`,
-        [Language.Hindi]: "?????",
-    },
-    "1dfc8abe-6cb9-4413-8a90-5223ebdbd4d1": {
-        [Language.English]: `Top Tractor Batteries`,
-        [Language.Hindi]: "?????",
-    },
-    "08f36f74-4395-4e7f-b301-c02e0e7862f8": {
-        [Language.English]: `Choose the Right Battery`,
-        [Language.Hindi]: "?????",
-    },
-    "e8d7fe5b-5e59-4f65-aae6-5871d080cf20": {
-        [Language.English]: `Our Picks`,
-        [Language.Hindi]: "?????",
-    },
-    "5543107e-a9d0-476c-95fd-6d4bb7336373": {
-        [Language.English]: `Choose Your Ideal Battery`,
-        [Language.Hindi]: "?????",
-    },
-    "ee900aeb-0671-433a-93cc-115b6b6801b6": {
-        [Language.English]: `Seamless Service`,
-        [Language.Hindi]: "निरंतर सर्विस",
-    },
-    "2a231443-40bf-48b5-b482-147609bb9d63": {
-        [Language.English]: `Reliable Service`,
-        [Language.Hindi]: "?????",
-    },
-    "a5ee9b69-adfe-49ac-9256-cff986b899b7": {
-        [Language.English]: `Register in Minutes`,
-        [Language.Hindi]: "?????",
-    },
-    "cd1f1433-8736-4f1d-a5e6-927e59a02ec2": {
-        [Language.English]: `Product Specification`,
-        [Language.Hindi]: "?????",
-    },
-    "abea43c2-a4ec-471c-ad0b-7f3cf8e42cb3": {
-        [Language.English]: `Product Description`,
-        [Language.Hindi]: "?????",
-    },
-    "4e366b86-4e66-47f4-99ef-6a33dc519099": {
-        [Language.English]: `Suggested Products`,
-        [Language.Hindi]: "?????",
-    },
-    "5b6a1674-797b-430e-a1d0-19a052886b10": {
-        [Language.English]: `Visit Website`,
-        [Language.Hindi]: "वेबसाइट पर जाएं",
     },
     "58790af6-e242-4064-9f92-8c7af56524f9": {
         [Language.English]: `Calling all Detectives!`,
@@ -11644,18 +10783,875 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "4b1b2126-7ed2-4a31-98d8-74158e31022f": {
         [Language.English]: `Combos`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `कॉम्बो`,
     },
     "7e54165c-1ab3-4284-8a68-7db0515f1c66": {
         [Language.English]: `Inverter and Battery Combo`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इनवर्टर और बैटरी कॉम्बो`,
     },
     "af709c5d-4066-419b-b775-17a43a234c9f": {
         [Language.English]: `Events`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आयोजन`,
     },
     "72516e54-5c6d-4723-a2b9-06ed6d3ae2c3": {
         [Language.English]: `REI`,
         [Language.Hindi]: `?????`,
+    },
+    "10a057de-1158-4f8b-8186-48571a720fc5": {
+        [Language.English]: `Lithium Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "ac7ae8d2-3f3c-49a6-a6db-e8cbb8b3ed07": {
+        [Language.English]: `DC-DC`,
+        [Language.Hindi]: `?????`,
+    },
+    "7596543b-c504-4ca0-817d-fc7f5dcefea7": {
+        [Language.English]: `Controllers`,
+        [Language.Hindi]: `?????`,
+    },
+    "8ccc369c-daa0-47d7-a568-1752d660d737": {
+        [Language.English]: `Motor`,
+        [Language.Hindi]: `?????`,
+    },
+    "b42973cc-d1f0-4ddb-aba7-a030b7398ccb": {
+        [Language.English]: `Charger`,
+        [Language.Hindi]: `?????`,
+    },
+    "e720a43a-b9cc-4925-9dcb-e37abb16ac28": {
+        [Language.English]: `BMS/IoT*`,
+        [Language.Hindi]: `?????`,
+    },
+    "ba80271b-d0ce-4762-b82c-96c984f3d55c": {
+        [Language.English]: `Others`,
+        [Language.Hindi]: `अन्य`,
+    },
+    "dc3dacb5-baa4-4fa3-8d27-a4b87fcd0158": {
+        [Language.English]: `E-Rickshaw Charger`,
+        [Language.Hindi]: `ई-रिक्शा चार्जर`,
+    },
+    "3a186513-50e2-4738-8d17-0f8691fa7b1c": {
+        [Language.English]: `Solar Solutions`,
+        [Language.Hindi]: `सोलर समाधान`,
+    },
+    "d5cf31f9-8ae3-48e5-afae-067d2844400f": {
+        [Language.English]: `Solutions`,
+        [Language.Hindi]: `समाधान`,
+    },
+    "9b76016a-c05d-4687-899f-aa6157ebc51c": {
+        [Language.English]: `Solar Saving Calculator`,
+        [Language.Hindi]: `सोलर बचत कैलकुलेटर`,
+    },
+    "267b476e-74fa-4648-a5f8-8129bbfaa8ce": {
+        [Language.English]: `LivMonitor App`,
+        [Language.Hindi]: `?????`,
+    },
+    "6d5d47a4-ef2f-40c4-b364-1b4f96d47af9": {
+        [Language.English]: `Solar Battery`,
+        [Language.Hindi]: `सोलर बैटरी`,
+    },
+    "e45100e2-66ca-4476-9822-c37e64ae5356": {
+        [Language.English]: `Understanding Solar`,
+        [Language.Hindi]: `समझिए सोलर`,
+    },
+    "f996231c-b2f6-41f8-82bb-dea49b2c9a3d": {
+        [Language.English]: `Solar Inverter`,
+        [Language.Hindi]: `सोलर इनवर्टर`,
+    },
+    "f9e6a204-a3e8-4725-b7f2-c03231a28813": {
+        [Language.English]: `Off-Grid Inverter`,
+        [Language.Hindi]: `?????`,
+    },
+    "c6c9f0ec-ff71-4a10-9bc6-5dbde9ef8a81": {
+        [Language.English]: `On-Grid Inverter`,
+        [Language.Hindi]: `?????`,
+    },
+    "ebb7642d-4c02-426e-83c0-06acd292ec33": {
+        [Language.English]: `Hybrid Inverter`,
+        [Language.Hindi]: `?????`,
+    },
+    "b78fac32-d1d1-4775-ad04-de991106a491": {
+        [Language.English]: `Solar Panels`,
+        [Language.Hindi]: `?????`,
+    },
+    "53d8effd-c423-465b-b273-b2e6ab17020a": {
+        [Language.English]: `Polycrystalline Solar Panel`,
+        [Language.Hindi]: `?????`,
+    },
+    "ea7d6d75-5e3f-4ad7-a72b-10e9e9449618": {
+        [Language.English]: `Mono PERC Solar Panel`,
+        [Language.Hindi]: `?????`,
+    },
+    "6fc7c58e-1eb3-4600-a449-daaa702eb619": {
+        [Language.English]: `Mono PERC Half Cut Solar Panel`,
+        [Language.Hindi]: `?????`,
+    },
+    "cd9df738-ed03-4cf5-8440-c15ee171ee0f": {
+        [Language.English]: `Charger Controller / SMU`,
+        [Language.Hindi]: `चार्जर कंट्रोलर / एसएमयू`,
+    },
+    "f5986d46-458c-4fde-9516-56dee3d6d94b": {
+        [Language.English]: `Charger Controller`,
+        [Language.Hindi]: `चार्जर कंट्रोलर`,
+    },
+    "4e6fe38c-6d65-4fa0-a321-72eb79c840aa": {
+        [Language.English]: `Solar Management Unit`,
+        [Language.Hindi]: `सोलर मैनेजमेंट यूनिट`,
+    },
+    "7596edad-f993-41bf-a344-577762691d53": {
+        [Language.English]: `Solar Street Light`,
+        [Language.Hindi]: `सोलर स्ट्रीट लाईट`,
+    },
+    "54c5d2f5-501d-4bbe-bbde-f8ea37fa1f21": {
+        [Language.English]: `Accessories`,
+        [Language.Hindi]: `सहायक उपकरण`,
+    },
+    "8fa18bba-da04-43ad-aba1-9b0192f4a9db": {
+        [Language.English]: `AC-DB`,
+        [Language.Hindi]: `?????`,
+    },
+    "f9f3bfd2-74d3-4e42-8b0f-3ef0ecd469a9": {
+        [Language.English]: `DC-DB`,
+        [Language.Hindi]: `?????`,
+    },
+    "dac9e320-4f31-4ea0-8cbc-742f69286b2f": {
+        [Language.English]: `Zero Export Device`,
+        [Language.Hindi]: `?????`,
+    },
+    "32fe5fcc-99bb-4dad-a0e5-feb4b9e3963a": {
+        [Language.English]: `Monitoring Device`,
+        [Language.Hindi]: `?????`,
+    },
+    "b137744d-bc16-4100-afb4-8d3c2fb07793": {
+        [Language.English]: `Shopping Tools`,
+        [Language.Hindi]: `खरीदारी उपकरण`,
+    },
+    "c577a2cf-745c-40b6-a9fa-cb1ef88d7cd3": {
+        [Language.English]: `Check Price`,
+        [Language.Hindi]: `कीमत जाँचे`,
+    },
+    "f008f7bb-e106-4e04-8654-8f3e1d517979": {
+        [Language.English]: `Offers`,
+        [Language.Hindi]: `ऑफर्स`,
+    },
+    "739577f2-3578-4eaf-8b45-8b3de3372aa9": {
+        [Language.English]: `Home Load Calculator`,
+        [Language.Hindi]: `घर का लोड कैलकुलेटर`,
+    },
+    "0476c521-6376-4411-ba07-10ab93e5982f": {
+        [Language.English]: `Automotive Battery Finder`,
+        [Language.Hindi]: `ऑटोमोटिव बैटरी खोजें`,
+    },
+    "454a8070-92b6-419a-af59-6f6253283c07": {
+        [Language.English]: `Download brochures`,
+        [Language.Hindi]: `?????`,
+    },
+    "1a1fc6c9-a8b2-4ae7-9154-9999e251449c": {
+        [Language.English]: `Owners`,
+        [Language.Hindi]: `मालिक`,
+    },
+    "96e824a1-876e-42ec-a9b5-2f68fea3a6d3": {
+        [Language.English]: `Service`,
+        [Language.Hindi]: `सर्विस`,
+    },
+    "4f0455d6-1f64-4f56-9cea-3d1655b10c5c": {
+        [Language.English]: `Warranty registration`,
+        [Language.Hindi]: `वारंटी पंजीकरण`,
+    },
+    "86de9899-69e7-4cca-bc82-4f2e9efe405a": {
+        [Language.English]: `Dealer Locator`,
+        [Language.Hindi]: `डीलर ढूँढें`,
+    },
+    "ff7689df-232c-4839-a1ef-2d7fa388c667": {
+        [Language.English]: `About us`,
+        [Language.Hindi]: `हमारे बारे में`,
+    },
+    "96c7b4e3-edf0-4ec8-aa70-67f7ee2ef73a": {
+        [Language.English]: `Contact us`,
+        [Language.Hindi]: `हमसे संपर्क करें`,
+    },
+    "902ff240-2339-4be5-98f0-741f1162f27f": {
+        [Language.English]: `Company`,
+        [Language.Hindi]: `कंपनी`,
+    },
+    "06bdee07-e0a5-418c-8aab-90a5debb6b61": {
+        [Language.English]: `Check Price`,
+        [Language.Hindi]: "कीमत जाँचे",
+    },
+    "a934d750-a5a0-4b8b-b343-e6af45966c63": {
+        [Language.English]: `Offers`,
+        [Language.Hindi]: "ऑफर्स",
+    },
+    "095a8a44-87c6-454e-8b5f-abed73e54c54": {
+        [Language.English]: `Download brochures`,
+        [Language.Hindi]: "?????",
+    },
+    "be39d262-3769-4f4c-8d54-3ed7d6500101": {
+        [Language.English]: `Load Calculator - Home`,
+        [Language.Hindi]: "लोड कैलकुलेटर - होम",
+    },
+    "09d8b17e-501d-4fcd-8371-930579ff3265": {
+        [Language.English]: `Battery Finder - Automotive`,
+        [Language.Hindi]: "ऑटोमोटिव बैटरी खोजें",
+    },
+    "1ab892b7-3762-49a6-a36b-205ed0980f2a": {
+        [Language.English]: `Solar Saving Calculator`,
+        [Language.Hindi]: "सोलर बचत कैलकुलेटर",
+    },
+    "7a2b7f51-c58b-4f43-bdf4-881209fe2acd": {
+        [Language.English]: `Blogs`,
+        [Language.Hindi]: "ब्लॉग",
+    },
+    "eb4e6810-b019-4d59-94b2-41351f268590": {
+        [Language.English]: `Shopping Tools`,
+        [Language.Hindi]: "खरीदारी उपकरण",
+    },
+    "bf233b5c-c4e0-4161-aa37-8d0eba708d4c": {
+        [Language.English]: `Company`,
+        [Language.Hindi]: "कंपनी",
+    },
+    "8c28a7c5-2e4e-4708-bd33-80358a9acaf2": {
+        [Language.English]: `About Us`,
+        [Language.Hindi]: "हमारे बारे में",
+    },
+    "121206cf-56f5-443a-a624-21cfe2d38070": {
+        [Language.English]: `India Operations`,
+        [Language.Hindi]: "भारत संचालन",
+    },
+    "453c92b4-5576-4452-a2ce-92586e5eda28": {
+        [Language.English]: `Global Operations`,
+        [Language.Hindi]: "वैश्विक संचालन",
+    },
+    "1acc9d47-614a-4fc6-8f8e-ab8d6ebc1ae6": {
+        [Language.English]: `Corporate Social Responsibility`,
+        [Language.Hindi]: "कॉर्पोरेट सामाजिक उत्तरदायित्व",
+    },
+    "636ca3f4-627f-48c3-9f1b-d3490094d536": {
+        [Language.English]: `E-Waste Management`,
+        [Language.Hindi]: "ई-वेस्ट मैनेजमेंट",
+    },
+    "69838ae8-eb67-4ea5-9179-990db737a138": {
+        [Language.English]: `Governance`,
+        [Language.Hindi]: "शासन",
+    },
+    "fc828855-64e1-4be5-b95f-bee9fe4a3262": {
+        [Language.English]: `Dealer Locator`,
+        [Language.Hindi]: "डीलर ढूँढें",
+    },
+    "35178fbf-bc7e-4b8b-a49a-17bff7feaa18": {
+        [Language.English]: `Dealer Near Me`,
+        [Language.Hindi]: "मेरे निकट डीलर",
+    },
+    "c54ca3ff-b15f-445a-8e7b-c85985e5d355": {
+        [Language.English]: `Customer Policies`,
+        [Language.Hindi]: "ग्राहक नीतियां",
+    },
+    "0c031708-7b42-4db6-ac33-902a7f0492f5": {
+        [Language.English]: `Terms & Conditions`,
+        [Language.Hindi]: "नियम और शर्तें",
+    },
+    "286aa9a0-fadc-4b90-b967-3d300307fdbe": {
+        [Language.English]: `Sales Return Policy`,
+        [Language.Hindi]: "सेल्स वापसी नीति",
+    },
+    "dd2edb48-b8fa-4f95-b0a0-5581ec7e8ad6": {
+        [Language.English]: `Privacy policy`,
+        [Language.Hindi]: "गोपनीयता नीति",
+    },
+    "31850c84-bfb5-42cb-b470-489a351c2d99": {
+        [Language.English]: `Support`,
+        [Language.Hindi]: "सहायता",
+    },
+    "f1ab4d68-c36d-4484-851d-58a6c48bc4ee": {
+        [Language.English]: `Contact Us`,
+        [Language.Hindi]: "हमसे संपर्क करें",
+    },
+    "4316557c-1532-401f-8030-390ea9bf4790": {
+        [Language.English]: `Customer Care`,
+        [Language.Hindi]: "?????",
+    },
+    "5d9b749d-0a6e-42a2-abbb-bc2e441bb655": {
+        [Language.English]: `Feedback`,
+        [Language.Hindi]: "?????",
+    },
+    "90920b9e-0139-4f28-a126-1768bc703953": {
+        [Language.English]: `FAQ's`,
+        [Language.Hindi]: "?????",
+    },
+    "6d46ed34-f819-4c0a-a7ca-29ac67f6486b": {
+        [Language.English]: `Media & Gallery`,
+        [Language.Hindi]: "मीडिया और गैलरी",
+    },
+    "ff612253-40bd-4b64-b93d-955ff8097afd": {
+        [Language.English]: `Videos`,
+        [Language.Hindi]: "वीडियो",
+    },
+    "b58e0802-9926-42c7-8b21-b9bcac8f895f": {
+        [Language.English]: `Testimonials`,
+        [Language.Hindi]: "?????",
+    },
+    "bfaf5f70-76d6-41fe-b11a-bf91f00af887": {
+        [Language.English]: `Downloads`,
+        [Language.Hindi]: "?????",
+    },
+    "639fd244-9283-4467-b186-6ee26321127b": {
+        [Language.English]: `Get In Touch`,
+        [Language.Hindi]: "संपर्क करें",
+    },
+    "22156ff3-a4a5-4d59-ab0c-902c21b667f9": {
+        [Language.English]: `Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India`,
+        [Language.Hindi]: "?????",
+    },
+    "1f8b2070-1c48-4396-999d-3195c96cabd7": {
+        [Language.English]: `Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "89f3948f-ec87-4fd9-aaf7-b7ee99b2d900": {
+        [Language.English]: `Home Inverter`,
+        [Language.Hindi]: "होम इनवर्टर",
+    },
+    "4b6c134b-096e-49cf-9e12-d53c0e3cf059": {
+        [Language.English]: `High Capacity Inverter`,
+        [Language.Hindi]: "हाय-कैपेसिटी इनवर्टर",
+    },
+    "0e58360b-6e83-47da-a0c5-afca55819e50": {
+        [Language.English]: `Load Calculator`,
+        [Language.Hindi]: "लोड कैलकुलेटर",
+    },
+    "f76f3bd2-566f-44fe-bedb-c66cdfc42a0e": {
+        [Language.English]: `Inverter Trolley`,
+        [Language.Hindi]: "इनवर्टर ट्राली",
+    },
+    "5e7fac2e-dfcc-4fde-90ac-99fec03abb21": {
+        [Language.English]: `Inverter Battery`,
+        [Language.Hindi]: "इनवर्टर बैटरी",
+    },
+    "3b12adfb-c368-4141-bd61-b15487af1696": {
+        [Language.English]: `Battery Trolley`,
+        [Language.Hindi]: "?????",
+    },
+    "27a6ac19-b8ed-43e6-927a-562bf232d8d6": {
+        [Language.English]: `Two Wheeler Battery`,
+        [Language.Hindi]: "2-पहिया बैटरी",
+    },
+    "b56af9ea-2d7d-45e5-8886-d4a367bc7e89": {
+        [Language.English]: `Three Wheeler Battery`,
+        [Language.Hindi]: "3-पहिया बैटरी",
+    },
+    "fa4d03f8-1288-4254-8af9-6135a878df8e": {
+        [Language.English]: `Passenger Vehicle Battery`,
+        [Language.Hindi]: "यात्री वाहन बैटरी",
+    },
+    "831ac44b-7d9d-472f-8377-a700b9bd6596": {
+        [Language.English]: `Commercial Vehicle Battery`,
+        [Language.Hindi]: "व्यापारिक वाहन बैटरी",
+    },
+    "10a9d622-6fcc-4689-9fdb-d245d46a491e": {
+        [Language.English]: `Farm Vehicle Battery`,
+        [Language.Hindi]: "खेत वाहन बैटरी",
+    },
+    "8aea3499-6fc0-40b3-b7fe-93f8504e9d7e": {
+        [Language.English]: `E-Rickshaw Battery`,
+        [Language.Hindi]: "ई-रिक्शा बैटरी",
+    },
+    "54504980-d98c-4f68-a7cc-bf716ecb905d": {
+        [Language.English]: `Battery Finder - Automotive`,
+        [Language.Hindi]: "ऑटोमोटिव बैटरी खोजें",
+    },
+    "4f427a78-8c4f-4c36-833f-545a0d2a775d": {
+        [Language.English]: `E-Rickshaw Charger`,
+        [Language.Hindi]: "ई-रिक्शा चार्जर",
+    },
+    "e233aa7a-2374-4239-8653-db42cdae6e0d": {
+        [Language.English]: `Power Solutions`,
+        [Language.Hindi]: "ऊर्जा समाधान",
+    },
+    "c5d478da-fd36-446a-aae6-1bfe13607be1": {
+        [Language.English]: `Solar Saving Calculator`,
+        [Language.Hindi]: "सोलर बचत कैलकुलेटर",
+    },
+    "1bb35c7d-3856-46ef-a49e-cd0241c6f828": {
+        [Language.English]: `LivMonitor App*`,
+        [Language.Hindi]: "?????",
+    },
+    "6017a74c-fd49-4086-892d-e0548e7c7e51": {
+        [Language.English]: `Solar Battery`,
+        [Language.Hindi]: "सोलर बैटरी",
+    },
+    "f3ba3cad-77ef-4a58-9760-2ef4cd33bb11": {
+        [Language.English]: `Find My Battery`,
+        [Language.Hindi]: "?????",
+    },
+    "d1df7722-e72b-4c08-94d9-5e8adc4d5a93": {
+        [Language.English]: `Solar Inverter`,
+        [Language.Hindi]: "सोलर इनवर्टर",
+    },
+    "f262e016-6ca4-44af-a202-a3ab02100dbb": {
+        [Language.English]: `Off-Grid Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "ea124d83-7e89-4cdf-b968-fc241583ce35": {
+        [Language.English]: `On-Grid Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "05b8415f-616b-4aed-8c0b-fd31305c6026": {
+        [Language.English]: `Hybrid Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "2f4de646-0e7c-424f-bcd4-52deb4003705": {
+        [Language.English]: `Solar Panels`,
+        [Language.Hindi]: "?????",
+    },
+    "369e90db-f15f-4ec7-834f-46e460f1e0fd": {
+        [Language.English]: `Polycrystalline Solar Panel`,
+        [Language.Hindi]: "?????",
+    },
+    "e9218e48-d0fa-40b4-9189-39e4d37c847d": {
+        [Language.English]: `Mono PERC Solar Panel`,
+        [Language.Hindi]: "?????",
+    },
+    "e02353bf-c629-4104-8b43-6fe8a43610cc": {
+        [Language.English]: `Mono PERC Half Cut Solar Panel`,
+        [Language.Hindi]: "?????",
+    },
+    "d590735a-b2e3-4e86-a9e6-7a3991bd8956": {
+        [Language.English]: `Charger Controller / SMU`,
+        [Language.Hindi]: "चार्जर कंट्रोलर / एसएमयू",
+    },
+    "f12df3fc-ddaf-4809-b2dc-d34c218db76f": {
+        [Language.English]: `Solar Management Unit`,
+        [Language.Hindi]: "सोलर मैनेजमेंट यूनिट",
+    },
+    "93c283cc-941d-4382-aabb-67f017dd119b": {
+        [Language.English]: `Solar Street Light`,
+        [Language.Hindi]: "सोलर स्ट्रीट लाईट",
+    },
+    "3387d316-f651-4fec-82e4-8b25c923a1b2": {
+        [Language.English]: `AC-DB`,
+        [Language.Hindi]: "?????",
+    },
+    "8641e5e9-7f63-49a8-9586-30d0be4a8e98": {
+        [Language.English]: `DC-DB`,
+        [Language.Hindi]: "?????",
+    },
+    "d000e8b7-9e75-48b2-a131-39864fe80130": {
+        [Language.English]: `Zero Export Device`,
+        [Language.Hindi]: "?????",
+    },
+    "58860329-bf1a-40c4-ba47-6103a0b013db": {
+        [Language.English]: `Monitoring Device`,
+        [Language.Hindi]: "?????",
+    },
+    "b9996d74-d519-40a8-bbad-b27d3479236b": {
+        [Language.English]: `Solar Solutions`,
+        [Language.Hindi]: "सोलर समाधान",
+    },
+    "ee76a8f5-ba19-4a3e-ad60-67de3b59a6d2": {
+        [Language.English]: `Energy Solutions`,
+        [Language.Hindi]: "?????",
+    },
+    "9fc64723-0e15-4211-983a-ba03cf9a4d41": {
+        [Language.English]: `Top`,
+        [Language.Hindi]: "?????",
+    },
+    "ccf268de-2880-455f-9cc3-bdc066866b2c": {
+        [Language.English]: `One of a Kind`,
+        [Language.Hindi]: "?????",
+    },
+    "02e2e193-5c13-4674-93cb-02d15e2b71da": {
+        [Language.English]: `Power Planner`,
+        [Language.Hindi]: "?????",
+    },
+    "bc9269a0-800f-4adf-ac22-d866887da9f4": {
+        [Language.English]: `Find My Dealer`,
+        [Language.Hindi]: "?????",
+    },
+    "01553562-bafd-4ad3-a18c-7b6cc113f03f": {
+        [Language.English]: `Our Social Handles`,
+        [Language.Hindi]: "?????",
+    },
+    "ab5df361-c4a5-4f3a-b26e-21eff3cb23bc": {
+        [Language.English]: `Testimonials`,
+        [Language.Hindi]: "?????",
+    },
+    "3479de37-c724-4254-a536-acf8c8de4c20": {
+        [Language.English]: `FAQs`,
+        [Language.Hindi]: "?????",
+    },
+    "30174373-893d-4b43-82e5-30969f80385b": {
+        [Language.English]: `In The News`,
+        [Language.Hindi]: "?????",
+    },
+    "3011d264-9e86-4df5-a284-154c88e54209": {
+        [Language.English]: `CSR`,
+        [Language.Hindi]: "?????",
+    },
+    "8bb57774-d155-41f1-bf07-6906c1026203": {
+        [Language.English]: `Meant To Last`,
+        [Language.Hindi]: "?????",
+    },
+    "32d2e95f-02b6-49fe-b1c3-cee4542e202b": {
+        [Language.English]: `Our Batteries`,
+        [Language.Hindi]: "?????",
+    },
+    "0620b5a6-a7bb-4d55-84fb-6a3202439edb": {
+        [Language.English]: `Our Suggestions`,
+        [Language.Hindi]: "?????",
+    },
+    "5270f2b4-c38b-45b7-8dac-0434f3e7bfcf": {
+        [Language.English]: `Suggested Combos`,
+        [Language.Hindi]: "?????",
+    },
+    "4364581e-7ad6-4f87-9c83-66bf480d3fab": {
+        [Language.English]: `Plan Your Power`,
+        [Language.Hindi]: "?????",
+    },
+    "eb553bbb-e1af-4d2a-923a-096c297441e2": {
+        [Language.English]: `Livguard Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "fdb7fec0-6865-44e5-a84c-73b11f76c326": {
+        [Language.English]: `Choose Your Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "1048c716-f3d1-4740-90b8-99e7d1e3b80d": {
+        [Language.English]: `Who We Are`,
+        [Language.Hindi]: "?????",
+    },
+    "b1387a67-2e83-4f5f-b794-3cf1c7bc61fd": {
+        [Language.English]: `Meet Our Leaders`,
+        [Language.Hindi]: "?????",
+    },
+    "591ebee7-9d2d-416f-8942-29e3840cc4c4": {
+        [Language.English]: `Our Operations`,
+        [Language.Hindi]: "?????",
+    },
+    "35610704-9140-46c7-a510-9365b19f837d": {
+        [Language.English]: `Our Values`,
+        [Language.Hindi]: "?????",
+    },
+    "fe6d299f-3f6a-44fe-9b3a-877ff0d423d2": {
+        [Language.English]: `Empowered By SAR`,
+        [Language.Hindi]: "?????",
+    },
+    "b907dc0e-a480-49e8-ae9d-3943d5d3c69e": {
+        [Language.English]: `Superior Features`,
+        [Language.Hindi]: "उत्कृष्ट सुविधा",
+    },
+    "a2f95300-c1a1-45f4-a151-3f4b81b66e39": {
+        [Language.English]: `Our Range`,
+        [Language.Hindi]: "हमारी श्रेणी",
+    },
+    "5401aff8-4337-470a-8d9d-7da5591a1118": {
+        [Language.English]: `Find My Battery`,
+        [Language.Hindi]: "अपनी बैटरी खोजें",
+    },
+    "68d32e0c-2f0b-4686-b208-c4ff6c633bd5": {
+        [Language.English]: `Automotive-Batteries`,
+        [Language.Hindi]: "?????",
+    },
+    "5fdd2cb0-7333-4a30-998c-7bdef3e2319d": {
+        [Language.English]: `Battery Picks`,
+        [Language.Hindi]: "?????",
+    },
+    "96713da3-cefd-4b58-9fb7-eca758ca2214": {
+        [Language.English]: `We Are Listening`,
+        [Language.Hindi]: "?????",
+    },
+    "7ec2537f-9154-4f04-a3ad-d7a33fa78494": {
+        [Language.English]: `Click Connect`,
+        [Language.Hindi]: "?????",
+    },
+    "8fc9ce3b-96c8-4ed0-aa3e-f479d5f0d762": {
+        [Language.English]: `CSR Journey`,
+        [Language.Hindi]: "?????",
+    },
+    "8adac62a-bc43-4744-aa00-339d0624248f": {
+        [Language.English]: `Our Vision`,
+        [Language.Hindi]: "?????",
+    },
+    "e2178aa3-294f-4cf6-a5c4-eecdd2b63217": {
+        [Language.English]: `Our Projects`,
+        [Language.Hindi]: "?????",
+    },
+    "6eaa372b-cfbe-434f-8dfb-cf31db5a1f35": {
+        [Language.English]: `CSR Commitee`,
+        [Language.Hindi]: "?????",
+    },
+    "ac4503ae-ef14-4618-900a-7cfe181b3e45": {
+        [Language.English]: `Superior Features`,
+        [Language.Hindi]: "उत्कृष्ट सुविधा",
+    },
+    "f455acf2-de2a-48bb-afa1-c1b400f1fc09": {
+        [Language.English]: `Our Range`,
+        [Language.Hindi]: "हमारी श्रेणी",
+    },
+    "067bdc8d-d3a5-4f85-b579-4655b69b6a16": {
+        [Language.English]: `Video Guide`,
+        [Language.Hindi]: "वीडियो गाइड",
+    },
+    "361b437f-a453-40f8-8ea5-1d89d31ed8aa": {
+        [Language.English]: `E Rickshaw Charger`,
+        [Language.Hindi]: "?????",
+    },
+    "6024f455-325b-4981-bb40-0dd3b35c6446": {
+        [Language.English]: `Unmatched Performance`,
+        [Language.Hindi]: "?????",
+    },
+    "86aa4572-0487-4dcd-a8fd-bcf887b6e296": {
+        [Language.English]: `Featured Products`,
+        [Language.Hindi]: "विशेष उत्पाद",
+    },
+    "afef1fab-9606-4ee8-b11c-d9aad18a9cf0": {
+        [Language.English]: `E Rickshaw Battery`,
+        [Language.Hindi]: "?????",
+    },
+    "3b3c4911-9f88-4c2b-a7e9-255c83f18ebd": {
+        [Language.English]: `Understanding E Waste Management`,
+        [Language.Hindi]: "?????",
+    },
+    "49f87968-94f3-4a60-8afa-830ef171f29b": {
+        [Language.English]: `Why E Waste Management`,
+        [Language.Hindi]: "?????",
+    },
+    "789b2fd5-46ee-4b76-b2a4-a73074021f6a": {
+        [Language.English]: `Waves Of Impact`,
+        [Language.Hindi]: "प्रभाव की लहरें",
+    },
+    "4dfaa3c8-918c-46d3-a2a7-865f2ac6a9b7": {
+        [Language.English]: `Testimonials`,
+        [Language.Hindi]: "?????",
+    },
+    "fd6848f1-04eb-4f76-845f-e56d93835de6": {
+        [Language.English]: `Inverter and Battery Combo`,
+        [Language.Hindi]: "इनवर्टर और बैटरी कॉम्बो",
+    },
+    "a80664dd-7225-4870-9254-dc4ae03ecbc8": {
+        [Language.English]: `<span class="lg-text-highlighted">Inverter and Battery Combo</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर और बैटरी कॉम्बो</span> से`,
+    },
+    "88365f6c-f815-461c-8dc2-7b6b51ebc61a": {
+        [Language.English]: `<span class="lg-text-highlighted">Tractor Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">ट्रैक्टर बैटरी</span> से`,
+    },
+    "bc58eec8-4bcf-4539-8a63-fbb7f40b1718": {
+        [Language.English]: `<span class="lg-text-highlighted">Car And SUV Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">गाड़ी और SUV बैटरी</span> से`,
+    },
+    "7ac7ba45-39e6-44a8-88a1-9e6f74d19f9d": {
+        [Language.English]: `<span class="lg-text-highlighted">Home Inverter</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">होम इनवर्टर</span> से`,
+    },
+    "e55064a2-1958-4dbd-88c2-4174886c1164": {
+        [Language.English]: `<span class="lg-text-highlighted">High Capacity Inverter</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">हाय-कैपेसिटी इनवर्टर</span> से`,
+    },
+    "46ede266-bd2f-44bc-b18e-05380293c4a4": {
+        [Language.English]: `<span class="lg-text-highlighted">Inverter Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर बैटरी</span> से`,
+    },
+    "305a3a77-0276-46aa-883c-68951e32dac1": {
+        [Language.English]: `<span class="lg-text-highlighted">Two Wheeler Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">2-पहिया बैटरी</span> से`,
+    },
+    "cba7f5de-c5ef-4fd7-a5d0-187da1bda0d9": {
+        [Language.English]: `<span class="lg-text-highlighted">Three Wheeler Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">3-पहिया बैटरी</span> से`,
+    },
+    "c7c35500-944e-40b6-9dd0-8d4d8b55fdae": {
+        [Language.English]: `<span class="lg-text-highlighted">Commercial Vehicle Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">व्यापारिक वाहन बैटरी</span> से`,
+    },
+    "afbac94d-3beb-4bee-9dbf-fb3561fabcee": {
+        [Language.English]: `<span class="lg-text-highlighted">E Rickshaw Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">ई-रिक्शा बैटरी</span> से`,
+    },
+    "12ad1435-4d7e-4208-a4a8-621772455013": {
+        [Language.English]: `<span class="lg-text-highlighted">Inverter Trolley</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर ट्राली</span> से`,
+    },
+    "ccad5a29-0772-48cd-9ef7-cf443b5a9657": {
+        [Language.English]: `<span class="lg-text-highlighted">E Rickshaw Charger</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted"></span> से`,
+    },
+    "f73b94be-d44a-48f8-a1b7-623071cf1fe0": {
+        [Language.English]: `Energy Solutions`,
+        [Language.Hindi]: "?????",
+    },
+    "adfcccd0-8c11-4545-8773-5ff7fe6f6215": {
+        [Language.English]: `Meets Expertise`,
+        [Language.Hindi]: "?????",
+    },
+    "11372be1-3074-49ea-aaf7-ec9d0b3ca48e": {
+        [Language.English]: `Reliable Power`,
+        [Language.Hindi]: "?????",
+    },
+    "556945af-1937-475d-8e41-0bea36fb1a86": {
+        [Language.English]: `Limitless Energy`,
+        [Language.Hindi]: "?????",
+    },
+    "8d7859c7-a9d9-44e9-a854-d43697bc3abd": {
+        [Language.English]: `Power Planner`,
+        [Language.Hindi]: "?????",
+    },
+    "b708a357-961a-4b28-afec-1e538023a140": {
+        [Language.English]: `Livguard Combo`,
+        [Language.Hindi]: "?????",
+    },
+    "e0e7bba0-3200-4edf-870d-4c03a86ce636": {
+        [Language.English]: `Our Combos`,
+        [Language.Hindi]: "?????",
+    },
+    "e543a55b-6744-49a7-8d5f-6cf2641ca056": {
+        [Language.English]: `Watch Digital Film`,
+        [Language.Hindi]: "?????",
+    },
+    "0778c1ff-2e3c-4773-889f-6f01e0e58f0e": {
+        [Language.English]: `Battery Combo`,
+        [Language.Hindi]: "?????",
+    },
+    "1f5379fc-7cc5-40f6-8715-6a86a77073cc": {
+        [Language.English]: `Our Top Combo`,
+        [Language.Hindi]: "?????",
+    },
+    "a70a34a0-4f68-4ff6-9bc5-3000c1191f7d": {
+        [Language.English]: `Why Livguard Combo`,
+        [Language.Hindi]: "?????",
+    },
+    "9dc9953c-6891-4dd0-a5f2-70eafce21303": {
+        [Language.English]: `Star Products`,
+        [Language.Hindi]: "?????",
+    },
+
+    "d4e9cca1-8968-4759-b83b-0e5b5354934e": {
+        [Language.English]: "Explore Products",
+        [Language.Hindi]: "इनवर्टर देखें",
+    },
+    "b59605a7-e182-46d3-a704-9c492604dfc4": {
+        [Language.English]: "International Business Oprations",
+        [Language.Hindi]: "????",
+    },
+    "16d054b7-e1e8-4a21-b9b9-b99c4ec7ad97": {
+        [Language.English]: `Why Livguard`,
+        [Language.Hindi]: `????`,
+    },
+    "3d9d6727-c879-4b32-a9d0-829ac636f865": {
+        [Language.English]: `Innovative Solutions`,
+        [Language.Hindi]: `आधुनिक समाधान`,
+    },
+    "6791d4aa-ae4c-4145-a535-b0bec4de6d64": {
+        [Language.English]: `Our Journey`,
+        [Language.Hindi]: `?????`,
+    },
+    "16248ec0-c540-495b-9340-724bc296c3cf": {
+        [Language.English]: `CSR Efforts`,
+        [Language.Hindi]: `सीएसआर प्रयास`,
+    },
+    "b2a44a66-bdca-45c5-b848-a103cc193da4": {
+        [Language.English]: `Financials at a Glance`,
+        [Language.Hindi]: `एक नजर वित्तीय जानकारी</span>`,
+    },
+    "57e5cba3-9ffe-47dd-b584-1a8f2f8aaf8b": {
+        [Language.English]: `Experience High Power`,
+        [Language.Hindi]: `अनुभव करें उच्च शक्ति`,
+    },
+    "4c457900-7da0-4e38-ad3f-732e9ab35335": {
+        [Language.English]: `Heavy Duty Inverters`,
+        [Language.Hindi]: `हेवी ड्यूटी इनवर्टर`,
+    },
+    "2223a612-f480-45b4-86fb-d5d02dc1a69d": {
+        [Language.English]: `Your Guide to Finding The Right Inverter`,
+        [Language.Hindi]: `??????`,
+    },
+    "bd35a39d-092b-4a59-bb3b-6f60086a9e01": {
+        [Language.English]: `Our Head Office`,
+        [Language.Hindi]: `हमारा मुख्य कार्यालय`,
+    },
+    "ed9a0f62-e79d-49e0-a10f-784e4587a699": {
+        [Language.English]: `Our Regional Office`,
+        [Language.Hindi]: `????`,
+    },
+    "cc0aca43-72cc-446a-9a6c-8243c3364c7b": {
+        [Language.English]: `Strength And Stability`,
+        [Language.Hindi]: `????`,
+    },
+    "59edff64-f0e3-4d70-be9a-14f568f43f2f": {
+        [Language.English]: `Your Power Your Choice`,
+        [Language.Hindi]: `????`,
+    },
+    "c7712522-8ed0-4081-b015-bad7c20015a1": {
+        [Language.English]: `Best Offers`,
+        [Language.Hindi]: `????`,
+    },
+    "20672940-27d8-4e36-a37e-cdabf2bfedb1": {
+        [Language.English]: `Effortless Services`,
+        [Language.Hindi]: `????`,
+    },
+    "91a2a7a5-561e-4fd7-bb9f-76969e89b296": {
+        [Language.English]: `Request A Service`,
+        [Language.Hindi]: `सर्विस अनुरोध करें`,
+    },
+    "8241d91a-5895-4c2f-bb29-81f1d508f4f9": {
+        [Language.English]: `Connect`,
+        [Language.Hindi]: `कनेक्ट`,
+    },
+    "c00d2678-dc68-4ded-99aa-4612742a4542": {
+        [Language.English]: `Stabilizers for Home`,
+        [Language.Hindi]: "?????",
+    },
+    "c5937b05-1396-4be3-a508-6478d48700aa": {
+        [Language.English]: `Choose the Best Stabilizer`,
+        [Language.Hindi]: "?????",
+    },
+    "fdbf482e-5a9b-42b3-a012-95b00e93e2dc": {
+        [Language.English]: `Reliabiality`,
+        [Language.Hindi]: "विश्वसनीयता",
+    },
+    "a72629ee-930b-4f47-9d31-f630e2db0709": {
+        [Language.English]: `Find the Right Battery`,
+        [Language.Hindi]: "?????",
+    },
+    "1dfc8abe-6cb9-4413-8a90-5223ebdbd4d1": {
+        [Language.English]: `Top Tractor Batteries`,
+        [Language.Hindi]: "?????",
+    },
+    "08f36f74-4395-4e7f-b301-c02e0e7862f8": {
+        [Language.English]: `Choose the Right Battery`,
+        [Language.Hindi]: "?????",
+    },
+    "e8d7fe5b-5e59-4f65-aae6-5871d080cf20": {
+        [Language.English]: `Our Picks`,
+        [Language.Hindi]: "?????",
+    },
+    "5543107e-a9d0-476c-95fd-6d4bb7336373": {
+        [Language.English]: `Choose Your Ideal Battery`,
+        [Language.Hindi]: "?????",
+    },
+    "ee900aeb-0671-433a-93cc-115b6b6801b6": {
+        [Language.English]: `Seamless Service`,
+        [Language.Hindi]: "निरंतर सर्विस",
+    },
+    "2a231443-40bf-48b5-b482-147609bb9d63": {
+        [Language.English]: `Reliable Service`,
+        [Language.Hindi]: "?????",
+    },
+    "a5ee9b69-adfe-49ac-9256-cff986b899b7": {
+        [Language.English]: `Register in Minutes`,
+        [Language.Hindi]: "?????",
+    },
+    "cd1f1433-8736-4f1d-a5e6-927e59a02ec2": {
+        [Language.English]: `Product Specification`,
+        [Language.Hindi]: "?????",
+    },
+    "abea43c2-a4ec-471c-ad0b-7f3cf8e42cb3": {
+        [Language.English]: `Product Description`,
+        [Language.Hindi]: "?????",
+    },
+    "4e366b86-4e66-47f4-99ef-6a33dc519099": {
+        [Language.English]: `Suggested Products`,
+        [Language.Hindi]: "?????",
+    },
+    "5b6a1674-797b-430e-a1d0-19a052886b10": {
+        [Language.English]: `Visit Website`,
+        [Language.Hindi]: "वेबसाइट पर जाएं",
     },
 };

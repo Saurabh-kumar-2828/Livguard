@@ -320,7 +320,7 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
                 )}
             >
                 <div className="tw-row-start-1">
-                    <FullWidthImage relativePath={imageRelativePath} />
+                    <FullWidthImage relativePath={imageRelativePath} className="tw-rounded-lg"/>
                 </div>
 
                 <div className="tw-row-start-3 tw-text-center lg-text-title1 lg-text-secondary-900">{title}</div>
@@ -339,17 +339,17 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
         {
             titleTextContentPiece: "701881a3-e5f5-42b7-b41e-118fa30f47e0",
             bodyTextContentPiece: "7aaf5c28-e9df-4665-8aa7-5358869f54e8",
-            imageRelativePath: "/livguard/two-wheeler/2/maintainence-free.jpg",
+            imageRelativePath: "/livguard/two-wheeler/2/maintainance.jpg",
         },
         {
             titleTextContentPiece: "353cc560-e2f2-4e33-a948-607d46455471",
             bodyTextContentPiece: "fe83636f-3c6f-4450-a329-17edf6e7ea31",
-            imageRelativePath: "/livguard/two-wheeler/2/long-battery-life.jpg",
+            imageRelativePath: "/livguard/two-wheeler/2/battery-life.jpg",
         },
         {
             titleTextContentPiece: "8b863aa9-0f16-493f-94e0-232f4fabfda2",
             bodyTextContentPiece: "ce0ddd16-4361-477a-8ca3-3bee5c8fdc95",
-            imageRelativePath: "/livguard/two-wheeler/2/maintainence-free.jpg",
+            imageRelativePath: "/livguard/two-wheeler/2/maintainance.jpg",
         },
         {
             titleTextContentPiece: "4136551e-69a6-4500-b475-321dd6b4e658",
@@ -359,17 +359,17 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
         {
             titleTextContentPiece: "701881a3-e5f5-42b7-b41e-118fa30f47e0",
             bodyTextContentPiece: "7aaf5c28-e9df-4665-8aa7-5358869f54e8",
-            imageRelativePath: "/livguard/two-wheeler/2/maintainence-free.jpg",
+            imageRelativePath: "/livguard/two-wheeler/2/maintainance.jpg",
         },
         {
             titleTextContentPiece: "353cc560-e2f2-4e33-a948-607d46455471",
             bodyTextContentPiece: "fe83636f-3c6f-4450-a329-17edf6e7ea31",
-            imageRelativePath: "/livguard/two-wheeler/2/long-battery-life.jpg",
+            imageRelativePath: "/livguard/two-wheeler/2/battery-life.jpg",
         },
         {
             titleTextContentPiece: "8b863aa9-0f16-493f-94e0-232f4fabfda2",
             bodyTextContentPiece: "ce0ddd16-4361-477a-8ca3-3bee5c8fdc95",
-            imageRelativePath: "/livguard/two-wheeler/2/maintainence-free.jpg",
+            imageRelativePath: "/livguard/two-wheeler/2/maintainance.jpg",
         },
     ];
 

@@ -318,12 +318,12 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
                 )}
             >
                 <div className="tw-row-start-1">
-                    <FullWidthImage relativePath={imageRelativePath} />
+                    <FullWidthImage relativePath={imageRelativePath} className="tw-rounded-lg"/>
                 </div>
 
-                <div className="tw-row-start-3 tw-text-center lg-text-title1">{title}</div>
+                <div className="tw-row-start-3 tw-text-center lg-text-title1 lg-text-secondary-900">{title}</div>
 
-                <div className="tw-row-start-5 tw-text-center lg-text-body">{description}</div>
+                <div className="tw-row-start-5 tw-text-center lg-text-body lg-text-secondary-900">{description}</div>
             </div>
         );
     };
@@ -638,7 +638,7 @@ function PowerhouseInverters({userPreferences, className}: {userPreferences: Use
 
     return (
         <div
-            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-bg-our-suggestions tw-rounded-lg", className)}
+            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-card tw-rounded-lg", className)}
             id="heavy-duty-inverters"
             ref={sectionRef}
         >
@@ -703,7 +703,7 @@ function InverterCard({
     dimensions: string;
 }) {
     return (
-        <div className="tw-max-w-3xl tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:tw-gap-x-2 lg-bg-our-suggestions-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8">
+        <div className="tw-max-w-3xl tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:tw-gap-x-2 lg-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8">
             <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-place-items-center">
                 <div className="lg:tw-hidden tw-bg-[#c5c5c5] dark:tw-bg-[#3a3a3a] tw-p-2">{getVernacularString("7854d25c-c385-49b5-b1e5-e1127f1d1e5d", userPreferences.language)}</div>
                 <div className="tw-w-full tw-h-full tw-grid tw-items-center">

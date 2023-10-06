@@ -635,7 +635,7 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
 
             <VerticalSpacer className="tw-h-6" />
 
-            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_auto_auto] lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] tw-items-center tw-justify-items-center lg:tw-justify-items-start lg:lg-bg-secondary-100 lg:tw-p-4 lg:tw-rounded-lg">
+            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_auto_auto] lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] tw-items-center tw-justify-items-center lg:tw-justify-items-start lg-card lg:tw-p-4 lg:tw-rounded-lg">
                 <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 lg-text-title1 tw-text-center">
                     {getVernacularString("8f342209-314d-41f9-ac39-3370d9d96fcb", userPreferences.language)}
                 </div>
@@ -680,7 +680,7 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
                                     className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 tw-items-center"
                                     key={itemIndex}
                                 >
-                                    <div className="tw-w-12 tw-h-12 lg-bg-secondary-300 tw-rounded-full tw-p-3">
+                                    <div className="tw-w-12 tw-h-12 lg-card tw-rounded-full tw-p-3 tw-flex tw-justify-center tw-items-center">
                                         <item.iconComponent className="tw-w-6 tw-h-6" />
                                     </div>
                                     <div>{getVernacularString(item.contentId, userPreferences.language)}</div>
@@ -695,7 +695,7 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
                 <CarouselStyle4
                     items={highlightedBatteries.map((item, itemIndex) => (
                         <div
-                            className="tw-w-full tw-h-full lg-bg-secondary-300 tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
+                            className="tw-w-full tw-h-full lg-card tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
                             key={itemIndex}
                         >
                             <div className="tw-w-full lg-text-body-bold tw-text-center">{item.name}</div>
@@ -711,7 +711,7 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
                         items={highlightedBatteries}
                         itemBuilder={(item, itemIndex) => (
                             <div
-                                className="tw-w-full tw-h-full lg-bg-secondary-300 tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
+                                className="tw-w-full tw-h-full lg-card tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
                                 key={itemIndex}
                             >
                                 <div className="tw-w-full lg-text-body-bold tw-text-center">{item.name}</div>
@@ -1001,7 +1001,7 @@ export function OurSuggestionsSection({userPreferences, className, id}: {userPre
                                     type="button"
                                     className={concatenateNonNullStringsWithSpaces(
                                         "tw-col-start-1 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
-                                        `${selectedBatteryTypeIndex == itemIndex ? "lg-bg-primary-500" : "lg-bg-secondary-100 lg-card"} `,
+                                        `${selectedBatteryTypeIndex == itemIndex ? "lg-bg-primary-500" : "lg-card"} `,
                                         `tw-col-start-${itemIndex + 1}`,
                                     )}
                                     onClick={() => setSelectedBatteryTypeIndex(itemIndex)}
@@ -1023,7 +1023,7 @@ export function OurSuggestionsSection({userPreferences, className, id}: {userPre
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-bg-secondary-100 tw-opacity-60 tw-text-center tw-border tw-border-dashed tw-rounded-md tw-px-4 tw-py-2">{sectionData[selectedBatteryTypeIndex].typeDescription}</div>
+                <div className="lg-card tw-opacity-60 tw-text-center tw-border tw-border-dashed tw-rounded-md tw-px-4 tw-py-2">{sectionData[selectedBatteryTypeIndex].typeDescription}</div>
 
                 <VerticalSpacer className="tw-h-4" />
 
@@ -1031,7 +1031,7 @@ export function OurSuggestionsSection({userPreferences, className, id}: {userPre
                     vernacularContent={sectionData[selectedBatteryTypeIndex]}
                     // className={selectedBatteryType == BatteryType.flat ? "lg-bg-secondary-300" : "lg-bg-secondary-100"}
                     userPreferences={userPreferences}
-                    className="lg-bg-secondary-100"
+                    className="lg-card"
                 />
             </div>
         </div>

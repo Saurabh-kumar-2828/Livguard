@@ -342,12 +342,12 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
         {
             titleTextContentPiece: "c5b351d6-0747-4a75-8e47-48f20f9adb0f",
             bodyTextContentPiece: "521768ff-9aa1-41fe-b403-5fbeaf100b3b",
-            imageRelativePath: "/livguard/car-and-suv/2/maintainence-free.jpg",
+            imageRelativePath: "/livguard/car-and-suv/2/maintainance.jpg",
         },
         {
             titleTextContentPiece: "79f76b0b-3fce-4d4f-8fb8-4a468a20420b",
             bodyTextContentPiece: "559a1118-7d22-4c63-8838-c246921b9361",
-            imageRelativePath: "/livguard/car-and-suv/2/long-battery-life.jpg",
+            imageRelativePath: "/livguard/car-and-suv/2/battery-life.jpg",
         },
         {
             titleTextContentPiece: "f6ffda18-14b4-4973-9f1d-8394404caae0",
@@ -362,12 +362,12 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
         {
             titleTextContentPiece: "c5b351d6-0747-4a75-8e47-48f20f9adb0f",
             bodyTextContentPiece: "521768ff-9aa1-41fe-b403-5fbeaf100b3b",
-            imageRelativePath: "/livguard/car-and-suv/2/maintainence-free.jpg",
+            imageRelativePath: "/livguard/car-and-suv/2/maintainance.jpg",
         },
         {
             titleTextContentPiece: "79f76b0b-3fce-4d4f-8fb8-4a468a20420b",
             bodyTextContentPiece: "559a1118-7d22-4c63-8838-c246921b9361",
-            imageRelativePath: "/livguard/car-and-suv/2/long-battery-life.jpg",
+            imageRelativePath: "/livguard/car-and-suv/2/battery-life.jpg",
         },
     ];
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);

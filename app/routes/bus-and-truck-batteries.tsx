@@ -320,7 +320,7 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
         {
             titleTextContentPiece: "70f2a04d-bc31-4848-9509-f77f40137e84",
             bodyTextContentPiece: "fbba1481-db00-4e47-8a74-8382af5b4ac4",
-            imageRelativePath: "/livguard/bus-and-truck/2/maintainence-free.jpg",
+            imageRelativePath: "/livguard/bus-and-truck/2/maintenance.jpg",
         },
         {
             titleTextContentPiece: "75c7f633-bbb4-4a79-bdcb-5b817da7c076",
@@ -330,17 +330,17 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
         {
             titleTextContentPiece: "3bed811b-de77-40ab-8181-86efbf684059",
             bodyTextContentPiece: "fc26240d-32c8-47bc-a2bf-c29c0a25e6af",
-            imageRelativePath: "/livguard/bus-and-truck/2/long-battery-life.jpg",
+            imageRelativePath: "/livguard/bus-and-truck/2/battery-life.jpg",
         },
         {
             titleTextContentPiece: "6fe5a9f6-4817-4100-90ad-b05fefd330f5",
             bodyTextContentPiece: "2c278f68-8047-4a91-b53d-fe7c4e592781",
-            imageRelativePath: "/livguard/bus-and-truck/2/all-weather-performance.jpg",
+            imageRelativePath: "/livguard/bus-and-truck/2/weather-performance.jpg",
         },
         {
             titleTextContentPiece: "70f2a04d-bc31-4848-9509-f77f40137e84",
             bodyTextContentPiece: "fbba1481-db00-4e47-8a74-8382af5b4ac4",
-            imageRelativePath: "/livguard/bus-and-truck/2/maintainence-free.jpg",
+            imageRelativePath: "/livguard/bus-and-truck/2/maintenance.jpg",
         },
         {
             titleTextContentPiece: "75c7f633-bbb4-4a79-bdcb-5b817da7c076",
@@ -350,12 +350,12 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
         {
             titleTextContentPiece: "3bed811b-de77-40ab-8181-86efbf684059",
             bodyTextContentPiece: "fc26240d-32c8-47bc-a2bf-c29c0a25e6af",
-            imageRelativePath: "/livguard/bus-and-truck/2/long-battery-life.jpg",
+            imageRelativePath: "/livguard/bus-and-truck/2/battery-life.jpg",
         },
         {
             titleTextContentPiece: "6fe5a9f6-4817-4100-90ad-b05fefd330f5",
             bodyTextContentPiece: "2c278f68-8047-4a91-b53d-fe7c4e592781",
-            imageRelativePath: "/livguard/bus-and-truck/2/all-weather-performance.jpg",
+            imageRelativePath: "/livguard/bus-and-truck/2/weather-performance.jpg",
         },
     ];
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);

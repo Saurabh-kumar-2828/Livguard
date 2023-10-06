@@ -205,11 +205,11 @@ function TermsAndConditionsPage({userPreferences, className}: {userPreferences: 
                 <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                     <div className="lg-text-body lg-text-secondary-900">{getVernacularString("2dcaf5d9-964e-408d-9348-ac2a6f5aa28d", userPreferences.language)}</div>
 
-                    {/* <div className="lg-text-body lg-text-secondary-900">{getVernacularString("2122f878-eff2-4af4-8510-94913a31665f", userPreferences.language)}</div>
+                    {/* <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("2122f878-eff2-4af4-8510-94913a31665f", userPreferences.language)}</div>
 
-                    <div className="lg-text-body lg-text-secondary-900">{getVernacularString("7936f9fd-37f1-462c-b128-a35148d65307", userPreferences.language)}</div>
+                    <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("7936f9fd-37f1-462c-b128-a35148d65307", userPreferences.language)}</div>
 
-                    <div className="lg-text-body lg-text-secondary-900">{getVernacularString("f0a60c22-e48c-49ae-bbc5-c2fbaa8a4079", userPreferences.language)}</div> */}
+                    <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("f0a60c22-e48c-49ae-bbc5-c2fbaa8a4079", userPreferences.language)}</div> */}
                 </div>
             </div>
         </div>
@@ -224,7 +224,7 @@ function Eligibility({userPreferences, className}: {userPreferences: UserPrefere
                     className="lg-text-title1"
                     dangerouslySetInnerHTML={{__html: getVernacularString("42beb18b-af8a-471c-bc79-4e227a144728", userPreferences.language)}}
                 ></div>
-                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("396e58f7-ced3-4234-b823-ed5d1876acc9", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("396e58f7-ced3-4234-b823-ed5d1876acc9", userPreferences.language)}</div>
             </div>
         </div>
     );
@@ -239,7 +239,7 @@ function EntryRequirements({userPreferences, className}: {userPreferences: UserP
                     dangerouslySetInnerHTML={{__html: getVernacularString("03a0d75d-4a8e-4467-8920-3dcd8754d532", userPreferences.language)}}
                 ></div>
                 <div
-                    className="lg-text-body lg-text-secondary-900"
+                    className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
                     dangerouslySetInnerHTML={{__html: getVernacularString("fc7cc648-ad54-41f7-97bd-a8d9436198b7", userPreferences.language)}}
                 />
             </div>
@@ -255,7 +255,7 @@ function EntryDeadline({userPreferences, className}: {userPreferences: UserPrefe
                     className="lg-text-title1"
                     dangerouslySetInnerHTML={{__html: getVernacularString("4fd59896-0e7e-4941-9f45-533eee7d3d58", userPreferences.language)}}
                 ></div>
-                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("a3c2f2c2-f763-4448-bde7-05df14f33b02", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("a3c2f2c2-f763-4448-bde7-05df14f33b02", userPreferences.language)}</div>
             </div>
         </div>
     );
@@ -270,7 +270,7 @@ function PrizeDetails({userPreferences, className}: {userPreferences: UserPrefer
                     dangerouslySetInnerHTML={{__html: getVernacularString("afbb26d7-3eab-470d-93a7-09ebcbb9241b", userPreferences.language)}}
                 ></div>
                 <div
-                    className="lg-text-body lg-text-secondary-900"
+                    className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
                     dangerouslySetInnerHTML={{__html: getVernacularString("d5128079-075b-4e7b-9c09-c99ace37c173", userPreferences.language)}}
                 ></div>
             </div>
@@ -287,7 +287,7 @@ function WinnerSelection({userPreferences, className}: {userPreferences: UserPre
                     dangerouslySetInnerHTML={{__html: getVernacularString("1dcc125e-a230-4df4-93de-7729ac296b0a", userPreferences.language)}}
                 ></div>
                 <div
-                    className="lg-text-body lg-text-secondary-900"
+                    className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
                     dangerouslySetInnerHTML={{__html: getVernacularString("344eda0b-5cba-4d61-b0b6-36f09b7b4b09", userPreferences.language)}}
                 ></div>
             </div>
@@ -303,7 +303,7 @@ function WinnerNotification({userPreferences, className}: {userPreferences: User
                     className="lg-text-title1"
                     dangerouslySetInnerHTML={{__html: getVernacularString("eedccb31-f56d-4745-9cf8-9d5a7596df5f", userPreferences.language)}}
                 ></div>
-                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("f3fac268-6cf3-4e6f-b1af-69b32ed06748", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("f3fac268-6cf3-4e6f-b1af-69b32ed06748", userPreferences.language)}</div>
             </div>
         </div>
     );
@@ -317,7 +317,7 @@ function Publicity({userPreferences, className}: {userPreferences: UserPreferenc
                     className="lg-text-title1"
                     dangerouslySetInnerHTML={{__html: getVernacularString("e98b6392-6416-4deb-a9d2-907d5e9085e9", userPreferences.language)}}
                 ></div>
-                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("fbe27bfc-b4e6-415e-9da6-03f32b0fa49f", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("fbe27bfc-b4e6-415e-9da6-03f32b0fa49f", userPreferences.language)}</div>
             </div>
         </div>
     );
@@ -332,7 +332,7 @@ function Compliance({userPreferences, className}: {userPreferences: UserPreferen
                     dangerouslySetInnerHTML={{__html: getVernacularString("903c88c4-6eee-42cb-85ab-d1b7e781d162", userPreferences.language)}}
                 ></div>
                 <div
-                    className="lg-text-body lg-text-secondary-900"
+                    className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
                     dangerouslySetInnerHTML={{__html: getVernacularString("c0455240-1838-4886-9320-6e41ea6c7519", userPreferences.language)}}
                 ></div>
             </div>
@@ -348,7 +348,7 @@ function ComplianceLocalLaws({userPreferences, className}: {userPreferences: Use
                     className="lg-text-title1"
                     dangerouslySetInnerHTML={{__html: getVernacularString("f63831d0-7292-4301-8c0d-0f5dc08dcad2", userPreferences.language)}}
                 ></div>
-                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("4e308bc4-78ed-44d6-95a0-307d4cfee4e3", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("4e308bc4-78ed-44d6-95a0-307d4cfee4e3", userPreferences.language)}</div>
             </div>
         </div>
     );
@@ -362,7 +362,7 @@ function Liability({userPreferences, className}: {userPreferences: UserPreferenc
                     className="lg-text-title1"
                     dangerouslySetInnerHTML={{__html: getVernacularString("fc6abbbc-ea85-41ec-99bb-486c523c034b", userPreferences.language)}}
                 ></div>
-                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("83c6a3f5-0834-41e6-a3eb-42f2d9edffcf", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("83c6a3f5-0834-41e6-a3eb-42f2d9edffcf", userPreferences.language)}</div>
             </div>
         </div>
     );
@@ -377,7 +377,7 @@ function ModificationTermination({userPreferences, className}: {userPreferences:
                     dangerouslySetInnerHTML={{__html: getVernacularString("264cae06-3f7f-4ad5-8739-4fc63a6cc75e", userPreferences.language)}}
                 ></div>
                 <div
-                    className="lg-text-body lg-text-secondary-900"
+                    className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
                     dangerouslySetInnerHTML={{__html: getVernacularString("e93e6803-0cca-43a1-938f-01a3532b85ca", userPreferences.language)}}
                 ></div>
             </div>
@@ -394,7 +394,7 @@ function PrivacyPolicy({userPreferences, className}: {userPreferences: UserPrefe
                     dangerouslySetInnerHTML={{__html: getVernacularString("2b476886-b220-48e5-a652-a57b1d8468eb", userPreferences.language)}}
                 ></div>
                 <div
-                    className="lg-text-body lg-text-secondary-900"
+                    className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
                     dangerouslySetInnerHTML={{__html: getVernacularString("248da7de-43d7-4119-b3fe-d6aad629490c", userPreferences.language)}}
                 ></div>
             </div>
@@ -410,8 +410,8 @@ function ContactInformation({userPreferences, className}: {userPreferences: User
                     className="lg-text-title1"
                     dangerouslySetInnerHTML={{__html: getVernacularString("8d833cfb-bef1-4119-b0fc-7b0d7948ca89", userPreferences.language)}}
                 ></div>
-                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("15e2d1a3-ff2c-4d82-929a-7d8044d249b1", userPreferences.language)}</div>
-                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("7552810b-bd7c-40ca-9136-c94ca1bedc0d", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("15e2d1a3-ff2c-4d82-929a-7d8044d249b1", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("7552810b-bd7c-40ca-9136-c94ca1bedc0d", userPreferences.language)}</div>
             </div>
         </div>
     );

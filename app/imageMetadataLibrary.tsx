@@ -6096,12 +6096,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LE7^+KiFslso%jVqWAjZR:obWBof",
         finalUrl: "/livguard/video-gallery/1/mobile-banner-5c9d62.jpg",
     },
-    "/livguard/two-wheeler/2/cranking.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L77-Tgn%00RP.8RjIUR*00Rj~qof",
-        finalUrl: "/livguard/two-wheeler/2/cranking-feb2f8.jpg",
-    },
     "/livguard/two-wheeler/2/long-battery-life.jpg": {
         width: 855,
         height: 501,
@@ -6113,12 +6107,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 501,
         blurHash: "L77nLCs:00IA%MR%R*Rj00M{~q%3",
         finalUrl: "/livguard/two-wheeler/2/maintainence-free-5b7376.jpg",
-    },
-    "/livguard/car-and-suv/2/cranking.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L77-Tgn%00RP.8RjIUR*00Rj~qof",
-        finalUrl: "/livguard/car-and-suv/2/cranking-feb2f8.jpg",
     },
     "/livguard/car-and-suv/2/long-battery-life.jpg": {
         width: 855,
@@ -6132,23 +6120,11 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "L77nLCs:00IA%MR%R*Rj00M{~q%3",
         finalUrl: "/livguard/car-and-suv/2/maintainence-free-5b7376.jpg",
     },
-    "/livguard/car-and-suv/2/warranty.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "LD9a5Bt700IU%MWBM{Rj00Rj~qxu",
-        finalUrl: "/livguard/car-and-suv/2/warranty-ea37f1.jpg",
-    },
     "/livguard/tractor/2/all-weather-performance.jpg": {
         width: 855,
         height: 501,
         blurHash: "L25OHQiw8_Vs.8E1R*NG4nM{~qoM",
         finalUrl: "/livguard/tractor/2/all-weather-performance-e6c284.jpg",
-    },
-    "/livguard/tractor/2/cranking.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L77-Tgn%00RP.8RjIUR*00Rj~qof",
-        finalUrl: "/livguard/tractor/2/cranking-feb2f8.jpg",
     },
     "/livguard/tractor/2/long-battery-life.jpg": {
         width: 855,
@@ -6161,12 +6137,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 501,
         blurHash: "L25OHQiw8_Vs.8E1R*NG4nM{~qoM",
         finalUrl: "/livguard/bus-and-truck/2/all-weather-performance-e6c284.jpg",
-    },
-    "/livguard/bus-and-truck/2/cranking.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L77-Tgn%00RP.8RjIUR*00Rj~qof",
-        finalUrl: "/livguard/bus-and-truck/2/cranking-feb2f8.jpg",
     },
     "/livguard/bus-and-truck/2/long-battery-life.jpg": {
         width: 855,
@@ -6186,12 +6156,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LD9a5Bt700IU%MWBM{Rj00Rj~qxu",
         finalUrl: "/livguard/three-wheeler/2/best-in-class-warranty-ea37f1.jpg",
     },
-    "/livguard/three-wheeler/2/cranking.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L77-Tgn%00RP.8RjIUR*00Rj~qof",
-        finalUrl: "/livguard/three-wheeler/2/cranking-feb2f8.jpg",
-    },
     "/livguard/three-wheeler/2/long-battery-life.jpg": {
         width: 855,
         height: 501,
@@ -6203,36 +6167,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 501,
         blurHash: "L77nLCs:00IA%MR%R*Rj00M{~q%3",
         finalUrl: "/livguard/three-wheeler/2/maintainence-free-5b7376.jpg",
-    },
-    "/livguard/hkva/2/dual-mcb-protection.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L45;~.r?4TIU%gNGR*Rj4nM{~qxu",
-        finalUrl: "/livguard/hkva/2/dual-mcb-protection-86b2ba.jpg",
-    },
-    "/livguard/hkva/2/higher-load-carrying-capacity.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L56kO{sU00IUtRNGozR*4TRj~qxu",
-        finalUrl: "/livguard/hkva/2/higher-load-carrying-capacity-efc893.jpg",
-    },
-    "/livguard/hkva/2/interactive-lcd-display.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "LB8qHRs:00IUxuR*RjWB00Rj~qxu",
-        finalUrl: "/livguard/hkva/2/interactive-lcd-display-917f4a.jpg",
-    },
-    "/livguard/hkva/2/new-generation-technology.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L87^_Os:00IU%MR*NGRj00Rj~qxu",
-        finalUrl: "/livguard/hkva/2/new-generation-technology-2100f9.jpg",
-    },
-    "/livguard/hkva/2/smart-ai-charging.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L35;{#xG009FS2E1%gtR4nIU~q-;",
-        finalUrl: "/livguard/hkva/2/smart-ai-charging-46ea63.jpg",
     },
     "/livguard/e-rickshaw-batteries/2/fast-charging.jpg": {
         width: 855,
@@ -6252,48 +6186,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LA84b?s:00IUx]R*RjR*00Rj~q%M",
         finalUrl: "/livguard/e-rickshaw-batteries/2/maximum-life-8436a7.jpg",
     },
-    "/livguard/e-rickshaw-batteries/2/maximum-mileage.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L97dzjs:00IUxuR*R*R*00Rj~q%M",
-        finalUrl: "/livguard/e-rickshaw-batteries/2/maximum-mileage-76f4ea.jpg",
-    },
-    "/livguard/e-rickshaw-batteries/2/reliable.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L87dwbs:00IU%MR*RjRj00Rj~qxu",
-        finalUrl: "/livguard/e-rickshaw-batteries/2/reliable-f8afeb.jpg",
-    },
-    "/livguard/inverter-trolley/2/easy-front-door-access.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L98E0lxa009FtRR*bHWB00M{~q-;",
-        finalUrl: "/livguard/inverter-trolley/2/easy-front-door-access-f297bb.jpg",
-    },
-    "/livguard/inverter-trolley/2/stylish-curve-design.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L14-|dicH?R5?v9ZbvIo9FMx~qs:",
-        finalUrl: "/livguard/inverter-trolley/2/stylish-curve-design-c8b76b.jpg",
-    },
-    "/livguard/inverter-trolley/2/wheel-tuffness.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L35q;VsA4nIAx]IoozWW4nM{~q%M",
-        finalUrl: "/livguard/inverter-trolley/2/wheel-tuffness-98b038.jpg",
-    },
-    "/livguard/e-rickshaw-charger/2/consumes-less-electricity.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L67dwcs:00D%?bR*D%M{00Rj~qxu",
-        finalUrl: "/livguard/e-rickshaw-charger/2/consumes-less-electricity-fdf826.jpg",
-    },
-    "/livguard/e-rickshaw-charger/2/consumes-less-water.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L97-Ths:00IUtRRjbHWB00Rj~qxu",
-        finalUrl: "/livguard/e-rickshaw-charger/2/consumes-less-water-f36f13.jpg",
-    },
     "/livguard/e-rickshaw-charger/2/fast-charging.jpg": {
         width: 855,
         height: 501,
@@ -6305,18 +6197,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 501,
         blurHash: "LA84b?s:00IUx]R*RjR*00Rj~q%M",
         finalUrl: "/livguard/e-rickshaw-charger/2/long-battery-life-8436a7.jpg",
-    },
-    "/livguard/e-rickshaw-charger/2/low-voltage-charging.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L77nOJs:00IA-;WVM{IU00Rj~qt7",
-        finalUrl: "/livguard/e-rickshaw-charger/2/low-voltage-charging-2cfd68.jpg",
-    },
-    "/livguard/e-rickshaw-charger/2/overcharge-protection.jpg": {
-        width: 855,
-        height: 501,
-        blurHash: "L35q;Vr?4nMx-;IoR*NG4nM{~Wxu",
-        finalUrl: "/livguard/e-rickshaw-charger/2/overcharge-protection-c604a3.jpg",
     },
     "/livguard/e-rickshaw-batteries/1/banner-desktop.jpg": {
         width: 3840,
@@ -7165,5 +7045,227 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "width": 32,
         "height": 33,
         "finalUrl": "/livguard-solar/renewable/9/light-home-070335.svg"
+    },
+    "/livguard/two-wheeler/2/battery-life.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "LA84b?s:00IUx]R*RjR*00Rj~q%M",
+        "finalUrl": "/livguard/two-wheeler/2/battery-life-fb5171.jpg"
+    },
+    "/livguard/two-wheeler/2/cranking.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77-Tgn%00RP.8RjIUR*00Rj~qof",
+        "finalUrl": "/livguard/two-wheeler/2/cranking-fda228.jpg"
+    },
+    "/livguard/two-wheeler/2/maintainance.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77nLCs:00IA%MR%R*Rj00M{~q%2",
+        "finalUrl": "/livguard/two-wheeler/2/maintainance-92579d.jpg"
+    },
+    "/livguard/three-wheeler/2/battery-life.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "LA84b?s:00IUx]R*RjR*00Rj~q%M",
+        "finalUrl": "/livguard/three-wheeler/2/battery-life-fb5171.jpg"
+    },
+    "/livguard/three-wheeler/2/cranking.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77-Tgn%00RP.8RjIUR*00Rj~qof",
+        "finalUrl": "/livguard/three-wheeler/2/cranking-fda228.jpg"
+    },
+    "/livguard/three-wheeler/2/maintainance.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77nLCs:00IA%MR%R*Rj00M{~q%2",
+        "finalUrl": "/livguard/three-wheeler/2/maintainance-92579d.jpg"
+    },
+    "/livguard/three-wheeler/2/warranty.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "LD9a5Bt700IU%MWBM{Rj00Rj~qxu",
+        "finalUrl": "/livguard/three-wheeler/2/warranty-6f3445.jpg"
+    },
+    "/livguard/car-and-suv/2/battery-life.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "LA84b?s:00IUx]R*RjR*00Rj~q%M",
+        "finalUrl": "/livguard/car-and-suv/2/battery-life-fb5171.jpg"
+    },
+    "/livguard/car-and-suv/2/cranking.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77-Tgn%00RP.8RjIUR*00Rj~qof",
+        "finalUrl": "/livguard/car-and-suv/2/cranking-fda228.jpg"
+    },
+    "/livguard/car-and-suv/2/maintainance.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77nLCs:00IA%MR%R*Rj00M{~q%2",
+        "finalUrl": "/livguard/car-and-suv/2/maintainance-92579d.jpg"
+    },
+    "/livguard/car-and-suv/2/warranty.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "LD9a5Bt700IU%MWBM{Rj00Rj~qxu",
+        "finalUrl": "/livguard/car-and-suv/2/warranty-6f3445.jpg"
+    },
+    "/livguard/tractor/2/battery-life.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "LA84b?s:00IUx]R*RjR*00Rj~q%M",
+        "finalUrl": "/livguard/tractor/2/battery-life-fb5171.jpg"
+    },
+    "/livguard/tractor/2/cranking.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77-Tgn%00RP.8RjIUR*00Rj~qof",
+        "finalUrl": "/livguard/tractor/2/cranking-fda228.jpg"
+    },
+    "/livguard/tractor/2/weather-performance.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L25OHQiw8_RP.8E1R*NG4nM{~qoL",
+        "finalUrl": "/livguard/tractor/2/weather-performance-40c64f.jpg"
+    },
+    "/livguard/bus-and-truck/2/battery-life.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "LA84b?s:00IUx]R*RjR*00Rj~q%M",
+        "finalUrl": "/livguard/bus-and-truck/2/battery-life-fb5171.jpg"
+    },
+    "/livguard/bus-and-truck/2/cranking.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77-Tgn%00RP.8RjIUR*00Rj~qof",
+        "finalUrl": "/livguard/bus-and-truck/2/cranking-fda228.jpg"
+    },
+    "/livguard/bus-and-truck/2/maintenance.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77nLCs:00IA%MR%R*Rj00M{~q%2",
+        "finalUrl": "/livguard/bus-and-truck/2/maintenance-92579d.jpg"
+    },
+    "/livguard/bus-and-truck/2/weather-performance.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L25OHQiw8_RP.8E1R*NG4nM{~qoL",
+        "finalUrl": "/livguard/bus-and-truck/2/weather-performance-40c64f.jpg"
+    },
+    "/livguard/e-rickshaw-batteries/2/battery-life.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "LA84b?s:00IUx]R*RjR*00Rj~q%M",
+        "finalUrl": "/livguard/e-rickshaw-batteries/2/battery-life-fb5171.jpg"
+    },
+    "/livguard/e-rickshaw-batteries/2/faster-charging.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77B4Wad00ae%gRjM{WB00WB~qay",
+        "finalUrl": "/livguard/e-rickshaw-batteries/2/faster-charging-4b0a58.jpg"
+    },
+    "/livguard/e-rickshaw-batteries/2/maintenance.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77nLCs:00IA%MR%R*Rj00M{~q%2",
+        "finalUrl": "/livguard/e-rickshaw-batteries/2/maintenance-92579d.jpg"
+    },
+    "/livguard/e-rickshaw-batteries/2/maximum-mileage.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L97dzjs:00IUxuR*R*R*00Rj~q%M",
+        "finalUrl": "/livguard/e-rickshaw-batteries/2/maximum-mileage-754603.jpg"
+    },
+    "/livguard/e-rickshaw-batteries/2/reliable.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L87dwbs:00IU%MR*RjRj00Rj~qxu",
+        "finalUrl": "/livguard/e-rickshaw-batteries/2/reliable-1fb3cc.jpg"
+    },
+    "/livguard/e-rickshaw-charger/2/battery-life.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "LA84b?s:00IUx]R*RjR*00Rj~q%M",
+        "finalUrl": "/livguard/e-rickshaw-charger/2/battery-life-fb5171.jpg"
+    },
+    "/livguard/e-rickshaw-charger/2/consumes-less-electricity.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L67dwcs:00D%?bR*D%M{00Rj~qxu",
+        "finalUrl": "/livguard/e-rickshaw-charger/2/consumes-less-electricity-1e9066.jpg"
+    },
+    "/livguard/e-rickshaw-charger/2/consumes-less-water.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L97-Ths:00IUt8RjbHWB00Rj~qxu",
+        "finalUrl": "/livguard/e-rickshaw-charger/2/consumes-less-water-896b7e.jpg"
+    },
+    "/livguard/e-rickshaw-charger/2/deep-discharge.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77B4Wad00ae%gRjM{WB00WB~qay",
+        "finalUrl": "/livguard/e-rickshaw-charger/2/deep-discharge-4b0a58.jpg"
+    },
+    "/livguard/e-rickshaw-charger/2/low-voltage-charging.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L77nLCs:00IA-;WVM{IU00Rj~qt7",
+        "finalUrl": "/livguard/e-rickshaw-charger/2/low-voltage-charging-a4d296.jpg"
+    },
+    "/livguard/e-rickshaw-charger/2/overcharge-protection.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L35q;Vni4nMx-;IoR*NG4nM{_3xu",
+        "finalUrl": "/livguard/e-rickshaw-charger/2/overcharge-protection-3590eb.jpg"
+    },
+    "/livguard/hkva/2/dual-mcb-protection.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L45;~.r?4TIU%gNGR*Rj4nM{~qxu",
+        "finalUrl": "/livguard/hkva/2/dual-mcb-protection-e441c7.jpg"
+    },
+    "/livguard/hkva/2/higher-load-carrying-capacity.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L56kO{sT00IUtRNGozR*00Rj~qxu",
+        "finalUrl": "/livguard/hkva/2/higher-load-carrying-capacity-9a0c28.jpg"
+    },
+    "/livguard/hkva/2/interactive-lcd-display.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "LB8qHRs:00IUxuR*RjWB00Rj~qxu",
+        "finalUrl": "/livguard/hkva/2/interactive-lcd-display-e13ff3.jpg"
+    },
+    "/livguard/hkva/2/new-generation-technology.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L87^_Os:00IU%MR*NGRj00Rj~qxu",
+        "finalUrl": "/livguard/hkva/2/new-generation-technology-429777.jpg"
+    },
+    "/livguard/hkva/2/smart-ai-charging.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L35;{#xG009FS2E1%gtR4nIU~q-;",
+        "finalUrl": "/livguard/hkva/2/smart-ai-charging-b6e8cf.jpg"
+    },
+    "/livguard/inverter-trolley/2/easy-front-door-access.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L98E0lxa009FtRR*bHWB00M{~q-;",
+        "finalUrl": "/livguard/inverter-trolley/2/easy-front-door-access-95f0aa.jpg"
+    },
+    "/livguard/inverter-trolley/2/stylish-curve-design.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L14-|dicH?R5?v9ZbvIo9FMx~qof",
+        "finalUrl": "/livguard/inverter-trolley/2/stylish-curve-design-1e65b8.jpg"
+    },
+    "/livguard/inverter-trolley/2/wheel-tuffness.jpg": {
+        "width": 855,
+        "height": 501,
+        "blurHash": "L35q;VsA4nIAxvIoozWW4nM{~q%M",
+        "finalUrl": "/livguard/inverter-trolley/2/wheel-tuffness-f908bd.jpg"
     },
 };

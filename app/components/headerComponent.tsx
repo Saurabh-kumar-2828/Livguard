@@ -344,10 +344,30 @@ function SecondBar({
         }
     }, [selectedLanguage]);
 
+    const themeOptions = [null, Theme.Light, Theme.Dark];
+    const [selectedTheme, setSelectedTheme] = useState(userPreferences.theme);
+    const themeFormRef = useRef<HTMLFormElement>(null);
+    const previousTheme = useRef(userPreferences.theme);
+
+    useEffect(() => {
+        // Used to safegaurd against sending a theme change request the moment a user enters the page
+        if (selectedTheme != previousTheme.current) {
+            submit(themeFormRef.current, {replace: true});
+            previousTheme.current = selectedTheme;
+
+            // TODO: Remove this now?
+            if (selectedTheme == Theme.Dark || (selectedTheme == null && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                document.documentElement.classList.add("tw-dark");
+            } else {
+                document.documentElement.classList.remove("tw-dark");
+            }
+        }
+    }, [selectedTheme]);
+
     return (
         // TODO: Resolve this custom media query some other way
         <div className="lg-px-screen-edge [@media(max-width:1080px)]:!tw-px-2 tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
-            <div className="tw-flex lg:tw-hidden tw-flex-row">
+            <div className="tw-flex lg:tw-hidden tw-flex-row tw-py-4">
                 <button
                     type="button"
                     onClick={tryToOpenMenu}
@@ -417,6 +437,72 @@ function SecondBar({
                 isSearchOpen={isSearchOpen}
                 setIsSearchOpen={setIsSearchOpen}
             />
+
+            <Form
+                method="post"
+                action="/set-theme"
+                ref={themeFormRef}
+                className="tw-relative tw-h-6"
+            >
+                <Listbox
+                    value={selectedTheme}
+                    onChange={setSelectedTheme}
+                >
+                    <Listbox.Button className="lg-text-secondary-900">
+                        <BrightnessHighFill className="tw-w-6 tw-h-6 tw-block dark:tw-hidden" />
+                        <MoonStarsFill className="tw-w-6 tw-h-6 dark:tw-block tw-hidden" />
+                    </Listbox.Button>
+
+                    <Listbox.Options className="tw-absolute tw-z-[60] tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden tw-w-max">
+                        <ItemBuilder
+                            items={themeOptions}
+                            itemBuilder={(item, itemIndex) => (
+                                <Listbox.Option
+                                    value={item}
+                                    key={itemIndex}
+                                    as={React.Fragment}
+                                >
+                                    {({active, selected}) => (
+                                        <li
+                                            className={concatenateNonNullStringsWithSpaces(
+                                                "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
+                                                active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
+                                            )}
+                                        >
+                                            <div>{themeToHumanFriendlyString(userPreferences, item)}</div>
+                                            {selected ? <Check2 className="tw-w-5 tw-h-5" /> : <div className="tw-w-5 tw-h-5" />}
+                                        </li>
+                                    )}
+                                </Listbox.Option>
+                            )}
+                            spaceBuilder={(spaceIndex) => (
+                                <div
+                                    className="tw-h-px lg-bg-secondary-700"
+                                    key={spaceIndex}
+                                />
+                            )}
+                        />
+                    </Listbox.Options>
+                </Listbox>
+
+                <input
+                    type="text"
+                    name="theme"
+                    value={selectedTheme ?? ""}
+                    readOnly
+                    className="tw-hidden"
+                />
+
+                <input
+                    type="text"
+                    name="redirectTo"
+                    value={redirectTo}
+                    readOnly
+                    className="tw-hidden"
+                />
+            </Form>
+
+            <HorizontalSpacer className="tw-w-4" />
 
             <Form
                 method="post"
@@ -746,7 +832,7 @@ const headerMenuItems: Array<HeaderItem> = [
                     },
                 ],
                 desktopClassName:
-                    "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-content-start tw-pl-5 tw-pr-5 tw-pt-4 tw-pb-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-border-500-dark",
+                    "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-content-start tw-pl-5 tw-pr-5 tw-pt-4 tw-pb-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
                 col: 2,
             },
             {
@@ -758,7 +844,7 @@ const headerMenuItems: Array<HeaderItem> = [
                     },
                 ],
                 desktopClassName:
-                    "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-h-full tw-content-start tw-pl-5 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-border-500-dark",
+                    "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-h-full tw-content-start tw-pl-5 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
                 col: 2,
             },
             // {

@@ -687,7 +687,7 @@ export function WhyLivguardCombo({userPreferences, className}: {userPreferences:
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     key={itemIndex}
-                                    className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 lg:tw-px-6 tw-flex tw-flex-col tw-justify-center`}
+                                    className={`tw-col-start-${itemIndex + 1} lg-card tw-rounded-lg tw-p-3 lg:tw-px-6 tw-flex tw-flex-col tw-justify-center`}
                                 >
                                     <div className="tw-flex tw-items-center tw-justify-center">
                                         <FixedWidthImage

@@ -337,12 +337,12 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
         {
             titleTextContentPiece: "55d766c4-1a47-4ba3-bb6f-299997cb27ee",
             bodyTextContentPiece: "3d8116d8-57fd-461c-916d-060537ceda59",
-            imageRelativePath: "/livguard/tractor/2/long-battery-life.jpg",
+            imageRelativePath: "/livguard/tractor/2/battery-life.jpg",
         },
         {
             titleTextContentPiece: "2e1d6311-034a-4ee3-8f50-bee164a05906",
             bodyTextContentPiece: "141b0934-353a-4b48-ba96-69afbe2bc115",
-            imageRelativePath: "/livguard/tractor/2/all-weather-performance.jpg",
+            imageRelativePath: "/livguard/tractor/2/weather-performance.jpg",
         },
         {
             titleTextContentPiece: "054be978-134a-4185-9c1c-af2e2115a679",
@@ -352,12 +352,12 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
         {
             titleTextContentPiece: "55d766c4-1a47-4ba3-bb6f-299997cb27ee",
             bodyTextContentPiece: "3d8116d8-57fd-461c-916d-060537ceda59",
-            imageRelativePath: "/livguard/tractor/2/long-battery-life.jpg",
+            imageRelativePath: "/livguard/tractor/2/battery-life.jpg",
         },
         {
             titleTextContentPiece: "2e1d6311-034a-4ee3-8f50-bee164a05906",
             bodyTextContentPiece: "141b0934-353a-4b48-ba96-69afbe2bc115",
-            imageRelativePath: "/livguard/tractor/2/all-weather-performance.jpg",
+            imageRelativePath: "/livguard/tractor/2/weather-performance.jpg",
         },
     ];
 

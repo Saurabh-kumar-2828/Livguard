@@ -37,15 +37,15 @@ export function ComboCarousel({
                     items={items}
                     itemBuilder={(item, itemIndex) => (
                         <div
-                            className="lg-px-screen-edge tw-h-full tw-flex tw-flex-col lg-card-shadow"
+                            className="lg-px-screen-edge tw-h-full tw-flex tw-flex-col"
                             key={itemIndex}
                         >
                             <div
-                                className="tw-w-full tw-flex tw-flex-col tw-h-full"
+                                className="tw-w-full tw-flex tw-flex-col tw-h-full lg-card"
                                 key={itemIndex}
                             >
                                 <DefaultElementAnimation className="tw-h-full">
-                                    <div className="tw-flex tw-flex-col [@media(max-width: 1080px)]:tw-items-center tw-text-center lg-bg-secondary-100 tw-rounded-lg tw-p-4 lg:tw-px-8 tw-w-full tw-h-full">
+                                    <div className="tw-flex tw-flex-col [@media(max-width: 1080px)]:tw-items-center tw-text-center tw-rounded-lg tw-p-4 lg:tw-px-8 tw-w-full tw-h-full">
                                         <VerticalSpacer className="tw-h-4" />
                                         <div className="tw-hidden lg:tw-block tw-text-left lg-text-titile1">
                                             <div
@@ -147,7 +147,7 @@ export function ComboCarousel({
 
                     <button
                         type="button"
-                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-bg-secondary-100-light tw-mt-[0.4px]"
+                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-mt-[0.4px]"
                         onClick={() => {
                             emblaApi?.scrollNext();
                         }}

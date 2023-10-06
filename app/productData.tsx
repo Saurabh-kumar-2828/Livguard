@@ -4636,14 +4636,14 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             ],
             slug: "it1648tt",
             humanReadableModelNumber: "Inverter Battery | 160Ah Capacity | 48 Months Warranty",
-            title: "Livguard INVERTUFF Tall Tubular 160 Ah Battery with 27+21* Months Max Warranty and Long Life",
+            title: "Livguard INVERTUFF Tall Tubular 160 Ah Battery with 24+24* Months Max Warranty and Long Life",
             subTitle: "(Suitable Inverter Battery for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "27 + 21*",
+                    text: "24 + 24*",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -4665,7 +4665,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
                 },
                 {
                     title: "Warranty",
-                    value: "27 + 21*",
+                    value: "24 + 24*",
                 },
                 {
                     title: "Package Contents",

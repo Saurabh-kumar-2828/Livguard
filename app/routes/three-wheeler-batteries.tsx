@@ -325,17 +325,17 @@ function ReliabilityYouCanExperience({userPreferences, className}: {userPreferen
         {
             titleTextContentPiece: "22d2b329-b855-4127-9e99-edb36347d88b",
             bodyTextContentPiece: "adf2ff19-2a54-4ca7-9b4d-d2881ad856fc",
-            imageRelativePath: "/livguard/three-wheeler/2/maintainence-free.jpg",
+            imageRelativePath: "/livguard/three-wheeler/2/maintainance.jpg",
         },
         {
             titleTextContentPiece: "c31a4732-aa1f-4973-b2fd-f3b0371c2895",
             bodyTextContentPiece: "3b7b22d2-54c3-4ad6-9a7d-e8fede699840",
-            imageRelativePath: "/livguard/three-wheeler/2/best-in-class-warranty.jpg",
+            imageRelativePath: "/livguard/three-wheeler/2/warranty.jpg",
         },
         {
             titleTextContentPiece: "8575720d-0268-4a7d-8516-1edbe2d3ea83",
             bodyTextContentPiece: "a5df81a6-2f1a-4547-b08f-b5732df96e88",
-            imageRelativePath: "/livguard/three-wheeler/2/long-battery-life.jpg",
+            imageRelativePath: "/livguard/three-wheeler/2/battery-life.jpg",
         },
         {
             titleTextContentPiece: "c9209f83-6335-404e-ad8e-491d010741d3",
@@ -345,17 +345,17 @@ function ReliabilityYouCanExperience({userPreferences, className}: {userPreferen
         {
             titleTextContentPiece: "22d2b329-b855-4127-9e99-edb36347d88b",
             bodyTextContentPiece: "adf2ff19-2a54-4ca7-9b4d-d2881ad856fc",
-            imageRelativePath: "/livguard/three-wheeler/2/maintainence-free.jpg",
+            imageRelativePath: "/livguard/three-wheeler/2/maintainance.jpg",
         },
         {
             titleTextContentPiece: "c31a4732-aa1f-4973-b2fd-f3b0371c2895",
             bodyTextContentPiece: "3b7b22d2-54c3-4ad6-9a7d-e8fede699840",
-            imageRelativePath: "/livguard/three-wheeler/2/best-in-class-warranty.jpg",
+            imageRelativePath: "/livguard/three-wheeler/2/warranty.jpg",
         },
         {
             titleTextContentPiece: "8575720d-0268-4a7d-8516-1edbe2d3ea83",
             bodyTextContentPiece: "a5df81a6-2f1a-4547-b08f-b5732df96e88",
-            imageRelativePath: "/livguard/three-wheeler/2/long-battery-life.jpg",
+            imageRelativePath: "/livguard/three-wheeler/2/battery-life.jpg",
         },
     ];
 

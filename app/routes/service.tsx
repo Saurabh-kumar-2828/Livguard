@@ -1080,7 +1080,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
             <VerticalSpacer className="tw-h-2 lg:tw-h-4 tw-row-start-2" />
 
-            <div className="lg:tw-grid lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,7fr)_minmax(0,3fr)] lg:lg-bg-secondary-100 lg:tw-rounded-lg lg:tw-py-6">
+            <div className="lg:tw-grid lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,7fr)_minmax(0,3fr)]  lg:tw-rounded-lg lg:tw-py-6">
                 <DefaultTextAnimation className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-2 lg-text-headline tw-text-center lg:tw-text-left lg:tw-place-self-center lg:tw-px-16">
                     <div className="lg-text-body lg:tw-text-center">{getVernacularString("contactUsS2HText", userPreferences.language)}</div>
                 </DefaultTextAnimation>

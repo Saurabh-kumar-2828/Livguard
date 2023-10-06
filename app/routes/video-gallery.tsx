@@ -291,7 +291,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                         <button
                             className={concatenateNonNullStringsWithSpaces(
                                 "tw-w-full tw-min-w-[6rem] tw-col-start-1 tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2 lg-ewaste-management-box-shadow tw-transition-colors tw-duration-200",
-                                `${selectedProductType == ProductType.all ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-bg-secondary-100 lg-text-secondary-900"} `,
+                                `${selectedProductType == ProductType.all ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-card lg-text-secondary-900"} `,
                             )}
                             onClick={() => {
                                 setSelectedProductType(ProductType.all);
@@ -307,7 +307,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                         <button
                             className={concatenateNonNullStringsWithSpaces(
                                 "tw-w-full tw-min-w-[6rem] tw-col-start-2  tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2 lg-ewaste-management-box-shadow",
-                                `${selectedProductType == ProductType.inverter ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-bg-secondary-100 lg-text-secondary-900"} `,
+                                `${selectedProductType == ProductType.inverter ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-card lg-text-secondary-900"} `,
                             )}
                             onClick={() => {
                                 setSelectedProductType(ProductType.inverter);
@@ -323,7 +323,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                         <button
                             className={concatenateNonNullStringsWithSpaces(
                                 "tw-w-full tw-min-w-[6rem] tw-col-start-2 tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2 lg-ewaste-management-box-shadow",
-                                `${selectedProductType == ProductType.solar ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-bg-secondary-100 lg-text-secondary-900"} `,
+                                `${selectedProductType == ProductType.solar ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-card lg-text-secondary-900"} `,
                             )}
                             onClick={() => {
                                 setSelectedProductType(ProductType.solar);
@@ -339,7 +339,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                         <button
                             className={concatenateNonNullStringsWithSpaces(
                                 "tw-w-full tw-min-w-[6rem] tw-col-start-2 tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2 lg-ewaste-management-box-shadow",
-                                `${selectedProductType == ProductType.automotive ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-bg-secondary-100 lg-text-secondary-900"} `,
+                                `${selectedProductType == ProductType.automotive ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-card lg-text-secondary-900"} `,
                             )}
                             onClick={() => {
                                 setSelectedProductType(ProductType.automotive);
@@ -355,7 +355,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                         <button
                             className={concatenateNonNullStringsWithSpaces(
                                 "tw-w-full tw-min-w-[6rem] tw-col-start-2 tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2 lg-ewaste-management-box-shadow",
-                                `${selectedProductType == ProductType.erickshaw ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-bg-secondary-100 lg-text-secondary-900"} `,
+                                `${selectedProductType == ProductType.erickshaw ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-card lg-text-secondary-900"} `,
                             )}
                             onClick={() => {
                                 setSelectedProductType(ProductType.erickshaw);
@@ -371,7 +371,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                         <button
                             className={concatenateNonNullStringsWithSpaces(
                                 "tw-w-full tw-min-w-[6rem] tw-col-start-2 tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2 lg-ewaste-management-box-shadow",
-                                `${selectedProductType == ProductType.testimonials ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-bg-secondary-100 lg-text-secondary-900"} `,
+                                `${selectedProductType == ProductType.testimonials ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-card lg-text-secondary-900"} `,
                             )}
                             onClick={() => {
                                 setSelectedProductType(ProductType.testimonials);

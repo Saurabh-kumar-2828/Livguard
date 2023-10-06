@@ -1862,17 +1862,17 @@ export function OurPresence({userPreferences, className, headingTextContentId}: 
                 {presenceData.map((presence, presenceIndex) => {
                     return (
                         <div
-                            className="lg-card tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-items-center tw-rounded-lg"
+                            className="lg-card tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-items-center tw-rounded-lg lg-card"
                             key={presenceIndex}
                         >
-                            <div className="tw-row-start-1 tw-w-[calc(100%+1px)] tw-h-full lg:tw-w-full lg:tw-h-[calc(100%+2px)] tw-px-4 tw-py-3 tw-bg-new-background-border-500-light dark:tw-bg-new-background-border-500-dark tw-rounded-t-lg lg:tw-rounded-tl-lg lg:tw-rounded-bl-lg lg:tw-rounded-t-none lg:tw-grid lg:tw-items-center">
-                                <div className="tw-w-full tw-py-4 tw-rounded-lg tw-grid tw-justify-items-center lg-bg-secondary-100 lg:tw-h-full lg:tw-p-4 lg:tw-grid lg:tw-items-center">
+                            {/* <div className="tw-row-start-1 tw-w-[calc(100%+1px)] tw-h-full lg:tw-w-full lg:tw-h-[calc(100%+2px)] tw-px-4 tw-py-3 tw-bg-new-background-border-500-light dark:tw-bg-new-background-border-500-dark tw-rounded-t-lg lg:tw-rounded-tl-lg lg:tw-rounded-bl-lg lg:tw-rounded-t-none lg:tw-grid lg:tw-items-center"> */}
+                                <div className="tw-w-full tw-py-4 tw-rounded-r-lg tw-grid tw-justify-items-center lg-card lg:tw-h-full lg:tw-p-4 lg:tw-grid lg:tw-items-center tw-border-none">
                                     <img
                                         src={getAbsolutePathForRelativePath(getMetadataForImage(presence.imageUrl).finalUrl, ImageCdnProvider.Bunny, null, null)}
                                         className="tw-w-[6.25rem] tw-h-[6.25rem]"
                                     />
                                 </div>
-                            </div>
+                            {/* </div> */}
 
                             <div className="tw-col-start-1 tw-row-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-rows-[auto_0.5rem_minmax(0,1fr)_0.5rem_auto_1rem] tw-px-6 tw-py-2">
                                 <div className="lg-text-body tw-font-bold tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString(presence.title, userPreferences.language)}</div>

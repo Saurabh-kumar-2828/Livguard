@@ -309,14 +309,14 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <div className="tw-w-full tw-flex tw-flex-row tw-gap-x-4 tw-justify-center">
                 <button
-                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 0 ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-bg-secondary-100")}
+                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 0 ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-card")}
                     onClick={() => emblaApi?.scrollTo(0)}
                 >
                     {getVernacularString("homeS5T5P4", userPreferences.language)}
                 </button>
 
                 <button
-                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 1 ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-bg-secondary-100")}
+                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 1 ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-card")}
                     onClick={() => emblaApi?.scrollTo(1)}
                 >
                     {getVernacularString("homeS5T5P5", userPreferences.language)}
@@ -480,7 +480,7 @@ export function PowerPlannerTeaser({userPreferences, className}: {userPreference
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
             <div
                 className={`tw-grid tw-grid-rows-[repeat(4,auto)] tw-grid-cols-1 lg:tw-grid-rows-[repeat(5,auto)] lg:tw-grid-cols-2 tw-justify-items-center
-                    lg:tw-rounded-lg lg:tw-pb-[50px] lg:tw-pt-[25px] lg:tw-bg-gradient-to-br lg:tw-from-[#ffffff] lg:tw-to-[#b1b1b1] dark:lg:tw-bg-gradient-to-br dark:lg:tw-from-[#1e1e1e] dark:lg:tw-to-[#3a3a3a]`}
+                    lg:tw-rounded-lg lg:tw-pb-[50px] lg:tw-pt-[25px] lg-card`}
             >
                 <PowerPlannerIntroduction
                     userPreferences={userPreferences}
@@ -616,7 +616,7 @@ function PropertySelectionForTeaser({
                             type="button"
                             className={concatenateNonNullStringsWithSpaces(
                                 "tw-rounded-lg tw-flex tw-items-center tw-gap-2 tw-py-3 tw-px-2 tw-group tw-duration-200",
-                                item.value == loadCalculatorInputs.property.propertyType ? "lg-bg-primary-500" : "lg-bg-secondary-100",
+                                item.value == loadCalculatorInputs.property.propertyType ? "lg-bg-primary-500" : "lg-card",
                             )}
                             key={itemIndex}
                             onClick={() => {
@@ -702,7 +702,7 @@ function PowerPlannerIntroduction({userPreferences, className}: {userPreferences
                     ]}
                     itemBuilder={(item, itemIndex) => (
                         <div
-                            className="lg-bg-secondary-100 tw-rounded-lg tw-px-4 tw-py-2 tw-grid tw-grid-cols-[auto,minmax(0,1fr)] tw-grid-rows-[auto,auto] tw-gap-x-4"
+                            className="lg-card tw-rounded-lg tw-px-4 tw-py-2 tw-grid tw-grid-cols-[auto,minmax(0,1fr)] tw-grid-rows-[auto,auto] tw-gap-x-4"
                             key={itemIndex}
                         >
                             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-2">
@@ -791,7 +791,7 @@ function PropertySelection({
                             type="button"
                             className={concatenateNonNullStringsWithSpaces(
                                 "tw-rounded-lg tw-flex tw-items-center tw-gap-2 tw-py-3 tw-px-2 tw-group tw-duration-200 lg:tw-max-w-[10rem]",
-                                item.value == loadCalculatorInputs.property.propertyType ? "lg-bg-primary-500" : "lg-bg-secondary-100",
+                                item.value == loadCalculatorInputs.property.propertyType ? "lg-bg-primary-500" : "lg-card",
                             )}
                             key={itemIndex}
                             onClick={() => {
@@ -886,7 +886,7 @@ function RoomSelection({
                     itemBuilder={(room, roomIndex) => (
                         <button
                             type="button"
-                            className="tw-w-full lg-bg-secondary-100 tw-rounded-lg tw-grid tw-grid-rows-[auto_0.25rem_auto_0.75rem_auto] tw-grid-cols-[minmax(0,1fr)_0.5rem_auto] tw-justify-items-start tw-p-4 tw-group tw-duration-200"
+                            className="tw-w-full lg-card tw-rounded-lg tw-grid tw-grid-rows-[auto_0.25rem_auto_0.75rem_auto] tw-grid-cols-[minmax(0,1fr)_0.5rem_auto] tw-justify-items-start tw-p-4 tw-group tw-duration-200"
                             key={roomIndex}
                             // onClick={() => {
                             //     const loadCalculatorInputsAction: LoadCalculatorInputsAction = {
@@ -948,7 +948,7 @@ function RoomSelection({
 
                 <button
                     type="button"
-                    className="tw-w-full tw-h-[8rem] tw-rounded-lg tw-flex tw-opacity-60 tw-border tw-border-dashed tw-flex-col tw-justify-center tw-items-center tw-gap-y-2 tw-group tw-duration-200 lg-bg-secondary-100"
+                    className="tw-w-full tw-h-[8rem] tw-rounded-lg tw-flex tw-opacity-60 tw-border tw-border-dashed tw-flex-col tw-justify-center tw-items-center tw-gap-y-2 tw-group tw-duration-200 lg-card"
                     onClick={tryToOpenNewRoomDialog}
                 >
                     <PlusCircleFill className="tw-w-8 tw-h-8 lg-text-secondary-700 tw-opacity-100" />
@@ -1033,7 +1033,7 @@ function DeviceSelectionNewUi({
                             <div className="tw-flex tw-flex-row tw-gap-x-4 tw-items-center">
                                 <button
                                     type="button"
-                                    className="tw-w-8 tw-h-8 lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-justify-center"
+                                    className="tw-w-8 tw-h-8 lg-card tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-justify-center"
                                     onClick={() => {
                                         const action: LoadCalculatorInputsAction = {
                                             actionType: LoadCalculatorInputsActionType.RemoveSingleDevice,
@@ -1053,7 +1053,7 @@ function DeviceSelectionNewUi({
 
                                 <button
                                     type="button"
-                                    className="tw-w-8 tw-h-8 lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-justify-center"
+                                    className="tw-w-8 tw-h-8 lg-card tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-justify-center"
                                     onClick={() => {
                                         const device: Device = {
                                             deviceType: item.deviceType,
@@ -1191,7 +1191,7 @@ function ChangePropertyTypeDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1">Are you sure you want to leave this section?</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -1316,7 +1316,7 @@ function NewRoomDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1">Add Room</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -1343,7 +1343,7 @@ function NewRoomDialog({
                                                 as={React.Fragment}
                                             >
                                                 {({active, selected}) => (
-                                                    <li className={concatenateNonNullStringsWithSpaces("tw-p-4", selected ? "lg-bg-secondary-300" : "lg-bg-secondary-100")}>
+                                                    <li className={concatenateNonNullStringsWithSpaces("tw-p-4", selected ? "lg-bg-secondary-300" : "lg-card")}>
                                                         {roomTypeKvp[1].humanReadableString}
                                                     </li>
                                                 )}
@@ -1503,7 +1503,7 @@ function EditRoomDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                        <div className="tw-w-full lg-card tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1 lg-px-screen-edge">Edit {room.roomName}</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -1754,7 +1754,7 @@ function NewDeviceDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1">Add {getDeviceTypeDetails(currentlyAddingDeviceType).humanReadableString}</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -1928,7 +1928,7 @@ function NewDeviceDialogNewUi({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1">{getVernacularString("loadCalculatorAdditionalInputsT5", userPreferences.language)}</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -2107,7 +2107,7 @@ function EditDeviceDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1">Edit {getDeviceTypeDetails(currentlyEditingDeviceType).humanReadableString}</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -2231,7 +2231,7 @@ function AdditionalInputsSection({
                 <div className="tw-flex tw-flex-row">
                     <button
                         type="button"
-                        className="tw-w-6 tw-h-8 lg-bg-secondary-100 tw-rounded-l-lg tw-flex tw-flex-col tw-items-center tw-justify-center"
+                        className="tw-w-6 tw-h-8 lg-card tw-rounded-l-lg tw-flex tw-flex-col tw-items-center tw-justify-center"
                         onClick={() => {
                             const newBackupHours = loadCalculatorInputs.backupHours - 1;
                             if (newBackupHours < 1) {
@@ -2267,7 +2267,7 @@ function AdditionalInputsSection({
                     />
                     <button
                         type="button"
-                        className="tw-w-6 tw-h-8 lg-bg-secondary-100 tw-rounded-r-lg tw-flex tw-flex-col tw-items-center tw-justify-center"
+                        className="tw-w-6 tw-h-8 lg-card tw-rounded-r-lg tw-flex tw-flex-col tw-items-center tw-justify-center"
                         onClick={() => {
                             const newBackupHours = loadCalculatorInputs.backupHours + 1;
                             if (newBackupHours > 24) {
@@ -2290,7 +2290,7 @@ function AdditionalInputsSection({
 
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-flex-col tw-flex tw-max-w-3xl tw-w-full tw-mx-auto tw-p-4 tw-px-8 tw-pb-8 tw-rounded-lg lg-bg-secondary-100 tw-place-self-center tw-justify-self-center">
+            <div className="tw-flex-col tw-flex tw-max-w-3xl tw-w-full tw-mx-auto tw-p-4 tw-px-8 tw-pb-8 tw-rounded-lg lg-card tw-place-self-center tw-justify-self-center">
                 <div className="tw-flex tw-flex-row tw-items-center tw-gap-x-2 tw-relative">
                     <div className="tw-flex-none">{getVernacularString("loadCalculatorAdditionalInputsT3", userPreferences.language)}</div>
 

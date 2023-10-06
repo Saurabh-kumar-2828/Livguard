@@ -409,9 +409,9 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
             <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)_minmax(0,1fr)] lg:tw-grid-cols-[4.5rem_22rem_22rem] tw-gap-x-2">
                 {/* <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-gradient-to-l tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-lg" /> */}
 
-                <div className="tw-row-start-1 tw-col-start-2 tw-row-span-full tw-w-full tw-h-full tw-py-3 lg-card lg-bg-secondary-100 tw-rounded-lg" />
+                <div className="tw-row-start-1 tw-col-start-2 tw-row-span-full tw-w-full tw-h-full tw-py-3 lg-card tw-rounded-lg" />
 
-                <div className="tw-row-start-1 tw-col-start-3 tw-row-span-full tw-w-full tw-h-full tw-py-3 lg-card lg-bg-secondary-300 tw-rounded-lg" />
+                <div className="tw-row-start-1 tw-col-start-3 tw-row-span-full tw-w-full tw-h-full tw-py-3 lg-card tw-rounded-lg" />
 
                 <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
                     <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
@@ -441,7 +441,7 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
 
                 <div className="tw-row-start-2 tw-col-start-3 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryInvertersS3R1C3", userPreferences.language)}</div>
 
-                <div className="tw-row-start-3 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 lg-text-secondary">
+                <div className="tw-row-start-3 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50 lg-text-secondary">
                     {getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}
                 </div>
 
@@ -449,11 +449,11 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
                     {getVernacularString("categoryInvertersS3R2C2", userPreferences.language)}
                 </div>
 
-                <div className="tw-row-start-3 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
+                <div className="tw-row-start-3 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
                     {getVernacularString("categoryInvertersS3R2C3", userPreferences.language)}
                 </div>
 
-                <div className="tw-row-start-4 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 text-secondary">
+                <div className="tw-row-start-4 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50 text-secondary">
                     {getVernacularString("categoryInvertersS3R3C1", userPreferences.language)}
                 </div>
 
@@ -461,7 +461,7 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
                     {getVernacularString("categoryInvertersS3R3C2", userPreferences.language)}
                 </div>
 
-                <div className="tw-row-start-4 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
+                <div className="tw-row-start-4 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
                     {getVernacularString("categoryInvertersS3R3C3", userPreferences.language)}
                 </div>
 
@@ -677,13 +677,13 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                                     type="button"
                                     className={concatenateNonNullStringsWithSpaces(
                                         "tw-w-full tw-min-w-[10rem] tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2 lg-card",
-                                        `${selectedInverterType == item.inverterType ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-100 lg-text-secondary-900"} `,
+                                        `${selectedInverterType == item.inverterType ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-text-secondary-900"} `,
                                     )}
                                     onClick={() => setSelectedInverterType(item.inverterType)}
                                     key={itemIndex}
                                 >
-                                    <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2 lg-card">
-                                        <FullWidthImage relativePath={item.icon} />
+                                    <div className="tw-h-8 tw-w-8 tw-bg-secondary-100-light dark:tw-bg-secondary-100-dark tw-rounded-full tw-p-2">
+                                        <FullWidthImage relativePath={item.icon} className="dark:tw-invert"/>
                                     </div>
                                     <div className="tw-text-body">{getVernacularString(item.textContentId, userPreferences.language)}</div>
                                     <div
@@ -704,7 +704,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                     vernacularContent={selectedInverterType == InverterType.sine ? sectionData[0] : sectionData[1]}
                     // backgroundColor={selectedInverterType == InverterType.sine ? "primary-500" : "secondary-100"}
                     userPreferences={userPreferences}
-                    className={"lg-bg-secondary-100"}
+                    className={"lg-card"}
                 />
             </div>
         </div>
@@ -890,7 +890,7 @@ export function SuggestedComboSection({userPreferences, className}: {userPrefere
                     items={combosData}
                     itemBuilder={(recommendedProduct, recommendedProductIndex) => (
                         <div
-                            className={`lg-bg-secondary-100 tw-rounded-lg`}
+                            className={`tw-rounded-lg`}
                             key={recommendedProductIndex}
                         >
                             <ProductCardComponent

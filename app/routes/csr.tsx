@@ -347,7 +347,7 @@ function OurCsrInitiative({userPreferences, className}: {userPreferences: UserPr
                                 />
                             </div>
                             <div
-                                className="tw-col-start-1 tw-row-start-3"
+                                className="tw-col-start-1 tw-row-start-3 lg-text-highlighted lg-text-body-bold tw-text-center lg-text-secondary-900"
                                 dangerouslySetInnerHTML={{__html: getVernacularString(item.title, userPreferences.language)}}
                             />
                             <div className="tw-col-start-1 tw-row-start-5 lg-text-body lg-text-secondary-900 tw-text-center">{getVernacularString(item.text, userPreferences.language)}</div>
@@ -381,11 +381,11 @@ function OurVision({userPreferences, className}: {userPreferences: UserPreferenc
 
     return (
         <div
-            className={concatenateNonNullStringsWithSpaces("lg-card lg-px-screen-edge-2 tw-w-full", className)}
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-w-full", className)}
             id="csr-vision"
             ref={sectionRef}
         >
-            <div className="tw-w-full tw-h-full tw-py-6 lg:tw-py-10">
+            <div className="tw-w-full tw-h-full tw-py-6 lg:tw-py-10 lg-card">
                 <div className="tw-grid tw-justify-center tw-items-center tw-gap-4">
                     <div className="lg-card tw-h-[4rem] tw-w-[4rem] tw-rounded-full tw-grid tw-justify-center tw-justify-self-center tw-items-center">
                         <img

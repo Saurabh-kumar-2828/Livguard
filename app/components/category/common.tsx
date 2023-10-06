@@ -106,7 +106,7 @@ export function OurSuggestionsComponent({
                                     className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3`}
                                     key={keySpecificationIndex}
                                 >
-                                    <div className={`tw-flex tw-min-w-[40px] tw-h-[40px] lg:tw-w-12 lg:tw-h-12 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-500`}>
+                                    <div className={`tw-flex tw-min-w-[40px] tw-h-[40px] lg:tw-w-12 lg:tw-h-12 tw-rounded-full tw-items-center tw-justify-center lg-card`}>
                                         <FixedWidthImage
                                             relativePath={keySpecification.keySpecificationIconRelativePath}
                                             width="2rem"
@@ -161,7 +161,7 @@ export function OurSuggestionsComponent({
                             items={vernacularContent.relatedProducts.map((relatedProduct, relatedProductIndex) => (
                                 <Link
                                     to={`/product/${relatedProduct}`}
-                                    className="lg-bg-secondary-300 tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
+                                    className="lg-card tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
                                     key={relatedProductIndex}
                                 >
                                     <div className="tw-w-full lg-text-body-bold tw-text-center">{allProductDetails[relatedProduct][userPreferences.language].humanReadableModelNumber}</div>
@@ -177,7 +177,7 @@ export function OurSuggestionsComponent({
                                 itemBuilder={(item, itemIndex) => (
                                     <Link
                                         to={`/product/${item}`}
-                                        className="lg-bg-secondary-300 tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center tw-w-[200px] tw-w-max-[200px] lg:tw-items-center"
+                                        className="lg-card tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center tw-w-[200px] tw-w-max-[200px] lg:tw-items-center"
                                         key={itemIndex}
                                     >
                                         <div className="tw-w-full lg-text-body-bold tw-text-center">{convertProductInternalNameToPublicName(item)}</div>

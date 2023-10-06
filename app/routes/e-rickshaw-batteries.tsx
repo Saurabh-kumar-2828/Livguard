@@ -335,12 +335,12 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
         {
             titleTextContentPiece: "d660f7e7-4945-4d60-ac65-ee35d44644c4",
             bodyTextContentPiece: "ea91df06-eee3-4f24-bac2-b4d0484c9c26",
-            imageRelativePath: "/livguard/e-rickshaw-batteries/2/maximum-life.jpg",
+            imageRelativePath: "/livguard/e-rickshaw-batteries/2/battery-life.jpg",
         },
         {
             titleTextContentPiece: "bbdf4cee-9f7c-475a-a464-ef1ef26204b8",
             bodyTextContentPiece: "24233427-5ce6-4924-bea6-56eef727ef86",
-            imageRelativePath: "/livguard/e-rickshaw-batteries/2/low-maintainence.jpg",
+            imageRelativePath: "/livguard/e-rickshaw-batteries/2/maintenance.jpg",
         },
         {
             titleTextContentPiece: "8a8c6ad0-848e-4cdc-8570-3fc2d05abf5e",
@@ -350,7 +350,7 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
         {
             titleTextContentPiece: "8b08775f-905e-4826-a595-9001b888bead",
             bodyTextContentPiece: "48127946-a89e-46bc-95ec-1baf8e68b072",
-            imageRelativePath: "/livguard/e-rickshaw-batteries/2/fast-charging.jpg",
+            imageRelativePath: "/livguard/e-rickshaw-batteries/2/faster-charging.jpg",
         },
     ];
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);

@@ -310,12 +310,12 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
                 )}
             >
                 <div className="tw-row-start-2">
-                    <FullWidthImage relativePath={imageRelativePath} />
+                    <FullWidthImage relativePath={imageRelativePath} className="tw-rounded-lg"/>
                 </div>
 
-                <div className="tw-row-start-4 tw-text-center lg-text-title1">{title}</div>
+                <div className="tw-row-start-4 tw-text-center lg-text-title1 lg-text-sondery-900">{title}</div>
 
-                <div className="tw-row-start-6 tw-text-center lg-text-body">{description}</div>
+                <div className="tw-row-start-6 tw-text-center lg-text-body lg-text-sondery-900">{description}</div>
             </div>
         );
     };

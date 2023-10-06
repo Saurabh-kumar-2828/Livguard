@@ -376,7 +376,7 @@ function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferenc
                                 relativePath={
                                     containerHeight > containerWidth || containerWidth < 640 ? "/livguard/e-waste-management/4/mobile-banner.jpg" : "/livguard/e-waste-management/4/desktop-banner.jpg"
                                 }
-                                className="tw-rounded-lg"
+                                imageClassName="tw-rounded-lg"
                                 key={
                                     containerHeight > containerWidth || containerWidth < 640 ? "/livguard/e-waste-management/4/mobile-banner.jpg" : "/livguard/e-waste-management/4/desktop-banner.jpg"
                                 }

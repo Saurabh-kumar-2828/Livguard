@@ -332,15 +332,15 @@ function HeroSection({
 function WhoWeAre({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     function WhoWeAreCard({iconUrl, title, description}: {iconUrl: string; title: string; description: string}) {
         return (
-            <div className="tw-grid tw-grid-rows-[auto_minmax(0,1fr)] tw-border-[3px] tw-border-new-background-border-500-light lg-card ">
-                <div className="lg-card tw-bg-new-background-border-500-light dark:tw-bg-new-background-border-500-dark tw-rounded-t-lg tw-row-start-1 tw-grid tw-items-center tw-justify-items-center tw-p-4">
-                    <div className="tw-w-full tw-h-full tw-rounded-md tw-place-self-center tw-grid tw-place-content-center lg-bg-secondary-100 tw-py-6">
+            <div className="tw-grid tw-grid-rows-[auto_minmax(0,1fr)] tw-border-[3px] lg-card ">
+                {/* <div className="lg-card tw-bg-new-background-border-500-light dark:tw-bg-new-background-border-500-dark tw-rounded-t-lg tw-row-start-1 tw-grid tw-items-center tw-justify-items-center tw-p-4"> */}
+                    <div className="tw-w-full tw-h-full tw-rounded-md tw-place-self-center tw-grid tw-place-content-center tw-py-6 lg-card tw-border-none">
                         <img
                             src={iconUrl}
                             className="tw-invert dark:tw-invert-0 lg:tw-h-[6.25rem] lg:tw-w-[6.25rem]"
                         />
                     </div>
-                </div>
+                {/* </div> */}
                 <div className="tw-row-start-2 lg:tw-py-4 tw-pt-2 tw-pb-6 tw-px-6 ">
                     <DefaultTextAnimation className="tw-row-start-4 lg-text-title2 tw-text-center">{title}</DefaultTextAnimation>
                     <DefaultTextAnimation className="tw-row-start-6 lg-text-body tw-text-center">{description}</DefaultTextAnimation>

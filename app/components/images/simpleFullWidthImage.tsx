@@ -3,6 +3,7 @@ import {FullWidthImageInternal} from "~/global-common-typescript/components/imag
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {WebsiteConfigurationContext} from "~/global-common-typescript/contexts/websiteConfigurationContext";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {getMetadataForImage} from "~/utilities";
 
 export function FullWidthImage({relativePath, className, loading}: {relativePath: string; className?: string; loading?: "eager" | "lazy"}) {
@@ -21,7 +22,7 @@ export function FullWidthImage({relativePath, className, loading}: {relativePath
         // />
         <div className="tw-w-full">
             <img
-                className="tw-w-full"
+                className={concatenateNonNullStringsWithSpaces("tw-w-full", className)}
                 style={{
                     aspectRatio: `${imageMetadata.width}/${imageMetadata.height}`,
                 }}

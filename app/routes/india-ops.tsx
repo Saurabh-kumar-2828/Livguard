@@ -170,7 +170,7 @@ function IndiaOpsPage({userPreferences, pageUrl, secondaryNavigationController}:
 
     return (
         <>
-            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center tw-bg-secondary-100-light dark:tw-bg-background-500-dark">
+            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
                 <HeroSection
                     userPreferences={userPreferences}
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
@@ -224,7 +224,7 @@ function IndiaOpsPage({userPreferences, pageUrl, secondaryNavigationController}:
 
                     <DealerLocator
                         userPreferences={userPreferences}
-                        className="lg:tw-row-[span_3_/_span_5]s lg:tw-col-start-1 lg-ops-pages-shadow"
+                        className="lg:tw-row-[span_3_/_span_5]s lg:tw-col-start-1"
                         showCtaButton={true}
                     />
 
@@ -321,7 +321,7 @@ function PowerThatEmpowersLives({
     pageUrl: string;
 }) {
     return (
-        <div className="tw-w-4/5 lg:tw-w-full tw-place-self-center tw-relative tw-bottom-4 tw-z-[2] tw-p-4 tw-rounded-lg tw-row-start-2 tw-col-start-1 tw-bg-secondary-100-light dark:tw-bg-secondary-100-dark lg:!tw-bg-transparent tw-grid tw-grid-rows-[repeat(4,auto)] max-lg:lg-ops-pages-shadow">
+        <div className="tw-w-4/5 lg:tw-w-full tw-place-self-center tw-relative tw-bottom-4 tw-z-[2] tw-p-4 tw-rounded-lg tw-row-start-2 tw-col-start-1 max-lg:lg-bg-secondary-100 max-lg:lg-card lg:!tw-bg-transparent tw-grid tw-grid-rows-[repeat(4,auto)] max-lg:lg-ops-pages-shadow">
             <div className="lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-z-[2] lg:tw-justify-self-start lg:tw-ml-20 lg-text-headline lg:tw-text-secondary-900-dark">
                 {getVernacularString("d1c50aa6-1529-4fe4-8e3b-b526888ec7e9", userPreferences.language)}
             </div>
@@ -575,19 +575,19 @@ function WhyLivguard({userPreferences, className}: {userPreferences: UserPrefere
             <VerticalSpacer className="tw-h-6 lg:tw-hidden lg:tw-row-start-4" />
 
             <div className="tw-grid tw-w-full tw-h-full tw-grid-cols-2 tw-grid-rows-2 tw-gap-2 tw-place-items-center lg:tw-row-start-5">
-                <div className="tw-w-full tw-row-start-1 tw-col-start-1 lg-bg-secondary-100 tw-text-center tw-rounded-lg tw-px-4 tw-py-4 lg-ops-pages-shadow">
+                <div className="tw-w-full tw-row-start-1 tw-col-start-1 lg-card tw-text-center tw-rounded-lg tw-px-4 tw-py-4 lg-ops-pages-shadow">
                     <div className="lg-text-title1">{getVernacularString("e416be0f-8181-43bb-9914-bd9fcf072388", userPreferences.language)}</div>
                     <div className="lg-text-icon">{getVernacularString("8452789c-6e24-4998-af36-6e9c54dac50d", userPreferences.language)}</div>
                 </div>
-                <div className="tw-w-full tw-row-start-1 tw-col-start-2 lg-bg-secondary-100 tw-text-center tw-rounded-lg tw-px-4 tw-py-4 lg-ops-pages-shadow">
+                <div className="tw-w-full tw-row-start-1 tw-col-start-2 lg-card tw-text-center tw-rounded-lg tw-px-4 tw-py-4 lg-ops-pages-shadow">
                     <div className="lg-text-title1">{getVernacularString("08480ce3-5f9e-4d09-910d-779b36d312d3", userPreferences.language)}</div>
                     <div className="lg-text-icon">{getVernacularString("e81a4f23-4e59-4e14-88bf-a78fa13218e0", userPreferences.language)}</div>
                 </div>
-                <div className="tw-w-full tw-row-start-2 tw-col-start-1 lg-bg-secondary-100 tw-text-center tw-rounded-lg tw-px-4 tw-py-4 lg-ops-pages-shadow">
+                <div className="tw-w-full tw-row-start-2 tw-col-start-1 lg-card tw-text-center tw-rounded-lg tw-px-4 tw-py-4 lg-ops-pages-shadow">
                     <div className="lg-text-title1">{getVernacularString("7ab1943f-7e7d-4fbe-8c67-67541b59d8dc", userPreferences.language)}</div>
                     <div className="lg-text-icon">{getVernacularString("36b96437-768d-44b7-9715-eb9658574b6d", userPreferences.language)}</div>
                 </div>
-                <div className="tw-w-full tw-row-start-2 tw-col-start-2 lg-bg-secondary-100 tw-text-center tw-rounded-lg tw-px-4 tw-py-4 lg-ops-pages-shadow">
+                <div className="tw-w-full tw-row-start-2 tw-col-start-2 lg-card tw-text-center tw-rounded-lg tw-px-4 tw-py-4 lg-ops-pages-shadow">
                     <div className="lg-text-title1">{getVernacularString("2b763748-e9c4-4f29-9063-84844e38ab13", userPreferences.language)}</div>
                     <div className="lg-text-icon">{getVernacularString("b002d357-ffa0-43d2-b9b9-ced844e6d0c5", userPreferences.language)}</div>
                 </div>
@@ -614,7 +614,7 @@ function HeadOffice({userPreferences, className}: {userPreferences: UserPreferen
             id="head-office"
             ref={sectionRef}
         >
-            <div className="tw-grid tw-py-8 tw-px-4 tw-grid-flow-row tw-place-items-center lg:tw-auto-rows-max lg:tw-items-start lg-bg-secondary-100 lg-ops-pages-shadow tw-rounded-lg tw-h-full">
+            <div className="tw-grid tw-py-8 tw-px-4 tw-grid-flow-row tw-place-items-center lg:tw-auto-rows-max lg:tw-items-start lg-card tw-rounded-lg tw-h-full">
                 <DefaultTextAnimation>
                     <div
                         dangerouslySetInnerHTML={{__html: getVernacularString("c984cd4a-eae3-4584-a958-8b18d1df3f0e", userPreferences.language)}}
@@ -684,7 +684,7 @@ function RegionalOffices({userPreferences, className}: {userPreferences: UserPre
             id="regional-office"
             ref={sectionRef}
         >
-            <div className="tw-rounded-lg tw-py-8 tw-px-4 lg-bg-secondary-100 lg-ops-pages-shadow tw-grid tw-grid-flow-row tw-auto-rows-auto tw-h-full tw-w-full">
+            <div className="tw-rounded-lg tw-py-8 tw-px-4 lg-card tw-grid tw-grid-flow-row tw-auto-rows-auto tw-h-full tw-w-full">
                 <DefaultElementAnimation className="tw-px-3">
                     <div
                         className="tw-text-center lg-text-headline"
