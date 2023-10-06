@@ -8,7 +8,7 @@ import {HorizontalSpacer} from "~/global-common-typescript/components/horizontal
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import { ImageCdnProvider } from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {setHaptikLanguage} from "~/root";
 import {OfferContactUsCta} from "~/routes/offers/inverter-and-battery-jodi";
@@ -367,7 +367,7 @@ function SecondBar({
     return (
         // TODO: Resolve this custom media query some other way
         <div className="lg-px-screen-edge [@media(max-width:1080px)]:!tw-px-2 tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
-            <div className="tw-flex lg:tw-hidden tw-flex-row tw-py-4">
+            <div className="tw-flex lg:tw-hidden tw-flex-row">
                 <button
                     type="button"
                     onClick={tryToOpenMenu}
