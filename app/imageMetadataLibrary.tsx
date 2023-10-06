@@ -7298,4 +7298,15 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "blurHash": "L35q;VsA4nIAxvIoozWW4nM{~q%M",
         "finalUrl": "/livguard/inverter-trolley/2/wheel-tuffness-f908bd.jpg"
     },
+    "/livguard/inverter-batteries-combo/1/combo-desktop-banner.jpg": {
+        "width": 3840,
+        "height": 1140,
+        "blurHash": "LzP$g%~WxuV?~Ws:a#kC-pM{Rkxa",
+        "finalUrl": "/livguard/inverter-batteries-combo/1/combo-desktop-banner-b25e98.jpg"
+    },
+    "/livguard/inverter-batteries-combo/1/combo-mobile-banner.png": {
+        "width": 360,
+        "height": 468,
+        "finalUrl": "/livguard/inverter-batteries-combo/1/combo-mobile-banner-681148.png"
+    }
 };

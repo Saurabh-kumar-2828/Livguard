@@ -1,4 +1,4 @@
-import {Language} from "~/typeDefinitions";
+import { Language } from "~/typeDefinitions";
 
 export function getVernacularString(textContentPiece: string, language: Language): string {
     if (!(textContentPiece in vernacularStrings)) {
@@ -1049,8 +1049,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "इनवर्टर और बैटरी की",
     },
     landingPage2S4HT2: {
-        [Language.English]: `With Our Top <span class="[@media(max-width:1024px)]:lg-text-highlighted lg:lg-text-title1">Combo</span>`,
-        [Language.Hindi]: `बेहतरीन <span class="[@media(max-width:1024px)]:lg-text-highlighted lg:lg-text-title1">जोड़ियाँ</span> आपके लिए`,
+        [Language.English]: `With Our Top <span class="lg-text-highlighted">Combo</span>`,
+        [Language.Hindi]: `बेहतरीन <span class="lg-text-highlighted">जोड़ियाँ</span> आपके लिए`,
     },
     landingPage2S4CTABT: {
         [Language.English]: "Know More",
@@ -1127,7 +1127,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "200 एएच",
     },
     landingPage2S4J2Specification4Content: {
-        [Language.English]: "Square Wave",
         [Language.English]: "Square Wave",
         [Language.Hindi]: "चौकोर तरंग",
     },
@@ -1262,24 +1261,24 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     landingPage3S7Slide1Heading: {
-        [Language.English]: "Effortless Compatibility",
-        [Language.Hindi]: "सहज अनुकूलता",
+        [Language.English]: `Effortless <span class="lg-text-highlighted">Compatibility</span>`,
+        [Language.Hindi]: `सहज <span class="lg-text-highlighted">अनुकूलता</span>`,
     },
     landingPage3S7Slide1Content: {
         [Language.English]: "Livguard inverter and inverter battery combos offer a seamless compatibility which combine together for an uninterrupted flow of energy.",
         [Language.Hindi]: "लिवगार्ड इनवर्टर और इनवर्टर बैटरी कॉम्बो एक सहज अनुकूलता प्रदान करते हैं जो ऊर्जा के बिना रुकावट प्रवाह के लिए एक साथ जुड़ते हैं।",
     },
     landingPage3S7Slide2Heading: {
-        [Language.English]: "Seamless Service",
-        [Language.Hindi]: "निरंतर सर्विस",
+        [Language.English]: `Seamless <span class="lg-text-highlighted">Service</span>`,
+        [Language.Hindi]: `निरंतर <span class="lg-text-highlighted">सर्विस</span>`,
     },
     landingPage3S7Slide2Content: {
         [Language.English]: "With Livguard Combos at your home, experience the comfort of hassle-free servicing for both the products, whenever you need.",
         [Language.Hindi]: "अपने घर पर लिवगार्ड कॉम्बो के साथ,इनवर्टर और इनवर्टर बैटरी के लिए आरामदायक सर्विसिंग का अनुभव करें ,जब  भी आपको आवश्यकता हो।",
     },
     landingPage3S7Slide3Heading: {
-        [Language.English]: "Long Life",
-        [Language.Hindi]: "लंबा जीवन",
+        [Language.English]: `<span class="lg-text-highlighted">Long</span> Life`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">लंबा</span> जीवन`,
     },
     landingPage3S7Slide3Content: {
         [Language.English]: "The perfect match of inverter and inverter battery in Livguard Combos ensure a longer , more efficient life of the products for you.",
@@ -3024,6 +3023,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Offers",
         [Language.Hindi]: "ऑफर्स",
     },
+    "71be5a5c-0bc6-415e-af36-5323a44fe359": {
+        [Language.English]: "Inverter and Battery Combo",
+        [Language.Hindi]: "इनवर्टर और बैटरी कॉम्बो",
+    },
     "966a0e78-306b-45e9-ad8f-2b6a0c969baf": {
         [Language.English]: "Can I combine two offers?",
         [Language.Hindi]: "क्या मैं दो ऑफरों को संयोजित कर सकता हूँ?",
@@ -3834,7 +3837,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "71bf111f-fc1f-4026-baeb-9b4981a8aba9": {
         [Language.English]: `Watch <span class="lg-text-highlighted">Digital Film</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="lg-text-highlighted">डिजिटल फ़िल्म<span> देखें`,
     },
     "dfa03024-6e74-45c6-9634-8d83833930f3": {
         [Language.English]: `Charged Up <span class="lg-text-highlighted">Deals</span> For You`,
@@ -3842,7 +3845,9 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "0931e2ce-74c8-49b3-84d0-760b290166eb": {
         [Language.English]: `Best deals and offers curated specially for you`,
-        [Language.Hindi]: `आपके लिए विशेष रूप से चुनी गई सबसे बेहतरीन डील्स और ऑफर्स`,
+        [Language.Hindi]: `आपके लि
+
+        ए विशेष रूप से चुनी गई सबसे बेहतरीन डील्स और ऑफर्स`,
     },
     "3b44dc3a-1029-454b-ab4f-748b8cf16a8a": {
         [Language.English]: "Oops! No Active Offers",
@@ -8001,61 +8006,61 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     //Privacy-policies Page Vernac strings start
     "e1cd45c9-6258-4cfa-939f-92e24c409063": {
         [Language.English]: "Privacy Policies",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "गोपनीयता नीतियां",
     },
     "5a6dd842-e7f2-4ad7-98de-fc9c76b42c80": {
         [Language.English]: `<span class="lg-text-highlighted">Privacy Policies</span>- Overview`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">गोपनीयता नीतियां </span>- अवलोकन`,
     },
     "58639d61-0980-400d-acca-4c01949569d3": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Privacy Policies - Introduction</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>गोपनीयता नीतियाँ - परिचय</div>`,
     },
     "c308c1f4-5547-42b0-9831-98ac935f3b58": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>LIVGUARD is committed to ensuring privacy of the Users on its website (“Website”) and/or mobile application (“Mobile App”). In furtherance of the same, LIVGUARD has framed this Privacy Policy in accordance with the Information Technology Act, 2000 (“Act”) read with the applicable Rules thereunder. </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>लिवगार्ड अपनी वेबसाइट ("वेबसाइट") और/या मोबाइल एप्लिकेशन ("मोबाइल एप्लिकेशन") पर उपयोगकर्ताओं की गोपनीयता सुनिश्चित करने के प्रति प्रतिबद्ध है। इसी के आगे, लिवगार्ड ने इस गोपनीयता नीति को सूचना प्रौद्योगिकी अधिनियम, 2000 ("अधिनियम") के साथ उसके प्राधिकृत नियमों के साथ में तैयार किया है।</div>`,
     },
     "20189d26-c91f-46d9-acfc-a5ede3236b5e": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>The Privacy Policy is designed to familiarize Users of this Website / Mobile App with (a) the type of information that Users may share with LIVGUARD, or that
     LIVGUARD will collect from the Users; (b) practices and policies of LIVGUARD relating to collection, storage, dealing, transfer, disclosure, transfer etc. of information pertaining to Users; (c) purpose of collection and usage of such information, and related matters. </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>गोपनीयता नीति इस वेबसाइट/मोबाइल ऐप के उपयोगकर्ताओं को (क) उस प्रकार की जानकारी से परिचित कराने के लिए डिज़ाइन की गई है जिसे उपयोगकर्ता लिवगार्ड के साथ साझा कर सकते हैं, या जिसे लिवगार्ड उपयोगकर्ताओं से एकत्र करेगा; (ख) उपयोगकर्ताओं से संबंधित जानकारी के संग्रह, भंडारण, निपटान, हस्तांतरण, प्रकटीकरण आदि से संबंधित लिवगार्ड की प्रथाएं और नीतियां; (ग) ऐसी जानकारी के संग्रह और उपयोग का उद्देश्य, और संबंधित मामले। </div>`,
     },
     "1b6394d4-0ef6-42b1-b8ef-f87cdd8b9d9f": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>This Privacy Policy forms part of the Terms of Use of the Website / Mobile App. </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>यह गोपनीयता नीति वेबसाइट / मोबाइल एप्लिकेशन के उपयोग की शर्तों का हिस्सा बनती है।</div>`,
     },
     "77df2f43-d38d-4524-955c-812a42cf4809": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>Important Terms</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>महत्वपूर्ण शर्तें</div>`,
     },
     "5b04d6ba-1efb-436a-aa96-86fbee88cd6b": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span> Please read the terms of this Privacy Policy carefully. This Privacy Policy, along with the “Terms of Use” constitute an “electronic record” in the form of an
     “electronic contract” as defined under the Information Technology Act, 2000 between LIVGUARD and the User of this Website / Mobile App. This Privacy Policy does not require any physical, electronic or digital signature. </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span> कृपया इस गोपनीयता नीति की शर्तों को ध्यान से पढ़ें। यह गोपनीयता नीति, "उपयोग की शर्तों" के साथ, लिवगार्ड और इस वेबसाइट/मोबाइल ऐप के उपयोगकर्ता के बीच सूचना प्रौद्योगिकी अधिनियम, 2000 के तहत परिभाषित "इलेक्ट्रॉनिक अनुबंध" के रूप में एक "इलेक्ट्रॉनिक रिकॉर्ड" का गठन करती है। इस गोपनीयता नीति के लिए किसी भौतिक, इलेक्ट्रॉनिक या डिजिटल हस्ताक्षर की आवश्यकता नहीं है। </div>`,
     },
     "c3d023fc-788c-448b-81c3-ece4db462805": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>This Privacy Policy forms an integral part of the “Terms of Use” of the Website / Mobile App. If You do not agree with the terms of this Privacy Policy, please do not use this Website / Mobile App. By visiting this Website / using the Mobile App, you (a) unconditionally accept, and agree to be bound by the “Terms of Use” of the Website/ Mobile App, read with this Privacy Policy; and (b) expressly consent to the collection, receipt, possession, storage, usage, dealing, handling or transfer of Your personal information by LIVGUARD in accordance with the terms of this Privacy Policy. </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>यह गोपनीयता नीति वेबसाइट/मोबाइल ऐप की "उपयोग की शर्तों" का एक अभिन्न अंग है। यदि आप इस गोपनीयता नीति की शर्तों से सहमत नहीं हैं, तो कृपया इस वेबसाइट/मोबाइल ऐप का उपयोग न करें। इस वेबसाइट पर जाकर/मोबाइल ऐप का उपयोग करके, आप (ए) बिना शर्त स्वीकार करते हैं, और इस गोपनीयता नीति के साथ पढ़ी गई वेबसाइट/मोबाइल ऐप के "उपयोग की शर्तों" से बंधे होने के लिए सहमत हैं; और (बी) इस गोपनीयता नीति की शर्तों के अनुसार लिवगार्ड द्वारा आपकी व्यक्तिगत जानकारी के संग्रह, प्राप्ति, कब्ज़ा, भंडारण, उपयोग, व्यवहार, प्रबंधन या हस्तांतरण के लिए स्पष्ट रूप से सहमति। </div>`,
     },
     "77038f2c-5a09-4f29-82b9-350dc7744ded": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>The Privacy Policy can undergo a change at any time at the discretion of LIVGUARD. Therefore, it is suggested that You regularly check the Website / Mobile App tobe apprised of the latest changes made to the Privacy Policy.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>लिवगार्ड के विवेक पर गोपनीयता नीति में किसी भी समय बदलाव हो सकता है। इसलिए, यह सुझाव दिया जाता है कि आप गोपनीयता नीति में किए गए नवीनतम परिवर्तनों से अवगत होने के लिए नियमित रूप से वेबसाइट/मोबाइल ऐप की जांच करें।</div>`,
     },
     "82fcfc12-378e-49e6-afbe-86ee7abdbf75": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>Types of User Information</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>उपयोगकर्ता जानकारी के प्रकार</div>`,
     },
     "278c0506-592e-479f-9ad7-192639505c60": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>Collection of “Information”: LIVGUARD may request for, collect or gather such “Information” (which shall include data) as it deems necessary, relevant or incidental for rendering an improved shopping experience to Users and for other purposes as specified in Paragraph 6 below.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>"सूचना" का संग्रह: लिवगार्ड ऐसी "जानकारी" (जिसमें डेटा शामिल होगा) के लिए अनुरोध कर सकता है, एकत्रित कर सकता है, क्योंकि यह उपयोगकर्ताओं को बेहतर खरीदारी अनुभव प्रदान करने के लिए और नीचे पैराग्राफ 6 में निर्दिष्ट अन्य उद्देश्यों के लिए आवश्यक, प्रासंगिक या प्रासंगिक समझता है।</div>`,
     },
     "86161cc4-6f3c-49fc-8ade-58f29afc2ebb": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>Personal Information: Such “Information” may include Personal Information relating to Users such as (a) User’s name, address, telephone number, e-mail address, postal address, delivery address (if different), gender, purchase history etc. (b) financial information such as bank account or credit or debit card information; (c) physical condition of User; (d) a description of the item requested or purchased; (e) the internet protocol (“IP”) address of User’s computer; (f) any other “sensitive personal data or information” relating to the User as defined under the applicable Rules under the Act. </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>व्यक्तिगत जानकारी: ऐसी "जानकारी" में उपयोगकर्ताओं से संबंधित व्यक्तिगत जानकारी शामिल हो सकती है जैसे (क) उपयोगकर्ता का नाम, पता, टेलीफोन नंबर, ई-मेल पता, डाक पता, डिलीवरी पता (यदि अलग हो), लिंग, खरीद इतिहास आदि। (ख) ) वित्तीय जानकारी जैसे बैंक खाता या क्रेडिट या डेबिट कार्ड की जानकारी; (ग) उपयोगकर्ता की शारीरिक स्थिति; (घ) अनुरोधित या खरीदी गई वस्तु का विवरण; (ड) उपयोगकर्ता के कंप्यूटर का इंटरनेट प्रोटोकॉल ("आईपी") पता; (च) अधिनियम के तहत लागू नियमों के तहत परिभाषित उपयोगकर्ता से संबंधित कोई अन्य "संवेदनशील व्यक्तिगत डेटा या जानकारी"। </div>`,
     },
     "5dddbe4c-dd33-4b55-ae89-8ea142e13433": {
         [Language.English]: `<div class=" tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>Non-personal Information LIVGUARD may also collect certain non-personal Information from the User, when the User visits and / or uses the Website / Mobile App. Such non-personal Information would include but not be limited to information such as geographical location of User, IP address, type of browser, operating system of User’s device, and details of usage of Website / Mobile App etc. Such non-personal Information is collected through various ways including “cookies”. Cookies are text files placed on Your computer, to help the Website / Mobile App analyse how You use the Website / Mobile App. Such information is not used to track information about individuals, but is used on an aggregate level to customize our site, improve the online experience of the User and plan advertising and promotions.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class=" tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>जब उपयोगकर्ता वेबसाइट/मोबाइल ऐप पर जाता है और/या उसका उपयोग करता है, तो लिवगार्ड उपयोगकर्ता से कुछ गैर-व्यक्तिगत जानकारी भी एकत्र कर सकता है। ऐसी गैर-व्यक्तिगत जानकारी में उपयोगकर्ता की भौगोलिक स्थिति, आईपी पता, ब्राउज़र का प्रकार, उपयोगकर्ता के डिवाइस का ऑपरेटिंग सिस्टम और वेबसाइट/मोबाइल ऐप के उपयोग का विवरण आदि जैसी जानकारी शामिल होगी, लेकिन यह इन्हीं तक सीमित नहीं होगी। ऐसी गैर-व्यक्तिगत जानकारी है "कुकीज़" सहित विभिन्न तरीकों से एकत्र किया गया। कुकीज़ आपके कंप्यूटर पर रखी गई टेक्स्ट फ़ाइलें हैं, जो वेबसाइट/मोबाइल ऐप को यह विश्लेषण करने में मदद करती हैं कि आप वेबसाइट/मोबाइल ऐप का उपयोग कैसे करते हैं। ऐसी जानकारी का उपयोग व्यक्तियों के बारे में जानकारी को ट्रैक करने के लिए नहीं किया जाता है, बल्कि हमारी साइट को अनुकूलित करने, उपयोगकर्ता के ऑनलाइन अनुभव को बेहतर बनाने और विज्ञापन और प्रचार की योजना बनाने के लिए समग्र स्तर पर उपयोग किया जाता है।</div>`,
     },
     "47c69ab3-900c-4224-a43c-42b7f59021b8": {
         [Language.English]: `<div class=" tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> d) </span>Cookies, Web Beacons and Tracking Codes: <br />
@@ -8063,180 +8068,190 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     The cookie will help the Website / Mobile App recognise your device the next time you visit.<br />
     We may use both session cookies (disappear after you close your browser) and persistent cookies (remain after you close your browser and may be accessed every time you use or connect to our Website / Mobile App). We may collect information like user’s IP address, geographical location, browser/device type and version, operating system, referral source, device, length of visit, page views and website navigation paths, as well as information about the timing, frequency and pattern of user website use through "cookies".<br />
     You can block cookies by activating the setting on your browser that allow you to refuse the setting of all or some cookies. However, if you use your browser settings to block all cookies (including essential cookies), you may not be able to access all or parts of our site, or they may not function properly.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class=" tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> d) </span>कुकीज़, वेब बीकन और ट्रैकिंग कोड: <br />
+        कुकीज़ छोटी टेक्स्ट फ़ाइलें होती हैं जिन्हें कोई वेबसाइट आपके कंप्यूटर या अन्य इंटरनेट-सक्षम डिवाइस (जैसे मोबाइल फोन और टैबलेट) पर डाउनलोड करती है जब आप किसी वेबसाइट पर जाते हैं।<br />
+        अगली बार जब आप विजिट करेंगे तो कुकी वेबसाइट/मोबाइल ऐप को आपके डिवाइस को पहचानने में मदद करेगी।<br />
+        हम सत्र कुकीज़ (आपके ब्राउज़र बंद करने के बाद गायब हो जाती हैं) और लगातार कुकीज़ (आपके ब्राउज़र बंद करने के बाद भी बनी रहती हैं और जब भी आप हमारी वेबसाइट/मोबाइल ऐप का उपयोग करते हैं या उससे कनेक्ट होते हैं तो उन तक पहुंचा जा सकता है) दोनों का उपयोग कर सकते हैं। हम उपयोगकर्ता का आईपी पता, भौगोलिक स्थिति, ब्राउज़र/डिवाइस प्रकार और संस्करण, ऑपरेटिंग सिस्टम, रेफरल स्रोत, डिवाइस, विज़िट की लंबाई, पृष्ठ दृश्य और वेबसाइट नेविगेशन पथ, साथ ही समय, आवृत्ति और पैटर्न के बारे में जानकारी एकत्र कर सकते हैं। उपयोगकर्ता वेबसाइट का उपयोग "कुकीज़" के माध्यम से करते हैं।<br />
+        आप अपने ब्राउज़र पर सेटिंग सक्रिय करके कुकीज़ को ब्लॉक कर सकते हैं जो आपको सभी या कुछ कुकीज़ की सेटिंग को अस्वीकार करने की अनुमति देती है। हालाँकि, यदि आप सभी कुकीज़ (आवश्यक कुकीज़ सहित) को ब्लॉक करने के लिए अपनी ब्राउज़र सेटिंग्स का उपयोग करते हैं, तो आप हमारी साइट के सभी या कुछ हिस्सों तक नहीं पहुंच पाएंगे, या वे ठीक से काम नहीं कर पाएंगे।</div>`,
     },
     "f99dd265-19b4-4c6c-9bdf-e821028a7f1c": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>Modes of  Collection of User Information</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>उपयोगकर्ता जानकारी एकत्र करने के तरीके</div>`,
     },
     "cb8a9e2c-c122-4364-8df0-1ca85b2cdbce": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>The information referred to above may be collected or received by LIVGUARD (a) directly from the User, when the User either provides any specific information on the Website / Mobile App; or (b) from use of the Website / Mobile App by the User (including through IoT device placed in the Livguard product purchased by the User); or(c) from third parties who have collected any Information relating to the User, and who have shared it with LIVGUARD.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>ऊपर उल्लिखित जानकारी लिवगार्ड (क) द्वारा सीधे उपयोगकर्ता से एकत्र या प्राप्त की जा सकती है, जब उपयोगकर्ता वेबसाइट/मोबाइल ऐप पर कोई विशिष्ट जानकारी प्रदान करता है; या (ख) उपयोगकर्ता द्वारा वेबसाइट/मोबाइल ऐप के उपयोग से (उपयोगकर्ता द्वारा खरीदे गए लिवगार्ड उत्पाद में रखे गए IoT डिवाइस सहित); या (ग) तीसरे पक्षों से जिन्होंने उपयोगकर्ता से संबंधित कोई जानकारी एकत्र की है, और जिन्होंने इसे लिवगार्ड के साथ साझा किया है।</div>`,
     },
     "aa9c3a7a-59e8-494c-8735-4412242f97c4": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>There are times when You may provide information to us voluntarily, otherwise than through use of the Website / Mobile App. This occurs when You provide Your feedback to us through e-mails, return forms, letters or telephone calls. We may use this information to respond to Your query and to keep track of feedback received from You.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>ऐसे समय होते हैं जब आप वेबसाइट/मोबाइल ऐप के उपयोग के अलावा स्वेच्छा से हमें जानकारी प्रदान कर सकते हैं। ऐसा तब होता है जब आप हमें ई-मेल, रिटर्न फॉर्म, पत्र या टेलीफोन कॉल के माध्यम से अपना फीडबैक प्रदान करते हैं। हम इस जानकारी का उपयोग आपके प्रश्न का उत्तर देने और आपसे प्राप्त फीडबैक पर नज़र रखने के लिए कर सकते हैं।</div>`,
     },
     "3ecc9b2a-3c63-474d-9030-b127f167e154": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span>Purpose of Collection and Usage of Information</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span>सूचना के संग्रहण और उपयोग का उद्देश्य</div>`,
     },
     "5b343f4f-5f88-4052-a854-03625bd47d69": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>LIVGUARD may collect, store and use Information for any purpose as may be permissible under Applicable Laws, including but limited to the following:</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>लिवगार्ड लागू कानूनों के तहत अनुमत किसी भी उद्देश्य के लिए जानकारी एकत्र, संग्रहीत और उपयोग कर सकता है, जिसमें निम्नलिखित शामिल है, लेकिन इन्हीं तक सीमित है:</div>`,
     },
     "3c1e2baa-32d5-437c-ac0d-48759c0637dc": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>To display the User’s business listing or Product offerings across the Website / Mobile App to fetch maximum business opportunities for the User; </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>उपयोगकर्ता के लिए अधिकतम व्यावसायिक अवसर लाने के लिए वेबसाइट/मोबाइल ऐप पर उपयोगकर्ता की व्यवसाय सूची या उत्पाद की पेशकश प्रदर्शित करना; </div>`,
     },
     "431f673d-7133-4b47-a4fc-0b5d1f785a31": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Facilitation of Your use of the Website / Mobile App, handling and execution of orders placed on the Website / Mobile App by the User, process payments,   </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>वेबसाइट/मोबाइल ऐप के आपके उपयोग की सुविधा, उपयोगकर्ता द्वारा वेबसाइट/मोबाइल ऐप पर दिए गए आदेशों को संभालना और निष्पादित करना, भुगतान की प्रक्रिया करना, </div>`,
     },
     "44c9b6f1-596d-48fe-b7d3-e56632034095": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>communication with User about orders etc.; </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>ऑर्डर आदि के बारे में उपयोगकर्ता के साथ संचार; </div>`,
     },
     "56cfc5a2-3234-4102-914a-633ba422e01b": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Respond to any inquiries posed by the User;  </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>उपयोगकर्ता द्वारा की गई किसी भी पूछताछ का उत्तर देने के लिए;  </div>`,
     },
     "e8c1605b-6bce-4fd5-9169-c49e378fd4de": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Provide User with details of important schemes, offers, Product details, new Product launches, changes to terms of use of the Website / Mobile App, order details, delivery details and make other important announcements etc. ; </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>उपयोगकर्ता को महत्वपूर्ण योजनाओं, ऑफ़र, उत्पाद विवरण, नए उत्पाद लॉन्च, वेबसाइट / मोबाइल ऐप के उपयोग की शर्तों में बदलाव, ऑर्डर विवरण, डिलीवरी विवरण और अन्य महत्वपूर्ण घोषणाएं आदि के विवरण प्रदान करने के लिए; </div>`,
     },
     "8b853c2f-15aa-479e-965e-760dd491232e": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Maintain accounts of the User, display contents inputted by User such as User profile, User wishlist etc.;  </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>उपयोगकर्ता के खाते बनाए रखने के लिए, उपयोगकर्ता द्वारा इनपुट की गई सामग्री जैसे उपयोगकर्ता प्रोफ़ाइल, उपयोगकर्ता इच्छा सूची आदि प्रदर्शित करने के लिए;  </div>`,
     },
     "113f5a01-82e6-42de-93d5-dbe1f7d19b54": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Help recommend to the User merchandise and services that may be of interest to him / her; </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>उपयोगकर्ता को उन वस्तुओं और सेवाओं की अनुशंसा करने में सहायता करने के लिए जो उसके लिए रुचिकर हो सकती हैं; </div>`,
     },
     "913a55de-32d2-4a5f-84bc-ddac36747d15": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Personalize User’s experience on the Website / Mobile App by presenting advertisements, Products and offers tailored to the User’s preferences; </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>उपयोगकर्ता की प्राथमिकताओं के अनुरूप विज्ञापन, उत्पाद और ऑफ़र प्रस्तुत करके वेबसाइट/मोबाइल ऐप पर उपयोगकर्ता के अनुभव को निजीकृत करने के लिए; </div>`,
     },
     "5b2b4664-0482-41ec-a0c7-444cfca27a37": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>  Customization, administration etc. of the Website / Mobile App, location of errors, Website / Mobile App testing, data analysis for the Website etc;</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>  वेबसाइट/मोबाइल ऐप का अनुकूलन, प्रशासन आदि, त्रुटियों का स्थान, वेबसाइट/मोबाइल ऐप परीक्षण, वेबसाइट के लिए डेटा विश्लेषण आदि;</div>`,
     },
     "8337096b-9366-4d12-b39d-56e692bdaeaa": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div> Provision of various services on the Website / Mobile App; </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div> वेबसाइट/मोबाइल ऐप पर विभिन्न सेवाओं का प्रावधान; </div>`,
     },
     "27d95f06-70f3-434b-a8df-b8e40aba21d5": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>To protect integrity of the Website / Mobile App, improve our platform, prevent or detect fraud or abuse of our Website / Mobile App; </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>वेबसाइट/मोबाइल ऐप की अखंडता की रक्षा करने, हमारे प्लेटफ़ॉर्म में सुधार करने, हमारी वेबसाइट/मोबाइल ऐप की धोखाधड़ी या दुरुपयोग को रोकने या उसका पता लगाने के लिए; </div>`,
     },
     "7b050d8e-5836-4ea4-bc84-cac86bf0c9bc": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>To conduct analytical studies on various aspects including User behaviour, User preferences etc. </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>उपयोगकर्ता के व्यवहार, उपयोगकर्ता की प्राथमिकताओं आदि सहित विभिन्न पहलुओं पर विश्लेषणात्मक अध्ययन  करने के लिए </div>`,
     },
     "66726cd7-94c1-4ef5-8cb0-6acfb7848505": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Enable third parties to carry out technical, logistical or other functions on our behalf; </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>हमारी ओर से तकनीकी, लॉजिस्टिक या अन्य कार्य करने के लिए तीसरे पक्ष को सक्षम बनाने के लिए; </div>`,
     },
     "1c7c4aad-bddc-4773-9c22-7a276fead53c": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>To permit employees of the Company to contact Users, and enable them to implement the orders placed by Users, resolve User queries, issues, grievances etc.;</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>कंपनी के कर्मचारियों को उपयोगकर्ताओं से संपर्क करने की अनुमति देना, और उन्हें उपयोगकर्ताओं द्वारा दिए गए आदेशों को लागू करने, उपयोगकर्ता के प्रश्नों, मुद्दों, शिकायतों आदि को हल करने में सक्षम बनाने के लिए;</div>`,
     },
     "7cf4347b-8a4a-4fca-9c02-3761202f2a27": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>To further improve the product and/or services, to facilitate the servicing of User’s product and/or to give insight on User’s product experience. </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>उत्पाद और/या सेवाओं को और बेहतर बनाने के लिए, उपयोगकर्ता के उत्पाद की सर्विसिंग को सुविधाजनक बनाने और/या उपयोगकर्ता के उत्पाद अनुभव के बारे में जानकारी देने के लिए। </div>`,
     },
     "e6adca15-6dfb-48b7-8be7-dc52032ea71d": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>To trace computer resources of any person for the purposes of determining compliance with the provisions of the Information Technology Act, 2000 and / or any other law for the time being in force.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>सूचना प्रौद्योगिकी अधिनियम, 2000 और/या उस समय लागू किसी अन्य कानून के प्रावधानों के अनुपालन का निर्धारण करने के प्रयोजनों के लिए किसी भी व्यक्ति के कंप्यूटर संसाधनों का पता लगाने के लिए</div>`,
     },
     "d27c24dd-40a2-4373-99b3-eb71ccfc2b98": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span>Disclosure and Retention of User Information</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:  `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span>उपयोगकर्ता जानकारी का प्रकटीकरण और प्रतिधारण</div>`,
     },
     "cd391409-5d57-498e-9257-9ab02d05a788": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>LIVGUARD considers the Information about its customers as an important part of its business. Accordingly, LIVGUARD shall not engage in sale of Information
     relating to Users to third parties. However, LIVGUARD may share User information with third parties in the circumstances specified herein below, after reasonably assuring itself that such third parties have undertaken to maintain confidentiality of Personal Information relating to the Users:</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>लिवगार्ड अपने ग्राहकों के बारे में जानकारी को अपने व्यवसाय का एक महत्वपूर्ण हिस्सा मानता है। तदनुसार, लिवगार्ड तीसरे पक्ष को उपयोगकर्ताओं से संबंधित जानकारी की बिक्री में संलग्न नहीं होगा। हालाँकि, लिवगार्ड नीचे निर्दिष्ट परिस्थितियों में तीसरे पक्ष के साथ उपयोगकर्ता की जानकारी साझा कर सकता है, यह उचित रूप से आश्वस्त करने के बाद कि ऐसे तीसरे पक्ष ने उपयोगकर्ताओं से संबंधित व्यक्तिगत जानकारी की गोपनीयता बनाए रखने का वचन दिया है:</div>`,
     },
     "96b82a04-2ff3-4ef9-8a0a-d26cc960b8b3": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Third Party Vendors / Service Providers etc.: Personal Information relating to Users may be made available to the third party Vendors, distributors etc. who sell their Products on the Website / Mobile App. Further, LIVGUARD may engage third party service providers to render various services, and perform various functions in relation to the business undertaken on the Website / Mobile App, and / or for the Purpose(s) discussed in Paragraph 6 above. For instance, LIVGUARD may engage third party service providers for maintenance of its Website / Mobile App, fulfilment of orders, delivery of packages, analysing data, providing marketing assistance, processing of credit card payments, provision of customer services etc. Such third party service providers / Vendors would have access to Personal Information of Users for the purpose of performing their functions / rendering their services etc.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>तीसरे पक्ष के विक्रेता/सेवा प्रदाता आदि: उपयोगकर्ताओं से संबंधित व्यक्तिगत जानकारी तीसरे पक्ष के विक्रेताओं, वितरकों आदि को उपलब्ध कराई जा सकती है जो वेबसाइट/मोबाइल ऐप पर अपने उत्पाद बेचते हैं। इसके अलावा, लिवगार्ड विभिन्न सेवाएं प्रदान करने के लिए तीसरे पक्ष के सेवा प्रदाताओं को नियुक्त कर सकता है, और वेबसाइट/मोबाइल ऐप पर किए गए व्यवसाय के संबंध में और/या ऊपर पैराग्राफ 6 में चर्चा किए गए उद्देश्यों के लिए विभिन्न कार्य कर सकता है। उदाहरण के लिए, लिवगार्ड अपनी वेबसाइट/मोबाइल ऐप के रखरखाव, आदेशों की पूर्ति, पैकेजों की डिलीवरी, डेटा का विश्लेषण, विपणन सहायता प्रदान करने, क्रेडिट कार्ड भुगतान की प्रक्रिया, ग्राहक सेवाओं के प्रावधान आदि के लिए तीसरे पक्ष के सेवा प्रदाताओं को नियुक्त कर सकता है। ऐसी तृतीय पक्ष सेवा प्रदाताओं/विक्रेताओं को अपने कार्य करने/अपनी सेवाएं प्रदान करने आदि के उद्देश्य से उपयोगकर्ताओं की व्यक्तिगत जानकारी तक पहुंच प्राप्त होगी।</div>`,
     },
     "68d5e380-6f21-47fb-a843-c6aaa666dc73": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Business Transfers: LIVGUARD may transfer or otherwise share some or all of its assets, including Your Information in connection with a merger, acquisition, reorganization or sale of assets or business or in the event of bankruptcy. Should such a sale or transfer occur, LIVGUARD will reasonably ensure that the Information You have provided and which we have collected is stored and used by the transferee in a manner that is consistent with this Privacy Policy. Any third party to which LIVGUARD transfers or sells as aforesaid will have the right to continue to use the information that You provide to us or collected by us immediately prior to the transfer.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>व्यवसाय स्थानांतरण: लिवगार्ड विलय, अधिग्रहण, पुनर्गठन या संपत्ति या व्यवसाय की बिक्री या दिवालियापन की स्थिति में आपकी जानकारी सहित अपनी कुछ या सभी संपत्तियों को स्थानांतरित या साझा कर सकता है। यदि ऐसी कोई बिक्री या स्थानांतरण होता है, तो लिवगार्ड यथोचित रूप से यह सुनिश्चित करेगा कि आपके द्वारा प्रदान की गई जानकारी और जिसे हमने एकत्र किया है, उसे स्थानांतरितकर्ता द्वारा इस गोपनीयता नीति के अनुरूप तरीके से संग्रहीत और उपयोग किया जाता है। कोई भी तीसरा पक्ष जिसे लिवगार्ड उपरोक्तानुसार स्थानान्तरित करता है या बेचता है, उसे उस जानकारी का उपयोग जारी रखने का अधिकार होगा जो आप हमें प्रदान करते हैं या स्थानांतरण से ठीक पहले हमारे द्वारा एकत्र की जाती है।</div>`,
     },
     "9fa9be91-7380-451d-a225-69e8e2403635": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Government Agency: LIVGUARD may share any Information relating to Users (i) with Government agencies mandated under the law to obtain Information relating to Users from LIVGUARD; (ii) any third party, when LIVGUARD is required to disclose the same under an order of a government or judicial authority under any law for the time being in force, or where such disclosure is necessary for the compliance of a legal obligation.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>सरकारी एजेंसी: लिवगार्ड उपयोगकर्ताओं से संबंधित कोई भी जानकारी साझा कर सकता है (i) लिवगार्ड से उपयोगकर्ताओं से संबंधित जानकारी प्राप्त करने के लिए कानून के तहत अनिवार्य सरकारी एजेंसियों के साथ; (ii) कोई तीसरा पक्ष, जब लिवगार्ड को किसी सरकार या न्यायिक प्राधिकारी के आदेश के तहत उस समय लागू किसी कानून के तहत इसका खुलासा करने की आवश्यकता होती है, या जहां कानूनी दायित्व के अनुपालन के लिए ऐसा खुलासा आवश्यक है।</div>`,
     },
     "6d1e570d-cc89-4de6-b652-19f51c77c8e2": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>With User Consent: Without prejudice to the aforesaid, LIVGUARD may disclose Personal Information relating to the User with his / her / its consent. For this purpose, LIVGUARD may send a prior notice to the User before sharing Personal Information relating to the User with third parties. In case no objection or intimation is received from the User, LIVGUARD would presume that User has granted its consent for sharing of said Information with third parties. By using or visiting the Website / Mobile App and agreeing to the terms of this Privacy Policy, User shall be construed to have consented to, and accepted the disclosure of his Information to third parties as provided under this Privacy Policy. </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>उपयोगकर्ता की सहमति से: उपरोक्त पर प्रतिकूल प्रभाव डाले बिना, लिवगार्ड उपयोगकर्ता की सहमति से उससे संबंधित व्यक्तिगत जानकारी का खुलासा कर सकता है। इस प्रयोजन के लिए, लिवगार्ड तीसरे पक्ष के साथ उपयोगकर्ता से संबंधित व्यक्तिगत जानकारी साझा करने से पहले उपयोगकर्ता को पूर्व सूचना भेज सकता है। यदि उपयोगकर्ता से कोई आपत्ति या सूचना प्राप्त नहीं होती है, तो लिवगार्ड यह मान लेगा कि उपयोगकर्ता ने उक्त जानकारी को तीसरे पक्ष के साथ साझा करने के लिए अपनी सहमति दे दी है। वेबसाइट/मोबाइल ऐप का उपयोग करने या उस पर जाने और इस गोपनीयता नीति की शर्तों से सहमत होने पर, उपयोगकर्ता को इस गोपनीयता नीति के तहत प्रदान किए गए अनुसार तीसरे पक्ष को अपनी जानकारी के प्रकटीकरण के लिए सहमति और स्वीकार माना जाएगा। </div>`,
     },
     "7efe0543-f56d-4a42-94e8-071960afb913": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>LIVGUARD will share Your Personal Information internally with such persons who need it to complete Your purchase or carry out Your instructions regarding the receipt of marketing information.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>लिवगार्ड आपकी व्यक्तिगत जानकारी को आंतरिक रूप से ऐसे व्यक्तियों के साथ साझा करेगा जिन्हें आपकी खरीदारी पूरी करने या मार्केटिंग जानकारी प्राप्त करने के संबंध में आपके निर्देशों को पूरा करने के लिए इसकी आवश्यकता है।</div>`,
     },
     "4598a898-04e1-4cd3-a35d-61d27bdf34d7": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>LIVGUARD shall keep sensitive personal data or information for only as long as the purposes for which the information may lawfully be used or is otherwise required under any other law for the time being in force. For those customers who have registered for the mailing list, their personal information is kept until we are notified that they no longer want their information stored.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>लिवगार्ड संवेदनशील व्यक्तिगत डेटा या जानकारी को केवल तब तक ही रखेगा जब तक कि जानकारी का उपयोग कानूनी रूप से उन उद्देश्यों के लिए किया जा सकता है या अन्यथा किसी अन्य कानून के तहत आवश्यक है। उन ग्राहकों के लिए जिन्होंने मेलिंग सूची के लिए पंजीकरण कराया है, उनकी व्यक्तिगत जानकारी तब तक रखी जाती है जब तक हमें सूचित नहीं किया जाता है कि वे अब अपनी जानकारी संग्रहीत नहीं करना चाहते हैं।</div>`,
     },
     "4300717a-09da-44b8-84fd-48618c687ec1": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span>Disclosure and Retention of User Information</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span>उपयोगकर्ता जानकारी का प्रकटीकरण और प्रतिधारण</div>`,
     },
     "fd29f53e-96c6-4038-8427-9115cb09ecc3": {
         [Language.English]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">In order to make every effort to ensure that Your experience on the Website / Mobile App is secure, we use encryption technology to protect You against the loss, misuse or alteration of Your personal information. When You fill out any contact forms or access Your account, a secure server encrypts all of Your information through the use of Secure Socket Layers (SSLs).
     To be sure You are browsing secure pages for transactions, check Your Web browser’s status bar (located at the bottom of the window) for the closed padlock icon. This icon appears in Your web browser to tell You that You are viewing a secure web page. Also, all browsers display an “s” after the “http” (https://) in the Web site address to indicate that You are in a secure environment.</div>`,
-        [Language.Hindi]: "????????",
+        [Language.Hindi]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">यह सुनिश्चित करने के लिए हर संभव प्रयास करने के लिए कि वेबसाइट/मोबाइल ऐप पर आपका अनुभव सुरक्षित है, हम आपकी व्यक्तिगत जानकारी के नुकसान, दुरुपयोग या परिवर्तन से आपकी रक्षा के लिए एन्क्रिप्शन तकनीक का उपयोग करते हैं। जब आप कोई संपर्क फ़ॉर्म भरते हैं या अपने खाते तक पहुंचते हैं, तो एक सुरक्षित सर्वर सिक्योर सॉकेट लेयर्स (एसएसएल) के उपयोग के माध्यम से आपकी सभी जानकारी को एन्क्रिप्ट करता है। यह सुनिश्चित करने के लिए कि आप लेनदेन के लिए सुरक्षित पृष्ठ ब्राउज़ कर रहे हैं, बंद पैडलॉक आइकन के लिए अपने वेब ब्राउज़र की स्थिति पट्टी (विंडो के नीचे स्थित) की जाँच करें। यह आइकन आपके वेब ब्राउज़र में यह बताने के लिए प्रकट होता है कि आप एक सुरक्षित वेब पेज देख रहे हैं। साथ ही, सभी ब्राउज़र वेब साइट पते में "http" (https://) के बाद "s" प्रदर्शित करते हैं, यह इंगित करने के लिए कि आप एक सुरक्षित वातावरण में हैं।</div>`,
     },
     "36b37274-7ff0-4d9f-bfb2-b2739985310d": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span>Accuracy and Protection of Personal Information</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span>व्यक्तिगत जानकारी की सटीकता और सुरक्षा</div>`,
     },
     "d4254721-b706-42b5-ad43-58078e4494cb": {
         [Language.English]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">LIVGUARD relies on Users to notify it of any changes in personal information. Should any inaccurate information come to LIVGUARD’s attention, it will investigate and correct the information and, if necessary, apprise the User of the change. Only those staff members who need the User’s personal information in order to respond to the User’s requests are given access to it. Employees are provided with training and information regarding the proper handling of personal information. All information stored in LIVGUARD’s computer system is protected from unauthorized access and information that is stored in document form is kept in secure locations to prevent access by unauthorized persons.</div>`,
-        [Language.Hindi]: "????????",
+        [Language.Hindi]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">लिवगार्ड व्यक्तिगत जानकारी में किसी भी बदलाव के बारे में सूचित करने के लिए उपयोगकर्ताओं पर निर्भर करता है। यदि कोई गलत जानकारी लिवगार्ड के ध्यान में आती है, तो वह जांच करेगा और जानकारी को सही करेगा और यदि आवश्यक हो, तो उपयोगकर्ता को परिवर्तन से अवगत कराएगा। केवल वे स्टाफ सदस्य जिन्हें उपयोगकर्ता के अनुरोधों का जवाब देने के लिए उपयोगकर्ता की व्यक्तिगत जानकारी की आवश्यकता होती है, उन्हें इस तक पहुंच दी जाती है। कर्मचारियों को व्यक्तिगत जानकारी के उचित प्रबंधन के संबंध में प्रशिक्षण और जानकारी प्रदान की जाती है। लिवगार्ड के कंप्यूटर सिस्टम में संग्रहीत सभी जानकारी अनधिकृत पहुंच से सुरक्षित है और दस्तावेज़ के रूप में संग्रहीत जानकारी अनधिकृत व्यक्तियों की पहुंच को रोकने के लिए सुरक्षित स्थानों पर रखी जाती है।</div>`,
     },
     "02baf425-5186-4904-8021-9fdcddfb2866": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span>User Discretion and the Choice to Opt 0ut</div>`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span>User Discretion and the Choice to Opt Out</div>`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span>उपयोगकर्ता विवेक और ऑप्ट आउट करने का विकल्प</div>`,
     },
     "b331829c-16c8-4530-92b0-05dde534174c": {
         [Language.English]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">You can block cookies by activating the setting on your browser that allow you to refuse the setting of all or some cookies. However, if you use your browser settings to block all cookies (including essential cookies), you may not be able to access all or parts of our site, or they may not function properly.
     The Users have a choice to opt-out of receiving non-essential (promotional, marketing related) communications from us, after setting up an account.
     In order to remove Your contact information, please visit Unsubscribe.</div>`,
-        [Language.Hindi]: "????????",
+        [Language.Hindi]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">आप अपने ब्राउज़र पर सेटिंग सक्रिय करके कुकीज़ को ब्लॉक कर सकते हैं जो आपको सभी या कुछ कुकीज़ की सेटिंग को अस्वीकार करने की अनुमति देती है। हालाँकि, यदि आप सभी कुकीज़ (आवश्यक कुकीज़ सहित) को ब्लॉक करने के लिए अपनी ब्राउज़र सेटिंग्स का उपयोग करते हैं, तो आप हमारी साइट के सभी या कुछ हिस्सों तक नहीं पहुंच पाएंगे, या वे ठीक से काम नहीं कर पाएंगे। खाता स्थापित करने के बाद उपयोगकर्ताओं के पास हमसे गैर-आवश्यक (प्रचार संबंधी, विपणन संबंधी) संचार प्राप्त करने से ऑप्ट-आउट करने का विकल्प होता है। अपनी संपर्क जानकारी हटाने के लिए कृपया अनसब्सक्राइब पर जाएँ।</div>`,
     },
     "26a57e61-ba7d-4b5d-a6f5-37e2a942baae": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span>Grievance Officer</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span>शिकायत अधिकारी</div>`,
     },
     "5af772f4-4767-4d8d-94be-d19bd8f09270": {
         [Language.English]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">In compliance with Information Technology Act, 2000 and rules made thereunder, the name and contact details of the Grievance Officer are provided below:<br />
     Name : LIVGUARD ENERGY TECHNOLOGIES PRIVATE LIMITED <br />
-    Address : 221, PHASE – 1, UDYOG VIHAR, GURGAON, HARYANA – 122016 <br />
+    Address : 221, PHASE – 1, UDYOG VIHAR, GURGAON, HARYANA - 122016 <br />
     Phone : +91-124 403 5614 <br />
     Email : grievance.officer@sar-group.com <br />
     Time : 9:00 AM to 6:00 PM</div>`,
-        [Language.Hindi]: "????????",
+        [Language.Hindi]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">सूचना प्रौद्योगिकी अधिनियम, 2000 और उसके तहत बनाए गए नियमों के अनुपालन में, शिकायत अधिकारी का नाम और संपर्क विवरण नीचे दिया गया है:<br />
+        नाम: लिवगार्ड एनर्जी टेक्नोलॉजीज प्राइवेट लिमिटेड <br />
+        पता: 221, चरण - 1, उद्योग विहार, गुड़गांव, हरियाणा - 122016 <br />
+        फ़ोन: +91-1244035614 <br />
+        ईमेल: Grievance.officer@sar-group.com <br />
+        समय: सुबह 9:00 बजे से शाम 6:00 बजे तक</div>`,
     },
     "f9017529-2e06-448b-9fac-60b3ebe9f5f8": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span>Update to this Privacy Policy</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span>इस गोपनीयता नीति का अद्यतन</div>`,
     },
     "8b508a55-0b04-4454-b098-e863009e45e4": {
         [Language.English]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">We may periodically update the Privacy Policy. Please refer the Updated on legend at the top of this page to see when this Privacy Policy was last revised. Any changes to this Privacy Policy will become effective when we post the revised Privacy Policy on our Website / Mobile App. Your use of the Website / Mobile App following these changes means that you accept the revised Privacy Policy.</div>`,
-        [Language.Hindi]: "????????",
+        [Language.Hindi]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">हम समय-समय पर गोपनीयता नीति को अद्यतन कर सकते हैं। कृपया अपडेट देखें हम समय-समय पर गोपनीयता नीति को अपडेट कर सकते हैं। यह देखने के लिए कि इस गोपनीयता नीति को आखिरी बार कब संशोधित किया गया था, कृपया इस पृष्ठ के शीर्ष पर अद्यतन किंवदंती देखें। इस गोपनीयता नीति में कोई भी बदलाव तब प्रभावी होगा जब हम अपनी वेबसाइट/मोबाइल ऐप पर संशोधित गोपनीयता नीति पोस्ट करेंगे। इन परिवर्तनों के बाद आपके द्वारा वेबसाइट/मोबाइल ऐप का उपयोग करने का मतलब है कि आप संशोधित गोपनीयता नीति को स्वीकार करते हैं।
+        </div>`,
     },
     "1827dab4-34e9-4f0f-97f3-e6e576aea81e": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span>Governing Law</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span>शासी कानून</div>`,
     },
     "86954c62-c133-43bf-8551-5799f57650e4": {
         [Language.English]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">The Website and Mobile App are designed and targeted to users who reside in the Republic of India and is governed by and operated in accordance with the laws of the India. By accessing and/or providing personal information through the Website / Mobile App, you confirm that you meet the legal requirements for disclosure of personal information in your jurisdiction.</div>`,
-        [Language.Hindi]: "????????",
+        [Language.Hindi]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">वेबसाइट और मोबाइल ऐप उन उपयोगकर्ताओं के लिए डिज़ाइन और लक्षित किया गया है जो भारत गणराज्य में रहते हैं और भारत के कानूनों के अनुसार शासित और संचालित होते हैं। वेबसाइट/मोबाइल ऐप के माध्यम से व्यक्तिगत जानकारी तक पहुंच और/या प्रदान करके, आप पुष्टि करते हैं कि आप अपने अधिकार क्षेत्र में व्यक्तिगत जानकारी के प्रकटीकरण के लिए कानूनी आवश्यकताओं को पूरा करते हैं।</div>`,
     },
     //Sales Return Policy
     "661b01b0-1ac1-49ce-af95-39777ff6a99c": {
@@ -9205,52 +9220,52 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "51d356d0-fd9e-4821-9d40-e4b5941a347d": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span>Whatsapp Privacy Policy  </div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span>व्हाट्सएप गोपनीयता नीति  </div>`,
     },
     "21b9fed2-0f6c-4f09-8558-a9ceeadb82b5": {
         [Language.English]: `<div class="tw-pl-[3rem]">Thank you for choosing to connect with Livguard through WhatsApp! This Privacy Policy outlines how we handle and protect your personal information when you interact with us through WhatsApp. By engaging in conversations with us on this platform, you agree to the practices described below.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-pl-[3rem]">व्हाट्सएप के माध्यम से लिवगार्ड से जुड़ने के लिए धन्यवाद! यह गोपनीयता नीति बताती है कि जब आप व्हाट्सएप के माध्यम से हमारे साथ बातचीत करते हैं तो हम आपकी व्यक्तिगत जानकारी को कैसे संभालते हैं और उसकी सुरक्षा करते हैं। इस मंच पर हमारे साथ बातचीत में शामिल होकर, आप नीचे वर्णित प्रथाओं से सहमत हैं।</div>`,
     },
     "cf616cbc-4f39-47ef-96ce-34ce5d7bac0c": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>Information Collection and Use</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>सूचना संग्रहण एवं उपयोग</div>`,
     },
     "92511aa0-4496-4329-801a-e584523f43d3": {
         [Language.English]:
             "When you communicate with Livguard through WhatsApp, we may collect personal information provided by you, such as your name, phone number, and any other data you choose to share. We use this information solely for the purpose of responding to your inquiries, providing customer support, and delivering relevant information about our products and services.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "जब आप व्हाट्सएप के माध्यम से लिवगार्ड के साथ संवाद करते हैं, तो हम आपके द्वारा प्रदान की गई व्यक्तिगत जानकारी, जैसे आपका नाम, फोन नंबर और आपके द्वारा साझा करने के लिए चुना गया कोई अन्य डेटा एकत्र कर सकते हैं। हम इस जानकारी का उपयोग केवल आपकी पूछताछ का जवाब देने, ग्राहक सहायता प्रदान करने और हमारे उत्पादों और सेवाओं के बारे में प्रासंगिक जानकारी देने के उद्देश्य से करते हैं।",
     },
     "68324170-b75f-47cc-9aaa-a476e21b39d2": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>WhatsApp Data Retention</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>व्हाट्सएप डेटा रिटेंशन</div>`,
     },
     "41a34384-a068-4c8d-b5c5-6445391e5cde": {
         [Language.English]:
             "Livguard retains your WhatsApp chat history to ensure continuous and efficient customer support. However, we do not use this information for any other purpose beyond what is stated in this Privacy Policy. Your chat data is securely stored on WhatsApp's servers and is subject to their respective privacy policies.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "निरंतर और कुशल ग्राहक सहायता सुनिश्चित करने के लिए लिवगार्ड आपके व्हाट्सएप चैट इतिहास को बरकरार रखता है। हालाँकि, हम इस जानकारी का उपयोग इस गोपनीयता नीति में बताई गई बातों से परे किसी अन्य उद्देश्य के लिए नहीं करते हैं। आपका चैट डेटा व्हाट्सएप के सर्वर पर सुरक्षित रूप से संग्रहीत है और उनकी संबंधित गोपनीयता नीतियों के अधीन है।",
     },
     "94a1d750-46d5-44d6-a7bb-b3c618d5c3d3": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>Third-Party Services</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>तृतीय-पक्ष सेवाएँ</div>`,
     },
     "f640f948-c51f-4108-9a2d-819ac11a4dc1": {
         [Language.English]:
             "Livguard uses WhatsApp as a third-party messaging service to interact with users. (Please note that while we are committed to protecting your privacy), You understand and are aware that WhatsApp has its own privacy practices, which are governed by their Terms of Service and Privacy Policy. We recommend reviewing WhatsApp's policies (hyperlink:https://www.whatsapp.com/privacy) to understand how they handle your data.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "लिवगार्ड उपयोगकर्ताओं के साथ बातचीत करने के लिए व्हाट्सएप को तीसरे पक्ष की मैसेजिंग सेवा के रूप में उपयोग करता है। (कृपया ध्यान दें कि यद्यपि हम आपकी गोपनीयता की रक्षा करने के लिए प्रतिबद्ध हैं), आप समझते हैं और जानते हैं कि व्हाट्सएप की अपनी गोपनीयता प्रथाएं हैं, जो उनकी सेवा की शर्तों और गोपनीयता नीति द्वारा शासित होती हैं। हम यह समझने के लिए व्हाट्सएप की नीतियों (हाइपरलिंक:https://www.whatsapp.com/privacy) की समीक्षा करने की सलाह देते हैं कि वे आपके डेटा को कैसे संभालते हैं।",
     },
 
     "f53f571a-74d1-4104-b9da-1820dbff78be": {
         [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> d) </span>Consent and Opt-out</div>`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> d) </span>सहमति और ऑप्ट-आउट</div>`,
     },
     "91471559-ce87-4196-b5de-2187d80cccb2": {
         [Language.English]:
             "By initiating conversations with Livguard on WhatsApp, you consent to the collection and use of your personal information as outlined in this Privacy Policy. If you wish to stop receiving messages or have your data deleted from our WhatsApp records, you can opt out at any time.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "व्हाट्सएप पर लिवगार्ड के साथ बातचीत शुरू करके, आप इस गोपनीयता नीति में उल्लिखित अपनी व्यक्तिगत जानकारी के संग्रह और उपयोग के लिए सहमति देते हैं। यदि आप संदेश प्राप्त करना बंद करना चाहते हैं या अपना डेटा हमारे व्हाट्सएप रिकॉर्ड से हटाना चाहते हैं, तो आप किसी भी समय ऑप्ट आउट कर सकते हैं।",
     },
     "14bec3cc-b2cf-44f3-9443-835bd126bf0a": {
         [Language.English]: "By interacting with Livguard through WhatsApp, you acknowledge that you have read and understood this Privacy Policy and consent to the practices described herein",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "व्हाट्सएप के माध्यम से लिवगार्ड के साथ बातचीत करके, आप स्वीकार करते हैं कि आपने इस गोपनीयता नीति को पढ़ और समझ लिया है और यहां वर्णित प्रथाओं के लिए सहमति देते हैं।",
     },
     "306e1020-9ae2-467a-b761-ad45d235b707": {
         [Language.English]: "Range",
@@ -11657,7 +11672,20 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "72516e54-5c6d-4723-a2b9-06ed6d3ae2c3": {
         [Language.English]: `REI`,
-        [Language.Hindi]: `?????`,
+        // आरईआई
+        [Language.Hindi]: `REI`,
+    },
+    "da0c3ceb-64b6-40b0-8b87-b14e68a03dc6": {
+        [Language.English]: `Explore Combo`,
+        [Language.Hindi]: `कॉम्बो देखें`,
+    },
+    "0532fdf6-0988-4275-a797-3c8db1cacc2f": {
+        [Language.English]: `Smart & Strong <span class="sm:tw-whitespace-nowrap">Inverter and Battery Combo</span>`,
+        [Language.Hindi]: `कॉम्बो देखें`,
+    },
+    "24923d9b-841d-4411-8e09-b68ff2cac742": {
+        [Language.English]: "Connect With Us",
+        [Language.Hindi]: "संपर्क करें",
     },
     "4bcb03e4-9c03-4cf1-8fd3-605340796364": {
         [Language.English]: `Book Appointment`,

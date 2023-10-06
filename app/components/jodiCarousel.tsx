@@ -1,8 +1,4 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
-import Autoplay from "embla-carousel-autoplay";
-import {useEffect, useState} from "react";
-import {number} from "zod";
-import {EmpowerYourHomeComponent} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
@@ -10,7 +6,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
-import {UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function ComboCarousel({
@@ -47,7 +43,7 @@ export function ComboCarousel({
                                 <DefaultElementAnimation className="tw-h-full">
                                     <div className="tw-flex tw-flex-col [@media(max-width: 1080px)]:tw-items-center tw-text-center tw-rounded-lg tw-p-4 lg:tw-px-8 tw-w-full tw-h-full">
                                         <VerticalSpacer className="tw-h-4" />
-                                        <div className="tw-hidden lg:tw-block tw-text-left lg-text-titile1">
+                                        {/* <div className="tw-hidden lg:tw-block tw-text-left lg-text-titile1">
                                             <div
                                                 dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT1", userPreferences.language)}}
                                                 className="lg:lg-text-title1"
@@ -59,7 +55,7 @@ export function ComboCarousel({
                                             />
                                         </div>
 
-                                        <VerticalSpacer className="tw-h-4" />
+                                        <VerticalSpacer className="tw-h-4" /> */}
 
                                         <div className="lg-text-title1 lg:tw-text-left lg:lg-text-title2">{item.title}</div>
 

@@ -6,7 +6,7 @@ import {useEffect, useReducer, useRef, useState, useContext} from "react";
 import {useInView} from "react-intersection-observer";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
-import {Accordion} from "~/components/accordian";
+import {CarouselStyle5} from "~/components/carouselStyle5";
 import {ContactForm} from "~/components/contactUsForm";
 import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
@@ -15,9 +15,7 @@ import {FaqSectionInternal} from "~/components/faqs";
 import {CoverImage} from "~/components/images/coverImage";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
-import {ComboCarousel} from "~/components/jodiCarousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
-import {SecondaryNavigation} from "~/components/secondaryNavigation";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
@@ -32,7 +30,6 @@ import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.comp
 import {ContactFormSection, PowerPlanner, QualityMeetsExpertise} from "~/routes/campaigns/energy-storage-solution";
 import type {FormStateInputs, FormStateInputsAction} from "~/routes/lead-form.state";
 import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
-import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
@@ -613,7 +610,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
             id="our-top-combo"
             ref={sectionRef}
         >
-            <div className="tw-block lg:tw-hidden">
+            <div className="">
                 <div className="lg-text-headline lg-px-screen-edge">
                     <DefaultTextAnimation>
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT1", userPreferences.language)}} />
@@ -626,10 +623,154 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
                 <VerticalSpacer className="tw-h-6" />
             </div>
 
-            <ComboCarousel
+            {/* <ComboCarousel
                 userPreferences={userPreferences}
                 items={comboData}
+            /> */}
+            <CarouselStyle5
+                    items={comboData.map((comboData, comboDataIndex) => (
+                        <BatteryCard
+                            name={comboData.title}
+                            description={comboData.description}
+                            imageRelativeUrl={comboData.comboImageRelativePath}
+                            warranty={comboData.keySpecifications[0].keySpecificationContent}
+                            capacity={comboData.keySpecifications[2].keySpecificationContent}
+                            rating={comboData.keySpecifications[1].keySpecificationContent}
+                            technology={comboData.keySpecifications[3].keySpecificationContent}
+                            userPreferences={userPreferences}
+                            batterySlug="/"
+                            key={comboDataIndex}
+                            buttonTextVernacId="da0c3ceb-64b6-40b0-8b87-b14e68a03dc6"
+
+                        />
+                    ))}
+                    slidesContainerClassName="!tw-auto-cols-[100%] lg:!tw-auto-cols-max tw-place-self-center tw-items-center"
+                selectedContainerClassName="tw-h-full"
+                deselectedContainersClassName="tw-scale-[0.9] tw-h-full"
+                autoplayDelay={null}
             />
+        </div>
+    );
+}
+
+function BatteryCard({
+    userPreferences,
+    batterySlug,
+    imageRelativeUrl,
+    name,
+    description,
+    warranty,
+    capacity,
+    rating,
+    technology,
+    buttonTextVernacId,
+}: {
+    userPreferences: UserPreferences;
+    batterySlug: string;
+    imageRelativeUrl: string;
+    name: string;
+    description: string;
+    warranty: string;
+    capacity: string;
+    rating: string;
+    technology: string;
+    buttonTextVernacId?: string;
+}) {
+    return (
+        <div className="tw-max-w-3xl tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:tw-gap-x-2 lg-bg-new-background-500 lg-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8">
+            <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-place-items-center">
+                <div className="lg:tw-hidden lg-bg-primary-500 tw-text-secondary-900-dark tw-px-2 tw-py-1">{getVernacularString("7bcd803f-7cae-427b-9838-8c1966e13b01", userPreferences.language)}</div>
+                <div className="tw-w-full tw-h-full">
+                    <FullWidthImage relativePath={imageRelativeUrl} />
+                </div>
+
+                <Link
+                    className="tw-hidden lg:tw-block"
+                    to={batterySlug}
+                >
+                    <button className="lg-cta-button">{buttonTextVernacId == null ? getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language) : getVernacularString(buttonTextVernacId, userPreferences.language)}</button>
+                </Link>
+            </div>
+
+            <div className="tw-col-start-1 lg:tw-col-start-2 tw-grid tw-grid-flow-row">
+                <div className="lg-text-title1 tw-text-center lg:tw-text-left">{name}</div>
+
+                <VerticalSpacer className="tw-h-2" />
+
+                <div className="lg-text-body tw-text-center lg:tw-text-left">{description}</div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="tw-grid tw-grid-rows-[auto_auto_minmax(0,1fr)] md:max-lg:tw-grid-cols-1 md:max-lg:tw-grid-flow-row md:max-lg:tw-place-items-center md:max-lg:tw-place-self-center md:max-lg:tw-w-fit tw-grid-cols-2 tw-gap-x-4 tw-gap-y-8">
+                    <div className="tw-row-start-1 tw-col-start-1 md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 lg:tw-place-self-start">
+                        <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
+                            <img
+                                src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/warranty-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                alt="warranty"
+                            />
+                        </div>
+
+                        <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start">
+                            <div className="tw-row-start-2 tw-font-bold">{getVernacularString("2c6dc668-49ef-4913-88c1-904d6e9be1a2", userPreferences.language)}</div>
+                            <div className="tw-row-start-3">{warranty}</div>
+                        </div>
+                    </div>
+
+                    <div className="tw-row-start-1 tw-col-start-2 md:max-lg:tw-w-full md:max-lg:tw-row-start-2 md:max-lg:tw-col-start-1 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
+                        <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
+                            <img
+                                src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/capacity-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                alt="capacity"
+                            />
+                        </div>
+
+                        <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start">
+                            <div className="tw-row-start-2 tw-font-bold">{getVernacularString("landingPage2S4Specification2Title", userPreferences.language)}</div>
+                            <div className="tw-row-start-3">{rating}</div>
+                        </div>
+                    </div>
+
+                    <div className="tw-row-start-2 tw-col-start-1 md:max-lg:tw-w-full md:max-lg:tw-row-start-3 md:max-lg:tw-col-start-1 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
+                        <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
+                            <img
+                                src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/polarity-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                alt="polarity"
+                            />
+                        </div>
+
+                        <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start">
+                            <div className="tw-row-start-2 tw-font-bold">{getVernacularString("c73ece31-e0c3-4b1f-94c5-51d742ae3186", userPreferences.language)}</div>
+                            <div className="tw-row-start-3">{capacity}</div>
+                        </div>
+                    </div>
+
+                    <div className="tw-row-start-2 tw-col-start-2 md:max-lg:tw-w-full md:max-lg:tw-row-start-4 md:max-lg:tw-col-start-1 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
+                        <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
+                            <img
+                                src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/dimensions-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                alt="dimension"
+                            />
+                        </div>
+
+                        <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start">
+                            <div className="tw-row-start-2 tw-font-bold">{getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}</div>
+                            <div className="tw-row-start-3">{technology}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
+
+                <Link
+                    className="tw-place-self-center lg:tw-hidden"
+                    to={batterySlug}
+                >
+                    <button className="lg-cta-button">{buttonTextVernacId == null ? getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language) : getVernacularString(buttonTextVernacId, userPreferences.language)}</button>
+                    {/* <button className="lg-cta-button">{buttonTextVernacId == null ? getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language) : getVernacularString("buttonTextVernacId", userPreferences.language)}</button> */}
+                </Link>
+
+                <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
+            </div>
         </div>
     );
 }
@@ -687,9 +828,7 @@ export function WhyLivguardCombo({userPreferences, className}: {userPreferences:
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     key={itemIndex}
-                                    className={`tw-col-start-${
-                                        itemIndex == 0 ? itemIndex + 1 : itemIndex + 2
-                                    } lg-bg-secondary-100 tw-rounded-lg tw-p-3 lg:tw-px-6 tw-flex tw-flex-col tw-justify-center lg-card-shadow`}
+                                    className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 lg:tw-px-6 tw-flex tw-flex-col tw-justify-center lg-card-shadow`}
                                 >
                                     <div className="tw-flex tw-items-center tw-justify-center">
                                         <FixedWidthImage

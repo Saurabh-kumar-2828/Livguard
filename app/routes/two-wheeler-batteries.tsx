@@ -763,6 +763,7 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                     <BatteryCard
                         userPreferences={userPreferences}
                         {...battery}
+                        key={batteryIndex}
                     />
                 ))}
                 slidesContainerClassName="!tw-auto-cols-[100%] lg:!tw-auto-cols-max tw-place-self-center tw-items-center"

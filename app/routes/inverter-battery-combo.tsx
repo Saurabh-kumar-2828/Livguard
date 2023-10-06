@@ -7,17 +7,15 @@ import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
-import {ContactForm} from "~/components/contactUsForm";
-import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FaqSectionInternal} from "~/components/faqs";
 import {CoverImage} from "~/components/images/coverImage";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
 import {StickyLandingPage3BottomBar} from "~/components/landingPage3BottomBar";
 import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
-import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {PageScaffold} from "~/components/pageScaffold";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
@@ -29,7 +27,6 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {ContactUsCta, TransformingLives} from "~/routes";
-import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {ComboSection, WhyLivguardCombo} from "~/routes/campaigns/inverter-and-battery";
 import type {FormStateInputs, FormStateInputsAction} from "~/routes/lead-form.state";
 import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
@@ -38,8 +35,6 @@ import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import {ContactFormSection} from "~/routes/campaigns/energy-storage-solution";
-import {PageScaffold} from "~/components/pageScaffold";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -166,26 +161,6 @@ export default function () {
 
     return (
         <>
-            {/* <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={false}
-                utmParameters={utmSearchParameters}
-                showContactCtaButton={false}
-                showSearchOption={true}
-                pageUrl={pageUrl}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <LandingPage
-                        userPreferences={userPreferences}
-                        utmParameters={utmSearchParameters}
-                        pageUrl={pageUrl}
-                        secondaryNavigationController={secondaryNavigationController}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold> */}
-
             <PageScaffold
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
@@ -309,8 +284,8 @@ function LandingPage({
                 leadId={leadId.current}
                 pageUrl={pageUrl}
             />
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 lg:tw-hidden tw-col-start-1 tw-col-span-full" />
-            {isScreenSizeBelow && (
+            {/* <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 lg:tw-hidden tw-col-start-1 tw-col-span-full" /> */}
+            {/* {isScreenSizeBelow && (
                 <>
                     <ContactFormSection
                         userPreferences={userPreferences}
@@ -324,17 +299,19 @@ function LandingPage({
                         className="tw-row-start-4 tw-col-start-1 lg:tw-hidden"
                     />
                 </>
-            )}
+            )} */}
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 lg:tw-row-start-5 tw-col-start-1 tw-col-span-full" />
+
             <WhyLivguardComboSection
                 userPreferences={userPreferences}
-                className="tw-row-start-5 lg:tw-row-start-6 lg:tw-col-span-full"
+                className="tw-row-start-5 lg:tw-row-start-6 lg:tw-col-span-full tw-max-w-7xl tw-mx-auto tw-w-full"
             />
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-row-start-7 tw-col-start-1 tw-col-span-full" />
+
             <OurCombos
                 userPreferences={userPreferences}
-                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-8 lg:tw-col-start-1 lg:tw-col-span-2"
+                className="tw-row-start-7  tw-col-start-1 lg:tw-row-start-8 lg:tw-col-start-1 lg:tw-col-span-2"
             />
 
             {/* <DealerLocator
@@ -352,14 +329,17 @@ function LandingPage({
                 userPreferences={userPreferences}
                 className="tw-row-start-6 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             /> */}
+
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 lg:tw-row-start-9 tw-col-start-1 tw-col-span-full" />
+
             <TvcSection
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
-                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-10 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-10 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-w-full tw-m-auto"
                 pageUrl={pageUrl}
             />
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10 lg:tw-row-start-11 tw-col-start-1 tw-col-span-full" />
+
             <TapIntoEfficiency
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
@@ -367,11 +347,13 @@ function LandingPage({
                 pageUrl={pageUrl}
             />
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 lg:tw-row-start-[13] tw-col-start-1 tw-col-span-full" />
+
             <TransformingLives
                 userPreferences={userPreferences}
                 className="tw-col-start-1 tw-row-start-[13] lg:tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[14] lg:tw-row-start-[15] tw-col-start-1 tw-col-span-full" />
+
             <FaqSection
                 userPreferences={userPreferences}
                 className="tw-row-start-[15] tw-col-start-1 lg:tw-row-start-[16] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
@@ -380,6 +362,167 @@ function LandingPage({
     );
 }
 
+// function HeroSection({
+//     userPreferences,
+//     className,
+//     fetcher,
+//     otpFetcher,
+//     utmParameters,
+//     formStateInputs,
+//     dispatch,
+//     leadId,
+//     pageUrl,
+// }: {
+//     userPreferences: UserPreferences;
+//     className?: string;
+//     fetcher: FetcherWithComponents<any>;
+//     otpFetcher: FetcherWithComponents<any>;
+//     utmParameters: {
+//         [searchParameter: string]: string;
+//     };
+//     formStateInputs: FormStateInputs;
+//     dispatch: React.Dispatch<FormStateInputsAction>;
+//     leadId: Uuid;
+//     pageUrl: string;
+// }) {
+//     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+
+//     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+//     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+//     useEffect(() => {
+//         secondaryNavigationController.setSections((previousSections) => ({
+//             ...previousSections,
+//             top: {
+//                 humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+//                 isCurrentlyVisible: sectionInView,
+//             },
+//         }));
+//     }, [sectionRef, sectionInView]);
+//     return (
+//         <div
+//             className={concatenateNonNullStringsWithSpaces("tw-h-fit", className)}
+//             id="top"
+//             ref={sectionRef}
+//         >
+//             <div
+//                 className={`tw-w-full tw-grid tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate`}
+//                 ref={ref}
+//             >
+//                 {/* {containerWidth == null || containerHeight == null ? null : containerHeight > containerWidth || containerWidth < 640 ? (
+//                 <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-relative -tw-z-10">
+//                     <img
+//                         src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hero-banners/akshay-mobile.jpg")?.finalUrl, ImageCdnProvider.Bunny, 1080, 1080)}
+//                         className="tw-w-full tw-h-full tw-absolute tw-inset-0 tw-object-cover -tw-z-10"
+//                         key={"/livguard/hero-banners/akshay-mobile.jpg"}
+//                     />
+//                 </div>
+//             ) : (
+//                 <img
+//                     src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hero-banners/akshay-desktop.jpg")?.finalUrl, ImageCdnProvider.Bunny, 1080, null)}
+//                     className="tw-w-full tw-h-full tw-absolute tw-inset-0 tw-object-cover tw-object-left-bottom -tw-z-10"
+//                     key={"/livguard/hero-banners/akshay-desktop.jpg"}
+//                 />
+//             )} */}
+
+//                 <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-fit tw-relative -tw-z-10">
+//                     {/* <FullWidthImage relativePath="/livguard/inverter-batteries-combo/1/combo-desktop-banner.jpg" /> */}
+//                     {containerWidth == null || containerWidth < 1024 ? (
+//                         <FullWidthImage  relativePath="/livguard/inverter-batteries-combo/1/combo-mobile-banner.png" />
+//                     ) : (
+//                         <FullWidthImage relativePath="/livguard/inverter-batteries-combo/1/combo-desktop-banner.jpg" />
+//                     )}
+
+//                     {containerWidth == null ? null : (
+//                         <>
+//                             {/* <img
+//                                 src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/akshay.png")?.finalUrl, ImageCdnProvider.Bunny, null, null)}
+//                                 alt="Akshay Kumar"
+//                                 className={concatenateNonNullStringsWithSpaces(
+//                                     "tw-absolute",
+//                                     containerWidth < 768 ? "tw-bottom-0 tw-right-0 tw-w-[30%]" : containerWidth < 1024 ? "tw-bottom-0 tw-right-0 tw-h-3/5" : "tw-bottom-0 tw-left-[30%] tw-h-3/5",
+//                                 )}
+//                             /> */}
+
+//                             <img
+//                                 src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/lp3/1/combo.png")?.finalUrl, ImageCdnProvider.Bunny, 240, null)}
+//                                 alt="Livguard inverter-battery combo"
+//                                 className={concatenateNonNullStringsWithSpaces(
+//                                     "tw-absolute",
+//                                     containerWidth < 768 ? "tw-bottom-0 tw-left-0 tw-w-3/5" : containerWidth < 1024 ? "tw-bottom-0 tw-left-0 tw-w-3/5" : "-tw-bottom-5 tw-left-[120px] tw-h-1/2",
+//                                 )}
+//                             />
+//                         </>
+//                     )}
+//                 </div>
+
+//                 <div className="tw-row-start-1 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1 tw-pt-36 lg:tw-pt-8 tw-h-fit">
+//                     <DefaultTextAnimation className="">
+//                         <div
+//                             dangerouslySetInnerHTML={{__html: getVernacularString("0532fdf6-0988-4275-a797-3c8db1cacc2f", userPreferences.language)}}
+//                             className="lg-text-banner lg-px-screen-edge lg:tw-pl-[120px] sm:max-lg:tw-w-4/5 sm:max-lg:tw-mx-auto"
+//                         />
+//                     </DefaultTextAnimation>
+
+//                     <VerticalSpacer className="tw-h-2" />
+
+//                     {/* <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 lg:tw-place-self-start lg:tw-max-w-[620px] lg:tw-col-start-1">
+//                         <div
+//                             dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T2", userPreferences.language)}}
+//                             className="lg-text-title1 lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
+//                         />
+//                     </DefaultTextAnimation> */}
+
+//                     <DefaultElementAnimation className="lg:tw-pl-[120px]">
+//                         <Link
+//                             to="#contact-us-form-mobile"
+//                             className="lg-cta-button lg-px-screen-edge lg:tw-pl-[60px] tw-w-fit max-lg:tw-mx-auto"
+//                         >
+//                             {getVernacularString("landingPage3S1T3", userPreferences.language)}
+//                         </Link>
+//                     </DefaultElementAnimation>
+//                 </div>
+
+//                 {/* <div className="tw-row-[11] tw-col-start-1 tw-col-span-full">
+//                     <Link
+//                         to="#contact-us-form-mobile"
+//                         className="tw-block lg:tw-hidden"
+//                     >
+//                         <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+//                     </Link>
+
+//                     <Link
+//                         to="#energy-solutions"
+//                         className="tw-hidden lg:tw-block"
+//                     >
+//                         <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+//                     </Link>
+//                 </div> */}
+
+//                 {/* <div className="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center lg:tw-col-start-2 lg:tw-row-start-1 lg:tw-row-span-full">
+//                     <div
+//                         className="lg:tw-w-[25rem]"
+//                         id="contact-us-form-desktop"
+//                     >
+//                         {!formStateInputs.formSuccessfullySubmitted ? (
+//                             <ContactForm
+//                                 userPreferences={userPreferences}
+//                                 fetcher={fetcher}
+//                                 otpFetcher={otpFetcher}
+//                                 utmParameters={utmParameters}
+//                                 formStateInputs={formStateInputs}
+//                                 dispatch={dispatch}
+//                                 leadId={leadId}
+//                                 pageUrl={pageUrl}
+//                             />
+//                         ) : (
+//                             <ContactFormSuccess userPreferences={userPreferences} />
+//                         )}
+//                     </div>
+//                 </div> */}
+//             </div>
+//         </div>
+//     );
+// }
 function HeroSection({
     userPreferences,
     className,
@@ -430,7 +573,9 @@ function HeroSection({
                 className={`tw-h-full tw-w-full tw-grid tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate ${
                     containerWidth == null || containerWidth < 380
                         ? "tw-grid-rows-[1.5rem_0_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem]"
-                        : "tw-grid-rows-[1.5rem_3rem_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem]"
+                        : containerWidth < 1028
+                        ? "tw-grid-rows-[1.5rem_3rem_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem]"
+                        : "tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem]"
                 }`}
                 ref={ref}
             >
@@ -460,7 +605,7 @@ function HeroSection({
                                 alt="Akshay Kumar"
                                 className={concatenateNonNullStringsWithSpaces(
                                     "tw-absolute",
-                                    containerWidth < 768 ? "tw-bottom-0 tw-right-0 tw-w-[30%]" : containerWidth < 1024 ? "tw-bottom-0 tw-right-0 tw-h-3/5" : "tw-bottom-0 tw-left-[30%] tw-h-3/5",
+                                    containerWidth < 768 ? "tw-bottom-0 tw-right-0 tw-w-[30%]" : containerWidth < 1024 ? "tw-bottom-0 tw-right-0 tw-h-3/5" : "tw-bottom-0 tw-right-[5%] tw-h-3/5",
                                 )}
                             />
 
@@ -469,7 +614,7 @@ function HeroSection({
                                 alt="Livguard inverter-battery combo"
                                 className={concatenateNonNullStringsWithSpaces(
                                     "tw-absolute",
-                                    containerWidth < 768 ? "tw-bottom-0 tw-left-0 tw-w-2/5" : containerWidth < 1024 ? "tw-bottom-0 tw-left-0 tw-h-3/5" : "tw-bottom-[-5rem] tw-left-8 tw-h-3/5",
+                                    containerWidth < 768 ? "tw-bottom-0 tw-left-0 tw-w-2/5" : containerWidth < 1024 ? "tw-bottom-0 tw-left-0 tw-h-3/5" : "tw-bottom-[-5rem] tw-right-[20%] tw-h-3/5",
                                 )}
                             />
                         </>
@@ -490,13 +635,14 @@ function HeroSection({
                     />
                 </DefaultTextAnimation>
 
-                <DefaultElementAnimation className="tw-row-[8] tw-col-start-1 lg:tw-place-self-start lg:tw-pl-[120px] lg:tw-col-start-1 lg:tw-hidden">
-                    <Link
-                        to="#contact-us-form-mobile"
-                        className="lg-cta-button lg-px-screen-edge lg:tw-pl-[60px]"
-                    >
-                        {getVernacularString("landingPage3S1T3", userPreferences.language)}
-                    </Link>
+                <DefaultElementAnimation className="tw-row-[8] tw-col-start-1 lg:tw-place-self-start lg:tw-pl-[120px] lg:tw-col-start-1 tw-mb-4">
+                    <ContactUsCta
+                        userPreferences={userPreferences}
+                        textVernacId={"24923d9b-841d-4411-8e09-b68ff2cac742"}
+                        className="tw-z-10"
+                        utmParameters={utmParameters}
+                        pageUrl={pageUrl}
+                    />
                 </DefaultElementAnimation>
 
                 <div className="tw-row-[11] tw-col-start-1 tw-col-span-full">
@@ -515,7 +661,7 @@ function HeroSection({
                     </Link>
                 </div>
 
-                <div className="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center lg:tw-col-start-2 lg:tw-row-start-1 lg:tw-row-span-full">
+                {/* <div className="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center lg:tw-col-start-2 lg:tw-row-start-1 lg:tw-row-span-full">
                     <div
                         className="lg:tw-w-[25rem]"
                         id="contact-us-form-desktop"
@@ -535,7 +681,7 @@ function HeroSection({
                             <ContactFormSuccess userPreferences={userPreferences} />
                         )}
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
@@ -752,12 +898,15 @@ export function TapIntoEfficiency({
                     items={sectionData}
                     itemBuilder={(card, cardIndex) => (
                         <div
-                            className={`tw-col-start-${cardIndex + 1} tw-w-full tw-h-full tw-flex tw-flex-col tw-items-center tw-text-center`}
+                            className={`tw-col-start-${cardIndex + 1} lg-card lg-card-shadow-hack tw-p-2 tw-pt-6 tw-w-full tw-h-full tw-flex tw-flex-col tw-items-center tw-text-center`}
                             key={cardIndex}
                         >
                             <div className="tw-row-start-2 lg:tw-col-start-1 tw-text-center lg:te-text-left lg:tw-h-full tw-flex-1 tw-flex tw-flex-col">
                                 <DefaultTextAnimation>
-                                    <div className="lg-text-title1">{getVernacularString(card.titleTextContentPiece, userPreferences.language)}</div>
+                                    <div
+                                        className="lg-text-title1"
+                                        dangerouslySetInnerHTML={{__html: getVernacularString(card.titleTextContentPiece, userPreferences.language)}}
+                                    />
                                 </DefaultTextAnimation>
 
                                 <div className="tw-h-2" />

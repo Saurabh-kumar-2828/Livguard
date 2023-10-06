@@ -1478,14 +1478,18 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                             </Link>
                         ) : (
                             <div
+                                // tw-h-6
                                 className="tw-relative"
                                 key={itemIndex}
                             >
                                 <div>
                                     <>
                                         <button
+                                            // tw-pb-6
                                             className="tw-group tw-duration-200 hover:lg-text-primary-500 tw-whitespace-nowrap tw-relative"
                                             onMouseEnter={() => setShowMenu(itemIndex)}
+                                            // TODO: Add onMouseLeave here as well
+                                            // onMouseLeave={() => setShowMenu(null)}
                                         >
                                             {getVernacularString(item.contentId, userPreferences.language)}
                                             <div
