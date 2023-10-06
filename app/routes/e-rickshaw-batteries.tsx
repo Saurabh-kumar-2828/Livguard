@@ -24,7 +24,7 @@ import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import LivguardDialog from "~/components/livguardDialog";
 import {StickyBottomBar} from "~/components/bottomBar";
-import {ProductType, allProductDetails} from "~/productData";
+import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {DealerLocator} from "~/routes";
@@ -32,6 +32,7 @@ import {SecondaryNavigationController, useSecondaryNavigationController} from "~
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {useInView} from "react-intersection-observer";
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -122,6 +123,7 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    products: Array<ProductDetails>;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -130,17 +132,22 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const slugs = ["lgb0erfp1500", "lgc0ertu1800", "lgd0ertu2300", "lgd0ertu2500"];
+
+    const products = slugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        products: products,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, products} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -165,6 +172,7 @@ export default () => {
                         utmParameters={utmSearchParameters}
                         pageUrl={pageUrl}
                         secondaryNavigationController={secondaryNavigationController}
+                        products={products}
                     />
                 </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
@@ -183,6 +191,7 @@ function ERickshawBatteriesPage({
     utmParameters,
     pageUrl,
     secondaryNavigationController,
+    products,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -190,6 +199,7 @@ function ERickshawBatteriesPage({
     };
     pageUrl: string;
     secondaryNavigationController?: SecondaryNavigationController;
+    products: Array<ProductDetails>;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
@@ -211,6 +221,7 @@ function ERickshawBatteriesPage({
                 <OurRangeToEmpowerYourGrowth
                     userPreferences={userPreferences}
                     className="tw-row-start-6 tw-col-start-1 lg:tw-col-span-full tw-w-full"
+                    products={products}
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-7 tw-col-start-1 lg:tw-col-span-full" />
@@ -397,56 +408,17 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
     );
 }
 
-function OurRangeToEmpowerYourGrowth({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const products = [
-        allProductDetails["lgb0erfp1500"][userPreferences.language],
-        allProductDetails["lgc0ertu1800"][userPreferences.language],
-        allProductDetails["lgd0ertu2300"][userPreferences.language],
-        allProductDetails["lgd0ertu2500"][userPreferences.language],
-    ];
-
-    const batteriesData = [
-        {
-            batterySlug: "lgb0erfp1500",
-            name: products[0].humanReadableModelNumber,
-            description: products[0].description,
-            warranty: products[0].specifications[1].value,
-            capacity: products[0].specifications[2].value,
-            grid: products[0].specifications[3].value,
-            dimensions: products[0].specifications[4].value,
-            productType: ProductType.automotiveBattery,
-        },
-        {
-            batterySlug: "lgc0ertu1800",
-            name: products[1].humanReadableModelNumber,
-            description: products[1].description,
-            warranty: products[1].specifications[1].value,
-            capacity: products[1].specifications[2].value,
-            grid: products[1].specifications[3].value,
-            dimensions: products[1].specifications[4].value,
-            productType: ProductType.automotiveBattery,
-        },
-        {
-            batterySlug: "lgd0ertu2300",
-            name: products[2].humanReadableModelNumber,
-            description: products[2].description,
-            warranty: products[2].specifications[1].value,
-            capacity: products[2].specifications[2].value,
-            grid: products[2].specifications[3].value,
-            dimensions: products[2].specifications[4].value,
-            productType: ProductType.automotiveBattery,
-        },
-        {
-            batterySlug: "lgd0ertu2500",
-            name: products[3].humanReadableModelNumber,
-            description: products[3].description,
-            warranty: products[3].specifications[1].value,
-            capacity: products[3].specifications[2].value,
-            grid: products[3].specifications[3].value,
-            dimensions: products[3].specifications[4].value,
-            productType: ProductType.automotiveBattery,
-        },
-    ];
+function OurRangeToEmpowerYourGrowth({userPreferences, className, products}: {userPreferences: UserPreferences; className?: string; products: Array<ProductDetails>}) {
+    const batteriesData = products.map((product) => ({
+        batterySlug: product.slug,
+        name: product.humanReadableModelNumber,
+        description: product.description,
+        warranty: product.specifications[1].value,
+        capacity: product.specifications[2].value,
+        grid: product.specifications[3].value,
+        dimensions: product.specifications[4].value,
+        productType: ProductType.automotiveBattery,
+    }));
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {

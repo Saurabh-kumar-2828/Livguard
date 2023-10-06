@@ -1,6 +1,6 @@
 import {ProductCardTwoDetailsType} from "~/components/reusable-components/productCardTwoDetails";
 import {distinct, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
-import {ProductDetails, ProductType, allProductDetails} from "~/productData";
+import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
 import {PricingPageFilter, PricingPageFilterAttribute, PricingPageProductType, PricingPageState, allPricingPageFilters} from "~/routes/pricing/index.types";
 import {UserPreferences} from "~/typeDefinitions";
 

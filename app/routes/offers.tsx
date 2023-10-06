@@ -4,6 +4,7 @@ import {useEffect, useState, useContext} from "react";
 import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -22,7 +23,7 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
-import {ProductDetails, ProductType, allProductDetails} from "~/productData";
+import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
 import {ContactUsDialog, DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, type UserPreferences} from "~/typeDefinitions";
@@ -142,16 +143,9 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
-    const featuredProducts = [
-        allProductDetails["lg700e"][userPreferences.language],
-        allProductDetails["lgs1100i"][userPreferences.language],
-        allProductDetails["it1548tt"][userPreferences.language],
-        allProductDetails["it2272tt"][userPreferences.language],
-        allProductDetails["lg1950i"][userPreferences.language],
-        allProductDetails["lgs1700"][userPreferences.language],
-        allProductDetails["it1584tt"][userPreferences.language],
-        allProductDetails["it1578tt"][userPreferences.language],
-    ];
+    const slugs = ["lg700e", "lgs1100i", "it1548tt", "it2272tt", "lg1950i", "lgs1700", "it1584tt", "it1578tt"];
+
+    const featuredProducts = slugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,

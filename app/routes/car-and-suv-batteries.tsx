@@ -1,39 +1,41 @@
-import type { LoaderFunction, V2_MetaFunction } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
-import React, { useContext, useEffect, useReducer, useRef } from "react";
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "react-bootstrap-icons";
-import { useInView } from "react-intersection-observer";
-import { SubCategoryProductsInternal } from "~/components/automotive-batteries/subCategoryProductsInternal";
-import { CarouselStyle3 } from "~/components/carouselStyle3";
-import { CarouselStyle5 } from "~/components/carouselStyle5";
-import { DefaultTextAnimation } from "~/components/defaultTextAnimation";
-import { EmbeddedYoutubeVideo } from "~/components/embeddedYoutubeVideo";
-import { FaqSectionInternal } from "~/components/faqs";
-import { FilterAccordion } from "~/components/filterAccordion";
-import { FullHeightImage } from "~/components/images/fullHeightImage";
-import { FullWidthImage } from "~/components/images/simpleFullWidthImage";
-import { PageScaffold } from "~/components/pageScaffold";
-import { ProductAndCategoryBottomBar } from "~/components/productAndCategoryBottomBar";
-import { SecondaryNavigationControllerContext } from "~/contexts/secondaryNavigationControllerContext";
-import { getAbsolutePathForRelativePath } from "~/global-common-typescript/components/images/growthJockeyImage";
-import { ItemBuilder } from "~/global-common-typescript/components/itemBuilder";
-import { VerticalSpacer } from "~/global-common-typescript/components/verticalSpacer";
-import { ImageCdnProvider } from "~/global-common-typescript/typeDefinitions";
-import { concatenateNonNullStringsWithSpaces } from "~/global-common-typescript/utilities/utilities";
-import { useUtmSearchParameters } from "~/global-common-typescript/utilities/utmSearchParameters";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
+import {Fetcher, FetcherWithComponents, Link, useFetcher, useLoaderData} from "@remix-run/react";
+import React, {useContext, useEffect, useReducer, useRef} from "react";
+import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
+import {useInView} from "react-intersection-observer";
+import {carAndSuvBatteriesBrands} from "~/backend/battery-finder.server";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
+import {SubCategoryProductsInternal} from "~/components/automotive-batteries/subCategoryProductsInternal";
+import {CarouselStyle3} from "~/components/carouselStyle3";
+import {CarouselStyle5} from "~/components/carouselStyle5";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
+import {FaqSectionInternal} from "~/components/faqs";
+import {FilterAccordion} from "~/components/filterAccordion";
+import {FullHeightImage} from "~/components/images/fullHeightImage";
+import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
+import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {concatenateNonNullStringsWithSpaces, distinct} from "~/global-common-typescript/utilities/utilities";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
-import { SecondaryNavigationController, useSecondaryNavigationController } from "~/hooks/useSecondaryNavigationController";
-import { FormSelectComponent } from "~/livguard-common-typescript/scratchpad";
-import { ProductType, allProductDetails } from "~/productData";
-import { DealerLocator } from "~/routes";
-import type { BatteryFinderAction } from "~/routes/car-and-suv/index.state";
-import { BatteryFinderActionType, batteryFinderInitialState, batteryFinderReducer } from "~/routes/car-and-suv/index.state";
-import type { BatteryFinderState } from "~/routes/car-and-suv/index.types";
-import { getUserPreferencesFromCookiesAndUrlSearchParameters } from "~/server/utilities.server";
-import type { UserPreferences } from "~/typeDefinitions";
-import { Language } from "~/typeDefinitions";
-import { getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold } from "~/utilities";
-import { getVernacularString } from "~/vernacularProvider";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
+import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
+import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
+import {DealerLocator} from "~/routes";
+import type {BatteryFinderAction} from "~/routes/car-and-suv/index.state";
+import {BatteryFinderActionType, batteryFinderInitialState, batteryFinderReducer} from "~/routes/car-and-suv/index.state";
+import type {BatteryFinderState} from "~/routes/car-and-suv/index.types";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -124,6 +126,14 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    zingEternaProducts: Array<ProductDetails>;
+    zingUltraProducts: Array<ProductDetails>;
+    zingPrimoProducts: Array<ProductDetails>;
+    xtraProducts: Array<ProductDetails>;
+    proCabProducts: Array<ProductDetails>;
+    proCabPlusProducts: Array<ProductDetails>;
+    batteryFinderBrands: Array<string>;
+    initialRecommendedBatteries: Array<ProductDetails>;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -132,17 +142,56 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const zingEternaSlugs = ["ze38b20l", "ze38b20r", "ze55b24lsl"];
+    const zingUltraSlugs = ["zu42b20l", "zu42b20r", "zu42b20bhl", "zudin44lhl", "zudin50l", "zudin55r", "zudin60l", "zudin65lhl", "zu75d23bhl"];
+    const zingPrimoSlugs = ["zp38b20l", "zp38b20r", "zp70d26l", "zp70d26r"];
+    const xtraSlugs = ["zx40b20l", "zx40b20r"];
+    const proCabSlugs = ["pc38b20l"];
+    const proCabPlusSlugs = ["pp38b20l"];
+
+    const zingEternaProducts = zingEternaSlugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+    const zingUltraProducts = zingUltraSlugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+    const zingPrimoProducts = zingPrimoSlugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+    const xtraProducts = xtraSlugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+    const proCabProducts = proCabSlugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+    const proCabPlusProducts = proCabPlusSlugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+
+    const batteryFinderBrands = carAndSuvBatteriesBrands;
+
+    const initialRecommendedBatterySlugs = ["zp38b20r", "zudin50l"];
+    const initialRecommendedBatteries = initialRecommendedBatterySlugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        zingEternaProducts: zingEternaProducts,
+        zingUltraProducts: zingUltraProducts,
+        zingPrimoProducts: zingPrimoProducts,
+        xtraProducts: xtraProducts,
+        proCabProducts: proCabProducts,
+        proCabPlusProducts: proCabPlusProducts,
+        batteryFinderBrands: batteryFinderBrands,
+        initialRecommendedBatteries: initialRecommendedBatteries,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {
+        userPreferences,
+        redirectTo,
+        pageUrl,
+        zingEternaProducts,
+        zingUltraProducts,
+        zingPrimoProducts,
+        xtraProducts,
+        proCabProducts,
+        proCabPlusProducts,
+        batteryFinderBrands,
+        initialRecommendedBatteries,
+    } = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -168,6 +217,14 @@ export default () => {
                         utmParameters={utmSearchParameters}
                         pageUrl={pageUrl}
                         secondaryNavigationController={secondaryNavigationController}
+                        zingEternaProducts={zingEternaProducts}
+                        zingUltraProducts={zingUltraProducts}
+                        zingPrimoProducts={zingPrimoProducts}
+                        xtraProducts={xtraProducts}
+                        proCabProducts={proCabProducts}
+                        proCabPlusProducts={proCabPlusProducts}
+                        batteryFinderBrands={batteryFinderBrands}
+                        initialRecommendedBatteries={initialRecommendedBatteries}
                     />
                 </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
@@ -186,6 +243,14 @@ function CarAndSuvBatteriesPage({
     utmParameters,
     pageUrl,
     secondaryNavigationController,
+    zingEternaProducts,
+    zingUltraProducts,
+    zingPrimoProducts,
+    xtraProducts,
+    proCabProducts,
+    proCabPlusProducts,
+    batteryFinderBrands,
+    initialRecommendedBatteries,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -193,8 +258,15 @@ function CarAndSuvBatteriesPage({
     };
     pageUrl: string;
     secondaryNavigationController?: SecondaryNavigationController;
+    zingEternaProducts: Array<ProductDetails>;
+    zingUltraProducts: Array<ProductDetails>;
+    zingPrimoProducts: Array<ProductDetails>;
+    xtraProducts: Array<ProductDetails>;
+    proCabProducts: Array<ProductDetails>;
+    proCabPlusProducts: Array<ProductDetails>;
+    batteryFinderBrands: Array<string>;
+    initialRecommendedBatteries: Array<ProductDetails>;
 }) {
-    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -214,6 +286,8 @@ function CarAndSuvBatteriesPage({
                 <OurSuggestionsBasedOnYourChoice
                     userPreferences={userPreferences}
                     className="tw-row-start-6 tw-col-start-1 lg:tw-col-span-full tw-w-full"
+                    batteryFinderBrands={batteryFinderBrands}
+                    initialRecommendedBatteries={initialRecommendedBatteries}
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-7 tw-col-start-1 lg:tw-col-span-full" />
@@ -221,6 +295,12 @@ function CarAndSuvBatteriesPage({
                 <TopCarAndSuvBatteryPicks
                     userPreferences={userPreferences}
                     className="tw-row-start-8 tw-col-start-1 lg:tw-col-span-full tw-max-w-7xl tw-mx-auto"
+                    zingEternaProducts={zingEternaProducts}
+                    zingUltraProducts={zingUltraProducts}
+                    zingPrimoProducts={zingPrimoProducts}
+                    xtraProducts={xtraProducts}
+                    proCabProducts={proCabProducts}
+                    proCabPlusProducts={proCabPlusProducts}
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-9 tw-col-start-1 lg:tw-col-span-full" />
@@ -415,10 +495,59 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
     );
 }
 
-function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const [batteryFinderState, dispatch] = useReducer(batteryFinderReducer, batteryFinderInitialState(userPreferences.language));
+function OurSuggestionsBasedOnYourChoice({
+    userPreferences,
+    className,
+    batteryFinderBrands,
+    initialRecommendedBatteries,
+}: {
+    userPreferences: UserPreferences;
+    className?: string;
+    batteryFinderBrands: Array<string>;
+    initialRecommendedBatteries: Array<ProductDetails>;
+}) {
+    const [batteryFinderState, dispatch] = useReducer(batteryFinderReducer, batteryFinderInitialState(userPreferences.language, batteryFinderBrands, initialRecommendedBatteries));
 
-    const brands = batteryFinderState.brands;
+    const segmentFetcher = useFetcher();
+    const modelFetcher = useFetcher();
+    const fuelFetcher = useFetcher();
+    const findBatteryFetcher = useFetcher();
+
+    useEffect(() => {
+        if (segmentFetcher.data != null) {
+            dispatch({
+                actionType: BatteryFinderActionType.setSegments,
+                payload: segmentFetcher.data.segments,
+            });
+        }
+    }, [segmentFetcher.data]);
+
+    useEffect(() => {
+        if (modelFetcher.data != null) {
+            dispatch({
+                actionType: BatteryFinderActionType.setModels,
+                payload: modelFetcher.data.models,
+            });
+        }
+    }, [modelFetcher.data]);
+
+    useEffect(() => {
+        if (fuelFetcher.data != null) {
+            dispatch({
+                actionType: BatteryFinderActionType.setFuelTypes,
+                payload: fuelFetcher.data.fuels,
+            });
+        }
+    }, [fuelFetcher.data]);
+
+    useEffect(() => {
+        if (findBatteryFetcher.data != null) {
+            dispatch({
+                actionType: BatteryFinderActionType.setRecommendedBatteries,
+                payload: findBatteryFetcher.data.recommendedBatteries,
+            });
+        }
+    }, [findBatteryFetcher.data]);
 
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
@@ -454,7 +583,7 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                 <div>{getVernacularString("c505d928-fde1-4ad6-95f4-2f3109e0e87f", userPreferences.language)}</div>
                 <div>
                     <FormSelectComponent
-                        items={brands}
+                        items={batteryFinderBrands}
                         itemBuilder={(item) => {
                             return item == null ? getVernacularString("38a5a09b-8b40-42ea-8d49-52cce1c949c2", userPreferences.language) : item;
                         }}
@@ -464,6 +593,12 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                                 actionType: BatteryFinderActionType.setSelectedBrand,
                                 payload: item,
                             });
+                            segmentFetcher.submit(
+                                {
+                                    selectedBrand: item,
+                                },
+                                {method: "GET", action: `/battery-finder/get-segments`},
+                            );
                         }}
                     />
                 </div>
@@ -479,6 +614,13 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                                 actionType: BatteryFinderActionType.setSelectedSegment,
                                 payload: item,
                             });
+                            modelFetcher.submit(
+                                {
+                                    selectedBrand: batteryFinderState.selectedBrand,
+                                    selectedSegment: item,
+                                },
+                                {method: "GET", action: "/battery-finder/get-models"},
+                            );
                         }}
                         disabled={batteryFinderState.selectedBrand == null}
                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
@@ -496,6 +638,14 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                                 actionType: BatteryFinderActionType.setSelectedModel,
                                 payload: item,
                             });
+                            fuelFetcher.submit(
+                                {
+                                    selectedBrand: batteryFinderState.selectedBrand,
+                                    selectedSegment: batteryFinderState.selectedSegment,
+                                    selectedModel: item,
+                                },
+                                {method: "GET", action: "/battery-finder/get-fuels"},
+                            );
                         }}
                         disabled={batteryFinderState.selectedBrand == null || batteryFinderState.selectedSegment == null}
                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
@@ -520,16 +670,21 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                     />
                 </div>
 
-                <div
-                    onClick={() => {
-                        dispatch({
-                            actionType: BatteryFinderActionType.findBatteries,
-                            payload: userPreferences.language,
-                        });
-                    }}
-                >
+                <div>
                     <button
                         className="lg-cta-button disabled:!tw-bg-none disabled:!tw-bg-secondary-300-light disabled:dark:!tw-bg-secondary-300-dark disabled:!tw-text-secondary-700-light disabled:dark:!tw-text-secondary-700-dark"
+                        onClick={() => {
+                            findBatteryFetcher.submit(
+                                {
+                                    selectedBrand: batteryFinderState.selectedBrand,
+                                    selectedSegment: batteryFinderState.selectedSegment,
+                                    selectedModel: batteryFinderState.selectedModel,
+                                    selectedFuel: batteryFinderState.selectedFuelType,
+                                    vtype: "carnsuv",
+                                },
+                                {method: "GET", action: "/battery-finder/get-recommended-batteries"},
+                            );
+                        }}
                         disabled={batteryFinderState.selectedFuelType == null}
                     >
                         {getVernacularString("85423d3b-8623-4b4b-b4f1-48953aa4fee7", userPreferences.language)}
@@ -546,6 +701,11 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                                 userPreferences={userPreferences}
                                 batteryFinderState={batteryFinderState}
                                 dispatch={dispatch}
+                                batteryFinderBrands={batteryFinderBrands}
+                                segmentFetcher={segmentFetcher}
+                                modelFetcher={modelFetcher}
+                                fuelFetcher={fuelFetcher}
+                                findBatteryFetcher={findBatteryFetcher}
                             />
                         </div>
                     }
@@ -686,209 +846,103 @@ function OurSuggestionsBatteryCard({
     );
 }
 
-function TopCarAndSuvBatteryPicks({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function TopCarAndSuvBatteryPicks({
+    userPreferences,
+    className,
+    zingEternaProducts,
+    zingUltraProducts,
+    zingPrimoProducts,
+    xtraProducts,
+    proCabProducts,
+    proCabPlusProducts,
+}: {
+    userPreferences: UserPreferences;
+    className?: string;
+    zingEternaProducts: Array<ProductDetails>;
+    zingUltraProducts: Array<ProductDetails>;
+    zingPrimoProducts: Array<ProductDetails>;
+    xtraProducts: Array<ProductDetails>;
+    proCabProducts: Array<ProductDetails>;
+    proCabPlusProducts: Array<ProductDetails>;
+}) {
     const featuredProducts = {
         Eterna: {
             title: "5bda278a-5862-4086-ab7c-f54aa5a0df4c",
             vehicleImageRelativeUrl: "/livguard/car-and-suv/4/zing-eterna.png",
             productImageRelativeUrl: "/livguard/car-and-suv/4/4.zing-eterna.png",
-            products: [
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["ze38b20l"][userPreferences.language].humanReadableModelNumber,
-                    slug: "ze38b20l",
-                    capacity: allProductDetails["ze38b20l"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["ze38b20l"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["ze38b20l"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["ze38b20r"][userPreferences.language].humanReadableModelNumber,
-                    slug: "ze38b20r",
-                    capacity: allProductDetails["ze38b20r"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["ze38b20r"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["ze38b20r"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["ze55b24lsl"][userPreferences.language].humanReadableModelNumber,
-                    slug: "ze55b24lsl",
-                    capacity: allProductDetails["ze55b24lsl"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["ze55b24lsl"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["ze55b24lsl"][userPreferences.language].price || null,
-                },
-            ],
+            products: zingEternaProducts.map((product) => ({
+                productType: ProductType.automotiveBattery,
+                name: product.humanReadableModelNumber,
+                slug: product.slug,
+                capacity: product.specifications[2].value,
+                warranty: product.specifications[1].value,
+                price: product.price || null,
+            })),
         },
         Ultra: {
             title: "16c43b68-0710-47d2-953d-2e0ac5c33f9d",
             vehicleImageRelativeUrl: "/livguard/car-and-suv/4/zing-ultra.png",
             productImageRelativeUrl: "/livguard/car-and-suv/4/4.zing-ultra.png",
-            products: [
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zu42b20l"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zu42b20l",
-                    capacity: allProductDetails["zu42b20l"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zu42b20l"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zu42b20l"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zu42b20r"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zu42b20r",
-                    capacity: allProductDetails["zu42b20r"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zu42b20r"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zu42b20r"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zu42b20bhl"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zu42b20bhl",
-                    capacity: allProductDetails["zu42b20bhl"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zu42b20bhl"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zu42b20bhl"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zudin44lhl"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zudin44lhl",
-                    capacity: allProductDetails["zudin44lhl"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zudin44lhl"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zudin44lhl"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zudin50l"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zudin50l",
-                    capacity: allProductDetails["zudin50l"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zudin50l"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zudin50l"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zudin55r"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zudin55r",
-                    capacity: allProductDetails["zudin55r"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zudin55r"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zudin55r"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zudin60l"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zudin60l",
-                    capacity: allProductDetails["zudin60l"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zudin60l"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zudin60l"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zudin65lhl"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zudin65lhl",
-                    capacity: allProductDetails["zudin65lhl"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zudin65lhl"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zudin65lhl"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zu75d23bhl"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zu75d23bhl",
-                    capacity: allProductDetails["zu75d23bhl"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zu75d23bhl"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zu75d23bhl"][userPreferences.language].price || null,
-                },
-            ],
+            products: zingUltraProducts.map((product) => ({
+                productType: ProductType.automotiveBattery,
+                name: product.humanReadableModelNumber,
+                slug: product.slug,
+                capacity: product.specifications[2].value,
+                warranty: product.specifications[1].value,
+                price: product.price || null,
+            })),
         },
         Primo: {
             title: "f2314bd0-7e41-4ce1-9b84-08b02a2ccaa9",
             vehicleImageRelativeUrl: "/livguard/car-and-suv/4/zing-primo.png",
             productImageRelativeUrl: "/livguard/car-and-suv/4/4.zing-primo.png",
-            products: [
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zp38b20l"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zp38b20l",
-                    capacity: allProductDetails["zp38b20l"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zp38b20l"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zp38b20l"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zp38b20r"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zp38b20r",
-                    capacity: allProductDetails["zp38b20r"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zp38b20r"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zp38b20r"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zp70d26l"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zp70d26l",
-                    capacity: allProductDetails["zp70d26l"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zp70d26l"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zp70d26l"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zp70d26r"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zp70d26r",
-                    capacity: allProductDetails["zp70d26r"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zp70d26r"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zp70d26r"][userPreferences.language].price || null,
-                },
-            ],
+            products: zingPrimoProducts.map((product) => ({
+                productType: ProductType.automotiveBattery,
+                name: product.humanReadableModelNumber,
+                slug: product.slug,
+                capacity: product.specifications[2].value,
+                warranty: product.specifications[1].value,
+                price: product.price || null,
+            })),
         },
         Xtra: {
             title: "b017acfd-f8a0-4285-aba8-d7c2ee4a09c2",
             vehicleImageRelativeUrl: "/livguard/car-and-suv/4/xtra.png",
             productImageRelativeUrl: "/livguard/products/zx40b20l/thumbnail.png",
-            products: [
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zx40b20l"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zx40b20l",
-                    capacity: allProductDetails["zx40b20l"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zx40b20l"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zx40b20l"][userPreferences.language].price || null,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["zx40b20r"][userPreferences.language].humanReadableModelNumber,
-                    slug: "zx40b20r",
-                    capacity: allProductDetails["zx40b20r"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["zx40b20r"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["zx40b20r"][userPreferences.language].price || null,
-                },
-            ],
+            products: xtraProducts.map((product) => ({
+                productType: ProductType.automotiveBattery,
+                name: product.humanReadableModelNumber,
+                slug: "ze38b20l",
+                capacity: product.specifications[2].value,
+                warranty: product.specifications[1].value,
+                price: product.price || null,
+            })),
         },
         ProCab: {
             title: "50836139-5c57-4eee-88e4-69f83fb371ab",
             vehicleImageRelativeUrl: "/livguard/car-and-suv/4/pro-cab.png",
             productImageRelativeUrl: "/livguard/car-and-suv/4/4.pro-cab.png",
-            products: [
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["pc38b20l"][userPreferences.language].humanReadableModelNumber,
-                    slug: "pc38b20l",
-                    capacity: allProductDetails["pc38b20l"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["pc38b20l"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["pc38b20l"][userPreferences.language].price || null,
-                },
-            ],
+            products: proCabProducts.map((product) => ({
+                productType: ProductType.automotiveBattery,
+                name: product.humanReadableModelNumber,
+                slug: product.slug,
+                capacity: product.specifications[2].value,
+                warranty: product.specifications[1].value,
+                price: product.price || null,
+            })),
         },
         ProCabPlus: {
             title: "299dcb87-0cc8-489e-a94b-596cd3335156",
             vehicleImageRelativeUrl: "/livguard/car-and-suv/4/pro-cab-plus-car.png",
             productImageRelativeUrl: "/livguard/products/pp38b20l/thumbnail.png",
-            products: [
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: allProductDetails["pp38b20l"][userPreferences.language].humanReadableModelNumber,
-                    slug: "pp38b20l",
-                    capacity: allProductDetails["pp38b20l"][userPreferences.language].specifications[2].value,
-                    warranty: allProductDetails["pp38b20l"][userPreferences.language].specifications[1].value,
-                    price: allProductDetails["pp38b20l"][userPreferences.language].price || null,
-                },
-            ],
+            products: proCabPlusProducts.map((product) => ({
+                productType: ProductType.automotiveBattery,
+                name: product.humanReadableModelNumber,
+                slug: product.slug,
+                capacity: product.specifications[2].value,
+                warranty: product.specifications[1].value,
+                price: product.price || null,
+            })),
         },
     };
 
@@ -1189,10 +1243,20 @@ export function FilterMobile({
     userPreferences,
     batteryFinderState,
     dispatch,
+    batteryFinderBrands,
+    segmentFetcher,
+    modelFetcher,
+    fuelFetcher,
+    findBatteryFetcher,
 }: {
     userPreferences: UserPreferences;
     batteryFinderState: BatteryFinderState;
     dispatch: React.Dispatch<BatteryFinderAction>;
+    batteryFinderBrands: Array<string>;
+    segmentFetcher: FetcherWithComponents<any>;
+    modelFetcher: FetcherWithComponents<any>;
+    fuelFetcher: FetcherWithComponents<any>;
+    findBatteryFetcher: FetcherWithComponents<any>;
 }) {
     const brands = batteryFinderState.brands;
 
@@ -1201,7 +1265,7 @@ export function FilterMobile({
             <div className="tw-place-self-center tw-w-full tw-grid tw-grid-flow-row tw-gap-y-6">
                 <div>
                     <FormSelectComponent
-                        items={brands}
+                        items={batteryFinderBrands}
                         itemBuilder={(item) => {
                             return item == null ? getVernacularString("38a5a09b-8b40-42ea-8d49-52cce1c949c2", userPreferences.language) : item;
                         }}
@@ -1211,6 +1275,12 @@ export function FilterMobile({
                                 actionType: BatteryFinderActionType.setSelectedBrand,
                                 payload: item,
                             });
+                            segmentFetcher.submit(
+                                {
+                                    selectedBrand: item,
+                                },
+                                {method: "GET", action: `/battery-finder/get-segments`},
+                            );
                         }}
                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light"
                     />
@@ -1227,6 +1297,13 @@ export function FilterMobile({
                                 actionType: BatteryFinderActionType.setSelectedSegment,
                                 payload: item,
                             });
+                            modelFetcher.submit(
+                                {
+                                    selectedBrand: batteryFinderState.selectedBrand,
+                                    selectedSegment: item,
+                                },
+                                {method: "GET", action: "/battery-finder/get-models"},
+                            );
                         }}
                         disabled={batteryFinderState.selectedBrand == null}
                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
@@ -1244,6 +1321,14 @@ export function FilterMobile({
                                 actionType: BatteryFinderActionType.setSelectedModel,
                                 payload: item,
                             });
+                            fuelFetcher.submit(
+                                {
+                                    selectedBrand: batteryFinderState.selectedBrand,
+                                    selectedSegment: batteryFinderState.selectedSegment,
+                                    selectedModel: item,
+                                },
+                                {method: "GET", action: "/battery-finder/get-fuels"},
+                            );
                         }}
                         disabled={batteryFinderState.selectedBrand == null || batteryFinderState.selectedSegment == null}
                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
@@ -1268,18 +1353,21 @@ export function FilterMobile({
                     />
                 </div>
 
-                <div
-                    onClick={() => {
-                        dispatch({
-                            actionType: BatteryFinderActionType.findBatteries,
-                            payload: userPreferences.language,
-                        });
-                    }}
-                >
+                <div>
                     <button
                         className="tw-w-full lg-cta-button disabled:!tw-bg-none disabled:!tw-bg-secondary-300-light disabled:dark:!tw-bg-secondary-300-dark disabled:!tw-text-secondary-700-light disabled:dark:!tw-text-secondary-700-dark"
                         // disabled={selectedBrand == "" || selectedSegment == "" || selectedModel == ""}
-                        onClick={() => {}}
+                        onClick={() => {
+                            findBatteryFetcher.submit(
+                                {
+                                    selectedBrand: batteryFinderState.selectedBrand,
+                                    selectedSegment: batteryFinderState.selectedSegment,
+                                    selectedModel: batteryFinderState.selectedModel,
+                                    selectedFuel: batteryFinderState.selectedFuelType,
+                                },
+                                {method: "GET", action: "/car-and-suv/get-recommended-batteries"},
+                            );
+                        }}
                         disabled={batteryFinderState.selectedFuelType == null}
                     >
                         {getVernacularString("85423d3b-8623-4b4b-b4f1-48953aa4fee7", userPreferences.language)}

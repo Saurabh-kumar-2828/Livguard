@@ -1,6 +1,6 @@
 import {Link} from "@remix-run/react";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductType} from "~/productData";
+import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductType} from "~/productData.types";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
@@ -37,7 +37,7 @@ export function ProductCardTwoDetails({
 }: {
     slug: string;
     productType: ProductType;
-    exploreProduct?:boolean;
+    exploreProduct?: boolean;
     userPreferences: UserPreferences;
     isBestSeller?: boolean;
     imageRelativeUrl: string;

@@ -3,6 +3,7 @@ import {Link, useLoaderData} from "@remix-run/react";
 import React, {useContext, useEffect, useRef} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {useInView} from "react-intersection-observer";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {SubCategoryProductsInternal} from "~/components/automotive-batteries/subCategoryProductsInternal";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {CarouselStyle5} from "~/components/carouselStyle5";
@@ -24,7 +25,7 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import {ProductType, allProductDetails} from "~/productData";
+import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
 import {DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
@@ -121,6 +122,8 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    pradhaanProducts: Array<ProductDetails>;
+    pradhaanXtralifeProducts: Array<ProductDetails>;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -129,17 +132,25 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const pradhaanProductSlugs = ["lgptr800r", "lgptr900l", "lgptr1000l", "lgptr1000r"];
+    const pradhaanXtralifeProductSlugs = ["lgpxtr8048r", "lgpxtr9048l", "lgpxtr10048l", "lgpxtr10048r", "lgpxtr9048h29l"];
+
+    const pradhaanProducts = pradhaanProductSlugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+    const pradhaanXtralifeProducts = pradhaanXtralifeProductSlugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        pradhaanProducts: pradhaanProducts,
+        pradhaanXtralifeProducts: pradhaanXtralifeProducts,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, pradhaanProducts, pradhaanXtralifeProducts} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     const secondaryNavigationController = useSecondaryNavigationController();
@@ -162,6 +173,8 @@ export default () => {
                     <TractorBatteriesPage
                         userPreferences={userPreferences}
                         secondaryNavigationController={secondaryNavigationController}
+                        pradhaanProducts={pradhaanProducts}
+                        pradhaanXtralifeProducts={pradhaanXtralifeProducts}
                     />
                 </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
@@ -175,7 +188,17 @@ export default () => {
     );
 };
 
-function TractorBatteriesPage({userPreferences, secondaryNavigationController}: {userPreferences: UserPreferences; secondaryNavigationController?: SecondaryNavigationController}) {
+function TractorBatteriesPage({
+    userPreferences,
+    secondaryNavigationController,
+    pradhaanProducts,
+    pradhaanXtralifeProducts,
+}: {
+    userPreferences: UserPreferences;
+    secondaryNavigationController?: SecondaryNavigationController;
+    pradhaanProducts: Array<ProductDetails>;
+    pradhaanXtralifeProducts: Array<ProductDetails>;
+}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
@@ -198,6 +221,7 @@ function TractorBatteriesPage({userPreferences, secondaryNavigationController}: 
                 <TractorBatteriesCarousel
                     userPreferences={userPreferences}
                     className="tw-row-start-6 tw-col-start-1 lg:tw-col-span-full tw-w-full"
+                    products={[...pradhaanProducts, ...pradhaanXtralifeProducts]}
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-7 tw-col-start-1 lg:tw-col-span-full" />
@@ -205,6 +229,8 @@ function TractorBatteriesPage({userPreferences, secondaryNavigationController}: 
                 <TopTractorBatteryPicks
                     userPreferences={userPreferences}
                     className="tw-row-start-8 tw-col-start-1 lg:tw-col-span-full tw-max-w-7xl tw-mx-auto"
+                    pradhaanProducts={pradhaanProducts}
+                    pradhaanXtralifeProducts={pradhaanXtralifeProducts}
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-9 tw-col-start-1 lg:tw-col-span-full" />
@@ -395,101 +421,16 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
     );
 }
 
-function TractorBatteriesCarousel({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const products = [
-        allProductDetails["lgptr800r"][userPreferences.language],
-        allProductDetails["lgptr900l"][userPreferences.language],
-        allProductDetails["lgptr1000l"][userPreferences.language],
-        allProductDetails["lgptr1000r"][userPreferences.language],
-        allProductDetails["lgpxtr8048r"][userPreferences.language],
-        allProductDetails["lgpxtr9048l"][userPreferences.language],
-        allProductDetails["lgpxtr10048l"][userPreferences.language],
-        allProductDetails["lgpxtr10048r"][userPreferences.language],
-        allProductDetails["lgpxtr9048h29l"][userPreferences.language],
-    ];
-    const brandBatteries = [
-        {
-            batterySlug: "lgptr800r",
-            name: products[0].humanReadableModelNumber,
-            description: products[0].description,
-            warranty: products[0].specifications[1].value,
-            capacity: products[0].specifications[2].value,
-            polarity: products[0].specifications[3].value,
-            dimensions: products[0].specifications[4].value,
-        },
-        {
-            batterySlug: "lgptr900l",
-            name: products[1].humanReadableModelNumber,
-            description: products[1].description,
-            warranty: products[1].specifications[1].value,
-            capacity: products[1].specifications[2].value,
-            polarity: products[1].specifications[3].value,
-            dimensions: products[1].specifications[4].value,
-        },
-        {
-            batterySlug: "lgptr1000l",
-            name: products[2].humanReadableModelNumber,
-            description: products[2].description,
-            warranty: products[2].specifications[1].value,
-            capacity: products[2].specifications[2].value,
-            polarity: products[2].specifications[3].value,
-            dimensions: products[2].specifications[4].value,
-        },
-        {
-            batterySlug: "lgptr1000r",
-            name: products[3].humanReadableModelNumber,
-            description: products[3].description,
-            warranty: products[3].specifications[1].value,
-            capacity: products[3].specifications[2].value,
-            polarity: products[3].specifications[3].value,
-            dimensions: products[3].specifications[4].value,
-        },
-        {
-            batterySlug: "lgpxtr8048r",
-            name: products[4].humanReadableModelNumber,
-            description: products[4].description,
-            warranty: products[4].specifications[1].value,
-            capacity: products[4].specifications[2].value,
-            polarity: products[4].specifications[3].value,
-            dimensions: products[4].specifications[4].value,
-        },
-        {
-            batterySlug: "lgpxtr9048l",
-            name: products[5].humanReadableModelNumber,
-            description: products[5].description,
-            warranty: products[5].specifications[1].value,
-            capacity: products[5].specifications[2].value,
-            polarity: products[5].specifications[3].value,
-            dimensions: products[5].specifications[4].value,
-        },
-        {
-            batterySlug: "lgpxtr10048l",
-            name: products[6].humanReadableModelNumber,
-            description: products[6].description,
-            warranty: products[6].specifications[1].value,
-            capacity: products[6].specifications[2].value,
-            polarity: products[6].specifications[3].value,
-            dimensions: products[6].specifications[4].value,
-        },
-        {
-            batterySlug: "lgpxtr10048r",
-            name: products[7].humanReadableModelNumber,
-            description: products[7].description,
-            warranty: products[7].specifications[1].value,
-            capacity: products[7].specifications[2].value,
-            polarity: products[7].specifications[3].value,
-            dimensions: products[7].specifications[4].value,
-        },
-        {
-            batterySlug: "lgpxtr9048h29l",
-            name: products[8].humanReadableModelNumber,
-            description: products[8].description,
-            warranty: products[8].specifications[1].value,
-            capacity: products[8].specifications[2].value,
-            polarity: products[8].specifications[3].value,
-            dimensions: products[8].specifications[4].value,
-        },
-    ];
+function TractorBatteriesCarousel({userPreferences, className, products}: {userPreferences: UserPreferences; className?: string; products: Array<ProductDetails>}) {
+    const batteries = products.map((product) => ({
+        batterySlug: product.slug,
+        name: product.humanReadableModelNumber,
+        description: product.description,
+        warranty: product.specifications[1].value,
+        capacity: product.specifications[2].value,
+        polarity: product.specifications[3].value,
+        dimensions: product.specifications[4].value,
+    }));
 
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -523,7 +464,7 @@ function TractorBatteriesCarousel({userPreferences, className}: {userPreferences
 
             <CarouselStyle5
                 // @ts-ignore
-                items={brandBatteries.map((battery, batteryIndex) => {
+                items={batteries.map((battery, batteryIndex) => {
                     return (
                         <CarouselBatteryCard
                             userPreferences={userPreferences}
@@ -654,107 +595,43 @@ function CarouselBatteryCard({
     );
 }
 
-function TopTractorBatteryPicks({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const pradhaanProducts = [
-        allProductDetails["lgptr800r"][userPreferences.language],
-        allProductDetails["lgptr900l"][userPreferences.language],
-        allProductDetails["lgptr1000l"][userPreferences.language],
-        allProductDetails["lgptr1000r"][userPreferences.language],
-    ];
-    const xtralifeProducts = [
-        allProductDetails["lgpxtr8048r"][userPreferences.language],
-        allProductDetails["lgpxtr9048l"][userPreferences.language],
-        allProductDetails["lgpxtr10048l"][userPreferences.language],
-        allProductDetails["lgpxtr10048r"][userPreferences.language],
-        allProductDetails["lgpxtr9048h29l"][userPreferences.language],
-    ];
-
+function TopTractorBatteryPicks({
+    userPreferences,
+    className,
+    pradhaanProducts,
+    pradhaanXtralifeProducts,
+}: {
+    userPreferences: UserPreferences;
+    className?: string;
+    pradhaanProducts: Array<ProductDetails>;
+    pradhaanXtralifeProducts: Array<ProductDetails>;
+}) {
     const featuredProducts = {
         Pradhaan: {
             title: "3daf8d68-a883-4175-b8b5-6dca9724201a",
             vehicleImageRelativeUrl: "/livguard/tractor/3/tractor-1-new.png",
             productImageRelativeUrl: "/livguard/products/lgptr800r/thumbnail.png",
-            products: [
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: pradhaanProducts[0].humanReadableModelNumber,
-                    slug: "lgptr800r",
-                    capacity: pradhaanProducts[0].specifications[2].value,
-                    warranty: pradhaanProducts[0].specifications[1].value,
-                    price: pradhaanProducts[0].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: pradhaanProducts[1].humanReadableModelNumber,
-                    slug: "lgptr900l",
-                    capacity: pradhaanProducts[1].specifications[2].value,
-                    warranty: pradhaanProducts[1].specifications[1].value,
-                    price: pradhaanProducts[1].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: pradhaanProducts[2].humanReadableModelNumber,
-                    slug: "lgptr1000l",
-                    capacity: pradhaanProducts[2].specifications[2].value,
-                    warranty: pradhaanProducts[2].specifications[1].value,
-                    price: pradhaanProducts[2].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: pradhaanProducts[3].humanReadableModelNumber,
-                    slug: "lgptr1000r",
-                    capacity: pradhaanProducts[3].specifications[2].value,
-                    warranty: pradhaanProducts[3].specifications[1].value,
-                    price: pradhaanProducts[3].price,
-                },
-            ],
+            products: pradhaanProducts.map((product) => ({
+                productType: ProductType.automotiveBattery,
+                name: product.humanReadableModelNumber,
+                slug: product.slug,
+                capacity: product.specifications[2].value,
+                warranty: product.specifications[1].value,
+                price: product.price,
+            })),
         },
         "Pradhaan Xtralife": {
             title: "e2420ef0-f6c0-48df-b14f-e801d8273618",
             vehicleImageRelativeUrl: "/livguard/tractor/3/tractor-2-new.png",
             productImageRelativeUrl: "/livguard/tractor/3/battery-2.png",
-            products: [
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: xtralifeProducts[0].humanReadableModelNumber,
-                    slug: "lgpxtr8048r",
-                    capacity: xtralifeProducts[0].specifications[2].value,
-                    warranty: xtralifeProducts[0].specifications[1].value,
-                    price: xtralifeProducts[0].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: xtralifeProducts[1].humanReadableModelNumber,
-                    slug: "lgpxtr9048l",
-                    capacity: xtralifeProducts[1].specifications[2].value,
-                    warranty: xtralifeProducts[1].specifications[1].value,
-                    price: xtralifeProducts[1].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: xtralifeProducts[2].humanReadableModelNumber,
-                    slug: "lgpxtr10048l",
-                    capacity: xtralifeProducts[2].specifications[2].value,
-                    warranty: xtralifeProducts[2].specifications[1].value,
-                    price: xtralifeProducts[2].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: xtralifeProducts[3].humanReadableModelNumber,
-                    slug: "lgpxtr10048r",
-                    capacity: xtralifeProducts[3].specifications[2].value,
-                    warranty: xtralifeProducts[3].specifications[1].value,
-                    price: xtralifeProducts[3].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: xtralifeProducts[4].humanReadableModelNumber,
-                    slug: "lgpxtr9048h29l",
-                    capacity: xtralifeProducts[4].specifications[2].value,
-                    warranty: xtralifeProducts[4].specifications[1].value,
-                    price: xtralifeProducts[4].price,
-                },
-            ],
+            products: pradhaanXtralifeProducts.map((product) => ({
+                productType: ProductType.automotiveBattery,
+                name: product.humanReadableModelNumber,
+                slug: product.slug,
+                capacity: product.specifications[2].value,
+                warranty: product.specifications[1].value,
+                price: product.price,
+            })),
         },
     };
 
@@ -955,7 +832,10 @@ function ChooseYourIdealTractorBattery({userPreferences, className}: {userPrefer
             id="choose-the-right-battery"
             ref={sectionRef}
         >
-            <div className="tw-row-start-2 tw-text-center lg-text-headline" dangerouslySetInnerHTML={{__html: getVernacularString("27518d22-a27d-4519-b01a-18d1fed070ed", userPreferences.language)}}></div>
+            <div
+                className="tw-row-start-2 tw-text-center lg-text-headline"
+                dangerouslySetInnerHTML={{__html: getVernacularString("27518d22-a27d-4519-b01a-18d1fed070ed", userPreferences.language)}}
+            ></div>
             <div
                 className="tw-row-start-3 tw-text-center lg-text-headline"
                 dangerouslySetInnerHTML={{__html: getVernacularString("4092b04f-c277-4ec3-b313-0844337ae7df", userPreferences.language)}}

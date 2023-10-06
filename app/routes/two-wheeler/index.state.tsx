@@ -1,14 +1,17 @@
+import {useFetcher} from "@remix-run/react";
 import {Language} from "aws-sdk/clients/support";
 import {distinct} from "~/global-common-typescript/utilities/utilities";
-import {ProductType, allProductDetails} from "~/productData";
+import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
 import {batteryFinderData} from "~/routes/battery-finder/index.state";
 import {BatteryFinderState} from "~/routes/two-wheeler/index.types";
 
 export enum BatteryFinderActionType {
     setSelectedBrand,
+    setSegments,
     setSelectedSegment,
+    setModels,
     setSelectedModel,
-    findBatteries,
+    setRecommendedBatteries,
 }
 
 export type BatteryFinderAction = {
@@ -46,6 +49,14 @@ export function batteryFinderReducer(state: BatteryFinderState, action: BatteryF
 
             return newState;
         }
+        case BatteryFinderActionType.setSegments: {
+            const segments = action.payload;
+            const newState: BatteryFinderState = structuredClone(state);
+
+            newState.segments = segments;
+
+            return newState;
+        }
         case BatteryFinderActionType.setSelectedSegment: {
             // TODO: Validate that these exist?
             const selectedSegment = action.payload;
@@ -67,6 +78,14 @@ export function batteryFinderReducer(state: BatteryFinderState, action: BatteryF
 
             return newState;
         }
+        case BatteryFinderActionType.setModels: {
+            const models = action.payload;
+
+            const newState: BatteryFinderState = structuredClone(state);
+
+            newState.models = models;
+            return newState;
+        }
         case BatteryFinderActionType.setSelectedModel: {
             // TODO: Validate that these exist?
             const selectedModel = action.payload;
@@ -77,38 +96,11 @@ export function batteryFinderReducer(state: BatteryFinderState, action: BatteryF
 
             return newState;
         }
-        case BatteryFinderActionType.findBatteries: {
+        case BatteryFinderActionType.setRecommendedBatteries: {
+            const recommendedBatteries = action.payload;
+
             const newState: BatteryFinderState = structuredClone(state);
-
-            const language = action.payload;
-            newState.recommendedBatteries = distinct(
-                twoWheelerBatteries
-                    .filter((item) => newState.selectedBrand == null || item.manufacturer === newState.selectedBrand)
-                    .filter((item) => newState.selectedSegment == null || item.segment === newState.selectedSegment)
-                    .filter((item) => newState.selectedModel == null || item.vmodel === newState.selectedModel)
-                    .map((item) => {
-                        // HACK: Battery data from old site has product name, converting it to slug using a risky method
-                        // Come back and fix this properlywhen more bandwidth is available
-                        const slug = item.bmodel.toLowerCase().replace(/\s/g, "");
-                        if (slug != null && slug in allProductDetails) {
-                            return {
-                                batterySlug: `/product/${slug}`,
-                                capacity: allProductDetails[slug][language].specifications[2].value,
-                                description: allProductDetails[slug][language].productDescription.description,
-                                dimensions: allProductDetails[slug][language].specifications[4].value,
-                                imageRelativeUrl: `/livguard/products/${slug}/thumbnail.png`,
-                                name: allProductDetails[slug][language].humanReadableModelNumber,
-                                polarity: allProductDetails[slug][language].specifications[3].value,
-                                productType: ProductType.automotiveBattery,
-                                warranty: allProductDetails[slug][language].specifications[1].value,
-                                isBestSeller: false,
-                            };
-                        }
-
-                        return null;
-                    })
-                    .filter((item) => item != null),
-            );
+            newState.recommendedBatteries = recommendedBatteries;
 
             return newState;
         }
@@ -119,39 +111,25 @@ export function batteryFinderReducer(state: BatteryFinderState, action: BatteryF
     }
 }
 
-export function batteryFinderInitialState(language: Language): BatteryFinderState {
+export function batteryFinderInitialState(language: Language, brands: Array<string>, initialRecommendedBatteries: Array<ProductDetails>): BatteryFinderState {
     return {
-        brands: distinct(twoWheelerBatteries.map((item) => item.manufacturer)),
+        brands: brands,
         selectedBrand: null,
-        segments: distinct(twoWheelerBatteries.map((item) => item.segment)),
+        segments: [],
         selectedSegment: null,
-        models: distinct(twoWheelerBatteries.map((item) => item.vmodel)),
+        models: [],
         selectedModel: null,
-        recommendedBatteries: [
-            {
-                batterySlug: "/product/lgzhhtz4",
-                capacity: allProductDetails["lgzhhtz4"][language].specifications[2].value,
-                description: allProductDetails["lgzhhtz4"][language].description,
-                dimensions: allProductDetails["lgzhhtz4"][language].specifications[4].value,
-                imageRelativeUrl: "/livguard/products/lgzhhtz4/thumbnail.png",
-                name: allProductDetails["lgzhhtz4"][language].humanReadableModelNumber,
-                polarity: allProductDetails["lgzhhtz4"][language].specifications[3].value,
-                productType: ProductType.automotiveBattery,
-                warranty: allProductDetails["lgzhhtz4"][language].specifications[1].value,
-                isBestSeller: false,
-            },
-            {
-                batterySlug: "/product/lgzhhtx5",
-                capacity: allProductDetails["lgzhhtx5"][language].specifications[2].value,
-                description: allProductDetails["lgzhhtx5"][language].description,
-                dimensions: allProductDetails["lgzhhtx5"][language].specifications[4].value,
-                imageRelativeUrl: "/livguard/products/lgzhhtx5/thumbnail.png",
-                name: allProductDetails["lgzhhtx5"][language].humanReadableModelNumber,
-                polarity: allProductDetails["lgzhhtx5"][language].specifications[3].value,
-                productType: ProductType.automotiveBattery,
-                warranty: allProductDetails["lgzhhtx5"][language].specifications[1].value,
-                isBestSeller: false,
-            },
-        ],
+        recommendedBatteries: initialRecommendedBatteries.map((battery) => ({
+            batterySlug: `/product/${battery.slug}`,
+            capacity: battery.specifications[2].value,
+            description: battery.productDescription.description,
+            dimensions: battery.specifications[4].value,
+            imageRelativeUrl: `/livguard/products/${battery.slug}/thumbnail.png`,
+            name: battery.humanReadableModelNumber,
+            polarity: battery.specifications[3].value,
+            productType: ProductType.automotiveBattery,
+            warranty: battery.specifications[1].value,
+            isBestSeller: false,
+        })),
     };
 }

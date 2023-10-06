@@ -1,6 +1,6 @@
 import type {ImageMetadata} from "~/global-common-typescript/typeDefinitions";
 import {imageMetadataLibrary} from "~/imageMetadataLibrary";
-import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductType} from "~/productData";
+import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductType} from "~/productData.types";
 
 //TODO: replace this with production url correctly
 export function getUrlFromRequest(request: Request) {

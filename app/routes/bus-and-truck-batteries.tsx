@@ -2,6 +2,7 @@ import {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
 import React, {useContext, useEffect, useRef, useState} from "react";
 import {useInView} from "react-intersection-observer";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {SubCategoryProductsInternal} from "~/components/automotive-batteries/subCategoryProductsInternal";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {SocialHandles} from "~/components/category/common";
@@ -21,7 +22,7 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import {ProductType, allProductDetails} from "~/productData";
+import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
 import {DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
@@ -118,6 +119,8 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    humraahiProducts: Array<ProductDetails>;
+    xtralifeProducts: Array<ProductDetails>;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -126,17 +129,25 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const humraahiProductSlugs = ["lglff80r", "lglff80l", "lglff100l", "lglff100h29r", "lglnff130r", "lglnhd150r", "lglff180r"];
+    const xtralifeProductSlugs = ["lghx8048r", "lghx8048l", "lghx10048l", "lghx10048r", "lghx10048h29r"];
+
+    const humraahiProducts = humraahiProductSlugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+    const xtralifeProducts = xtralifeProductSlugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        humraahiProducts: humraahiProducts,
+        xtralifeProducts: xtralifeProducts,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, humraahiProducts, xtralifeProducts} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -162,6 +173,8 @@ export default () => {
                         utmParameters={utmSearchParameters}
                         pageUrl={pageUrl}
                         secondaryNavigationController={secondaryNavigationController}
+                        humraahiProducts={humraahiProducts}
+                        xtralifeProducts={xtralifeProducts}
                     />
                 </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
@@ -180,6 +193,8 @@ function BusAndTruckBatteriesPage({
     utmParameters,
     pageUrl,
     secondaryNavigationController,
+    humraahiProducts,
+    xtralifeProducts,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -187,6 +202,8 @@ function BusAndTruckBatteriesPage({
     };
     pageUrl: string;
     secondaryNavigationController?: SecondaryNavigationController;
+    humraahiProducts: Array<ProductDetails>;
+    xtralifeProducts: Array<ProductDetails>;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
@@ -208,6 +225,8 @@ function BusAndTruckBatteriesPage({
                 <ExploreOurBusAndTruckBatteries
                     userPreferences={userPreferences}
                     className="tw-row-start-6 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
+                    humraahiProducts={humraahiProducts}
+                    xtralifeProducts={xtralifeProducts}
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-7 tw-col-start-1 lg:tw-col-span-full" />
@@ -403,146 +422,43 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
     );
 }
 
-function ExploreOurBusAndTruckBatteries({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const humraahiProducts = [
-        allProductDetails["lglff80r"][userPreferences.language],
-        allProductDetails["lglff80l"][userPreferences.language],
-        allProductDetails["lglff100l"][userPreferences.language],
-        allProductDetails["lglff100h29r"][userPreferences.language],
-        allProductDetails["lglnff130r"][userPreferences.language],
-        allProductDetails["lglnhd150r"][userPreferences.language],
-        allProductDetails["lglff180r"][userPreferences.language],
-    ];
-
-    const xtralifeProducts = [
-        allProductDetails["lghx8048r"][userPreferences.language],
-        allProductDetails["lghx8048l"][userPreferences.language],
-        allProductDetails["lghx10048l"][userPreferences.language],
-        allProductDetails["lghx10048r"][userPreferences.language],
-        allProductDetails["lghx10048h29r"][userPreferences.language],
-    ];
-
+function ExploreOurBusAndTruckBatteries({
+    userPreferences,
+    className,
+    humraahiProducts,
+    xtralifeProducts,
+}: {
+    userPreferences: UserPreferences;
+    className?: string;
+    humraahiProducts: Array<ProductDetails>;
+    xtralifeProducts: Array<ProductDetails>;
+}) {
     const featuredProducts = {
         Humraahi: {
             title: "a504cf0b-8c7c-4afe-b5e2-925f9576d1c0",
             vehicleImageRelativeUrl: "/livguard/bus-and-truck/3/truck.png",
             productImageRelativeUrl: "/livguard/bus-and-truck/3/truck-battery.png",
-            products: [
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: humraahiProducts[0].humanReadableModelNumber,
-                    slug: "lglff80r",
-                    capacity: humraahiProducts[0].specifications[2].value,
-                    warranty: humraahiProducts[0].specifications[1].value,
-                    price: humraahiProducts[0].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: humraahiProducts[1].humanReadableModelNumber,
-                    slug: "lglff80l",
-                    capacity: humraahiProducts[1].specifications[2].value,
-                    warranty: humraahiProducts[1].specifications[1].value,
-                    price: humraahiProducts[1].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: humraahiProducts[2].humanReadableModelNumber,
-                    slug: "lglff100l",
-                    capacity: humraahiProducts[2].specifications[2].value,
-                    warranty: humraahiProducts[2].specifications[1].value,
-                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                    price: humraahiProducts[2].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: humraahiProducts[3].humanReadableModelNumber,
-                    slug: "lglff100h29r",
-                    capacity: humraahiProducts[3].specifications[2].value,
-                    warranty: humraahiProducts[3].specifications[1].value,
-                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                    price: humraahiProducts[3].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: humraahiProducts[4].humanReadableModelNumber,
-                    slug: "lglnff130r",
-                    isBestSeller: true,
-                    capacity: humraahiProducts[4].specifications[2].value,
-                    warranty: humraahiProducts[4].specifications[1].value,
-                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.3.png",
-                    price: humraahiProducts[4].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: humraahiProducts[5].humanReadableModelNumber,
-                    slug: "lglnhd150r",
-                    capacity: humraahiProducts[5].specifications[2].value,
-                    warranty: humraahiProducts[5].specifications[1].value,
-                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.4.png",
-                    price: humraahiProducts[5].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: humraahiProducts[6].humanReadableModelNumber,
-                    slug: "lglff180r",
-                    capacity: humraahiProducts[6].specifications[2].value,
-                    warranty: humraahiProducts[6].specifications[1].value,
-                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.3.png",
-                    price: humraahiProducts[6].price,
-                },
-            ],
+            products: humraahiProducts.map((product) => ({
+                productType: ProductType.automotiveBattery,
+                name: product.humanReadableModelNumber,
+                slug: product.slug,
+                capacity: product.specifications[2].value,
+                warranty: product.specifications[1].value,
+                price: product.price,
+            })),
         },
         "Humraahi Xtralife": {
             title: "da25b231-d277-41c9-bd06-494ce7b53ae7",
             vehicleImageRelativeUrl: "/livguard/bus-and-truck/3/bus.png",
             productImageRelativeUrl: "/livguard/bus-and-truck/3/bus-battery.png",
-            products: [
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: xtralifeProducts[0].humanReadableModelNumber,
-                    slug: "lghx8048r",
-                    capacity: xtralifeProducts[0].specifications[2].value,
-                    warranty: xtralifeProducts[0].specifications[1].value,
-                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.4.png",
-                    price: xtralifeProducts[0].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: xtralifeProducts[1].humanReadableModelNumber,
-                    slug: "lghx8048l",
-                    capacity: xtralifeProducts[1].specifications[2].value,
-                    warranty: xtralifeProducts[1].specifications[1].value,
-                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.1.png",
-                    price: xtralifeProducts[1].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: xtralifeProducts[2].humanReadableModelNumber,
-                    slug: "lghx10048l",
-                    capacity: xtralifeProducts[2].specifications[2].value,
-                    warranty: xtralifeProducts[2].specifications[1].value,
-                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                    price: xtralifeProducts[2].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: xtralifeProducts[3].humanReadableModelNumber,
-                    slug: "lghx10048r",
-                    capacity: xtralifeProducts[3].specifications[2].value,
-                    warranty: xtralifeProducts[3].specifications[1].value,
-                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                    price: xtralifeProducts[3].price,
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: xtralifeProducts[4].humanReadableModelNumber,
-                    slug: "lghx10048h29r",
-                    capacity: xtralifeProducts[4].specifications[2].value,
-                    warranty: xtralifeProducts[4].specifications[1].value,
-                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                    price: xtralifeProducts[4].price,
-                },
-            ],
+            products: xtralifeProducts.map((product) => ({
+                productType: ProductType.automotiveBattery,
+                name: product.humanReadableModelNumber,
+                slug: product.slug,
+                capacity: product.specifications[2].value,
+                warranty: product.specifications[1].value,
+                price: product.price,
+            })),
         },
     };
 

@@ -17,7 +17,8 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {allProductDetails, type ProductDetailsRecommendedProduct} from "~/productData";
+import {allProductDetails, type ProductDetailsRecommendedProduct} from "~/productData.types";
+import {HumanReadableModelNumbersForSuggestions} from "~/routes/__category/inverter-batteries";
 import type {UserPreferences} from "~/typeDefinitions";
 import {convertProductInternalNameToPublicName, getMetadataForImage, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
@@ -52,6 +53,7 @@ export function OurSuggestionsComponent({
     vernacularContent,
     userPreferences,
     className,
+    humanReadableModelNumbersForSuggestions,
 }: {
     vernacularContent: {
         heading: string;
@@ -66,6 +68,7 @@ export function OurSuggestionsComponent({
     };
     userPreferences: UserPreferences;
     className?: string;
+    humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
 }) {
     return (
         <div>
@@ -81,9 +84,7 @@ export function OurSuggestionsComponent({
                     <VerticalSpacer className="tw-h-4" />
 
                     <DefaultTextAnimation>
-                        <div className="lg-text-title1 tw-text-center lg:tw-text-left">
-                            {allProductDetails[vernacularContent.heading.toLocaleLowerCase()][userPreferences.language].humanReadableModelNumber}
-                        </div>
+                        <div className="lg-text-title1 tw-text-center lg:tw-text-left">{humanReadableModelNumbersForSuggestions[vernacularContent.heading.toLocaleLowerCase()]}</div>
                     </DefaultTextAnimation>
 
                     <VerticalSpacer className="tw-h-4" />
@@ -166,7 +167,7 @@ export function OurSuggestionsComponent({
                                     className="lg-card tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
                                     key={relatedProductIndex}
                                 >
-                                    <div className="tw-w-full lg-text-body-bold tw-text-center">{allProductDetails[relatedProduct][userPreferences.language].humanReadableModelNumber}</div>
+                                    <div className="tw-w-full lg-text-body-bold tw-text-center">{humanReadableModelNumbersForSuggestions[relatedProduct]}</div>
                                     <FullWidthImage relativePath={`${vernacularContent.imagesRelativePath}${relatedProduct}/thumbnail.png`} />
                                 </Link>
                             ))}
@@ -183,7 +184,7 @@ export function OurSuggestionsComponent({
                                         key={itemIndex}
                                     >
                                         {/* <div className="tw-w-full lg-text-body-bold tw-text-center">{convertProductInternalNameToPublicName(item)}</div> */}
-                                        <div className="tw-w-full lg-text-body-bold tw-text-center">{allProductDetails[item][userPreferences.language].humanReadableModelNumber}</div>
+                                        <div className="tw-w-full lg-text-body-bold tw-text-center">{humanReadableModelNumbersForSuggestions[vernacularContent.heading.toLocaleLowerCase()]}</div>
                                         <FullWidthImage relativePath={`${vernacularContent.imagesRelativePath}${item}/thumbnail.png`} />
                                     </Link>
                                 )}

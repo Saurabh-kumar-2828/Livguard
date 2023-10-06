@@ -1,9 +1,9 @@
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import type {Integer, Uuid} from "~/global-common-typescript/typeDefinitions";
 import {getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {generateUuid, getCurrentIsoTimestamp, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
-import {allProductDetails} from "~/productData";
 import type {LoadCalculatorInputs} from "~/routes/load-calculator/index.types";
 import {deviceTypeLibrary} from "~/routes/load-calculator/index.types";
 import type {UserPreferences} from "~/typeDefinitions";
@@ -12561,13 +12561,13 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
 
     if (loadCalculatorOutputs.recommendedInverters != undefined) {
         loadCalculatorOutputs.recommendedInverters = loadCalculatorOutputs.recommendedInverters?.map((recommendedInverter) => {
-            let capacity = allProductDetails[recommendedInverter.model][userPreferences.language].productIcons[1].text.trim();
+            let capacity = getProductFromSlugAndLanguage(recommendedInverter.model, userPreferences.language).productIcons[1].text.trim();
             if (capacity.toLowerCase().endsWith("va") || capacity.toLowerCase().endsWith("ah")) {
                 capacity = capacity.slice(0, -2).trim();
             }
             let capacityNumeric = parseInt(capacity);
 
-            let warranty = allProductDetails[recommendedInverter.model][userPreferences.language].productIcons[0].text.trim();
+            let warranty = getProductFromSlugAndLanguage(recommendedInverter.model, userPreferences.language).productIcons[0].text.trim();
             let shouldConvertToMonths = false;
             if (warranty.toLowerCase().endsWith("months")) {
                 warranty = warranty.replace("months", "");
@@ -12586,7 +12586,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
             }
             return {
                 ...recommendedInverter,
-                // humanFriendlyString: allProductDetails[recommendedInverter.model][userPreferences.language].humanReadableModelNumber,
                 capacity: capacityNumeric,
                 warranty: warrantyNumeric,
             };
@@ -12595,13 +12594,13 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
 
     if (loadCalculatorOutputs.recommendedBatteries != undefined) {
         loadCalculatorOutputs.recommendedBatteries = loadCalculatorOutputs.recommendedBatteries?.map((recommendedBattery) => {
-            let capacity = allProductDetails[recommendedBattery.model][userPreferences.language].productIcons[1].text.trim();
+            let capacity = getProductFromSlugAndLanguage(recommendedBattery.model, userPreferences.language).productIcons[1].text.trim();
             if (capacity.toLowerCase().endsWith("va") || capacity.toLowerCase().endsWith("ah")) {
                 capacity = capacity.slice(0, -2).trim();
             }
             let capacityNumeric = parseInt(capacity);
 
-            let warranty = allProductDetails[recommendedBattery.model][userPreferences.language].productIcons[0].text.trim();
+            let warranty = getProductFromSlugAndLanguage(recommendedBattery.model, userPreferences.language).productIcons[0].text.trim();
             let shouldConvertToMonths = false;
             if (warranty.toLowerCase().endsWith("months")) {
                 warranty = warranty.replace("months", "");
@@ -12617,7 +12616,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
 
             return {
                 ...recommendedBattery,
-                // humanFriendlyString: allProductDetails[recommendedBattery.model][userPreferences.language].humanReadableModelNumber,
                 capacity: capacityNumeric,
                 warranty: warrantyNumeric,
             };

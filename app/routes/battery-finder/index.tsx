@@ -1,7 +1,9 @@
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
-import {Link} from "@remix-run/react";
-import React, {useReducer, useState} from "react";
+import {Link, useFetcher} from "@remix-run/react";
+import React, {useEffect, useReducer, useState} from "react";
 import {useLoaderData} from "react-router";
+import {busAndTruckBatteryBrands, carAndSuvBatteriesBrands, threeWheelerBatteryBrands, tractorBatteryBrands, twoWheelerBatteryBrands} from "~/backend/battery-finder.server";
+import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -20,12 +22,12 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import {ProductType, allProductDetails} from "~/productData";
+import {ProductType, allProductDetails} from "~/productData.types";
 import {DealerLocator} from "~/routes";
 import type {BatteryFinderAction} from "~/routes/battery-finder/index.state";
 import {BatteryFinderActionType, batteryFinderInitialState, batteryFinderReducer} from "~/routes/battery-finder/index.state";
 import type {BatteryFinderState} from "~/routes/battery-finder/index.types";
-import {VehicleCategory, categories, categoryNames} from "~/routes/battery-finder/index.types";
+import {VehicleCategory, categories, categoryNames, indexToVehicleTypeMap} from "~/routes/battery-finder/index.types";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, type UserPreferences} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
@@ -116,10 +118,27 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
     }
 };
 
+type CategoryBrands = Array<Array<string>>;
+
+type DisplayProductsSchema = {
+    productName: string;
+    slug: string;
+    // isBestSeller: string;
+    capacity: string;
+    warranty: string;
+    productPrice: string | number | null;
+};
+
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    categoryBrands: CategoryBrands;
+    twoWheelerProducts: Array<DisplayProductsSchema>;
+    threeWheelerProducts: Array<DisplayProductsSchema>;
+    carAndSuvProducts: Array<DisplayProductsSchema>;
+    busAndTruckProducts: Array<DisplayProductsSchema>;
+    tractorProducts: Array<DisplayProductsSchema>;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -128,17 +147,80 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const categoryBrands = [twoWheelerBatteryBrands, threeWheelerBatteryBrands, busAndTruckBatteryBrands, tractorBatteryBrands, carAndSuvBatteriesBrands];
+
+    function convertSlugToRequiredProductSchema(slug: string): DisplayProductsSchema {
+        const product = getProductFromSlugAndLanguage(slug, userPreferences.language);
+        return {
+            productName: product.humanReadableModelNumber,
+            slug: product.slug,
+            // isBestSeller: true,
+            capacity: product.specifications[2].value,
+            warranty: product.specifications[1].value,
+            productPrice: product.price,
+        };
+    }
+
+    const twoWheelerProductSlugs = ["lgbtx2.5l", "lgbtx7l", "lgbtx9l", "lgzhhtx5", "lgzhhtz4", "lgzhhtz5"];
+    const twoWheelerProducts = twoWheelerProductSlugs.map((slug) => convertSlugToRequiredProductSchema(slug));
+    const threeWheelerProductSlugs = ["lgmf0ar32r", "lgmf0ar60l"];
+    const threeWheelerProducts = threeWheelerProductSlugs.map((slug) => convertSlugToRequiredProductSchema(slug));
+    const carAndSuvProductSlugs = [
+        "ze38b20l",
+        "ze38b20r",
+        "ze55b24lsl",
+        "zu42b20l",
+        "zu42b20r",
+        "zu42b20bhl",
+        "zudin44lhl",
+        "zudin50l",
+        "zudin55r",
+        "zudin60l",
+        "zudin65lhl",
+        "zu75d23bhl",
+        "zp38b20l",
+        "zp38b20r",
+        "zp70d26l",
+        "zp70d26r",
+        "pc38b20l",
+        "pp38b20l",
+    ];
+    const carAndSuvProducts = carAndSuvProductSlugs.map((slug) => convertSlugToRequiredProductSchema(slug));
+    const busAndTruckProductSlugs = [
+        "lglff80r",
+        "lglff80l",
+        "lglff100l",
+        "lglff100h29r",
+        "lglnff130r",
+        "lglnhd150r",
+        "lglff180r",
+        "lghx8048r",
+        "lghx8048l",
+        "lghx10048l",
+        "lghx10048r",
+        "lghx10048h29r",
+    ];
+    const busAndTruckProducts = busAndTruckProductSlugs.map((slug) => convertSlugToRequiredProductSchema(slug));
+    const tractorProductSlugs = ["lgptr800r", "lgptr900l", "lgptr1000l", "lgptr1000r", "lgpxtr8048r", "lgpxtr9048l", "lgpxtr10048l", "lgpxtr10048r", "lgpxtr9048h29l"];
+    const tractorProducts = tractorProductSlugs.map((slug) => convertSlugToRequiredProductSchema(slug));
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        categoryBrands: categoryBrands,
+        twoWheelerProducts: twoWheelerProducts,
+        threeWheelerProducts: threeWheelerProducts,
+        carAndSuvProducts: carAndSuvProducts,
+        busAndTruckProducts: busAndTruckProducts,
+        tractorProducts: tractorProducts,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, categoryBrands, twoWheelerProducts, threeWheelerProducts, busAndTruckProducts, carAndSuvProducts, tractorProducts} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -159,6 +241,12 @@ export default function () {
                     userPreferences={userPreferences}
                     utmParameters={utmSearchParameters}
                     pageUrl={pageUrl}
+                    categoryBrands={categoryBrands}
+                    twoWheelerProducts={twoWheelerProducts}
+                    threeWheelerProducts={threeWheelerProducts}
+                    carAndSuvProducts={carAndSuvProducts}
+                    busAndTruckProducts={busAndTruckProducts}
+                    tractorProducts={tractorProducts}
                 />
             </PageScaffold>
 
@@ -171,12 +259,24 @@ function BatteryFinder({
     userPreferences,
     utmParameters,
     pageUrl,
+    categoryBrands,
+    twoWheelerProducts,
+    threeWheelerProducts,
+    carAndSuvProducts,
+    busAndTruckProducts,
+    tractorProducts,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
     pageUrl: string;
+    categoryBrands: CategoryBrands;
+    twoWheelerProducts: Array<DisplayProductsSchema>;
+    threeWheelerProducts: Array<DisplayProductsSchema>;
+    carAndSuvProducts: Array<DisplayProductsSchema>;
+    busAndTruckProducts: Array<DisplayProductsSchema>;
+    tractorProducts: Array<DisplayProductsSchema>;
 }) {
     const [batteryFinderState, dispatch] = useReducer(batteryFinderReducer, batteryFinderInitialState);
 
@@ -195,6 +295,7 @@ function BatteryFinder({
                 batteryFinderState={batteryFinderState}
                 dispatch={dispatch}
                 className="tw-max-w-7xl tw-mx-auto"
+                categoryBrands={categoryBrands}
             />
 
             <VehicleCategoryDetails
@@ -203,6 +304,11 @@ function BatteryFinder({
                 batteryFinderState={batteryFinderState}
                 dispatch={dispatch}
                 className="tw-max-w-7xl tw-mx-auto"
+                twoWheelerProducts={twoWheelerProducts}
+                threeWheelerProducts={threeWheelerProducts}
+                carAndSuvProducts={carAndSuvProducts}
+                busAndTruckProducts={busAndTruckProducts}
+                tractorProducts={tractorProducts}
             />
 
             {/* <div className="lg-px-screen-edge-2 tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-x-8 tw-gap-y-10 tw-max-w-7xl tw-mx-auto">
@@ -281,13 +387,47 @@ function ChooseYourVehicle({
     batteryFinderState,
     dispatch,
     className,
+    categoryBrands,
 }: {
     userPreferences: UserPreferences;
     pageUrl: string;
     batteryFinderState: BatteryFinderState;
     dispatch: React.Dispatch<BatteryFinderAction>;
     className?: string;
+    categoryBrands: CategoryBrands;
 }) {
+    const modelFetcher = useFetcher();
+    const fuelFetcher = useFetcher();
+    const findBatteryFetcher = useFetcher();
+
+    useEffect(() => {
+        if (modelFetcher.data != null) {
+            dispatch({
+                actionType: BatteryFinderActionType.setModels,
+                payload: modelFetcher.data.models,
+            });
+        }
+    }, [modelFetcher.data]);
+
+    useEffect(() => {
+        if (fuelFetcher.data != null) {
+            dispatch({
+                actionType: BatteryFinderActionType.setFuelTypes,
+                payload: fuelFetcher.data.fuels,
+            });
+        }
+    }, [fuelFetcher.data]);
+
+    useEffect(() => {
+        if (findBatteryFetcher.data != null) {
+            console.log(findBatteryFetcher.data);
+            dispatch({
+                actionType: BatteryFinderActionType.setRecommendedBatteries,
+                payload: findBatteryFetcher.data.recommendedBatteries,
+            });
+        }
+    }, [findBatteryFetcher.data]);
+
     return (
         <div className="lg-px-screen-edge-2 tw-z-10 tw-w-full tw-max-w-7xl tw-mx-auto">
             <div className="tw-w-full tw-rounded-lg lg-bg-secondary-100 lg-card -tw-mt-16 lg:-tw-mt-28">
@@ -334,14 +474,20 @@ function ChooseYourVehicle({
                             <VerticalSpacer className="tw-h-1" />
 
                             <FormSelectComponent
-                                items={batteryFinderState.brands}
+                                items={categoryBrands[batteryFinderState.selectedCategoryIndex]}
                                 value={batteryFinderState.selectedBrand}
-                                setValue={(item) =>
+                                setValue={(item) => {
                                     dispatch({
                                         actionType: BatteryFinderActionType.setSelectedBrand,
                                         payload: item,
-                                    })
-                                }
+                                    });
+                                    modelFetcher.submit(
+                                        {
+                                            selectedBrand: item,
+                                        },
+                                        {method: "GET", action: "/battery-finder/get-models"},
+                                    );
+                                }}
                                 itemBuilder={(item) => (item != null ? item : getVernacularString("261ddd0c-6c3c-40e5-a899-e07dee17d221", userPreferences.language))}
                                 buttonClassName="!tw-rounded-full"
                             />
@@ -358,12 +504,19 @@ function ChooseYourVehicle({
                                 items={batteryFinderState.models}
                                 itemBuilder={(item) => (item != null ? item : getVernacularString("f5207071-fe8f-462d-bbf6-19cd5db04407", userPreferences.language))}
                                 value={batteryFinderState.selectedModel}
-                                setValue={(item) =>
+                                setValue={(item) => {
                                     dispatch({
                                         actionType: BatteryFinderActionType.setSelectedModel,
                                         payload: item,
-                                    })
-                                }
+                                    });
+                                    fuelFetcher.submit(
+                                        {
+                                            selectedBrand: batteryFinderState.selectedBrand,
+                                            selectedModel: item,
+                                        },
+                                        {method: "GET", action: "/battery-finder/get-fuels"},
+                                    );
+                                }}
                                 // filterFunction={(items, query) => items.filter((item) => item.toLowerCase().replace(/\s+/g, "").includes(query.toLowerCase().replace(/\s+/g, "")))}
                                 // renderFunction={(item) => item}
                                 // placeholder="Select Model"
@@ -412,10 +565,15 @@ function ChooseYourVehicle({
                                 className="lg-cta-button tw-w-full tw-h-full tw-px-4 tw-mx-auto disabled:!tw-bg-none disabled:!tw-bg-secondary-300-light disabled:dark:!tw-bg-secondary-300-dark disabled:!tw-text-secondary-700-light disabled:dark:!tw-text-secondary-700-dark"
                                 disabled={batteryFinderState.selectedFuelType == null}
                                 onClick={() => {
-                                    dispatch({
-                                        actionType: BatteryFinderActionType.findBatteries,
-                                        payload: userPreferences.language,
-                                    });
+                                    findBatteryFetcher.submit(
+                                        {
+                                            selectedBrand: batteryFinderState.selectedBrand,
+                                            selectedModel: batteryFinderState.selectedModel,
+                                            selectedFuel: batteryFinderState.selectedFuelType,
+                                            vtype: indexToVehicleTypeMap[batteryFinderState.selectedCategoryIndex],
+                                        },
+                                        {method: "GET", action: "/battery-finder/get-recommended-batteries"},
+                                    );
                                 }}
                             >
                                 {getVernacularString("112996e0-2850-4283-af77-7514a386d172", userPreferences.language)}
@@ -493,398 +651,29 @@ function VehicleCategoryDetails({
     batteryFinderState,
     dispatch,
     className,
+    twoWheelerProducts,
+    threeWheelerProducts,
+    carAndSuvProducts,
+    busAndTruckProducts,
+    tractorProducts,
 }: {
     userPreferences: UserPreferences;
     pageUrl: string;
     batteryFinderState: BatteryFinderState;
     dispatch: React.Dispatch<BatteryFinderAction>;
     className?: string;
+    twoWheelerProducts: Array<DisplayProductsSchema>;
+    threeWheelerProducts: Array<DisplayProductsSchema>;
+    carAndSuvProducts: Array<DisplayProductsSchema>;
+    busAndTruckProducts: Array<DisplayProductsSchema>;
+    tractorProducts: Array<DisplayProductsSchema>;
 }) {
     const products = {
-        [VehicleCategory.twoWheeler]: [
-            {
-                productName: allProductDetails["lgbtx2.5l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgbtx2.5l",
-                isBestSeller: true,
-                capacity: allProductDetails["lgbtx2.5l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgbtx2.5l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgbtx2.5l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lgbtx7l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgbtx7l",
-                capacity: allProductDetails["lgbtx7l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgbtx7l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgbtx7l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lgbtx9l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgbtx9l",
-                productPrice: allProductDetails["lgbtx9l"][userPreferences.language].price,
-                capacity: allProductDetails["lgbtx9l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgbtx9l"][userPreferences.language].specifications[1].value,
-            },
-            {
-                productName: allProductDetails["lgzhhtx5"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgzhhtx5",
-                productPrice: allProductDetails["lgzhhtx5"][userPreferences.language].price,
-                capacity: allProductDetails["lgzhhtx5"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgzhhtx5"][userPreferences.language].specifications[1].value,
-            },
-            {
-                productName: allProductDetails["lgzhhtz4"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgzhhtz4",
-                isBestSeller: true,
-                capacity: allProductDetails["lgzhhtz4"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgzhhtz4"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgzhhtz4"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lgzhhtz5"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgzhhtz5",
-                capacity: allProductDetails["lgzhhtz5"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgzhhtz5"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgzhhtz5"][userPreferences.language].price,
-            },
-        ],
-        [VehicleCategory.threeWheeler]: [
-            {
-                productName: allProductDetails["lgmf0ar32r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgmf0ar32r",
-                productPrice: allProductDetails["lgmf0ar32r"][userPreferences.language].price,
-                isBestSeller: false,
-                warranty: allProductDetails["lgmf0ar32r"][userPreferences.language].specifications[1].value,
-                capacity: allProductDetails["lgmf0ar32r"][userPreferences.language].specifications[2].value,
-            },
-            {
-                productName: allProductDetails["lgmf0ar60l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgmf0ar60l",
-                productPrice: allProductDetails["lgmf0ar60l"][userPreferences.language].price,
-                isBestSeller: false,
-                warranty: allProductDetails["lgmf0ar60l"][userPreferences.language].specifications[1].value,
-                capacity: allProductDetails["lgmf0ar60l"][userPreferences.language].specifications[2].value,
-            },
-        ],
-        [VehicleCategory.carAndSuv]: [
-            {
-                productName: allProductDetails["ze38b20l"][userPreferences.language].humanReadableModelNumber,
-                slug: "ze38b20l",
-                capacity: allProductDetails["ze38b20l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["ze38b20l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["ze38b20l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["ze38b20r"][userPreferences.language].humanReadableModelNumber,
-                slug: "ze38b20r",
-                capacity: allProductDetails["ze38b20r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["ze38b20r"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["ze38b20r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["ze55b24lsl"][userPreferences.language].humanReadableModelNumber,
-                slug: "ze55b24lsl",
-                capacity: allProductDetails["ze55b24lsl"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["ze55b24lsl"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["ze55b24lsl"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zu42b20l"][userPreferences.language].humanReadableModelNumber,
-                slug: "zu42b20l",
-                capacity: allProductDetails["zu42b20l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zu42b20l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zu42b20l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zu42b20r"][userPreferences.language].humanReadableModelNumber,
-                slug: "zu42b20r",
-                capacity: allProductDetails["zu42b20r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zu42b20r"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zu42b20r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zu42b20bhl"][userPreferences.language].humanReadableModelNumber,
-                slug: "zu42b20bhl",
-                capacity: allProductDetails["zu42b20bhl"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zu42b20bhl"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zu42b20bhl"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zudin44lhl"][userPreferences.language].humanReadableModelNumber,
-                slug: "zudin44lhl",
-                capacity: allProductDetails["zudin44lhl"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zudin44lhl"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zudin44lhl"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zudin50l"][userPreferences.language].humanReadableModelNumber,
-                slug: "zudin50l",
-                capacity: allProductDetails["zudin50l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zudin50l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zudin50l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zudin55r"][userPreferences.language].humanReadableModelNumber,
-                slug: "zudin55r",
-                capacity: allProductDetails["zudin55r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zudin55r"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zudin55r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zudin60l"][userPreferences.language].humanReadableModelNumber,
-                slug: "zudin60l",
-                capacity: allProductDetails["zudin60l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zudin60l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zudin60l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zudin65lhl"][userPreferences.language].humanReadableModelNumber,
-                slug: "zudin65lhl",
-                capacity: allProductDetails["zudin65lhl"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zudin65lhl"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zudin65lhl"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zu75d23bhl"][userPreferences.language].humanReadableModelNumber,
-                slug: "zu75d23bhl",
-                capacity: allProductDetails["zu75d23bhl"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zu75d23bhl"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zu75d23bhl"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zp38b20l"][userPreferences.language].humanReadableModelNumber,
-                slug: "zp38b20l",
-                capacity: allProductDetails["zp38b20l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zp38b20l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zp38b20l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zp38b20r"][userPreferences.language].humanReadableModelNumber,
-                slug: "zp38b20r",
-                capacity: allProductDetails["zp38b20r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zp38b20r"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zp38b20r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zp70d26l"][userPreferences.language].humanReadableModelNumber,
-                slug: "zp70d26l",
-                capacity: allProductDetails["zp70d26l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zp70d26l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zp70d26l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["zp70d26r"][userPreferences.language].humanReadableModelNumber,
-                slug: "zp70d26r",
-                capacity: allProductDetails["zp70d26r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["zp70d26r"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["zp70d26r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["pc38b20l"][userPreferences.language].humanReadableModelNumber,
-                slug: "pc38b20l",
-                capacity: allProductDetails["pc38b20l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["pc38b20l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["pc38b20l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["pp38b20l"][userPreferences.language].humanReadableModelNumber,
-                slug: "pp38b20l",
-                capacity: allProductDetails["pp38b20l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["pp38b20l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["pp38b20l"][userPreferences.language].price,
-            },
-        ],
-        [VehicleCategory.busAndTruck]: [
-            {
-                productName: allProductDetails["lglff80r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lglff80r",
-                capacity: allProductDetails["lglff80r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lglff80r"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lglff80r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lglff80l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lglff80l",
-                capacity: allProductDetails["lglff80l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lglff80l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lglff80l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lglff100l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lglff100l",
-                capacity: allProductDetails["lglff100l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lglff100l"][userPreferences.language].specifications[1].value,
-                imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                productPrice: allProductDetails["lglff100l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lglff100h29r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lglff100h29r",
-                capacity: allProductDetails["lglff100h29r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lglff100h29r"][userPreferences.language].specifications[1].value,
-                imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                productPrice: allProductDetails["lglff100h29r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lglnff130r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lglnff130r",
-                isBestSeller: true,
-                capacity: allProductDetails["lglnff130r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lglnff130r"][userPreferences.language].specifications[1].value,
-                productPriceRelativeUrl: "/livguard/bus-and-truck/3/3.3.png",
-                productPrice: allProductDetails["lglnff130r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lglnhd150r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lglnhd150r",
-                capacity: allProductDetails["lglnhd150r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lglnhd150r"][userPreferences.language].specifications[1].value,
-                imageRelativeUrl: "/livguard/bus-and-truck/3/3.4.png",
-                productPrice: allProductDetails["lglnhd150r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lglff180r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lglff180r",
-                capacity: allProductDetails["lglff180r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lglff180r"][userPreferences.language].specifications[1].value,
-                imageRelativeUrl: "/livguard/bus-and-truck/3/3.3.png",
-                productPrice: allProductDetails["lglff180r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lghx8048r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lghx8048r",
-                capacity: allProductDetails["lghx8048r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lghx8048r"][userPreferences.language].specifications[1].value,
-                imageRelativeUrl: "/livguard/bus-and-truck/3/3.4.png",
-                productPrice: allProductDetails["lghx8048r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lghx8048l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lghx8048l",
-                capacity: allProductDetails["lghx8048l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lghx8048l"][userPreferences.language].specifications[1].value,
-                imageRelativeUrl: "/livguard/bus-and-truck/3/3.1.png",
-                productPrice: allProductDetails["lghx8048l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lghx10048l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lghx10048l",
-                capacity: allProductDetails["lghx10048l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lghx10048l"][userPreferences.language].specifications[1].value,
-                imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                productPrice: allProductDetails["lghx10048l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lghx10048r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lghx10048r",
-                capacity: allProductDetails["lghx10048r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lghx10048r"][userPreferences.language].specifications[1].value,
-                imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                productPrice: allProductDetails["lghx10048r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lghx10048h29r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lghx10048h29r",
-                capacity: allProductDetails["lghx10048h29r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lghx10048h29r"][userPreferences.language].specifications[1].value,
-                imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                productPrice: allProductDetails["lghx10048h29r"][userPreferences.language].price,
-            },
-        ],
-        [VehicleCategory.tractor]: [
-            {
-                productName: allProductDetails["lgptr800r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgptr800r",
-                capacity: allProductDetails["lgptr800r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgptr800r"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgptr800r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lgptr900l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgptr900l",
-                capacity: allProductDetails["lgptr900l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgptr900l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgptr900l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lgptr1000l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgptr1000l",
-                capacity: allProductDetails["lgptr1000l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgptr1000l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgptr1000l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lgptr1000r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgptr1000r",
-                capacity: allProductDetails["lgptr1000r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgptr1000r"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgptr1000r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lgpxtr8048r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgpxtr8048r",
-                capacity: allProductDetails["lgpxtr8048r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgpxtr8048r"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgpxtr8048r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lgpxtr9048l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgpxtr9048l",
-                capacity: allProductDetails["lgpxtr9048l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgpxtr9048l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgpxtr9048l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lgpxtr10048l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgpxtr10048l",
-                capacity: allProductDetails["lgpxtr10048l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgpxtr10048l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgpxtr10048l"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lgpxtr10048r"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgpxtr10048r",
-                capacity: allProductDetails["lgpxtr10048r"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgpxtr10048r"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgpxtr10048r"][userPreferences.language].price,
-            },
-            {
-                productName: allProductDetails["lgpxtr9048h29l"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgpxtr9048h29l",
-                capacity: allProductDetails["lgpxtr9048h29l"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgpxtr9048h29l"][userPreferences.language].specifications[1].value,
-                productPrice: allProductDetails["lgpxtr9048h29l"][userPreferences.language].price,
-            },
-        ],
-        [VehicleCategory.eRickshaw]: [
-            {
-                productName: allProductDetails["lgb0erfp1500"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgb0erfp1500",
-                productPrice: allProductDetails["lgb0erfp1500"][userPreferences.language].price,
-                capacity: allProductDetails["lgb0erfp1500"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgb0erfp1500"][userPreferences.language].specifications[1].value,
-            },
-            {
-                productName: allProductDetails["lgc0ertu1800"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgc0ertu1800",
-                productPrice: allProductDetails["lgc0ertu1800"][userPreferences.language].price,
-                capacity: allProductDetails["lgc0ertu1800"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgc0ertu1800"][userPreferences.language].specifications[1].value,
-            },
-            {
-                productName: allProductDetails["lgd0ertu2300"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgd0ertu2300",
-                productPrice: allProductDetails["lgd0ertu2300"][userPreferences.language].price,
-                capacity: allProductDetails["lgd0ertu2300"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgd0ertu2300"][userPreferences.language].specifications[1].value,
-            },
-            {
-                productName: allProductDetails["lgd0ertu2500"][userPreferences.language].humanReadableModelNumber,
-                slug: "lgd0ertu2500",
-                productPrice: allProductDetails["lgd0ertu2500"][userPreferences.language].price,
-                capacity: allProductDetails["lgd0ertu2500"][userPreferences.language].specifications[2].value,
-                warranty: allProductDetails["lgd0ertu2500"][userPreferences.language].specifications[1].value,
-            },
-        ],
+        [VehicleCategory.twoWheeler]: twoWheelerProducts,
+        [VehicleCategory.threeWheeler]: threeWheelerProducts,
+        [VehicleCategory.carAndSuv]: carAndSuvProducts,
+        [VehicleCategory.busAndTruck]: busAndTruckProducts,
+        [VehicleCategory.tractor]: tractorProducts,
     };
 
     const banners = {
@@ -904,10 +693,10 @@ function VehicleCategoryDetails({
             bannerDesktop: "/livguard/tractor/1/banner-desktop.jpg",
             bannerMobile: "/livguard/tractor/1/banner-mobile.jpg",
         },
-        [VehicleCategory.eRickshaw]: {
-            bannerDesktop: "/livguard/e-rickshaw-batteries/1/banner-desktop.jpg",
-            bannerMobile: "/livguard/e-rickshaw-batteries/1/banner-mobile.jpg",
-        },
+        // [VehicleCategory.eRickshaw]: {
+        //     bannerDesktop: "/livguard/e-rickshaw-batteries/1/banner-desktop.jpg",
+        //     bannerMobile: "/livguard/e-rickshaw-batteries/1/banner-mobile.jpg",
+        // },
         [VehicleCategory.busAndTruck]: {
             bannerDesktop: "/livguard/bus-and-truck/1/banner-desktop.jpg",
             bannerMobile: "/livguard/bus-and-truck/1/banner-mobile.jpg",
@@ -1003,9 +792,9 @@ function VehicleCategoryDetails({
 
             <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
 
-            {batteryFinderState.recommendedBatteries?.length == null
+            {products[batteryFinderState.selectedCategoryIndex].length == null
                 ? null
-                : batteryFinderState.recommendedBatteries?.length > 4 && (
+                : products[batteryFinderState.selectedCategoryIndex].length > 4 && (
                       <button
                           className="lg-cta-button tw-place-self-center"
                           onClick={() => setIsViewMore((prev) => !prev)}

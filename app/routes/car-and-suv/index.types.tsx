@@ -1,4 +1,4 @@
-import {ProductType} from "~/productData";
+import {ProductType} from "~/productData.types";
 
 export enum VehicleCategory {
     twoWheeler,
