@@ -81,7 +81,9 @@ export function OurSuggestionsComponent({
                     <VerticalSpacer className="tw-h-4" />
 
                     <DefaultTextAnimation>
-                        <div className="lg-text-title1 tw-text-center lg:tw-text-left">{allProductDetails[vernacularContent.heading.toLocaleLowerCase()][userPreferences.language].humanReadableModelNumber}</div>
+                        <div className="lg-text-title1 tw-text-center lg:tw-text-left">
+                            {allProductDetails[vernacularContent.heading.toLocaleLowerCase()][userPreferences.language].humanReadableModelNumber}
+                        </div>
                     </DefaultTextAnimation>
 
                     <VerticalSpacer className="tw-h-4" />
@@ -110,7 +112,7 @@ export function OurSuggestionsComponent({
                                         <FixedWidthImage
                                             relativePath={keySpecification.keySpecificationIconRelativePath}
                                             width="2rem"
-                                            className="tw-place-self-center"
+                                            className="tw-place-self-center tw-invert dark:tw-invert-0"
                                         />
                                     </div>
 
