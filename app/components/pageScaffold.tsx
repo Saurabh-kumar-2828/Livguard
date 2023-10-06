@@ -76,9 +76,9 @@ export function PageScaffold({
 
                 <Link
                     to="https://api.whatsapp.com/send?phone=9599198444"
-                    className="tw-fixed tw-z-[64] tw-bottom-[85px] sm:tw-bottom-[30px] tw-right-[16px] tw-w-[46px] tw-aspect-square tw-rounded-full tw-flex tw-items-center tw-justify-center tw-bg-[#25D366] lg:tw-hidden tw-text-secondary-100-light"
+                    className="tw-fixed tw-z-[64] tw-bottom-[5.3125rem] sm:tw-bottom-[1.875rem] tw-left-4 tw-w-[2.875rem] tw-aspect-square tw-rounded-full tw-flex tw-items-center tw-justify-center tw-bg-[#25D366] lg:tw-hidden tw-text-secondary-100-light"
                 >
-                    <Whatsapp />
+                    <Whatsapp className="tw-w-[1.5rem] tw-h-[1.5rem]" />
                 </Link>
 
                 {children}

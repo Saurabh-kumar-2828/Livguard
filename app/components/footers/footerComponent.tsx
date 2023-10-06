@@ -1335,7 +1335,7 @@ export function FooterComponent({
                         </div>
                     </div>
                 </div>
-                <div className="tw-hidden lg:tw-grid lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[4.5rem]">
+                {/* <div className="tw-hidden lg:tw-grid lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[4.5rem]">
                     <div className="tw-grid tw-gap-4">
                         <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4 tw-items-center">
                             <div className="lg-text-title2 lg-text-primary-500">{getVernacularString("642467c3-8136-4523-b231-fa5aae9a075a", userPreferences.language)}</div>{" "}
@@ -1377,7 +1377,7 @@ export function FooterComponent({
                             />
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <VerticalSpacer className="tw-h-4 tw-col-start-1 tw-col-span-full" />
                 <div className="tw-hidden lg:tw-grid lg:tw-row-start-8 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[4.5rem]">
                     <div className="tw-grid tw-gap-4">

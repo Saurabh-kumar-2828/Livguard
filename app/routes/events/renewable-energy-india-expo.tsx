@@ -359,7 +359,7 @@ function SuccessStories({userPreferences}: {userPreferences: UserPreferences}) {
 
             <div className="tw-text-center lg-text-body">{getVernacularString("2768e014-aad2-4622-a7e0-39cd685d5be9", userPreferences.language)}</div>
 
-            <div className="tw-flex min-[400px]:tw-justify-center tw-gap-4 tw-overflow-auto max-[400px]:tw-pb-2">
+            <div className="tw-flex min-[400px]:tw-justify-center tw-gap-4 tw-overflow-auto max-[400px]:tw-pb-2 lg:lg-card-shadow-hack">
                 <ItemBuilder
                     items={tabContent}
                     itemBuilder={(item, itemIndex) => {
@@ -664,11 +664,11 @@ function GallerySection({userPreferences}: {userPreferences: UserPreferences}) {
             "/livguard-solar/renewable/6/5.JPG",
         ],
         [
-           "/livguard-solar/renewable/gallery/1.JPG",
-           "/livguard-solar/renewable/gallery/2.JPG",
-           "/livguard-solar/renewable/gallery/3.JPG",
-           "/livguard-solar/renewable/gallery/4.JPG",
-           "/livguard-solar/renewable/gallery/5.JPG",
+            "/livguard-solar/renewable/gallery/1.JPG",
+            "/livguard-solar/renewable/gallery/2.JPG",
+            "/livguard-solar/renewable/gallery/3.JPG",
+            "/livguard-solar/renewable/gallery/4.JPG",
+            "/livguard-solar/renewable/gallery/5.JPG",
         ],
     ];
     return (
@@ -718,7 +718,10 @@ function GallerySection({userPreferences}: {userPreferences: UserPreferences}) {
                                 )}
                                 key={itemIndex}
                             >
-                                <FullHeightImage relativePath={item} />
+                                <FullHeightImage
+                                    relativePath={item}
+                                    key={item}
+                                />
                             </div>
                         );
                     }}

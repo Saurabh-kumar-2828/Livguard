@@ -628,23 +628,22 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
                 items={comboData}
             /> */}
             <CarouselStyle5
-                    items={comboData.map((comboData, comboDataIndex) => (
-                        <BatteryCard
-                            name={comboData.title}
-                            description={comboData.description}
-                            imageRelativeUrl={comboData.comboImageRelativePath}
-                            warranty={comboData.keySpecifications[0].keySpecificationContent}
-                            capacity={comboData.keySpecifications[2].keySpecificationContent}
-                            rating={comboData.keySpecifications[1].keySpecificationContent}
-                            technology={comboData.keySpecifications[3].keySpecificationContent}
-                            userPreferences={userPreferences}
-                            batterySlug="/"
-                            key={comboDataIndex}
-                            buttonTextVernacId="da0c3ceb-64b6-40b0-8b87-b14e68a03dc6"
-
-                        />
-                    ))}
-                    slidesContainerClassName="!tw-auto-cols-[100%] lg:!tw-auto-cols-max tw-place-self-center tw-items-center"
+                items={comboData.map((comboData, comboDataIndex) => (
+                    <BatteryCard
+                        name={comboData.title}
+                        description={comboData.description}
+                        imageRelativeUrl={comboData.comboImageRelativePath}
+                        warranty={comboData.keySpecifications[0].keySpecificationContent}
+                        capacity={comboData.keySpecifications[2].keySpecificationContent}
+                        rating={comboData.keySpecifications[1].keySpecificationContent}
+                        technology={comboData.keySpecifications[3].keySpecificationContent}
+                        userPreferences={userPreferences}
+                        batterySlug="/"
+                        key={comboDataIndex}
+                        buttonTextVernacId="da0c3ceb-64b6-40b0-8b87-b14e68a03dc6"
+                    />
+                ))}
+                slidesContainerClassName="!tw-auto-cols-[100%] lg:!tw-auto-cols-max tw-place-self-center tw-items-center"
                 selectedContainerClassName="tw-h-full"
                 deselectedContainersClassName="tw-scale-[0.9] tw-h-full"
                 autoplayDelay={null}
@@ -688,7 +687,11 @@ function BatteryCard({
                     className="tw-hidden lg:tw-block"
                     to={batterySlug}
                 >
-                    <button className="lg-cta-button">{buttonTextVernacId == null ? getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language) : getVernacularString(buttonTextVernacId, userPreferences.language)}</button>
+                    <button className="lg-cta-button">
+                        {buttonTextVernacId == null
+                            ? getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)
+                            : getVernacularString(buttonTextVernacId, userPreferences.language)}
+                    </button>
                 </Link>
             </div>
 
@@ -765,7 +768,11 @@ function BatteryCard({
                     className="tw-place-self-center lg:tw-hidden"
                     to={batterySlug}
                 >
-                    <button className="lg-cta-button">{buttonTextVernacId == null ? getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language) : getVernacularString(buttonTextVernacId, userPreferences.language)}</button>
+                    <button className="lg-cta-button">
+                        {buttonTextVernacId == null
+                            ? getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)
+                            : getVernacularString(buttonTextVernacId, userPreferences.language)}
+                    </button>
                     {/* <button className="lg-cta-button">{buttonTextVernacId == null ? getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language) : getVernacularString("buttonTextVernacId", userPreferences.language)}</button> */}
                 </Link>
 
@@ -822,7 +829,7 @@ export function WhyLivguardCombo({userPreferences, className}: {userPreferences:
                 <VerticalSpacer className="tw-h-10" />
 
                 <div>
-                    <div className="tw-grid tw-grid-cols-[minmax(0,1fr),auto,minmax(0,1fr)] tw-gap-3 tw-flex-1">
+                    <div className="tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-gap-3 tw-flex-1">
                         <ItemBuilder
                             items={sectionData}
                             itemBuilder={(item, itemIndex) => (

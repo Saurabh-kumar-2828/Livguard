@@ -62,10 +62,13 @@ export function InitialFindTheThiefDialogComponent({userPreferences, buttonClick
                             />
                             <div className="tw-relative tw-left-[80%] tw-top-[40%] lg:tw-top-[60%]">
                                 <div className="">
-                                    <FullWidthImage relativePath="/livguard/find-the-thief/arrow.svg" />
+                                    <FullWidthImage
+                                        relativePath="/livguard/find-the-thief/arrow.svg"
+                                        className="dark:tw-invert"
+                                    />
                                 </div>
                                 <div
-                                    className="lg-text-body tw-text-end tw-relative tw-left-4"
+                                    className="lg-text-body tw-text-end tw-relative tw-left-4 lg-text-secondary-900"
                                     dangerouslySetInnerHTML={{__html: getVernacularString("eb76fa52-9cc6-4ce5-b570-2bbd8f606dac", userPreferences.language)}}
                                 />
                             </div>

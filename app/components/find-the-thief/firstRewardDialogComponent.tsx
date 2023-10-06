@@ -161,7 +161,7 @@ export function FirstRewardDialogComponent({userPreferences, buttonClickFunction
 
                 <Link
                     to="/terms-and-conditions/social-media"
-                    className="tw-place-self-center lg-text-icon"
+                    className="tw-place-self-center lg-text-icon hover:lg-text-primary-500"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
