@@ -239,3 +239,22 @@ export function safeExecute<T, U>(func: (input: T) => U, input: T): U | null {
         return null;
     }
 }
+
+// T: typeof(item)
+// U: typeof(item.attribute)
+export function createGroupByReducer<T, U extends string | number | symbol>(attribute: string) {
+    const reducer = (result: {[key in U]: Array<T>}, item: T): {[key in U]: Array<T>} => {
+        // TODO: Add type checking or leave that upto the user?
+        const attributeValue: U = item[attribute];
+
+        if (attributeValue in result) {
+            result[attributeValue].push(item);
+        } else {
+            result[attributeValue] = [item];
+        }
+
+        return result;
+    };
+
+    return reducer;
+}
