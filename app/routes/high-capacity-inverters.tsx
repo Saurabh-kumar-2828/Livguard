@@ -235,6 +235,7 @@ function HKVAPage({
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
                         showCtaButton={true}
+                        secondaryNavigationName="0cb6d442-7df4-4272-a36d-9f956bdd8a54"
                     />
 
                     <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
@@ -268,26 +269,12 @@ function HKVAPage({
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
-
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_repeat(3,auto)_minmax(0,1fr)] lg:tw-grid-rows-[3rem_auto_auto_minmax(0,2fr)_3rem] tw-text-center lg:tw-text-left lg:tw-grid-cols-1",
                 className,
             )}
-            id="top"
-            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full">
                 {isScreenSizeBelow == null ? null : (
@@ -321,8 +308,8 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "high-power": {
-                humanReadableName: getVernacularString("57e5cba3-9ffe-47dd-b584-1a8f2f8aaf8b", userPreferences.language),
+            "features": {
+                humanReadableName: getVernacularString("f19bea1b-ce21-4a14-af85-b49b68827611", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -336,7 +323,10 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
                 )}
             >
                 <div className="tw-row-start-1">
-                    <FullWidthImage relativePath={imageRelativePath} className="tw-rounded-lg"/>
+                    <FullWidthImage
+                        relativePath={imageRelativePath}
+                        className="tw-rounded-lg"
+                    />
                 </div>
 
                 <div className="tw-row-start-3 tw-text-center lg-text-title1 lg-text-secondary-900">{title}</div>
@@ -428,7 +418,7 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
         <>
             <div
                 className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}
-                id="high-power"
+                id="features"
                 ref={sectionRef}
             >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg:lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
@@ -587,8 +577,8 @@ function PowerhouseInverters({userPreferences, className, products}: {userPrefer
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "heavy-duty-inverters": {
-                humanReadableName: getVernacularString("4c457900-7da0-4e38-ad3f-732e9ab35335", userPreferences.language),
+            "suggeseted-inverters": {
+                humanReadableName: getVernacularString("5c88bf46-4d04-4588-ab8b-1be8ab296bf0", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -597,7 +587,7 @@ function PowerhouseInverters({userPreferences, className, products}: {userPrefer
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-card tw-rounded-lg", className)}
-            id="heavy-duty-inverters"
+            id="suggeseted-inverters"
             ref={sectionRef}
         >
             <VerticalSpacer className="tw-h-6 lg:tw-h-10" />
@@ -752,8 +742,8 @@ function PowerUpWithHighCapacityInverters({userPreferences, className, products}
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "high-capacity-inverters": {
-                humanReadableName: getVernacularString("4b6c134b-096e-49cf-9e12-d53c0e3cf059", userPreferences.language),
+            "our-range": {
+                humanReadableName: getVernacularString("a53c5496-6d8d-4650-bd9e-2f0af6e9da73", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -853,7 +843,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className, products}
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("tw-px-3", className)}
-            id="high-capacity-inverters"
+            id="our-range"
             ref={sectionRef}
         >
             <div className="tw-grid tw-grid-cols-1">

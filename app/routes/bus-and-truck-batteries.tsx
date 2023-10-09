@@ -232,8 +232,10 @@ function BusAndTruckBatteriesPage({
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-7 tw-col-start-1 lg:tw-col-span-full" />
 
                 <div className="tw-row-start-8 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
-                    <DealerLocatorSection
+                    <DealerLocator
                         userPreferences={userPreferences}
+                        showCtaButton={true}
+                        secondaryNavigationName="0cb6d442-7df4-4272-a36d-9f956bdd8a54"
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
                     />
 
@@ -267,25 +269,12 @@ function BusAndTruckBatteriesPage({
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto_1.5rem_minmax(0,1fr)] lg:tw-grid-rows-[4rem_auto_auto_1rem_auto_3.5rem_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-2",
                 className,
             )}
-            id="top"
-            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-full tw-w-full tw-relative">
                 {isScreenSizeBelow == null ? null : (
@@ -383,7 +372,7 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "superior-features": {
-                humanReadableName: getVernacularString("b907dc0e-a480-49e8-ae9d-3943d5d3c69e", userPreferences.language),
+                humanReadableName: getVernacularString("f19bea1b-ce21-4a14-af85-b49b68827611", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -605,8 +594,8 @@ function ChooseYourIdealBusAndTruckBattery({userPreferences, className}: {userPr
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "find-my-battery": {
-                humanReadableName: getVernacularString("5401aff8-4337-470a-8d9d-7da5591a1118", userPreferences.language),
+            "battery-finder": {
+                humanReadableName: getVernacularString("f37d67f3-63f7-477d-828b-6c8fac1b00b4", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -614,7 +603,7 @@ function ChooseYourIdealBusAndTruckBattery({userPreferences, className}: {userPr
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}
-            id="find-my-battery"
+            id="battery-finder"
             ref={sectionRef}
         >
             <div className="tw-row-start-2 tw-text-center lg-text-headline">{getVernacularString("c46c205c-ffdc-4791-a3f9-b4a839925185", userPreferences.language)}</div>
@@ -834,32 +823,6 @@ function SocialHandlesSection({userPreferences, className}: {userPreferences: Us
             <SocialHandles
                 userPreferences={userPreferences}
                 heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
-            />
-        </div>
-    );
-}
-
-function DealerLocatorSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            "find-my-dealer": {
-                humanReadableName: getVernacularString("bc9269a0-800f-4adf-ac22-d866887da9f4", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
-    return (
-        <div
-            className={concatenateNonNullStringsWithSpaces("", className)}
-            id="find-my-dealer"
-            ref={sectionRef}
-        >
-            <DealerLocator
-                userPreferences={userPreferences}
-                showCtaButton={true}
             />
         </div>
     );

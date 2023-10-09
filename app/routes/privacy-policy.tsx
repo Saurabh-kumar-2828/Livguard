@@ -256,7 +256,6 @@ function PrivacyPolicyPage({userPreferences}: {userPreferences: UserPreferences}
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(

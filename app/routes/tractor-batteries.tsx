@@ -240,6 +240,7 @@ function TractorBatteriesPage({
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
                         showCtaButton={true}
+                        secondaryNavigationName="0cb6d442-7df4-4272-a36d-9f956bdd8a54"
                     />
 
                     <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
@@ -273,17 +274,17 @@ function TractorBatteriesPage({
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
+    // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    // useEffect(() => {
+    //     secondaryNavigationController.setSections((previousSections) => ({
+    //         ...previousSections,
+    //         top: {
+    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             isCurrentlyVisible: sectionInView,
+    //         },
+    //     }));
+    // }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -291,8 +292,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto] lg:tw-grid-rows-[3rem_auto_auto_1rem_auto] lg:tw-grid-cols-[0_auto_minmax(0,1fr)] tw-text-center",
                 className,
             )}
-            id="top"
-            ref={sectionRef}
+            // id="top"
+            // ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-fit">
                 {isScreenSizeBelow == null ? null : (
@@ -327,7 +328,7 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "superior-features": {
-                humanReadableName: getVernacularString("ac4503ae-ef14-4618-900a-7cfe181b3e45", userPreferences.language),
+                humanReadableName: getVernacularString("f19bea1b-ce21-4a14-af85-b49b68827611", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -645,8 +646,8 @@ function TopTractorBatteryPicks({
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "top-tractor-battery": {
-                humanReadableName: getVernacularString("1dfc8abe-6cb9-4413-8a90-5223ebdbd4d1", userPreferences.language),
+            "suggested-batteries": {
+                humanReadableName: getVernacularString("6ba6a74b-5c27-4f3d-8c73-8afae650f8eb", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -655,7 +656,7 @@ function TopTractorBatteryPicks({
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-w-full tw-px-3 lg:lg-px-screen-edge-2 lg:tw-py-4", className)}
-            id="top-tractor-battery"
+            id="suggested-batteries"
             ref={sectionRef}
         >
             <DefaultTextAnimation className="tw-grid tw-grid-flow-row tw-gap-y-1 tw-text-center lg-text-headline">
@@ -819,8 +820,8 @@ function ChooseYourIdealTractorBattery({userPreferences, className}: {userPrefer
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "choose-the-right-battery": {
-                humanReadableName: getVernacularString("08f36f74-4395-4e7f-b301-c02e0e7862f8", userPreferences.language),
+            "battery-finder": {
+                humanReadableName: getVernacularString("f37d67f3-63f7-477d-828b-6c8fac1b00b4", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -829,7 +830,7 @@ function ChooseYourIdealTractorBattery({userPreferences, className}: {userPrefer
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}
-            id="choose-the-right-battery"
+            id="battery-finder"
             ref={sectionRef}
         >
             <div

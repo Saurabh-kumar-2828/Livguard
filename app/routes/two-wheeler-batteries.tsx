@@ -251,6 +251,7 @@ function TwoWheelerBatteriesPage({
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
                         showCtaButton={true}
+                        secondaryNavigationName="0cb6d442-7df4-4272-a36d-9f956bdd8a54"
                     />
 
                     <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
@@ -284,17 +285,17 @@ function TwoWheelerBatteriesPage({
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
+    // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    // useEffect(() => {
+    //     secondaryNavigationController.setSections((previousSections) => ({
+    //         ...previousSections,
+    //         top: {
+    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             isCurrentlyVisible: sectionInView,
+    //         },
+    //     }));
+    // }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -302,8 +303,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[4rem_auto_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-1",
                 className,
             )}
-            id="top"
-            ref={sectionRef}
+            // id="top"
+            // ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full">
                 {isScreenSizeBelow == null ? null : (
@@ -338,7 +339,7 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "two-wheeler-battery": {
-                humanReadableName: getVernacularString("27a6ac19-b8ed-43e6-927a-562bf232d8d6", userPreferences.language),
+                humanReadableName: getVernacularString("bee977fa-8e42-472e-8aef-d1076511495c", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -544,7 +545,7 @@ function TopTwoWheelerBatteryPicks({userPreferences, className, products}: {user
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "our-picks": {
-                humanReadableName: getVernacularString("e8d7fe5b-5e59-4f65-aae6-5871d080cf20", userPreferences.language),
+                humanReadableName: getVernacularString("75631f2e-d3eb-4845-92cb-84e6d7560027", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -936,7 +937,7 @@ function ChooseYourIdealTwoWheelerBattery({userPreferences, className}: {userPre
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "ideal-battery": {
-                humanReadableName: getVernacularString("5543107e-a9d0-476c-95fd-6d4bb7336373", userPreferences.language),
+                humanReadableName: getVernacularString("16cf7244-227f-47a1-83e7-b14c3802a44b", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));

@@ -376,8 +376,10 @@ function CategoryPage({
             <VerticalSpacer className="tw-h-10 llg:tw-h-20" />
 
             <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-items-center lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto">
-                <DealerLocatorSection
+                <DealerLocator
                     userPreferences={userPreferences}
+                    showCtaButton={true}
+                    secondaryNavigationName="0cb6d442-7df4-4272-a36d-9f956bdd8a54"
                     className="tw-row-start-1 tw-col-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full lg:tw-min-h-[36rem]"
                 />
 
@@ -421,28 +423,28 @@ function HeroSection({
     pageUrl: string;
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
+    // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    // useEffect(() => {
+    //     secondaryNavigationController.setSections((previousSections) => ({
+    //         ...previousSections,
+    //         top: {
+    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             isCurrentlyVisible: sectionInView,
+    //         },
+    //     }));
+    // }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))-4.5rem] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-min-h-[calc(100vw*7/16)] tw-overflow-hidden",
                 className,
             )}
-            id="top"
-            ref={sectionRef}
+            // id="top"
+            // ref={sectionRef}
         >
             <div
-                className="tw-w-full tw-h-full tw-h-full tw-w-full tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center tw-items-stretch"
+                className="tw-w-full tw-h-full tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center tw-items-stretch"
                 ref={ref}
             >
                 {/* <CoverImage
@@ -529,7 +531,7 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "meant-to-last": {
+            features: {
                 humanReadableName: getVernacularString("8bb57774-d155-41f1-bf07-6906c1026203", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
@@ -538,7 +540,7 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col", className)}
-            id="meant-to-last"
+            id="features"
             ref={sectionRef}
         >
             <h2 className="lg-text-headline tw-text-center">
@@ -888,8 +890,8 @@ export function OurSuggestionsSection({
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "our-suggestion": {
-                humanReadableName: getVernacularString("0620b5a6-a7bb-4d55-84fb-6a3202439edb", userPreferences.language),
+            "suggested-batteries": {
+                humanReadableName: getVernacularString("d8ece6dc-63bc-417e-a972-534df74fe32f", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1011,7 +1013,7 @@ export function OurSuggestionsSection({
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}
-            id="our-suggestion"
+            id="suggested-batteries"
             ref={sectionRef}
         >
             <div className="tw-flex tw-flex-col tw-items-center tw-relative">
@@ -1248,7 +1250,7 @@ export function ChooseBestInverterBattery({
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "plan-your-power": {
-                humanReadableName: getVernacularString("4364581e-7ad6-4f87-9c83-66bf480d3fab", userPreferences.language),
+                humanReadableName: getVernacularString("774db10b-9d90-42dd-bf81-8a1b389178d3", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1315,32 +1317,6 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
                 faqs={faqs}
                 userPreferences={userPreferences}
                 className={className}
-            />
-        </div>
-    );
-}
-
-function DealerLocatorSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            "find-my-dealer": {
-                humanReadableName: getVernacularString("bc9269a0-800f-4adf-ac22-d866887da9f4", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
-    return (
-        <div
-            className=""
-            id="find-my-dealer"
-            ref={sectionRef}
-        >
-            <DealerLocator
-                userPreferences={userPreferences}
-                showCtaButton={true}
             />
         </div>
     );

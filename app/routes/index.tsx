@@ -391,6 +391,7 @@ function HomePage({
                 setCurrentThiefLocation={setCurrentThiefLocation}
                 setDialogType={setDialogType}
                 setIsDialogOpen={setIsDialogOpen}
+                secondaryNavigationName="bc9269a0-800f-4adf-ac22-d866887da9f4"
             />
 
             {/* <ShowerSomeLoveOnSocialHandles
@@ -490,20 +491,7 @@ function HeroSection({
     pageUrl: string;
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
-
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
-
+    // const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
@@ -512,9 +500,6 @@ function HeroSection({
                 "tw-overflow-hidden tw-h-[calc(100vh-16.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] lg:tw-min-h-[calc(100vw*7.5/16)] tw-relative",
                 className,
             )}
-            id="top"
-            ref={emblaRef}
-            // ref={emblaRef}
         >
             <div
                 className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch"
@@ -735,7 +720,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "energy-solutions": {
+            "product-range": {
                 humanReadableName: getVernacularString("ee76a8f5-ba19-4a3e-ad60-67de3b59a6d2", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
@@ -748,7 +733,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                 "tw-grid tw-grid-rows-[auto,auto,minmax(0,1fr)] tw-grid-cols-1 lg:tw-grid-rows-[auto,minmax(0,1fr)] lg:tw-grid-cols-[auto,minmax(0,1fr)] tw-gap-x-4 tw-gap-y-6",
                 className,
             )}
-            id="energy-solutions"
+            id="product-range"
             ref={sectionRef}
         >
             <h2 className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-2">
@@ -934,7 +919,7 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "one-of-a-kind": {
+            "why-livguard": {
                 humanReadableName: getVernacularString("ccf268de-2880-455f-9cc3-bdc066866b2c", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
@@ -944,7 +929,7 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}
-            id="one-of-a-kind"
+            id="why-livguard"
             ref={sectionRef}
         >
             <div className="tw-flex tw-flex-col lg-card tw-px-4 tw-py-6 tw-rounded-lg">
@@ -1398,6 +1383,7 @@ export function DealerLocator({
     setCurrentThiefLocation,
     setDialogType,
     setIsDialogOpen,
+    secondaryNavigationName
 }: {
     userPreferences: UserPreferences;
     showCtaButton: boolean;
@@ -1406,14 +1392,15 @@ export function DealerLocator({
     setCurrentThiefLocation?: React.Dispatch<number>;
     setDialogType?: React.Dispatch<DialogType>;
     setIsDialogOpen?: React.Dispatch<boolean>;
+    secondaryNavigationName: string;
 }) {
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "find-my-dealer": {
-                humanReadableName: getVernacularString("bc9269a0-800f-4adf-ac22-d866887da9f4", userPreferences.language),
+            "dealer-locator": {
+                humanReadableName: getVernacularString(secondaryNavigationName, userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1422,7 +1409,7 @@ export function DealerLocator({
 
     return (
         <div
-            id="find-my-dealer"
+            id="dealer-locator"
             ref={sectionRef}
             className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-relative", className)}
         >
@@ -1481,7 +1468,7 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, classNa
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "our-social-handles": {
+            "social-feed": {
                 humanReadableName: getVernacularString("01553562-bafd-4ad3-a18c-7b6cc113f03f", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
@@ -1490,7 +1477,7 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, classNa
 
     return (
         <div
-            id="our-social-handles"
+            id="social-feed"
             ref={sectionRef}
             className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge lg:tw-h-full", className)}
         >

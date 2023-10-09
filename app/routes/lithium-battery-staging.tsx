@@ -143,24 +143,24 @@ function HeroSection({
     pageUrl: string;
 }) {
     // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
+    // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    // useEffect(() => {
+    //     secondaryNavigationController.setSections((previousSections) => ({
+    //         ...previousSections,
+    //         top: {
+    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             isCurrentlyVisible: sectionInView,
+    //         },
+    //     }));
+    // }, [sectionRef, sectionInView]);
     const isScreenSizeBelow = useIsScreenSizeBelow(640);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg:tw-max-h-[fit] tw-text-center", className)}
-            id="top"
-            ref={sectionRef}
+            // id="top"
+            // ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full tw-grid lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)]">
                 <CoverImage

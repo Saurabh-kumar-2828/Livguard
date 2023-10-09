@@ -325,17 +325,17 @@ function WarrantyRegistrationPage({
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
+    // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    // useEffect(() => {
+    //     secondaryNavigationController.setSections((previousSections) => ({
+    //         ...previousSections,
+    //         top: {
+    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             isCurrentlyVisible: sectionInView,
+    //         },
+    //     }));
+    // }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -343,8 +343,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(3.5rem,1fr)_auto_auto_1rem_auto_3rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_minmax(0,1fr)] lg:tw-text-start tw-text-center lg:tw-grid-cols-2",
                 className,
             )}
-            id="top"
-            ref={sectionRef}
+            // id="top"
+            // ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-col-span-full tw-row-span-full">
                 {useIsScreenSizeBelow == null ? null : (
@@ -381,8 +381,8 @@ function SeamlessService({userPreferences, className}: {userPreferences: UserPre
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "seamless-service": {
-                humanReadableName: getVernacularString("ee900aeb-0671-433a-93cc-115b6b6801b6", userPreferences.language),
+            "benefits": {
+                humanReadableName: getVernacularString("6b8d915d-0091-4666-817a-e9b9d2eab472", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -462,7 +462,7 @@ function SeamlessService({userPreferences, className}: {userPreferences: UserPre
         <>
             <div
                 className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_2rem_auto_1rem_auto_minmax(0,1fr)] lg-px-screen-edge-2", className)}
-                id="seamless-service"
+                id="benefits"
                 ref={sectionRef}
             >
                 <div
@@ -1535,8 +1535,8 @@ function RequestAServiceBanner({userPreferences, className}: {userPreferences: U
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "reliable-service": {
-                humanReadableName: getVernacularString("2a231443-40bf-48b5-b482-147609bb9d63", userPreferences.language),
+            "request-a-service": {
+                humanReadableName: getVernacularString("bd423b50-de84-4397-9141-ac7b3527feb9", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1548,7 +1548,7 @@ function RequestAServiceBanner({userPreferences, className}: {userPreferences: U
                 "tw-aspect-squre lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_auto_1rem_auto_2.5rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_0.5rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
                 className,
             )}
-            id="reliable-service"
+            id="request-a-service"
             ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full">

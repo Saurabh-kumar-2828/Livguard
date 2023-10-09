@@ -474,25 +474,12 @@ function HeroSection({
     pageUrl: string;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold * 2});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
-                className,
+                className
             )}
-            id="top"
-            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
                 {isScreenSizeBelow == null ? null : (
@@ -1858,12 +1845,12 @@ export function OurPresence({userPreferences, className, headingTextContentId}: 
                             key={presenceIndex}
                         >
                             {/* <div className="tw-row-start-1 tw-w-[calc(100%+1px)] tw-h-full lg:tw-w-full lg:tw-h-[calc(100%+2px)] tw-px-4 tw-py-3 tw-bg-new-background-border-500-light dark:tw-bg-new-background-border-500-dark tw-rounded-t-lg lg:tw-rounded-tl-lg lg:tw-rounded-bl-lg lg:tw-rounded-t-none lg:tw-grid lg:tw-items-center"> */}
-                                <div className="tw-w-full tw-py-4 tw-rounded-r-lg tw-grid tw-justify-items-center lg-card lg:tw-h-full lg:tw-p-4 lg:tw-grid lg:tw-items-center tw-border-none">
-                                    <img
-                                        src={getAbsolutePathForRelativePath(getMetadataForImage(presence.imageUrl).finalUrl, ImageCdnProvider.Bunny, null, null)}
-                                        className="tw-w-[6.25rem] tw-h-[6.25rem]"
-                                    />
-                                </div>
+                            <div className="tw-w-full tw-py-4 tw-rounded-r-lg tw-grid tw-justify-items-center lg-card lg:tw-h-full lg:tw-p-4 lg:tw-grid lg:tw-items-center tw-border-none">
+                                <img
+                                    src={getAbsolutePathForRelativePath(getMetadataForImage(presence.imageUrl).finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                    className="tw-w-[6.25rem] tw-h-[6.25rem]"
+                                />
+                            </div>
                             {/* </div> */}
 
                             <div className="tw-col-start-1 tw-row-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-rows-[auto_0.5rem_minmax(0,1fr)_0.5rem_auto_1rem] tw-px-6 tw-py-2">

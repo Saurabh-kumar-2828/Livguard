@@ -225,6 +225,7 @@ function IndiaOpsPage({userPreferences, pageUrl, secondaryNavigationController}:
                     <DealerLocator
                         userPreferences={userPreferences}
                         className="lg:tw-row-[span_3_/_span_5]s lg:tw-col-start-1"
+                        secondaryNavigationName="0cb6d442-7df4-4272-a36d-9f956bdd8a54"
                         showCtaButton={true}
                     />
 
@@ -246,17 +247,6 @@ function IndiaOpsPage({userPreferences, pageUrl, secondaryNavigationController}:
 function HeroSection({userPreferences, className, pageUrl}: {userPreferences: UserPreferences; className?: string; pageUrl: string}) {
     const utmParameters = useUtmSearchParameters();
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
     return (
         // <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg:tw-max-h-[fit] tw-text-center", className)}>
         //     <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full">
@@ -281,8 +271,6 @@ function HeroSection({userPreferences, className, pageUrl}: {userPreferences: Us
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-cols-1 lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-grid-rows-[auto_1rem_auto] tw-items-center tw-text-center",
                 className,
             )}
-            id="top"
-            ref={sectionRef}
         >
             <div className="tw-row-start-1 lg:tw-row-span-full tw-row-span-2 tw-col-start-1 tw-col-span-full">
                 {isScreenSizeBelow == null ? null : (

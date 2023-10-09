@@ -254,26 +254,12 @@ function HeroSection({
     pageUrl: string;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
-
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-cols-1 lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-grid-rows-[auto_1rem_auto] tw-items-center tw-text-center",
                 className,
             )}
-            id="top"
-            ref={sectionRef}
         >
             <div className="tw-row-start-1 lg:tw-row-span-full tw-row-span-2 tw-col-start-1 tw-col-span-full">
                 {isScreenSizeBelow == null ? null : (
@@ -334,25 +320,25 @@ function PowerThatEmpowersLives({
 }
 
 function InternationalOperations({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            "international-business-operations": {
-                humanReadableName: getVernacularString("b59605a7-e182-46d3-a704-9c492604dfc4", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
+    // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    // useEffect(() => {
+    //     secondaryNavigationController.setSections((previousSections) => ({
+    //         ...previousSections,
+    //         "international-business-operations": {
+    //             humanReadableName: getVernacularString("b59605a7-e182-46d3-a704-9c492604dfc4", userPreferences.language),
+    //             isCurrentlyVisible: sectionInView,
+    //         },
+    //     }));
+    // }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-grid tw-grid-flow-row tw-place-items-center lg:tw-grid-rows-[max-content_1.5rem_minmax(0,1fr)] lg:tw-items-start lg-px-screen-edge-2 lg:lg-card lg:tw-rounded-lg lg:tw-px-6 lg:tw-py-12 ",
                 className,
             )}
-            id="international-business-operations"
-            ref={sectionRef}
+            // id="international-business-operations"
+            // ref={sectionRef}
         >
             <DefaultTextAnimation>
                 <div

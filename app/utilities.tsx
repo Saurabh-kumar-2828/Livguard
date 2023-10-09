@@ -246,15 +246,13 @@ export function createGroupByReducer<T, U extends string | number | symbol>(attr
     const reducer = (result: {[key in U]: Array<T>}, item: T): {[key in U]: Array<T>} => {
         // TODO: Add type checking or leave that upto the user?
         const attributeValue: U = item[attribute];
-
         if (attributeValue in result) {
             result[attributeValue].push(item);
         } else {
             result[attributeValue] = [item];
         }
-
         return result;
     };
-
     return reducer;
 }
+

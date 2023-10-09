@@ -238,8 +238,10 @@ function AboutUsPage({
 
                     <VerticalSpacer className="tw-h-10 tw-row-start-2 lg:tw-col-start-1 lg:tw-hidden" />
 
-                    <Everywhere
+                    <DealerLocator
                         userPreferences={userPreferences}
+                        showCtaButton={true}
+                        secondaryNavigationName="0cb6d442-7df4-4272-a36d-9f956bdd8a54"
                         className="tw-row-start-3 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-h-full"
                     />
                 </div>
@@ -282,25 +284,12 @@ function HeroSection({
 }) {
     // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-grid tw-grid-rows-[3rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-relative tw-isolate",
                 className,
             )}
-            id="top"
-            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-start-2 tw-row-span-full lg:tw-col-span-full tw-isolate tw-z-[-10]">
                 {isScreenSizeBelow == null ? null : (
@@ -334,12 +323,12 @@ function WhoWeAre({userPreferences, className}: {userPreferences: UserPreference
         return (
             <div className="tw-grid tw-grid-rows-[auto_minmax(0,1fr)] tw-border-[3px] lg-card ">
                 {/* <div className="lg-card tw-bg-new-background-border-500-light dark:tw-bg-new-background-border-500-dark tw-rounded-t-lg tw-row-start-1 tw-grid tw-items-center tw-justify-items-center tw-p-4"> */}
-                    <div className="tw-w-full tw-h-full tw-rounded-md tw-place-self-center tw-grid tw-place-content-center tw-py-6 lg-card tw-border-none">
-                        <img
-                            src={iconUrl}
-                            className="tw-invert dark:tw-invert-0 lg:tw-h-[6.25rem] lg:tw-w-[6.25rem]"
-                        />
-                    </div>
+                <div className="tw-w-full tw-h-full tw-rounded-md tw-place-self-center tw-grid tw-place-content-center tw-py-6 lg-card tw-border-none">
+                    <img
+                        src={iconUrl}
+                        className="tw-invert dark:tw-invert-0 lg:tw-h-[6.25rem] lg:tw-w-[6.25rem]"
+                    />
+                </div>
                 {/* </div> */}
                 <div className="tw-row-start-2 lg:tw-py-4 tw-pt-2 tw-pb-6 tw-px-6 ">
                     <DefaultTextAnimation className="tw-row-start-4 lg-text-title2 tw-text-center">{title}</DefaultTextAnimation>
@@ -456,8 +445,8 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "meet-our-leaders": {
-                humanReadableName: getVernacularString("b1387a67-2e83-4f5f-b794-3cf1c7bc61fd", userPreferences.language),
+            "our-leadership": {
+                humanReadableName: getVernacularString("1720638d-aba3-4e1e-8c5d-3f9dede7c4c8", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -466,7 +455,7 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
 
     return (
         <div
-            id="meet-our-leaders"
+            id="our-leadership"
             ref={sectionRef}
         >
             <div
@@ -679,17 +668,17 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
 
 function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            "empowered-by-sar": {
-                humanReadableName: getVernacularString("fe6d299f-3f6a-44fe-9b3a-877ff0d423d2", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
+    // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    // useEffect(() => {
+    //     secondaryNavigationController.setSections((previousSections) => ({
+    //         ...previousSections,
+    //         "empowered-by-sar": {
+    //             humanReadableName: getVernacularString("fe6d299f-3f6a-44fe-9b3a-877ff0d423d2", userPreferences.language),
+    //             isCurrentlyVisible: sectionInView,
+    //         },
+    //     }));
+    // }, [sectionRef, sectionInView]);
     const sisterCompanies = [
         {
             logoUrl: "/livguard/about-us/7/livpure.png",
@@ -718,8 +707,8 @@ function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPref
                 "tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto] md:tw-grid-rows-[minmax(0,1fr)_2.5rem_auto_auto_1rem_auto_2.5rem_minmax(0,1fr)] tw-justify-center tw-place-items-center md:tw-border-2 lg-card tw-px-8 md:tw-px-16 max-md:tw-py-8",
                 className,
             )}
-            id="empowered-by-sar"
-            ref={sectionRef}
+            // id="empowered-by-sar"
+            // ref={sectionRef}
         >
             <div className="tw-row-start-1 md:tw-row-start-3 tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_0.5rem_auto] md:tw-grid-rows-[auto_auto_1rem_auto] md:tw-grid-cols-[minmax(0,11fr)_1.5rem_minmax(0,9fr)] md:tw-w-full">
                 <div
@@ -804,32 +793,6 @@ function OurOperations({userPreferences, className}: {userPreferences: UserPrefe
             <OurPresence
                 userPreferences={userPreferences}
                 headingTextContentId="75b7261b-7ced-4385-891a-ecfe8123bab5"
-            />
-        </div>
-    );
-}
-
-function Everywhere({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            "find-my-dealer": {
-                humanReadableName: getVernacularString("bc9269a0-800f-4adf-ac22-d866887da9f4", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
-    return (
-        <div
-            className=""
-            id="find-my-dealer"
-            ref={sectionRef}
-        >
-            <DealerLocator
-                userPreferences={userPreferences}
-                showCtaButton={true}
             />
         </div>
     );

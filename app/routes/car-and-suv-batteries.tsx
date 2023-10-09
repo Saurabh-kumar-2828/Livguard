@@ -306,8 +306,10 @@ function CarAndSuvBatteriesPage({
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-9 tw-col-start-1 lg:tw-col-span-full" />
 
                 <div className="tw-row-start-10 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
-                    <DealerLocatorSection
+                    <DealerLocator
                         userPreferences={userPreferences}
+                        showCtaButton={true}
+                        secondaryNavigationName="0cb6d442-7df4-4272-a36d-9f956bdd8a54"
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
                     />
 
@@ -342,25 +344,12 @@ function CarAndSuvBatteriesPage({
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[4rem_auto_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] lg:tw-grid-cols-2 tw-text-center",
                 className,
             )}
-            id="top"
-            ref={sectionRef}
         >
             {isScreenSizeBelow == null ? null : (
                 <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full lg:tw-col-span-full">
@@ -456,7 +445,7 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "automotive-batteries": {
-                humanReadableName: getVernacularString("68d32e0c-2f0b-4686-b208-c4ff6c633bd5", userPreferences.language),
+                humanReadableName: getVernacularString("6a913f56-4d4d-47c2-8eb3-b45107adc2fa", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -557,7 +546,7 @@ function OurSuggestionsBasedOnYourChoice({
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "our-suggestions": {
-                humanReadableName: getVernacularString("0620b5a6-a7bb-4d55-84fb-6a3202439edb", userPreferences.language),
+                humanReadableName: getVernacularString("fd870044-1ccb-40ac-b406-2a94d7ea0228", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -961,7 +950,7 @@ function TopCarAndSuvBatteryPicks({
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "battery-picks": {
-                humanReadableName: getVernacularString("5fdd2cb0-7333-4a30-998c-7bdef3e2319d", userPreferences.language),
+                humanReadableName: getVernacularString("6aa2ed07-f553-410a-bf96-7c177c13cbff", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1002,7 +991,7 @@ function ChooseYourIdealCarAndSUVBattery({userPreferences, className}: {userPref
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "find-my-battery": {
-                humanReadableName: getVernacularString("5401aff8-4337-470a-8d9d-7da5591a1118", userPreferences.language),
+                humanReadableName: getVernacularString("8fe6e7d5-6357-4b49-83c5-0a09f80f4cea", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1375,31 +1364,5 @@ export function FilterMobile({
                 </div>
             </div>
         </>
-    );
-}
-
-function DealerLocatorSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            "find-my-dealer": {
-                humanReadableName: getVernacularString("bc9269a0-800f-4adf-ac22-d866887da9f4", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
-    return (
-        <div
-            className={concatenateNonNullStringsWithSpaces("", className)}
-            id="find-my-dealer"
-            ref={sectionRef}
-        >
-            <DealerLocator
-                userPreferences={userPreferences}
-                showCtaButton={true}
-            />
-        </div>
     );
 }

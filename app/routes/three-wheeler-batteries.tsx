@@ -223,6 +223,7 @@ function ThreeWheelerBatteriesPage({
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
                         showCtaButton={true}
+                        secondaryNavigationName="0cb6d442-7df4-4272-a36d-9f956bdd8a54"
                     />
 
                     <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
@@ -256,17 +257,17 @@ function ThreeWheelerBatteriesPage({
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
+    // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    // useEffect(() => {
+    //     secondaryNavigationController.setSections((previousSections) => ({
+    //         ...previousSections,
+    //         top: {
+    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             isCurrentlyVisible: sectionInView,
+    //         },
+    //     }));
+    // }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -274,8 +275,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto_1.5rem_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] lg:tw-text-left lg:tw-grid-cols-2",
                 className,
             )}
-            id="top"
-            ref={sectionRef}
+            // id="top"
+            // ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-full tw-w-full tw-relative">
                 {isScreenSizeBelow == null ? null : (
@@ -306,7 +307,7 @@ function ReliabilityYouCanExperience({userPreferences, className}: {userPreferen
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             reliability: {
-                humanReadableName: getVernacularString("fdbf482e-5a9b-42b3-a012-95b00e93e2dc", userPreferences.language),
+                humanReadableName: getVernacularString("d26f6e87-c1bf-45e6-a86d-48e3446a416e", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -417,7 +418,7 @@ function ThreeWheelerBatteriesForUnmatchedPower({userPreferences, className, pro
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "three-wheeler-battery": {
-                humanReadableName: getVernacularString("b56af9ea-2d7d-45e5-8886-d4a367bc7e89", userPreferences.language),
+                humanReadableName: getVernacularString("bc05eaaf-05bc-45d2-b2b1-30386e1fc562", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -592,7 +593,7 @@ function FindTheRightBattery({userPreferences, className}: {userPreferences: Use
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "find-the-right-battery": {
-                humanReadableName: getVernacularString("a72629ee-930b-4f47-9d31-f630e2db0709", userPreferences.language),
+                humanReadableName: getVernacularString("1f4dc0d2-b14b-4361-8af9-f19b722b7aff", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));

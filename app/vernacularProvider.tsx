@@ -9717,6 +9717,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Warranty`,
         [Language.Hindi]: "वारंटी",
     },
+    "89840280-463a-4cd3-b9c4-1e94eb5babd7": {
+        [Language.English]: `Warranty Registration`,
+        [Language.Hindi]: "वारंटी",
+    },
     "3078ed43-6580-4fbf-a6d9-773638087e13": {
         [Language.English]: `< 18 Months`,
         [Language.Hindi]: "<span 18 महीने",
@@ -10422,7 +10426,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "सोलर समाधान",
     },
     "ee76a8f5-ba19-4a3e-ad60-67de3b59a6d2": {
-        [Language.English]: `Energy Solutions`,
+        [Language.English]: `Product Range`,
         [Language.Hindi]: "?????",
     },
     "9fc64723-0e15-4211-983a-ba03cf9a4d41": {
@@ -10430,7 +10434,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "ccf268de-2880-455f-9cc3-bdc066866b2c": {
-        [Language.English]: `One of a Kind`,
+        [Language.English]: `Why Livguard?`,
         [Language.Hindi]: "?????",
     },
     "02e2e193-5c13-4674-93cb-02d15e2b71da": {
@@ -10438,11 +10442,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "bc9269a0-800f-4adf-ac22-d866887da9f4": {
-        [Language.English]: `Find My Dealer`,
+        [Language.English]: `Dealer Locator`,
         [Language.Hindi]: "?????",
     },
     "01553562-bafd-4ad3-a18c-7b6cc113f03f": {
-        [Language.English]: `Our Social Handles`,
+        [Language.English]: `Social Feed`,
         [Language.Hindi]: "?????",
     },
     "ab5df361-c4a5-4f3a-b26e-21eff3cb23bc": {
@@ -10462,15 +10466,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "8bb57774-d155-41f1-bf07-6906c1026203": {
-        [Language.English]: `Meant To Last`,
+        [Language.English]: `Features`,
         [Language.Hindi]: "?????",
     },
     "32d2e95f-02b6-49fe-b1c3-cee4542e202b": {
-        [Language.English]: `Our Batteries`,
+        [Language.English]: `Batteries Details`,
         [Language.Hindi]: "?????",
     },
     "0620b5a6-a7bb-4d55-84fb-6a3202439edb": {
-        [Language.English]: `Our Suggestions`,
+        [Language.English]: `Recommended Inverters`,
         [Language.Hindi]: "?????",
     },
     "5270f2b4-c38b-45b7-8dac-0434f3e7bfcf": {
@@ -10478,11 +10482,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "4364581e-7ad6-4f87-9c83-66bf480d3fab": {
-        [Language.English]: `Plan Your Power`,
+        [Language.English]: `Load Calculator`,
         [Language.Hindi]: "?????",
     },
     "eb553bbb-e1af-4d2a-923a-096c297441e2": {
-        [Language.English]: `Livguard Inverter`,
+        [Language.English]: `Inverter Features`,
         [Language.Hindi]: "?????",
     },
     "fdb7fec0-6865-44e5-a84c-73b11f76c326": {
@@ -10530,11 +10534,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "96713da3-cefd-4b58-9fb7-eca758ca2214": {
-        [Language.English]: `We Are Listening`,
+        [Language.English]: `Enquire`,
         [Language.Hindi]: "?????",
     },
     "7ec2537f-9154-4f04-a3ad-d7a33fa78494": {
-        [Language.English]: `Click Connect`,
+        [Language.English]: `Connect with us`,
         [Language.Hindi]: "?????",
     },
     "8fc9ce3b-96c8-4ed0-aa3e-f479d5f0d762": {
@@ -10550,7 +10554,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "6eaa372b-cfbe-434f-8dfb-cf31db5a1f35": {
-        [Language.English]: `CSR Commitee`,
+        [Language.English]: `CSR Committee`,
         [Language.Hindi]: "?????",
     },
     "ac4503ae-ef14-4618-900a-7cfe181b3e45": {
@@ -10735,15 +10739,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `हेवी ड्यूटी इनवर्टर`,
     },
     "2223a612-f480-45b4-86fb-d5d02dc1a69d": {
-        [Language.English]: `Your Guide to Finding The Right Inverter`,
+        [Language.English]: `Buying Guide`,
         [Language.Hindi]: `??????`,
     },
     "bd35a39d-092b-4a59-bb3b-6f60086a9e01": {
-        [Language.English]: `Our Head Office`,
+        [Language.English]: `Head Office`,
         [Language.Hindi]: `हमारा मुख्य कार्यालय`,
     },
     "ed9a0f62-e79d-49e0-a10f-784e4587a699": {
-        [Language.English]: `Our Regional Office`,
+        [Language.English]: `Regional Office`,
         [Language.Hindi]: `????`,
     },
     "cc0aca43-72cc-446a-9a6c-8243c3364c7b": {
@@ -10759,7 +10763,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `????`,
     },
     "20672940-27d8-4e36-a37e-cdabf2bfedb1": {
-        [Language.English]: `Effortless Services`,
+        [Language.English]: `Services`,
         [Language.Hindi]: `????`,
     },
     "91a2a7a5-561e-4fd7-bb9f-76969e89b296": {
@@ -10811,7 +10815,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "a5ee9b69-adfe-49ac-9256-cff986b899b7": {
-        [Language.English]: `Register in Minutes`,
+        [Language.English]: `Register`,
         [Language.Hindi]: "?????",
     },
     "cd1f1433-8736-4f1d-a5e6-927e59a02ec2": {
@@ -11753,6 +11757,94 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "eb76fa52-9cc6-4ce5-b570-2bbd8f606dac": {
         [Language.English]: `Find him`,
+        [Language.Hindi]: `?????`,
+    },
+    "d8ece6dc-63bc-417e-a972-534df74fe32f": {
+        [Language.English]: `Suggested Batteries`,
+        [Language.Hindi]: `?????`,
+    },
+    "0cb6d442-7df4-4272-a36d-9f956bdd8a54": {
+        [Language.English]: `Dealer Locator`,
+        [Language.Hindi]: `?????`,
+    },
+    "774db10b-9d90-42dd-bf81-8a1b389178d3": {
+        [Language.English]: `Power Planner`,
+        [Language.Hindi]: `?????`,
+    },
+    "1720638d-aba3-4e1e-8c5d-3f9dede7c4c8": {
+        [Language.English]: `Our Leadership`,
+        [Language.Hindi]: `?????`,
+    },
+    "bee977fa-8e42-472e-8aef-d1076511495c": {
+        [Language.English]: `Features`,
+        [Language.Hindi]: `?????`,
+    },
+    "75631f2e-d3eb-4845-92cb-84e6d7560027": {
+        [Language.English]: `Suggested Products`,
+        [Language.Hindi]: `?????`,
+    },
+    "16cf7244-227f-47a1-83e7-b14c3802a44b": {
+        [Language.English]: `Find Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "d26f6e87-c1bf-45e6-a86d-48e3446a416e": {
+        [Language.English]: `Features`,
+        [Language.Hindi]: `?????`,
+    },
+    "bc05eaaf-05bc-45d2-b2b1-30386e1fc562": {
+        [Language.English]: `Suggested Products`,
+        [Language.Hindi]: `?????`,
+    },
+    "1f4dc0d2-b14b-4361-8af9-f19b722b7aff": {
+        [Language.English]: `Find Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "6a913f56-4d4d-47c2-8eb3-b45107adc2fa": {
+        [Language.English]: `Features`,
+        [Language.Hindi]: `?????`,
+    },
+    "fd870044-1ccb-40ac-b406-2a94d7ea0228": {
+        [Language.English]: `Suggested Products`,
+        [Language.Hindi]: `?????`,
+    },
+    "6aa2ed07-f553-410a-bf96-7c177c13cbff": {
+        [Language.English]: `Car Battery Range`,
+        [Language.Hindi]: `?????`,
+    },
+    "8fe6e7d5-6357-4b49-83c5-0a09f80f4cea": {
+        [Language.English]: `Find Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "f19bea1b-ce21-4a14-af85-b49b68827611": {
+        [Language.English]: `Features`,
+        [Language.Hindi]: `?????`,
+    },
+    "f37d67f3-63f7-477d-828b-6c8fac1b00b4": {
+        [Language.English]: `Battery Finder`,
+        [Language.Hindi]: `?????`,
+    },
+    "6ba6a74b-5c27-4f3d-8c73-8afae650f8eb": {
+        [Language.English]: `Suggested Batteies`,
+        [Language.Hindi]: `?????`,
+    },
+    "6b8d915d-0091-4666-817a-e9b9d2eab472": {
+        [Language.English]: `Benefits`,
+        [Language.Hindi]: `?????`,
+    },
+    "bd423b50-de84-4397-9141-ac7b3527feb9": {
+        [Language.English]: `Request a Service`,
+        [Language.Hindi]: `?????`,
+    },
+    "5c88bf46-4d04-4588-ab8b-1be8ab296bf0": {
+        [Language.English]: `Suggested Inverters`,
+        [Language.Hindi]: `?????`,
+    },
+    "a53c5496-6d8d-4650-bd9e-2f0af6e9da73": {
+        [Language.English]: `Our Rnage`,
+        [Language.Hindi]: `?????`,
+    },
+    "f4004e8d-d0a5-443f-91a0-9e97bc0b45ed": {
+        [Language.English]: `Overview`,
         [Language.Hindi]: `?????`,
     },
 };

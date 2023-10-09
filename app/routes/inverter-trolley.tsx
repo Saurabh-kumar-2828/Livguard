@@ -226,6 +226,7 @@ function InverterTrolleyPage({
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
                         showCtaButton={true}
+                        secondaryNavigationName="0cb6d442-7df4-4272-a36d-9f956bdd8a54"
                     />
 
                     <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
@@ -259,17 +260,17 @@ function InverterTrolleyPage({
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            top: {
-                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
+    // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    // useEffect(() => {
+    //     secondaryNavigationController.setSections((previousSections) => ({
+    //         ...previousSections,
+    //         top: {
+    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             isCurrentlyVisible: sectionInView,
+    //         },
+    //     }));
+    // }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -277,8 +278,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto] lg:tw-grid-rows-[3rem_auto_auto_1rem_auto] lg:tw-grid-cols-[0_auto_minmax(0,1fr)] tw-text-center",
                 className,
             )}
-            id="top"
-            ref={sectionRef}
+            // id="top"
+            // ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-fit">
                 {isScreenSizeBelow == null ? null : (
@@ -312,8 +313,8 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "strength-and-stability": {
-                humanReadableName: getVernacularString("cc0aca43-72cc-446a-9a6c-8243c3364c7b", userPreferences.language),
+            "features": {
+                humanReadableName: getVernacularString("f19bea1b-ce21-4a14-af85-b49b68827611", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -387,7 +388,7 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
         <>
             <div
                 className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}
-                id="strength-and-stability"
+                id="features"
                 ref={sectionRef}
             >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg:lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
@@ -422,8 +423,8 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className, products}:
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "your-power-your-choice": {
-                humanReadableName: getVernacularString("59edff64-f0e3-4d70-be9a-14f568f43f2f", userPreferences.language),
+            "overview": {
+                humanReadableName: getVernacularString("f4004e8d-d0a5-443f-91a0-9e97bc0b45ed", userPreferences.language),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -444,7 +445,7 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className, products}:
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row tw-rounded-lg lg-px-screen-edge-2", className)}
-            id="your-power-your-choice"
+            id="overview"
             ref={sectionRef}
         >
             <div
