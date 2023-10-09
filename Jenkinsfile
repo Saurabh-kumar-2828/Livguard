@@ -56,6 +56,8 @@ pipeline {
                             scp -r -P $REMOTE_PORT /var/lib/jenkins/workspace/${GITHUB_REPOSITORY_NAME}_$DIRECTORY/public ubuntu@43.204.40.59:/home/ubuntu/$FOLDER/
                             scp -P $REMOTE_PORT /var/lib/jenkins/workspace/${GITHUB_REPOSITORY_NAME}_$DIRECTORY/package.json ubuntu@43.204.40.59:/home/ubuntu/$FOLDER/
                             scp -P $REMOTE_PORT /var/lib/jenkins/workspace/${GITHUB_REPOSITORY_NAME}_$DIRECTORY/package-lock.json ubuntu@43.204.40.59:/home/ubuntu/$FOLDER/
+                            scp -P $REMOTE_PORT /var/lib/jenkins/workspace/${GITHUB_REPOSITORY_NAME}_$DIRECTORY/server.js ubuntu@43.204.40.59:/home/ubuntu/$FOLDER/
+                            
                         """
                     }
                 }
