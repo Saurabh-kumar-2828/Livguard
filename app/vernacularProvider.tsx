@@ -1089,7 +1089,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "आपकी शहरी जीवन शैली की जरूरतों को कुशलता से पूरा करने के लिए एक आदर्श कॉम्बो। शुद्ध साइन वेव आउटपुट और स्मार्ट एआई चार्जिंग के साथ, यह कॉम्बो घंटों तक चल सकती है और उपकरणों का भारी लोड उठा सकती है।",
     },
     landingPage2S4J1Specification1Content: {
-        [Language.English]: "3 Years | 36 + 24* Months",
+        [Language.English]: "36 Months | 36 + 24* Months",
         [Language.Hindi]: "3 साल | 36 + 24* महीने",
     },
     landingPage2S4J1Specification2Content: {
@@ -1115,7 +1115,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "एक कॉम्बो जो अपने लंबे जीवन और उच्च बैकअप शक्ति के साथ आपके मन की शांति सुनिश्चित करेगी। मजबूत इनवर्टर के साथ सटीक रूप से चुनी गई बैटरी आपकी आवश्यकताओं को पूरा करने के लिए ऊर्जा का निर्बाध प्रवाह सुनिश्चित करती है।",
     },
     landingPage2S4J2Specification1Content: {
-        [Language.English]: "3 Years | 36 + 24* Months",
+        [Language.English]: "36 Months | 36 + 24* Months",
         [Language.Hindi]: "3 साल | 36 + 24* महीने",
     },
     landingPage2S4J2Specification2Content: {
@@ -1139,7 +1139,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "बेस्ट-इन-क्लास वारंटी और लंबे समय तक चलने वाले इनवर्टर के साथ समर्थित बैटरी के साथ, यह कॉम्बो आपकी रोजमर्रा की ऊर्जा आवश्यकताओं के लिए बिल्कुल सही विकल्प है।",
     },
     landingPage2S4J3Specification1Content: {
-        [Language.English]: "3 Years | 60 + 24* Months",
+        [Language.English]: "36 Months | 60 + 24* Months",
         [Language.Hindi]: "3 साल | 60 + 24* महीने",
     },
     landingPage2S4J3Specification2Content: {
@@ -1165,7 +1165,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "लंबे समय तक बैकअप आवश्यकताओं को पूरा करने के लिए एकदम सही कॉम्बो। शुद्ध साइनवेव आउटपुट के साथ स्मार्ट एआई चार्जिंग बेहतर जीवन के साथ एक सहज और कुशल ऊर्जा प्रवाह प्रदान करता है।",
     },
     landingPage2S4J4Specification1Content: {
-        [Language.English]: "3 Years | 42 + 30* Months",
+        [Language.English]: "36 Months | 42 + 30* Months",
         [Language.Hindi]: "3 साल | 42 + 30* महीने",
     },
     landingPage2S4J4Specification2Content: {
@@ -3488,7 +3488,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `220 Ah कैपेसिटी`,
     },
     "4a6d0641-1194-4e47-9ed8-57f27989c541": {
-        [Language.English]: `3 Years | 36 + 24* Months Warranty`,
+        [Language.English]: `36 Months | 36 + 24* Months Warranty`,
         [Language.Hindi]: `3 वर्ष | 36 + 24* महीने वारंटी`,
     },
     "f0aaf884-f888-4743-b6f3-2a22a6472038": {
@@ -3496,16 +3496,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `1250VA | 200Ah कैपेसिटी`,
     },
     "c79c879d-a81a-4348-8684-f5c745c0c701": {
-        [Language.English]: `3 Years | 60 + 24* Months Warranty`,
-        [Language.Hindi]: `3 Years | 60 + 24* महीने वारंटी`,
+        [Language.English]: `36 Months | 60 + 24* Months Warranty`,
+        [Language.Hindi]: `36 Months | 60 + 24* महीने वारंटी`,
     },
     "32b02219-4da3-4ef3-9014-8aec2d563414": {
         [Language.English]: `1500VA | 150 Ah Capacity`,
         [Language.Hindi]: `1500VA | 150 Ah कैपेसिटी`,
     },
     "7c7cb84c-8890-4044-87fa-03264f5a5d9c": {
-        [Language.English]: `3 Years | 42 + 30* Months Warranty`,
-        [Language.Hindi]: `3 Years | 42 + 30* महीने वारंटी`,
+        [Language.English]: `36 Months | 42 + 30* Months Warranty`,
+        [Language.Hindi]: `36 Months | 42 + 30* महीने वारंटी`,
     },
     "2f80ec77-0512-4838-aeef-308518466ecd": {
         [Language.English]: `2000VA | 260 Ah Capacity`,

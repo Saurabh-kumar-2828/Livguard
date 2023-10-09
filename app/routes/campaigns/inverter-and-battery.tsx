@@ -715,8 +715,8 @@ function BatteryCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start">
-                            <div className="tw-row-start-2 tw-font-bold">{getVernacularString("2c6dc668-49ef-4913-88c1-904d6e9be1a2", userPreferences.language)}</div>
-                            <div className="tw-row-start-3">{warranty}</div>
+                            <div className="tw-row-start-2 tw-font-bold tw-text-left">{getVernacularString("2c6dc668-49ef-4913-88c1-904d6e9be1a2", userPreferences.language)}</div>
+                            <div className="tw-row-start-3 tw-text-left">{warranty}</div>
                         </div>
                     </div>
 
