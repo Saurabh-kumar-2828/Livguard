@@ -10955,7 +10955,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "88d4bc6f-64ee-4910-8b1e-27ad5aea32c1": {
-        [Language.English]: `Instagram UserName*`,
+        [Language.English]: `Instagram Username*`,
         [Language.Hindi]: "?????",
     },
     "2a9b9149-ae09-452b-b02d-8ab5b8850557": {
@@ -11845,6 +11845,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "f4004e8d-d0a5-443f-91a0-9e97bc0b45ed": {
         [Language.English]: `Overview`,
+        [Language.Hindi]: `?????`,
+    },
+    "34faf8f5-f199-4cb7-be52-dc46737415e6": {
+        [Language.English]: `Social Media`,
+        [Language.Hindi]: `?????`,
+    },
+    "fd934962-ffce-41c6-ac8d-ebee55615f2b": {
+        [Language.English]: `Load Calculator`,
         [Language.Hindi]: `?????`,
     },
 };

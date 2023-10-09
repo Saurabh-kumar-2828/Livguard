@@ -13,7 +13,7 @@ export function InitialFindTheThiefDialogComponent({userPreferences, buttonClick
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
-        <div className="tw-rounded-lg tw-h-full lg:tw-max-w-4xl tw-grid tw-place-self-center tw-items-center tw-justify-center tw-grid-rows-[auto_auto] lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg-bg-secondary-100 tw-relative">
+        <div className="tw-rounded-lg tw-h-full lg:tw-max-w-4xl tw-grid tw-place-self-center tw-items-center tw-justify-center tw-grid-rows-[auto_auto] lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg-bg-secondary-100 tw-relative ">
             <div className="tw-overflow-hidden tw-absolute tw-w-full tw-h-full tw-z-10 dark:tw-opacity-[30%]">
                 <CoverImage
                     imageClassName="tw-rounded-lg"

@@ -291,6 +291,7 @@ function CategoryPage({
                 <DealerLocator
                     userPreferences={userPreferences}
                     showCtaButton={true}
+                    secondaryNavigationName="0cb6d442-7df4-4272-a36d-9f956bdd8a54"
                     className="tw-row-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full lg:tw-min-h-[36rem]"
                 />
 

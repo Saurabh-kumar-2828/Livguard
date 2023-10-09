@@ -396,7 +396,7 @@ function FormSection({
                         type="text"
                         name="userName"
                         required
-                        readOnly
+                        // readOnly
                         // defaultValue={couponCode}
                         className="lg-text-secondary-900 lg-text-input !tw-bg-transparent placeholder:tw-font-semibold placeholder:tw-text-secondary-700 dark:placeholder:tw-text-secondary-700-dark tw-w-full tw-rounded-full"
                         placeholder={getVernacularString("88d4bc6f-64ee-4910-8b1e-27ad5aea32c1", userPreferences.language)}

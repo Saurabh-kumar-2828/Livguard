@@ -733,7 +733,7 @@ export function TapIntoEfficiency({
                         >
                             <div className="tw-row-start-2 lg:tw-col-start-1 tw-text-center lg:te-text-left lg:tw-h-full tw-flex-1 tw-flex tw-flex-col">
                                 <DefaultTextAnimation>
-                                    <div className="lg-text-title1">{getVernacularString(card.titleTextContentPiece, userPreferences.language)}</div>
+                                    <div className="lg-text-title1" dangerouslySetInnerHTML={{__html: getVernacularString(card.titleTextContentPiece, userPreferences.language)}}></div>
                                 </DefaultTextAnimation>
 
                                 <div className="tw-h-2" />

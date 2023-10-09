@@ -402,37 +402,37 @@ function HomePage({
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-7 tw-col-span-full" />
 
-            <SocialMediaFeeds
+            <SocialMediaFeedsSection
                 userPreferences={userPreferences}
-                className="tw-row-start-8 tw-col-span-full"
+                className="tw-row-start-6 lg:tw-row-start-8 tw-col-span-full"
             />
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-9 tw-col-span-full" />
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-10 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-7 lg:tw-row-start-10 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-11 tw-col-span-full" />
 
             <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-12 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-8 lg:tw-row-start-12 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-13 tw-col-span-full" />
 
             <InTheNewsSection
                 userPreferences={userPreferences}
-                className="tw-row-start-14 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-9 lg:tw-row-start-14 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-15 tw-col-span-full" />
 
             <PowerfulPurposePowerfulImpact
                 userPreferences={userPreferences}
-                className="tw-row-start-16 tw-col-start-1 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-16 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             {cookiesAccepted == null ? null : (
@@ -2279,5 +2279,25 @@ export function ContactUsDialog({
                 tryToCloseDialog={tryToCloseContactUsDialog}
             />
         </>
+    );
+}
+
+export function SocialMediaFeedsSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "social-media": {
+                humanReadableName: getVernacularString("34faf8f5-f199-4cb7-be52-dc46737415e6", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+    return (
+        <div className={className} id="social-media" ref={sectionRef}>
+             <SocialMediaFeeds
+                userPreferences={userPreferences} />
+        </div>
     );
 }

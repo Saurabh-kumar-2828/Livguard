@@ -41,7 +41,7 @@ export function LandingPage3Carousel({
                                 <DefaultElementAnimation>
                                     <div className="tw-row-start-2 lg:tw-col-start-1 tw-text-center lg:te-text-left">
                                         <DefaultTextAnimation>
-                                            <div className="lg-text-title1">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
+                                            <div className="lg-text-title1" dangerouslySetInnerHTML={{__html:getVernacularString(item.titleTextContentPiece, userPreferences.language)}} />
                                         </DefaultTextAnimation>
 
                                         <div className="tw-h-2" />

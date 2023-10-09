@@ -55,7 +55,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                         className="tw-w-14 tw-h-14 tw-rounded-full"
                     />
 
-                    <div className="lg-text-icon">{getVernacularString("bottomBarT3", userPreferences.language)}</div>
+                    <div className="lg-text-icon">{getVernacularString("fd934962-ffce-41c6-ac8d-ebee55615f2b", userPreferences.language)}</div>
                 </Link>
             </div>
 
