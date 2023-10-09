@@ -22,9 +22,10 @@ import {PricingPageActionType, defaultMaxPrice, defaultMinPrice, pricingPageInit
 import type {PricingPageState} from "~/routes/pricing/index.types";
 import {PricingPageFilterAttribute, PricingPageProductType, allPricingPageFilters} from "~/routes/pricing/index.types";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, type UserPreferences} from "~/typeDefinitions";
+import {AllProductDetails, Language, type UserPreferences} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+import {allProductDetails} from "~/backend/product.server";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -115,6 +116,7 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    allProductDetails: AllProductDetails;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -127,13 +129,14 @@ export const loader: LoaderFunction = async ({request}) => {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        allProductDetails: allProductDetails,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, allProductDetails} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -154,6 +157,7 @@ export default function () {
                     userPreferences={userPreferences}
                     utmParameters={utmSearchParameters}
                     pageUrl={pageUrl}
+                    allProductDetails={allProductDetails}
                 />
             </PageScaffold>
 
@@ -166,14 +170,16 @@ function PricingPage({
     userPreferences,
     utmParameters,
     pageUrl,
+    allProductDetails,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
     pageUrl: string;
+    allProductDetails: AllProductDetails;
 }) {
-    const [pricingPageState, dispatch] = useReducer(pricingPageReducer, userPreferences, (userPreferences) => pricingPageInitialStateGenerator(userPreferences));
+    const [pricingPageState, dispatch] = useReducer(pricingPageReducer, userPreferences, (userPreferences) => pricingPageInitialStateGenerator(userPreferences, allProductDetails));
 
     return (
         <div className="tw-w-full tw-grid tw-grid-cols-1 tw-align-stretch tw-gap-y-10 lg:tw-gap-y-20 tw-pb-10 lg:tw-pb-20">

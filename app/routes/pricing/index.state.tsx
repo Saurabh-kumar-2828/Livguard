@@ -1,8 +1,8 @@
 import {ProductCardTwoDetailsType} from "~/components/reusable-components/productCardTwoDetails";
 import {distinct, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
-import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
+import {ProductDetails, ProductType} from "~/productData.types";
 import {PricingPageFilter, PricingPageFilterAttribute, PricingPageProductType, PricingPageState, allPricingPageFilters} from "~/routes/pricing/index.types";
-import {UserPreferences} from "~/typeDefinitions";
+import {AllProductDetails, UserPreferences} from "~/typeDefinitions";
 
 export enum PricingPageActionType {
     setSelectedPricingPageProductType,
@@ -35,6 +35,8 @@ export function pricingPageReducer(state: PricingPageState, action: PricingPageA
                 newState.appliedFilters,
                 userPreferences,
                 newState.activePageNumber,
+                newState.products,
+
             );
             newState.totalPages = Math.ceil(newState.filteredProducts.length / newState.resultsPerPage);
             newState.filteredProducts = newState.filteredProducts.slice(0, newState.resultsPerPage);
@@ -58,6 +60,8 @@ export function pricingPageReducer(state: PricingPageState, action: PricingPageA
                 newState.appliedFilters,
                 userPreferences,
                 newState.activePageNumber,
+                newState.products,
+
             );
             newState.totalPages = Math.ceil(newState.filteredProducts.length / newState.resultsPerPage);
             newState.filteredProducts = newState.filteredProducts.slice(0, newState.resultsPerPage);
@@ -80,6 +84,8 @@ export function pricingPageReducer(state: PricingPageState, action: PricingPageA
                 newState.appliedFilters,
                 userPreferences,
                 newState.activePageNumber,
+                newState.products,
+
             );
             newState.totalPages = Math.ceil(newState.filteredProducts.length / newState.resultsPerPage);
             newState.filteredProducts = newState.filteredProducts.slice(0, newState.resultsPerPage);
@@ -101,6 +107,8 @@ export function pricingPageReducer(state: PricingPageState, action: PricingPageA
                 newState.appliedFilters,
                 userPreferences,
                 newState.activePageNumber,
+                newState.products,
+
             );
             newState.totalPages = Math.ceil(newState.filteredProducts.length / newState.resultsPerPage);
             newState.filteredProducts = newState.filteredProducts.slice(0, newState.resultsPerPage);
@@ -119,6 +127,7 @@ export function pricingPageReducer(state: PricingPageState, action: PricingPageA
                 newState.appliedFilters,
                 userPreferences,
                 newState.activePageNumber,
+                newState.products,
                 newState.resultsPerPage,
             );
 
@@ -138,6 +147,7 @@ function calculateFilteredProducts(
     filters: Array<PricingPageFilter>,
     userPreferences: UserPreferences,
     activePageNumber: number,
+    allProductDetails: AllProductDetails,
     resultsPerPage?: number,
 ): Array<ProductCardTwoDetailsType> {
     const filteredProducts = Object.entries(allProductDetails)
@@ -222,16 +232,17 @@ function calculateFilteredProducts(
 export const defaultMinPrice = 0;
 export const defaultMaxPrice = 20000;
 
-export function pricingPageInitialStateGenerator(userPreferences: UserPreferences): PricingPageState {
+export function pricingPageInitialStateGenerator(userPreferences: UserPreferences, allProductDetails: AllProductDetails): PricingPageState {
     return {
         selectedPricingPageProductType: PricingPageProductType.all,
         minPrice: defaultMinPrice,
         maxPrice: defaultMaxPrice,
         appliedFilters: [],
-        filteredProducts: calculateFilteredProducts(PricingPageProductType.all, defaultMinPrice, defaultMaxPrice, [], userPreferences, 1, 12),
+        filteredProducts: calculateFilteredProducts(PricingPageProductType.all, defaultMinPrice, defaultMaxPrice, [], userPreferences, 1,allProductDetails, 12),
         activePageNumber: 0,
         resultsPerPage: 12,
         totalPages: Math.ceil(Object.keys(allProductDetails).length / 12),
+        products: allProductDetails,
     };
 }
 

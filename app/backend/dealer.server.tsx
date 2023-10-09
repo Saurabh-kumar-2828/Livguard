@@ -713,7 +713,7 @@ export async function verifyGoogleRecaptcha(token: string): Promise<Error | void
 }
 
 export async function insertReachOutFormLeadsForRenewableEnergy(leadId: string, formResponse: any): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariable("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }

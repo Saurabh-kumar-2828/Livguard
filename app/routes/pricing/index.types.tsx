@@ -2,6 +2,7 @@ import type {ProductCardTwoDetailsType} from "~/components/reusable-components/p
 import type {ProductDetails} from "~/productData.types";
 import {AutomotiveSubType, ProductType} from "~/productData.types";
 import {getCapacityFromProduct, getWarrantyFromProduct} from "~/routes/pricing/index.state";
+import { AllProductDetails } from "~/typeDefinitions";
 
 export type PricingPageState = {
     selectedPricingPageProductType: PricingPageProductType;
@@ -12,6 +13,7 @@ export type PricingPageState = {
     activePageNumber: number;
     resultsPerPage: number;
     totalPages: number;
+    products: AllProductDetails;
 };
 
 export enum PricingPageProductType {

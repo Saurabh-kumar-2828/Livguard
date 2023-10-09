@@ -1,4 +1,5 @@
 import type {ImageCdnProvider, Uuid} from "~/common--type-definitions/typeDefinitions";
+import {ProductDetails} from "./productData.types";
 
 export type UserDetails = {
     id: Uuid;
@@ -152,3 +153,9 @@ export enum FormType {
     applyForDealership = "apply-for-dealership",
     offerContactUsSubmission = "offer-contact-us-submission",
 }
+
+export type AllProductDetails = {
+    [id: string]: {
+        [language: string]: ProductDetails;
+    };
+};

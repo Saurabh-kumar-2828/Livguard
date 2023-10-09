@@ -1,8 +1,5 @@
-import {useFetcher} from "@remix-run/react";
 import {Language} from "aws-sdk/clients/support";
-import {distinct} from "~/global-common-typescript/utilities/utilities";
-import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
-import {batteryFinderData} from "~/routes/battery-finder/index.state";
+import {ProductDetails, ProductType} from "~/productData.types";
 import {BatteryFinderState} from "~/routes/two-wheeler/index.types";
 
 export enum BatteryFinderActionType {
@@ -19,13 +16,6 @@ export type BatteryFinderAction = {
     payload: any;
 };
 
-const twoWheelerBatteries = batteryFinderData
-    .filter((item) => item.vtype === "2W")
-    .filter((item) => {
-        const slug = item.bmodel;
-        return slug != null && slug in allProductDetails;
-    });
-
 export function batteryFinderReducer(state: BatteryFinderState, action: BatteryFinderAction): BatteryFinderState {
     switch (action.actionType) {
         case BatteryFinderActionType.setSelectedBrand: {
@@ -35,15 +25,6 @@ export function batteryFinderReducer(state: BatteryFinderState, action: BatteryF
             const newState: BatteryFinderState = structuredClone(state);
 
             newState.selectedBrand = selectedBrand;
-            newState.segments = distinct(
-                twoWheelerBatteries
-                    .filter((item) => newState.selectedBrand == null || item.manufacturer === newState.selectedBrand)
-                    .filter((item) => {
-                        const slug = item.bmodel;
-                        return slug != null && slug in allProductDetails;
-                    })
-                    .map((item) => item.segment),
-            );
             newState.selectedSegment = null;
             newState.selectedModel = null;
 
@@ -64,16 +45,6 @@ export function batteryFinderReducer(state: BatteryFinderState, action: BatteryF
             const newState: BatteryFinderState = structuredClone(state);
 
             newState.selectedSegment = selectedSegment;
-            newState.models = distinct(
-                twoWheelerBatteries
-                    .filter((item) => newState.selectedBrand == null || item.manufacturer === newState.selectedBrand)
-                    .filter((item) => newState.selectedSegment == null || item.segment === newState.selectedSegment)
-                    .filter((item) => {
-                        const slug = item.bmodel;
-                        return slug != null && slug in allProductDetails;
-                    })
-                    .map((item) => item.vmodel),
-            );
             newState.selectedModel = null;
 
             return newState;

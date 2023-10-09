@@ -64,7 +64,7 @@ export type ProductDetails = {
     };
 };
 
-export const allProductDetails = {};
+// export const allProductDetails = {};
 
 // export const allProductDetails: {[productSlug: string]: {[language: string]: ProductDetails}} = {
 //     it9048st: {
