@@ -7148,6 +7148,101 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "blurHash": "LA84b?s:00IUx]R*RjR*00Rj~q%M",
         "finalUrl": "/livguard/tractor/2/battery-life-fb5171.jpg"
     },
+    "/livguard/all-category/2/2.1.png": {
+        "width": 207,
+        "height": 149,
+        "finalUrl": "/livguard/all-category/2/2.1-18125d.png"
+    },
+    "/livguard/all-category/2/2.2.png": {
+        "width": 172,
+        "height": 136,
+        "finalUrl": "/livguard/all-category/2/2.2-aebdaf.png"
+    },
+    "/livguard/all-category/2/2.3.png": {
+        "width": 169,
+        "height": 127,
+        "finalUrl": "/livguard/all-category/2/2.3-e45523.png"
+    },
+    "/livguard/all-category/2/2.4.png": {
+        "width": 146,
+        "height": 125,
+        "finalUrl": "/livguard/all-category/2/2.4-2e5926.png"
+    },
+    "/livguard/all-category/3/3.1.png": {
+        "width": 955,
+        "height": 572,
+        "finalUrl": "/livguard/all-category/3/3.1-1edbca.png"
+    },
+    "/livguard/all-category/3/3.2.png": {
+        "width": 780,
+        "height": 516,
+        "finalUrl": "/livguard/all-category/3/3.2-7b1793.png"
+    },
+    "/livguard/all-category/3/3.3.png": {
+        "width": 876,
+        "height": 452,
+        "finalUrl": "/livguard/all-category/3/3.3-07f8f5.png"
+    },
+    "/livguard/all-category/3/3.4.png": {
+        "width": 843,
+        "height": 372,
+        "finalUrl": "/livguard/all-category/3/3.4-018ec7.png"
+    },
+    "/livguard/all-category/3/3.5.png": {
+        "width": 844,
+        "height": 376,
+        "finalUrl": "/livguard/all-category/3/3.5-7894dc.png"
+    },
+    "/livguard/all-category/3/3.6.png": {
+        "width": 690,
+        "height": 560,
+        "finalUrl": "/livguard/all-category/3/3.6-d20866.png"
+    },
+    "/livguard/all-category/3/3.7.png": {
+        "width": 666,
+        "height": 553,
+        "finalUrl": "/livguard/all-category/3/3.7-193186.png"
+    },
+    "/livguard/all-category/4/4.1.png": {
+        "width": 167,
+        "height": 141,
+        "finalUrl": "/livguard/all-category/4/4.1-6b4262.png"
+    },
+    "/livguard/all-category/4/4.2.png": {
+        "width": 165,
+        "height": 119,
+        "finalUrl": "/livguard/all-category/4/4.2-ff2889.png"
+    },
+    "/livguard/all-category/4/4.3.png": {
+        "width": 143,
+        "height": 143,
+        "finalUrl": "/livguard/all-category/4/4.3-ff3ad2.png"
+    },
+    "/livguard/all-category/4/4.4.png": {
+        "width": 150,
+        "height": 150,
+        "finalUrl": "/livguard/all-category/4/4.4-8a51b8.png"
+    },
+    "/livguard/all-category/4/4.5.png": {
+        "width": 173,
+        "height": 147,
+        "finalUrl": "/livguard/all-category/4/4.5-a20a56.png"
+    },
+    "/livguard/all-category/4/4.6.png": {
+        "width": 170,
+        "height": 136,
+        "finalUrl": "/livguard/all-category/4/4.6-658548.png"
+    },
+    "/livguard/all-category/1/desktop.png": {
+        "width": 3840,
+        "height": 1140,
+        "finalUrl": "/livguard/all-category/1/desktop-46d42b.png"
+    },
+    "/livguard/all-category/1/mobile.png": {
+        "width": 360,
+        "height": 433,
+        "finalUrl": "/livguard/all-category/1/mobile-a6616d.png"
+    },
     "/livguard/tractor/2/cranking.jpg": {
         "width": 855,
         "height": 501,
