@@ -11811,6 +11811,70 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `+91 95991 98444`,
         [Language.Hindi]: `?????`,
     },
+    "64538664-71d0-4080-900a-8b54176456bc": {
+        [Language.English]: `Explore Our `,
+        [Language.Hindi]: `?????`,
+    },
+    "d170b1e3-9ac0-40f7-8ba4-ad1884dda08c": {
+        [Language.English]: `<span class="lg-text-highlighted">Brochure Collection</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">सबसे अलग हैं</span>`,
+    },
+    "6b8f84b8-2fc2-4dcc-a031-e4dbcfa2f635": {
+        [Language.English]: "Select Solution",
+        [Language.Hindi]: "कृपया अपना समाधान चुनें",
+    },
+    "563b22d2-8286-47a4-8ad0-1782496a3c98": {
+        [Language.English]: "Download Brochure",
+        [Language.Hindi]: "डाउनलोड विवरणिका",
+    },
+    "35274dfd-803e-424c-9a95-04c1bcea7a5d": {
+        [Language.English]: `Discover & Download`,
+        [Language.Hindi]: "?????",
+    },
+    "f6ef02af-f66d-4564-9dca-cd8e1592afcb": {
+        [Language.English]: `Brochures`,
+        [Language.Hindi]: "?????",
+    },
+    "ef406184-26b6-42a4-98a1-5853097d7163": {
+        [Language.English]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">Home Solution</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "0999c838-f6d4-4af4-b9a7-21413b3ad562": {
+        [Language.English]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">Automotive Solution</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "2f30c959-a70d-410d-be4e-3aee24145b6b": {
+        [Language.English]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">Solar Solution</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "d9d27569-28d8-423e-ba3e-d6344b779b94": {
+        [Language.English]: `All Category`,
+        [Language.Hindi]: `?????`,
+    },
+    "2fdc65c7-2c2f-4ec0-9f80-32666da203cc": {
+        [Language.English]: `Power Your Journey`,
+        [Language.Hindi]: `?????`,
+    },
+    "047f42da-ed6c-43e0-a259-a6e3e6355dc9": {
+        [Language.English]: `Empower Your Drive`,
+        [Language.Hindi]: `?????`,
+    },
+    "c372d16f-4b66-486c-9fc4-107ca0bbb50d": {
+        [Language.English]: `Easy Maintenance`,
+        [Language.Hindi]: `?????`,
+    },
+    "026446e6-e7f3-4fea-9e71-2d7bdba75aa2": {
+        [Language.English]: `Long Battery Life`,
+        [Language.Hindi]: `?????`,
+    },
+    "9b868952-6f42-4719-a408-5b4c4fc11eff": {
+        [Language.English]: `Better Cranking Power`,
+        [Language.Hindi]: `?????`,
+    },
+    "3ad88a6b-4448-4395-af28-c86a8f07f45e": {
+        [Language.English]: `Explore Our`,
+        [Language.Hindi]: `?????`,
+    },
 };
 
 const headerStrings: Array<string> = [
