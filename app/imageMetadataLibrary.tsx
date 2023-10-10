@@ -7041,6 +7041,66 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 33,
         finalUrl: "/livguard-solar/renewable/9/light-home-070335.svg",
     },
+    "/livguard/download-brochures/2/(1).png": {
+        "width": 225,
+        "height": 200,
+        "finalUrl": "/livguard/download-brochures/2/(1)-a63598.png"
+    },
+    "/livguard/download-brochures/2/(10).png": {
+        "width": 224,
+        "height": 200,
+        "finalUrl": "/livguard/download-brochures/2/(10)-6685d9.png"
+    },
+    "/livguard/download-brochures/2/(3).png": {
+        "width": 225,
+        "height": 200,
+        "finalUrl": "/livguard/download-brochures/2/(3)-1a735d.png"
+    },
+    "/livguard/download-brochures/2/(4).png": {
+        "width": 225,
+        "height": 200,
+        "finalUrl": "/livguard/download-brochures/2/(4)-96bba6.png"
+    },
+    "/livguard/download-brochures/2/(5).png": {
+        "width": 225,
+        "height": 200,
+        "finalUrl": "/livguard/download-brochures/2/(5)-40b29b.png"
+    },
+    "/livguard/download-brochures/2/(6).png": {
+        "width": 225,
+        "height": 200,
+        "finalUrl": "/livguard/download-brochures/2/(6)-4ac347.png"
+    },
+    "/livguard/download-brochures/2/(7).png": {
+        "width": 225,
+        "height": 200,
+        "finalUrl": "/livguard/download-brochures/2/(7)-c6c86f.png"
+    },
+    "/livguard/download-brochures/2/(8).png": {
+        "width": 225,
+        "height": 200,
+        "finalUrl": "/livguard/download-brochures/2/(8)-f0f7f5.png"
+    },
+    "/livguard/download-brochures/2/(9).png": {
+        "width": 225,
+        "height": 200,
+        "finalUrl": "/livguard/download-brochures/2/(9)-3ea3ab.png"
+    },
+    "/livguard/download-brochures/2/Rectangle.png": {
+        "width": 225,
+        "height": 200,
+        "finalUrl": "/livguard/download-brochures/2/Rectangle-eba0a8.png"
+    },
+    "/livguard/download-brochures/2/desktop-banner.png": {
+        "width": 1280,
+        "height": 380,
+        "finalUrl": "/livguard/download-brochures/2/desktop-banner-871f96.png"
+    },
+    "/livguard/download-brochures/2/mobile-banner.png": {
+        "width": 360,
+        "height": 432,
+        "finalUrl": "/livguard/download-brochures/2/mobile-banner-af1326.png"
+    },
     "/livguard-solar/renewable/5/hand-solar.svg": {
         width: 40,
         height: 40,
