@@ -7545,6 +7545,10 @@ const imageMetadataIdsForPage = {
         "/livguard/home/1/desktop-banner2.jpg",
         "/livguard/home/1/new-mobile.jpg",
         "/livguard/home/1/new-desktop.jpg",
+        "/livguard/home/12/logo-et.png",
+        "/livguard/home/12/logo-nbt.png",
+        "/livguard/home/12/logo-toi.png",
+        "/livguard/home/12/logo-indiablooms.png",
     ],
     inverterForHomePage: [
         ...headerImages,

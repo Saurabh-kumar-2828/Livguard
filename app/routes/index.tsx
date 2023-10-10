@@ -22,7 +22,7 @@ import {FirstRewardDialogComponent} from "~/components/find-the-thief/firstRewar
 import {SecondClueDialogComponent} from "~/components/find-the-thief/secondClueDialogComponent";
 import {Thief} from "~/components/find-the-thief/thiefComponent";
 import {CoverImage} from "~/components/images/coverImage";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
 import {InTheNewsCarousel} from "~/components/inTheNewsCarousel";
 import {LeadersCarousel} from "~/components/leadersCarousel";
 import LivguardDialog from "~/components/livguardDialog";
