@@ -498,28 +498,40 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
     const comboData: Array<{
         title: string;
         description: string;
-        keySpecifications: Array<{keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
+        inverterKeySpecifications: Array<{keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
+        batteryKeySpecifications: Array<{keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
         comboImageRelativePath: string;
     }> = [
         {
             title: `${getVernacularString("landingPage2S4J1Title", userPreferences.language)}`,
             description: `${getVernacularString("landingPage2S4J1Description", userPreferences.language)}`,
-            keySpecifications: [
+            inverterKeySpecifications: [
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification1Content", userPreferences.language)}`,
+                    keySpecificationContent: `${getVernacularString("e0db4e01-ba5c-404a-b5a0-9ca311333fb7", userPreferences.language)}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification2Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
-                },
-                {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification3Content", userPreferences.language)}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification4Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/technology.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/sineWave.png",
+                },
+            ],
+            batteryKeySpecifications: [
+                {
+                    keySpecificationContent: `${getVernacularString("b7895214-8ecb-44a7-bf86-4974deaee879", userPreferences.language)}`,
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
+                },
+                {
+                    keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification3Content", userPreferences.language)}`,
+                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
+                },
+
+                {
+                    keySpecificationContent: `${getVernacularString("bc4a0a42-adf2-404c-85c2-d9f768511c2a", userPreferences.language)}`,
+                    keySpecificationIconRelativePath: "/livguard/icons/tall tubular white.png",
                 },
             ],
             comboImageRelativePath: "/livguard/products/urban-combo/thumbnail.png",
@@ -527,22 +539,40 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
         {
             title: `${getVernacularString("landingPage2S4J2Title", userPreferences.language)}`,
             description: `${getVernacularString("landingPage2S4J2Description", userPreferences.language)}`,
-            keySpecifications: [
+            inverterKeySpecifications: [
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification1Content", userPreferences.language)}`,
+                    keySpecificationContent: `${getVernacularString("51db98f7-13b7-4667-9b12-69f552370851", userPreferences.language)}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
+                // {
+                //     keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification2Content", userPreferences.language)}`,
+                //     keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
+                // },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification2Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
-                },
-                {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification3Content", userPreferences.language)}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification4Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/technology.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/squareWave.png",
+                },
+            ],
+            batteryKeySpecifications: [
+                {
+                    keySpecificationContent: `${getVernacularString("20824b11-5143-4b72-841c-84726766e13f", userPreferences.language)}`,
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
+                },
+                {
+                    keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification3Content", userPreferences.language)}`,
+                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
+                },
+                // {
+                //     keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification3Content", userPreferences.language)}`,
+                //     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
+                // },
+                {
+                    keySpecificationContent: `${getVernacularString("9bfee583-a1e4-43ef-b0e4-37f8a5ad6124", userPreferences.language)}`,
+                    keySpecificationIconRelativePath: "/livguard/icons/tall tubular white.png",
                 },
             ],
             comboImageRelativePath: "/livguard/products/peace-of-mind-combo/thumbnail.png",
@@ -550,22 +580,40 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
         {
             title: `${getVernacularString("landingPage2S4J3Title", userPreferences.language)}`,
             description: `${getVernacularString("landingPage2S4J3Description", userPreferences.language)}`,
-            keySpecifications: [
+            inverterKeySpecifications: [
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification1Content", userPreferences.language)}`,
+                    keySpecificationContent: `${getVernacularString("17722d26-de05-4cf9-9e06-ca678c57fa27", userPreferences.language)}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
+                // {
+                //     keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification2Content", userPreferences.language)}`,
+                //     keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
+                // },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification2Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
-                },
-                {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification3Content", userPreferences.language)}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification4Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/technology.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/sineWave.png",
+                },
+            ],
+            batteryKeySpecifications: [
+                {
+                    keySpecificationContent: `${getVernacularString("a1b4d09c-4d05-4aa3-9278-4af3cf2e2fad", userPreferences.language)}`,
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
+                },
+                {
+                    keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification3Content", userPreferences.language)}`,
+                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
+                },
+                // {
+                //     keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification3Content", userPreferences.language)}`,
+                //     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
+                // },
+                {
+                    keySpecificationContent: `${getVernacularString("9bfee583-a1e4-43ef-b0e4-37f8a5ad6124", userPreferences.language)}`,
+                    keySpecificationIconRelativePath: "/livguard/icons/tall tubular white.png",
                 },
             ],
             comboImageRelativePath: "/livguard/products/super-life-combo/thumbnail.png",
@@ -573,22 +621,40 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
         {
             title: `${getVernacularString("landingPage2S4J4Title", userPreferences.language)}`,
             description: `${getVernacularString("landingPage2S4J4Description", userPreferences.language)}`,
-            keySpecifications: [
+            inverterKeySpecifications: [
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification1Content", userPreferences.language)}`,
+                    keySpecificationContent: `${getVernacularString("d7112457-05a3-4616-9dc2-4d6eb6a09e4d", userPreferences.language)}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
+                // {
+                //     keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification2Content", userPreferences.language)}`,
+                //     keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
+                // },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification2Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
-                },
-                {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification3Content", userPreferences.language)}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification4Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/technology.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/sineWave.png",
+                },
+            ],
+            batteryKeySpecifications: [
+                {
+                    keySpecificationContent: `${getVernacularString("fa118110-53d4-4696-85bd-8ad69e7400b6", userPreferences.language)}`,
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
+                },
+                {
+                    keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification3Content", userPreferences.language)}`,
+                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
+                },
+                // {
+                //     keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification3Content", userPreferences.language)}`,
+                //     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
+                // },
+                {
+                    keySpecificationContent: `${getVernacularString("9bfee583-a1e4-43ef-b0e4-37f8a5ad6124", userPreferences.language)}`,
+                    keySpecificationIconRelativePath: "/livguard/icons/tall tubular white.png",
                 },
             ],
             comboImageRelativePath: "/livguard/products/urban-combo/thumbnail.png",
@@ -634,10 +700,14 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
                         name={comboData.title}
                         description={comboData.description}
                         imageRelativeUrl={comboData.comboImageRelativePath}
-                        warranty={comboData.keySpecifications[0].keySpecificationContent}
-                        capacity={comboData.keySpecifications[2].keySpecificationContent}
-                        rating={comboData.keySpecifications[1].keySpecificationContent}
-                        technology={comboData.keySpecifications[3].keySpecificationContent}
+                        batteryWarranty={comboData.batteryKeySpecifications[0].keySpecificationContent}
+                        inverterWarranty={comboData.inverterKeySpecifications[0].keySpecificationContent}
+                        batteryCapacity={comboData.batteryKeySpecifications[1].keySpecificationContent}
+                        inverterCapacity={comboData.inverterKeySpecifications[1].keySpecificationContent}
+                        batteryTechnology={comboData.batteryKeySpecifications[2].keySpecificationContent}
+                        inverterTechnology={comboData.inverterKeySpecifications[2].keySpecificationContent}
+                        inverterKeySpecificationIconRelativePath={comboData.inverterKeySpecifications[2].keySpecificationIconRelativePath}
+                        batteryKeySpecificationIconRelativePath={comboData.batteryKeySpecifications[2].keySpecificationIconRelativePath}
                         userPreferences={userPreferences}
                         batterySlug="/"
                         key={comboDataIndex}
@@ -659,22 +729,30 @@ function BatteryCard({
     imageRelativeUrl,
     name,
     description,
-    warranty,
-    capacity,
-    rating,
-    technology,
+    batteryWarranty,
+    inverterWarranty,
+    batteryCapacity,
+    inverterCapacity,
+    batteryTechnology,
+    inverterTechnology,
     buttonTextVernacId,
+    inverterKeySpecificationIconRelativePath,
+    batteryKeySpecificationIconRelativePath
 }: {
     userPreferences: UserPreferences;
     batterySlug: string;
     imageRelativeUrl: string;
     name: string;
     description: string;
-    warranty: string;
-    capacity: string;
-    rating: string;
-    technology: string;
+    batteryWarranty: string;
+    inverterWarranty: string;
+    batteryCapacity: string;
+    inverterCapacity: string;
+    batteryTechnology: string;
+    inverterTechnology: string;
     buttonTextVernacId?: string;
+    inverterKeySpecificationIconRelativePath: string;
+    batteryKeySpecificationIconRelativePath: string;
 }) {
     return (
         <div className="tw-max-w-3xl tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:tw-gap-x-2 lg-bg-new-background-500 lg-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8">
@@ -705,60 +783,102 @@ function BatteryCard({
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="tw-grid tw-grid-rows-[auto_auto_minmax(0,1fr)] md:max-lg:tw-grid-cols-1 md:max-lg:tw-grid-flow-row md:max-lg:tw-place-items-center md:max-lg:tw-place-self-center md:max-lg:tw-w-fit tw-grid-cols-2 tw-gap-x-4 tw-gap-y-8">
-                    <div className="tw-row-start-1 tw-col-start-1 md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 lg:tw-place-self-start">
-                        <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
-                            <img
-                                src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/warranty-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
-                                alt="warranty"
-                            />
+                {/* <div className="tw-grid tw-grid-rows-[auto_auto_minmax(0,1fr)] md:max-lg:tw-grid-cols-1 md:max-lg:tw-grid-flow-row md:max-lg:tw-place-items-center md:max-lg:tw-place-self-center md:max-lg:tw-w-fit tw-grid-cols-2"> */}
+                <div className="tw-grid md:max-lg:tw-place-items-center md:max-lg:tw-place-self-center md:max-lg:tw-w-fit tw-grid-cols-2 tw-gap-x-4">
+                    <div className="tw-border-[1px] tw-rounded-[8px] tw-border-[#F2F2F2] tw-p-4 tw-grid tw-gap-2">
+                        <div className="tw-text-left tw-text-[#EB2A2B] tw-font-bold">{getVernacularString("ormTrackingFormProduct1", userPreferences.language)}</div>
+                        <div className="md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 lg:tw-place-self-start">
+                            <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
+                                <img
+                                    src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/warranty-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                    alt="warranty"
+                                />
+                            </div>
+
+                            <div className=" tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start tw-text-left">
+                                <div className="tw-row-start-2 tw-font-bold">{getVernacularString("2c6dc668-49ef-4913-88c1-904d6e9be1a2", userPreferences.language)}</div>
+                                <div className="tw-row-start-3 tw-text-left">{inverterWarranty}</div>
+                            </div>
                         </div>
 
-                        <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start">
-                            <div className="tw-row-start-2 tw-font-bold tw-text-left">{getVernacularString("2c6dc668-49ef-4913-88c1-904d6e9be1a2", userPreferences.language)}</div>
-                            <div className="tw-row-start-3 tw-text-left">{warranty}</div>
+                        <div className=" md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
+                            <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
+                                <img
+                                    src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/capacity-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                    alt="capacity"
+                                />
+                            </div>
+
+                            <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start tw-text-left">
+                                <div className="tw-row-start-2 tw-font-bold">{getVernacularString("landingPage2S4Specification3Title", userPreferences.language)}</div>
+                                <div className="tw-row-start-3">{inverterCapacity}</div>
+                            </div>
+                        </div>
+
+                        <div className="md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
+                            <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1 tw-">
+                                {/* <img
+                                    src={getAbsolutePathForRelativePath(getMetadataForImage(keySpecificationIconRelativePath).finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                    alt="dimension"
+                                /> */}
+                                <FullWidthImage
+                                    relativePath={inverterKeySpecificationIconRelativePath}
+                                    className="tw-invert"
+                                />
+                            </div>
+
+                            <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start tw-text-left">
+                                <div className="tw-row-start-2 tw-font-bold">{getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}</div>
+                                <div className="tw-row-start-3">{inverterTechnology}</div>
+                            </div>
                         </div>
                     </div>
+                    <div className="tw-border-[1px] tw-rounded-[8px] tw-border-[#F2F2F2] tw-p-4 tw-grid tw-gap-2">
+                        <div className="tw-text-left tw-text-[#EB2A2B] tw-font-bold">{getVernacularString("ormTrackingFormProduct2", userPreferences.language)}</div>
+                        <div className="md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 lg:tw-place-self-start">
+                            <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
+                                <img
+                                    src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/warranty-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                    alt="warranty"
+                                />
+                            </div>
 
-                    <div className="tw-row-start-1 tw-col-start-2 md:max-lg:tw-w-full md:max-lg:tw-row-start-2 md:max-lg:tw-col-start-1 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
-                        <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
-                            <img
-                                src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/capacity-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
-                                alt="capacity"
-                            />
+                            <div className=" tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start tw-text-left">
+                                <div className="tw-row-start-2 tw-font-bold">{getVernacularString("2c6dc668-49ef-4913-88c1-904d6e9be1a2", userPreferences.language)}</div>
+                                <div className="tw-row-start-3">{batteryWarranty}</div>
+                            </div>
                         </div>
 
-                        <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start">
-                            <div className="tw-row-start-2 tw-font-bold">{getVernacularString("landingPage2S4Specification2Title", userPreferences.language)}</div>
-                            <div className="tw-row-start-3">{rating}</div>
-                        </div>
-                    </div>
+                        <div className=" md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
+                            <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
+                                <img
+                                    src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/polarity-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                    alt="capacity"
+                                />
+                            </div>
 
-                    <div className="tw-row-start-2 tw-col-start-1 md:max-lg:tw-w-full md:max-lg:tw-row-start-3 md:max-lg:tw-col-start-1 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
-                        <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
-                            <img
-                                src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/polarity-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
-                                alt="polarity"
-                            />
-                        </div>
-
-                        <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start">
-                            <div className="tw-row-start-2 tw-font-bold">{getVernacularString("c73ece31-e0c3-4b1f-94c5-51d742ae3186", userPreferences.language)}</div>
-                            <div className="tw-row-start-3">{capacity}</div>
-                        </div>
-                    </div>
-
-                    <div className="tw-row-start-2 tw-col-start-2 md:max-lg:tw-w-full md:max-lg:tw-row-start-4 md:max-lg:tw-col-start-1 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
-                        <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
-                            <img
-                                src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/dimensions-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
-                                alt="dimension"
-                            />
+                            <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start tw-text-left">
+                                <div className="tw-row-start-2 tw-font-bold">{getVernacularString("landingPage2S4Specification3Title", userPreferences.language)}</div>
+                                <div className="tw-row-start-3">{batteryCapacity}</div>
+                            </div>
                         </div>
 
-                        <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start">
-                            <div className="tw-row-start-2 tw-font-bold">{getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}</div>
-                            <div className="tw-row-start-3">{technology}</div>
+                        <div className="md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
+                            <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
+                                {/* <img
+                                    src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/3/dimensions-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                    alt="dimension"
+                                /> */}
+                                <FullWidthImage
+                                    relativePath={batteryKeySpecificationIconRelativePath}
+                                    className="tw-p-1"
+                                />
+                            </div>
+
+                            <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start tw-text-left">
+                                <div className="tw-row-start-2 tw-font-bold">{getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}</div>
+                                <div className="tw-row-start-3">{batteryTechnology}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
