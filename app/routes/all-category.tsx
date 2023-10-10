@@ -1,5 +1,5 @@
 import {LoaderFunction} from "@remix-run/node";
-import React from 'react'
+import React, {useContext} from "react";
 import {Link, useLoaderData} from "@remix-run/react";
 import {useResizeDetector} from "react-resize-detector";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
@@ -14,18 +14,26 @@ import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
-import {ContactUsCta} from ".";
 import {ChevronDoubleDownIcon, ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
-import { VerticalSpacer } from "~/global-common-typescript/components/verticalSpacer";
-import { DefaultImageAnimation } from "~/components/defaultImageAnimation";
-import { FullWidthImage } from "~/components/images/fullWidthImage";
-import { FullHeightImage } from "~/components/images/fullHeightImage";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getContentGenerator} from "~/vernacularProvider";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
+import {getImageMetadataLibraryFromBackend} from "~/backend/imageMetaDataLibrary.server";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -35,57 +43,83 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("allCategoriesPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("allCategoriesPage");
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
     };
 
     return loaderData;
 };
 const AllCategory = () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
     const utmSearchParameters = useUtmSearchParameters();
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "d9d27569-28d8-423e-ba3e-d6344b779b94", link: "#"},
-                ]}
-            >
-                <AllCategoryPage userPreferences={userPreferences} />
-            </PageScaffold>
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
+                        userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "d9d27569-28d8-423e-ba3e-d6344b779b94", link: "#"},
+                        ]}
+                    >
+                        <AllCategoryPage userPreferences={userPreferences} />
+                    </PageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 };
 export default AllCategory;
 
 const AllCategoryPage = ({userPreferences}: {userPreferences: UserPreferences}) => {
+    const contentData = useContext(ContentProviderContext);
     let HomeList = HomeSolutionList;
     let AutomotiveList = AutomotiveSolutionList;
     let SolarList = SolarSolutionList;
     const sectionHeading = {
-        first:getVernacularString("ef406184-26b6-42a4-98a1-5853097d7163", userPreferences.language),
-        second:getVernacularString("0999c838-f6d4-4af4-b9a7-21413b3ad562", userPreferences.language),
-        third:getVernacularString("2f30c959-a70d-410d-be4e-3aee24145b6b", userPreferences.language),
-    }
+        first: contentData.getContent("ef406184-26b6-42a4-98a1-5853097d7163"),
+        second: contentData.getContent("0999c838-f6d4-4af4-b9a7-21413b3ad562"),
+        third: contentData.getContent("2f30c959-a70d-410d-be4e-3aee24145b6b"),
+    };
     return (
         <>
             <div className="tw-grid">
                 <HeroSection userPreferences={userPreferences} />
                 <VerticalSpacer className="tw-h-8" />
-                <ContentSection userPreferences={userPreferences} list={HomeList} title={sectionHeading.first}/>
+                <ContentSection
+                    userPreferences={userPreferences}
+                    list={HomeList}
+                    title={sectionHeading.first}
+                />
                 <VerticalSpacer className="tw-h-4" />
-                <ContentSection userPreferences={userPreferences} list={AutomotiveList} title={sectionHeading.second} />
+                <ContentSection
+                    userPreferences={userPreferences}
+                    list={AutomotiveList}
+                    title={sectionHeading.second}
+                />
                 <VerticalSpacer className="tw-h-4" />
-                <ContentSection userPreferences={userPreferences} list={SolarList} title={sectionHeading.third} />
+                <ContentSection
+                    userPreferences={userPreferences}
+                    list={SolarList}
+                    title={sectionHeading.third}
+                />
                 <VerticalSpacer className="tw-h-4" />
             </div>
         </>
@@ -93,6 +127,7 @@ const AllCategoryPage = ({userPreferences}: {userPreferences: UserPreferences}) 
 };
 
 const HeroSection = ({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) => {
+    const contentData = useContext(ContentProviderContext);
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
 
@@ -102,7 +137,7 @@ const HeroSection = ({userPreferences, className}: {userPreferences: UserPrefere
     //     secondaryNavigationController.setSections((previousSections) => ({
     //         ...previousSections,
     //         top: {
-    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41"),
     //             isCurrentlyVisible: sectionInView,
     //         },
     //     }));
@@ -161,15 +196,15 @@ const HeroSection = ({userPreferences, className}: {userPreferences: UserPrefere
                             {item.titleVernacId && item.subTitleVernacId && (
                                 <h2 className="tw-row-start-1 tw-text-center md:tw-text-left md:tw-row-start-3 lg:tw-row-start-5 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 lg-px-screen-edge lg:tw-ml-28">
                                     <DefaultTextAnimation>
-                                        <div className="lg-text-banner">{getVernacularString("2fdc65c7-2c2f-4ec0-9f80-32666da203cc", userPreferences.language)}</div>
+                                        <div className="lg-text-banner">{contentData.getContent("2fdc65c7-2c2f-4ec0-9f80-32666da203cc")}</div>
                                     </DefaultTextAnimation>
                                     <DefaultTextAnimation>
-                                        <div className="lg-text-banner">{getVernacularString("047f42da-ed6c-43e0-a259-a6e3e6355dc9", userPreferences.language)}</div>
+                                        <div className="lg-text-banner">{contentData.getContent("047f42da-ed6c-43e0-a259-a6e3e6355dc9")}</div>
                                     </DefaultTextAnimation>
                                     <div className="tw-flex tw-flex-row tw-gap-6 lg:tw-gap-12">
-                                        <div className="lg-text-lg-text-title2">{getVernacularString("c372d16f-4b66-486c-9fc4-107ca0bbb50d", userPreferences.language)}</div>
-                                        <div className="lg-text-lg-text-title2">{getVernacularString("026446e6-e7f3-4fea-9e71-2d7bdba75aa2", userPreferences.language)}</div>
-                                        <div className="lg-text-lg-text-title2">{getVernacularString("9b868952-6f42-4719-a408-5b4c4fc11eff", userPreferences.language)}</div>
+                                        <div className="lg-text-lg-text-title2">{contentData.getContent("c372d16f-4b66-486c-9fc4-107ca0bbb50d")}</div>
+                                        <div className="lg-text-lg-text-title2">{contentData.getContent("026446e6-e7f3-4fea-9e71-2d7bdba75aa2")}</div>
+                                        <div className="lg-text-lg-text-title2">{contentData.getContent("9b868952-6f42-4719-a408-5b4c4fc11eff")}</div>
                                     </div>
                                 </h2>
                             )}
@@ -182,7 +217,8 @@ const HeroSection = ({userPreferences, className}: {userPreferences: UserPrefere
     );
 };
 // 3ad88a6b-4448-4395-af28-c86a8f07f45e
-const ContentSection = ({userPreferences, list, title}: {userPreferences: UserPreferences, list: any, title: string}) => {
+const ContentSection = ({userPreferences, list, title}: {userPreferences: UserPreferences; list: any; title: string}) => {
+    const contentData = useContext(ContentProviderContext);
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true, align: "start"});
     const isScreenSizeBelow = useIsScreenSizeBelow(640);
     let snapDotsDivisionFactor: any;
@@ -191,78 +227,85 @@ const ContentSection = ({userPreferences, list, title}: {userPreferences: UserPr
             <div>
                 <div className="tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-gap-3">
                     <div className="tw-text-center lg-text-title1 tw-grid tw-gap-2">
-                        <h1>{getVernacularString("3ad88a6b-4448-4395-af28-c86a8f07f45e", userPreferences.language)}</h1>
+                        <h1>{contentData.getContent("3ad88a6b-4448-4395-af28-c86a8f07f45e")}</h1>
                         <h1 dangerouslySetInnerHTML={{__html: title}}></h1>
                     </div>
                     <div
                         className="tw-w-full tw-overflow-hidden tw-pl-6"
-                        ref={isScreenSizeBelow? emblaRef: null}
+                        ref={isScreenSizeBelow ? emblaRef : null}
                     >
                         <div className="tw-grid tw-grid-flow-col sm:tw-grid-flow-row sm:tw-grid-cols-2 md:tw-grid-cols-3 lg:tw-grid-cols-4 lg:tw-grid-flow-row tw-gap-3 lg:tw-max-w-7xl lg:tw-mx-auto">
                             <ItemBuilder
                                 items={list}
-                                itemBuilder={(item, index) => <ItemCard key={index} item={item}/>}
-                            />
-                        </div>
-                    </div>
-                    {isScreenSizeBelow && <div className="tw-grid tw-grid-cols-3 tw-place-items-center">
-                        <button
-                            type="button"
-                            className="tw-h-fit tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-bg-secondary-100-light"
-                            onClick={() => {
-                                emblaApi?.scrollPrev();
-                            }}
-                        >
-                            <ChevronLeftIcon className="tw-w-6 tw-h-6" />
-                        </button>
-                        <div className="tw-flex tw-flex-row tw-gap-x-2">
-                            <ItemBuilder
-                                items={snapDotsDivisionFactor == undefined ? list : list.slice(0, list.length / snapDotsDivisionFactor)}
-                                itemBuilder={(_, scrollSnapIndex) => (
-                                    <React.Fragment key={scrollSnapIndex}>
-                                        <div
-                                            className={concatenateNonNullStringsWithSpaces(
-                                                "tw-w-2 tw-h-2 tw-rounded-full",
-                                                scrollSnapIndex == selectedIndex || (snapDotsDivisionFactor != undefined && scrollSnapIndex === selectedIndex % (list.length / snapDotsDivisionFactor))
-                                                    ? "lg-bg-secondary-900"
-                                                    : "lg-bg-secondary-300",
-                                            )}
-                                            key={scrollSnapIndex}
-                                            onClick={() => {
-                                                if (scrollSnapIndex !== selectedIndex) {
-                                                    emblaApi?.scrollTo(scrollSnapIndex);
-                                                }
-                                            }}
-                                        />
-                                    </React.Fragment>
+                                itemBuilder={(item, index) => (
+                                    <ItemCard
+                                        key={index}
+                                        item={item}
+                                    />
                                 )}
                             />
                         </div>
-                        <button
-                            type="button"
-                            className="tw-h-fit tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-bg-secondary-100-light"
-                            onClick={() => {
-                                emblaApi?.scrollNext();
-                            }}
-                        >
-                            <ChevronRightIcon className="tw-w-6 tw-h-6" />
-                        </button>
-                    </div>}
+                    </div>
+                    {isScreenSizeBelow && (
+                        <div className="tw-grid tw-grid-cols-3 tw-place-items-center">
+                            <button
+                                type="button"
+                                className="tw-h-fit tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-bg-secondary-100-light"
+                                onClick={() => {
+                                    emblaApi?.scrollPrev();
+                                }}
+                            >
+                                <ChevronLeftIcon className="tw-w-6 tw-h-6" />
+                            </button>
+                            <div className="tw-flex tw-flex-row tw-gap-x-2">
+                                <ItemBuilder
+                                    items={snapDotsDivisionFactor == undefined ? list : list.slice(0, list.length / snapDotsDivisionFactor)}
+                                    itemBuilder={(_, scrollSnapIndex) => (
+                                        <React.Fragment key={scrollSnapIndex}>
+                                            <div
+                                                className={concatenateNonNullStringsWithSpaces(
+                                                    "tw-w-2 tw-h-2 tw-rounded-full",
+                                                    scrollSnapIndex == selectedIndex ||
+                                                        (snapDotsDivisionFactor != undefined && scrollSnapIndex === selectedIndex % (list.length / snapDotsDivisionFactor))
+                                                        ? "lg-bg-secondary-900"
+                                                        : "lg-bg-secondary-300",
+                                                )}
+                                                key={scrollSnapIndex}
+                                                onClick={() => {
+                                                    if (scrollSnapIndex !== selectedIndex) {
+                                                        emblaApi?.scrollTo(scrollSnapIndex);
+                                                    }
+                                                }}
+                                            />
+                                        </React.Fragment>
+                                    )}
+                                />
+                            </div>
+                            <button
+                                type="button"
+                                className="tw-h-fit tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-bg-secondary-100-light"
+                                onClick={() => {
+                                    emblaApi?.scrollNext();
+                                }}
+                            >
+                                <ChevronRightIcon className="tw-w-6 tw-h-6" />
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
         </>
     );
 };
 
-const ItemCard = ({ item }: {item: any}) => {
+const ItemCard = ({item}: {item: any}) => {
+    const contentData = useContext(ContentProviderContext);
     return (
         <>
-            <Link
-                to={item.redirectLink}
-            >
+            <Link to={item.redirectLink}>
                 <div className="tw-text-center tw-min-w-[260px] tw-h-full tw-w-full tw-place-items-center tw-grid tw-gap-2 tw-grid-rows-[minmax(0,1fr)_auto]">
                     <div className="tw-row-start-1 tw-p-2 tw-grid tw-items-center tw-grid-rows-1 lg-card tw-bf tw-h-full tw-w-full">
-                            <FullWidthImage relativePath={item.relativeImageUrl} />
+                        <FullWidthImage relativePath={item.relativeImageUrl} />
                     </div>
                     <h1 className=" tw-row-start-2 lg-text-title2 lg-text-headline tw-text-[#000000] tw-text-center">{item.downTitle}</h1>
                 </div>
@@ -296,7 +339,7 @@ const HomeSolutionList = [
         relativeImageUrl: "/livguard/all-category/2/2.4.png",
         redirectLink: "/inverter-trolley",
     },
-]
+];
 
 const AutomotiveSolutionList = [
     {
@@ -341,7 +384,7 @@ const AutomotiveSolutionList = [
         relativeImageUrl: "/livguard/all-category/3/3.7.png",
         redirectLink: "/e-rickshaw-charger",
     },
-]
+];
 
 const SolarSolutionList = [
     {
@@ -380,4 +423,4 @@ const SolarSolutionList = [
         relativeImageUrl: "/livguard/all-category/4/4.6.png",
         redirectLink: "https://www.livguardsolar.com/",
     },
-]
+];

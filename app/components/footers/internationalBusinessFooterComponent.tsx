@@ -1,16 +1,16 @@
 import {ChevronRightIcon, PlusIcon} from "@heroicons/react/20/solid";
 import {Link, useFetcher} from "@remix-run/react";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {GeoAltFill, GlobeAmericas, TelephoneFill} from "react-bootstrap-icons";
 import {toast} from "react-toastify";
 import {boolean} from "zod";
 import {Accordion} from "~/components/accordian";
 import {SocialMediaIcons, SubscribeSuccessDialog, FooterSocialLogosAndCopyright} from "~/components/footers/common";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {emailIdValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {Theme, type UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function InternationalBusinessFooterComponent({
     userPreferences,
@@ -29,6 +29,7 @@ export function InternationalBusinessFooterComponent({
 }) {
     // const [openDisclosureTitle, setOpenDisclosureTitle] = useState<string | null>(null);
 
+    const contentData = useContext(ContentProviderContext);
     const fetcher = useFetcher();
     const isSubscriptionSuccess = fetcher.data != null && fetcher.data.error == null;
 
@@ -49,22 +50,22 @@ export function InternationalBusinessFooterComponent({
 
     const aboutUsAccordianList = [
         {
-            title: `${getVernacularString("cc92d2f4-4884-4d08-bd15-9ed54eaf1e4d", userPreferences.language)}`,
+            title: `${contentData.getContent("cc92d2f4-4884-4d08-bd15-9ed54eaf1e4d")}`,
             link: "/contact-us",
             target: false,
         },
         {
-            title: `${getVernacularString("f396f200-9afb-4408-85c2-fe7ed011e288", userPreferences.language)}`,
+            title: `${contentData.getContent("f396f200-9afb-4408-85c2-fe7ed011e288")}`,
             link: "/global-ops",
             target: true,
         },
         {
-            title: `${getVernacularString("3646d35c-629c-47af-902a-5ccc2941a5e5", userPreferences.language)}`,
+            title: `${contentData.getContent("3646d35c-629c-47af-902a-5ccc2941a5e5")}`,
             link: "/privacy-policy",
             target: true,
         },
         {
-            title: `${getVernacularString("70e9b582-ab5a-492a-a426-5552a796bc6d", userPreferences.language)}`,
+            title: `${contentData.getContent("70e9b582-ab5a-492a-a426-5552a796bc6d")}`,
             link: "/csr",
             target: true,
         },
@@ -72,7 +73,7 @@ export function InternationalBusinessFooterComponent({
 
     const batteriesAccordianList = [
         {
-            title: `${getVernacularString("6a54a900-6176-454c-9ef6-d9025fee97c9", userPreferences.language)}`,
+            title: `${contentData.getContent("6a54a900-6176-454c-9ef6-d9025fee97c9")}`,
             link: "/contact-us",
             target: false,
         },
@@ -80,7 +81,7 @@ export function InternationalBusinessFooterComponent({
 
     const solarAccordianList = [
         {
-            title: `${getVernacularString("c64a5e9d-ba14-41ff-9925-bda948a97c97", userPreferences.language)}`,
+            title: `${contentData.getContent("c64a5e9d-ba14-41ff-9925-bda948a97c97")}`,
             link: "/contact-us",
             target: false,
         },
@@ -88,22 +89,22 @@ export function InternationalBusinessFooterComponent({
 
     const GovernanceAccordianList = [
         // {
-        //     title: `${getVernacularString("41d5c04e-ff29-4bfc-8082-b2245a96dd7a", userPreferences.language)}`,
+        //     title: `${contentData.getContent("41d5c04e-ff29-4bfc-8082-b2245a96dd7a")}`,
         //     link: "/contact-us",
         //     target: false,
         // },
         // {
-        //     title: `${getVernacularString("70e9b582-ab5a-492a-a426-5552a796bc6d", userPreferences.language)}`,
+        //     title: `${contentData.getContent("70e9b582-ab5a-492a-a426-5552a796bc6d")}`,
         //     link: "/global-ops",
         //     target: true,
         // },
         // {
-        //     title: `${getVernacularString("35fe95ed-b847-4ac1-a6f6-5878d1a183ea", userPreferences.language)}`,
+        //     title: `${contentData.getContent("35fe95ed-b847-4ac1-a6f6-5878d1a183ea")}`,
         //     link: "/privacy-policy",
         //     target: true,
         // },
         {
-            title: `${getVernacularString("13a52500-50ab-4649-9811-a670bc78df8a", userPreferences.language)}`,
+            title: `${contentData.getContent("13a52500-50ab-4649-9811-a670bc78df8a")}`,
             link: "/e-waste-management",
             target: true,
         },
@@ -134,7 +135,7 @@ export function InternationalBusinessFooterComponent({
 
                 <div className="lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-col-span-full tw-flex lg:tw-flex-row lg:tw-justify-between lg:tw-items-center lg:tw-px-[72px] tw-py-4 lg:tw-gap-10 tw-bg-[#f2f2f2] dark:tw-bg-secondary-100-dark tw-mx-[-1.5rem] lg:tw-mx-0 lg-px-screen-edge">
                     <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-start lg:tw-gap-10 lg:tw-items-center">
-                        <div className="lg-text-secondary-900 lg-text-title1 lg:tw-max-w-[40rem]">{getVernacularString("6704bb3c-9278-4dc5-b945-d2fa6d625b60", userPreferences.language)}</div>
+                        <div className="lg-text-secondary-900 lg-text-title1 lg:tw-max-w-[40rem]">{contentData.getContent("6704bb3c-9278-4dc5-b945-d2fa6d625b60")}</div>
 
                         <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
@@ -149,7 +150,7 @@ export function InternationalBusinessFooterComponent({
                                     name="emailId"
                                     id="signup_email"
                                     pattern={emailIdValidationPattern}
-                                    placeholder={getVernacularString("e64854e3-77ba-4364-96f9-3731e77a888d", userPreferences.language)}
+                                    placeholder={contentData.getContent("e64854e3-77ba-4364-96f9-3731e77a888d")}
                                     className="tw-bg-secondary-100-light dark:tw-bg-secondary-300-dark tw-outline dark:tw-outline-none tw-outline-1 tw-outline-secondary-500-light lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full"
                                 />
 
@@ -183,7 +184,7 @@ export function InternationalBusinessFooterComponent({
                 <VerticalSpacer className="tw-h-6 lg:tw-hidden" />
 
                 <Accordion
-                    title={getVernacularString("586b03b6-cd5a-4e80-88ac-ae3cdabc170c", userPreferences.language)}
+                    title={contentData.getContent("586b03b6-cd5a-4e80-88ac-ae3cdabc170c")}
                     panelItem={
                         <ItemBuilder
                             items={aboutUsAccordianList}
@@ -213,7 +214,7 @@ export function InternationalBusinessFooterComponent({
                 <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
                 <Accordion
-                    title={getVernacularString("4293e069-961d-471a-b759-b506e1fa1d6b", userPreferences.language)}
+                    title={contentData.getContent("4293e069-961d-471a-b759-b506e1fa1d6b")}
                     panelItem={
                         <ItemBuilder
                             items={GovernanceAccordianList}
@@ -246,7 +247,7 @@ export function InternationalBusinessFooterComponent({
                     className="tw-text-left tw-p-5 tw-flex tw-justify-between tw-items-center tw-w-full lg-bg-secondary-100 tw-gap-x-4 lg:tw-hidden hover:tw-cursor-pointer tw-rounded-lg lg-international-shadow"
                     onClick={() => scrollToProductCategory(0, 0)}
                 >
-                    <div className="lg-text-secondary-900 tw-flex-1">{getVernacularString("e4352ec6-972a-46ff-85e6-a00de81e8d6d", userPreferences.language)}</div>
+                    <div className="lg-text-secondary-900 tw-flex-1">{contentData.getContent("e4352ec6-972a-46ff-85e6-a00de81e8d6d")}</div>
                     <div className="tw-h-6 tw-w-6 lg-bg-background-500 tw-rounded-lg tw-flex-0">
                         <PlusIcon />
                     </div>
@@ -255,7 +256,7 @@ export function InternationalBusinessFooterComponent({
                 <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
                 <Accordion
-                    title={getVernacularString("89e965e6-e1cd-4494-acca-539e38484973", userPreferences.language)}
+                    title={contentData.getContent("89e965e6-e1cd-4494-acca-539e38484973")}
                     panelItem={
                         <ItemBuilder
                             items={batteriesAccordianList}
@@ -281,7 +282,7 @@ export function InternationalBusinessFooterComponent({
                 <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
                 <Accordion
-                    title={getVernacularString("db1db71c-a35e-45d6-9a7d-8035c009f5ec", userPreferences.language)}
+                    title={contentData.getContent("db1db71c-a35e-45d6-9a7d-8035c009f5ec")}
                     panelItem={
                         <ItemBuilder
                             items={solarAccordianList}
@@ -308,7 +309,7 @@ export function InternationalBusinessFooterComponent({
 
                 <Accordion
                     defaultOpen={true}
-                    title={getVernacularString("58ba11d4-9639-4ae9-b701-b99e4122c7a6", userPreferences.language)}
+                    title={contentData.getContent("58ba11d4-9639-4ae9-b701-b99e4122c7a6")}
                     panelItem={
                         <div className="lg:tw-flex tw-flex-col">
                             <div className="tw-grid tw-grid-cols-[auto_1rem_minmax(0,1fr)] tw-items-center">
@@ -352,7 +353,7 @@ export function InternationalBusinessFooterComponent({
                 <VerticalSpacer className="tw-h-5 lg:tw-hidden" />
 
                 <div className="tw-hidden lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-flex tw-flex-col lg-text-secondary-900 tw-px-10 lg:tw-px-0 tw-text-center lg:tw-text-left lg:tw-pl-[4.5rem]">
-                    <div>{getVernacularString("58ba11d4-9639-4ae9-b701-b99e4122c7a6", userPreferences.language)}</div>
+                    <div>{contentData.getContent("58ba11d4-9639-4ae9-b701-b99e4122c7a6")}</div>
 
                     <VerticalSpacer className="tw-h-4" />
 
@@ -405,7 +406,7 @@ export function InternationalBusinessFooterComponent({
                 /> */}
 
                 <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-row-span-3">
-                    <div className="lg-text-body-bold">{getVernacularString("586b03b6-cd5a-4e80-88ac-ae3cdabc170c", userPreferences.language)}</div>
+                    <div className="lg-text-body-bold">{contentData.getContent("586b03b6-cd5a-4e80-88ac-ae3cdabc170c")}</div>
                     <VerticalSpacer className="tw-h-1" />
                     <ItemBuilder
                         items={aboutUsAccordianList}
@@ -438,7 +439,7 @@ export function InternationalBusinessFooterComponent({
 
                     <VerticalSpacer className="tw-hidden lg:tw-flex lg:tw-h-8" />
 
-                    <div className="lg-text-body-bold">{getVernacularString("4293e069-961d-471a-b759-b506e1fa1d6b", userPreferences.language)}</div>
+                    <div className="lg-text-body-bold">{contentData.getContent("4293e069-961d-471a-b759-b506e1fa1d6b")}</div>
                     <VerticalSpacer className="tw-h-1" />
                     <ItemBuilder
                         items={GovernanceAccordianList}
@@ -475,13 +476,13 @@ export function InternationalBusinessFooterComponent({
                         className="lg-text-body-bold hover:tw-cursor-pointer"
                         onClick={() => scrollToProductCategory(0, 0)}
                     >
-                        {getVernacularString("e4352ec6-972a-46ff-85e6-a00de81e8d6d", userPreferences.language)}
+                        {contentData.getContent("e4352ec6-972a-46ff-85e6-a00de81e8d6d")}
                     </div>
 
                     {/* <VerticalSpacer className="tw-h-12" /> */}
 
                     {/* <div className="tw-flex tw-flex-col">
-                        <div className="lg-text-body-bold">{getVernacularString("586b03b6-cd5a-4e80-88ac-ae3cdabc170c", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold">{contentData.getContent("586b03b6-cd5a-4e80-88ac-ae3cdabc170c")}</div>
                         <VerticalSpacer className="tw-h-1" />
                         <ItemBuilder
                             items={aboutUsAccordianList}
@@ -514,7 +515,7 @@ export function InternationalBusinessFooterComponent({
                 </div>
 
                 <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-4 lg:tw-row-span-3">
-                    <div className="lg-text-body-bold">{getVernacularString("89e965e6-e1cd-4494-acca-539e38484973", userPreferences.language)}</div>
+                    <div className="lg-text-body-bold">{contentData.getContent("89e965e6-e1cd-4494-acca-539e38484973")}</div>
                     <VerticalSpacer className="tw-h-1" />
                     <ItemBuilder
                         items={batteriesAccordianList}
@@ -537,7 +538,7 @@ export function InternationalBusinessFooterComponent({
                 </div>
 
                 <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-5 lg:tw-row-span-3">
-                    <div className="lg-text-body-bold">{getVernacularString("db1db71c-a35e-45d6-9a7d-8035c009f5ec", userPreferences.language)}</div>
+                    <div className="lg-text-body-bold">{contentData.getContent("db1db71c-a35e-45d6-9a7d-8035c009f5ec")}</div>
                     <VerticalSpacer className="tw-h-1" />
                     <ItemBuilder
                         items={solarAccordianList}
@@ -564,7 +565,7 @@ export function InternationalBusinessFooterComponent({
                         type="button"
                         className="tw-text-left tw-underline"
                     >
-                        {getVernacularString("e4352ec6-972a-46ff-85e6-a00de81e8d6d", userPreferences.language)}
+                        {contentData.getContent("e4352ec6-972a-46ff-85e6-a00de81e8d6d")}
                     </button>
                 </div>
 
@@ -574,7 +575,7 @@ export function InternationalBusinessFooterComponent({
                         onClick={() => scrollToProductCategory(1, 0)}
                         className="tw-text-left tw-underline"
                     >
-                        {getVernacularString("330a7f15-0687-4c44-bd72-a6e065e68a76", userPreferences.language)}
+                        {contentData.getContent("330a7f15-0687-4c44-bd72-a6e065e68a76")}
                     </button>
                 </div>
 
@@ -584,12 +585,12 @@ export function InternationalBusinessFooterComponent({
                         onClick={() => scrollToProductCategory(2, 0)}
                         className="tw-text-left tw-underline"
                     >
-                        {getVernacularString("972bdd2f-5007-4e40-be0f-c7ab8e22caf5", userPreferences.language)}
+                        {contentData.getContent("972bdd2f-5007-4e40-be0f-c7ab8e22caf5")}
                     </button>
                 </div> */}
 
                 {/* <div className="lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full tw-hidden lg:tw-block lg-text-body tw-py-4 tw-text-left lg:tw-px-[72px]">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("footerCopyrightText", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("footerCopyrightText")}} />
                 </div> */}
             </div>
         </div>

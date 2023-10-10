@@ -1,11 +1,11 @@
 import {Dialog, Transition} from "@headlessui/react";
-import React from "react";
+import React, {useContext} from "react";
 import {Facebook, Twitter, Instagram, Linkedin, Youtube} from "react-bootstrap-icons";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {FormSubmissionSuccess} from "~/routes/dealer-for-inverters-and-batteries";
 import type {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function SubscribeSuccessDialog({
     userPreferences,
@@ -106,6 +106,7 @@ export function SocialMediaIcons({className}: {className?: string}) {
 }
 
 export function FooterSocialLogosAndCopyright({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge lg-bg-secondary-100", className)}>
             <VerticalSpacer className="tw-h-3" />
@@ -116,10 +117,10 @@ export function FooterSocialLogosAndCopyright({userPreferences, className}: {use
 
             {/* <div
                 className="tw-text-center tw-w-full"
-                dangerouslySetInnerHTML={{__html: getVernacularString("footerCopyrightText", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("footerCopyrightText")}}
             /> */}
-            {/* <div dangerouslySetInnerHTML={{__html: getVernacularString("footerCopyWriteText", userPreferences.language)}} /> */}
-            {/* <div>{getVernacularString("footerCopyWriteText", userPreferences.language)}</div> */}
+            {/* <div dangerouslySetInnerHTML={{__html: contentData.getContent("footerCopyWriteText")}} /> */}
+            {/* <div>{contentData.getContent("footerCopyWriteText")}</div> */}
 
             {/* <VerticalSpacer className="tw-h-6" /> */}
         </div>

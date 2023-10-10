@@ -1,28 +1,30 @@
+import {useContext} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/components/images/coverImage";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import type {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function ContactFormSuccess({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-max-w-[25rem] lg:tw-mx-auto", className)}>
             <div className="lg-text-headline tw-text-center lg:tw-hidden">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFormHT1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("contactUsFormHT1")}} />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFormHT2", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("contactUsFormHT2")}} />
                 </DefaultTextAnimation>
             </div>
 
             <VerticalSpacer className="tw-h-1 lg:tw-hidden" />
 
-            <div className="lg-text-title2 tw-text-center lg:tw-hidden">{getVernacularString("contactUsFormT3", userPreferences.language)}</div>
+            <div className="lg-text-title2 tw-text-center lg:tw-hidden">{contentData.getContent("contactUsFormT3")}</div>
 
             <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
@@ -62,14 +64,14 @@ export function ContactFormSuccess({userPreferences, className}: {userPreference
 
                     <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10 tw-items-center tw-text-center">
                         <div
-                            dangerouslySetInnerHTML={{__html: getVernacularString("successT1", userPreferences.language)}}
+                            dangerouslySetInnerHTML={{__html: contentData.getContent("successT1")}}
                             className="lg-text-banner tw-text-secondary-100-light"
                         />
                     </div>
 
                     <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10 tw-items-center tw-text-center">
                         <div
-                            dangerouslySetInnerHTML={{__html: getVernacularString("successT2", userPreferences.language)}}
+                            dangerouslySetInnerHTML={{__html: contentData.getContent("successT2")}}
                             className="lg-text-title2 tw-text-secondary-100-light"
                         />
                     </div>
@@ -111,7 +113,7 @@ export function ContactFormSuccess({userPreferences, className}: {userPreference
                         <VerticalSpacer className="tw-h-4" />
 
                         <div
-                            dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
+                            dangerouslySetInnerHTML={{__html: contentData.getContent("successT3")}}
                             className="lg-text-body tw-text-secondary-100-light"
                         />
                     </div>

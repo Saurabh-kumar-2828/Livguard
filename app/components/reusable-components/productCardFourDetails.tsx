@@ -1,5 +1,4 @@
 import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {getMetadataForImage} from "~/utilities";
@@ -7,6 +6,8 @@ import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {ProductType} from "~/productData.types";
 import {Link} from "@remix-run/react";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {useContext} from "react";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function ProductCardFourDetails({
     userPreferences,
@@ -33,10 +34,11 @@ export function ProductCardFourDetails({
     polarity: string;
     dimensions: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 lg-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8">
             <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-place-items-center">
-                <div className="lg:tw-hidden lg-bg-our-suggestions tw-p-2">{getVernacularString("e2ceac17-9977-44d4-933b-1f221aed6c85", userPreferences.language)}</div>
+                <div className="lg:tw-hidden lg-bg-our-suggestions tw-p-2">{contentData.getContent("e2ceac17-9977-44d4-933b-1f221aed6c85")}</div>
                 <div className="tw-w-full tw-aspect-square">
                     <FullWidthImage relativePath={imageRelativeUrl} />
                 </div>
@@ -45,7 +47,7 @@ export function ProductCardFourDetails({
                     className="tw-hidden lg:tw-block"
                     to={batterySlug}
                 >
-                    <button className="lg-cta-button">{getVernacularString("30de7643-a5bc-49a0-b85f-bfa770836330", userPreferences.language)}</button>
+                    <button className="lg-cta-button">{contentData.getContent("30de7643-a5bc-49a0-b85f-bfa770836330")}</button>
                 </Link>
             </div>
 
@@ -65,7 +67,7 @@ export function ProductCardFourDetails({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("95a938d7-dd71-46de-80b0-a417845dfb4d", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("95a938d7-dd71-46de-80b0-a417845dfb4d")}</div>
                             <div className="tw-row-start-3">{warranty}</div>
                         </div>
                     </div>
@@ -76,7 +78,7 @@ export function ProductCardFourDetails({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("c4c53678-fb9a-41c2-8782-de0690cffdd4", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("c4c53678-fb9a-41c2-8782-de0690cffdd4")}</div>
                             <div className="tw-row-start-3">{capacity}</div>
                         </div>
                     </div>
@@ -87,7 +89,7 @@ export function ProductCardFourDetails({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("05bda873-c84c-4376-8a17-6503ac9d2820", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("05bda873-c84c-4376-8a17-6503ac9d2820")}</div>
                             <div className="tw-row-start-3">{polarity}</div>
                         </div>
                     </div>
@@ -98,7 +100,7 @@ export function ProductCardFourDetails({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("9c719db5-fa53-423e-9b96-a77602b3c5bc", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("9c719db5-fa53-423e-9b96-a77602b3c5bc")}</div>
                             <div className="tw-row-start-3">{dimensions}</div>
                         </div>
                     </div>
@@ -110,7 +112,7 @@ export function ProductCardFourDetails({
                     className="tw-place-self-center lg:tw-hidden"
                     to={batterySlug}
                 >
-                    <button className="lg-cta-button">{getVernacularString("30de7643-a5bc-49a0-b85f-bfa770836330", userPreferences.language)}</button>
+                    <button className="lg-cta-button">{contentData.getContent("30de7643-a5bc-49a0-b85f-bfa770836330")}</button>
                 </Link>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />

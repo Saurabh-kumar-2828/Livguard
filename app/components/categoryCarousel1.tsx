@@ -8,7 +8,15 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
 
-export function CategoryCarousel1({userPreferences, items, className}: {userPreferences: UserPreferences; items: Array<{imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}>; className?: string}) {
+export function CategoryCarousel1({
+    userPreferences,
+    items,
+    className,
+}: {
+    userPreferences: UserPreferences;
+    items: Array<{imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}>;
+    className?: string;
+}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
 
     return (

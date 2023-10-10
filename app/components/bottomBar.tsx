@@ -1,8 +1,10 @@
 import {Link} from "@remix-run/react";
+import {useContext} from "react";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-sticky lg:tw-hidden tw-bottom-0 lg-bg-secondary-100 lg-card lg-sticky-bottom-bar-shadow tw-rounded-t-lg tw-grid tw-grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr] tw-py-[0.8125rem] tw-text-center tw-z-[63]">
             <div className="tw-row-start-1 tw-col-start-2">
@@ -15,7 +17,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                         className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
 
-                    <div className="lg-text-icon">{getVernacularString("bottomBarT1", userPreferences.language)}</div>
+                    <div className="lg-text-icon">{contentData.getContent("bottomBarT1")}</div>
                 </Link>
             </div>
 
@@ -33,7 +35,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                         width="1.5rem"
                         className="tw-bg-secondary-900-light"
                     /> */}
-                    <div className="lg-text-icon">{getVernacularString("bottomBarT2", userPreferences.language)}</div>
+                    <div className="lg-text-icon">{contentData.getContent("bottomBarT2")}</div>
 
                     {/* <div className="lg-bg-primary-500 tw-rounded-full tw-text-icon tw-text-secondary-900-dark tw-absolute -tw-top-5 tw-right-0 tw-left-0 tw-mx-auto tw-text-center tw-text-[0.6rem]">
                         Trending
@@ -55,7 +57,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                         className="tw-w-14 tw-h-14 tw-rounded-full"
                     />
 
-                    <div className="lg-text-icon">{getVernacularString("fd934962-ffce-41c6-ac8d-ebee55615f2b", userPreferences.language)}</div>
+                    <div className="lg-text-icon">{contentData.getContent("fd934962-ffce-41c6-ac8d-ebee55615f2b")}</div>
                 </Link>
             </div>
 
@@ -68,7 +70,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                         src="https://files.growthjockey.com/livguard/icons/bottom-bar/4.svg"
                         className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
-                    <div className="lg-text-icon">{getVernacularString("bottomBarT4", userPreferences.language)}</div>
+                    <div className="lg-text-icon">{contentData.getContent("bottomBarT4")}</div>
                 </Link>
             </div>
 
@@ -82,7 +84,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                         className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
 
-                    <div className="lg-text-icon">{getVernacularString("bottomBarT5", userPreferences.language)}</div>
+                    <div className="lg-text-icon">{contentData.getContent("bottomBarT5")}</div>
                 </a>
             </div>
         </div>

@@ -2,7 +2,7 @@ import {Dialog, Menu, Transition} from "@headlessui/react";
 import type {ActionFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
 import {Link, useFetcher} from "@remix-run/react";
-import React, {useCallback, useEffect, useRef, useState} from "react";
+import React, {useCallback, useContext, useEffect, useRef, useState} from "react";
 import {ChevronDown, Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {GoogleReCaptcha, GoogleReCaptchaProvider, useGoogleReCaptcha} from "react-google-recaptcha-v3";
 import {useResizeDetector} from "react-resize-detector";
@@ -20,7 +20,7 @@ import {getAbsolutePathForRelativePath} from "~/global-common-typescript/compone
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getRequiredEnvironmentVariable} from "~/common-remix--utilities/utilities.server";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
@@ -32,7 +32,11 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -72,7 +76,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/international/internation-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -111,7 +115,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/international/internation-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -124,6 +128,13 @@ type LoaderData = {
     redirectTo: string;
     pageUrl: string;
     recaptchaSiteKey: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 type ActionData = {
@@ -206,11 +217,18 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("lebanonPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("lebanonPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/international/internation-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
         recaptchaSiteKey: getStringFromUnknown(getRequiredEnvironmentVariable("GOOGLE_RECAPTCHA_SITE_KEY")),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
@@ -222,7 +240,7 @@ type BatteryQuantity = {
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl, recaptchaSiteKey} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, recaptchaSiteKey, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -242,28 +260,36 @@ export default function () {
 
     return (
         <>
-            <InternationalPageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                showContactCtaButton={false}
-                showSearchOption={false}
-                pageUrl={pageUrl}
-                productCategories={productCategories}
-                scrollToProductCategory={scrollToProductCategory}
-            >
-                <InternationalPageLebanon
-                    userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
-                    pageUrl={pageUrl}
-                    selectedCategoryIndex={selectedCategoryIndex}
-                    setSelectedCategoryIndex={setSelectedCategoryIndex}
-                    selectedSubCategoryIndex={selectedSubCategoryIndex}
-                    setSelectedSubCategoryIndex={setSelectedSubCategoryIndex}
-                    recaptchaSiteKey={recaptchaSiteKey}
-                />
-            </InternationalPageScaffold>
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <InternationalPageScaffold
+                        userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        showContactCtaButton={false}
+                        showSearchOption={false}
+                        pageUrl={pageUrl}
+                        productCategories={productCategories}
+                        scrollToProductCategory={scrollToProductCategory}
+                    >
+                        <InternationalPageLebanon
+                            userPreferences={userPreferences}
+                            utmParameters={utmSearchParameters}
+                            pageUrl={pageUrl}
+                            selectedCategoryIndex={selectedCategoryIndex}
+                            setSelectedCategoryIndex={setSelectedCategoryIndex}
+                            selectedSubCategoryIndex={selectedSubCategoryIndex}
+                            setSelectedSubCategoryIndex={setSelectedSubCategoryIndex}
+                            recaptchaSiteKey={recaptchaSiteKey}
+                        />
+                    </InternationalPageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 }
@@ -300,6 +326,7 @@ function InternationalPageLebanon({
     const [termsAndConditionsChecked, setTermsAndConditionsChecked] = useState(true);
 
     const [formSuccessfullySubmitted, setFormSuccessfullySubmitted] = useState(false);
+    const contentData = useContext(ContentProviderContext);
 
     useEffect(() => {
         if (fetcher.data == null) {
@@ -446,6 +473,7 @@ function HeroSection({
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
 
+    const contentData = useContext(ContentProviderContext);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
@@ -473,7 +501,7 @@ function HeroSection({
             )}
 
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 tw-mx-[calc(-1*var(--lg-px-screen-edge))] lg-text-banner tw-text-center tw-text-white">
-                <div dangerouslySetInnerHTML={{__html: getVernacularString("e3803682-49d9-4fb0-b444-a8f7de1d15a2", userPreferences.language)}} />
+                <div dangerouslySetInnerHTML={{__html: contentData.getContent("e3803682-49d9-4fb0-b444-a8f7de1d15a2")}} />
             </DefaultTextAnimation>
 
             <div className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-start-1 tw-w-full tw-self-end">
@@ -514,6 +542,7 @@ function HeroSection({
 }
 
 function NumbersSection({userPreferences}: {userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
 
     return (
@@ -558,36 +587,36 @@ function NumbersSection({userPreferences}: {userPreferences: UserPreferences}) {
 
                 <div className="tw-w-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-y-[4.5rem] tw-max-w-7xl tw-mx-auto lg-px-screen-edge-2">
                     <div className="tw-col-span-full tw-w-full tw-z-[2]">
-                        <div className="tw-text-center lg-text-headline tw-max-w-[35rem] tw-mx-auto">{getVernacularString("e9af9941-5944-4105-a9dd-9de72308536a", userPreferences.language)}</div>
+                        <div className="tw-text-center lg-text-headline tw-max-w-[35rem] tw-mx-auto">{contentData.getContent("e9af9941-5944-4105-a9dd-9de72308536a")}</div>
                     </div>
 
                     <div className="tw-w-full tw-z-[2]">
                         <div className="tw-w-full tw-text-center tw-text-[3.75rem] lg:tw-text-[5rem] tw-leading-none tw-pb-1 lg:tw-pb-4 tw-whitespace-nowrap">
-                            {getVernacularString("d2f9f210-6beb-4cf9-87b2-5cd8c5d5d66d", userPreferences.language)}
+                            {contentData.getContent("d2f9f210-6beb-4cf9-87b2-5cd8c5d5d66d")}
                         </div>
 
                         <div className="tw-w-full tw-text-center tw-text-[1.5rem] lg:tw-text-[2rem] tw-leading-none tw-whitespace-nowrap">
-                            {getVernacularString("61565ab8-f715-495d-9029-09eb1426a986", userPreferences.language)}
-                        </div>
-                    </div>
-
-                    <div className="tw-w-full tw-z-[2]">
-                        <div className="tw-w-full tw-text-center tw-text-[3.75rem] lg:tw-text-[5rem] tw-leading-none tw-pb-1 lg:tw-pb-4 tw-whitespace-nowrap">
-                            {getVernacularString("0c8bad55-25e9-479e-8714-21a3feb0abac", userPreferences.language)}
-                        </div>
-
-                        <div className="tw-w-full tw-text-center tw-text-[1.5rem] lg:tw-text-[2rem] tw-leading-none tw-whitespace-nowrap">
-                            {getVernacularString("15b52a40-b4e0-4044-a74b-998f658de179", userPreferences.language)}
+                            {contentData.getContent("61565ab8-f715-495d-9029-09eb1426a986")}
                         </div>
                     </div>
 
                     <div className="tw-w-full tw-z-[2]">
                         <div className="tw-w-full tw-text-center tw-text-[3.75rem] lg:tw-text-[5rem] tw-leading-none tw-pb-1 lg:tw-pb-4 tw-whitespace-nowrap">
-                            {getVernacularString("f27f64b7-f12d-4a10-9ad6-cf0ed54bcc9a", userPreferences.language)}
+                            {contentData.getContent("0c8bad55-25e9-479e-8714-21a3feb0abac")}
                         </div>
 
                         <div className="tw-w-full tw-text-center tw-text-[1.5rem] lg:tw-text-[2rem] tw-leading-none tw-whitespace-nowrap">
-                            {getVernacularString("c4f0437e-3d91-4f49-81f2-6ecdab6c94d3", userPreferences.language)}
+                            {contentData.getContent("15b52a40-b4e0-4044-a74b-998f658de179")}
+                        </div>
+                    </div>
+
+                    <div className="tw-w-full tw-z-[2]">
+                        <div className="tw-w-full tw-text-center tw-text-[3.75rem] lg:tw-text-[5rem] tw-leading-none tw-pb-1 lg:tw-pb-4 tw-whitespace-nowrap">
+                            {contentData.getContent("f27f64b7-f12d-4a10-9ad6-cf0ed54bcc9a")}
+                        </div>
+
+                        <div className="tw-w-full tw-text-center tw-text-[1.5rem] lg:tw-text-[2rem] tw-leading-none tw-whitespace-nowrap">
+                            {contentData.getContent("c4f0437e-3d91-4f49-81f2-6ecdab6c94d3")}
                         </div>
                     </div>
                 </div>
@@ -609,6 +638,7 @@ function CategoriesSection({
     selectedSubCategoryIndex: number;
     setSelectedSubCategoryIndex: React.Dispatch<number>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const categories: Array<{
         title: string;
         iconRelativePath: string;
@@ -820,7 +850,7 @@ function CategoriesSection({
             id="product-categories"
             ref={ref}
         >
-            <div className="tw-w-full lg-text-headline tw-pb-6">{getVernacularString("08c13aeb-9558-4fe6-a6d2-9cc12c7f62bb", userPreferences.language)}</div>
+            <div className="tw-w-full lg-text-headline tw-pb-6">{contentData.getContent("08c13aeb-9558-4fe6-a6d2-9cc12c7f62bb")}</div>
 
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[20rem_minmax(0,1fr)] tw-gap-x-6 tw-gap-y-6">
                 <div className="tw-grid lg:tw-grid-rows-[max-content_max-content_minmax(0,1fr)] tw-grid-cols-1 tw-gap-y-4">
@@ -858,7 +888,7 @@ function CategoriesSection({
                                         />
                                     </div>
 
-                                    <div className="tw-text-left">{getVernacularString(category.title, userPreferences.language)}</div>
+                                    <div className="tw-text-left">{contentData.getContent(category.title)}</div>
 
                                     <div className="tw-text-[1.5rem] md:tw-text-[2rem] tw-place-self-center">{categoryIndex == selectedCategoryIndex ? "–" : "+"}</div>
                                 </button>
@@ -889,7 +919,7 @@ function CategoriesSection({
                                                         />
                                                     </div>
 
-                                                    <div className="tw-text-left">{getVernacularString(subCategory.title, userPreferences.language)}</div>
+                                                    <div className="tw-text-left">{contentData.getContent(subCategory.title)}</div>
 
                                                     {/* <div className="tw-place-self-center">{subCategoryIndex == selectedSubCategoryIndex ? "-" : "+"}</div> */}
                                                 </button>
@@ -954,6 +984,7 @@ function ExploreOurCategoriesGrid({
     setIsViewMore: React.Dispatch<boolean>;
     className?: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     const [breakLength, setBreakLength] = useState(6);
@@ -979,8 +1010,8 @@ function ExploreOurCategoriesGrid({
                                   imageUrl={product.imageRelativeUrl}
                                   name={product.name}
                                   price={product.price}
-                                  capacityText={getVernacularString(product.capacityTextPiece, userPreferences.language)}
-                                  warrantyText={getVernacularString(product.warrantyTextPiece, userPreferences.language)}
+                                  capacityText={contentData.getContent(product.capacityTextPiece)}
+                                  warrantyText={contentData.getContent(product.warrantyTextPiece)}
                                   dataSheetLink={product.dataSheetLink}
                                   key={productIndex}
                               />
@@ -993,8 +1024,8 @@ function ExploreOurCategoriesGrid({
                                   imageUrl={product.imageRelativeUrl}
                                   name={product.name}
                                   price={product.price}
-                                  capacityText={getVernacularString(product.capacityTextPiece, userPreferences.language)}
-                                  warrantyText={getVernacularString(product.warrantyTextPiece, userPreferences.language)}
+                                  capacityText={contentData.getContent(product.capacityTextPiece)}
+                                  warrantyText={contentData.getContent(product.warrantyTextPiece)}
                                   dataSheetLink={product.dataSheetLink}
                                   key={productIndex}
                               />
@@ -1034,6 +1065,7 @@ function ExploreOurCategoriesGridCtaRow({
     className?: string;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const contentData = useContext(ContentProviderContext);
 
     const [breakLength, setBreakLength] = useState(6);
 
@@ -1061,9 +1093,7 @@ function ExploreOurCategoriesGridCtaRow({
                         setIsViewMore(!isViewMore);
                     }}
                 >
-                    {isViewMore
-                        ? getVernacularString("b6fd32e9-4eaa-4f00-9b37-99c4c6959e22", userPreferences.language)
-                        : getVernacularString("04dea09c-912e-4573-9a7f-7f13ebd0d8f2", userPreferences.language)}
+                    {isViewMore ? contentData.getContent("b6fd32e9-4eaa-4f00-9b37-99c4c6959e22") : contentData.getContent("04dea09c-912e-4573-9a7f-7f13ebd0d8f2")}
                 </button>
             )}
 
@@ -1077,13 +1107,14 @@ function ExploreOurCategoriesGridCtaRow({
 }
 
 function DownloadCatalogueButton({userPreferences}: {userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <Menu
             as="div"
             className="tw-relative"
         >
             <Menu.Button className="lg-cta-button tw-px-8 tw-w-fit lg:tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_0.5rem_auto]">
-                <div className="tw-col-start-1">{getVernacularString("50420609-5320-4ac3-8157-0f8397a29900", userPreferences.language)}</div>
+                <div className="tw-col-start-1">{contentData.getContent("50420609-5320-4ac3-8157-0f8397a29900")}</div>
                 <ChevronDown className="tw-h-4 tw-col-start-3" />
             </Menu.Button>
 
@@ -1096,7 +1127,7 @@ function DownloadCatalogueButton({userPreferences}: {userPreferences: UserPrefer
                         target="_blank"
                         rel="noreferrer"
                     >
-                        {getVernacularString("7304b064-f70b-4ff8-8fd5-4c9dcf994143", userPreferences.language)}
+                        {contentData.getContent("7304b064-f70b-4ff8-8fd5-4c9dcf994143")}
                     </a>
                 </Menu.Item>
 
@@ -1110,7 +1141,7 @@ function DownloadCatalogueButton({userPreferences}: {userPreferences: UserPrefer
                         target="_blank"
                         rel="noreferrer"
                     >
-                        {getVernacularString("51d64204-748f-4791-86c1-be0258c896ef", userPreferences.language)}
+                        {contentData.getContent("51d64204-748f-4791-86c1-be0258c896ef")}
                     </a>
                 </Menu.Item>
             </Menu.Items>
@@ -1135,6 +1166,7 @@ function ProductCard({
     warrantyText: string;
     dataSheetLink: string | null;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-grid tw-grid-flow-row lg-bg-secondary-100 dark:tw-bg-secondary-300-dark lg-international-shadow tw-rounded-lg tw-py-3 tw-px-2 lg:tw-py-6 lg:tw-px-4 tw-justify-items-center tw-gap-2">
             <div className="tw-w-full tw-aspect-square tw-grid tw-place-items-center">
@@ -1177,7 +1209,7 @@ function ProductCard({
                     // className="tw-mx-[calc(-1*var(--lg-px-screen-edge))] lg-text-primary-500 lg-text-body-bold tw-pt-4 tw-grid tw-grid-cols-[auto_auto] tw-items-center tw-justify-center tw-gap-x-2 tw-whitespace-nowrap tw-overflow-visible"
                     className="lg-cta-outline-button tw-px-4 !tw-text-primary-500-light dark:!tw-text-secondary-900-dark lg-text-body-bold  tw-text-center"
                 >
-                    {getVernacularString("50cc12a0-8bca-46cd-ae1e-37aa23b7cc5c", userPreferences.language)}
+                    {contentData.getContent("50cc12a0-8bca-46cd-ae1e-37aa23b7cc5c")}
                     {/* <ChevronRight className="tw-h-4 md:tw-h-5" /> */}
                 </a>
             )}
@@ -1186,30 +1218,32 @@ function ProductCard({
 }
 
 function WhoWeAreSection({userPreferences}: {userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="lg-px-screen-edge md:tw-px-20 tw-py-10 lg:tw-py-20 tw-bg-background-500-light dark:!tw-bg-secondary-100-dark">
             <div className="tw-w-full tw-max-w-7xl tw-mx-auto">
-                <div className="tw-w-full lg-text-headline lg-text-primary-500 tw-pb-6">{getVernacularString("ca34d256-88ce-4a33-a03b-d416c7f3f2d3", userPreferences.language)}</div>
+                <div className="tw-w-full lg-text-headline lg-text-primary-500 tw-pb-6">{contentData.getContent("ca34d256-88ce-4a33-a03b-d416c7f3f2d3")}</div>
 
-                <div className="tw-w-full">{getVernacularString("610220d1-def4-4ce0-94bc-00344568570e", userPreferences.language)}</div>
+                <div className="tw-w-full">{contentData.getContent("610220d1-def4-4ce0-94bc-00344568570e")}</div>
             </div>
         </div>
     );
 }
 
 function WhyLivguardSection({userPreferences}: {userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         // tw-py-10 lg:tw-py-20
         <div className="lg-px-screen-edge md:tw-px-20 tw-py-10 lg:tw-py-10">
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-items-center tw-gap-x-12 tw-gap-y-6 tw-max-w-7xl tw-mx-auto">
                 <div className="tw-w-full lg:tw-py-10">
-                    <div className="tw-w-full lg-text-headline lg-text-primary-500 lg:tw-pb-2">{getVernacularString("e567b471-cc33-47a0-94fb-f1eda4724960", userPreferences.language)}</div>
+                    <div className="tw-w-full lg-text-headline lg-text-primary-500 lg:tw-pb-2">{contentData.getContent("e567b471-cc33-47a0-94fb-f1eda4724960")}</div>
 
-                    <div className="lg-text-title2 tw-w-full tw-pb-4 lg:tw-pb-7">{getVernacularString("7bebe0ba-863e-4074-96c6-65e11c05099c", userPreferences.language)}</div>
+                    <div className="lg-text-title2 tw-w-full tw-pb-4 lg:tw-pb-7">{contentData.getContent("7bebe0ba-863e-4074-96c6-65e11c05099c")}</div>
 
                     {/* f5e9cdf7-6cf3-4c63-85e3-c0bd296204bf */}
 
-                    <div className="tw-w-full">{getVernacularString("9fe1351b-a1a6-4ae5-be0a-9426c5ed9b12", userPreferences.language)}</div>
+                    <div className="tw-w-full">{contentData.getContent("9fe1351b-a1a6-4ae5-be0a-9426c5ed9b12")}</div>
                 </div>
 
                 <div className="tw-w-full">
@@ -1224,6 +1258,7 @@ function WhyLivguardSection({userPreferences}: {userPreferences: UserPreferences
 }
 
 function GetInTouchWithUsSection({userPreferences}: {userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
     // TODO: Fix this
     const [dialogOptions, setDialogOptions] = useState<{dialogType: string; headerTextContentId: string}>({dialogType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
@@ -1241,13 +1276,13 @@ function GetInTouchWithUsSection({userPreferences}: {userPreferences: UserPrefer
                 <VerticalSpacer className="tw-h-4 tw-row-start-2" />
 
                 <div className="tw-row-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
-                    <div className="lg-text-body tw-row-start-1 tw-place-self-center tw-text-center">{getVernacularString("4dbd6d59-b14a-43e7-968a-04b44513e509", userPreferences.language)}</div>
+                    <div className="lg-text-body tw-row-start-1 tw-place-self-center tw-text-center">{contentData.getContent("4dbd6d59-b14a-43e7-968a-04b44513e509")}</div>
 
                     <a
                         className="lg-cta-button tw-w-full tw-place-self-center tw-self-end tw-row-start-2 !tw-px-[0] tw-max-w-[12rem] tw-text-center"
                         href="tel:+961-79-312446"
                     >
-                        {getVernacularString("310ebdda-7d6d-4ff3-bdab-d8be5722b5f3", userPreferences.language)}
+                        {contentData.getContent("310ebdda-7d6d-4ff3-bdab-d8be5722b5f3")}
                     </a>
                 </div>
             </div>
@@ -1267,7 +1302,7 @@ function GetInTouchWithUsSection({userPreferences}: {userPreferences: UserPrefer
                 <VerticalSpacer className="tw-h-4 tw-row-start-2" />
 
                 <div className="tw-row-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
-                    <div className="lg-text-body tw-row-start-1 tw-text-center">{getVernacularString("e120af86-fd42-46cf-9c34-9862535fc3e4", userPreferences.language)}</div>
+                    <div className="lg-text-body tw-row-start-1 tw-text-center">{contentData.getContent("e120af86-fd42-46cf-9c34-9862535fc3e4")}</div>
 
                     <button
                         type="button"
@@ -1277,7 +1312,7 @@ function GetInTouchWithUsSection({userPreferences}: {userPreferences: UserPrefer
                             setIsContactUsDialogOpen(true);
                         }}
                     >
-                        {getVernacularString("4d277726-1e3a-48af-9dc8-55d2cae52861", userPreferences.language)}
+                        {contentData.getContent("4d277726-1e3a-48af-9dc8-55d2cae52861")}
                     </button>
                 </div>
             </div>
@@ -1288,9 +1323,9 @@ function GetInTouchWithUsSection({userPreferences}: {userPreferences: UserPrefer
         <div className="lg-px-screen-edge md:tw-px-20 tw-py-10 lg:tw-py-20 tw-bg-secondary-100-light dark:!tw-bg-background-500-dark">
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(20rem,1fr)_minmax(0,1fr)_auto] tw-items-center tw-gap-x-12 tw-gap-y-6 tw-max-w-7xl tw-mx-auto">
                 <div className="tw-w-full lg:tw-py-10">
-                    <div className="tw-w-full lg-text-headline tw-pb-2">{getVernacularString("a0700edd-f810-4d32-a628-b7c67972c5db", userPreferences.language)}</div>
+                    <div className="tw-w-full lg-text-headline tw-pb-2">{contentData.getContent("a0700edd-f810-4d32-a628-b7c67972c5db")}</div>
 
-                    <div className="tw-w-full">{getVernacularString("38c490a1-bee1-4081-a32f-2837ebbfecab", userPreferences.language)}</div>
+                    <div className="tw-w-full">{contentData.getContent("38c490a1-bee1-4081-a32f-2837ebbfecab")}</div>
                 </div>
 
                 <div className="lg:tw-col-start-3 tw-w-full tw-grid tw-grid-cols-2 lg:tw-grid-cols-2 tw-gap-x-6 tw-gap-y-6">
@@ -1324,6 +1359,7 @@ function InternationalBusinessContactUsDialog({
     headerTextContentId: string;
     dialogType: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
     }
@@ -1364,7 +1400,7 @@ function InternationalBusinessContactUsDialog({
                     >
                         <div className="tw-w-full lg:tw-max-w-[30rem] tw-mx-auto tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col">
                             <div className="tw-grid tw-grid-cols-[1.5rem_minmax(0,1fr)_1.5rem]">
-                                <div className="tw-row-start-1 tw-col-start-2 tw-w-full tw-text-center lg-text-headline">{getVernacularString(headerTextContentId, userPreferences.language)}</div>
+                                <div className="tw-row-start-1 tw-col-start-2 tw-w-full tw-text-center lg-text-headline">{contentData.getContent(headerTextContentId)}</div>
                                 <button
                                     type="button"
                                     onClick={tryToCloseContactUsDialog}
@@ -1376,7 +1412,7 @@ function InternationalBusinessContactUsDialog({
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title2">{getVernacularString("d95cf021-4361-4855-b77f-fdaf49848385", userPreferences.language)}</div>
+                            <div className="lg-text-title2">{contentData.getContent("d95cf021-4361-4855-b77f-fdaf49848385")}</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
@@ -1500,6 +1536,7 @@ export function InternationalBusinessContactForm({
     setFormSuccessfullySubmitted: React.Dispatch<boolean>;
     recaptchaSiteKey: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const [step, setStep] = useState(0);
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
@@ -1586,14 +1623,12 @@ export function InternationalBusinessContactForm({
 
                     <div className="tw-absolute tw-w-full tw-h-full tw-inset-0 tw-rounded-lg tw-overflow-hidden tw-bg-[#e9e9e9] tw-opacity-80 tw-z-8" />
 
-                    <div className="tw-row-start-2 tw-w-full tw-text-[1.5rem] !tw-text-black tw-text-center tw-z-10">
-                        {getVernacularString("39eabaec-19d2-45df-9abd-d45e783cfdcc", userPreferences.language)}
-                    </div>
+                    <div className="tw-row-start-2 tw-w-full tw-text-[1.5rem] !tw-text-black tw-text-center tw-z-10">{contentData.getContent("39eabaec-19d2-45df-9abd-d45e783cfdcc")}</div>
 
                     {step == 0 ? (
                         <>
                             <div className="tw-row-start-4 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("ca8542ad-35b6-46bc-bb66-6f133efda660", userPreferences.language)}</div>
+                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{contentData.getContent("ca8542ad-35b6-46bc-bb66-6f133efda660")}</div>
 
                                 <VerticalSpacer className="tw-h-1" />
 
@@ -1602,14 +1637,14 @@ export function InternationalBusinessContactForm({
                                     name="name"
                                     className="lg-text-input dark:!tw-border-black"
                                     required
-                                    placeholder={getVernacularString("d2147fbf-37be-4867-b05a-5d955232d4ae", userPreferences.language)}
+                                    placeholder={contentData.getContent("d2147fbf-37be-4867-b05a-5d955232d4ae")}
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                 />
                             </div>
 
                             <div className="tw-row-start-6 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("a7dca451-3b2d-4c5a-a3f0-60d50765e7ae", userPreferences.language)}</div>
+                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{contentData.getContent("a7dca451-3b2d-4c5a-a3f0-60d50765e7ae")}</div>
 
                                 <VerticalSpacer className="tw-h-1" />
 
@@ -1619,14 +1654,14 @@ export function InternationalBusinessContactForm({
                                     className="lg-text-input dark:!tw-border-black"
                                     pattern={phoneNumberValidationPattern}
                                     required
-                                    placeholder={getVernacularString("4cc79e16-057f-4d9a-a485-5ede1ac4bec6", userPreferences.language)}
+                                    placeholder={contentData.getContent("4cc79e16-057f-4d9a-a485-5ede1ac4bec6")}
                                     value={phoneNumber}
                                     onChange={(e) => setPhoneNumber(e.target.value)}
                                 />
                             </div>
 
                             <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("03692181-3b16-4c29-a125-37832d186f8b", userPreferences.language)}</div>
+                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{contentData.getContent("03692181-3b16-4c29-a125-37832d186f8b")}</div>
 
                                 <VerticalSpacer className="tw-h-1" />
 
@@ -1636,23 +1671,21 @@ export function InternationalBusinessContactForm({
                                     className="lg-text-input dark:!tw-border-black"
                                     pattern={emailIdValidationPattern}
                                     required
-                                    placeholder={getVernacularString("ab22c1ba-35c8-4435-8d2a-1d978582abc8", userPreferences.language)}
+                                    placeholder={contentData.getContent("ab22c1ba-35c8-4435-8d2a-1d978582abc8")}
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
 
                             <div className="tw-row-start-[10] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-20">
-                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("7fcce52e-a757-41ee-92e7-d6e54fc3d8a9", userPreferences.language)}</div>
+                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{contentData.getContent("7fcce52e-a757-41ee-92e7-d6e54fc3d8a9")}</div>
 
                                 <VerticalSpacer className="tw-h-1" />
 
                                 <FormSelectComponent
                                     items={formSelectItemsArray}
                                     itemBuilder={(item) =>
-                                        item == null
-                                            ? `${getVernacularString("a6eb5ef2-e65b-4d52-ba90-e07f86b7390e", userPreferences.language)}`
-                                            : `<div class="">${getVernacularString(item.contentId, userPreferences.language)}</div>`
+                                        item == null ? `${contentData.getContent("a6eb5ef2-e65b-4d52-ba90-e07f86b7390e")}` : `<div class="">${contentData.getContent(item.contentId)}</div>`
                                     }
                                     value={batteryQuantity == null ? null : batteryQuantity}
                                     setValue={(item) => {
@@ -1677,7 +1710,7 @@ export function InternationalBusinessContactForm({
                                 />
 
                                 <div
-                                    dangerouslySetInnerHTML={{__html: getVernacularString("bb6ae191-31a7-4cdc-8654-f1f4c3c9f4f5", userPreferences.language)}}
+                                    dangerouslySetInnerHTML={{__html: contentData.getContent("bb6ae191-31a7-4cdc-8654-f1f4c3c9f4f5")}}
                                     className="!tw-text-black"
                                 />
                             </div>
@@ -1685,7 +1718,7 @@ export function InternationalBusinessContactForm({
                     ) : (
                         <>
                             <div className="tw-row-start-4 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("edf58613-1a70-43ea-abaa-5bc822f90ced", userPreferences.language)}</div>
+                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{contentData.getContent("edf58613-1a70-43ea-abaa-5bc822f90ced")}</div>
 
                                 <VerticalSpacer className="tw-h-1" />
 
@@ -1694,14 +1727,14 @@ export function InternationalBusinessContactForm({
                                     name="city"
                                     className="lg-text-input dark:!tw-border-black"
                                     required
-                                    placeholder={getVernacularString("9ff2ffc9-633e-482a-b720-c015f9c4aea4", userPreferences.language)}
+                                    placeholder={contentData.getContent("9ff2ffc9-633e-482a-b720-c015f9c4aea4")}
                                     value={city}
                                     onChange={(e) => setCity(e.target.value)}
                                 />
                             </div>
 
                             <div className="tw-row-start-6 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("0819dd0a-c836-4176-a121-888513e3bc8a", userPreferences.language)}</div>
+                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{contentData.getContent("0819dd0a-c836-4176-a121-888513e3bc8a")}</div>
 
                                 <VerticalSpacer className="tw-h-1" />
 
@@ -1712,7 +1745,7 @@ export function InternationalBusinessContactForm({
                                     // TODO: Ensure this works for international pages
                                     // pattern={pinCodeValidationPattern}
                                     required
-                                    placeholder={getVernacularString("4c2ec5ee-e69d-477a-a882-cf4e3254a6e0", userPreferences.language)}
+                                    placeholder={contentData.getContent("4c2ec5ee-e69d-477a-a882-cf4e3254a6e0")}
                                     value={pinCode}
                                     onChange={(e) => setPinCode(e.target.value)}
                                 />
@@ -1776,7 +1809,7 @@ export function InternationalBusinessContactForm({
                             />
 
                             {/* <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                            <div className="lg-text-body-bold tw-pl-3 tw-text-white">{getVernacularString("contactUsT4", userPreferences.language)}</div>
+                            <div className="lg-text-body-bold tw-pl-3 tw-text-white">{contentData.getContent("contactUsT4")}</div>
 
                             <VerticalSpacer className="tw-h-1" />
 
@@ -1786,7 +1819,7 @@ export function InternationalBusinessContactForm({
                                 className="lg-text-input"
                                 pattern={emailIdValidationPattern}
                                 required
-                                placeholder={getVernacularString("contactUsT4E", userPreferences.language)}
+                                placeholder={contentData.getContent("contactUsT4E")}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
@@ -1805,7 +1838,7 @@ export function InternationalBusinessContactForm({
                                 isButtonDisabled
                             }
                         >
-                            {getVernacularString("779190ac-85b3-4bb2-b02a-bd3932455bf1", userPreferences.language)}
+                            {contentData.getContent("779190ac-85b3-4bb2-b02a-bd3932455bf1")}
                         </button>
                     </div>
                 </fetcher.Form>
@@ -1815,6 +1848,7 @@ export function InternationalBusinessContactForm({
 }
 
 function InternationalBusinessContactFormSuccess({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-max-w-[25rem] lg:tw-mx-auto tw-h-full", className)}>
             {/* tw-grid-rows-[5rem_min-content_0.5rem_max-content_0.5rem_max-content_0.5rem_max-content_2rem] */}
@@ -1859,7 +1893,7 @@ function InternationalBusinessContactFormSuccess({userPreferences, className}: {
 
                 <div className="tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10 tw-items-center tw-text-center">
                     <div
-                        dangerouslySetInnerHTML={{__html: getVernacularString("6c5ae599-d51b-4089-92f7-ccfad1cd6f92", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("6c5ae599-d51b-4089-92f7-ccfad1cd6f92")}}
                         className="lg-text-banner tw-text-secondary-100-light"
                     />
                 </div>
@@ -1868,7 +1902,7 @@ function InternationalBusinessContactFormSuccess({userPreferences, className}: {
 
                 <div className="tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10 tw-items-center tw-text-center">
                     <div
-                        dangerouslySetInnerHTML={{__html: getVernacularString("c5e3ae47-a9e3-49b1-a414-2bd6d2d5737c", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("c5e3ae47-a9e3-49b1-a414-2bd6d2d5737c")}}
                         className="lg-text-title2 tw-text-secondary-100-light"
                     />
                 </div>
@@ -1917,7 +1951,7 @@ function InternationalBusinessContactFormSuccess({userPreferences, className}: {
                     <VerticalSpacer className="tw-h-4" />
 
                     <div
-                        dangerouslySetInnerHTML={{__html: getVernacularString("5389e85c-776b-4979-86df-1b323b6ca815", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("5389e85c-776b-4979-86df-1b323b6ca815")}}
                         className="lg-text-body tw-text-secondary-100-light"
                     />
                 </div>

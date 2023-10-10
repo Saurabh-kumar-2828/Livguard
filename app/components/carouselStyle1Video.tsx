@@ -1,13 +1,14 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
+import {useContext} from "react";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function CarouselStyle1Video({
     userPreferences,
@@ -17,6 +18,7 @@ export function CarouselStyle1Video({
     items: Array<{youtubeVideoId: string; videoAspectRatio: string; titleTextContentPiece: string; bodyTextContentPiece: string}>;
 }) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
+    const contentData = useContext(ContentProviderContext);
 
     return (
         <div
@@ -44,13 +46,13 @@ export function CarouselStyle1Video({
 
                                 <div className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 tw-w-full tw-flex tw-flex-col tw-items-center tw-text-center lg:tw-text-left">
                                     <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 tw-w-full">
-                                        <div className="lg-text-title1">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
+                                        <div className="lg-text-title1">{contentData.getContent(item.titleTextContentPiece)}</div>
                                     </DefaultTextAnimation>
 
                                     <VerticalSpacer className="tw-row-start-3 tw-col-start-1 tw-h-2" />
 
                                     <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 tw-flex-1 tw-w-full">
-                                        <div className="lg-text-body lg-text-secondary-700">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
+                                        <div className="lg-text-body lg-text-secondary-700">{contentData.getContent(item.bodyTextContentPiece)}</div>
                                     </DefaultTextAnimation>
                                 </div>
 

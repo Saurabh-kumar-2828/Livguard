@@ -25,20 +25,24 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {Dealer, UserPreferences} from "~/typeDefinitions";
 import {Language, Theme} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
 import type {DealerActionData} from "~/routes/contact-us/get-dealers-for-pin-code";
 import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
 import {FancySearchableSelect, Loader} from "~/components/scratchpad";
 import {verifyOtp} from "~/backend/authentication.server";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
 import {useInView} from "react-intersection-observer";
 import useMediaQuery from "~/global-common-typescript/hooks/useMediaQuery";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -78,7 +82,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/contact-us/contact-us-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
             {
                 "script:ld+json": {
@@ -132,7 +136,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/contact-us/contact-us-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -329,6 +333,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -337,17 +348,24 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("contactUsPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("contactUsPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/contact-us/contact-us-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const actionData = useActionData() as ActionData;
 
@@ -357,28 +375,36 @@ export default function () {
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "15a15952-4fe9-4c9e-b07f-fb1467a3614d", link: "#"},
-                ]}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <ContactPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
                         userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
                         utmParameters={utmSearchParameters}
-                        actionData={actionData}
                         pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "15a15952-4fe9-4c9e-b07f-fb1467a3614d", link: "#"},
+                        ]}
                         secondaryNavigationController={secondaryNavigationController}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <ContactPage
+                                userPreferences={userPreferences}
+                                utmParameters={utmSearchParameters}
+                                actionData={actionData}
+                                pageUrl={pageUrl}
+                                secondaryNavigationController={secondaryNavigationController}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 }
@@ -473,6 +499,7 @@ function HeroSection({
     className?: string;
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <div
@@ -490,22 +517,21 @@ function HeroSection({
                 )}
             </div>
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1">
-                <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("contactFormS1T1", userPreferences.language)}
-                </div>
+                <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">{contentData.getContent("contactFormS1T1")}</div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
-                <div className="lg-text-title1 lg-px-screen-edge-2 tw-text-secondary-900-dark">{getVernacularString("contactFormS1T2", userPreferences.language)}</div>
+                <div className="lg-text-title1 lg-px-screen-edge-2 tw-text-secondary-900-dark">{contentData.getContent("contactFormS1T2")}</div>
             </DefaultTextAnimation>
             <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1">
-                <div className="lg-text-title1 lg-px-screen-edge-2 tw-text-secondary-900-dark">{getVernacularString("contactFormS1T3", userPreferences.language)}</div>
+                <div className="lg-text-title1 lg-px-screen-edge-2 tw-text-secondary-900-dark">{contentData.getContent("contactFormS1T3")}</div>
             </DefaultTextAnimation>
         </div>
     );
 }
 
 function WeAreListening({userPreferences, className, actionData}: {userPreferences: UserPreferences; className?: string; actionData: ActionData}) {
+    const contentData = useContext(ContentProviderContext);
     const [selectedIndex, setSelectedIndex] = useState(0);
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -632,7 +658,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "we-are-listening": {
-                humanReadableName: getVernacularString("96713da3-cefd-4b58-9fb7-eca758ca2214", userPreferences.language),
+                humanReadableName: contentData.getContent("96713da3-cefd-4b58-9fb7-eca758ca2214"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -644,7 +670,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
             ref={sectionRef}
         >
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS3H", userPreferences.language))}} />
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("contactUsS3H"))}} />
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-4 tw-row-start-2" />
@@ -661,7 +687,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                     }}
                 >
                     <div className={`lg-text-body tw-font-bold tw-px-6 ${selectedIndex === 0 ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900"}`}>
-                        {getVernacularString("contactUsS3Feedback", userPreferences.language)}
+                        {contentData.getContent("contactUsS3Feedback")}
                     </div>
                 </div>
 
@@ -676,7 +702,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                     }}
                 >
                     <div className={`lg-text-body tw-font-bold tw-px-6 ${selectedIndex === 1 ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900"}`}>
-                        {getVernacularString("contactUsS3Complaint", userPreferences.language)}
+                        {contentData.getContent("contactUsS3Complaint")}
                     </div>
                 </div>
             </div>
@@ -696,7 +722,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                             >
                                 <div className="tw-grid tw-grid-flow-row tw-justify-start tw-gap-2">
                                     <div className="tw-row-start-1">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-text-left">{getVernacularString("contactUsS3FeedbackFormT1", userPreferences.language)}</div>
+                                        <div className="lg-text-body lg-text-secondary-900 tw-text-left">{contentData.getContent("contactUsS3FeedbackFormT1")}</div>
                                     </div>
                                     <div className="tw-grid tw-row-start-2 tw-max-w-fit tw-grid-flow-col tw-gap-2 tw-mb-1">
                                         <ItemBuilder
@@ -720,14 +746,14 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
 
                                 <div className="tw-grid tw-grid-flow-row tw-gap-2">
-                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("contactUsS3FormEmailText")}</div>
 
                                     <input
                                         type="text"
                                         name="emailId"
                                         className="lg-text-input"
                                         pattern={emailIdValidationPattern}
-                                        placeholder={getVernacularString("contactUsS3FormEmailPlaceholder", userPreferences.language)}
+                                        placeholder={contentData.getContent("contactUsS3FormEmailPlaceholder")}
                                         required
                                     />
                                 </div>
@@ -735,7 +761,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
 
                                 <div className="tw-grid tw-grid-flow-row tw-gap-2">
-                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("contactUsS3FormNameText")}</div>
 
                                     <input
                                         type="text"
@@ -745,7 +771,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                         }}
                                         value={feedbackFormName}
                                         className="lg-text-input"
-                                        placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
+                                        placeholder={contentData.getContent("contactUsS3FormNamePlaceholder")}
                                         required
                                     />
                                 </div>
@@ -754,7 +780,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
 
                                 <div className="tw-grid lg:tw-col-start-1 tw-grid-flow-row tw-gap-2">
                                     {!showOtpField ? (
-                                        <div className="lg-text-secondary-900">{getVernacularString("contactUsS3FormNumberText", userPreferences.language)}</div>
+                                        <div className="lg-text-secondary-900">{contentData.getContent("contactUsS3FormNumberText")}</div>
                                     ) : (
                                         <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
                                             <div
@@ -767,7 +793,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                     }
                                                 }}
                                             >
-                                                {getVernacularString("phoneNumberChnage", userPreferences.language)}
+                                                {contentData.getContent("phoneNumberChnage")}
                                             </div>
                                             <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{feedbackFormPhoneNumber}</div>
                                         </div>
@@ -779,7 +805,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                 type="text"
                                                 name="phoneNumber"
                                                 pattern={indianPhoneNumberValidationPattern}
-                                                placeholder={getVernacularString("contactUsS3FormNumberPlaceholder", userPreferences.language)}
+                                                placeholder={contentData.getContent("contactUsS3FormNumberPlaceholder")}
                                                 required
                                                 className="lg-text-input tw-w-full"
                                                 disabled={showOtpField}
@@ -827,7 +853,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                                 }}
                                             >
-                                                {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                                {contentData.getContent("OfferFormGetOTP")}
                                             </div>
                                         </div>
                                     ) : (
@@ -843,7 +869,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                     name="otpSubmitted"
                                                     className="lg-text-input"
                                                     required
-                                                    placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                                    placeholder={contentData.getContent("contactUsOTPT3E")}
                                                     ref={otpFieldRef}
                                                     onChange={(e) => {
                                                         setIsOtpSubmitted(true);
@@ -851,7 +877,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                 />
                                                 {invalidOtp && (
                                                     <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
-                                                        {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                                        {contentData.getContent("OfferInvalidOTP")}
                                                     </div>
                                                 )}
                                             </div>
@@ -877,7 +903,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                             otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                         }}
                                     >
-                                        {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                        {contentData.getContent("OfferResendOTP")}
                                     </div>
                                     <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
                                 </div>
@@ -885,14 +911,12 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
 
                                 <div className="tw-grid tw-grid-flow-row tw-gap-2">
-                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormProductText", userPreferences.language)}</div>
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("contactUsS3FormProductText")}</div>
 
                                     <div className="tw-row-start-2">
                                         <FormSelectComponent
                                             items={[null, ...productItems]}
-                                            itemBuilder={(item) =>
-                                                item == null ? `${getVernacularString("48aa62c2-244f-45ac-9750-56016d86d5b9", userPreferences.language)}` : `<div class="tw-py-1">${item}</div>`
-                                            }
+                                            itemBuilder={(item) => (item == null ? `${contentData.getContent("48aa62c2-244f-45ac-9750-56016d86d5b9")}` : `<div class="tw-py-1">${item}</div>`)}
                                             value={feedbackFormSelectedProduct == null ? null : productItems[feedbackFormSelectedProduct]}
                                             setValue={(item) => (item != null ? setFeedbackFormSelectedProduct(productItems.indexOf(item)) : setFeedbackFormSelectedProduct(null))}
                                             buttonClassName="!tw-rounded-full"
@@ -903,12 +927,12 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
 
                                 <div className="tw-grid tw-grid-flow-row tw-gap-2">
-                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FeedbackFormDetailText", userPreferences.language)}</div>
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("contactUsS3FeedbackFormDetailText")}</div>
 
                                     <textarea
                                         name="queryDetails"
                                         className="lg-text-input !tw-rounded-lg tw-row-start-2"
-                                        placeholder={getVernacularString("contactUsS3FeedbackFormDetailPlaceholder", userPreferences.language)}
+                                        placeholder={contentData.getContent("contactUsS3FeedbackFormDetailPlaceholder")}
                                         rows={3}
                                     />
                                 </div>
@@ -929,7 +953,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     />
 
                                     <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}}
+                                        dangerouslySetInnerHTML={{__html: contentData.getContent("contactUsTermsAndConditionsCheckboxtext")}}
                                         className="tw-flex-1"
                                     />
                                 </div>
@@ -977,7 +1001,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     className="lg-text-body tw-px-10 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start"
                                     disabled={rating == 0 || isFeedbackFormButtonDisabled || otpFetcher.data == null || !otpSubmitted}
                                 >
-                                    {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
+                                    {contentData.getContent("contactUsS3FormButtonText")}
                                 </button>
                             </Form>
                         ) : (
@@ -991,25 +1015,25 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 </div>
 
                                 <div
-                                    dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
+                                    dangerouslySetInnerHTML={{__html: contentData.getContent("contactPagesuccessT1")}}
                                     className="lg-text-banner tw-row-start-4 tw-text-center"
                                 />
 
                                 {rating < 3 ? (
                                     <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessLowRatingMessage", userPreferences.language)}}
+                                        dangerouslySetInnerHTML={{__html: contentData.getContent("contactPageFeedbackSuccessLowRatingMessage")}}
                                         className="lg-text-body tw-row-start-6 tw-text-center"
                                     />
                                 ) : (
                                     <>
                                         <div
-                                            dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessHighRatingMessage", userPreferences.language)}}
+                                            dangerouslySetInnerHTML={{__html: contentData.getContent("contactPageFeedbackSuccessHighRatingMessage")}}
                                             className="lg-text-body tw-row-start-6 tw-text-center"
                                         />
                                         <SocialMediaIcons className="tw-row-start-[8] tw-w-full tw-justify-center" />
 
                                         <div
-                                            dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
+                                            dangerouslySetInnerHTML={{__html: contentData.getContent("successT3")}}
                                             className="lg-text-icon tw-row-start-[10] tw-text-center"
                                         />
                                     </>
@@ -1025,9 +1049,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                             }}
                         >
                             <div className="tw-grid tw-grid-flow-row tw-gap-2 lg:tw-col-span-full">
-                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1 tw-text-left">
-                                    {getVernacularString("contactUsS3ComplaintFormRadioText", userPreferences.language)}
-                                </div>
+                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1 tw-text-left">{contentData.getContent("contactUsS3ComplaintFormRadioText")}</div>
 
                                 <div className="tw-row-start-3 tw-grid tw-grid-rows-[auto_1rem_auto] tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,max-content)_1rem_minmax(0,max-content)]">
                                     <div className="tw-col-start-1 tw-row-start-1 tw-grid tw-grid-cols-[auto_0.5rem_auto] tw-max-w-fit tw-items-center">
@@ -1036,13 +1058,13 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                             id="product"
                                             name="complaintOption"
                                             className="tw-col-start-1 tw-w-4 tw-h-4"
-                                            value={getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language)}
+                                            value={contentData.getContent("contactUsS3ComplaintFormRadioOption1")}
                                             style={{
-                                                accentColor: `${complaintFormOption == getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language) ? "#eb2a2b" : "white"}`,
+                                                accentColor: `${complaintFormOption == contentData.getContent("contactUsS3ComplaintFormRadioOption1") ? "#eb2a2b" : "white"}`,
                                             }}
-                                            onClick={() => setComplaintFormOption(getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language))}
+                                            onClick={() => setComplaintFormOption(contentData.getContent("contactUsS3ComplaintFormRadioOption1"))}
                                         />
-                                        <div className="tw-col-start-3 lg-text-body">{getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language)}</div>
+                                        <div className="tw-col-start-3 lg-text-body">{contentData.getContent("contactUsS3ComplaintFormRadioOption1")}</div>
                                     </div>
 
                                     {/* <VerticalSpacer className="tw-h-1 tw-row-start-2 lg:tw-hidden" /> */}
@@ -1053,13 +1075,13 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                             id="service"
                                             name="complaintOption"
                                             className="tw-col-start-1 tw-w-4 tw-h-4"
-                                            value={getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language)}
+                                            value={contentData.getContent("contactUsS3ComplaintFormRadioOption2")}
                                             style={{
-                                                accentColor: `${complaintFormOption == getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language) ? "#eb2a2b" : "white"}`,
+                                                accentColor: `${complaintFormOption == contentData.getContent("contactUsS3ComplaintFormRadioOption2") ? "#eb2a2b" : "white"}`,
                                             }}
-                                            onClick={() => setComplaintFormOption(getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language))}
+                                            onClick={() => setComplaintFormOption(contentData.getContent("contactUsS3ComplaintFormRadioOption2"))}
                                         />
-                                        <div className="tw-col-start-3 lg-text-body">{getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language)}</div>
+                                        <div className="tw-col-start-3 lg-text-body">{contentData.getContent("contactUsS3ComplaintFormRadioOption2")}</div>
                                     </div>
                                 </div>
                             </div>
@@ -1067,12 +1089,12 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                             <VerticalSpacer className="tw-h-4" />
 
                             <div className="tw-grid tw-grid-flow-row tw-gap-2 lg:tw-col-span-full">
-                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3ComplaintFormDetailText", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("contactUsS3ComplaintFormDetailText")}</div>
 
                                 <textarea
                                     name="queryDetails"
                                     className="lg-text-input !tw-rounded-lg tw-row-start-2"
-                                    placeholder={getVernacularString("contactUsS3ComplaintFormDetailPlaceholder", userPreferences.language)}
+                                    placeholder={contentData.getContent("contactUsS3ComplaintFormDetailPlaceholder")}
                                     required
                                     rows={3}
                                 />
@@ -1081,7 +1103,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                             <VerticalSpacer className="tw-h-4" />
 
                             <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("contactUsS3FormNameText")}</div>
 
                                 <input
                                     type="text"
@@ -1091,7 +1113,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     }}
                                     value={complaintFormName}
                                     className="lg-text-input"
-                                    placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
+                                    placeholder={contentData.getContent("contactUsS3FormNamePlaceholder")}
                                     required
                                 />
                             </div>
@@ -1099,14 +1121,14 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                             <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                             <div className="lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
-                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("contactUsS3FormEmailText")}</div>
 
                                 <input
                                     type="text"
                                     name="emailId"
                                     className="lg-text-input"
                                     pattern={emailIdValidationPattern}
-                                    placeholder={getVernacularString("contactUsS3FormEmailPlaceholder", userPreferences.language)}
+                                    placeholder={contentData.getContent("contactUsS3FormEmailPlaceholder")}
                                     required
                                 />
                             </div>
@@ -1115,7 +1137,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
 
                             <div className="tw-grid lg:tw-col-start-1 tw-grid-flow-row tw-gap-2">
                                 {!showOtpField ? (
-                                    <div className="lg-text-secondary-900">{getVernacularString("contactUsS3FormNumberText", userPreferences.language)}</div>
+                                    <div className="lg-text-secondary-900">{contentData.getContent("contactUsS3FormNumberText")}</div>
                                 ) : (
                                     <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
                                         <div
@@ -1128,7 +1150,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                 }
                                             }}
                                         >
-                                            {getVernacularString("phoneNumberChnage", userPreferences.language)}
+                                            {contentData.getContent("phoneNumberChnage")}
                                         </div>
                                         <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{complaintFormPhoneNumber}</div>
                                     </div>
@@ -1140,7 +1162,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                             type="text"
                                             name="phoneNumber"
                                             pattern={indianPhoneNumberValidationPattern}
-                                            placeholder={getVernacularString("contactUsS3FormNumberPlaceholder", userPreferences.language)}
+                                            placeholder={contentData.getContent("contactUsS3FormNumberPlaceholder")}
                                             required
                                             className="lg-text-input tw-w-full"
                                             disabled={showOtpField}
@@ -1188,7 +1210,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                 otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                             }}
                                         >
-                                            {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                            {contentData.getContent("OfferFormGetOTP")}
                                         </div>
                                     </div>
                                 ) : (
@@ -1204,7 +1226,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                 name="otpSubmitted"
                                                 className="lg-text-input"
                                                 required
-                                                placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                                placeholder={contentData.getContent("contactUsOTPT3E")}
                                                 ref={otpFieldRef}
                                                 onChange={(e) => {
                                                     setIsOtpSubmitted(true);
@@ -1212,7 +1234,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                             />
                                             {invalidOtp && (
                                                 <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
-                                                    {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                                    {contentData.getContent("OfferInvalidOTP")}
                                                 </div>
                                             )}
                                         </div>
@@ -1238,7 +1260,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                         otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                     }}
                                 >
-                                    {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                    {contentData.getContent("OfferResendOTP")}
                                 </div>
                                 <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
                             </div>
@@ -1246,7 +1268,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                             <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                             <div className="lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
-                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("10cb3115-ba0a-4e30-af0b-de71d6240f73", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("10cb3115-ba0a-4e30-af0b-de71d6240f73")}</div>
 
                                 <input
                                     type="text"
@@ -1267,7 +1289,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     }}
                                     maxLength={6}
                                     className="lg-text-input"
-                                    placeholder={getVernacularString("de42afeb-0e61-47c6-917f-db597603506a", userPreferences.language)}
+                                    placeholder={contentData.getContent("de42afeb-0e61-47c6-917f-db597603506a")}
                                     required
                                 />
                             </div>
@@ -1290,7 +1312,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                         otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                     }}
                                 >
-                                    {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                    {contentData.getContent("OfferResendOTP")}
                                 </div>
                                 <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
                             </div>
@@ -1304,7 +1326,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 />
                             ) : (
                                 <div className="tw-grid tw-gap-2 lg:tw-col-span-full">
-                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("76bb0c30-c244-4815-b68d-a1780f8c697e", userPreferences.language)}</div>
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("76bb0c30-c244-4815-b68d-a1780f8c697e")}</div>
 
                                     <FancySearchableSelect
                                         items={
@@ -1327,7 +1349,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                       index: selectedDealerIndex,
                                                   }
                                         }
-                                        placeholder={getVernacularString("11eba4f7-13aa-45bd-93bd-31d98b72531a", userPreferences.language)}
+                                        placeholder={contentData.getContent("11eba4f7-13aa-45bd-93bd-31d98b72531a")}
                                         // setSelectedItem={(dealer) => {
                                         //     console.log(dealer);
                                         //     setSelectedDealerCode(dealer.dealerCode);
@@ -1369,7 +1391,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                         }
                                         itemBuilder={(dealer) => {
                                             return dealer == null
-                                                ? getVernacularString("11eba4f7-13aa-45bd-93bd-31d98b72531a", userPreferences.language)
+                                                ? contentData.getContent("11eba4f7-13aa-45bd-93bd-31d98b72531a")
                                                 : `
                                                 <div
                                                     className="tw-m-4 tw-grid tw-grid-rows-[auto_minmax(0,1fr)] tw-grid-flow-row"
@@ -1407,7 +1429,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 />
 
                                 <div
-                                    dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}}
+                                    dangerouslySetInnerHTML={{__html: contentData.getContent("contactUsTermsAndConditionsCheckboxtext")}}
                                     className="tw-flex-1"
                                 />
                             </div>
@@ -1451,7 +1473,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 )}
                                 disabled={complaintFormOption === 0 || isComplaintFormButtonDisabled || otpFetcher.data == null || !otpSubmitted}
                             >
-                                {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
+                                {contentData.getContent("contactUsS3FormButtonText")}
                             </button>
                         </Form>
                     ) : (
@@ -1465,12 +1487,12 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                             </div>
 
                             <div
-                                dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
+                                dangerouslySetInnerHTML={{__html: contentData.getContent("contactPagesuccessT1")}}
                                 className="lg-text-banner tw-row-start-4 tw-text-center"
                             />
 
                             <div
-                                dangerouslySetInnerHTML={{__html: getVernacularString("contactPageComplaintSuccessMessage", userPreferences.language)}}
+                                dangerouslySetInnerHTML={{__html: contentData.getContent("contactPageComplaintSuccessMessage")}}
                                 className="lg-text-body tw-row-start-6 tw-text-center"
                             />
                         </div>
@@ -1482,6 +1504,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
 }
 
 function ClickConnectPowerUpSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
     const [dialogOptions, setDialogOptions] = useState<{dialogType: string; headerTextContentId: string}>({dialogType: "", headerTextContentId: ""});
 
@@ -1498,9 +1521,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-hidden" />
 
                 <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
-                    <div className="lg-text-body tw-row-start-1 tw-place-self-center lg:tw-place-self-start tw-text-center lg:tw-text-left">
-                        {getVernacularString("contactUsS2Option1Text", userPreferences.language)}
-                    </div>
+                    <div className="lg-text-body tw-row-start-1 tw-place-self-center lg:tw-place-self-start tw-text-center lg:tw-text-left">{contentData.getContent("contactUsS2Option1Text")}</div>
 
                     <button
                         className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
@@ -1509,7 +1530,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                             setIsContactUsDialogOpen(true);
                         }}
                     >
-                        {getVernacularString("contactUsS2Option1ButtonText", userPreferences.language)}
+                        {contentData.getContent("contactUsS2Option1ButtonText")}
                     </button>
                 </div>
             </div>
@@ -1529,7 +1550,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
 
                 <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
-                    <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
+                    <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{contentData.getContent("contactUsS2Option2Text")}</div>
 
                     <button
                         className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
@@ -1538,7 +1559,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                             setIsContactUsDialogOpen(true);
                         }}
                     >
-                        {getVernacularString("contactUsS2Option2ButtonText", userPreferences.language)}
+                        {contentData.getContent("contactUsS2Option2ButtonText")}
                     </button>
                 </div>
             </div>
@@ -1558,7 +1579,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
 
                 <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
-                    <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
+                    <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{contentData.getContent("contactUsS2Option3Text")}</div>
 
                     <button
                         className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
@@ -1567,7 +1588,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                             setIsContactUsDialogOpen(true);
                         }}
                     >
-                        {getVernacularString("contactUsS2Option3ButtonText", userPreferences.language)}
+                        {contentData.getContent("contactUsS2Option3ButtonText")}
                     </button>
                 </div>
             </div>
@@ -1587,13 +1608,13 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
 
                 <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
-                    <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option4Text", userPreferences.language)}</div>
+                    <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{contentData.getContent("contactUsS2Option4Text")}</div>
 
                     <Link
                         className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0] tw-text-center"
                         to="/service"
                     >
-                        {getVernacularString("contactUsS2Option4ButtonText", userPreferences.language)}
+                        {contentData.getContent("contactUsS2Option4ButtonText")}
                     </Link>
                 </div>
             </div>
@@ -1605,7 +1626,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "click-connect": {
-                humanReadableName: getVernacularString("7ec2537f-9154-4f04-a3ad-d7a33fa78494", userPreferences.language),
+                humanReadableName: contentData.getContent("7ec2537f-9154-4f04-a3ad-d7a33fa78494"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1617,13 +1638,13 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
             ref={sectionRef}
         >
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS2H", userPreferences.language))}} />
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("contactUsS2H"))}} />
             </DefaultTextAnimation>
 
             {/* <VerticalSpacer className="tw-h-2 lg:tw-h-4 tw-row-start-2" /> */}
 
             <DefaultTextAnimation className="tw-row-start-3 lg-text-headline tw-text-center lg:tw-text-left">
-                <div className="lg-text-body">{getVernacularString("contactUsS2HText", userPreferences.language)}</div>
+                <div className="lg-text-body">{contentData.getContent("contactUsS2HText")}</div>
             </DefaultTextAnimation>
 
             {/* <VerticalSpacer className="tw-h-4 lg:tw-h-6 tw-row-start-4" /> */}
@@ -1662,6 +1683,7 @@ function ContactUsDialog({
     headerTextContentId: string;
     dialogType: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
     }
@@ -1702,7 +1724,7 @@ function ContactUsDialog({
                     >
                         <div className="tw-w-full lg:tw-max-w-[30rem] tw-mx-auto tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col">
                             <div className="tw-grid tw-grid-cols-[1.5rem_minmax(0,1fr)_1.5rem]">
-                                <div className="tw-row-start-1 tw-col-start-2 tw-w-full tw-text-center lg-text-headline">{getVernacularString(headerTextContentId, userPreferences.language)}</div>
+                                <div className="tw-row-start-1 tw-col-start-2 tw-w-full tw-text-center lg-text-headline">{contentData.getContent(headerTextContentId)}</div>
                                 <button
                                     type="button"
                                     onClick={tryToCloseContactUsDialog}
@@ -1714,7 +1736,7 @@ function ContactUsDialog({
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT2", userPreferences.language)}</div>
+                            <div className="lg-text-title2">{contentData.getContent("headerContactUsDialogT2")}</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
@@ -1752,7 +1774,7 @@ function ContactUsDialog({
 
                             {dialogType !== "chat-with-us" && (
                                 <>
-                                    <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT3", userPreferences.language)}</div>
+                                    <div className="lg-text-title2">{contentData.getContent("headerContactUsDialogT3")}</div>
 
                                     <VerticalSpacer className="tw-h-2" />
 
@@ -1798,6 +1820,7 @@ function ContactUsDialog({
 }
 
 export function OurPresence({userPreferences, className, headingTextContentId}: {userPreferences: UserPreferences; className?: string; headingTextContentId: string}) {
+    const contentData = useContext(ContentProviderContext);
     const presenceData = [
         {
             imageUrl: "/livguard/contact-us/3/India.png",
@@ -1820,7 +1843,7 @@ export function OurPresence({userPreferences, className, headingTextContentId}: 
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "our-operations": {
-                humanReadableName: getVernacularString("591ebee7-9d2d-416f-8942-29e3840cc4c4", userPreferences.language),
+                humanReadableName: contentData.getContent("591ebee7-9d2d-416f-8942-29e3840cc4c4"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1832,7 +1855,7 @@ export function OurPresence({userPreferences, className, headingTextContentId}: 
             ref={sectionRef}
         >
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString(headingTextContentId, userPreferences.language))}} />
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent(headingTextContentId))}} />
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-6 tw-row-start-2" />
@@ -1854,15 +1877,15 @@ export function OurPresence({userPreferences, className, headingTextContentId}: 
                             {/* </div> */}
 
                             <div className="tw-col-start-1 tw-row-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-rows-[auto_0.5rem_minmax(0,1fr)_0.5rem_auto_1rem] tw-px-6 tw-py-2">
-                                <div className="lg-text-body tw-font-bold tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString(presence.title, userPreferences.language)}</div>
+                                <div className="lg-text-body tw-font-bold tw-row-start-1 tw-text-center lg:tw-text-left">{contentData.getContent(presence.title)}</div>
 
-                                <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{getVernacularString(presence.description, userPreferences.language)}</div>
+                                <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{contentData.getContent(presence.description)}</div>
 
                                 <Link
                                     to={presence.buttonLink}
                                     className="lg-cta-outline-button lg-cta-outline-button-transition hover:tw-px-[3.125rem] tw-row-start-5 tw-place-self-center lg:tw-place-self-start"
                                 >
-                                    {getVernacularString(presence.buttonText, userPreferences.language)}
+                                    {contentData.getContent(presence.buttonText)}
                                 </Link>
                             </div>
                         </div>
@@ -1874,6 +1897,7 @@ export function OurPresence({userPreferences, className, headingTextContentId}: 
 }
 
 function ExploreCareers({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto", className)}>
             <div className="tw-p-6 lg-contact-gradient-light dark:lg-contact-gradient-dark tw-rounded-lg tw-grid tw-grid-rows-[auto_1rem_auto_1rem_minmax(0,1fr)_1rem_auto] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_20rem_2rem_minmax(0,1fr)_2rem_auto] tw-items-center">
@@ -1887,18 +1911,18 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
 
                 <div
                     className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-3 lg-text-headline tw-text-center lg:tw-text-left"
-                    dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS5H", userPreferences.language))}}
+                    dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("contactUsS5H"))}}
                 />
 
                 <div className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-5 tw-text-center lg:tw-text-left lg:tw-max-w-[20rem] lg:tw-place-self-center">
-                    {getVernacularString("contactUsS5Text", userPreferences.language)}
+                    {contentData.getContent("contactUsS5Text")}
                 </div>
 
                 <Link
                     className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-7 tw-place-self-center lg-cta-button tw-max-w-fit"
                     to="/"
                 >
-                    {getVernacularString("contactUsS5ButtonText", userPreferences.language)}
+                    {contentData.getContent("contactUsS5ButtonText")}
                 </Link>
             </div>
         </div>
@@ -1906,12 +1930,13 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
 }
 
 export function getFormSelectProductItems(language: Language): string[] {
+    const contentData = useContext(ContentProviderContext);
     return [
-        getVernacularString("ab28480c-7f98-45fc-8bb0-e15cd633b31b", language),
-        getVernacularString("3373177a-78dd-4930-8a52-96800b5de45e", language),
-        getVernacularString("6b5c90fb-35f1-4f34-9064-46c4cbd94eaa", language),
-        getVernacularString("e9977450-be65-4c1b-9eb6-c2224246a81a", language),
-        getVernacularString("178f037b-d4e3-41dc-b44d-dc4468fa4c74", language),
-        getVernacularString("49cca91d-11f0-463a-8d24-873cf9428e62", language),
+        contentData.getContent("ab28480c-7f98-45fc-8bb0-e15cd633b31b", language),
+        contentData.getContent("3373177a-78dd-4930-8a52-96800b5de45e", language),
+        contentData.getContent("6b5c90fb-35f1-4f34-9064-46c4cbd94eaa", language),
+        contentData.getContent("e9977450-be65-4c1b-9eb6-c2224246a81a", language),
+        contentData.getContent("178f037b-d4e3-41dc-b44d-dc4468fa4c74", language),
+        contentData.getContent("49cca91d-11f0-463a-8d24-873cf9428e62", language),
     ];
 }

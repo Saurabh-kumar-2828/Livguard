@@ -3,7 +3,7 @@ import {ChevronDoubleDownIcon, InformationCircleIcon} from "@heroicons/react/20/
 import type {ActionFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {redirect} from "@remix-run/node";
 import {Form, Link, useActionData, useSearchParams} from "@remix-run/react";
-import React, {useEffect, useReducer, useState} from "react";
+import React, {useContext, useEffect, useReducer, useState} from "react";
 import {Check2, PlusCircleFill, Search} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
@@ -20,7 +20,7 @@ import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFi
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {getIntegerFromUnknown, getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, distinct, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
@@ -34,7 +34,11 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {createGroupByReducer, enumFromStringValue, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -74,7 +78,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/home/5/1.png").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
             {
                 "script:ld+json": {
@@ -153,7 +157,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/home/5/1.png").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -192,6 +196,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -200,10 +211,17 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("loadCalculatorPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("loadCalculatorPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/home/5/1.png").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     // TODO: Load property_type as well
@@ -212,7 +230,7 @@ export const loader: LoaderFunction = async ({request}) => {
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const actionData: ActionData = useActionData() as ActionData;
 
@@ -226,19 +244,27 @@ export default function () {
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "cea6d04c-15b9-4c11-8d83-2e51af979f54", link: "#"},
-                ]}
-            >
-                <LoadCalculator userPreferences={userPreferences} />
-            </PageScaffold>
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
+                        userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "cea6d04c-15b9-4c11-8d83-2e51af979f54", link: "#"},
+                        ]}
+                    >
+                        <LoadCalculator userPreferences={userPreferences} />
+                    </PageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 }
@@ -265,6 +291,7 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
     const [thiefLocation, setThiefLocation] = useState<number | null>(null);
     const [couponCode, setCouponCode] = useState<string | null>(null);
 
+    const contentData = useContext(ContentProviderContext);
     useEffect(() => {
         if (localStorage.getItem("couponCode") == null) {
             localStorage.setItem("treasureHuntStep", "0");
@@ -293,7 +320,7 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-8" /> */}
 
-            <div className="lg-text-headline tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
+            <div className="lg-text-headline tw-text-center">{contentData.getContent("homeS5T5P1")}</div>
 
             <VerticalSpacer className="tw-h-8" />
 
@@ -312,20 +339,20 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                     className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 0 ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-card")}
                     onClick={() => emblaApi?.scrollTo(0)}
                 >
-                    {getVernacularString("homeS5T5P4", userPreferences.language)}
+                    {contentData.getContent("homeS5T5P4")}
                 </button>
 
                 <button
                     className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 1 ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-card")}
                     onClick={() => emblaApi?.scrollTo(1)}
                 >
-                    {getVernacularString("homeS5T5P5", userPreferences.language)}
+                    {contentData.getContent("homeS5T5P5")}
                 </button>
             </div>
 
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="lg-text-body tw-text-center lg-text-secondary-900">{getVernacularString("homeS5T5P3", userPreferences.language)}</div>
+            <div className="lg-text-body tw-text-center lg-text-secondary-900">{contentData.getContent("homeS5T5P3")}</div>
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -410,7 +437,7 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                     type="submit"
                     className=" lg-cta-button"
                 >
-                    {getVernacularString("loadCalculatorAdditionalInputsT4", userPreferences.language)}
+                    {contentData.getContent("loadCalculatorAdditionalInputsT4")}
                 </button>
             </Form>
 
@@ -441,6 +468,7 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 }
 
 function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div className="tw-min-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_2rem_auto_2rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark">
@@ -453,12 +481,12 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 tw-z-10">
                 <h1 className="lg-text-banner lg-px-screen-edge tw-z-10 tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorS1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("loadCalculatorS1T1")}} />
                 </h1>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10 tw-max-w-2xl">
-                <div className="lg-text-body tw-text-secondary-700-dark lg-px-screen-edge tw-z-10 tw-text-center">{getVernacularString("loadCalculatorS1T2", userPreferences.language)}</div>
+                <div className="lg-text-body tw-text-secondary-700-dark lg-px-screen-edge tw-z-10 tw-text-center">{contentData.getContent("loadCalculatorS1T2")}</div>
             </DefaultTextAnimation>
 
             <div className="tw-w-full tw-row-start-[8] tw-col-start-1">
@@ -474,6 +502,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 
 // TODO: Rename to something sensible
 export function PowerPlannerTeaser({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const [loadCalculatorInputs, dispatch] = useReducer(loadCalculatorInputsReducer, {propertyType: PropertyType.ThreeBhk}, createInitialState);
 
     return (
@@ -510,7 +539,7 @@ export function PowerPlannerTeaser({userPreferences, className}: {userPreference
                         to={`/load-calculator?property_type=${loadCalculatorInputs.property.propertyType}`}
                         className=" lg-cta-button"
                     >
-                        {getVernacularString("homeS5T6", userPreferences.language)}
+                        {contentData.getContent("homeS5T6")}
                     </Link>
                 </div>
             </div>
@@ -520,17 +549,18 @@ export function PowerPlannerTeaser({userPreferences, className}: {userPreference
 
 // TODO: Rename to something sensible
 export function MiniPowerPlannerTeaser({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={className}>
             <div className="tw-h-full lg:lg-card tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-p-6 tw-rounded-lg">
                 <h2 className="tw-flex tw-flex-col [@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2 tw-text-center tw-whitespace-nowrap">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("c4c839c0-582d-4f53-be91-6730977f87aa", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("aab3e140-baaf-46ce-a405-be90c45ef157", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("c4c839c0-582d-4f53-be91-6730977f87aa")}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("aab3e140-baaf-46ce-a405-be90c45ef157")}} />
                 </h2>
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div>{getVernacularString("5591c0ca-fe8b-42ae-8154-d7bab6ce721e", userPreferences.language)}</div>
+                <div>{contentData.getContent("5591c0ca-fe8b-42ae-8154-d7bab6ce721e")}</div>
 
                 <VerticalSpacer className="tw-h-4" />
 
@@ -548,7 +578,7 @@ export function MiniPowerPlannerTeaser({userPreferences, className}: {userPrefer
                         to="/load-calculator"
                         className=" lg-cta-button"
                     >
-                        {getVernacularString("homeS5T6", userPreferences.language)}
+                        {contentData.getContent("homeS5T6")}
                     </Link>
                 </div>
             </div>
@@ -567,12 +597,13 @@ function PropertySelectionForTeaser({
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
     className?: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center", className)}>
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="lg-text-title2 tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
-            <div className="lg-text-body tw-text-center lg-text-secondary-900">{getVernacularString("homeS5T5P2", userPreferences.language)}</div>
+            <div className="lg-text-title2 tw-text-center">{contentData.getContent("homeS5T5P1")}</div>
+            <div className="lg-text-body tw-text-center lg-text-secondary-900">{contentData.getContent("homeS5T5P2")}</div>
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -655,16 +686,17 @@ function PropertySelectionForTeaser({
 }
 
 function PowerPlannerIntroduction({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center", className)}>
             <h2 className="tw-flex tw-flex-col lg-text-headline tw-text-center">
-                <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS5H1T1", userPreferences.language)}} />
-                <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS5H1T2", userPreferences.language)}} />
+                <div dangerouslySetInnerHTML={{__html: contentData.getContent("homeS5H1T1")}} />
+                <div dangerouslySetInnerHTML={{__html: contentData.getContent("homeS5H1T2")}} />
             </h2>
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div>{getVernacularString("homeS5T2", userPreferences.language)}</div>
+            <div>{contentData.getContent("homeS5T2")}</div>
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -677,7 +709,7 @@ function PowerPlannerIntroduction({userPreferences, className}: {userPreferences
 
             <VerticalSpacer className="tw-block lg:tw-hidden tw-h-4" />
 
-            <div className="lg-text-title2">{getVernacularString("homeS5T3", userPreferences.language)}</div>
+            <div className="lg-text-title2">{contentData.getContent("homeS5T3")}</div>
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -686,18 +718,18 @@ function PowerPlannerIntroduction({userPreferences, className}: {userPreferences
                     items={[
                         {
                             icon: "/livguard/home/5/step-1.png",
-                            stepIndex: getVernacularString("homeS5Step1T1", userPreferences.language),
-                            stepContent: getVernacularString("homeS5Step1T2", userPreferences.language),
+                            stepIndex: contentData.getContent("homeS5Step1T1"),
+                            stepContent: contentData.getContent("homeS5Step1T2"),
                         },
                         {
                             icon: "/livguard/home/5/step-2.png",
-                            stepIndex: getVernacularString("homeS5Step2T1", userPreferences.language),
-                            stepContent: getVernacularString("homeS5Step2T2", userPreferences.language),
+                            stepIndex: contentData.getContent("homeS5Step2T1"),
+                            stepContent: contentData.getContent("homeS5Step2T2"),
                         },
                         {
                             icon: "/livguard/home/5/step-3.png",
-                            stepIndex: getVernacularString("homeS5Step3T1", userPreferences.language),
-                            stepContent: getVernacularString("homeS5Step3T2", userPreferences.language),
+                            stepIndex: contentData.getContent("homeS5Step3T1"),
+                            stepContent: contentData.getContent("homeS5Step3T2"),
                         },
                     ]}
                     itemBuilder={(item, itemIndex) => (
@@ -739,6 +771,7 @@ function PropertySelection({
     loadCalculatorInputsNewUi: LoadCalculatorInputs;
     dispatchNewUi: React.Dispatch<LoadCalculatorInputsAction>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const [isChangePropertyTypeDialogOpen, setIsChangePropertyTypeDialogOpen] = useState(false);
     const [currentlyChangingPropertyType, setCurrentlyChangingPropertyType] = useState<string | null>(null);
 
@@ -748,7 +781,7 @@ function PropertySelection({
 
     return (
         <div className="lg-px-screen-edge-2 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
-            <div className="lg-text-title2 tw-text-center lg-text-secondary-900">{getVernacularString("homeS5T5P2", userPreferences.language)}</div>
+            <div className="lg-text-title2 tw-text-center lg-text-secondary-900">{contentData.getContent("homeS5T5P2")}</div>
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -757,32 +790,32 @@ function PropertySelection({
                     items={[
                         {
                             icon: "/livguard/load-calculator/1-bhk.svg",
-                            content: `${getVernacularString("propertyType-1-bhk", userPreferences.language)}`,
+                            content: `${contentData.getContent("propertyType-1-bhk")}`,
                             value: "1-bhk",
                         },
                         {
                             icon: "/livguard/load-calculator/2-bhk.svg",
-                            content: `${getVernacularString("propertyType-2-bhk", userPreferences.language)}`,
+                            content: `${contentData.getContent("propertyType-2-bhk")}`,
                             value: "2-bhk",
                         },
                         {
                             icon: "/livguard/load-calculator/3-bhk.svg",
-                            content: `${getVernacularString("propertyType-3-bhk", userPreferences.language)}`,
+                            content: `${contentData.getContent("propertyType-3-bhk")}`,
                             value: "3-bhk",
                         },
                         {
                             icon: "/livguard/load-calculator/4-bhk.svg",
-                            content: `${getVernacularString("propertyType-4-bhk", userPreferences.language)}`,
+                            content: `${contentData.getContent("propertyType-4-bhk")}`,
                             value: "4-bhk",
                         },
                         {
                             icon: "/livguard/load-calculator/villa.svg",
-                            content: `${getVernacularString("propertyType-villa", userPreferences.language)}`,
+                            content: `${contentData.getContent("propertyType-villa")}`,
                             value: "villa",
                         },
                         {
                             icon: "/livguard/load-calculator/custom.svg",
-                            content: `${getVernacularString("propertyType-custom", userPreferences.language)}`,
+                            content: `${contentData.getContent("propertyType-custom")}`,
                             value: "custom",
                         },
                     ]}
@@ -866,6 +899,7 @@ function RoomSelection({
     loadCalculatorInputs: LoadCalculatorInputs;
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const [isNewRoomDialogOpen, setIsNewRoomDialogOpen] = useState(false);
     const [isEditRoomDialogOpen, setIsEditRoomDialogOpen] = useState(false);
     const [currentlyEditingRoomIndex, setCurrentlyEditingRoomIndex] = useState<number | null>(null);
@@ -992,6 +1026,7 @@ function DeviceSelectionNewUi({
     setCurrentThiefLocation: React.Dispatch<number>;
     setIsDialogOpen: React.Dispatch<boolean>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const [isNewDeviceDialogOpen, setIsNewDeviceDialogOpen] = useState(false);
 
     function tryToOpenNewDeviceDialog() {
@@ -1008,7 +1043,7 @@ function DeviceSelectionNewUi({
     return (
         <div className="lg-px-screen-edge-2 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
             <div className="tw-flex tw-flex-row tw-gap-x-2 lg-text-title2">
-                <div className="">{getVernacularString("loadCalculatorAdditionalInputsT6", userPreferences.language)}:</div>
+                <div className="">{contentData.getContent("loadCalculatorAdditionalInputsT6")}:</div>
 
                 <div className="lg-text-secondary-900">{totalWattage} Watts</div>
             </div>
@@ -1016,10 +1051,10 @@ function DeviceSelectionNewUi({
             <VerticalSpacer className="tw-h-4" />
 
             <div className="tw-w-full tw-max-w-3xl tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto_auto] tw-items-center tw-justify-center tw-gap-x-4 lg:tw-gap-x-8 tw-gap-y-4">
-                <div className="lg-text-body tw-text-left tw-place-self-start">{getVernacularString("loadCalculatorNewUIHeader1", userPreferences.language)}</div>
-                <div className="lg-text-body tw-place-self-start tw-text-center tw-w-full">{getVernacularString("loadCalculatorNewUIHeader2", userPreferences.language)}</div>
-                <div className="lg-text-body tw-place-self-start tw-text-center tw-w-full">{getVernacularString("loadCalculatorNewUIHeader3", userPreferences.language)}</div>
-                <div className="lg-text-body tw-place-self-start tw-text-center tw-w-full">{getVernacularString("loadCalculatorNewUIHeader4", userPreferences.language)}</div>
+                <div className="lg-text-body tw-text-left tw-place-self-start">{contentData.getContent("loadCalculatorNewUIHeader1")}</div>
+                <div className="lg-text-body tw-place-self-start tw-text-center tw-w-full">{contentData.getContent("loadCalculatorNewUIHeader2")}</div>
+                <div className="lg-text-body tw-place-self-start tw-text-center tw-w-full">{contentData.getContent("loadCalculatorNewUIHeader3")}</div>
+                <div className="lg-text-body tw-place-self-start tw-text-center tw-w-full">{contentData.getContent("loadCalculatorNewUIHeader4")}</div>
                 <div className="tw-col-span-4 tw-border-b tw-border-solid tw-border-secondary-300-light dark:tw-border-secondary-300-dark" />
 
                 <ItemBuilder
@@ -1091,7 +1126,7 @@ function DeviceSelectionNewUi({
                     onClick={tryToOpenNewDeviceDialog}
                     className="lg-cta-button"
                 >
-                    {getVernacularString("loadCalculatorAdditionalInputsT5", userPreferences.language)}
+                    {contentData.getContent("loadCalculatorAdditionalInputsT5")}
                 </button>
             </div>
 
@@ -1129,6 +1164,7 @@ function ChangePropertyTypeDialog({
     isChangePropertyTypeDialogOpen: boolean;
     setIsChangePropertyTypeDialogOpen: React.Dispatch<boolean>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     // const [selectedDevices, setSelectedDevices] = useState<Array<Device>>([]);
 
     function tryToCloseChangePropertyTypeDialog() {
@@ -1256,6 +1292,7 @@ function NewRoomDialog({
     isNewRoomDialogOpen: boolean;
     setIsNewRoomDialogOpen: React.Dispatch<boolean>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const [selectedRoomName, setSelectedRoomName] = useState("");
     const [selectedRoomType, setSelectedRoomType] = useState("dda75244-60f2-40e8-8936-d4ea2ae25f34");
 
@@ -1437,6 +1474,7 @@ function EditRoomDialog({
     isEditRoomDialogOpen: boolean;
     setIsEditRoomDialogOpen: React.Dispatch<boolean>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const [selectedRoomName, setSelectedRoomName] = useState("");
     const [isNewDeviceDialogOpen, setIsNewDeviceDialogOpen] = useState(false);
     const [currentlyAddingDeviceType, setCurrentlyAddingDeviceType] = useState<string | null>(null);
@@ -1706,6 +1744,7 @@ function NewDeviceDialog({
     isAddDeviceDialogOpen: boolean;
     setIsAddDeviceDialogOpen: React.Dispatch<boolean>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const [quantity, setQuantity] = useState<number>(1);
 
     function tryToCloseAddDeviceDialog() {
@@ -1877,6 +1916,7 @@ function NewDeviceDialogNewUi({
     isAddDeviceDialogOpen: boolean;
     setIsAddDeviceDialogOpen: React.Dispatch<boolean>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const [selectedDevices, setSelectedDevices] = useState<Array<string>>([]);
     const [query, setQuery] = useState<string>("");
 
@@ -1929,7 +1969,7 @@ function NewDeviceDialogNewUi({
                         leaveTo="tw-opacity-0"
                     >
                         <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
-                            <div className="lg-text-title1">{getVernacularString("loadCalculatorAdditionalInputsT5", userPreferences.language)}</div>
+                            <div className="lg-text-title1">{contentData.getContent("loadCalculatorAdditionalInputsT5")}</div>
 
                             <VerticalSpacer className="tw-h-4" />
 
@@ -2059,6 +2099,7 @@ function EditDeviceDialog({
     isEditDeviceDialogOpen: boolean;
     setIsEditDeviceDialogOpen: React.Dispatch<boolean>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     function tryToCloseEditDeviceDialog() {
         setIsEditDeviceDialogOpen(false);
         setCurrentlyEditingDeviceType(null);
@@ -2224,10 +2265,11 @@ function AdditionalInputsSection({
     loadCalculatorInputs: LoadCalculatorInputs;
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="lg-px-screen-edge-2">
             <div className="tw-flex tw-flex-row tw-justify-center tw-items-center tw-gap-x-2">
-                <div className="tw-whitespace-nowrap">{getVernacularString("loadCalculatorAdditionalInputsT1", userPreferences.language)}</div>
+                <div className="tw-whitespace-nowrap">{contentData.getContent("loadCalculatorAdditionalInputsT1")}</div>
                 <div className="tw-flex tw-flex-row">
                     <button
                         type="button"
@@ -2285,14 +2327,14 @@ function AdditionalInputsSection({
                         +
                     </button>
                 </div>
-                <div className="tw-whitespace-nowrap">{getVernacularString("loadCalculatorAdditionalInputsT2", userPreferences.language)}</div>
+                <div className="tw-whitespace-nowrap">{contentData.getContent("loadCalculatorAdditionalInputsT2")}</div>
             </div>
 
             <VerticalSpacer className="tw-h-8" />
 
             <div className="tw-flex-col tw-flex tw-max-w-3xl tw-w-full tw-mx-auto tw-p-4 tw-px-8 tw-pb-8 tw-rounded-lg lg-card tw-place-self-center tw-justify-self-center">
                 <div className="tw-flex tw-flex-row tw-items-center tw-gap-x-2 tw-relative">
-                    <div className="tw-flex-none">{getVernacularString("loadCalculatorAdditionalInputsT3", userPreferences.language)}</div>
+                    <div className="tw-flex-none">{contentData.getContent("loadCalculatorAdditionalInputsT3")}</div>
 
                     <Popover className="tw-h-4">
                         {({open}) => (

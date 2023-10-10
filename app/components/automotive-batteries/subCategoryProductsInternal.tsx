@@ -8,7 +8,9 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import type {ProductType} from "~/productData.types";
 import type {UserPreferences} from "~/typeDefinitions";
 import {getMetadataForImage} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+
+import {useContext} from "react";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function SubCategoryProductsInternal({
     userPreferences,
@@ -49,6 +51,7 @@ export function SubCategoryProductsInternal({
     productImageLeftClassName?: string;
     productImageRightClassName?: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <>
             <div className="lg:tw-grid lg:tw-justify-center">
@@ -62,7 +65,7 @@ export function SubCategoryProductsInternal({
                                 }}
                                 key={refIndex}
                             >
-                                {getVernacularString(featuredProducts[Object.keys(featuredProducts)[refIndex]].title, userPreferences.language)}
+                                {contentData.getContent(featuredProducts[Object.keys(featuredProducts)[refIndex]].title)}
                             </div>
                         );
                     })}
@@ -105,7 +108,7 @@ export function SubCategoryProductsInternal({
                                             orientation === "left" ? "lg:tw-text-left" : "lg:tw-text-right",
                                         )}
                                     >
-                                        {getVernacularString(category.title, userPreferences.language)} ({category.products.length})
+                                        {contentData.getContent(category.title)} ({category.products.length})
                                     </div>
                                     <VerticalSpacer className="tw-h-4" />
                                     <div className={concatenateNonNullStringsWithSpaces(vehicleImageClassName, orientation === "left" ? vehicleImageLeftClassName : vehicleImageRightClassName)}>
@@ -131,8 +134,8 @@ export function SubCategoryProductsInternal({
                                                     productName={product.name}
                                                     productPrice={product.price}
                                                     slug={product.slug}
-                                                    capacity={`${product.capacity} ${getVernacularString("c4c53678-fb9a-41c2-8782-de0690cffdd4", userPreferences.language)}`}
-                                                    warranty={`${product.warranty} ${getVernacularString("95a938d7-dd71-46de-80b0-a417845dfb4d", userPreferences.language)}`}
+                                                    capacity={`${product.capacity} ${contentData.getContent("c4c53678-fb9a-41c2-8782-de0690cffdd4")}`}
+                                                    warranty={`${product.warranty} ${contentData.getContent("95a938d7-dd71-46de-80b0-a417845dfb4d")}`}
                                                     productType={product.productType}
                                                     // isBestSeller={product.isBestSeller}
                                                     imageRelativeUrl={category.productImageRelativeUrl}
@@ -168,8 +171,8 @@ export function SubCategoryProductsInternal({
                                                         productName={product.name}
                                                         productPrice={product.price}
                                                         slug={product.slug}
-                                                        capacity={`${product.capacity} ${getVernacularString("c4c53678-fb9a-41c2-8782-de0690cffdd4", userPreferences.language)}`}
-                                                        warranty={`${product.warranty} ${getVernacularString("95a938d7-dd71-46de-80b0-a417845dfb4d", userPreferences.language)}`}
+                                                        capacity={`${product.capacity} ${contentData.getContent("c4c53678-fb9a-41c2-8782-de0690cffdd4")}`}
+                                                        warranty={`${product.warranty} ${contentData.getContent("95a938d7-dd71-46de-80b0-a417845dfb4d")}`}
                                                         productType={product.productType}
                                                         // isBestSeller={product.isBestSeller}
                                                         imageRelativeUrl={category.productImageRelativeUrl}
@@ -198,8 +201,8 @@ export function SubCategoryProductsInternal({
                                                         productName={product.name}
                                                         productPrice={product.price}
                                                         slug={product.slug}
-                                                        capacity={`${product.capacity} ${getVernacularString("c4c53678-fb9a-41c2-8782-de0690cffdd4", userPreferences.language)}`}
-                                                        warranty={`${product.warranty} ${getVernacularString("95a938d7-dd71-46de-80b0-a417845dfb4d", userPreferences.language)}`}
+                                                        capacity={`${product.capacity} ${contentData.getContent("c4c53678-fb9a-41c2-8782-de0690cffdd4")}`}
+                                                        warranty={`${product.warranty} ${contentData.getContent("95a938d7-dd71-46de-80b0-a417845dfb4d")}`}
                                                         productType={product.productType}
                                                         // isBestSeller={product.isBestSeller}
                                                         imageRelativeUrl={category.productImageRelativeUrl}
@@ -241,6 +244,7 @@ function BatteryCard({
     capacity: string;
     warranty: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <Link
             to={`/product/${slug}`}
@@ -248,7 +252,7 @@ function BatteryCard({
         >
             {isBestSeller != null && isBestSeller === true ? (
                 <div className="tw-row-start-1 tw-h-1rem lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 tw-py-1 lg:tw-px-4 tw-flex tw-flex-row tw-items-center !tw-text-secondary-900-dark">
-                    <span>{getVernacularString("14e0e286-5fd7-43aa-a6f3-5b3b9a0ec71f", userPreferences.language)}</span>
+                    <span>{contentData.getContent("14e0e286-5fd7-43aa-a6f3-5b3b9a0ec71f")}</span>
                 </div>
             ) : (
                 <VerticalSpacer className="tw-h-[1.5rem]" />
@@ -283,17 +287,14 @@ function BatteryCard({
 
                 <div className="tw-w-full tw-text-center lg-text-secondary-700">
                     {productPrice == null
-                        ? getVernacularString("ccfce5e6-08ac-44b9-84ad-ef7891d7661b", userPreferences.language)
-                        : `${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}${productPrice}${getVernacularString(
-                              "0044b486-6eca-4e3a-abf0-102eede6e10c",
-                              userPreferences.language,
-                          )}`}
+                        ? contentData.getContent("ccfce5e6-08ac-44b9-84ad-ef7891d7661b")
+                        : `${contentData.getContent("abce92ec-fd9a-4578-ab56-ddfd9fdafe72")}${productPrice}${contentData.getContent("0044b486-6eca-4e3a-abf0-102eede6e10c", userPreferences.language)}`}
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
 
                 <button className="lg-cta-outline-button lg-cta-outline-button-transition tw-text-primary-500-light dark:tw-text-secondary-100-light tw-w-full tw-text-center tw-px-1">
-                    {getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}
+                    {contentData.getContent("063dc56b-910e-4a48-acb8-8f52668a4c72")}
                 </button>
             </div>
         </Link>

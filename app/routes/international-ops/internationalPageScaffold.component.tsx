@@ -1,7 +1,8 @@
+import {useContext} from "react";
 import {InternationalBusinessFooterComponent} from "~/components/footers/internationalBusinessFooterComponent";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {InternationalBusinessHeaderComponent} from "~/routes/international-ops/internationalBusinessHeaderComponent";
 import type {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function InternationalPageScaffold({
     userPreferences,
@@ -31,6 +32,7 @@ export function InternationalPageScaffold({
     scrollToProductCategory: (categoryIndex: number, subCategoryIndex: number) => void;
 }) {
     const currentYear = new Date().getFullYear();
+    const contentData = useContext(ContentProviderContext);
     return (
         <>
             {/* tw-grid tw-grid-rows-[auto_1fr_auto] tw-grid-flow-col tw-min-h-screen */}
@@ -54,9 +56,9 @@ export function InternationalPageScaffold({
                 />
 
                 <div className="tw-text-center lg:tw-text-left tw-py-6 lg:tw-pl-[4.5rem] tw-bg-[#f2f2f2] dark:tw-bg-secondary-100-dark">
-                    {getVernacularString("501d17d3-de19-4710-9597-67c48bfdd52c", userPreferences.language)}
+                    {contentData.getContent("501d17d3-de19-4710-9597-67c48bfdd52c")}
                     {currentYear}
-                    {getVernacularString("ceb7cbb7-9f86-48fa-9781-e5b5c17f2c69", userPreferences.language)}
+                    {contentData.getContent("ceb7cbb7-9f86-48fa-9781-e5b5c17f2c69")}
                 </div>
 
                 {/* <FooterComponent

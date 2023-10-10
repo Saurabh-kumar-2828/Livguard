@@ -24,14 +24,26 @@ import {OurInvertersSectionInternal} from "~/routes/__category/inverter-for-home
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, convertProductInternalNameToPublicName, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {useContext} from "react";
+import {ImageMetadata} from "~/common--type-definitions/typeDefinitions";
+import {getImageMetadataLibraryFromBackend} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     loadCalculatorInputs: LoadCalculatorInputs;
     loadCalculatorOutputs: LoadCalculatorOutputs;
-    pageUrl;
+    vernacularData: {
+        [id: string]: string;
+    };
+    pageUrl: string;
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
 };
 
 export const loader: LoaderFunction = async ({request, params}) => {
@@ -52,44 +64,57 @@ export const loader: LoaderFunction = async ({request, params}) => {
 
     const loadCalculatorOutputs = await getLoadCalculatorOutputs(loadCalculatorInputs, userPreferences);
 
+    const vernacularData = getVernacularFromBackend("loadCalculatorResultPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("loadCalculatorResultPage");
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         loadCalculatorInputs: loadCalculatorInputs,
         loadCalculatorOutputs: loadCalculatorOutputs,
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, loadCalculatorInputs, loadCalculatorOutputs, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, loadCalculatorInputs, loadCalculatorOutputs, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "cea6d04c-15b9-4c11-8d83-2e51af979f54", link: "/load-calculator"},
-                    {contentId: "ded4f739-d43e-47af-ad85-2f4885413cfc", link: "#"},
-                ]}
-            >
-                <LoadCalculatorResult
-                    userPreferences={userPreferences}
-                    loadCalculatorInputs={loadCalculatorInputs}
-                    loadCalculatorOutputs={loadCalculatorOutputs}
-                />
-            </PageScaffold>
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
+                        userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "cea6d04c-15b9-4c11-8d83-2e51af979f54", link: "/load-calculator"},
+                            {contentId: "ded4f739-d43e-47af-ad85-2f4885413cfc", link: "#"},
+                        ]}
+                    >
+                        <LoadCalculatorResult
+                            userPreferences={userPreferences}
+                            loadCalculatorInputs={loadCalculatorInputs}
+                            loadCalculatorOutputs={loadCalculatorOutputs}
+                        />
+                    </PageScaffold>
 
-            <StickyBottomBar userPreferences={userPreferences} />
+                    <StickyBottomBar userPreferences={userPreferences} />
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 }
@@ -103,6 +128,7 @@ function LoadCalculatorResult({
     loadCalculatorInputs: LoadCalculatorInputs;
     loadCalculatorOutputs: LoadCalculatorOutputs;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <>
             <VerticalSpacer className="lg:tw-h-20" />
@@ -117,10 +143,10 @@ function LoadCalculatorResult({
 
             <div className="lg-px-screen-edge lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorRecommendationsS2H1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("loadCalculatorRecommendationsS2H1")}} />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorRecommendationsS2H2", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("loadCalculatorRecommendationsS2H2")}} />
                 </DefaultTextAnimation>
             </div>
 
@@ -144,7 +170,7 @@ function LoadCalculatorResult({
                     <VerticalSpacer className="tw-h-6" />
 
                     <DefaultElementAnimation className="lg-px-screen-edge tw-w-full tw-flex tw-flex-col tw-items-center">
-                        <div className="lg-cta-outline-button">{getVernacularString("loadCalculatorRecommendationsS4CTA1", userPreferences.language)}</div>
+                        <div className="lg-cta-outline-button">{contentData.getContent("loadCalculatorRecommendationsS4CTA1")}</div>
                     </DefaultElementAnimation>
                 </>
             )}
@@ -170,6 +196,7 @@ function TotalLoadSection({
     loadCalculatorInputs: LoadCalculatorInputs;
     loadCalculatorOutputs: LoadCalculatorOutputs;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,3fr)_minmax(0,2fr)] xl:tw-grid-cols-[minmax(0,4fr)_minmax(0,2fr)] lg:tw-px-[72px] xl:tw-px-[120px]">
             <div className="tw-row-start-1 tw-col-start-1 tw-w-full tw-aspect-[2/1] tw-overflow-hidden">
@@ -185,9 +212,7 @@ function TotalLoadSection({
                                 className="tw-w-6 tw-h-6"
                             />
                         </div>
-                        <div className="lg-text-icon tw-text-secondary-900-dark tw-whitespace-nowrap">
-                            {getVernacularString(`propertyType-${loadCalculatorInputs.property.propertyType}`, userPreferences.language)}
-                        </div>
+                        <div className="lg-text-icon tw-text-secondary-900-dark tw-whitespace-nowrap">{contentData.getContent(`propertyType-${loadCalculatorInputs.property.propertyType}`)}</div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-bg-secondary-900-dark tw-w-10 tw-h-10 tw-rounded-full tw-flex tw-flex-col tw-justify-center tw-items-center">
                             <img
@@ -196,7 +221,7 @@ function TotalLoadSection({
                             />
                         </div>
                         <div className="lg-text-icon tw-text-secondary-900-dark tw-whitespace-nowrap">
-                            {loadCalculatorInputs.averageConsumption}% {getVernacularString("loadCalculatorRecommendationsS1T1", userPreferences.language)}
+                            {loadCalculatorInputs.averageConsumption}% {contentData.getContent("loadCalculatorRecommendationsS1T1")}
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-3 tw-bg-secondary-900-dark tw-w-10 tw-h-10 tw-rounded-full tw-flex tw-flex-col tw-justify-center tw-items-center">
@@ -206,7 +231,7 @@ function TotalLoadSection({
                             />
                         </div>
                         <div className="lg-text-icon tw-text-secondary-900-dark tw-whitespace-nowrap">
-                            {loadCalculatorInputs.backupHours} {getVernacularString("loadCalculatorRecommendationsS1T2", userPreferences.language)}
+                            {loadCalculatorInputs.backupHours} {contentData.getContent("loadCalculatorRecommendationsS1T2")}
                         </div>
                     </div>
 
@@ -219,7 +244,7 @@ function TotalLoadSection({
                             <div className="lg-text-banner tw-text-secondary-900-dark">
                                 {loadCalculatorOutputs.totalWatts}W, {Math.round(loadCalculatorOutputs.ah)}Ah
                             </div>
-                            <div className="tw-text-title2 tw-text-secondary-900-dark">{getVernacularString("loadCalculatorRecommendationsS1T4", userPreferences.language)}</div>
+                            <div className="tw-text-title2 tw-text-secondary-900-dark">{contentData.getContent("loadCalculatorRecommendationsS1T4")}</div>
                         </div>
                     </div>
                 </div>
@@ -237,6 +262,7 @@ function TotalLoadSection({
 }
 
 function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPreferences: UserPreferences; loadCalculatorOutputs: LoadCalculatorOutputs}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-flex tw-flex-col">
             {loadCalculatorOutputs.recommendedInverters == null || loadCalculatorOutputs.recommendedBatteries == null ? null : (
@@ -248,8 +274,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                             <div className="lg-bg-primary-500 tw-p-4 tw-rounded-lg tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-justify-items-center tw-items-center tw-gap-x-4 tw-gap-y-4">
                                 <div className="tw-col-span-full">
                                     <div className="tw-w-full tw-text-center lg-text-title2 lg-text-secondary-100">
-                                        {getVernacularString("75a44862-4242-4b1b-a7b7-bd6b57e40da7", userPreferences.language)}: {loadCalculatorOutputs.totalWatts}W,{" "}
-                                        {Math.round(loadCalculatorOutputs.ah)}Ah
+                                        {contentData.getContent("75a44862-4242-4b1b-a7b7-bd6b57e40da7")}: {loadCalculatorOutputs.totalWatts}W, {Math.round(loadCalculatorOutputs.ah)}Ah
                                     </div>
 
                                     <VerticalSpacer className="tw-h-2" />
@@ -257,8 +282,8 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                     <div className="tw-w-full tw-text-center lg-text-secondary-100">
                                         {appendSpaceToString(String(loadCalculatorOutputs.recommendedInverters[0].nBatteries))}
                                         {loadCalculatorOutputs.recommendedInverters[0].nBatteries == 1
-                                            ? getVernacularString("750f6ea3-5bc7-4589-a49e-55015d845288", userPreferences.language)
-                                            : getVernacularString("2d7f7aaa-9ae0-4db0-932b-0714a82a39bf", userPreferences.language)}
+                                            ? contentData.getContent("750f6ea3-5bc7-4589-a49e-55015d845288")
+                                            : contentData.getContent("2d7f7aaa-9ae0-4db0-932b-0714a82a39bf")}
                                     </div>
                                 </div>
 
@@ -285,7 +310,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                 <>
                     <VerticalSpacer className="tw-h-6" />
 
-                    <div className="lg-px-screen-edge tw-w-full lg-text-title1 tw-text-center">{getVernacularString("loadCalculatorRecommendationsS2T1", userPreferences.language)}</div>
+                    <div className="lg-px-screen-edge tw-w-full lg-text-title1 tw-text-center">{contentData.getContent("loadCalculatorRecommendationsS2T1")}</div>
 
                     <VerticalSpacer className="tw-h-6" />
 
@@ -309,7 +334,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                 <VerticalSpacer className="tw-h-3" />
 
                                 <div className="tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-p-4 lg-text-title2 tw-border tw-border-solid tw-border-primary-500-light">
-                                    {getVernacularString("loadCalculatorRecommendationsS2T5", userPreferences.language)}
+                                    {contentData.getContent("loadCalculatorRecommendationsS2T5")}
                                 </div>
                             </Link>
 
@@ -323,7 +348,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                 <>
                     <VerticalSpacer className="tw-h-8" />
 
-                    <div className="lg-px-screen-edge tw-w-full lg-text-title1 tw-text-center">{getVernacularString("loadCalculatorRecommendationsS2T2", userPreferences.language)}</div>
+                    <div className="lg-px-screen-edge tw-w-full lg-text-title1 tw-text-center">{contentData.getContent("loadCalculatorRecommendationsS2T2")}</div>
 
                     <VerticalSpacer className="tw-h-6" />
 
@@ -347,7 +372,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                 <VerticalSpacer className="tw-h-3" />
 
                                 <div className="tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-p-4 lg-text-title2 tw-border tw-border-solid tw-border-primary-500-light">
-                                    {getVernacularString("loadCalculatorRecommendationsS2T9", userPreferences.language)}
+                                    {contentData.getContent("loadCalculatorRecommendationsS2T9")}
                                 </div>
                             </Link>
 
@@ -361,7 +386,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
             <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
                 <Link to="/dealer-for-inverters-and-batteries">
-                    <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA1", userPreferences.language)}</div>
+                    <div className="lg-cta-button">{contentData.getContent("loadCalculatorRecommendationsS2CTA1")}</div>
                 </Link>
             </DefaultElementAnimation>
         </div>
@@ -369,16 +394,17 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 }
 
 function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
 
     return (
         <div className="tw-flex tw-flex-col tw-justify-center">
             <div className="lg-px-screen-edge-2 lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorRecommendationsS3H1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("loadCalculatorRecommendationsS3H1")}} />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorRecommendationsS3H2", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("loadCalculatorRecommendationsS3H2")}} />
                 </DefaultTextAnimation>
             </div>
 
@@ -393,7 +419,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                     )}
                     onClick={() => emblaApi?.scrollTo(0)}
                 >
-                    {getVernacularString("headerMenuS1T1", userPreferences.language)}
+                    {contentData.getContent("headerMenuS1T1")}
                 </button>
 
                 <button
@@ -404,7 +430,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                     )}
                     onClick={() => emblaApi?.scrollTo(1)}
                 >
-                    {getVernacularString("headerMenuS1T2", userPreferences.language)}
+                    {contentData.getContent("headerMenuS1T2")}
                 </button>
             </div>
 
@@ -427,7 +453,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
 
                         <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
                             <Link to="/inverter-for-home">
-                                <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA2", userPreferences.language)}</div>
+                                <div className="lg-cta-button">{contentData.getContent("loadCalculatorRecommendationsS2CTA2")}</div>
                             </Link>
                         </DefaultElementAnimation>
                     </div>
@@ -440,7 +466,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
 
                         <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
                             <Link to="/inverter-batteries">
-                                <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA3", userPreferences.language)}</div>
+                                <div className="lg-cta-button">{contentData.getContent("loadCalculatorRecommendationsS2CTA3")}</div>
                             </Link>
                         </DefaultElementAnimation>
                     </div>
@@ -466,6 +492,7 @@ function HorizontalInverterRecommendationCard({
     userPreferences: UserPreferences;
     className?: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <a
             href={`/product/${recommendation.model}`}
@@ -495,7 +522,7 @@ function HorizontalInverterRecommendationCard({
 
                         <div className="lg-text-secondary-900 lg-text-icon">
                             {recommendation.capacity}
-                            {getVernacularString("loadCalculatorRecommendationsS2T6", userPreferences.language)}
+                            {contentData.getContent("loadCalculatorRecommendationsS2T6")}
                         </div>
                     </div>
 
@@ -507,7 +534,7 @@ function HorizontalInverterRecommendationCard({
                         />
 
                         <div className="lg-text-secondary-900 lg-text-icon">
-                            {recommendation.warranty} {getVernacularString("loadCalculatorRecommendationsS2T7", userPreferences.language)}
+                            {recommendation.warranty} {contentData.getContent("loadCalculatorRecommendationsS2T7")}
                         </div>
                     </div>
                 </div>
@@ -519,7 +546,7 @@ function HorizontalInverterRecommendationCard({
                         {recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}
                     </div>
 
-                    <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">{getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}</div>
+                    <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">{contentData.getContent("loadCalculatorRecommendationsS2T3")}</div>
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
@@ -545,6 +572,7 @@ function HorizontalBatteryRecommendationCard({
     userPreferences: UserPreferences;
     className?: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <a
             href={`/product/${recommendation.model}`}
@@ -558,7 +586,7 @@ function HorizontalBatteryRecommendationCard({
 
             <div className="tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
                 <div className="lg-bg-secondary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-fit tw-px-2 tw-py-0 tw-whitespace-nowrap tw-relative tw-top-[-0.625rem]">
-                    {getVernacularString("313dd4e5-acd4-4f7c-a48c-0fe0379f1b5e", userPreferences.language)} x{recommendation.nBatteries}
+                    {contentData.getContent("313dd4e5-acd4-4f7c-a48c-0fe0379f1b5e")} x{recommendation.nBatteries}
                 </div>
 
                 <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-center tw-gap-x-4">
@@ -576,7 +604,7 @@ function HorizontalBatteryRecommendationCard({
 
                         <div className="lg-text-secondary-900 lg-text-icon">
                             {recommendation.capacity}
-                            {getVernacularString("loadCalculatorRecommendationsS2T8", userPreferences.language)}
+                            {contentData.getContent("loadCalculatorRecommendationsS2T8")}
                         </div>
                     </div>
 
@@ -588,7 +616,7 @@ function HorizontalBatteryRecommendationCard({
                         />
 
                         <div className="lg-text-secondary-900 lg-text-icon">
-                            {recommendation.warranty} {getVernacularString("loadCalculatorRecommendationsS2T10", userPreferences.language)}
+                            {recommendation.warranty} {contentData.getContent("loadCalculatorRecommendationsS2T10")}
                         </div>
                     </div>
                 </div>
@@ -600,7 +628,7 @@ function HorizontalBatteryRecommendationCard({
                         {recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}
                     </div>
 
-                    <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">{getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}</div>
+                    <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">{contentData.getContent("loadCalculatorRecommendationsS2T3")}</div>
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
@@ -627,6 +655,7 @@ function VerticalInverterRecommendationCard({
     userPreferences: UserPreferences;
     className?: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <a
             href={`/product/${recommendation.model}`}
@@ -640,7 +669,7 @@ function VerticalInverterRecommendationCard({
 
             <div className="tw-w-full tw-h-full lg-bg-secondary-100 lg-card tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
                 <div className="lg-cta-button tw-w-fit tw-px-2 tw-py-0 tw-whitespace-nowrap tw-relative -tw-top-3">
-                    {recommendation.score}/10 {getVernacularString("loadCalculatorRecommendationsS2T4", userPreferences.language)}
+                    {recommendation.score}/10 {contentData.getContent("loadCalculatorRecommendationsS2T4")}
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
@@ -662,7 +691,7 @@ function VerticalInverterRecommendationCard({
 
                     <div className="lg-text-secondary-900 lg-text-icon">
                         {recommendation.capacity}
-                        {getVernacularString("loadCalculatorRecommendationsS2T6", userPreferences.language)}
+                        {contentData.getContent("loadCalculatorRecommendationsS2T6")}
                     </div>
                 </div>
 
@@ -678,7 +707,7 @@ function VerticalInverterRecommendationCard({
                     <div className="lg-text-secondary-900 lg-text-icon">
                         {recommendation.warranty}
 
-                        {getVernacularString("loadCalculatorRecommendationsS2T7", userPreferences.language)}
+                        {contentData.getContent("loadCalculatorRecommendationsS2T7")}
                     </div>
                 </div>
 
@@ -697,7 +726,7 @@ function VerticalInverterRecommendationCard({
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">{getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}</div>
+                <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">{contentData.getContent("loadCalculatorRecommendationsS2T3")}</div>
 
                 <VerticalSpacer className="tw-h-4" />
             </div>
@@ -723,6 +752,7 @@ function VerticalBatteryRecommendationCard({
     userPreferences: UserPreferences;
     className?: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <a
             href={`/product/${recommendation.model}`}
@@ -736,7 +766,7 @@ function VerticalBatteryRecommendationCard({
 
             <div className="tw-w-full tw-h-full lg-bg-secondary-100 lg-card tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
                 <div className="lg-cta-button tw-w-fit tw-px-2 tw-py-0 tw-whitespace-nowrap tw-relative -tw-top-3">
-                    {recommendation.score}/10 {getVernacularString("loadCalculatorRecommendationsS2T4", userPreferences.language)}
+                    {recommendation.score}/10 {contentData.getContent("loadCalculatorRecommendationsS2T4")}
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
@@ -758,7 +788,7 @@ function VerticalBatteryRecommendationCard({
 
                     <div className="lg-text-secondary-900 lg-text-icon">
                         {recommendation.capacity}
-                        {getVernacularString("loadCalculatorRecommendationsS2T8", userPreferences.language)}
+                        {contentData.getContent("loadCalculatorRecommendationsS2T8")}
                     </div>
                 </div>
 
@@ -772,7 +802,7 @@ function VerticalBatteryRecommendationCard({
                     />
 
                     <div className="lg-text-secondary-900 lg-text-icon">
-                        {recommendation.warranty} {getVernacularString("loadCalculatorRecommendationsS2T10", userPreferences.language)}
+                        {recommendation.warranty} {contentData.getContent("loadCalculatorRecommendationsS2T10")}
                     </div>
                 </div>
 
@@ -784,7 +814,7 @@ function VerticalBatteryRecommendationCard({
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">{getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}</div>
+                <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">{contentData.getContent("loadCalculatorRecommendationsS2T3")}</div>
 
                 <VerticalSpacer className="tw-h-4" />
             </div>

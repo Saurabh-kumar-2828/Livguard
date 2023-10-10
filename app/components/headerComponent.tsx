@@ -1,7 +1,7 @@
 import {Dialog, Disclosure, Listbox, Popover, Transition} from "@headlessui/react";
 import {Bars3Icon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import {Form, Link, useFetcher, useSubmit} from "@remix-run/react";
-import React, {createRef, useEffect, useRef, useState} from "react";
+import React, {createRef, useContext, useEffect, useRef, useState} from "react";
 import {BrightnessHighFill, Check2, ChevronDown, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
@@ -15,7 +15,7 @@ import {OfferContactUsCta} from "~/routes/offers/inverter-and-battery-jodi";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language, Theme, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, themeToHumanFriendlyString} from "~/typeDefinitions";
 import {getMetadataForImage} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function HeaderComponent({
     userPreferences,
@@ -107,16 +107,16 @@ function FirstBar({showContactDetails, userPreferences, redirectTo}: {showContac
                         onClick={tryToOpenContactUsDialog}
                         className="tw-underline tw-underline-offset-4 lg:tw-hidden"
                     >
-                        {getVernacularString("headerS1T1", userPreferences.language)}
+                        {contentData.getContent("headerS1T1")}
                     </button>
 
                     <div className="tw-hidden lg:tw-flex tw-flex-row tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
-                        {getVernacularString("headerContactUsDialogT2", userPreferences.language)}:
+                        {contentData.getContent("headerContactUsDialogT2")}:
                         <HorizontalSpacer className="tw-w-1" />
                         <a href="tel:18001025551">1800-1025-551</a>
                         <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
                         <HorizontalSpacer className="tw-w-4" />
-                        {getVernacularString("headerContactUsDialogT3", userPreferences.language)}:
+                        {contentData.getContent("headerContactUsDialogT3")}:
                         <HorizontalSpacer className="tw-w-1" />
                         <a href="tel:+919205667999">+91 92056-67999</a>
                     </div>
@@ -138,7 +138,7 @@ function FirstBar({showContactDetails, userPreferences, redirectTo}: {showContac
                     }
                 />
                 <HorizontalSpacer className="tw-w-1" />
-                {getVernacularString("9316f275-c395-4344-99d7-895d162602c0", userPreferences.language)}
+                {contentData.getContent("9316f275-c395-4344-99d7-895d162602c0")}
             </Link>
             <HorizontalSpacer className="tw-w-5" />
 
@@ -152,7 +152,7 @@ function FirstBar({showContactDetails, userPreferences, redirectTo}: {showContac
                             src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/header/e-waste-management.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
                         />
                         <HorizontalSpacer className="tw-w-1" />
-                        {getVernacularString("headerMenuSM8T6", userPreferences.language)}
+                        {contentData.getContent("headerMenuSM8T6")}
                     </Link> */}
 
             <HorizontalSpacer className="tw-w-5" />
@@ -406,7 +406,7 @@ function SecondBar({
                 >
                     <Search className="tw-w-6 tw-h-6" />
                     <HorizontalSpacer className="tw-w-4" />
-                    {/* <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{getVernacularString("headerS2T1", userPreferences.language)}</div> */}
+                    {/* <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{contentData.getContent("headerS2T1")}</div> */}
                 </button>
             )}
 
@@ -414,7 +414,7 @@ function SecondBar({
                 to={"/load-calculator"}
                 className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl lg:tw-text-white"
             >
-                {getVernacularString("headerLoadCalculator", userPreferences.language)}
+                {contentData.getContent("headerLoadCalculator")}
             </Link> */}
 
             {showContactCtaButton && (
@@ -619,14 +619,14 @@ function SecondBar({
         //                     }}
         //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
         //                 >
-        //                     {getVernacularString("headerMenuS1T1", userPreferences.language)}
+        //                     {contentData.getContent("headerMenuS1T1")}
         //                 </button>
 
         //                 <Link
         //                     to="/inverter-batteries"
         //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
         //                 >
-        //                     {getVernacularString("headerMenuS1T2", userPreferences.language)}
+        //                     {contentData.getContent("headerMenuS1T2")}
         //                 </Link>
 
         //                 <button
@@ -636,7 +636,7 @@ function SecondBar({
         //                     }}
         //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
         //                 >
-        //                     {getVernacularString("headerMenuS1T3", userPreferences.language)}
+        //                     {contentData.getContent("headerMenuS1T3")}
         //                 </button>
 
         //                 <button
@@ -646,7 +646,7 @@ function SecondBar({
         //                     }}
         //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
         //                 >
-        //                     {getVernacularString("headerMenuS1T4", userPreferences.language)}
+        //                     {contentData.getContent("headerMenuS1T4")}
         //                 </button>
 
         //                 <button
@@ -656,20 +656,20 @@ function SecondBar({
         //                     }}
         //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
         //                 >
-        //                     {getVernacularString("headerMenuS1T5", userPreferences.language)}
+        //                     {contentData.getContent("headerMenuS1T5")}
         //                 </button>
 
         //                 <Link
         //                     to="/dealer-for-inverters-and-batteries"
         //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
         //                 >
-        //                     {getVernacularString("headerMenuS1T6", userPreferences.language)}
+        //                     {contentData.getContent("headerMenuS1T6")}
         //                 </Link>
 
         //                 {/* <a
         //                     href="/register-and-warranty-for-inverters.php"
         //                 >
-        //                     {getVernacularString("headerMenuS1T7", userPreferences.language)}
+        //                     {contentData.getContent("headerMenuS1T7")}
         //                 </a> */}
 
         //                 <button
@@ -679,14 +679,14 @@ function SecondBar({
         //                     }}
         //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
         //                 >
-        //                     {getVernacularString("headerMenuS1T8", userPreferences.language)}
+        //                     {contentData.getContent("headerMenuS1T8")}
         //                 </button>
 
         //                 <Link
         //                     to={"/load-calculator"}
         //                     className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl lg:tw-text-white"
         //                 >
-        //                     {getVernacularString("headerLoadCalculator", userPreferences.language)}
+        //                     {contentData.getContent("headerLoadCalculator")}
         //                 </Link>
         //             </div>
         //         )}
@@ -701,7 +701,7 @@ function SecondBar({
         //             >
         //                 <Search className="tw-w-6 tw-h-6" />
         //                 <HorizontalSpacer className="tw-w-2" />
-        //                 <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{getVernacularString("headerS2T1", userPreferences.language)}</div>
+        //                 <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{contentData.getContent("headerS2T1")}</div>
         //             </button>
         //         )}
         //         {showContactCtaButton && (
@@ -1425,7 +1425,7 @@ function MenuDialogMobile({userPreferences, isMenuOpen, setIsMenuOpen}: {userPre
                                 //         leaveFrom="tw-translate-y-0 tw-opacity-full"
                                 //         leaveTo="tw-translate-y-[1em] tw-opacity-0"
                                 //     >
-                                //         <div className="tw-flex-1 lg-text-title2">{getVernacularString(item.linkTextTextContentPiece, userPreferences.language)}</div>
+                                //         <div className="tw-flex-1 lg-text-title2">{contentData.getContent(item.linkTextTextContentPiece)}</div>
                                 //     </Transition.Child>
 
                                 //     <Transition.Child
@@ -1458,6 +1458,7 @@ function MenuDialogMobile({userPreferences, isMenuOpen, setIsMenuOpen}: {userPre
 
 function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const [showMenu, setShowMenu] = useState<number | null>(null);
+    const contentData = useContext(ContentProviderContext);
 
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-gap-x-6 tw-items-center tw-text-[0.875rem]", className)}>
@@ -1475,7 +1476,7 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                                 key={itemIndex}
                                 onMouseEnter={() => setShowMenu(null)}
                             >
-                                {getVernacularString(item.contentId, userPreferences.language)}
+                                {contentData.getContent(item.contentId)}
                             </Link>
                         ) : (
                             <div
@@ -1492,7 +1493,7 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                                             // TODO: Add onMouseLeave here as well
                                             // onMouseLeave={() => setShowMenu(null)}
                                         >
-                                            {getVernacularString(item.contentId, userPreferences.language)}
+                                            {contentData.getContent(item.contentId)}
                                             <div
                                                 className={concatenateNonNullStringsWithSpaces(
                                                     "tw-absolute tw-inset-x-0 tw-h-1 -tw-bottom-[1.3125rem] lg-bg-primary-500 tw-duration-200",
@@ -1536,7 +1537,7 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                                                                                       href={item.to}
                                                                                       className="lg-text-title2 lg-text-primary-500 tw-w-fit tw-flex tw-items-center"
                                                                                   >
-                                                                                      {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                      {contentData.getContent(item.contentId)}
                                                                                       <span>
                                                                                           <ChevronRightIcon className="tw-h-4 tw-w-4" />
                                                                                       </span>
@@ -1546,7 +1547,7 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                                                                                       to={item.to}
                                                                                       className="lg-text-title2 lg-text-primary-500 tw-w-fit tw-flex tw-items-center"
                                                                                   >
-                                                                                      {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                      {contentData.getContent(item.contentId)}
                                                                                       <span>
                                                                                           <ChevronRightIcon className="tw-h-4 tw-w-4" />
                                                                                       </span>
@@ -1567,7 +1568,7 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                                                                                       width="4rem"
                                                                                   />
 
-                                                                                  {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                  {contentData.getContent(item.contentId)}
                                                                               </Link>
                                                                           </div>
                                                                       ) : (
@@ -1575,9 +1576,7 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                                                                               className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-cols-1 tw-gap-y-2", item.desktopClassName)}
                                                                               key={itemIndex}
                                                                           >
-                                                                              <div className="lg-text-body-bold lg-text-primary-500 tw-pb-2">
-                                                                                  {getVernacularString(item.contentId, userPreferences.language)}
-                                                                              </div>
+                                                                              <div className="lg-text-body-bold lg-text-primary-500 tw-pb-2">{contentData.getContent(item.contentId)}</div>
 
                                                                               <ItemBuilder
                                                                                   items={item.children}
@@ -1589,7 +1588,7 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                                                                                                   className="lg-text-body dark:!tw-text-new-background-border-500-light hover:lg-text-primary-500 hover:dark:!tw-text-primary-500-dark tw-transition-colors tw-duration-200 tw-flex tw-items-center"
                                                                                                   key={itemIndex}
                                                                                               >
-                                                                                                  {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                                  {contentData.getContent(item.contentId)}
                                                                                                   <span>
                                                                                                       <ChevronRightIcon className="tw-h-4 tw-w-4" />
                                                                                                   </span>
@@ -1600,7 +1599,7 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                                                                                                   className="lg-text-body dark:!tw-text-new-background-border-500-light hover:lg-text-primary-500 hover:dark:!tw-text-primary-500-dark tw-transition-colors tw-duration-200 tw-flex tw-items-center"
                                                                                                   key={itemIndex}
                                                                                               >
-                                                                                                  {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                                  {contentData.getContent(item.contentId)}
                                                                                                   <span>
                                                                                                       <ChevronRightIcon className="tw-h-4 tw-w-4" />
                                                                                                   </span>
@@ -1612,7 +1611,7 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                                                                                                   className="lg-text-body-bold"
                                                                                                   key={itemIndex}
                                                                                               >
-                                                                                                  {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                                  {contentData.getContent(item.contentId)}
                                                                                               </div>
 
                                                                                               <ItemBuilder
@@ -1624,7 +1623,7 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                                                                                                               className="hover:lg-text-primary-500"
                                                                                                               key={itemIndex}
                                                                                                           >
-                                                                                                              {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                                              {contentData.getContent(item.contentId)}
                                                                                                           </Link>
                                                                                                       ) : (
                                                                                                           <div>Max recursion depth reached</div>
@@ -1830,9 +1829,7 @@ function ContactUsDialog({
                     >
                         <div className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col">
                             <div className="tw-grid tw-grid-cols-[1.5rem_minmax(0,1fr)_1.5rem]">
-                                <div className="tw-row-start-1 tw-col-start-2 tw-w-full tw-text-center lg-text-headline">
-                                    {getVernacularString("headerContactUsDialogT1", userPreferences.language)}
-                                </div>
+                                <div className="tw-row-start-1 tw-col-start-2 tw-w-full tw-text-center lg-text-headline">{contentData.getContent("headerContactUsDialogT1")}</div>
                                 <button
                                     type="button"
                                     onClick={tryToCloseContactUsDialog}
@@ -1844,7 +1841,7 @@ function ContactUsDialog({
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT3", userPreferences.language)}</div>
+                            <div className="lg-text-title2">{contentData.getContent("headerContactUsDialogT3")}</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
@@ -1861,7 +1858,7 @@ function ContactUsDialog({
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT2", userPreferences.language)}</div>
+                            <div className="lg-text-title2">{contentData.getContent("headerContactUsDialogT2")}</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
@@ -1973,7 +1970,7 @@ function HeaderItemAccordionMobileComponent({
                                 paddingLeft: indentationLevel * headerMobileItemIndentation,
                             }}
                         >
-                            {getVernacularString(headerItemAccordion.contentId, userPreferences.language)}
+                            {contentData.getContent(headerItemAccordion.contentId)}
                         </div>
                         <div className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 tw-grid tw-place-items-center tw-duration-200", open ? "tw-rotate-90 lg-text-primary-500" : null)}>
                             <ChevronRightIcon
@@ -2015,7 +2012,7 @@ function HeaderItemLinkMobileComponent({headerItemLink, userPreferences, indenta
                     paddingLeft: indentationLevel * headerMobileItemIndentation,
                 }}
             >
-                {getVernacularString(headerItemLink.contentId, userPreferences.language)}
+                {contentData.getContent(headerItemLink.contentId)}
             </Link>
 
             {indentationLevel != 0 ? null : <div className="tw-h-px lg-bg-secondary-900 tw-opacity-50 tw-flex-none" />}
@@ -2060,7 +2057,7 @@ function HeaderItemAccordionDesktopComponent({
                                 paddingLeft: indentationLevel * headerMobileItemIndentation,
                             }}
                         >
-                            {getVernacularString(headerItemAccordion.contentId, userPreferences.language)}
+                            {contentData.getContent(headerItemAccordion.contentId)}
                         </div>
                         <div
                             className={concatenateNonNullStringsWithSpaces(
@@ -2101,7 +2098,7 @@ function HeaderItemLinkDesktopComponent({headerItemLink, userPreferences, indent
                 paddingLeft: indentationLevel * headerMobileItemIndentation,
             }}
         >
-            {getVernacularString(headerItemLink.contentId, userPreferences.language)}
+            {contentData.getContent(headerItemLink.contentId)}
         </Link>
     );
 }

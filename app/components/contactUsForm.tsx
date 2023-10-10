@@ -1,5 +1,5 @@
 import type {FetcherWithComponents} from "@remix-run/react";
-import {useRef} from "react";
+import {useContext, useRef} from "react";
 import {toast} from "react-toastify";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -12,7 +12,7 @@ import type {FormStateInputs, FormStateInputsAction} from "~/routes/lead-form.st
 import {FormStateInputsActionType} from "~/routes/lead-form.state";
 import type {UserPreferences} from "~/typeDefinitions";
 import {FormType} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function ContactForm({
     userPreferences,
@@ -39,6 +39,7 @@ export function ContactForm({
 }) {
     const otpFieldRef = useRef(null);
     const phoneNumberRef = useRef(null);
+    const contentData = useContext(ContentProviderContext);
 
     return (
         <div
@@ -47,16 +48,16 @@ export function ContactForm({
         >
             <div className="lg-text-headline tw-text-center lg:tw-hidden">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFormHT1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("contactUsFormHT1")}} />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFormHT2", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("contactUsFormHT2")}} />
                 </DefaultTextAnimation>
             </div>
 
             <VerticalSpacer className="tw-h-1 lg:tw-hidden" />
 
-            <div className="lg-text-title2 tw-text-center lg:tw-hidden">{getVernacularString("contactUsFormT3", userPreferences.language)}</div>
+            <div className="lg-text-title2 tw-text-center lg:tw-hidden">{contentData.getContent("contactUsFormT3")}</div>
 
             <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
@@ -92,7 +93,7 @@ export function ContactForm({
                     />
 
                     <div className="tw-row-start-2 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                        <div className="lg-text-body-bold tw-pl-3 tw-text-white">{getVernacularString("contactUsT3", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold tw-pl-3 tw-text-white">{contentData.getContent("contactUsT3")}</div>
 
                         <VerticalSpacer className="tw-h-1" />
 
@@ -101,7 +102,7 @@ export function ContactForm({
                             name="name"
                             className="lg-text-input"
                             required
-                            placeholder={getVernacularString("contactUsT3E", userPreferences.language)}
+                            placeholder={contentData.getContent("contactUsT3E")}
                             onChange={(e) => {
                                 const action: FormStateInputsAction = {
                                     actionType: FormStateInputsActionType.SetName,
@@ -113,7 +114,7 @@ export function ContactForm({
                     </div>
 
                     <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                        <div className="lg-text-body-bold tw-pl-3 tw-text-white">{getVernacularString("contactUsT4", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold tw-pl-3 tw-text-white">{contentData.getContent("contactUsT4")}</div>
 
                         <VerticalSpacer className="tw-h-1" />
 
@@ -123,7 +124,7 @@ export function ContactForm({
                             className="lg-text-input"
                             pattern={emailIdValidationPattern}
                             required
-                            placeholder={getVernacularString("contactUsT4E", userPreferences.language)}
+                            placeholder={contentData.getContent("contactUsT4E")}
                             onChange={(e) => {
                                 const action: FormStateInputsAction = {
                                     actionType: FormStateInputsActionType.SetEmail,
@@ -136,7 +137,7 @@ export function ContactForm({
 
                     <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
                         {!formStateInputs.showOtpField ? (
-                            <div className="tw-row-start-6 lg-text-body-bold tw-text-white tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+                            <div className="tw-row-start-6 lg-text-body-bold tw-text-white tw-pl-3">{contentData.getContent("contactUsT2")}</div>
                         ) : (
                             <div className="tw-row-start-6 tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
                                 <div
@@ -152,7 +153,7 @@ export function ContactForm({
                                         }
                                     }}
                                 >
-                                    {getVernacularString("phoneNumberChnage", userPreferences.language)}
+                                    {contentData.getContent("phoneNumberChnage")}
                                 </div>
                                 <div className="tw-col-start-3 tw-text-white lg-text-body-bold">{formStateInputs.inputData.phoneNumber}</div>
                             </div>
@@ -171,7 +172,7 @@ export function ContactForm({
                                     className="lg-text-input tw-w-full"
                                     disabled={formStateInputs.showOtpField}
                                     defaultValue={formStateInputs.inputData.phoneNumber}
-                                    placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
+                                    placeholder={contentData.getContent("contactUsT2E")}
                                     ref={phoneNumberRef}
                                     onChange={(e) => {
                                         const phoneNumber = e.target.value;
@@ -237,7 +238,7 @@ export function ContactForm({
                                         otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                     }}
                                 >
-                                    {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                    {contentData.getContent("OfferFormGetOTP")}
                                 </div>
                             </div>
                         ) : (
@@ -247,7 +248,7 @@ export function ContactForm({
                                     formStateInputs.showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100",
                                 )}
                             >
-                                {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsOTPT3", userPreferences.language)}</div>
+                                {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsOTPT3")}</div>
 
                                 <VerticalSpacer className="tw-h-1" /> */}
 
@@ -257,7 +258,7 @@ export function ContactForm({
                                         name="otpSubmitted"
                                         className="lg-text-input"
                                         required
-                                        placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                        placeholder={contentData.getContent("contactUsOTPT3E")}
                                         ref={otpFieldRef}
                                         onChange={(e) => {
                                             const action: FormStateInputsAction = {
@@ -268,9 +269,7 @@ export function ContactForm({
                                         }}
                                     />
                                     {formStateInputs.invalidOtp && (
-                                        <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
-                                            {getVernacularString("OfferInvalidOTP", userPreferences.language)}
-                                        </div>
+                                        <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">{contentData.getContent("OfferInvalidOTP")}</div>
                                     )}
                                 </div>
                             </div>
@@ -298,7 +297,7 @@ export function ContactForm({
                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                 }}
                             >
-                                {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                {contentData.getContent("OfferResendOTP")}
                             </div>
                             <div className="tw-text-white tw-text-[12px]">{`00:${formStateInputs.resendTimeOut}`}</div>
                         </div>
@@ -355,7 +354,7 @@ export function ContactForm({
                             }}
                         />
 
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("termsAndConditionsCheckboxtext2", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("termsAndConditionsCheckboxtext2")}} />
                     </div>
 
                     <div className="tw-row-start-[10] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
@@ -372,7 +371,7 @@ export function ContactForm({
                                 formStateInputs.inputData.otpSubmitted.length != 6
                             }
                         >
-                            {getVernacularString("contactUsFormT4", userPreferences.language)}
+                            {contentData.getContent("contactUsFormT4")}
                         </button>
                     </div>
                 </fetcher.Form>

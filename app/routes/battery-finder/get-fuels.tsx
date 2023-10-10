@@ -22,10 +22,6 @@ export const loader: LoaderFunction = async ({request, params}) => {
 
     recommendedBatteries = recommendedBatteries.filter((item) => item.vmodel);
 
-    console.log({
-        fuels: distinct(recommendedBatteries.map((item) => item.fuel)),
-    });
-
     return json({
         fuels: distinct(recommendedBatteries.map((item) => item.fuel)),
     });

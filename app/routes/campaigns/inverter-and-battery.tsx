@@ -21,7 +21,7 @@ import {getAbsolutePathForRelativePath} from "~/global-common-typescript/compone
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider, type Uuid} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata, type Uuid} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
@@ -35,7 +35,11 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -75,7 +79,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
             {
                 "script:ld+json": {
@@ -124,7 +128,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -136,6 +140,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -144,17 +155,24 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("inverterBatteryCampaignPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("inverterBatteryCampaignPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -162,27 +180,35 @@ export default function () {
 
     return (
         <>
-            <CampaignPageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={false}
-                utmParameters={utmSearchParameters}
-                showContactCtaButton={false}
-                showSearchOption={true}
-                pageUrl={pageUrl}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <LandingPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <CampaignPageScaffold
                         userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={false}
                         utmParameters={utmSearchParameters}
+                        showContactCtaButton={false}
+                        showSearchOption={true}
                         pageUrl={pageUrl}
                         secondaryNavigationController={secondaryNavigationController}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </CampaignPageScaffold>
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <LandingPage
+                                userPreferences={userPreferences}
+                                utmParameters={utmSearchParameters}
+                                pageUrl={pageUrl}
+                                secondaryNavigationController={secondaryNavigationController}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </CampaignPageScaffold>
 
-            <StickyLandingPageBottomBar userPreferences={userPreferences} />
+                    <StickyLandingPageBottomBar userPreferences={userPreferences} />
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 }
@@ -205,6 +231,7 @@ function LandingPage({
     const leadId = useRef<Uuid>(generateUuid());
 
     const [formStateInputs, dispatch] = useReducer(FormStateInputsReducer, createInitialFormState());
+    const contentData = useContext(ContentProviderContext);
 
     useEffect(() => {
         if (fetcher.data == null) {
@@ -416,11 +443,12 @@ function HeroSection({
     //     secondaryNavigationController.setSections((previousSections) => ({
     //         ...previousSections,
     //         top: {
-    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41"),
     //             isCurrentlyVisible: sectionInView,
     //         },
     //     }));
     // }, [sectionRef, sectionInView]);
+    const contentData = useContext(ContentProviderContext);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
@@ -437,14 +465,14 @@ function HeroSection({
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
                 <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S1T1", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage2S1T1")}}
                     className="lg-text-banner lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
                 />
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 lg:tw-place-self-start lg:tw-max-w-[620px] lg:tw-col-start-1">
                 <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S1T2", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage2S1T2")}}
                     className="lg-text-title1 lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
                 />
             </DefaultTextAnimation>
@@ -454,7 +482,7 @@ function HeroSection({
                     to="#contact-us-form-mobile"
                     className="lg-cta-button lg-px-screen-edge lg:tw-pl-[60px]"
                 >
-                    {getVernacularString("landingPage2S1T3", userPreferences.language)}
+                    {contentData.getContent("landingPage2S1T3")}
                 </Link>
             </DefaultElementAnimation>
 
@@ -495,6 +523,7 @@ function HeroSection({
 }
 
 export function ComboSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const comboData: Array<{
         title: string;
         description: string;
@@ -503,157 +532,157 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
         comboImageRelativePath: string;
     }> = [
         {
-            title: `${getVernacularString("landingPage2S4J1Title", userPreferences.language)}`,
-            description: `${getVernacularString("landingPage2S4J1Description", userPreferences.language)}`,
+            title: `${contentData.getContent("landingPage2S4J1Title")}`,
+            description: `${contentData.getContent("landingPage2S4J1Description")}`,
             inverterKeySpecifications: [
                 {
-                    keySpecificationContent: `${getVernacularString("e0db4e01-ba5c-404a-b5a0-9ca311333fb7", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("e0db4e01-ba5c-404a-b5a0-9ca311333fb7")}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification2Content", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("landingPage2S4J1Specification2Content")}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 },
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification4Content", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("landingPage2S4J1Specification4Content")}`,
                     keySpecificationIconRelativePath: "/livguard/icons/sineWave.png",
                 },
             ],
             batteryKeySpecifications: [
                 {
-                    keySpecificationContent: `${getVernacularString("b7895214-8ecb-44a7-bf86-4974deaee879", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("b7895214-8ecb-44a7-bf86-4974deaee879")}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification3Content", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("landingPage2S4J1Specification3Content")}`,
                     keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 },
 
                 {
-                    keySpecificationContent: `${getVernacularString("bc4a0a42-adf2-404c-85c2-d9f768511c2a", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("bc4a0a42-adf2-404c-85c2-d9f768511c2a")}`,
                     keySpecificationIconRelativePath: "/livguard/icons/tall tubular white.png",
                 },
             ],
             comboImageRelativePath: "/livguard/products/urban-combo/thumbnail.png",
         },
         {
-            title: `${getVernacularString("landingPage2S4J2Title", userPreferences.language)}`,
-            description: `${getVernacularString("landingPage2S4J2Description", userPreferences.language)}`,
+            title: `${contentData.getContent("landingPage2S4J2Title")}`,
+            description: `${contentData.getContent("landingPage2S4J2Description")}`,
             inverterKeySpecifications: [
                 {
-                    keySpecificationContent: `${getVernacularString("51db98f7-13b7-4667-9b12-69f552370851", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("51db98f7-13b7-4667-9b12-69f552370851")}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 // {
-                //     keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification2Content", userPreferences.language)}`,
+                //     keySpecificationContent: `${contentData.getContent("landingPage2S4J2Specification2Content")}`,
                 //     keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 // },
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification2Content", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("landingPage2S4J2Specification2Content")}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 },
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification4Content", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("landingPage2S4J2Specification4Content")}`,
                     keySpecificationIconRelativePath: "/livguard/icons/squareWave.png",
                 },
             ],
             batteryKeySpecifications: [
                 {
-                    keySpecificationContent: `${getVernacularString("20824b11-5143-4b72-841c-84726766e13f", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("20824b11-5143-4b72-841c-84726766e13f")}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification3Content", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("landingPage2S4J2Specification3Content")}`,
                     keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 },
                 // {
-                //     keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification3Content", userPreferences.language)}`,
+                //     keySpecificationContent: `${contentData.getContent("landingPage2S4J2Specification3Content")}`,
                 //     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 // },
                 {
-                    keySpecificationContent: `${getVernacularString("9bfee583-a1e4-43ef-b0e4-37f8a5ad6124", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("9bfee583-a1e4-43ef-b0e4-37f8a5ad6124")}`,
                     keySpecificationIconRelativePath: "/livguard/icons/tall tubular white.png",
                 },
             ],
             comboImageRelativePath: "/livguard/products/peace-of-mind-combo/thumbnail.png",
         },
         {
-            title: `${getVernacularString("landingPage2S4J3Title", userPreferences.language)}`,
-            description: `${getVernacularString("landingPage2S4J3Description", userPreferences.language)}`,
+            title: `${contentData.getContent("landingPage2S4J3Title")}`,
+            description: `${contentData.getContent("landingPage2S4J3Description")}`,
             inverterKeySpecifications: [
                 {
-                    keySpecificationContent: `${getVernacularString("17722d26-de05-4cf9-9e06-ca678c57fa27", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("17722d26-de05-4cf9-9e06-ca678c57fa27")}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 // {
-                //     keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification2Content", userPreferences.language)}`,
+                //     keySpecificationContent: `${contentData.getContent("landingPage2S4J3Specification2Content")}`,
                 //     keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 // },
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification2Content", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("landingPage2S4J3Specification2Content")}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 },
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification4Content", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("landingPage2S4J3Specification4Content")}`,
                     keySpecificationIconRelativePath: "/livguard/icons/sineWave.png",
                 },
             ],
             batteryKeySpecifications: [
                 {
-                    keySpecificationContent: `${getVernacularString("a1b4d09c-4d05-4aa3-9278-4af3cf2e2fad", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("a1b4d09c-4d05-4aa3-9278-4af3cf2e2fad")}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification3Content", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("landingPage2S4J3Specification3Content")}`,
                     keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 },
                 // {
-                //     keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification3Content", userPreferences.language)}`,
+                //     keySpecificationContent: `${contentData.getContent("landingPage2S4J3Specification3Content")}`,
                 //     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 // },
                 {
-                    keySpecificationContent: `${getVernacularString("9bfee583-a1e4-43ef-b0e4-37f8a5ad6124", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("9bfee583-a1e4-43ef-b0e4-37f8a5ad6124")}`,
                     keySpecificationIconRelativePath: "/livguard/icons/tall tubular white.png",
                 },
             ],
             comboImageRelativePath: "/livguard/products/super-life-combo/thumbnail.png",
         },
         {
-            title: `${getVernacularString("landingPage2S4J4Title", userPreferences.language)}`,
-            description: `${getVernacularString("landingPage2S4J4Description", userPreferences.language)}`,
+            title: `${contentData.getContent("landingPage2S4J4Title")}`,
+            description: `${contentData.getContent("landingPage2S4J4Description")}`,
             inverterKeySpecifications: [
                 {
-                    keySpecificationContent: `${getVernacularString("d7112457-05a3-4616-9dc2-4d6eb6a09e4d", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("d7112457-05a3-4616-9dc2-4d6eb6a09e4d")}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 // {
-                //     keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification2Content", userPreferences.language)}`,
+                //     keySpecificationContent: `${contentData.getContent("landingPage2S4J4Specification2Content")}`,
                 //     keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 // },
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification2Content", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("landingPage2S4J4Specification2Content")}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 },
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification4Content", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("landingPage2S4J4Specification4Content")}`,
                     keySpecificationIconRelativePath: "/livguard/icons/sineWave.png",
                 },
             ],
             batteryKeySpecifications: [
                 {
-                    keySpecificationContent: `${getVernacularString("fa118110-53d4-4696-85bd-8ad69e7400b6", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("fa118110-53d4-4696-85bd-8ad69e7400b6")}`,
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 {
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification3Content", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("landingPage2S4J4Specification3Content")}`,
                     keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 },
                 // {
-                //     keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification3Content", userPreferences.language)}`,
+                //     keySpecificationContent: `${contentData.getContent("landingPage2S4J4Specification3Content")}`,
                 //     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 // },
                 {
-                    keySpecificationContent: `${getVernacularString("9bfee583-a1e4-43ef-b0e4-37f8a5ad6124", userPreferences.language)}`,
+                    keySpecificationContent: `${contentData.getContent("9bfee583-a1e4-43ef-b0e4-37f8a5ad6124")}`,
                     keySpecificationIconRelativePath: "/livguard/icons/tall tubular white.png",
                 },
             ],
@@ -666,7 +695,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "our-top-combo": {
-                humanReadableName: getVernacularString("1f5379fc-7cc5-40f6-8715-6a86a77073cc", userPreferences.language),
+                humanReadableName: contentData.getContent("1f5379fc-7cc5-40f6-8715-6a86a77073cc"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -680,10 +709,10 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
             <div className="">
                 <div className="lg-text-headline lg-px-screen-edge">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT1", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage2S4HT1")}} />
                     </DefaultTextAnimation>
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT2", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage2S4HT2")}} />
                     </DefaultTextAnimation>
                 </div>
 
@@ -737,7 +766,7 @@ function BatteryCard({
     inverterTechnology,
     buttonTextVernacId,
     inverterKeySpecificationIconRelativePath,
-    batteryKeySpecificationIconRelativePath
+    batteryKeySpecificationIconRelativePath,
 }: {
     userPreferences: UserPreferences;
     batterySlug: string;
@@ -754,10 +783,11 @@ function BatteryCard({
     inverterKeySpecificationIconRelativePath: string;
     batteryKeySpecificationIconRelativePath: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-max-w-3xl tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:tw-gap-x-2 lg-bg-new-background-500 lg-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8">
             <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-place-items-center">
-                <div className="lg:tw-hidden lg-bg-primary-500 tw-text-secondary-900-dark tw-px-2 tw-py-1">{getVernacularString("7bcd803f-7cae-427b-9838-8c1966e13b01", userPreferences.language)}</div>
+                <div className="lg:tw-hidden lg-bg-primary-500 tw-text-secondary-900-dark tw-px-2 tw-py-1">{contentData.getContent("7bcd803f-7cae-427b-9838-8c1966e13b01")}</div>
                 <div className="tw-w-full tw-h-full">
                     <FullWidthImage relativePath={imageRelativeUrl} />
                 </div>
@@ -767,9 +797,7 @@ function BatteryCard({
                     to={batterySlug}
                 >
                     <button className="lg-cta-button">
-                        {buttonTextVernacId == null
-                            ? getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)
-                            : getVernacularString(buttonTextVernacId, userPreferences.language)}
+                        {buttonTextVernacId == null ? contentData.getContent("063dc56b-910e-4a48-acb8-8f52668a4c72") : contentData.getContent(buttonTextVernacId)}
                     </button>
                 </Link>
             </div>
@@ -786,7 +814,7 @@ function BatteryCard({
                 {/* <div className="tw-grid tw-grid-rows-[auto_auto_minmax(0,1fr)] md:max-lg:tw-grid-cols-1 md:max-lg:tw-grid-flow-row md:max-lg:tw-place-items-center md:max-lg:tw-place-self-center md:max-lg:tw-w-fit tw-grid-cols-2"> */}
                 <div className="tw-grid md:max-lg:tw-place-items-center md:max-lg:tw-place-self-center md:max-lg:tw-w-fit tw-grid-cols-2 tw-gap-x-4">
                     <div className="tw-border-[1px] tw-rounded-[8px] tw-border-[#F2F2F2] tw-p-4 tw-grid tw-gap-2">
-                        <div className="tw-text-left tw-text-[#EB2A2B] tw-font-bold">{getVernacularString("ormTrackingFormProduct1", userPreferences.language)}</div>
+                        <div className="tw-text-left tw-text-[#EB2A2B] tw-font-bold">{contentData.getContent("ormTrackingFormProduct1")}</div>
                         <div className="md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 lg:tw-place-self-start">
                             <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
                                 <img
@@ -796,7 +824,7 @@ function BatteryCard({
                             </div>
 
                             <div className=" tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start tw-text-left">
-                                <div className="tw-row-start-2 tw-font-bold">{getVernacularString("2c6dc668-49ef-4913-88c1-904d6e9be1a2", userPreferences.language)}</div>
+                                <div className="tw-row-start-2 tw-font-bold">{contentData.getContent("2c6dc668-49ef-4913-88c1-904d6e9be1a2")}</div>
                                 <div className="tw-row-start-3 tw-text-left">{inverterWarranty}</div>
                             </div>
                         </div>
@@ -810,7 +838,7 @@ function BatteryCard({
                             </div>
 
                             <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start tw-text-left">
-                                <div className="tw-row-start-2 tw-font-bold">{getVernacularString("landingPage2S4Specification3Title", userPreferences.language)}</div>
+                                <div className="tw-row-start-2 tw-font-bold">{contentData.getContent("landingPage2S4Specification3Title")}</div>
                                 <div className="tw-row-start-3">{inverterCapacity}</div>
                             </div>
                         </div>
@@ -828,13 +856,13 @@ function BatteryCard({
                             </div>
 
                             <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start tw-text-left">
-                                <div className="tw-row-start-2 tw-font-bold">{getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}</div>
+                                <div className="tw-row-start-2 tw-font-bold">{contentData.getContent("categoryInvertersS3R2C1")}</div>
                                 <div className="tw-row-start-3">{inverterTechnology}</div>
                             </div>
                         </div>
                     </div>
                     <div className="tw-border-[1px] tw-rounded-[8px] tw-border-[#F2F2F2] tw-p-4 tw-grid tw-gap-2">
-                        <div className="tw-text-left tw-text-[#EB2A2B] tw-font-bold">{getVernacularString("ormTrackingFormProduct2", userPreferences.language)}</div>
+                        <div className="tw-text-left tw-text-[#EB2A2B] tw-font-bold">{contentData.getContent("ormTrackingFormProduct2")}</div>
                         <div className="md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 lg:tw-place-self-start">
                             <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
                                 <img
@@ -844,7 +872,7 @@ function BatteryCard({
                             </div>
 
                             <div className=" tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start tw-text-left">
-                                <div className="tw-row-start-2 tw-font-bold">{getVernacularString("2c6dc668-49ef-4913-88c1-904d6e9be1a2", userPreferences.language)}</div>
+                                <div className="tw-row-start-2 tw-font-bold">{contentData.getContent("2c6dc668-49ef-4913-88c1-904d6e9be1a2")}</div>
                                 <div className="tw-row-start-3">{batteryWarranty}</div>
                             </div>
                         </div>
@@ -858,7 +886,7 @@ function BatteryCard({
                             </div>
 
                             <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start tw-text-left">
-                                <div className="tw-row-start-2 tw-font-bold">{getVernacularString("landingPage2S4Specification3Title", userPreferences.language)}</div>
+                                <div className="tw-row-start-2 tw-font-bold">{contentData.getContent("landingPage2S4Specification3Title")}</div>
                                 <div className="tw-row-start-3">{batteryCapacity}</div>
                             </div>
                         </div>
@@ -876,7 +904,7 @@ function BatteryCard({
                             </div>
 
                             <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-justify-self-start tw-text-left">
-                                <div className="tw-row-start-2 tw-font-bold">{getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}</div>
+                                <div className="tw-row-start-2 tw-font-bold">{contentData.getContent("categoryInvertersS3R2C1")}</div>
                                 <div className="tw-row-start-3">{batteryTechnology}</div>
                             </div>
                         </div>
@@ -890,11 +918,9 @@ function BatteryCard({
                     to={batterySlug}
                 >
                     <button className="lg-cta-button">
-                        {buttonTextVernacId == null
-                            ? getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)
-                            : getVernacularString(buttonTextVernacId, userPreferences.language)}
+                        {buttonTextVernacId == null ? contentData.getContent("063dc56b-910e-4a48-acb8-8f52668a4c72") : contentData.getContent(buttonTextVernacId)}
                     </button>
-                    {/* <button className="lg-cta-button">{buttonTextVernacId == null ? getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language) : getVernacularString("buttonTextVernacId", userPreferences.language)}</button> */}
+                    {/* <button className="lg-cta-button">{buttonTextVernacId == null ? contentData.getContent("063dc56b-910e-4a48-acb8-8f52668a4c72") : contentData.getContent("buttonTextVernacId")}</button> */}
                 </Link>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
@@ -904,23 +930,24 @@ function BatteryCard({
 }
 
 export function WhyLivguardCombo({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const sectionData = [
         {
             image: "/livguard/products/urban-combo/thumbnail.png",
-            title: `${getVernacularString("landingPage2S5LivH", userPreferences.language)}`,
-            content1: `${getVernacularString("landingPage2S5T1", userPreferences.language)}`,
-            content2: `${getVernacularString("landingPage2S5T2", userPreferences.language)}`,
-            content3: `${getVernacularString("landingPage2S5T3", userPreferences.language)}`,
-            content4: `${getVernacularString("landingPage2S5T4", userPreferences.language)}`,
+            title: `${contentData.getContent("landingPage2S5LivH")}`,
+            content1: `${contentData.getContent("landingPage2S5T1")}`,
+            content2: `${contentData.getContent("landingPage2S5T2")}`,
+            content3: `${contentData.getContent("landingPage2S5T3")}`,
+            content4: `${contentData.getContent("landingPage2S5T4")}`,
             highlighted: true,
         },
         {
             image: "/livguard/landing-pages/2/other_brands.png",
-            title: `${getVernacularString("landingPage2S5OBH", userPreferences.language)}`,
-            content1: `${getVernacularString("landingPage2S5T1", userPreferences.language)}`,
-            content2: `${getVernacularString("landingPage2S5T2", userPreferences.language)}`,
-            content3: `${getVernacularString("landingPage2S5T3", userPreferences.language)}`,
-            content4: `${getVernacularString("landingPage2S5T4", userPreferences.language)}`,
+            title: `${contentData.getContent("landingPage2S5OBH")}`,
+            content1: `${contentData.getContent("landingPage2S5T1")}`,
+            content2: `${contentData.getContent("landingPage2S5T2")}`,
+            content3: `${contentData.getContent("landingPage2S5T3")}`,
+            content4: `${contentData.getContent("landingPage2S5T4")}`,
             highlighted: false,
         },
     ];
@@ -930,7 +957,7 @@ export function WhyLivguardCombo({userPreferences, className}: {userPreferences:
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "why-livguard-combo": {
-                humanReadableName: getVernacularString("a70a34a0-4f68-4ff6-9bc5-3000c1191f7d", userPreferences.language),
+                humanReadableName: contentData.getContent("a70a34a0-4f68-4ff6-9bc5-3000c1191f7d"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -943,8 +970,8 @@ export function WhyLivguardCombo({userPreferences, className}: {userPreferences:
         >
             <div className="tw-flex tw-flex-col lg:tw-h-[89%]">
                 <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S5HT1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S5HT2", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage2S5HT1")}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage2S5HT2")}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-10" />
@@ -1035,6 +1062,7 @@ export function WhyLivguardCombo({userPreferences, className}: {userPreferences:
 }
 
 export function ExploreStarProducts({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const sectionData = [
         {
             title: "LG700E",
@@ -1063,7 +1091,7 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "star-products": {
-                humanReadableName: getVernacularString("9dc9953c-6891-4dd0-a5f2-70eafce21303", userPreferences.language),
+                humanReadableName: contentData.getContent("9dc9953c-6891-4dd0-a5f2-70eafce21303"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1076,8 +1104,8 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
         >
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S7HT1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S7HT2", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage2S7HT1")}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage2S7HT2")}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-6" />
@@ -1104,7 +1132,7 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
                                         <VerticalSpacer className="tw-h-4" />
 
                                         <div className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center">
-                                            <Link to={`/product/${product.title.toLowerCase()}`}>{getVernacularString("landingPage2S7CTABT", userPreferences.language)}</Link>
+                                            <Link to={`/product/${product.title.toLowerCase()}`}>{contentData.getContent("landingPage2S7CTABT")}</Link>
                                         </div>
                                     </div>
                                 </div>

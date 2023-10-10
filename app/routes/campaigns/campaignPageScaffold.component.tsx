@@ -1,3 +1,4 @@
+import {useState} from "react";
 import {CookieDialog} from "~/components/cookieDialog";
 import {CampaignFooterComponent} from "~/components/footers/campaignFooterComponent";
 import {HeaderComponent} from "~/components/headerComponent";
@@ -32,6 +33,7 @@ export function CampaignPageScaffold({
     secondaryNavigationController?: SecondaryNavigationController;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const [isCookieDialogOpen, setIsCookieDialogOpen] = useState(false);
     return (
         <>
             {/* tw-grid tw-grid-rows-[auto_1fr_auto] tw-grid-flow-col tw-min-h-screen */}
@@ -83,7 +85,11 @@ export function CampaignPageScaffold({
                 {/* /Suppress Haptik on campaign pages */}
             </div>
 
-            <CookieDialog userPreferences={userPreferences} />
+            <CookieDialog
+                isCookieDialogOpen={isCookieDialogOpen}
+                setIsCookieDialogOpen={setIsCookieDialogOpen}
+                userPreferences={userPreferences}
+            />
         </>
     );
 }

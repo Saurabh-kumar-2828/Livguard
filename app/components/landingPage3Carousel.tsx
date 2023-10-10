@@ -1,16 +1,17 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import Autoplay from "embla-carousel-autoplay";
+import {useContext} from "react";
 import {EmpowerYourHomeComponent} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function LandingPage3Carousel({
     userPreferences,
@@ -20,6 +21,7 @@ export function LandingPage3Carousel({
     items: Array<{imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}>;
 }) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
+    const contentData = useContext(ContentProviderContext);
 
     return (
         <div
@@ -41,13 +43,13 @@ export function LandingPage3Carousel({
                                 <DefaultElementAnimation>
                                     <div className="tw-row-start-2 lg:tw-col-start-1 tw-text-center lg:te-text-left">
                                         <DefaultTextAnimation>
-                                            <div className="lg-text-title1" dangerouslySetInnerHTML={{__html:getVernacularString(item.titleTextContentPiece, userPreferences.language)}} />
+                                            <div className="lg-text-title1" dangerouslySetInnerHTML={{__html:contentData. getContent(item.titleTextContentPiece)}} />
                                         </DefaultTextAnimation>
 
                                         <div className="tw-h-2" />
 
                                         <DefaultTextAnimation className="tw-flex-1">
-                                            <div className="lg-text-body lg-text-secondary-700 tw-flex-1">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
+                                            <div className="lg-text-body lg-text-secondary-700 tw-flex-1">{contentData.getContent(item.bodyTextContentPiece)}</div>
                                         </DefaultTextAnimation>
                                     </div>
                                     <VerticalSpacer className="tw-h-4" />

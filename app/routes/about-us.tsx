@@ -12,7 +12,7 @@ import {SecondaryNavigation} from "~/components/secondaryNavigation";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
@@ -23,7 +23,11 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -65,7 +69,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/about-us/about-us-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
             {
                 "script:ld+json": {
@@ -121,7 +125,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/about-us/about-us-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -133,6 +137,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -141,17 +152,24 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("aboutUsPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("aboutUsPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/about-us/about-us-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -159,27 +177,35 @@ export default () => {
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "849dabf7-0fa6-47e6-a1f8-e4f544306f7c", link: "/"},
-                    {contentId: "6d164881-cc49-4447-8460-d6fa6cf7a14f", link: "#"},
-                ]}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <AboutUsPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
                         userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
                         utmParameters={utmSearchParameters}
                         pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "849dabf7-0fa6-47e6-a1f8-e4f544306f7c", link: "/"},
+                            {contentId: "6d164881-cc49-4447-8460-d6fa6cf7a14f", link: "#"},
+                        ]}
                         secondaryNavigationController={secondaryNavigationController}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <AboutUsPage
+                                userPreferences={userPreferences}
+                                utmParameters={utmSearchParameters}
+                                pageUrl={pageUrl}
+                                secondaryNavigationController={secondaryNavigationController}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 };
@@ -282,6 +308,7 @@ function HeroSection({
     className?: string;
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
@@ -303,13 +330,13 @@ function HeroSection({
             <div className="lg:lg-about-us-banner-text-gradient tw-grid tw-grid-flow-row tw-row-start-2 tw-col-start-1 lg:tw-py-3">
                 <DefaultTextAnimation className=" tw-row-start-2 tw-col-start-1 tw-place-self-start lg-px-screen-edge-2 tw-justify-self-center lg:tw-justify-self-start tw-grid tw-grid-flow-row">
                     <div
-                        dangerouslySetInnerHTML={{__html: getVernacularString("b38f6ec8-1c38-44ef-b016-93da7ed7bf19", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("b38f6ec8-1c38-44ef-b016-93da7ed7bf19")}}
                         className="tw-row-start-1 lg-text-banner tw-text-secondary-900-dark tw-place-self-center tw-self-center tw-text-center lg:tw-text-left tw-max-w-[31rem]"
                     />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 tw-place-self-start lg-px-screen-edge-2 tw-justify-self-center lg:tw-justify-self-start tw-grid tw-grid-flow-row">
                     <div
-                        dangerouslySetInnerHTML={{__html: getVernacularString("ca68e2b9-8aba-4002-adbf-d9c40945027d", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("ca68e2b9-8aba-4002-adbf-d9c40945027d")}}
                         className="tw-row-start-2 lg-text-banner tw-text-secondary-900-dark tw-place-self-center tw-self-center tw-text-center lg:tw-text-left tw-max-w-[31rem]"
                     />
                 </DefaultTextAnimation>
@@ -319,6 +346,7 @@ function HeroSection({
 }
 
 function WhoWeAre({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     function WhoWeAreCard({iconUrl, title, description}: {iconUrl: string; title: string; description: string}) {
         return (
             <div className="tw-grid tw-grid-rows-[auto_minmax(0,1fr)] tw-border-[3px] lg-card ">
@@ -343,7 +371,7 @@ function WhoWeAre({userPreferences, className}: {userPreferences: UserPreference
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "who-we-are": {
-                humanReadableName: getVernacularString("1048c716-f3d1-4740-90b8-99e7d1e3b80d", userPreferences.language),
+                humanReadableName: contentData.getContent("1048c716-f3d1-4740-90b8-99e7d1e3b80d"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -351,13 +379,13 @@ function WhoWeAre({userPreferences, className}: {userPreferences: UserPreference
     const whoWeAreCardsContent = [
         {
             iconUrl: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/about-us/2/our-mission.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}`,
-            title: getVernacularString("8a35dff2-079c-4638-a96a-8100d04a72b6", userPreferences.language),
-            description: getVernacularString("4e49216b-9457-488a-860e-3fb97ba34100", userPreferences.language),
+            title: contentData.getContent("8a35dff2-079c-4638-a96a-8100d04a72b6"),
+            description: contentData.getContent("4e49216b-9457-488a-860e-3fb97ba34100"),
         },
         {
             iconUrl: "https://files.growthjockey.com/livguard/icons/about-us/2/our-vision.svg",
-            title: getVernacularString("68b1762f-e31f-4110-bf87-3afc487d7edf", userPreferences.language),
-            description: getVernacularString("373fedff-da89-4396-b215-ed4099abfcf9", userPreferences.language),
+            title: contentData.getContent("68b1762f-e31f-4110-bf87-3afc487d7edf"),
+            description: contentData.getContent("373fedff-da89-4396-b215-ed4099abfcf9"),
         },
     ];
 
@@ -369,20 +397,16 @@ function WhoWeAre({userPreferences, className}: {userPreferences: UserPreference
         >
             <div className="lg:tw-col-start-1 tw-w-full tw-h-full tw-grid tw-px-8 max-lg:tw-py-8 lg:tw-grid-rows-[minmax(2rem,1fr)_auto_auto_0.75rem_auto_minmax(2rem,1fr)] lg-card">
                 <DefaultTextAnimation className="tw-row-start-1 lg:tw-row-start-2 lg-text-banner tw-text-center lg:tw-text-left">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("540952b6-a7ef-453f-a6e5-cd8953fa4222", userPreferences.language)}}></div>
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("540952b6-a7ef-453f-a6e5-cd8953fa4222")}}></div>
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-row-start-2 lg:tw-hidden tw-h-2" />
 
-                <DefaultTextAnimation className="tw-row-start-3 lg-text-title2 tw-text-center lg:tw-text-left">
-                    {getVernacularString("55c526fa-c19d-4a73-a460-62c333174a1b", userPreferences.language)}
-                </DefaultTextAnimation>
+                <DefaultTextAnimation className="tw-row-start-3 lg-text-title2 tw-text-center lg:tw-text-left">{contentData.getContent("55c526fa-c19d-4a73-a460-62c333174a1b")}</DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-row-start-4 lg:tw-hidden tw-h-2" />
 
-                <DefaultTextAnimation className="tw-row-start-5 lg-text-body tw-text-center lg:tw-text-left">
-                    {getVernacularString("a95dff17-79db-4ac9-b9aa-2518f93919c5", userPreferences.language)}
-                </DefaultTextAnimation>
+                <DefaultTextAnimation className="tw-row-start-5 lg-text-body tw-text-center lg:tw-text-left">{contentData.getContent("a95dff17-79db-4ac9-b9aa-2518f93919c5")}</DefaultTextAnimation>
             </div>
 
             {whoWeAreCardsContent.map((cardContent, cardContentIndex) => {
@@ -400,43 +424,44 @@ function WhoWeAre({userPreferences, className}: {userPreferences: UserPreference
 }
 
 function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
 
     const leadersData: Array<{title: string; position: string; description: string; imageRelativePath: string}> = [
         {
-            title: getVernacularString("d867ff63-d4bf-49ae-8ac7-7290a76caef3", userPreferences.language),
-            position: getVernacularString("755f8e01-18c9-4883-956c-5851e4e3885f", userPreferences.language),
-            description: getVernacularString("8ddd1acf-9b2d-41f4-b4cd-e2395c211c88", userPreferences.language),
+            title: contentData.getContent("d867ff63-d4bf-49ae-8ac7-7290a76caef3"),
+            position: contentData.getContent("755f8e01-18c9-4883-956c-5851e4e3885f"),
+            description: contentData.getContent("8ddd1acf-9b2d-41f4-b4cd-e2395c211c88"),
             imageRelativePath: "/livguard/about-us/3/leader-rakesh.png",
         },
         {
-            title: getVernacularString("54c7930a-aed3-4efc-b2eb-68a7b5b87ae2", userPreferences.language),
-            position: getVernacularString("5267b971-9cbf-41dc-9cf8-abb2f8d7f2c5", userPreferences.language),
-            description: getVernacularString("07d2f8d0-b81b-4dd3-a547-1adef20b3fea", userPreferences.language),
+            title: contentData.getContent("54c7930a-aed3-4efc-b2eb-68a7b5b87ae2"),
+            position: contentData.getContent("5267b971-9cbf-41dc-9cf8-abb2f8d7f2c5"),
+            description: contentData.getContent("07d2f8d0-b81b-4dd3-a547-1adef20b3fea"),
             imageRelativePath: "/livguard/about-us/3/leader-navneet.png",
         },
         {
-            title: getVernacularString("4ca82802-b39e-4844-9586-82ce4b095cff", userPreferences.language),
-            position: getVernacularString("23fd4d15-8063-44e1-be03-a3aa6585d33b", userPreferences.language),
-            description: getVernacularString("4f82218c-1156-4660-b634-a1231d82d457", userPreferences.language),
+            title: contentData.getContent("4ca82802-b39e-4844-9586-82ce4b095cff"),
+            position: contentData.getContent("23fd4d15-8063-44e1-be03-a3aa6585d33b"),
+            description: contentData.getContent("4f82218c-1156-4660-b634-a1231d82d457"),
             imageRelativePath: "/livguard/about-us/3/leader-gurpreet.png",
         },
         {
-            title: getVernacularString("d867ff63-d4bf-49ae-8ac7-7290a76caef3", userPreferences.language),
-            position: getVernacularString("755f8e01-18c9-4883-956c-5851e4e3885f", userPreferences.language),
-            description: getVernacularString("8ddd1acf-9b2d-41f4-b4cd-e2395c211c88", userPreferences.language),
+            title: contentData.getContent("d867ff63-d4bf-49ae-8ac7-7290a76caef3"),
+            position: contentData.getContent("755f8e01-18c9-4883-956c-5851e4e3885f"),
+            description: contentData.getContent("8ddd1acf-9b2d-41f4-b4cd-e2395c211c88"),
             imageRelativePath: "/livguard/about-us/3/leader-rakesh.png",
         },
         {
-            title: getVernacularString("54c7930a-aed3-4efc-b2eb-68a7b5b87ae2", userPreferences.language),
-            position: getVernacularString("5267b971-9cbf-41dc-9cf8-abb2f8d7f2c5", userPreferences.language),
-            description: getVernacularString("07d2f8d0-b81b-4dd3-a547-1adef20b3fea", userPreferences.language),
+            title: contentData.getContent("54c7930a-aed3-4efc-b2eb-68a7b5b87ae2"),
+            position: contentData.getContent("5267b971-9cbf-41dc-9cf8-abb2f8d7f2c5"),
+            description: contentData.getContent("07d2f8d0-b81b-4dd3-a547-1adef20b3fea"),
             imageRelativePath: "/livguard/about-us/3/leader-navneet.png",
         },
         {
-            title: getVernacularString("4ca82802-b39e-4844-9586-82ce4b095cff", userPreferences.language),
-            position: getVernacularString("23fd4d15-8063-44e1-be03-a3aa6585d33b", userPreferences.language),
-            description: getVernacularString("4f82218c-1156-4660-b634-a1231d82d457", userPreferences.language),
+            title: contentData.getContent("4ca82802-b39e-4844-9586-82ce4b095cff"),
+            position: contentData.getContent("23fd4d15-8063-44e1-be03-a3aa6585d33b"),
+            description: contentData.getContent("4f82218c-1156-4660-b634-a1231d82d457"),
             imageRelativePath: "/livguard/about-us/3/leader-gurpreet.png",
         },
     ];
@@ -446,7 +471,7 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "our-leadership": {
-                humanReadableName: getVernacularString("1720638d-aba3-4e1e-8c5d-3f9dede7c4c8", userPreferences.language),
+                humanReadableName: contentData.getContent("1720638d-aba3-4e1e-8c5d-3f9dede7c4c8"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -463,8 +488,8 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
                 ref={ref}
             >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
-                    <div>{getVernacularString("13f6e1c4-d97c-46cf-8ddb-52712843410b", userPreferences.language)}</div>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("cb60764f-1758-4b61-a998-8f7acc7b0b92", userPreferences.language)}} />
+                    <div>{contentData.getContent("13f6e1c4-d97c-46cf-8ddb-52712843410b")}</div>
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("cb60764f-1758-4b61-a998-8f7acc7b0b92")}} />
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-h-20" />
@@ -511,6 +536,7 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
 }
 
 function OurValues({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     enum Values {
         Aim = 0,
         Inspire = 1,
@@ -570,7 +596,7 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "our-values": {
-                humanReadableName: getVernacularString("35610704-9140-46c7-a510-9365b19f837d", userPreferences.language),
+                humanReadableName: contentData.getContent("35610704-9140-46c7-a510-9365b19f837d"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -581,7 +607,7 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
         return (
             <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_1rem_auto]", valueDisplayClassName)}>
                 <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString(valuesData[selectedValue].valueText, userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent(valuesData[selectedValue].valueText)}}
                     className="tw-row-start-1 tw-text-center lg:tw-text-left"
                 ></div>
                 <div className="tw-row-start-3 tw-flex flex-row tw-justify-center lg:tw-justify-start">
@@ -602,11 +628,11 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
             ref={sectionRef}
         >
             <div
-                dangerouslySetInnerHTML={{__html: getVernacularString("389859cd-81c3-4b9a-95ad-b38dde856511", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("389859cd-81c3-4b9a-95ad-b38dde856511")}}
                 className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left"
             />
 
-            <div className="tw-row-start-3 lg-text-title2 tw-text-center lg:tw-text-left">{getVernacularString("0840f752-7ac4-4277-8e49-5cf832119941", userPreferences.language)}</div>
+            <div className="tw-row-start-3 lg-text-title2 tw-text-center lg:tw-text-left">{contentData.getContent("0840f752-7ac4-4277-8e49-5cf832119941")}</div>
 
             {/* <ValueSelector valueSelectorClassName="tw-row-start-5" /> */}
             <div className={concatenateNonNullStringsWithSpaces("tw-row-start-5 tw-grid tw-auto-cols-[repeat(6,1fr)] tw-gap-1")}>
@@ -623,7 +649,7 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
                                 setSelectedValue(valueDataIndex);
                             }}
                         >
-                            {getVernacularString(valueData.letter, userPreferences.language)}
+                            {contentData.getContent(valueData.letter)}
                         </div>
                     );
                 })}
@@ -635,6 +661,7 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
 }
 
 function ExploreCareers({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2", className)}>
             <div className="tw-p-6 lg-contact-gradient-light dark:lg-contact-gradient-dark tw-rounded-lg tw-grid tw-grid-rows-[auto_1rem_auto_1rem_minmax(0,1fr)_1rem_auto] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_20rem_2rem_minmax(0,1fr)_2rem_auto] tw-items-center">
@@ -648,18 +675,18 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
 
                 <div
                     className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-3 lg-text-headline tw-text-center lg:tw-text-left"
-                    dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("2adcc683-70f0-4b39-be83-73211ea28f20", userPreferences.language))}}
+                    dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("2adcc683-70f0-4b39-be83-73211ea28f20"))}}
                 />
 
                 <div className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-5 tw-text-center lg:tw-text-left lg:tw-max-w-[20rem] lg:tw-place-self-center">
-                    {getVernacularString("1aa2a41b-b500-43bb-b0cd-b9999f5e442b", userPreferences.language)}
+                    {contentData.getContent("1aa2a41b-b500-43bb-b0cd-b9999f5e442b")}
                 </div>
 
                 <Link
                     className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-7 tw-place-self-center lg-cta-button tw-max-w-fit"
                     to="/"
                 >
-                    {getVernacularString("c1a8bbb2-f085-4c71-8082-7e292fcde4e7", userPreferences.language)}
+                    {contentData.getContent("c1a8bbb2-f085-4c71-8082-7e292fcde4e7")}
                 </Link>
             </div>
         </div>
@@ -667,6 +694,7 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
 }
 
 function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -674,7 +702,7 @@ function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPref
     //     secondaryNavigationController.setSections((previousSections) => ({
     //         ...previousSections,
     //         "empowered-by-sar": {
-    //             humanReadableName: getVernacularString("fe6d299f-3f6a-44fe-9b3a-877ff0d423d2", userPreferences.language),
+    //             humanReadableName: contentData.getContent("fe6d299f-3f6a-44fe-9b3a-877ff0d423d2"),
     //             isCurrentlyVisible: sectionInView,
     //         },
     //     }));
@@ -713,22 +741,20 @@ function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPref
             <div className="tw-row-start-1 md:tw-row-start-3 tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_0.5rem_auto] md:tw-grid-rows-[auto_auto_1rem_auto] md:tw-grid-cols-[minmax(0,11fr)_1.5rem_minmax(0,9fr)] md:tw-w-full">
                 <div
                     className="tw-row-start-1 lg-text-headline tw-text-center md:tw-row-start-1 md:tw-col-start-3"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("310ad3b5-2e4a-409b-9622-c1389c366dbd", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("310ad3b5-2e4a-409b-9622-c1389c366dbd")}}
                 />
-                <div className="tw-row-start-3 tw-text-center lg-text-title2 md:tw-row-start-2 md:tw-col-start-3">
-                    {getVernacularString("b005d8fa-48dc-4f1a-acee-4afdeec1a1d2", userPreferences.language)}
-                </div>
+                <div className="tw-row-start-3 tw-text-center lg-text-title2 md:tw-row-start-2 md:tw-col-start-3">{contentData.getContent("b005d8fa-48dc-4f1a-acee-4afdeec1a1d2")}</div>
                 <div className="tw-row-start-5 md:tw-row-start-1 md:tw-row-span-full md:tw-col-start-1 md:tw-place-self-center tw-h-full tw-w-full">
                     <div className="tw-h-full tw-w-full tw-grid tw-items-center">
                         <FullWidthImage relativePath="/livguard/about-us/7/sar.png" />
                     </div>
                 </div>
                 <div className="tw-row-start-7 tw-text-center md:tw-row-start-4 md:tw-col-start-3 md:tw-w-full lg-text-body lg-text-secondary-900">
-                    {getVernacularString("4a0ff6e2-3456-4e80-a100-dd0437e1e1a5", userPreferences.language)}
+                    {contentData.getContent("4a0ff6e2-3456-4e80-a100-dd0437e1e1a5")}
                 </div>
             </div>
             <div className="tw-row-start-3 md:tw-row-start-4 tw-text-center lg-text-title2 md:lg-text-body md:lg-text-secondary-900">
-                {getVernacularString("1dac654a-dcb3-48bf-9b14-2e08470548d9", userPreferences.language)}
+                {contentData.getContent("1dac654a-dcb3-48bf-9b14-2e08470548d9")}
             </div>
             <div className="tw-row-start-5 md:tw-row-start-6 tw-w-full lg:tw-grid-cols-5 tw-items-center tw-grid tw-grid-flow-col tw-overflow-hidden tw-gap-x-8">
                 {isScreenSizeBelow == null ? null : isScreenSizeBelow ? (
@@ -773,13 +799,14 @@ function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPref
 }
 
 function OurOperations({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "our-operations": {
-                humanReadableName: getVernacularString("591ebee7-9d2d-416f-8942-29e3840cc4c4", userPreferences.language),
+                humanReadableName: contentData.getContent("591ebee7-9d2d-416f-8942-29e3840cc4c4"),
                 isCurrentlyVisible: sectionInView,
             },
         }));

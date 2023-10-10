@@ -1,14 +1,15 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
+import {useContext} from "react";
 
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import type {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function ComboCarousel({
     userPreferences,
@@ -23,6 +24,7 @@ export function ComboCarousel({
     }>;
 }) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000, 6000);
+    const contentData = useContext(ContentProviderContext);
 
     return (
         <div
@@ -46,12 +48,12 @@ export function ComboCarousel({
                                         <VerticalSpacer className="tw-h-4" />
                                         {/* <div className="tw-hidden lg:tw-block tw-text-left lg-text-titile1">
                                             <div
-                                                dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT1", userPreferences.language)}}
+                                                dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage2S4HT1")}}
                                                 className="lg:lg-text-title1"
                                             />
 
                                             <div
-                                                dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT2", userPreferences.language)}}
+                                                dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage2S4HT2")}}
                                                 className="lg:lg-text-title1"
                                             />
                                         </div>
@@ -66,7 +68,7 @@ export function ComboCarousel({
 
                                         <VerticalSpacer className="tw-h-6" />
 
-                                        <div className="lg-text-title2 lg:tw-text-left">{`${getVernacularString("landingPage2S4KeySpecificationTitle", userPreferences.language)}`}</div>
+                                        <div className="lg-text-title2 lg:tw-text-left">{`${contentData.getContent("landingPage2S4KeySpecificationTitle")}`}</div>
 
                                         <VerticalSpacer className="tw-h-6" />
 
@@ -89,9 +91,8 @@ export function ComboCarousel({
                                                             </div>
 
                                                             <div className="tw-flex tw-flex-col tw-gap-1 tw-justify-start">
-                                                                <div className="lg-text-body tw-font-bold tw-text-left">{`${getVernacularString(
+                                                                <div className="lg-text-body tw-font-bold tw-text-left">{`${contentData.getContent(
                                                                     `landingPage2S4Specification${keySpecificationIndex + 1}Title`,
-                                                                    userPreferences.language,
                                                                 )}`}</div>
                                                                 <div className="lg-text-body tw-text-left">{keySpecification.keySpecificationContent}</div>
                                                             </div>

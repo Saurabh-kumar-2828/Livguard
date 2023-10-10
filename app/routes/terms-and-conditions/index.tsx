@@ -5,7 +5,7 @@ import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
@@ -13,7 +13,12 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {useContext} from "react";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -55,7 +60,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -96,7 +101,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -108,6 +113,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -116,34 +128,49 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("termsAndConditionsPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("termsAndConditionsPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
     const utmSearchParameters = useUtmSearchParameters();
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "10963071-3787-457b-a98b-79067ec8a07c", link: "#"},
-                ]}
-            >
-                <TermsAndConditionsPage userPreferences={userPreferences} />
-            </PageScaffold>
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
+                        userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "10963071-3787-457b-a98b-79067ec8a07c", link: "#"},
+                        ]}
+                    >
+                        <TermsAndConditionsPage userPreferences={userPreferences} />
+                    </PageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 };
@@ -306,6 +333,7 @@ function TermsAndConditionsPage({userPreferences}: {userPreferences: UserPrefere
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
@@ -325,7 +353,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
             </div>
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("c20f3105-e059-40f5-8fbf-4f607adf08a9", userPreferences.language)}
+                    {contentData.getContent("c20f3105-e059-40f5-8fbf-4f607adf08a9")}
                 </div>
             </DefaultTextAnimation>
         </div>
@@ -333,21 +361,22 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function TermsAndConditions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-headline lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("8f4b0d15-62bd-48ed-afed-1ba749177561", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("8f4b0d15-62bd-48ed-afed-1ba749177561")}}
                 ></div>
                 <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
-                    <div className="lg-text-body  lg-text-secondary-900">{getVernacularString("731f1433-da78-405f-8bc5-e7351f120dd5", userPreferences.language)}</div>
+                    <div className="lg-text-body  lg-text-secondary-900">{contentData.getContent("731f1433-da78-405f-8bc5-e7351f120dd5")}</div>
 
-                    <div className="lg-text-body lg-text-secondary-900">{getVernacularString("2122f878-eff2-4af4-8510-94913a31665f", userPreferences.language)}</div>
+                    <div className="lg-text-body lg-text-secondary-900">{contentData.getContent("2122f878-eff2-4af4-8510-94913a31665f")}</div>
 
-                    <div className="lg-text-body  lg-text-secondary-900">{getVernacularString("7936f9fd-37f1-462c-b128-a35148d65307", userPreferences.language)}</div>
+                    <div className="lg-text-body  lg-text-secondary-900">{contentData.getContent("7936f9fd-37f1-462c-b128-a35148d65307")}</div>
 
-                    <div className="lg-text-body  lg-text-secondary-900">{getVernacularString("f0a60c22-e48c-49ae-bbc5-c2fbaa8a4079", userPreferences.language)}</div>
+                    <div className="lg-text-body  lg-text-secondary-900">{contentData.getContent("f0a60c22-e48c-49ae-bbc5-c2fbaa8a4079")}</div>
                 </div>
             </div>
         </div>
@@ -355,58 +384,62 @@ function TermsAndConditions({userPreferences, className}: {userPreferences: User
 }
 
 function OnlineStorTerms({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("44121e27-31a6-4f36-b919-e897da7e6ff4", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("44121e27-31a6-4f36-b919-e897da7e6ff4")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("b619e5ee-6ee2-4d16-910f-4c2889c941b0", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("b619e5ee-6ee2-4d16-910f-4c2889c941b0")}</div>
             </div>
         </div>
     );
 }
 
 function GeneralConditions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("34f3e534-f601-41b4-b1a7-9e9a4d1e13e5", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("34f3e534-f601-41b4-b1a7-9e9a4d1e13e5")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("086f8701-8e5a-47bc-89b0-185ff2986841", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("086f8701-8e5a-47bc-89b0-185ff2986841")}</div>
             </div>
         </div>
     );
 }
 
 function AccuracyCompleteness({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("8cddd0be-4dd4-4bba-9ae0-69c0adee74b8", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("8cddd0be-4dd4-4bba-9ae0-69c0adee74b8")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("f4d35c89-f150-4460-aca6-ce00dfb2d36a", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("f4d35c89-f150-4460-aca6-ce00dfb2d36a")}</div>
             </div>
         </div>
     );
 }
 
 function ModificationsPrices({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("c506fce1-6d8d-41a9-bfc2-7bb5cb2d954a", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("c506fce1-6d8d-41a9-bfc2-7bb5cb2d954a")}}
                 ></div>
                 <div
                     className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("677f57ae-75b0-4440-aca1-3eb9cfe86407", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("677f57ae-75b0-4440-aca1-3eb9cfe86407")}}
                 ></div>
             </div>
         </div>
@@ -414,16 +447,17 @@ function ModificationsPrices({userPreferences, className}: {userPreferences: Use
 }
 
 function ProductOfServices({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("e8c5a78d-46cd-405e-b3f8-fa1903a15a55", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("e8c5a78d-46cd-405e-b3f8-fa1903a15a55")}}
                 ></div>
                 <div
                     className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("04db7675-e412-4294-bfd0-24d54520d02c", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("04db7675-e412-4294-bfd0-24d54520d02c")}}
                 ></div>
             </div>
         </div>
@@ -431,44 +465,47 @@ function ProductOfServices({userPreferences, className}: {userPreferences: UserP
 }
 
 function AccuracyOfBilling({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("8eb8744c-b87e-4fee-a31e-cb5cb0c05720", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("8eb8744c-b87e-4fee-a31e-cb5cb0c05720")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("da28284e-6a67-4d6b-ab94-88264a236dae", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("da28284e-6a67-4d6b-ab94-88264a236dae")}</div>
             </div>
         </div>
     );
 }
 
 function OptionalTools({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("a141932c-d082-4ea8-bd52-152d0172acff", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("a141932c-d082-4ea8-bd52-152d0172acff")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("85802f96-057c-4bda-bbab-41bcaa744eb0", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("85802f96-057c-4bda-bbab-41bcaa744eb0")}</div>
             </div>
         </div>
     );
 }
 
 function ThirdPartyLinks({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("8ba6e093-1965-478a-bebb-2ce8a976a7e4", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("8ba6e093-1965-478a-bebb-2ce8a976a7e4")}}
                 ></div>
                 <div
                     className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("f4b935d3-198d-4799-9e63-bb9862c62409", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("f4b935d3-198d-4799-9e63-bb9862c62409")}}
                 ></div>
             </div>
         </div>
@@ -476,44 +513,47 @@ function ThirdPartyLinks({userPreferences, className}: {userPreferences: UserPre
 }
 
 function UserComments({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("507846b5-9418-4892-b2b5-edff14a15c51", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("507846b5-9418-4892-b2b5-edff14a15c51")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("1abda71d-9e0b-49d4-9966-49df5769e93e", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("1abda71d-9e0b-49d4-9966-49df5769e93e")}</div>
             </div>
         </div>
     );
 }
 
 function PersonalInformation({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("ef253e42-d84f-44bf-9516-43ea3810563c", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("ef253e42-d84f-44bf-9516-43ea3810563c")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("e917e6fd-9d24-4031-bee1-68e7b19877f8", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("e917e6fd-9d24-4031-bee1-68e7b19877f8")}</div>
             </div>
         </div>
     );
 }
 
 function ErrorsInaccuracies({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("28f8227f-c1a6-4376-88e7-0bfff6a5a8db", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("28f8227f-c1a6-4376-88e7-0bfff6a5a8db")}}
                 ></div>
                 <div
                     className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("db22183d-e38b-4d36-9dbd-1e2235e09ee2", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("db22183d-e38b-4d36-9dbd-1e2235e09ee2")}}
                 ></div>
             </div>
         </div>
@@ -521,72 +561,77 @@ function ErrorsInaccuracies({userPreferences, className}: {userPreferences: User
 }
 
 function ProhibitedUses({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("a13e2f28-5049-4032-bb25-cb70035f7eb2", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("a13e2f28-5049-4032-bb25-cb70035f7eb2")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("bce2466f-c797-4faa-b6d1-1837739aa55d", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("bce2466f-c797-4faa-b6d1-1837739aa55d")}</div>
             </div>
         </div>
     );
 }
 
 function DisclaimerOfWarranties({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("b0f9c01f-a82d-45a7-8546-685567cd7591", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("b0f9c01f-a82d-45a7-8546-685567cd7591")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("7dba2dc9-b153-4216-bbf6-d965332c0e12", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("7dba2dc9-b153-4216-bbf6-d965332c0e12")}</div>
             </div>
         </div>
     );
 }
 
 function Indemnification({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("3b74dadf-3333-4c76-acbd-5c1ecd7deb7f", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("3b74dadf-3333-4c76-acbd-5c1ecd7deb7f")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("e3304f79-e46e-4eef-aebb-f57b637f2b14", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("e3304f79-e46e-4eef-aebb-f57b637f2b14")}</div>
             </div>
         </div>
     );
 }
 
 function Severability({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("a7084225-0803-48c7-b01a-a4afbf547313", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("a7084225-0803-48c7-b01a-a4afbf547313")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("e9700119-8143-4956-81dc-fa03ff519f80", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("e9700119-8143-4956-81dc-fa03ff519f80")}</div>
             </div>
         </div>
     );
 }
 
 function Termination({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("5f5fc2cb-35c1-4f59-8974-5fcb014eb17f", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("5f5fc2cb-35c1-4f59-8974-5fcb014eb17f")}}
                 ></div>
                 <div
                     className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("9394bd5d-8e93-41b3-ac77-993ceb0ded94", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("9394bd5d-8e93-41b3-ac77-993ceb0ded94")}}
                 ></div>
             </div>
         </div>
@@ -594,16 +639,17 @@ function Termination({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function EntireAgreement({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("c484926d-4b74-49b7-a48c-6de59678fdf6", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("c484926d-4b74-49b7-a48c-6de59678fdf6")}}
                 ></div>
                 <div
                     className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("4519b623-bbc3-4576-a1b9-26c6254dd47e", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("4519b623-bbc3-4576-a1b9-26c6254dd47e")}}
                 ></div>
             </div>
         </div>
@@ -611,30 +657,32 @@ function EntireAgreement({userPreferences, className}: {userPreferences: UserPre
 }
 
 function GoverningLaw({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("1af3f0bb-75d3-4d8f-8661-a03e8d9c569d", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("1af3f0bb-75d3-4d8f-8661-a03e8d9c569d")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("c27d7e42-b4a3-4e93-8c2d-c7d12cd6010e", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("c27d7e42-b4a3-4e93-8c2d-c7d12cd6010e")}</div>
             </div>
         </div>
     );
 }
 
 function ChangesToTerms({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("3f67f49f-92ab-434c-b9eb-8d4e9d75a115", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("3f67f49f-92ab-434c-b9eb-8d4e9d75a115")}}
                 ></div>
                 <div
                     className="tw-pl-[3rem] lg-text-body lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("34a39f63-6f7d-430d-9c6c-7eefe5e9bf33", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("34a39f63-6f7d-430d-9c6c-7eefe5e9bf33")}}
                 ></div>
             </div>
         </div>
@@ -642,14 +690,15 @@ function ChangesToTerms({userPreferences, className}: {userPreferences: UserPref
 }
 
 function ContactInformation({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                 <div
                     className="lg-text-title1 lg-text-secondary-900"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("508d2a70-f673-4119-8776-4405f6987780", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("508d2a70-f673-4119-8776-4405f6987780")}}
                 ></div>
-                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{getVernacularString("82ce1187-230a-4182-9090-a0a42cc54ef0", userPreferences.language)}</div>
+                <div className="tw-pl-[3rem] lg-text-body lg-text-secondary-900">{contentData.getContent("82ce1187-230a-4182-9090-a0a42cc54ef0")}</div>
             </div>
         </div>
     );

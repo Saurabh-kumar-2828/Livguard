@@ -1,6 +1,6 @@
 import type {FetcherWithComponents} from "@remix-run/react";
 import {useFetcher} from "@remix-run/react";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {toast} from "react-toastify";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import LivguardDialog from "~/components/livguardDialog";
@@ -11,7 +11,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import type {UserPreferences} from "~/typeDefinitions";
 import {FormType} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function OtpVerificationDialog({
     userPreferences,
@@ -79,6 +79,8 @@ export function OtpVerificationDialog({
         setIsDialogOpen(false);
     }
 
+    const contentData = useContext(ContentProviderContext);
+
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
             <LivguardDialog
@@ -94,13 +96,13 @@ export function OtpVerificationDialog({
                         action={formType == FormType.leadFormSubmission || formType == FormType.offerContactUsSubmission ? "/lead-form-submission" : "/apply-for-dealership"}
                     >
                         <div className="tw-text-center lg-text-headline tw-px-8">
-                            <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFAQT1", userPreferences.language)}} />
+                            <div dangerouslySetInnerHTML={{__html: contentData.getContent("contactUsFAQT1")}} />
                         </div>
 
                         <div className="tw-h-8" />
 
                         <div className="tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                            <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+                            <div className="lg-text-title2 tw-pl-3 tw-text-white">{contentData.getContent("contactUsT2")}</div>
 
                             <VerticalSpacer className="tw-h-1" />
 
@@ -112,14 +114,14 @@ export function OtpVerificationDialog({
                                 required
                                 defaultValue={inputData.phoneNumber}
                                 readOnly
-                                placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
+                                placeholder={contentData.getContent("contactUsT2E")}
                             />
                         </div>
 
                         <VerticalSpacer className="tw-h-2" />
 
                         <div className="tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                            <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsOTPT3", userPreferences.language)}</div>
+                            <div className="lg-text-title2 tw-pl-3 tw-text-white">{contentData.getContent("contactUsOTPT3")}</div>
 
                             <VerticalSpacer className="tw-h-1" />
 
@@ -129,12 +131,10 @@ export function OtpVerificationDialog({
                                     name="otpSubmitted"
                                     className="lg-text-input"
                                     required
-                                    placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                    placeholder={contentData.getContent("contactUsOTPT3E")}
                                 />
                                 {invalidOtp && (
-                                    <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-5 tw-top-0 tw-bottom-0 tw-pt-[18px]">
-                                        {getVernacularString("OfferInvalidOTP", userPreferences.language)}
-                                    </div>
+                                    <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-5 tw-top-0 tw-bottom-0 tw-pt-[18px]">{contentData.getContent("OfferInvalidOTP")}</div>
                                 )}
                             </div>
                         </div>
@@ -150,7 +150,7 @@ export function OtpVerificationDialog({
                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                 }}
                             >
-                                {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                {contentData.getContent("OfferResendOTP")}
                             </div>
                             <div className="lg-text-secondary-700 tw-text-[12px]">{`${resendTimeOut}:00`}</div>
                         </div>
@@ -170,7 +170,7 @@ export function OtpVerificationDialog({
                                 className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
                                 disabled={fetcher.state != "idle"}
                             >
-                                {getVernacularString("applyNowForDealerT6", userPreferences.language)}
+                                {contentData.getContent("applyNowForDealerT6")}
                             </button>
                         </div>
                         <input

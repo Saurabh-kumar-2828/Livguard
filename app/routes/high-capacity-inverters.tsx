@@ -16,7 +16,7 @@ import {SecondaryNavigation} from "~/components/secondaryNavigation";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
@@ -27,7 +27,11 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -67,7 +71,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hkva/hkva-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -106,7 +110,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hkva/hkva-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -119,6 +123,13 @@ type LoaderData = {
     redirectTo: string;
     pageUrl: string;
     products: Array<ProductDetails>;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -130,51 +141,65 @@ export const loader: LoaderFunction = async ({request}) => {
     const slugs = ["lg2350ixl", "lgs2500", "lgs3000", "lg3500", "lgs4000", "lgs5000"];
 
     const products = slugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+    const vernacularData = getVernacularFromBackend("hkvaInverterPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("highCapacityInverterPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/hkva/hkva-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
         products: products,
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl, products} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, products, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                secondaryNavigationController={secondaryNavigationController}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "d36bc5a4-9718-4e25-bc26-1a8c4853d9b1", link: "#"},
-                ]}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <HKVAPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
                         userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
                         secondaryNavigationController={secondaryNavigationController}
-                        products={products}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "d36bc5a4-9718-4e25-bc26-1a8c4853d9b1", link: "#"},
+                        ]}
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <HKVAPage
+                                userPreferences={userPreferences}
+                                secondaryNavigationController={secondaryNavigationController}
+                                products={products}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
 
-            <ProductAndCategoryBottomBar
-                userPreferences={userPreferences}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-            />
+                    <ProductAndCategoryBottomBar
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                    />
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 };
@@ -268,6 +293,7 @@ function HKVAPage({
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <div
@@ -288,28 +314,25 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
             </div>
 
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg-px-screen-edge-2">
-                <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("1333b617-c9a4-4b8c-b6ae-652d2b17c58b", userPreferences.language)}
-                </div>
+                <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">{contentData.getContent("1333b617-c9a4-4b8c-b6ae-652d2b17c58b")}</div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg-px-screen-edge-2">
-                <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("f7ab7eb5-83ec-4ced-b179-c9ad29f8673e", userPreferences.language)}
-                </div>
+                <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">{contentData.getContent("f7ab7eb5-83ec-4ced-b179-c9ad29f8673e")}</div>
             </DefaultTextAnimation>
         </div>
     );
 }
 
 function ExperienceHighPower({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "features": {
-                humanReadableName: getVernacularString("f19bea1b-ce21-4a14-af85-b49b68827611", userPreferences.language),
+                humanReadableName: contentData.getContent("f19bea1b-ce21-4a14-af85-b49b68827611"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -422,8 +445,8 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
                 ref={sectionRef}
             >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg:lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("eaa6ffa9-a509-4be1-8f5e-93a008f86aaf", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("354321fa-4e5e-4cc5-80a4-07a320dfe654", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("eaa6ffa9-a509-4be1-8f5e-93a008f86aaf")}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("354321fa-4e5e-4cc5-80a4-07a320dfe654")}} />
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
@@ -432,8 +455,8 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
                     snapDotsDivisionFactor={3}
                     items={invertersData.map((batteryData, batteryDataIndex) => (
                         <InverterUSPCard
-                            title={getVernacularString(batteryData.titleTextContentPiece, userPreferences.language)}
-                            description={getVernacularString(batteryData.bodyTextContentPiece, userPreferences.language)}
+                            title={contentData.getContent(batteryData.titleTextContentPiece)}
+                            description={contentData.getContent(batteryData.bodyTextContentPiece)}
                             imageRelativePath={batteryData.imageRelativePath}
                             key={batteryDataIndex}
                         />
@@ -449,13 +472,14 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
 }
 
 function ChooseYourInverter({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "your-inverter": {
-                humanReadableName: getVernacularString("fdb7fec0-6865-44e5-a84c-73b11f76c326", userPreferences.language),
+                humanReadableName: contentData.getContent("fdb7fec0-6865-44e5-a84c-73b11f76c326"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -467,8 +491,8 @@ function ChooseYourInverter({userPreferences, className}: {userPreferences: User
             ref={sectionRef}
         >
             <h2 className="lg-text-screen-edge lg-text-headline tw-text-center">
-                <div dangerouslySetInnerHTML={{__html: getVernacularString("b3b052f7-ef5b-43d1-b426-279e9c05ca84", userPreferences.language)}} />
-                <div dangerouslySetInnerHTML={{__html: getVernacularString("354448cd-c3be-4427-b3a5-c3f5cf7afaf9", userPreferences.language)}} />
+                <div dangerouslySetInnerHTML={{__html: contentData.getContent("b3b052f7-ef5b-43d1-b426-279e9c05ca84")}} />
+                <div dangerouslySetInnerHTML={{__html: contentData.getContent("354448cd-c3be-4427-b3a5-c3f5cf7afaf9")}} />
             </h2>
 
             <VerticalSpacer className="lg:tw-h-[6.5rem]" />
@@ -479,6 +503,7 @@ function ChooseYourInverter({userPreferences, className}: {userPreferences: User
 }
 
 function ChooseYourInverterInternal({userPreferences}: {userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="md:tw-flex md:tw-justify-center">
             <div className="lg-px-screen-edge tw-grid tw-grid-rows-[7.5rem_repeat(7,auto)] lg:tw-grid-rows-[7.5rem_repeat(7,auto)] tw-grid-cols-[min-content_14rem_14rem] tw-overflow-x-scroll tw-overflow-y-visible [@media(min-width:55rem)]:tw-overflow-visible md:tw-grid-cols-[min-content_22rem_22rem] tw-gap-x-2 tw-pt-20 lg:tw-pt-0">
@@ -504,63 +529,60 @@ function ChooseYourInverterInternal({userPreferences}: {userPreferences: UserPre
                     </div>
                 </div>
 
-                <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">
-                    {getVernacularString("0bcd7c25-b650-4085-990b-36795b06c1f5", userPreferences.language)}
-                </div>
+                <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{contentData.getContent("0bcd7c25-b650-4085-990b-36795b06c1f5")}</div>
 
-                <div className="tw-row-start-2 tw-col-start-3 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">
-                    {getVernacularString("7618d425-96b8-4402-9ffb-50f4a69efbf9", userPreferences.language)}
-                </div>
+                <div className="tw-row-start-2 tw-col-start-3 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{contentData.getContent("7618d425-96b8-4402-9ffb-50f4a69efbf9")}</div>
 
                 <div className="!tw-font-bold tw-row-start-3 tw-col-start-1 tw-mr-2 max-lg:lg-text-icon tw-py-3 tw-border-solid tw-border-b lg-border-secondary-900 tw-border-opacity-50 lg-text-secondary">
-                    {getVernacularString("1685c892-2604-467b-835b-751154288554", userPreferences.language)}
+                    {contentData.getContent("1685c892-2604-467b-835b-751154288554")}
                 </div>
 
                 <div className="tw-row-start-3 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b lg-border-secondary-300 tw-border-opacity-50">
-                    {getVernacularString("1e7e9b6c-9b4b-43c9-876c-3b1eb84c555f", userPreferences.language)}
+                    {contentData.getContent("1e7e9b6c-9b4b-43c9-876c-3b1eb84c555f")}
                 </div>
 
                 <div className="tw-row-start-3 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b lg-border-hkva-table tw-border-opacity-50">
-                    {getVernacularString("a5350102-acd3-4024-a3ef-bcf478522fbb", userPreferences.language)}
+                    {contentData.getContent("a5350102-acd3-4024-a3ef-bcf478522fbb")}
                 </div>
 
                 <div className="!tw-font-bold tw-row-start-4 tw-col-start-1 tw-mr-2 max-lg:lg-text-icon tw-py-3 tw-border-solid tw-border-b lg-border-secondary-900 tw-border-opacity-50 text-secondary">
-                    {getVernacularString("a331300e-7f4f-4937-b652-be74e52427fa", userPreferences.language)}
+                    {contentData.getContent("a331300e-7f4f-4937-b652-be74e52427fa")}
                 </div>
 
                 <div className="tw-row-start-4 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b lg-border-secondary-300 tw-border-opacity-50">
-                    {getVernacularString("86034731-4b04-4172-8ba3-bc4f6ba538a7", userPreferences.language)}
+                    {contentData.getContent("86034731-4b04-4172-8ba3-bc4f6ba538a7")}
                 </div>
 
                 <div className="tw-row-start-4 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b lg-border-hkva-table tw-border-opacity-50">
-                    {getVernacularString("d293fd91-73a4-4cb9-94b1-fa261e25f284", userPreferences.language)}
+                    {contentData.getContent("d293fd91-73a4-4cb9-94b1-fa261e25f284")}
                 </div>
 
                 <div className="!tw-font-bold tw-row-start-5 tw-col-start-1 tw-mr-2 max-lg:lg-text-icon tw-py-3 tw-pb-8 lg-text-secondary-900 tw-border-solid tw-border-b lg-border-secondary-900 tw-border-opacity-50 text-secondary">
-                    {getVernacularString("72d5d1e9-8be5-4207-8b96-24ca298341ec", userPreferences.language)}
+                    {contentData.getContent("72d5d1e9-8be5-4207-8b96-24ca298341ec")}
                 </div>
 
                 <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center tw-border-solid tw-border-b lg-border-secondary-300 tw-border-opacity-50">
-                    {getVernacularString("3e617d69-c451-401f-aba2-40937134cee3", userPreferences.language)}
+                    {contentData.getContent("3e617d69-c451-401f-aba2-40937134cee3")}
                 </div>
 
                 <div className="tw-row-start-5 tw-col-start-3 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center tw-border-solid tw-border-b lg-border-hkva-table tw-border-opacity-50">
-                    {getVernacularString("45f25658-b0ea-4f47-aee0-99769c6be404", userPreferences.language)}
+                    {contentData.getContent("45f25658-b0ea-4f47-aee0-99769c6be404")}
                 </div>
 
                 <div className="!tw-font-bold tw-row-start-6 tw-col-start-1 tw-mr-2 max-lg:lg-text-icon tw-py-3 tw-pb-8 lg-text-secondary-900">
-                    {getVernacularString("2ae8f286-2ead-4d34-9c10-b28b49c90149", userPreferences.language)}
+                    {contentData.getContent("2ae8f286-2ead-4d34-9c10-b28b49c90149")}
                 </div>
 
-                <div className="tw-row-start-6 tw-col-start-2 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{getVernacularString("32461cc4-3f7b-403d-b4f3-b4b413c39c59", userPreferences.language)}</div>
+                <div className="tw-row-start-6 tw-col-start-2 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{contentData.getContent("32461cc4-3f7b-403d-b4f3-b4b413c39c59")}</div>
 
-                <div className="tw-row-start-6 tw-col-start-3 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{getVernacularString("a9a74f7d-81d0-42b3-9f54-690d2ecea92a", userPreferences.language)}</div>
+                <div className="tw-row-start-6 tw-col-start-3 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{contentData.getContent("a9a74f7d-81d0-42b3-9f54-690d2ecea92a")}</div>
             </div>
         </div>
     );
 }
 
 function PowerhouseInverters({userPreferences, className, products}: {userPreferences: UserPreferences; className?: string; products: Array<ProductDetails>}) {
+    const contentData = useContext(ContentProviderContext);
     const inverterData = products.map((product) => ({
         inverterSlug: product.slug,
         imageRelativeUrl: `/livguard/products/${product.slug}/thumbnail.png`,
@@ -578,7 +600,7 @@ function PowerhouseInverters({userPreferences, className, products}: {userPrefer
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "suggeseted-inverters": {
-                humanReadableName: getVernacularString("5c88bf46-4d04-4588-ab8b-1be8ab296bf0", userPreferences.language),
+                humanReadableName: contentData.getContent("5c88bf46-4d04-4588-ab8b-1be8ab296bf0"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -594,9 +616,9 @@ function PowerhouseInverters({userPreferences, className, products}: {userPrefer
 
             <div
                 className="lg-text-headline tw-place-self-center"
-                dangerouslySetInnerHTML={{__html: getVernacularString("32366348-8f4d-4253-959f-f9b586c26b25", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("32366348-8f4d-4253-959f-f9b586c26b25")}}
             />
-            <div className="lg-text-headline tw-place-self-center">{getVernacularString("33d1aa29-9949-4a28-92f3-4c27ce30d244", userPreferences.language)}</div>
+            <div className="lg-text-headline tw-place-self-center">{contentData.getContent("33d1aa29-9949-4a28-92f3-4c27ce30d244")}</div>
 
             <VerticalSpacer className="tw-h-4 lg:tw-h-6" />
 
@@ -650,10 +672,11 @@ function InverterCard({
     technology: string;
     dimensions: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-max-w-3xl tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:tw-gap-x-2 lg-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8">
             <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-place-items-center">
-                <div className="lg:tw-hidden tw-bg-[#c5c5c5] dark:tw-bg-[#3a3a3a] tw-p-2">{getVernacularString("7854d25c-c385-49b5-b1e5-e1127f1d1e5d", userPreferences.language)}</div>
+                <div className="lg:tw-hidden tw-bg-[#c5c5c5] dark:tw-bg-[#3a3a3a] tw-p-2">{contentData.getContent("7854d25c-c385-49b5-b1e5-e1127f1d1e5d")}</div>
                 <div className="tw-w-full tw-h-full tw-grid tw-items-center">
                     <FullWidthImage relativePath={imageRelativeUrl} />
                 </div>
@@ -662,7 +685,7 @@ function InverterCard({
                     className="tw-hidden lg:tw-block"
                     to={`/product/${inverterSlug}`}
                 >
-                    <button className="lg-cta-button">{getVernacularString("dd68b98c-5aa6-4f3f-824e-056ffa6ae4ee", userPreferences.language)}</button>
+                    <button className="lg-cta-button">{contentData.getContent("dd68b98c-5aa6-4f3f-824e-056ffa6ae4ee")}</button>
                 </Link>
             </div>
 
@@ -682,7 +705,7 @@ function InverterCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("be198f94-415e-4384-87d4-3887e8cd8a2c", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("be198f94-415e-4384-87d4-3887e8cd8a2c")}</div>
                             <div className="tw-row-start-3">{warranty}</div>
                         </div>
                     </div>
@@ -693,7 +716,7 @@ function InverterCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("7ee64780-1190-49dc-a305-0f6e9551e8aa", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("7ee64780-1190-49dc-a305-0f6e9551e8aa")}</div>
                             <div className="tw-row-start-3">{capacity}</div>
                         </div>
                     </div>
@@ -704,7 +727,7 @@ function InverterCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("94ba8c21-8088-4d61-a674-4f9d4ec28744", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("94ba8c21-8088-4d61-a674-4f9d4ec28744")}</div>
                             <div className="tw-row-start-3">{technology}</div>
                         </div>
                     </div>
@@ -715,7 +738,7 @@ function InverterCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("781a0678-8e4b-4543-bda3-c80a5cf30176", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("781a0678-8e4b-4543-bda3-c80a5cf30176")}</div>
                             <div className="tw-row-start-3">{dimensions}</div>
                         </div>
                     </div>
@@ -727,7 +750,7 @@ function InverterCard({
                     className="tw-place-self-center lg:tw-hidden"
                     to={`/product/${inverterSlug}`}
                 >
-                    <button className="lg-cta-button">{getVernacularString("dd68b98c-5aa6-4f3f-824e-056ffa6ae4ee", userPreferences.language)}</button>
+                    <button className="lg-cta-button">{contentData.getContent("dd68b98c-5aa6-4f3f-824e-056ffa6ae4ee")}</button>
                 </Link>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
@@ -737,13 +760,14 @@ function InverterCard({
 }
 
 function PowerUpWithHighCapacityInverters({userPreferences, className, products}: {userPreferences: UserPreferences; className?: string; products: Array<ProductDetails>}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "our-range": {
-                humanReadableName: getVernacularString("a53c5496-6d8d-4650-bd9e-2f0af6e9da73", userPreferences.language),
+                humanReadableName: contentData.getContent("a53c5496-6d8d-4650-bd9e-2f0af6e9da73"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -784,7 +808,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className, products}
             >
                 {/* {isBestSeller != null && isBestSeller === true ? (
                     <div className="tw-row-start-1 tw-h-6 lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 tw-py-1 lg:tw-px-4 tw-flex tw-flex-row tw-items-center !tw-text-secondary-900-dark">
-                        <span>{getVernacularString("f4b66650-853d-4dd7-946f-1cda1f5c724a", userPreferences.language)}</span>
+                        <span>{contentData.getContent("f4b66650-853d-4dd7-946f-1cda1f5c724a")}</span>
                     </div>
                 ) : ( */}
                 {/* <VerticalSpacer className="tw-h-6" /> */}
@@ -821,8 +845,8 @@ function PowerUpWithHighCapacityInverters({userPreferences, className, products}
 
                     <div className="tw-w-full tw-text-center lg-text-secondary-700">
                         {productPrice == null
-                            ? getVernacularString("ccfce5e6-08ac-44b9-84ad-ef7891d7661b", userPreferences.language)
-                            : `${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}${productPrice}${getVernacularString(
+                            ? contentData.getContent("ccfce5e6-08ac-44b9-84ad-ef7891d7661b")
+                            : `${contentData.getContent("abce92ec-fd9a-4578-ab56-ddfd9fdafe72")}${productPrice}${contentData.getContent(
                                   "0044b486-6eca-4e3a-abf0-102eede6e10c",
                                   userPreferences.language,
                               )}`}
@@ -831,7 +855,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className, products}
                     <VerticalSpacer className="tw-h-4" />
 
                     <button className="lg-cta-outline-button lg-cta-outline-button-transition tw-text-primary-500-light dark:tw-text-secondary-100-light tw-w-full tw-text-center tw-px-1">
-                        {getVernacularString("b6b6bee5-c2b4-4221-8776-7e55212e5a0e", userPreferences.language)}
+                        {contentData.getContent("b6b6bee5-c2b4-4221-8776-7e55212e5a0e")}
                     </button>
                 </div>
             </Link>
@@ -850,12 +874,12 @@ function PowerUpWithHighCapacityInverters({userPreferences, className, products}
                 <DefaultTextAnimation>
                     <h2
                         className="lg-text-headline tw-text-center"
-                        dangerouslySetInnerHTML={{__html: getVernacularString("857b8564-8171-4ea0-b4eb-940b767fb270", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("857b8564-8171-4ea0-b4eb-940b767fb270")}}
                     />
 
                     <h2
                         className="lg-text-headline tw-text-center"
-                        dangerouslySetInnerHTML={{__html: getVernacularString("6cf663f6-3c72-4bbd-93a6-f9e53a53cc08", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("6cf663f6-3c72-4bbd-93a6-f9e53a53cc08")}}
                     />
                 </DefaultTextAnimation>
 
@@ -868,7 +892,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className, products}
                                   slug={featuredProduct.slug}
                                   productName={featuredProduct.name}
                                   productPrice={featuredProduct.price}
-                                  capacity={`${featuredProduct.capacity} ${getVernacularString("7ee64780-1190-49dc-a305-0f6e9551e8aa", userPreferences.language)}`}
+                                  capacity={`${featuredProduct.capacity} ${contentData.getContent("7ee64780-1190-49dc-a305-0f6e9551e8aa")}`}
                                   warranty={featuredProduct.warranty}
                                   userPreferences={userPreferences}
                                   // isBestSeller={featuredProduct.isBestSeller != null ? featuredProduct.isBestSeller : false}
@@ -881,7 +905,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className, products}
                                   slug={featuredProduct.slug}
                                   productName={featuredProduct.name}
                                   productPrice={featuredProduct.price}
-                                  capacity={`${featuredProduct.capacity} ${getVernacularString("7ee64780-1190-49dc-a305-0f6e9551e8aa", userPreferences.language)}`}
+                                  capacity={`${featuredProduct.capacity} ${contentData.getContent("7ee64780-1190-49dc-a305-0f6e9551e8aa")}`}
                                   warranty={featuredProduct.warranty}
                                   userPreferences={userPreferences}
                                   // isBestSeller={featuredProduct.isBestSeller != null ? featuredProduct.isBestSeller : false}
@@ -897,9 +921,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className, products}
                     className="lg-cta-button tw-justify-self-center"
                     onClick={() => setIsViewMore((prev) => !prev)}
                 >
-                    {!isViewMore
-                        ? getVernacularString("10a749b0-d7b2-4c29-add5-a4afb989249d", userPreferences.language)
-                        : getVernacularString("05dd627c-2d81-4390-a8ec-4543cb8b8cd7", userPreferences.language)}
+                    {!isViewMore ? contentData.getContent("10a749b0-d7b2-4c29-add5-a4afb989249d") : contentData.getContent("05dd627c-2d81-4390-a8ec-4543cb8b8cd7")}
                 </button>
             </div>
         </div>
@@ -907,13 +929,14 @@ function PowerUpWithHighCapacityInverters({userPreferences, className, products}
 }
 
 function YourGuideToFindingTheRightInverter({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "your-guide": {
-                humanReadableName: getVernacularString("2223a612-f480-45b4-86fb-d5d02dc1a69d", userPreferences.language),
+                humanReadableName: contentData.getContent("2223a612-f480-45b4-86fb-d5d02dc1a69d"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -925,12 +948,12 @@ function YourGuideToFindingTheRightInverter({userPreferences, className}: {userP
             id="your-guide"
             ref={sectionRef}
         >
-            <div className="tw-row-start-2 tw-text-center lg-text-headline">{getVernacularString("a5bdaea0-3ac4-4e61-bb56-15921022d881", userPreferences.language)}</div>
+            <div className="tw-row-start-2 tw-text-center lg-text-headline">{contentData.getContent("a5bdaea0-3ac4-4e61-bb56-15921022d881")}</div>
             <div
                 className="tw-row-start-3 tw-text-center lg-text-headline"
-                dangerouslySetInnerHTML={{__html: getVernacularString("cd0ff218-fadc-488a-a3b8-f97beffed82b", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("cd0ff218-fadc-488a-a3b8-f97beffed82b")}}
             />
-            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{getVernacularString("b137befb-819f-4e24-a9f1-8a8a7fefeb3a", userPreferences.language)}</div>
+            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{contentData.getContent("b137befb-819f-4e24-a9f1-8a8a7fefeb3a")}</div>
 
             <div className="tw-row-start-7 tw-grid tw-p-4 tw-justify-center tw-w-full">
                 <div className="tw-w-fit tw-grid tw-grid-rows-2 lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-gap-4 tw-grid-flow-col">
@@ -945,16 +968,14 @@ function YourGuideToFindingTheRightInverter({userPreferences, className}: {userP
                             src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
                         />
                         <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
-                            {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
+                            {contentData.getContent("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26")}
                         </div>
                     </a>
                     <Link
                         to="/load-calculator"
                         className="tw-h-full tw-w-full tw-grid tw-place-items-center"
                     >
-                        <div className="tw-h-full tw-w-full tw-grid tw-items-center lg-cta-button tw-place-self-center">
-                            {getVernacularString("59671749-651b-4389-9e22-7f86515eb145", userPreferences.language)}
-                        </div>
+                        <div className="tw-h-full tw-w-full tw-grid tw-items-center lg-cta-button tw-place-self-center">{contentData.getContent("59671749-651b-4389-9e22-7f86515eb145")}</div>
                     </Link>
                 </div>
             </div>

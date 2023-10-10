@@ -1,13 +1,13 @@
 import {ArrowDownOnSquareStackIcon, DocumentIcon} from "@heroicons/react/20/solid";
 import {Link} from "@remix-run/react";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {PencilSquare} from "react-bootstrap-icons";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {Spacer} from "~/global-common-typescript/components/spacer";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ContactUsDialog} from "~/routes";
 import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function ProductAndCategoryBottomBar({userPreferences, utmParameters, pageUrl}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}; pageUrl: string}) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
@@ -15,6 +15,7 @@ export function ProductAndCategoryBottomBar({userPreferences, utmParameters, pag
     function tryToOpenContactUsDialog() {
         setIsContactUsDialogOpen(true);
     }
+    const contentData = useContext(ContentProviderContext);
 
     return (
         <div className="lg:tw-hidden tw-sticky tw-bottom-0 lg-bg-secondary-100 lg-card lg-sticky-bottom-bar-shadow tw-rounded-t-lg tw-grid tw-grid-cols-4 tw-py-[0.8125rem] tw-text-center tw-px-2 tw-z-[63]">
@@ -30,7 +31,7 @@ export function ProductAndCategoryBottomBar({userPreferences, utmParameters, pag
                     <div
                         className="lg-text-icon"
                         dangerouslySetInnerHTML={{
-                            __html: getVernacularString("e9eefbbc-302b-4d0e-8736-8b124a4c9baf", userPreferences.language),
+                            __html: contentData.getContent("e9eefbbc-302b-4d0e-8736-8b124a4c9baf"),
                         }}
                     />
                 </Link>
@@ -47,7 +48,7 @@ export function ProductAndCategoryBottomBar({userPreferences, utmParameters, pag
                     <div
                         className="lg-text-icon"
                         dangerouslySetInnerHTML={{
-                            __html: getVernacularString("f2e43648-a6bb-4144-a594-280b68479566", userPreferences.language),
+                            __html: contentData.getContent("f2e43648-a6bb-4144-a594-280b68479566"),
                         }}
                     />
                 </a>
@@ -63,7 +64,7 @@ export function ProductAndCategoryBottomBar({userPreferences, utmParameters, pag
                     <div
                         className="lg-text-icon"
                         dangerouslySetInnerHTML={{
-                            __html: getVernacularString("10ac51a9-2893-40c1-ad80-5017883e890f", userPreferences.language),
+                            __html: contentData.getContent("10ac51a9-2893-40c1-ad80-5017883e890f"),
                         }}
                     />
                 </button>
@@ -81,7 +82,7 @@ export function ProductAndCategoryBottomBar({userPreferences, utmParameters, pag
                     <div
                         className="lg-text-icon"
                         dangerouslySetInnerHTML={{
-                            __html: getVernacularString("089e932e-69bf-479d-8c0b-21257fc4a8dc", userPreferences.language),
+                            __html: contentData.getContent("089e932e-69bf-479d-8c0b-21257fc4a8dc"),
                         }}
                     />
                 </a>

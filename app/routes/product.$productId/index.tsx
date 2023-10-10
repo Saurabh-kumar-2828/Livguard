@@ -19,21 +19,24 @@ import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigati
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
-import type {ProductDetails} from "~/productData.server";
-import {ProductType, allProductDetails} from "~/productData.server";
+import type {ProductDetails, ProductType} from "~/productData.types";
 import {ContactUsCta, DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getBreadcrumbsConditionally, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {addVernacularString, getVernacularString} from "~/vernacularProvider";
+import {addVernacularString, getContentGenerator} from "~/vernacularProvider";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryForPage, getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     return [
@@ -71,7 +74,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
         },
         {
             property: "og:image",
-            content: getAbsolutePathForRelativePath(getMetadataForImage(`/livguard/products/${loaderData.productData.slug}/thumbnail.png`).finalUrl, ImageCdnProvider.Bunny, null, null),
+            content: loaderData.ogBanner,
         },
         {
             "script:ld+json": loaderData.productData.metadata.schema,
@@ -96,6 +99,14 @@ type LoaderData = {
     productData: ProductDetails;
     recommendedProducts: Array<RecommendedProducts>;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
+    breadcrumbLastContentId: string;
 };
 
 export const loader: LoaderFunction = async ({request, params}) => {
@@ -126,70 +137,98 @@ export const loader: LoaderFunction = async ({request, params}) => {
         };
     });
 
+    // Hack 48af9f18-d006-44b5-88fc-bf514c7d4b67
+    // TODO: This is a very ugly hack, see if there is some other way around this
+    let breadcrumbLastContentId = "a3c3f514-2bf9-401e-9351-d921d4f1cbe4";
+    const modelNumber = productData[userPreferences.language].humanReadableModelNumber;
+    // addVernacularString(breadcrumbLastContentId, {
+    //     [Language.English]: modelNumber,
+    //     [Language.Hindi]: modelNumber,
+    // });
+    const vernacularData = {
+        ...getVernacularFromBackend("productPage", userPreferences.language),
+        [breadcrumbLastContentId]: modelNumber,
+    };
+    const imageMetaDataLibrary = {
+        ...getImageMetadataLibraryForPage(productData[userPreferences.language].images.map((image) => image.image)),
+        ...getImageMetadataLibraryForPage(productData[userPreferences.language].productIcons.map((icon) => icon.icon)),
+        ...getImageMetadataLibraryForPage(productData[userPreferences.language].productDescription.images.map((image) => image.image)),
+        ...getImageMetadataLibraryForPage(productData[userPreferences.language].recommendedProducts.map((product) => `/livguard/products/${product.slug}/thumbnail.png`)),
+        ...getImageMetadataLibraryForPage([`/livguard/products/${productData[userPreferences.language].slug}/thumbnail.png`]),
+        ...getImageMetadataLibraryFromBackend("productPage"),
+    };
+    const ogBanner = getAbsolutePathForRelativePath(
+        getMetadataForImageServerSide(`/livguard/products/${productData[userPreferences.language].slug}/thumbnail.png`).finalUrl,
+        ImageCdnProvider.Bunny,
+        null,
+        null,
+    );
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         productData: productData[userPreferences.language],
         pageUrl: getUrlFromRequest(request),
         recommendedProducts: recommendedProducts,
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
+        breadcrumbLastContentId: breadcrumbLastContentId,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, productData, pageUrl, recommendedProducts} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, productData, pageUrl, recommendedProducts, vernacularData, imageMetaDataLibrary, breadcrumbLastContentId} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
-
-    // Hack 48af9f18-d006-44b5-88fc-bf514c7d4b67
-    // TODO: This is a very ugly hack, see if there is some other way around this
-    let breadcrumbLastContentId;
-    const modelNumber = productData.humanReadableModelNumber;
-
-    breadcrumbLastContentId = "a3c3f514-2bf9-401e-9351-d921d4f1cbe4";
-    addVernacularString(breadcrumbLastContentId, {
-        [Language.English]: modelNumber,
-        [Language.Hindi]: modelNumber,
-    });
 
     const conditionalBreadcrumb = getBreadcrumbsConditionally(productData.type, productData.subType);
     const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: conditionalBreadcrumb.contentId, link: conditionalBreadcrumb.link},
-                    // TODO: Somehow get this to work
-                    // {contentId: getSingletonValueOrNull(productData.specifications.filter(specification => specification.title == "Model Number"))?.value ?? "7f1b0663-3535-464c-86c9-78967d00dcc8", link: "#"},
-                    {contentId: breadcrumbLastContentId, link: "#"},
-                ]}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <ProductPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
+                        userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: conditionalBreadcrumb.contentId, link: conditionalBreadcrumb.link},
+                            // TODO: Somehow get this to work
+                            // {contentId: getSingletonValueOrNull(productData.specifications.filter(specification => specification.title == "Model Number"))?.value ?? "7f1b0663-3535-464c-86c9-78967d00dcc8", link: "#"},
+                            {contentId: breadcrumbLastContentId, link: "#"},
+                        ]}
+                        secondaryNavigationController={secondaryNavigationController}
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <ProductPage
+                                userPreferences={userPreferences}
+                                utmParameters={utmSearchParameters}
+                                productData={productData}
+                                pageUrl={pageUrl}
+                                recommendedProducts={recommendedProducts}
+                                secondaryNavigationController={secondaryNavigationController}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
+
+                    <ProductAndCategoryBottomBar
                         userPreferences={userPreferences}
                         utmParameters={utmSearchParameters}
-                        productData={productData}
                         pageUrl={pageUrl}
-                        recommendedProducts={recommendedProducts}
-                        secondaryNavigationController={secondaryNavigationController}
                     />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
-
-            <ProductAndCategoryBottomBar
-                userPreferences={userPreferences}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-            />
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 }
@@ -212,6 +251,7 @@ function ProductPage({
     secondaryNavigationController?: SecondaryNavigationController;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const contentData = useContext(ContentProviderContext);
 
     return (
         <>
@@ -317,6 +357,7 @@ function ProductInfo({
     };
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const [mainImageIndex, setMainImageIndex] = useState(0);
     // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -324,7 +365,7 @@ function ProductInfo({
     //     secondaryNavigationController.setSections((previousSections) => ({
     //         ...previousSections,
     //         top: {
-    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
     //             isCurrentlyVisible: sectionInView,
     //         },
     //     }));
@@ -416,13 +457,14 @@ function ProductInfo({
 }
 
 function ProductSpecifications({userPreferences, productDetails, className}: {userPreferences: UserPreferences; productDetails: ProductDetails; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             specification: {
-                humanReadableName: getVernacularString("cd1f1433-8736-4f1d-a5e6-927e59a02ec2", userPreferences.language),
+                humanReadableName: contentData.getContent("cd1f1433-8736-4f1d-a5e6-927e59a02ec2"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -445,19 +487,19 @@ function ProductSpecifications({userPreferences, productDetails, className}: {us
     const visibleTabs = [];
     if (productDetails.specifications.length > 0) {
         visibleTabs.push({
-            title: `${getVernacularString("productPageSpecifications", userPreferences.language)}`,
+            title: `${contentData.getContent("productPageSpecifications")}`,
             value: "specifications",
         });
     }
     if (productDetails.features.length > 0) {
         visibleTabs.push({
-            title: `${getVernacularString("productPageFeatures", userPreferences.language)}`,
+            title: `${contentData.getContent("productPageFeatures")}`,
             value: "features",
         });
     }
     if (productDetails.additionalInfo.length > 0) {
         visibleTabs.push({
-            title: `${getVernacularString("productPageAdditionalInfo", userPreferences.language)}`,
+            title: `${contentData.getContent("productPageAdditionalInfo")}`,
             value: "additionalInfo",
         });
     }
@@ -541,13 +583,14 @@ function ProductDescription({
     productDescription: {description: string; images: Array<{image: string}>};
     className: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             description: {
-                humanReadableName: getVernacularString("abea43c2-a4ec-471c-ad0b-7f3cf8e42cb3", userPreferences.language),
+                humanReadableName: contentData.getContent("abea43c2-a4ec-471c-ad0b-7f3cf8e42cb3"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -558,7 +601,7 @@ function ProductDescription({
             id="description"
             ref={sectionRef}
         >
-            <div className="lg-text-headline tw-text-center">{getVernacularString("productPageProductDescription", userPreferences.language)}</div>
+            <div className="lg-text-headline tw-text-center">{contentData.getContent("productPageProductDescription")}</div>
 
             <VerticalSpacer className="tw-h-6" />
 
@@ -604,15 +647,15 @@ function ProductDescription({
 }
 
 function ProductRating({userPreferences, reviews, className}: {userPreferences: UserPreferences; reviews: {rating: number; numberOfReviews: number}; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-grid tw-grid-rows-[auto,auto] lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-items-center tw-gap-2 lg:tw-gap-4">
                 <div className="tw-row-start-1 tw-col-start-1 tw-flex tw-flex-col tw-text-center tw-justify-center lg:tw-place-self-end">
                     <div className="tw-text-[96px] tw-leading-[90px] lg-font-brueur">{reviews.rating}</div>
 
-                    <div className="lg-text-title2">{`${getVernacularString("productPageNumberReviewBefore", userPreferences.language)} ${reviews.numberOfReviews} ${getVernacularString(
+                    <div className="lg-text-title2">{`${contentData.getContent("productPageNumberReviewBefore")} ${reviews.numberOfReviews} ${contentData.getContent(
                         "productPageNumberReviewAfter",
-                        userPreferences.language,
                     )}`}</div>
 
                     <VerticalSpacer className="tw-h-2" />
@@ -673,13 +716,14 @@ function ProductRating({userPreferences, reviews, className}: {userPreferences: 
 }
 
 function SuggestedProducts({userPreferences, recommendedProducts, className}: {userPreferences: UserPreferences; recommendedProducts: Array<RecommendedProducts>; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "suggested-products": {
-                humanReadableName: getVernacularString("4e366b86-4e66-47f4-99ef-6a33dc519099", userPreferences.language),
+                humanReadableName: contentData.getContent("4e366b86-4e66-47f4-99ef-6a33dc519099"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -693,7 +737,7 @@ function SuggestedProducts({userPreferences, recommendedProducts, className}: {u
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("productPageSuggestedProduct", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("productPageSuggestedProduct")}} />
                     </DefaultTextAnimation>
                 </div>
             </div>
@@ -730,7 +774,7 @@ function SuggestedProducts({userPreferences, recommendedProducts, className}: {u
             {/* <VerticalSpacer className="tw-h-6" />
 
             <DefaultElementAnimation>
-                <div className="lg-cta-outline-button">{getVernacularString("categoryBatteriesS6Buttontext", userPreferences.language)}</div>
+                <div className="lg-cta-outline-button">{contentData.getContent("categoryBatteriesS6Buttontext")}</div>
             </DefaultElementAnimation> */}
         </div>
     );

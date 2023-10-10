@@ -1,7 +1,7 @@
 import {Combobox, Transition} from "@headlessui/react";
 import {CheckIcon, ChevronUpDownIcon} from "@heroicons/react/20/solid";
 import {Link} from "@remix-run/react";
-import React, {MouseEventHandler, useState} from "react";
+import React, {MouseEventHandler, useContext, useState} from "react";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
@@ -9,7 +9,8 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {getMetadataForImage} from "~/utilities";
 import {Theme, UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
+
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function FancySearchableSelect<T>({
     items,
@@ -383,6 +384,7 @@ export function ChipButtonWithText({
     userPreferences: UserPreferences;
     className?: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
@@ -394,7 +396,7 @@ export function ChipButtonWithText({
         >
             <div
                 className={concatenateNonNullStringsWithSpaces("tw-whitespace-nowrap", isSelected ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900")}
-                dangerouslySetInnerHTML={{__html: getVernacularString(contentId, userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent(contentId)}}
             />
         </div>
     );
@@ -414,6 +416,7 @@ export function ButtonWithIconAndText({
     contentId: string;
     userPreferences: UserPreferences;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
@@ -436,7 +439,7 @@ export function ButtonWithIconAndText({
 
             <div
                 className={`tw-col-start-4 ${isSelected ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900"}`}
-                dangerouslySetInnerHTML={{__html: getVernacularString(contentId, userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent(contentId)}}
             />
         </div>
     );
@@ -473,6 +476,7 @@ export function CtaButtonLink({
     linkClassName?: string;
     linkContainerClassName?: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden", linkContainerClassName)}>
             <Link
@@ -486,7 +490,7 @@ export function CtaButtonLink({
                 <div className="tw-absolute tw-h-[calc(100%+2px)] tw-w-[calc(100%+2px)] -tw-left-[1px] tw-top-0 tw-rounded-full tw-inset-0 tw-m-auto tw-transition-opacity tw-ease-in tw-duration-300 tw-opacity-0 group-hover:tw-opacity-100 lg-cta-button-gradient"></div>
                 <button
                     className={concatenateNonNullStringsWithSpaces("tw-text-center tw-relative tw-duration-300 group-hover:tw-text-secondary-900-dark tw-grid tw-place-items-center", buttonClassName)}
-                    dangerouslySetInnerHTML={{__html: getVernacularString(textVernacId, userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent(textVernacId)}}
                 />
             </Link>
         </div>
@@ -512,6 +516,7 @@ export function CtaButton({
     disabled?: boolean;
     type?: "button" | "reset" | "submit";
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden", mainContainerClassName)}>
             <div className="tw-overflow-hidden tw-h-[calc(100%+2px)] tw-w-[calc(100%+2px)]">
@@ -531,7 +536,7 @@ export function CtaButton({
                         )}
                         disabled={disabled}
                     >
-                        {getVernacularString(textVernacId, userPreferences.language)}
+                        {contentData.getContent(textVernacId)}
                     </button>
                 </div>
             </div>
@@ -560,6 +565,7 @@ export function CtaOutlineButtonLink({
     imgPath?: string;
     download?: boolean;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden tw-relative tw-rounded-full", linkContainerClassName)}>
             <Link
@@ -587,7 +593,7 @@ export function CtaOutlineButtonLink({
                             imgPath ? "tw-text-secondary-300-dark" : "",
                         )}
                     >
-                        {getVernacularString(textVernacId, userPreferences.language)}
+                        {contentData.getContent(textVernacId)}
                     </button>
                 </div>
             </Link>
@@ -617,6 +623,7 @@ export function CtaOutlineButton({
     disabled?: boolean;
     type?: "button" | "reset" | "submit";
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden", mainContainerClassName)}>
             <div className="tw-overflow-hidden tw-h-[calc(100%+2px)] tw-w-[calc(100%+2px)]">
@@ -636,7 +643,7 @@ export function CtaOutlineButton({
                         )}
                         disabled={disabled}
                     >
-                        {getVernacularString(textVernacId, userPreferences.language)}
+                        {contentData.getContent(textVernacId)}
                     </button>
                 </div>
             </div>
@@ -655,6 +662,7 @@ export function ImageAndContentCard({
     largeFont?: boolean;
     bestSeller?: boolean;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-grid tw-gap-2 lg:tw-gap-4 tw-px-2 md:tw-px-4 tw-py-4 lg:tw-py-6 lg-card-shadow tw-rounded-lg tw-overflow-hidden tw-relative tw-h-full">
             <div className="tw-rounded-lg tw-overflow-hidden">
@@ -666,11 +674,11 @@ export function ImageAndContentCard({
                     largeFont ? "lg-text-title2" : "lg-text-body tw-w-[58%] min-[490px]:max-[918px]:tw-w-3/4 lg:tw-w-[77%] xl:tw-w-3/5 2xl:tw-w-full",
                 )}
             >
-                {getVernacularString(cardItem.name, userPreferences.language)}
+                {contentData.getContent(cardItem.name)}
             </div>
             {bestSeller && (
                 <div className="tw-absolute tw-right-0 tw-top-0 tw-w-fit tw-bg-primary-500-light lg-text-icon tw-font-semibold tw-text-secondary-100-light tw-py-1 tw-px-5">
-                    {getVernacularString("f22a7acc-0168-4011-9eaf-6a8f3328f093", userPreferences.language)}
+                    {contentData.getContent("f22a7acc-0168-4011-9eaf-6a8f3328f093")}
                 </div>
             )}
         </div>

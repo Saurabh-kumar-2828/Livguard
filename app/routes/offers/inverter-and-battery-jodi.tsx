@@ -1,7 +1,7 @@
 import {Dialog, Transition} from "@headlessui/react";
 import type {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {useFetcher, useLoaderData} from "@remix-run/react";
-import React, {useReducer, useRef} from "react";
+import React, {useContext, useReducer, useRef} from "react";
 import {useEffect, useState} from "react";
 import {CircleFill, X} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
@@ -25,7 +25,9 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {FormType, Language} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -116,6 +118,9 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -124,41 +129,50 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("inverterBatteryJodiOfferPage", userPreferences.language);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
     return (
         <>
-            <CampaignPageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={false}
-                utmParameters={utmSearchParameters}
-                showContactCtaButton={true}
-                showSearchOption={false}
-                pageUrl={pageUrl}
+            <ContentProviderContext.Provider
+                value={{
+                    getContent: getContentGenerator(vernacularData),
+                }}
             >
-                <LandingPage
+                <CampaignPageScaffold
                     userPreferences={userPreferences}
+                    redirectTo={redirectTo}
+                    showMobileMenuIcon={false}
                     utmParameters={utmSearchParameters}
-                />
-            </CampaignPageScaffold>
+                    showContactCtaButton={true}
+                    showSearchOption={false}
+                    pageUrl={pageUrl}
+                >
+                    <LandingPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                    />
+                </CampaignPageScaffold>
 
-            <OfferPageBottomBar
-                userPreferences={userPreferences}
-                pageUrl={pageUrl}
-            />
+                <OfferPageBottomBar
+                    userPreferences={userPreferences}
+                    pageUrl={pageUrl}
+                />
+            </ContentProviderContext.Provider>
         </>
     );
 }
@@ -208,6 +222,7 @@ export function HeroSection({
     };
     className?: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
 
     return (
@@ -249,6 +264,7 @@ export function HeroSection({
 }
 
 export function StepsToAvailCashback({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const steps = [
         {
             iconRelativePath: "livguard/icons/offers/step-1.svg",
@@ -281,7 +297,7 @@ export function StepsToAvailCashback({userPreferences, className}: {userPreferen
             <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
                 <DefaultTextAnimation>
                     <h1 className="lg-text-headline tw-text-center">
-                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("OfferComboHT1", userPreferences.language))}} />
+                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("OfferComboHT1"))}} />
                     </h1>
                 </DefaultTextAnimation>
 
@@ -290,14 +306,14 @@ export function StepsToAvailCashback({userPreferences, className}: {userPreferen
                 <DefaultTextAnimation>
                     <div
                         className="lg-text-body tw-max-w-[45rem] tw-text-center"
-                        dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("OfferComboHT2", userPreferences.language))}}
+                        dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("OfferComboHT2"))}}
                     />
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-3 lg:tw-h-6" />
 
                 <DefaultTextAnimation>
-                    <div className="lg-text-title1">{getVernacularString("OfferComboHT3", userPreferences.language)}</div>
+                    <div className="lg-text-title1">{contentData.getContent("OfferComboHT3")}</div>
                 </DefaultTextAnimation>
             </div>
 
@@ -328,10 +344,8 @@ export function StepsToAvailCashback({userPreferences, className}: {userPreferen
                                 </div>
                             </div>
                             <div className="tw-col-start-2 tw-grid tw-grid-rows-[auto_minmax(0,1fr)] tw-items-start">
-                                <div className="tw-row-start-1">{`${getVernacularString("OfferStep", userPreferences.language)} ${stepIndex + 1}`}</div>
-                                <div className="tw-row-start-2">
-                                    {<div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString(step.stepVernacId, userPreferences.language))}} />}
-                                </div>
+                                <div className="tw-row-start-1">{`${contentData.getContent("OfferStep")} ${stepIndex + 1}`}</div>
+                                <div className="tw-row-start-2">{<div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent(step.stepVernacId))}} />}</div>
                             </div>
                         </div>
                     )}
@@ -342,22 +356,23 @@ export function StepsToAvailCashback({userPreferences, className}: {userPreferen
 }
 
 export function TermsAndConditions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const [showTnCDialog, setShowTnCDialog] = useState(false);
 
     return (
         <div className={className}>
             <div className="tw-flex tw-flex-col tw-justify-start">
                 <DefaultTextAnimation>
-                    <div className="lg-text-title2">{getVernacularString("OfferTnCApplied", userPreferences.language)}</div>
+                    <div className="lg-text-title2">{contentData.getContent("OfferTnCApplied")}</div>
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-3" />
 
                 <DefaultTextAnimation>
-                    <li className="lg-text-body">{getVernacularString("OfferTnCContent1", userPreferences.language)}</li>
+                    <li className="lg-text-body">{contentData.getContent("OfferTnCContent1")}</li>
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
-                    <li className="lg-text-body">{getVernacularString("OfferTnCContent2", userPreferences.language)}</li>
+                    <li className="lg-text-body">{contentData.getContent("OfferTnCContent2")}</li>
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-3" />
@@ -369,7 +384,7 @@ export function TermsAndConditions({userPreferences, className}: {userPreference
                             setShowTnCDialog(true);
                         }}
                     >
-                        {getVernacularString("OfferTnCReadMore", userPreferences.language)}
+                        {contentData.getContent("OfferTnCReadMore")}
                     </div>
                 </DefaultTextAnimation>
             </div>
@@ -384,6 +399,7 @@ export function TermsAndConditions({userPreferences, className}: {userPreference
 }
 
 export function OfferContactUsCta({userPreferences, textVernacId, className, pageUrl}: {userPreferences: UserPreferences; textVernacId: string; className?: string; pageUrl: string}) {
+    const contentData = useContext(ContentProviderContext);
     const [isOfferContactUsDialogOpen, setIsOfferContactUsDialogOpen] = useState(false);
     const utmParameters = useUtmSearchParameters();
 
@@ -403,7 +419,7 @@ export function OfferContactUsCta({userPreferences, textVernacId, className, pag
                     width="1.25rem"
                 />
 
-                {getVernacularString(textVernacId, userPreferences.language)}
+                {contentData.getContent(textVernacId)}
             </button>
 
             <OfferContactUsDialog
@@ -430,6 +446,7 @@ export function OfferContactUsDialog({
     utmParameters: {[searchParameter: string]: string};
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
     const otpFetcher = useFetcher();
@@ -508,7 +525,7 @@ export function OfferContactUsDialog({
             <LivguardDialog
                 isDialogOpen={isOfferContactUsDialogOpen && !formStateInputs.formSuccessfullySubmitted}
                 tryToCloseDialog={tryToCloseOfferContactUsDialog}
-                title={getVernacularString("headerMenuS2T1", userPreferences.language)}
+                title={contentData.getContent("headerMenuS2T1")}
                 showCloseIcon={false}
             >
                 <fetcher.Form
@@ -516,7 +533,7 @@ export function OfferContactUsDialog({
                     method="post"
                     action="/lead-form-submission"
                 >
-                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsT3")}</div>
 
                     <VerticalSpacer className="tw-h-1" />
 
@@ -537,7 +554,7 @@ export function OfferContactUsDialog({
                     <VerticalSpacer className="tw-h-2" />
 
                     {!formStateInputs.showOtpField ? (
-                        <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsT2")}</div>
                     ) : (
                         <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
                             <div
@@ -553,7 +570,7 @@ export function OfferContactUsDialog({
                                     }
                                 }}
                             >
-                                {getVernacularString("phoneNumberChnage", userPreferences.language)}
+                                {contentData.getContent("phoneNumberChnage")}
                             </div>
                             <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{formStateInputs.inputData.phoneNumber}</div>
                         </div>
@@ -637,7 +654,7 @@ export function OfferContactUsDialog({
                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                 }}
                             >
-                                {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                {contentData.getContent("OfferFormGetOTP")}
                             </div>
                         </div>
                     ) : (
@@ -647,7 +664,7 @@ export function OfferContactUsDialog({
                                 formStateInputs.showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100",
                             )}
                         >
-                            {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsOTPT3", userPreferences.language)}</div>
+                            {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsOTPT3")}</div>
 
                             <VerticalSpacer className="tw-h-1" /> */}
 
@@ -657,7 +674,7 @@ export function OfferContactUsDialog({
                                     name="otpSubmitted"
                                     className="lg-text-input"
                                     required
-                                    placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                    placeholder={contentData.getContent("contactUsOTPT3E")}
                                     ref={otpFieldRef}
                                     onChange={(e) => {
                                         const action: FormStateInputsAction = {
@@ -668,9 +685,7 @@ export function OfferContactUsDialog({
                                     }}
                                 />
                                 {formStateInputs.invalidOtp && (
-                                    <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
-                                        {getVernacularString("OfferInvalidOTP", userPreferences.language)}
-                                    </div>
+                                    <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">{contentData.getContent("OfferInvalidOTP")}</div>
                                 )}
                             </div>
                         </div>
@@ -698,7 +713,7 @@ export function OfferContactUsDialog({
                                 otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                             }}
                         >
-                            {getVernacularString("OfferResendOTP", userPreferences.language)}
+                            {contentData.getContent("OfferResendOTP")}
                         </div>
                         <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${formStateInputs.resendTimeOut}`}</div>
                     </div>
@@ -756,7 +771,7 @@ export function OfferContactUsDialog({
                             }}
                         />
 
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("termsAndConditionsCheckboxtext", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("termsAndConditionsCheckboxtext")}} />
                     </div>
 
                     <button
@@ -771,7 +786,7 @@ export function OfferContactUsDialog({
                             formStateInputs.inputData.otpSubmitted.length != 6
                         }
                     >
-                        {getVernacularString("contactUsT5", userPreferences.language)}
+                        {contentData.getContent("contactUsT5")}
                     </button>
                 </fetcher.Form>
             </LivguardDialog>
@@ -786,6 +801,7 @@ export function OfferContactUsDialog({
 }
 
 export function TermsAndConditionsDialog({showTnCDialog, setShowTnCDialog, userPreferences}: {showTnCDialog: boolean; setShowTnCDialog: React.Dispatch<boolean>; userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     function tryToCloseTnCDialog() {
         setShowTnCDialog(false);
     }
@@ -824,7 +840,7 @@ export function TermsAndConditionsDialog({showTnCDialog, setShowTnCDialog, userP
                     >
                         <div className="tw-grid tw-grid-flow-row tw-gap-1 tw-p-6 tw-pt-0 tw-h-full">
                             <div className="tw-h-16 tw-flex tw-items-center lg-bg-secondary-100 tw-sticky tw-top-0 lg-text-title1 tw-border-b-2 tw-border-solid lg-border-secondary-700">
-                                {getVernacularString("OfferTnCText", userPreferences.language)}
+                                {contentData.getContent("OfferTnCText")}
                                 <button
                                     type="button"
                                     onClick={tryToCloseTnCDialog}
@@ -836,83 +852,83 @@ export function TermsAndConditionsDialog({showTnCDialog, setShowTnCDialog, userP
                             <VerticalSpacer className="tw-h-3" />
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent1", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent1")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent2", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent2")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent3", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent3")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent4", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent4")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent5", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent5")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent6", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent6")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent7", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent7")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent8", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent8")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent9", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent9")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent10", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent10")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent11", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent11")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent12", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent12")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent13", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent13")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent14", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent14")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent15", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent15")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent16", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent16")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent17", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent17")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent18", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent18")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent19", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent19")}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
                                 <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
-                                <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent20", userPreferences.language)}</div>
+                                <div className="lg-text-body lg-text-secondary-700">{contentData.getContent("OfferTnCContent20")}</div>
                             </div>
                             <VerticalSpacer className="tw-h-20" />
                         </div>

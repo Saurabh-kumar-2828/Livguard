@@ -1,6 +1,6 @@
 import {Listbox} from "@headlessui/react";
 import {Form, Link, useSubmit} from "@remix-run/react";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import {BrightnessHighFill, Check2, ChevronDown, MoonStarsFill} from "react-bootstrap-icons";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
@@ -10,7 +10,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language, Theme, themeToHumanFriendlyString} from "~/typeDefinitions";
 import {getMetadataForImage} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function InternationalBusinessHeaderComponent({userPreferences, redirectTo, pageUrl}: {userPreferences: UserPreferences; redirectTo: string; pageUrl?: string}) {
     const submit = useSubmit();
@@ -48,12 +48,14 @@ export function InternationalBusinessHeaderComponent({userPreferences, redirectT
         }
     }, [selectedTheme]);
 
+    const contentData = useContext(ContentProviderContext);
+
     return (
         <>
             <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-[60]">
                 <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
                     <div className="tw-hidden lg:tw-flex tw-flex-row tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
-                        {getVernacularString("bf76b096-bc3b-4739-827f-71fa327931d6", userPreferences.language)}
+                        {contentData.getContent("bf76b096-bc3b-4739-827f-71fa327931d6")}
                         <HorizontalSpacer className="tw-w-1" />
                         <a href="tel:+9611700921">+961-1-700921</a>
                     </div>

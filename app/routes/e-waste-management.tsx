@@ -13,13 +13,13 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
 import {ContactUsCta} from ".";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
@@ -28,6 +28,10 @@ import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigati
 import {useContext, useEffect} from "react";
 import {useInView} from "react-intersection-observer";
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -67,7 +71,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-waste-management/e-waste-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -106,7 +110,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-waste-management/e-waste-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -118,6 +122,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -126,17 +137,24 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("eWasteManagementPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("eWasteManagementPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/e-waste-management/e-waste-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -144,27 +162,35 @@ export default () => {
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "873561ca-02f7-45e3-8b98-80df5f7de86d", link: "#"},
-                ]}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <EwasteManagementPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
                         userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
                         utmParameters={utmSearchParameters}
                         pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "873561ca-02f7-45e3-8b98-80df5f7de86d", link: "#"},
+                        ]}
                         secondaryNavigationController={secondaryNavigationController}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <EwasteManagementPage
+                                userPreferences={userPreferences}
+                                utmParameters={utmSearchParameters}
+                                pageUrl={pageUrl}
+                                secondaryNavigationController={secondaryNavigationController}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 };
@@ -261,6 +287,7 @@ function HeroSection({
     className?: string;
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <div
@@ -279,13 +306,11 @@ function HeroSection({
             </div>
             <h2 className="tw-row-start-2 tw-col-start-1 lg:lg-px-screen-edge-2">
                 <DefaultTextAnimation>
-                    <div className="lg-text-banner lg-text-secondary-100 !tw-text-secondary-100-light">
-                        {appendSpaceToString(getVernacularString("bda064ee-6cc6-43f7-a7cb-8f14d9e050d9", userPreferences.language))}
-                    </div>
+                    <div className="lg-text-banner lg-text-secondary-100 !tw-text-secondary-100-light">{appendSpaceToString(contentData.getContent("bda064ee-6cc6-43f7-a7cb-8f14d9e050d9"))}</div>
                 </DefaultTextAnimation>
 
                 <DefaultTextAnimation>
-                    <div className="lg-text-title1 lg-text-secondary-100 !tw-text-secondary-100-light">{getVernacularString("4eb87934-841c-4c9f-898e-3bfbac44f2a2", userPreferences.language)}</div>
+                    <div className="lg-text-title1 lg-text-secondary-100 !tw-text-secondary-100-light">{contentData.getContent("4eb87934-841c-4c9f-898e-3bfbac44f2a2")}</div>
                 </DefaultTextAnimation>
                 <VerticalSpacer className="tw-h-6" />
                 {/* <DefaultElementAnimation className="tw-grid tw-justify-center lg:tw-justify-start tw-z-10">
@@ -303,13 +328,14 @@ function HeroSection({
 }
 
 function Introduction({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "understanding-e-waste-management": {
-                humanReadableName: getVernacularString("3b3c4911-9f88-4c2b-a7e9-255c83f18ebd", userPreferences.language),
+                humanReadableName: contentData.getContent("3b3c4911-9f88-4c2b-a7e9-255c83f18ebd"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -320,20 +346,21 @@ function Introduction({userPreferences, className}: {userPreferences: UserPrefer
             id="understanding-e-waste-management"
             ref={sectionRef}
         >
-            <div className="lg-text-headline tw-text-center">{getVernacularString("e7e9c51a-f71f-45dc-9607-93bd3236c6b5", userPreferences.language)}</div>
+            <div className="lg-text-headline tw-text-center">{contentData.getContent("e7e9c51a-f71f-45dc-9607-93bd3236c6b5")}</div>
             <VerticalSpacer className="tw-h-[1rem]" />
-            <div className="lg-text-body ">{getVernacularString("edc62a50-a3c7-4f6f-b5dc-e7fbad46a0aa", userPreferences.language)}</div>
+            <div className="lg-text-body ">{contentData.getContent("edc62a50-a3c7-4f6f-b5dc-e7fbad46a0aa")}</div>
             <VerticalSpacer className="tw-h-4" />
-            <div className="lg-text-body">{getVernacularString("d86ceedf-2c18-4e72-bd6e-f680b3aa3e24", userPreferences.language)}</div>
+            <div className="lg-text-body">{contentData.getContent("d86ceedf-2c18-4e72-bd6e-f680b3aa3e24")}</div>
             <VerticalSpacer className="tw-h-4" />
-            <div className="lg-text-body">{getVernacularString("41446f5c-546d-4b87-b68f-09909f0ac67d", userPreferences.language)}</div>
+            <div className="lg-text-body">{contentData.getContent("41446f5c-546d-4b87-b68f-09909f0ac67d")}</div>
             <VerticalSpacer className="tw-h-4" />
-            <div className="lg-text-body">{getVernacularString("c26dd37a-78dc-46b8-8fd9-5a7f5b9c9e54", userPreferences.language)}</div>
+            <div className="lg-text-body">{contentData.getContent("c26dd37a-78dc-46b8-8fd9-5a7f5b9c9e54")}</div>
         </div>
     );
 }
 
 function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -341,7 +368,7 @@ function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferenc
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "why-e-waste-management": {
-                humanReadableName: getVernacularString("49f87968-94f3-4a60-8afa-830ef171f29b", userPreferences.language),
+                humanReadableName: contentData.getContent("49f87968-94f3-4a60-8afa-830ef171f29b"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -380,11 +407,11 @@ function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferenc
                         <div>
                             <div
                                 className="lg-text-title1 tw-text-secondary-900-light"
-                                dangerouslySetInnerHTML={{__html: getVernacularString("6fa18bfe-40fb-42ec-b58c-654c4fc881da", userPreferences.language)}}
+                                dangerouslySetInnerHTML={{__html: contentData.getContent("6fa18bfe-40fb-42ec-b58c-654c4fc881da")}}
                             ></div>
                             <div
                                 className="lg-text-body !tw-text-secondary-900-light"
-                                dangerouslySetInnerHTML={{__html: getVernacularString("d2d23cef-3bfc-45bf-916c-a3299a9d163c", userPreferences.language)}}
+                                dangerouslySetInnerHTML={{__html: contentData.getContent("d2d23cef-3bfc-45bf-916c-a3299a9d163c")}}
                             ></div>
                         </div>
                     </div>
@@ -396,12 +423,12 @@ function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferenc
                 <div>
                     <div
                         className="lg-text-headline"
-                        dangerouslySetInnerHTML={{__html: getVernacularString("8eb39f08-e6ac-49e8-b7cb-7b1b56a98891", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("8eb39f08-e6ac-49e8-b7cb-7b1b56a98891")}}
                     ></div>
                     <VerticalSpacer className="tw-h-4 lg:tw-h-2" />
                     <div
                         className="lg-text-body"
-                        dangerouslySetInnerHTML={{__html: getVernacularString("91e2cda0-4afb-49e8-9772-8c4aa4cd246a", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("91e2cda0-4afb-49e8-9772-8c4aa4cd246a")}}
                     ></div>
                 </div>
                 <div className="tw-grid tw-gap-6">
@@ -409,42 +436,42 @@ function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferenc
                         <div>
                             <div className="lg-text-title2 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1">
                                 <span className="lg-card tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center">
-                                    {getVernacularString("0ed9d4ea-8be2-4402-9cc9-6d9a07e96c43", userPreferences.language)}
+                                    {contentData.getContent("0ed9d4ea-8be2-4402-9cc9-6d9a07e96c43")}
                                 </span>
-                                {getVernacularString("fc71fe6d-a26c-4873-beb5-a16fe8fc7174", userPreferences.language)}
+                                {contentData.getContent("fc71fe6d-a26c-4873-beb5-a16fe8fc7174")}
                             </div>
                         </div>
                         <div
                             className="lg-text-body"
-                            dangerouslySetInnerHTML={{__html: getVernacularString("b494b200-dfd0-406c-8256-b1f655ca9066", userPreferences.language)}}
+                            dangerouslySetInnerHTML={{__html: contentData.getContent("b494b200-dfd0-406c-8256-b1f655ca9066")}}
                         ></div>
                     </div>
                     <div className="tw-grid tw-gap-2">
                         <div>
                             <div className="lg-text-title2 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1">
                                 <span className="lg-card tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center">
-                                    {getVernacularString("b452610b-4e19-4d8a-a5c7-c42e7440a3e4", userPreferences.language)}
+                                    {contentData.getContent("b452610b-4e19-4d8a-a5c7-c42e7440a3e4")}
                                 </span>
-                                {getVernacularString("c67dd066-2f26-4073-af46-c66a4cdd21c5", userPreferences.language)}
+                                {contentData.getContent("c67dd066-2f26-4073-af46-c66a4cdd21c5")}
                             </div>
                         </div>
                         <div
                             className="lg-text-body"
-                            dangerouslySetInnerHTML={{__html: getVernacularString("d2f89a76-0b86-4232-bea7-4c289826a2c1", userPreferences.language)}}
+                            dangerouslySetInnerHTML={{__html: contentData.getContent("d2f89a76-0b86-4232-bea7-4c289826a2c1")}}
                         ></div>
                     </div>
                     <div className="tw-grid tw-gap-2">
                         <div>
                             <div className="lg-text-title2 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1">
                                 <span className="lg-card tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center">
-                                    {getVernacularString("17bc8148-f2ed-4026-8074-ce2ca1013b4d", userPreferences.language)}
+                                    {contentData.getContent("17bc8148-f2ed-4026-8074-ce2ca1013b4d")}
                                 </span>
-                                {getVernacularString("06e30da0-63f4-43d6-beb5-8fe3b7af9a33", userPreferences.language)}
+                                {contentData.getContent("06e30da0-63f4-43d6-beb5-8fe3b7af9a33")}
                             </div>
                         </div>
                         <div
                             className="lg-text-body"
-                            dangerouslySetInnerHTML={{__html: getVernacularString("24b72e2e-abdd-48ae-ba2b-f60489dedf5e", userPreferences.language)}}
+                            dangerouslySetInnerHTML={{__html: contentData.getContent("24b72e2e-abdd-48ae-ba2b-f60489dedf5e")}}
                         ></div>
                     </div>
                 </div>
@@ -454,6 +481,7 @@ function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferenc
 }
 
 function ServicesProvide({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const items = [
         {
             svgIcon: "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg",
@@ -550,12 +578,12 @@ function ServicesProvide({userPreferences, className}: {userPreferences: UserPre
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full", className)}>
             <div
                 className="lg-text-banner tw-text-center"
-                dangerouslySetInnerHTML={{__html: getVernacularString("c0322003-0090-4b07-867b-e9a14cab8b06", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("c0322003-0090-4b07-867b-e9a14cab8b06")}}
             ></div>
             <VerticalSpacer className="tw-h-[1rem]" />
             <div
                 className="lg-text-body tw-text-center"
-                dangerouslySetInnerHTML={{__html: getVernacularString("afc8a4c5-877d-4137-a2b0-97c9408eaded", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("afc8a4c5-877d-4137-a2b0-97c9408eaded")}}
             ></div>
             <VerticalSpacer className="tw-h-[1.5rem]" />
             <CarouselStyle4
@@ -575,11 +603,11 @@ function ServicesProvide({userPreferences, className}: {userPreferences: UserPre
                             <div className="tw-row-start-3">
                                 <div
                                     className="lg-text-body-bold tw-text-center"
-                                    dangerouslySetInnerHTML={{__html: getVernacularString(item.title, userPreferences.language)}}
+                                    dangerouslySetInnerHTML={{__html: contentData.getContent(item.title)}}
                                 />
                                 <div
                                     className="lg-text-body tw-text-center"
-                                    dangerouslySetInnerHTML={{__html: getVernacularString(item.content, userPreferences.language)}}
+                                    dangerouslySetInnerHTML={{__html: contentData.getContent(item.content)}}
                                 />
                             </div>
                         </div>
@@ -593,31 +621,32 @@ function ServicesProvide({userPreferences, className}: {userPreferences: UserPre
 }
 
 function NearestCollectionCenter({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div
                 className="lg-text-headline"
-                dangerouslySetInnerHTML={{__html: getVernacularString("9d43b4fc-3438-4cf3-8f7d-2656d486846e", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("9d43b4fc-3438-4cf3-8f7d-2656d486846e")}}
             ></div>
             <VerticalSpacer className="tw-h-6" />
             <div className="tw-grid lg:tw-grid-cols-[minmax(0,1fr)_2rem_minmax(0,1fr)_1.5rem_auto] lg:tw-grid-rows-1 tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr)_1rem_minmax(0,1fr)_minmax(0,1fr)] tw-items-end">
                 <div className="tw-grid tw-col-start-1">
-                    <div className="lg-text-body">{getVernacularString("acf56d00-92b0-4408-baf5-7c6c4596d0dc", userPreferences.language)}</div>
+                    <div className="lg-text-body">{contentData.getContent("acf56d00-92b0-4408-baf5-7c6c4596d0dc")}</div>
                     <input
                         type="text"
                         name="state"
                         className="lg-text-input"
-                        placeholder={getVernacularString("ad6b181f-0115-4496-a9f8-4fb7d7d6e990", userPreferences.language)}
+                        placeholder={contentData.getContent("ad6b181f-0115-4496-a9f8-4fb7d7d6e990")}
                         required
                     />
                 </div>
                 <div className="tw-grid lg:tw-col-start-3 lg:tw-row-start-1 tw-row-start-3">
-                    <div className="lg-text-body">{getVernacularString("91cb41a5-571d-4516-91fb-fc5e67266990", userPreferences.language)}</div>
+                    <div className="lg-text-body">{contentData.getContent("91cb41a5-571d-4516-91fb-fc5e67266990")}</div>
                     <input
                         type="text"
                         name="state"
                         className="lg-text-input"
-                        placeholder={getVernacularString("07ac43fc-8777-4379-81d5-8c80533d5e66", userPreferences.language)}
+                        placeholder={contentData.getContent("07ac43fc-8777-4379-81d5-8c80533d5e66")}
                         required
                     />
                 </div>
@@ -625,13 +654,13 @@ function NearestCollectionCenter({userPreferences, className}: {userPreferences:
                     type="submit"
                     className="lg:tw-row-start-1 tw-row-start-4 lg:tw-hidden tw-block lg:tw-col-start-5 lg-text-body lg-cta-button !tw-text-secondary-900-dark tw-w-full"
                 >
-                    {getVernacularString("3a2ac2b6-a897-4d0a-ac7e-0abf6425ba24", userPreferences.language)}
+                    {contentData.getContent("3a2ac2b6-a897-4d0a-ac7e-0abf6425ba24")}
                 </button>
                 <button
                     type="submit"
                     className="lg:tw-block tw-hidden lg:tw-col-start-5 lg-text-body lg-cta-button !tw-text-secondary-900-dark"
                 >
-                    {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
+                    {contentData.getContent("contactUsS3FormButtonText")}
                 </button>
             </div>
             <VerticalSpacer className="tw-h-10" />
@@ -663,19 +692,15 @@ function NearestCollectionCenter({userPreferences, className}: {userPreferences:
                             key={itemIndex}
                         >
                             <div className="tw-row-start-1 tw-col-start-1 ">
-                                <div className="lg-text-title2">{getVernacularString(item.name, userPreferences.language)}</div>
+                                <div className="lg-text-title2">{contentData.getContent(item.name)}</div>
                                 <div
                                     className="lg-text-body"
-                                    dangerouslySetInnerHTML={{__html: getVernacularString(item.address, userPreferences.language)}}
+                                    dangerouslySetInnerHTML={{__html: contentData.getContent(item.address)}}
                                 ></div>
                             </div>
                             <div className="tw-grid tw-grid-cols-2 tw-pb-4 tw-gap-6 tw-row-start-3">
-                                <div className="lg-cta-button tw-grid tw-px-0 tw-py-2 tw-max-w-[8.6rem] tw-justify-center tw-items-center">
-                                    {getVernacularString(item.cta1, userPreferences.language)}
-                                </div>
-                                <div className="lg-cta-outline-button tw-px-0 tw-py-2 tw-max-w-[8.6rem] tw-grid tw-justify-center tw-items-center">
-                                    {getVernacularString(item.cta2, userPreferences.language)}
-                                </div>
+                                <div className="lg-cta-button tw-grid tw-px-0 tw-py-2 tw-max-w-[8.6rem] tw-justify-center tw-items-center">{contentData.getContent(item.cta1)}</div>
+                                <div className="lg-cta-outline-button tw-px-0 tw-py-2 tw-max-w-[8.6rem] tw-grid tw-justify-center tw-items-center">{contentData.getContent(item.cta2)}</div>
                             </div>
                         </div>
                     )}
@@ -686,6 +711,7 @@ function NearestCollectionCenter({userPreferences, className}: {userPreferences:
 }
 
 function AwarenessPrograms({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const items = [
         {
             image: "/livguard/e-waste-management/7/1.png",
@@ -739,7 +765,7 @@ function AwarenessPrograms({userPreferences, className}: {userPreferences: UserP
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "waves-of-impact": {
-                humanReadableName: getVernacularString("789b2fd5-46ee-4b76-b2a4-a73074021f6a", userPreferences.language),
+                humanReadableName: contentData.getContent("789b2fd5-46ee-4b76-b2a4-a73074021f6a"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -750,10 +776,10 @@ function AwarenessPrograms({userPreferences, className}: {userPreferences: UserP
             id="waves-of-impact"
             ref={sectionRef}
         >
-            <div className="lg-text-headline tw-text-center">{getVernacularString("6c5422c4-c98a-4035-9e9d-7977366e50f3", userPreferences.language)}</div>
+            <div className="lg-text-headline tw-text-center">{contentData.getContent("6c5422c4-c98a-4035-9e9d-7977366e50f3")}</div>
             <div
                 className="lg-text-body tw-text-center"
-                dangerouslySetInnerHTML={{__html: getVernacularString("1eaa68c5-42b8-497e-bf30-220999dcc61a", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("1eaa68c5-42b8-497e-bf30-220999dcc61a")}}
             />{" "}
             <VerticalSpacer className="tw-h-6" />
             <CarouselStyle4
@@ -776,6 +802,7 @@ function AwarenessPrograms({userPreferences, className}: {userPreferences: UserP
 }
 
 function SocialHandlesSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("", className)}>
             <SocialHandles

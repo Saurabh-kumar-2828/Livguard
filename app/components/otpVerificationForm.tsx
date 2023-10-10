@@ -8,7 +8,8 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import type {UserPreferences} from "~/typeDefinitions";
 import {FormType} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
+import {useContext} from "react";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function OtpVerificationForm({
     userPreferences,
@@ -31,6 +32,7 @@ export function OtpVerificationForm({
     formType: string;
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
             <DefaultElementAnimation>
@@ -45,13 +47,13 @@ export function OtpVerificationForm({
                     />
 
                     <div className="tw-row-start-2 tw-col-start-1 tw-text-center lg-text-headline tw-px-8 tw-z-10">
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFAQT1", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("contactUsFAQT1")}} />
                     </div>
 
                     <div className="tw-h-8 tw-row-start-3" />
 
                     <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                        <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+                        <div className="lg-text-title2 tw-pl-3 tw-text-white">{contentData.getContent("contactUsT2")}</div>
 
                         <VerticalSpacer className="tw-h-1" />
 
@@ -63,14 +65,14 @@ export function OtpVerificationForm({
                             required
                             defaultValue={inputData.phoneNumber}
                             readOnly
-                            placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
+                            placeholder={contentData.getContent("contactUsT2E")}
                         />
                     </div>
 
                     <VerticalSpacer className="tw-h-2 tw-row-start-5" />
 
                     <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                        <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsOTPT3", userPreferences.language)}</div>
+                        <div className="lg-text-title2 tw-pl-3 tw-text-white">{contentData.getContent("contactUsOTPT3")}</div>
 
                         <VerticalSpacer className="tw-h-1" />
 
@@ -79,7 +81,7 @@ export function OtpVerificationForm({
                             name="otpSubmitted"
                             className="lg-text-input"
                             required
-                            placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                            placeholder={contentData.getContent("contactUsOTPT3E")}
                         />
                     </div>
 
@@ -98,7 +100,7 @@ export function OtpVerificationForm({
                             className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
                             disabled={fetcher.state != "idle"}
                         >
-                            {getVernacularString("applyNowForDealerT6", userPreferences.language)}
+                            {contentData.getContent("applyNowForDealerT6")}
                         </button>
                     </div>
                     <input

@@ -43,11 +43,15 @@ import {
     getUrlFromRequest,
     secondaryNavThreshold,
 } from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
 import batteryFinder from "../battery-finder";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {getProductFromSlugAndLanguage} from "~/backend/product.server";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -87,7 +91,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/inverter-batteries/inverter-batteries-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
             {
                 "script:ld+json": {
@@ -166,7 +170,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/inverter-batteries/inverter-batteries-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
             {
                 "script:ld+json": {
@@ -222,6 +226,13 @@ type LoaderData = {
     pageUrl: string;
     id: string | null;
     humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -258,7 +269,9 @@ export const loader: LoaderFunction = async ({request}) => {
         humanReadableModelNumbersForSuggestionsObj[slug] = getProductFromSlugAndLanguage(slug, userPreferences.language).humanReadableModelNumber;
     });
 
-    console.log(humanReadableModelNumbersForSuggestionsObj);
+    const vernacularData = getVernacularFromBackend("inverterBatteriesPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("inverterBatteriesPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/inverter-batteries/inverter-batteries-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
@@ -266,13 +279,16 @@ export const loader: LoaderFunction = async ({request}) => {
         pageUrl: getUrlFromRequest(request),
         id: id,
         humanReadableModelNumbersForSuggestions: humanReadableModelNumbersForSuggestionsObj,
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl, id, humanReadableModelNumbersForSuggestions} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, id, humanReadableModelNumbersForSuggestions, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -280,35 +296,43 @@ export default function () {
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "09b8631b-98e0-4ae8-bafb-65bb57001872", link: "#"},
-                ]}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <CategoryPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
+                        userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "09b8631b-98e0-4ae8-bafb-65bb57001872", link: "#"},
+                        ]}
+                        secondaryNavigationController={secondaryNavigationController}
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <CategoryPage
+                                userPreferences={userPreferences}
+                                utmParameters={utmSearchParameters}
+                                pageUrl={pageUrl}
+                                secondaryNavigationController={secondaryNavigationController}
+                                id={id}
+                                humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
+
+                    <ProductAndCategoryBottomBar
                         userPreferences={userPreferences}
                         utmParameters={utmSearchParameters}
                         pageUrl={pageUrl}
-                        secondaryNavigationController={secondaryNavigationController}
-                        id={id}
-                        humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
                     />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
-
-            <ProductAndCategoryBottomBar
-                userPreferences={userPreferences}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-            />
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 }
@@ -422,17 +446,18 @@ function HeroSection({
     className?: string;
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
     // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     // useEffect(() => {
-    //     secondaryNavigationController.setSections((previousSections) => ({
-    //         ...previousSections,
-    //         top: {
-    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-    //             isCurrentlyVisible: sectionInView,
-    //         },
-    //     }));
+        // secondaryNavigationController.setSections((previousSections) => ({
+            // ...previousSections,
+            // top: {
+                // humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41"),
+                // isCurrentlyVisible: sectionInView,
+            // },
+        // }));
     // }, [sectionRef, sectionInView]);
     return (
         <div
@@ -486,15 +511,15 @@ function HeroSection({
                 )}
 
                 <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
-                    <div className="lg-text-banner lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryBatteriesS1T1", userPreferences.language)}</div>
+                    <div className="lg-text-banner lg-px-screen-edge tw-text-secondary-900-dark">{contentData.getContent("categoryBatteriesS1T1")}</div>
                 </DefaultTextAnimation>
 
                 <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
-                    <div className="lg-text-title1 lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryBatteriesS1T2", userPreferences.language)}</div>
+                    <div className="lg-text-title1 lg-px-screen-edge tw-text-secondary-900-dark">{contentData.getContent("categoryBatteriesS1T2")}</div>
                 </DefaultTextAnimation>
 
                 <DefaultTextAnimation className="tw-row-start-[8] tw-col-start-1">
-                    <h2 className="lg-text-body lg-px-screen-edge !tw-text-secondary-900-dark">{getVernacularString("categoryBatteriesS1T3", userPreferences.language)}</h2>
+                    <h2 className="lg-text-body lg-px-screen-edge !tw-text-secondary-900-dark">{contentData.getContent("categoryBatteriesS1T3")}</h2>
                 </DefaultTextAnimation>
 
                 <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
@@ -504,6 +529,7 @@ function HeroSection({
 }
 
 function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const sectionData: Array<{titleTextContentPiece: string; bodyTextContentPiece: string; imageRelativePath: string}> = [
         {
             titleTextContentPiece: "categoryBatteriesS2Slide1Heading",
@@ -531,8 +557,8 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            features: {
-                humanReadableName: getVernacularString("8bb57774-d155-41f1-bf07-6906c1026203", userPreferences.language),
+            "features": {
+                humanReadableName: contentData.getContent("8bb57774-d155-41f1-bf07-6906c1026203"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -545,10 +571,10 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
         >
             <h2 className="lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryBatteriesS2HT1", userPreferences.language))}} />
+                    <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("categoryBatteriesS2HT1"))}} />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS2HT2", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryBatteriesS2HT2")}} />
                 </DefaultTextAnimation>
             </h2>
 
@@ -569,17 +595,17 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
 //             <div className="tw-flex tw-flex-col tw-items-center">
 //                 <div className="lg-text-headline tw-text-center">
 //                     <DefaultTextAnimation>
-//                         <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS3HT1", userPreferences.language)}} />
+//                         <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryBatteriesS3HT1")}} />
 //                     </DefaultTextAnimation>
 //                     <DefaultTextAnimation>
-//                         <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS3HT2", userPreferences.language)}} />
+//                         <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryBatteriesS3HT2")}} />
 //                     </DefaultTextAnimation>
 //                 </div>
 
 //                 <VerticalSpacer className="tw-h-6" />
 
 //                 <DefaultTextAnimation>
-//                     <div className="lg-text-title2 tw-text-center">{getVernacularString("categoryBatteriesS4Heading", userPreferences.language)}</div>
+//                     <div className="lg-text-title2 tw-text-center">{contentData.getContent("categoryBatteriesS4Heading")}</div>
 //                 </DefaultTextAnimation>
 
 //                 <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-4">
@@ -597,7 +623,7 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
 ////                                 />
 //                             </div>
 //                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedBatteryType == BatteryType.flat ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
-//                                 {getVernacularString("categoryBatteriesS4BTFlat", userPreferences.language)}
+//                                 {contentData.getContent("categoryBatteriesS4BTFlat")}
 //                             </div>
 //                         </div> */}
 //                     </DefaultElementAnimation>
@@ -616,7 +642,7 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
 ////                                 />
 //                             </div>
 //                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedBatteryType == BatteryType.tubular ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
-//                                 {getVernacularString("categoryBatteriesS4BTTubular", userPreferences.language)}
+//                                 {contentData.getContent("categoryBatteriesS4BTTubular")}
 //                             </div>
 //                         </div> */}
 //                     </DefaultElementAnimation>
@@ -632,7 +658,7 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
 //                 <VerticalSpacer className="tw-h-10" />
 
 //                 <DefaultElementAnimation>
-//                     <div className="lg-cta-button ">{getVernacularString("categoryBatteriesS4BT", userPreferences.language)}</div>
+//                     <div className="lg-cta-button ">{contentData.getContent("categoryBatteriesS4BT")}</div>
 //                 </DefaultElementAnimation>
 //             </div>
 //         </div>
@@ -640,6 +666,7 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
 // }
 
 export function OurBatteriesSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const highlightedBatteries = [
         {name: "Tall Tubular", image: "/livguard/products/it1584tt/thumbnail.png"},
         {name: "Short Tubular", image: "/livguard/products/it1048st/thumbnail.png"},
@@ -652,7 +679,7 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "our-batteries": {
-                humanReadableName: getVernacularString("32d2e95f-02b6-49fe-b1c3-cee4542e202b", userPreferences.language),
+                humanReadableName: contentData.getContent("32d2e95f-02b6-49fe-b1c3-cee4542e202b"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -665,16 +692,14 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
             ref={sectionRef}
         >
             <h2 className="lg-text-headline tw-text-center">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryBatteriesS3T1", userPreferences.language))}} />
-                <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS3T2", userPreferences.language)}} />
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("categoryBatteriesS3T1"))}} />
+                <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryBatteriesS3T2")}} />
             </h2>
 
             <VerticalSpacer className="tw-h-6" />
 
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_auto_auto] lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] tw-items-center tw-justify-items-center lg:tw-justify-items-start lg-card lg:tw-p-4 lg:tw-rounded-lg">
-                <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 lg-text-title1 tw-text-center">
-                    {getVernacularString("8f342209-314d-41f9-ac39-3370d9d96fcb", userPreferences.language)}
-                </div>
+                <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 lg-text-title1 tw-text-center">{contentData.getContent("8f342209-314d-41f9-ac39-3370d9d96fcb")}</div>
 
                 <VerticalSpacer className="tw-h-6 tw-hidden lg:tw-block" />
 
@@ -687,7 +712,7 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
                 <div className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-2 tw-flex tw-flex-col">
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div>{getVernacularString("dd873e80-f5f5-48a6-8429-04efadff2720", userPreferences.language)}</div>
+                    <div>{contentData.getContent("dd873e80-f5f5-48a6-8429-04efadff2720")}</div>
 
                     <VerticalSpacer className="tw-h-6" />
 
@@ -719,7 +744,7 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
                                     <div className="tw-w-12 tw-h-12 lg-card tw-rounded-full tw-p-3 tw-flex tw-justify-center tw-items-center">
                                         <item.iconComponent className="tw-w-6 tw-h-6" />
                                     </div>
-                                    <div>{getVernacularString(item.contentId, userPreferences.language)}</div>
+                                    <div>{contentData.getContent(item.contentId)}</div>
                                 </div>
                             )}
                         />
@@ -765,6 +790,7 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
 }
 
 export function OurBatteriesSectionInternal({userPreferences}: {userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div>
             <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)] lg:tw-grid-cols-[4.5rem_22rem] tw-gap-x-2">
@@ -800,65 +826,63 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
                     </div>
                 </div>
 
-                {/* <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryBatteriesS3R1C2", userPreferences.language)}</div> */}
+                {/* <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{contentData.getContent("categoryBatteriesS3R1C2")}</div> */}
 
-                <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryBatteriesS3R1C3", userPreferences.language)}</div>
+                <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{contentData.getContent("categoryBatteriesS3R1C3")}</div>
 
                 <div className="tw-row-start-3 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 tw-text-secondary-900">
-                    {getVernacularString("categoryBatteriesS3R2C1", userPreferences.language)}
+                    {contentData.getContent("categoryBatteriesS3R2C1")}
                 </div>
 
                 {/* <div className="tw-row-start-3 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                    {getVernacularString("categoryBatteriesS3R2C2", userPreferences.language)}
+                    {contentData.getContent("categoryBatteriesS3R2C2")}
                 </div> */}
 
                 <div className="tw-row-start-3 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
-                    {getVernacularString("categoryBatteriesS3R2C3", userPreferences.language)}
+                    {contentData.getContent("categoryBatteriesS3R2C3")}
                 </div>
 
                 <div className="tw-row-start-4 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 tw-text-secondary-900">
-                    {getVernacularString("categoryBatteriesS3R3C1", userPreferences.language)}
+                    {contentData.getContent("categoryBatteriesS3R3C1")}
                 </div>
 
                 {/* <div className="tw-row-start-4 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                    {getVernacularString("categoryBatteriesS3R3C2", userPreferences.language)}
+                    {contentData.getContent("categoryBatteriesS3R3C2")}
                 </div> */}
 
                 <div className="tw-row-start-4 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
-                    {getVernacularString("categoryBatteriesS3R3C3", userPreferences.language)}
+                    {contentData.getContent("categoryBatteriesS3R3C3")}
                 </div>
 
                 <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 tw-text-secondary-900">
-                    {getVernacularString("categoryBatteriesS3R4C1", userPreferences.language)}
+                    {contentData.getContent("categoryBatteriesS3R4C1")}
                 </div>
 
                 {/* <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                    {getVernacularString("categoryBatteriesS3R4C2", userPreferences.language)}
+                    {contentData.getContent("categoryBatteriesS3R4C2")}
                 </div> */}
 
                 <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
-                    {getVernacularString("categoryBatteriesS3R4C3", userPreferences.language)}
+                    {contentData.getContent("categoryBatteriesS3R4C3")}
                 </div>
 
                 <div className="tw-row-start-6 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 tw-text-secondary-900">
-                    {getVernacularString("categoryBatteriesS3R5C1", userPreferences.language)}
+                    {contentData.getContent("categoryBatteriesS3R5C1")}
                 </div>
 
                 {/* <div className="tw-row-start-6 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                    {getVernacularString("categoryBatteriesS3R5C2", userPreferences.language)}
+                    {contentData.getContent("categoryBatteriesS3R5C2")}
                 </div> */}
 
                 <div className="tw-row-start-6 tw-col-start-2 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
-                    {getVernacularString("categoryBatteriesS3R5C3", userPreferences.language)}
+                    {contentData.getContent("categoryBatteriesS3R5C3")}
                 </div>
 
-                <div className="tw-row-start-7 tw-col-start-1 tw-mx-2 tw-py-3 tw-pb-8 lg-text-icon tw-text-secondary-900">
-                    {getVernacularString("categoryBatteriesS3R6C1", userPreferences.language)}
-                </div>
+                <div className="tw-row-start-7 tw-col-start-1 tw-mx-2 tw-py-3 tw-pb-8 lg-text-icon tw-text-secondary-900">{contentData.getContent("categoryBatteriesS3R6C1")}</div>
 
-                {/* <div className="tw-row-start-7 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryBatteriesS3R6C2", userPreferences.language)}</div> */}
+                {/* <div className="tw-row-start-7 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">{contentData.getContent("categoryBatteriesS3R6C2")}</div> */}
 
-                <div className="tw-row-start-7 tw-col-start-2 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{getVernacularString("categoryBatteriesS3R6C3", userPreferences.language)}</div>
+                <div className="tw-row-start-7 tw-col-start-2 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{contentData.getContent("categoryBatteriesS3R6C3")}</div>
             </div>
         </div>
     );
@@ -875,6 +899,7 @@ export function OurSuggestionsSection({
     id?: string | null;
     humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const [selectedBatteryTypeIndex, setSelectedBatteryTypeIndex] = useState(0);
 
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
@@ -891,7 +916,7 @@ export function OurSuggestionsSection({
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "suggested-batteries": {
-                humanReadableName: getVernacularString("d8ece6dc-63bc-417e-a972-534df74fe32f", userPreferences.language),
+                humanReadableName: contentData.getContent("0620b5a6-a7bb-4d55-84fb-6a3202439edb"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -910,102 +935,102 @@ export function OurSuggestionsSection({
         relatedProducts: Array<string>;
     }> = [
         {
-            typeDescription: `${getVernacularString("categoryBatteriesS4Slide1TypeDescription", userPreferences.language)}`,
-            heading: `${getVernacularString("categoryBatteriesS4Slide1Heading", userPreferences.language)}`,
-            description: `${getVernacularString("categoryBatteriesS4Slide1Description", userPreferences.language)}`,
-            specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
+            typeDescription: `${contentData.getContent("categoryBatteriesS4Slide1TypeDescription")}`,
+            heading: `${contentData.getContent("categoryBatteriesS4Slide1Heading")}`,
+            description: `${contentData.getContent("categoryBatteriesS4Slide1Description")}`,
+            specificationHeading: `${contentData.getContent("categoryBatteriesS4SpecificationHeading")}`,
             keySpecifications: [
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS1Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS1Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryBatteriesS2KS1Title"),
+                    keySpecificationContent: contentData.getContent("categoryBatteriesSlide1KS1Description"),
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS2Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryBatteriesS2KS2Title"),
+                    keySpecificationContent: contentData.getContent("categoryBatteriesSlide1KS2Description"),
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-capacity.svg",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS3Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryBatteriesS2KS3Title"),
+                    keySpecificationContent: contentData.getContent("categoryBatteriesSlide1KS3Description"),
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-charging.svg",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS4Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS4Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryBatteriesS2KS4Title"),
+                    keySpecificationContent: contentData.getContent("categoryBatteriesSlide1KS4Description"),
                     keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-dimensions.svg",
                 },
             ],
             imagesRelativePath: "/livguard/products/",
             link: "/product/it1048st",
-            exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
-            relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
+            exploreButton: contentData.getContent("categoryBatteriesS4BT"),
+            relatedProductsHeading: contentData.getContent("categoryBatteriesS4RelatedProductsHeading"),
             relatedProducts: ["it1550tt", "it1584tt", "it1642tt", "it1648tt", "it1672tt", "it1860tt", "it1872tt", "it2048tt", "it2060tt", "it2072tt", "it2272tt", "it2360tt", "it2672tt"],
         },
         {
-            typeDescription: `${getVernacularString("categoryBatteriesS4Slide2TypeDescription", userPreferences.language)}`,
-            heading: `${getVernacularString("categoryBatteriesS4Slide2Heading", userPreferences.language)}`,
-            description: `${getVernacularString("categoryBatteriesS4Slide2Description", userPreferences.language)}`,
-            specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
+            typeDescription: `${contentData.getContent("categoryBatteriesS4Slide2TypeDescription")}`,
+            heading: `${contentData.getContent("categoryBatteriesS4Slide2Heading")}`,
+            description: `${contentData.getContent("categoryBatteriesS4Slide2Description")}`,
+            specificationHeading: `${contentData.getContent("categoryBatteriesS4SpecificationHeading")}`,
             keySpecifications: [
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS1Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide2KS1Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryBatteriesS2KS1Title"),
+                    keySpecificationContent: contentData.getContent("categoryBatteriesSlide2KS1Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide2KS2Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryBatteriesS2KS2Title"),
+                    keySpecificationContent: contentData.getContent("categoryBatteriesSlide2KS2Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide2KS3Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryBatteriesS2KS3Title"),
+                    keySpecificationContent: contentData.getContent("categoryBatteriesSlide2KS3Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/3dGrid.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS4Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide2KS4Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryBatteriesS2KS4Title"),
+                    keySpecificationContent: contentData.getContent("categoryBatteriesSlide2KS4Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
             imagesRelativePath: "/livguard/products/",
             link: "/product/it1560stt",
-            exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
-            relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
+            exploreButton: contentData.getContent("categoryBatteriesS4BT"),
+            relatedProductsHeading: contentData.getContent("categoryBatteriesS4RelatedProductsHeading"),
             relatedProducts: ["it9048st"],
         },
         {
-            typeDescription: `${getVernacularString("categoryBatteriesS4Slide3TypeDescription", userPreferences.language)}`,
-            heading: `${getVernacularString("categoryBatteriesS4Slide3Heading", userPreferences.language)}`,
-            description: `${getVernacularString("categoryBatteriesS4Slide3Description", userPreferences.language)}`,
-            specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
+            typeDescription: `${contentData.getContent("categoryBatteriesS4Slide3TypeDescription")}`,
+            heading: `${contentData.getContent("categoryBatteriesS4Slide3Heading")}`,
+            description: `${contentData.getContent("categoryBatteriesS4Slide3Description")}`,
+            specificationHeading: `${contentData.getContent("categoryBatteriesS4SpecificationHeading")}`,
             keySpecifications: [
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS1Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide3KS1Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryBatteriesS2KS1Title"),
+                    keySpecificationContent: contentData.getContent("categoryBatteriesSlide3KS1Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide3KS2Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryBatteriesS2KS2Title"),
+                    keySpecificationContent: contentData.getContent("categoryBatteriesSlide3KS2Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide3KS3Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryBatteriesS2KS3Title"),
+                    keySpecificationContent: contentData.getContent("categoryBatteriesSlide3KS3Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/3dGrid.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS4Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide3KS4Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryBatteriesS2KS4Title"),
+                    keySpecificationContent: contentData.getContent("categoryBatteriesSlide3KS4Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
             imagesRelativePath: "/livguard/products/",
             link: "/product/it1560stt",
-            exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
-            relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
+            exploreButton: contentData.getContent("categoryBatteriesS4BT"),
+            relatedProductsHeading: contentData.getContent("categoryBatteriesS4RelatedProductsHeading"),
             relatedProducts: ["it1172stt", "it1548stt"],
         },
     ];
@@ -1023,17 +1048,17 @@ export function OurSuggestionsSection({
                 ></div>
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS4HT1", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryBatteriesS4HT1")}} />
                     </DefaultTextAnimation>
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS4HT2", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryBatteriesS4HT2")}} />
                     </DefaultTextAnimation>
                 </div>
 
                 <VerticalSpacer className="tw-h-6" />
 
                 {/* <DefaultTextAnimation>
-                    <div className="lg-text-title2 tw-text-center">{getVernacularString("categoryBatteriesS4Heading", userPreferences.language)}</div>
+                    <div className="lg-text-title2 tw-text-center">{contentData.getContent("categoryBatteriesS4Heading")}</div>
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-4" /> */}
@@ -1059,7 +1084,7 @@ export function OurSuggestionsSection({
                                             `${selectedBatteryTypeIndex == itemIndex ? "tw-text-secondary-900-dark" : "lg-text-secondary-900"}`,
                                         )}
                                     >
-                                        {getVernacularString(item, userPreferences.language)}
+                                        {contentData.getContent(item)}
                                     </div>
                                 </button>
                             )}
@@ -1093,101 +1118,101 @@ export function SideBySideOverviewSection({userPreferences, className}: {userPre
     }> = [
         {
             image: "",
-            heading: `${getVernacularString("categoryBatteriesS5Slide1Heading", userPreferences.language)}`,
+            heading: `${contentData.getContent("categoryBatteriesS5Slide1Heading")}`,
             features: [
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F1Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F1Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F2Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F2Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F3Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F3Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F4Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F4Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F5Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F5Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F6Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F6Title")}`,
                     highlighted: true,
                 },
             ],
         },
         {
             image: "",
-            heading: `${getVernacularString("categoryBatteriesS5Slide2Heading", userPreferences.language)}`,
+            heading: `${contentData.getContent("categoryBatteriesS5Slide2Heading")}`,
             features: [
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F1Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F1Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F2Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F2Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F3Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F3Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F4Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F4Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F5Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F5Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F6Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F6Title")}`,
                     highlighted: true,
                 },
             ],
         },
         {
             image: "",
-            heading: `${getVernacularString("categoryBatteriesS5Slide3Heading", userPreferences.language)}`,
+            heading: `${contentData.getContent("categoryBatteriesS5Slide3Heading")}`,
             features: [
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F1Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F1Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F2Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F2Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F3Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F3Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F4Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F4Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F5Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F5Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryBatteriesS5F6Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryBatteriesS5F6Title")}`,
                     highlighted: true,
                 },
             ],
         },
     ];
-
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS5HT1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryBatteriesS5HT1")}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-6" />
@@ -1222,27 +1247,28 @@ export function ChooseBestInverterBattery({
     productType?: ProductType;
     productSubType?: InverterSubType | BatterySubType | ComboSubType | AutomotiveSubType | AccessoriesSubType;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const sectionData: {
         description: string;
         downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string; popup: boolean}>;
         buttonText: string;
     } = {
-        description: `${getVernacularString("categoryBatteriesS8Description", userPreferences.language)}`,
+        description: `${contentData.getContent("categoryBatteriesS8Description")}`,
         downloadButtons: [
             {
                 iconRelativePath: "/livguard/icons/buyingGuide.png",
-                text: `${getVernacularString("categoryBatteriesS8B1T", userPreferences.language)}`,
+                text: `${contentData.getContent("categoryBatteriesS8B1T")}`,
                 downloadLink: "https://www.livguard.com/static-assets/livguard-buying-guide.pdf",
                 popup: false,
             },
             {
                 iconRelativePath: "/livguard/icons/downloadCatalogue.png",
-                text: `${getVernacularString("categoryBatteriesS8B2T", userPreferences.language)}`,
+                text: `${contentData.getContent("categoryBatteriesS8B2T")}`,
                 downloadLink: getDownloadCatalogueLink(productType, productSubType),
                 popup: false,
             },
         ],
-        buttonText: `${getVernacularString("categoryBatteriesS8BT", userPreferences.language)}`,
+        buttonText: `${contentData.getContent("categoryBatteriesS8BT")}`,
     };
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -1250,7 +1276,7 @@ export function ChooseBestInverterBattery({
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "plan-your-power": {
-                humanReadableName: getVernacularString("774db10b-9d90-42dd-bf81-8a1b389178d3", userPreferences.language),
+                humanReadableName: contentData.getContent("774db10b-9d90-42dd-bf81-8a1b389178d3"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1264,13 +1290,13 @@ export function ChooseBestInverterBattery({
             <div className="tw-flex tw-flex-col">
                 <h2 className="tw-grid lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryBatteriesS8HT1", userPreferences.language))}} />
+                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("categoryBatteriesS8HT1"))}} />
                     </DefaultTextAnimation>
                     <DefaultTextAnimation>
                         {productType != undefined ? (
-                            <div dangerouslySetInnerHTML={{__html: getVernacularString(getProductNameFromProductTypeAndSubtype(productType, productSubType), userPreferences.language)}} />
+                            <div dangerouslySetInnerHTML={{__html: contentData.getContent(getProductNameFromProductTypeAndSubtype(productType, productSubType))}} />
                         ) : (
-                            <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS8HT2", userPreferences.language)}} />
+                            <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryBatteriesS8HT2")}} />
                         )}
                     </DefaultTextAnimation>
                 </h2>
@@ -1323,13 +1349,14 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
 }
 
 function SuggestedCombo({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "suggested-combo": {
-                humanReadableName: getVernacularString("5270f2b4-c38b-45b7-8dac-0434f3e7bfcf", userPreferences.language),
+                humanReadableName: contentData.getContent("5270f2b4-c38b-45b7-8dac-0434f3e7bfcf"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1349,6 +1376,7 @@ function SuggestedCombo({userPreferences, className}: {userPreferences: UserPref
 }
 
 function AboutLivguard({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="lg:tw-px-[6.8rem] tw-px-0">
             <SocialHandles

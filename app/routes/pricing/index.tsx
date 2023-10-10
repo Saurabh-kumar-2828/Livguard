@@ -2,7 +2,7 @@ import {Popover} from "@headlessui/react";
 import {AdjustmentsHorizontalIcon} from "@heroicons/react/20/solid";
 import * as Slider from "@radix-ui/react-slider";
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
-import React, {useEffect, useReducer, useRef, useState} from "react";
+import React, {useContext, useEffect, useReducer, useRef, useState} from "react";
 import {X} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {StickyBottomBar} from "~/components/bottomBar";
@@ -13,7 +13,7 @@ import {ChipButtonWithText} from "~/components/scratchpad";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
@@ -24,8 +24,13 @@ import {PricingPageFilterAttribute, PricingPageProductType, allPricingPageFilter
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {AllProductDetails, Language, type UserPreferences} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
 import {allProductDetails} from "~/backend/product.server";
+import {ProductDetails} from "~/productData.types";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -65,7 +70,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/pricing/pricing-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -104,7 +109,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/pricing/pricing-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -117,6 +122,13 @@ type LoaderData = {
     redirectTo: string;
     pageUrl: string;
     allProductDetails: AllProductDetails;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -125,43 +137,58 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("pricingPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("pricingPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/pricing/pricing-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
         allProductDetails: allProductDetails,
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl, allProductDetails} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, allProductDetails, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "f26397f8-a9be-49e3-972a-34265e3f6441", link: "#"},
-                ]}
-                pageUrl={pageUrl}
-            >
-                <PricingPage
-                    userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
-                    pageUrl={pageUrl}
-                    allProductDetails={allProductDetails}
-                />
-            </PageScaffold>
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
+                        userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "f26397f8-a9be-49e3-972a-34265e3f6441", link: "#"},
+                        ]}
+                        pageUrl={pageUrl}
+                    >
+                        <PricingPage
+                            userPreferences={userPreferences}
+                            utmParameters={utmSearchParameters}
+                            pageUrl={pageUrl}
+                            allProductDetails={allProductDetails}
+                        />
+                    </PageScaffold>
 
-            <StickyBottomBar userPreferences={userPreferences} />
+                    <StickyBottomBar userPreferences={userPreferences} />
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 }
@@ -214,6 +241,7 @@ function HeroSection({
     className?: string;
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
@@ -251,6 +279,7 @@ function PricingSection({
     pricingPageState: PricingPageState;
     dispatch: React.Dispatch<PricingPageAction>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const productRef = useRef<HTMLDivElement>(null);
     return (
         <div
@@ -347,6 +376,7 @@ function CategoryFilters({
     pricingPageState: PricingPageState;
     dispatch: React.Dispatch<PricingPageAction>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-overflow-x-auto", className)}>
             <div className="tw-flex tw-flex-row tw-justify-start tw-gap-x-4 tw-pb-4">
@@ -397,19 +427,20 @@ function Filters({
     pricingPageState: PricingPageState;
     dispatch: React.Dispatch<PricingPageAction>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <>
             <div className={concatenateNonNullStringsWithSpaces("tw-hidden lg:tw-grid tw-w-full tw-grid-cols-1 tw-auto-rows-auto tw-content-start", className)}>
                 <div className="tw-grid tw-grid-flow-col tw-auto-cols-auto tw-justify-start tw-items-center tw-gap-x-2">
                     <AdjustmentsHorizontalIcon className="tw-w-5 tw-h-5" />
-                    <div className="lg-text-body-bold">{getVernacularString("d601a330-dff5-4a63-ac15-b3ad27428b54", userPreferences.language)}</div>
+                    <div className="lg-text-body-bold">{contentData.getContent("d601a330-dff5-4a63-ac15-b3ad27428b54")}</div>
                 </div>
 
                 <div className="tw-w-full tw-h-px lg-bg-secondary-900 tw-mt-4 tw-mb-4" />
 
                 {[PricingPageProductType.all, PricingPageProductType.inverter, PricingPageProductType.inverterBattery].includes(pricingPageState.selectedPricingPageProductType) && (
                     <>
-                        <div className="lg-text-body-bold">{getVernacularString("c1ce8369-9ae0-4d33-aba7-85b0414ffaa3", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold">{contentData.getContent("c1ce8369-9ae0-4d33-aba7-85b0414ffaa3")}</div>
 
                         <SliderComponent
                             min={defaultMinPrice}
@@ -433,7 +464,7 @@ function Filters({
 
                 {pricingPageState.selectedPricingPageProductType === PricingPageProductType.automotiveBatteries && (
                     <>
-                        <div className="lg-text-body-bold">{getVernacularString("615fec41-accc-4091-b2c9-fcd74e9d280e", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold">{contentData.getContent("615fec41-accc-4091-b2c9-fcd74e9d280e")}</div>
 
                         <VerticalSpacer className="tw-h-2" />
 
@@ -464,7 +495,7 @@ function Filters({
                     pricingPageState.selectedPricingPageProductType,
                 ) && (
                     <>
-                        <div className="lg-text-body-bold">{getVernacularString("8c207582-8a8a-4995-bd70-2a7c555bd50a", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold">{contentData.getContent("8c207582-8a8a-4995-bd70-2a7c555bd50a")}</div>
 
                         <VerticalSpacer className="tw-h-2" />
 
@@ -489,7 +520,7 @@ function Filters({
 
                         <div className="tw-w-full tw-h-px lg-bg-secondary-900 tw-mt-4 tw-mb-4" />
 
-                        <div className="lg-text-body-bold">{getVernacularString("872214aa-3d2c-4a10-935b-257b5dbde56f", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold">{contentData.getContent("872214aa-3d2c-4a10-935b-257b5dbde56f")}</div>
 
                         <VerticalSpacer className="tw-h-2" />
 
@@ -520,14 +551,14 @@ function Filters({
                     <div className={concatenateNonNullStringsWithSpaces("tw-grid lg:tw-hidden tw-w-full tw-grid-flow-col tw-auto-cols-auto tw-justify-start tw-gap-x-4 tw-pb-4", className)}>
                         <div className="tw-grid tw-grid-flow-col tw-auto-cols-auto tw-justify-start tw-items-center tw-gap-x-2">
                             <AdjustmentsHorizontalIcon className="tw-w-5 tw-h-5" />
-                            <div className="lg-text-body-bold">{getVernacularString("d601a330-dff5-4a63-ac15-b3ad27428b54", userPreferences.language)}</div>
+                            <div className="lg-text-body-bold">{contentData.getContent("d601a330-dff5-4a63-ac15-b3ad27428b54")}</div>
                         </div>
 
                         <Popover>
                             {({open}) => (
                                 <>
                                     <Popover.Button className="tw-duration-200 hover:lg-text-primary-500 tw-whitespace-nowrap tw-grid tw-grid-cols-1 tw-items-center tw-gap-x-2 tw-w-max">
-                                        {getVernacularString("c1ce8369-9ae0-4d33-aba7-85b0414ffaa3", userPreferences.language)}
+                                        {contentData.getContent("c1ce8369-9ae0-4d33-aba7-85b0414ffaa3")}
                                     </Popover.Button>
 
                                     <Popover.Panel className="tw-absolute tw-top-[1.5rem] tw-left-0 tw-right-0 tw-rounded-lg lg-bg-new-background-500 lg-card tw-grid tw-grid-cols-1 tw-p-4 tw-items-start">
@@ -557,7 +588,7 @@ function Filters({
                                 {({open}) => (
                                     <>
                                         <Popover.Button className="tw-duration-200 hover:lg-text-primary-500 tw-whitespace-nowrap tw-grid tw-grid-cols-1 tw-items-center tw-gap-x-2 tw-w-max">
-                                            {getVernacularString("615fec41-accc-4091-b2c9-fcd74e9d280e", userPreferences.language)}
+                                            {contentData.getContent("615fec41-accc-4091-b2c9-fcd74e9d280e")}
                                         </Popover.Button>
 
                                         <Popover.Panel className="tw-absolute tw-top-[1.5rem] tw-left-0 tw-right-0 tw-rounded-lg lg-bg-new-background-500 lg-card tw-grid tw-grid-cols-1 tw-p-4 tw-items-start">
@@ -589,7 +620,7 @@ function Filters({
                             {({open}) => (
                                 <>
                                     <Popover.Button className="tw-duration-200 hover:lg-text-primary-500 tw-whitespace-nowrap tw-grid tw-grid-cols-1 tw-items-center tw-gap-x-2 tw-w-max">
-                                        {getVernacularString("8c207582-8a8a-4995-bd70-2a7c555bd50a", userPreferences.language)}
+                                        {contentData.getContent("8c207582-8a8a-4995-bd70-2a7c555bd50a")}
                                     </Popover.Button>
 
                                     <Popover.Panel className="tw-absolute tw-top-[1.5rem] tw-left-0 tw-right-0 tw-rounded-lg lg-bg-new-background-500 lg-card tw-grid tw-grid-cols-1 tw-p-4 tw-items-start">
@@ -620,7 +651,7 @@ function Filters({
                             {({open}) => (
                                 <>
                                     <Popover.Button className="tw-duration-200 hover:lg-text-primary-500 tw-whitespace-nowrap tw-grid tw-grid-cols-1 tw-items-center tw-gap-x-2 tw-w-max">
-                                        {getVernacularString("872214aa-3d2c-4a10-935b-257b5dbde56f", userPreferences.language)}
+                                        {contentData.getContent("872214aa-3d2c-4a10-935b-257b5dbde56f")}
                                     </Popover.Button>
 
                                     <Popover.Panel className="tw-absolute tw-top-[1.5rem] tw-left-0 tw-right-0 tw-rounded-lg lg-bg-new-background-500 lg-card tw-border tw-border-solid tw-grid tw-grid-cols-1 tw-p-4 tw-items-start">
@@ -670,6 +701,7 @@ function AppliedFiltersAndSort({
     pricingPageState: PricingPageState;
     dispatch: React.Dispatch<PricingPageAction>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_auto]", className)}>
             {pricingPageState.minPrice == defaultMinPrice && pricingPageState.maxPrice == defaultMaxPrice ? null : (
@@ -750,6 +782,7 @@ function Chip({text, onClick}: {text: string; onClick: () => void}) {
 }
 
 function Checkbox({contentId, checked, onChange, userPreferences}: {contentId: string; checked: boolean; onChange: (checked: boolean) => void; userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
             <input
@@ -757,7 +790,7 @@ function Checkbox({contentId, checked, onChange, userPreferences}: {contentId: s
                 checked={checked}
                 onChange={(e) => onChange(e.target.checked)}
             />
-            <div className="">{getVernacularString(contentId, userPreferences.language)}</div>
+            <div className="">{contentData.getContent(contentId)}</div>
         </div>
     );
 }

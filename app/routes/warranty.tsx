@@ -22,7 +22,7 @@ import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormF
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {getStringFromUnknown, getUuidFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
@@ -37,8 +37,12 @@ import {WarrantyFormActionTypes, WarrantyFormFieldKeys, WarrantyFormReducer, war
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, type UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
 import {GenericActionData} from "./lead-form-submission";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -78,7 +82,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/warranty/warranty-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -117,7 +121,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/warranty/warranty-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -212,6 +216,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -220,44 +231,59 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("warrantyPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("warrantyPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/warranty/warranty-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
     const actionData = useActionData() as ActionData;
     const utmSearchParameters = useUtmSearchParameters();
     const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "237533ce-d6ab-4735-8064-14567ca50a48", link: "#"},
-                ]}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <WarrantyRegistrationPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
                         userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
                         utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "237533ce-d6ab-4735-8064-14567ca50a48", link: "#"},
+                        ]}
                         secondaryNavigationController={secondaryNavigationController}
-                        actionData={actionData}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <WarrantyRegistrationPage
+                                userPreferences={userPreferences}
+                                utmParameters={utmSearchParameters}
+                                secondaryNavigationController={secondaryNavigationController}
+                                actionData={actionData}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 }
@@ -324,6 +350,7 @@ function WarrantyRegistrationPage({
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -331,7 +358,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     //     secondaryNavigationController.setSections((previousSections) => ({
     //         ...previousSections,
     //         top: {
-    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
     //             isCurrentlyVisible: sectionInView,
     //         },
     //     }));
@@ -358,31 +385,32 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("8a3404ac-d12b-47f2-bc31-5d9411a55fde", userPreferences.language)}
+                    {contentData.getContent("8a3404ac-d12b-47f2-bc31-5d9411a55fde")}
                 </div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("e979cb3b-1a68-45bd-a7cd-0e20d389f91d", userPreferences.language)}
+                    {contentData.getContent("e979cb3b-1a68-45bd-a7cd-0e20d389f91d")}
                 </div>
             </DefaultTextAnimation>
 
             {/* <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1">
-                <div className="lg-text-body lg-px-screen-edge-2 !tw-text-secondary-900-dark">{getVernacularString("e631b621-5214-4ef4-a2d6-1b6126137c00", userPreferences.language)}</div>
+                <div className="lg-text-body lg-px-screen-edge-2 !tw-text-secondary-900-dark">{contentData.getContent("e631b621-5214-4ef4-a2d6-1b6126137c00")}</div>
             </DefaultTextAnimation> */}
         </div>
     );
 }
 
 function SeamlessService({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "benefits": {
-                humanReadableName: getVernacularString("6b8d915d-0091-4666-817a-e9b9d2eab472", userPreferences.language),
+            benefits: {
+                humanReadableName: contentData.getContent("6b8d915d-0091-4666-817a-e9b9d2eab472"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -446,15 +474,15 @@ function SeamlessService({userPreferences, className}: {userPreferences: UserPre
     const seamlessServices = [
         {
             iconUrl: "/livguard/warranty/2/quick-registration.svg",
-            title: getVernacularString("5f2ff78d-56a6-4f19-87d2-03342967850b", userPreferences.language),
+            title: contentData.getContent("5f2ff78d-56a6-4f19-87d2-03342967850b"),
         },
         {
             iconUrl: "/livguard/warranty/2/paperless-warranty.svg",
-            title: getVernacularString("08cd30f4-21ca-442c-8533-0a0ea8519c3b", userPreferences.language),
+            title: contentData.getContent("08cd30f4-21ca-442c-8533-0a0ea8519c3b"),
         },
         {
             iconUrl: "/livguard/warranty/2/effortless-experience.svg",
-            title: getVernacularString("a0e00e4e-7130-489c-9fe1-7a9fad0f3aa7", userPreferences.language),
+            title: contentData.getContent("a0e00e4e-7130-489c-9fe1-7a9fad0f3aa7"),
         },
     ];
 
@@ -466,21 +494,21 @@ function SeamlessService({userPreferences, className}: {userPreferences: UserPre
                 ref={sectionRef}
             >
                 <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("4c465a92-fb45-41f3-9fc5-dfed80962b12", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("4c465a92-fb45-41f3-9fc5-dfed80962b12")}}
                     className="tw-row-start-1 lg-text-headline tw-text-center tw-mb-1"
                 />
 
                 <div
                     className="tw-row-start-3 lg-text-title2 tw-text-center"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("dc2254fc-6ca8-49f7-a007-7e833db77009", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("dc2254fc-6ca8-49f7-a007-7e833db77009")}}
                 ></div>
 
                 <ReadMore
                     className="tw-row-start-5 tw-text-center"
-                    text={getVernacularString("7bd7f0d0-1ba0-43f9-82be-0d7f05c21578", userPreferences.language)}
+                    text={contentData.getContent("7bd7f0d0-1ba0-43f9-82be-0d7f05c21578")}
                 />
 
-                <div className="tw-row-start-7 lg-text-title2 tw-text-center">{getVernacularString("7ad4e46b-f080-4885-a39b-7b752906698f", userPreferences.language)}</div>
+                <div className="tw-row-start-7 lg-text-title2 tw-text-center">{contentData.getContent("7ad4e46b-f080-4885-a39b-7b752906698f")}</div>
 
                 <div className="tw-row-start-9 tw-grid tw-grid-cols-[repeat(3,minmax(0,1fr))] lg:lg-px-screen-edge-2">
                     {seamlessServices.map((serviceSpeciality, index) => {
@@ -500,13 +528,14 @@ function SeamlessService({userPreferences, className}: {userPreferences: UserPre
 }
 
 function RegisterInMinutes({userPreferences, className, actionData}: {userPreferences: UserPreferences; className?: string; actionData: ActionData}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "register-in-minutes": {
-                humanReadableName: getVernacularString("a5ee9b69-adfe-49ac-9256-cff986b899b7", userPreferences.language),
+                humanReadableName: contentData.getContent("a5ee9b69-adfe-49ac-9256-cff986b899b7"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -656,7 +685,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
 
     const [isViewProductFormSubmitted, setIsViewProductFormSubmitted] = useState(false);
     const [isViewProductFormTermsAndConditionsChecked, setIsViewProductFormTermsAndConditionsChecked] = useState(true);
-    const [viewProductFormOption, setViewProductFormOption] = useState(getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language));
+    const [viewProductFormOption, setViewProductFormOption] = useState(contentData.getContent("contactUsS3ComplaintFormRadioOption1"));
 
     useEffect(() => {
         if (actionData != null) {
@@ -684,7 +713,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
             ref={sectionRef}
         >
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center tw-w-full">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("b4c42c87-1ee1-4f06-8cff-abe7751a025c", userPreferences.language))}} />
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("b4c42c87-1ee1-4f06-8cff-abe7751a025c"))}} />
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-6 tw-row-start-2" />
@@ -707,13 +736,13 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                         <>
                                             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-4 lg:tw-gap-x-2">
                                                 <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                                    <div className="lg-text-body lg-text-secondary-900">{getVernacularString("70c4b348-67de-4873-bb1e-8d060f7d98c8", userPreferences.language)}</div>
+                                                    <div className="lg-text-body lg-text-secondary-900">{contentData.getContent("70c4b348-67de-4873-bb1e-8d060f7d98c8")}</div>
 
                                                     <input
                                                         type="text"
                                                         name="name"
                                                         className="lg-text-input"
-                                                        placeholder={getVernacularString("5249c7c4-1840-410d-b6c7-f4c53ab8369a", userPreferences.language)}
+                                                        placeholder={contentData.getContent("5249c7c4-1840-410d-b6c7-f4c53ab8369a")}
                                                         value={warrantyFormState.name}
                                                         onChange={(e) => {
                                                             const action: WarrantyFormStateInputsAction = {
@@ -726,7 +755,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                 </div>
                                                 {/* <div className="tw-row-start-1 tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
                                                     <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                        {getVernacularString("7ce4697b-82b4-47c3-944d-0c7edbcd1ccd", userPreferences.language)}
+                                                        {contentData.getContent("7ce4697b-82b4-47c3-944d-0c7edbcd1ccd")}
                                                     </div>
 
                                                     <input
@@ -734,7 +763,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                         name="phone"
                                                         className="lg-text-input"
                                                         pattern={indianPhoneNumberValidationPattern}
-                                                        placeholder={getVernacularString("74bef278-2e4e-4568-868b-7ce5d50df6e2", userPreferences.language)}
+                                                        placeholder={contentData.getContent("74bef278-2e4e-4568-868b-7ce5d50df6e2")}
                                                         value={warrantyFormState.contactNumber}
                                                         onChange={(e) => {
                                                             const action: WarrantyFormStateInputsAction = {
@@ -749,7 +778,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
 
                                                 <div className="tw-grid tw-grid-cols-1 lg:tw-col-start-2 tw-gap-4 lg:tw-gap-2">
                                                     {!showOtpField ? (
-                                                        <div className="lg-text-secondary-900">{getVernacularString("17cfa283-6fcc-4a49-9dfe-a392e0310b27", userPreferences.language)}</div>
+                                                        <div className="lg-text-secondary-900">{contentData.getContent("17cfa283-6fcc-4a49-9dfe-a392e0310b27")}</div>
                                                     ) : (
                                                         <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
                                                             <div
@@ -762,7 +791,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                                     }
                                                                 }}
                                                             >
-                                                                {getVernacularString("phoneNumberChnage", userPreferences.language)}
+                                                                {contentData.getContent("phoneNumberChnage")}
                                                             </div>
                                                             <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{warrantyFormState.contactNumber}</div>
                                                         </div>
@@ -774,7 +803,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                                 type="text"
                                                                 name="phone"
                                                                 pattern={indianPhoneNumberValidationPattern}
-                                                                placeholder={getVernacularString("1e90dca7-b78f-4231-b2df-644a3b0322d1", userPreferences.language)}
+                                                                placeholder={contentData.getContent("1e90dca7-b78f-4231-b2df-644a3b0322d1")}
                                                                 required
                                                                 className="lg-text-input tw-w-full"
                                                                 disabled={showOtpField}
@@ -825,7 +854,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                                                 }}
                                                             >
-                                                                {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                                                {contentData.getContent("OfferFormGetOTP")}
                                                             </div>
                                                         </div>
                                                     ) : (
@@ -841,7 +870,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                                     name="otpSubmitted"
                                                                     className="lg-text-input"
                                                                     required
-                                                                    placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                                                    placeholder={contentData.getContent("contactUsOTPT3E")}
                                                                     ref={otpFieldRef}
                                                                     value={warrantyFormState.otpSubmitted}
                                                                     onChange={(e) => {
@@ -856,7 +885,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                                 />
                                                                 {invalidOtp && (
                                                                     <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
-                                                                        {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                                                        {contentData.getContent("OfferInvalidOTP")}
                                                                     </div>
                                                                 )}
                                                             </div>
@@ -886,7 +915,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                                 otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                                             }}
                                                         >
-                                                            {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                                            {contentData.getContent("OfferResendOTP")}
                                                         </div>
                                                         <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
                                                     </div>
@@ -894,14 +923,14 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                             </div>
                                             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-4 lg:tw-gap-2">
                                                 <div className="tw-row-start-2 lg:tw-row-start-1 tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                                    <div className="lg-text-body lg-text-secondary-900">{getVernacularString("1e26fc77-d6ce-496f-8a43-b0ff4d3f1f7e", userPreferences.language)}</div>
+                                                    <div className="lg-text-body lg-text-secondary-900">{contentData.getContent("1e26fc77-d6ce-496f-8a43-b0ff4d3f1f7e")}</div>
 
                                                     <input
                                                         type="email"
                                                         name="emailId"
                                                         pattern={emailIdValidationPattern}
                                                         className="lg-text-input"
-                                                        placeholder={getVernacularString("17b9c40e-9c7d-4a19-8202-b294967fdff8", userPreferences.language)}
+                                                        placeholder={contentData.getContent("17b9c40e-9c7d-4a19-8202-b294967fdff8")}
                                                         value={warrantyFormState.email}
                                                         onChange={(e) => {
                                                             const action: WarrantyFormStateInputsAction = {
@@ -914,16 +943,14 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                 </div>
 
                                                 <div className="tw-col-start-1 lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
-                                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                        {getVernacularString("53927c84-bd54-4a11-b284-7f3844f30c4e", userPreferences.language)}
-                                                    </div>
+                                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("53927c84-bd54-4a11-b284-7f3844f30c4e")}</div>
 
                                                     <input
                                                         type="number"
                                                         name="pinCode"
                                                         pattern={pinCodeValidationPattern}
                                                         className="lg-text-input"
-                                                        placeholder={getVernacularString("a73f6868-bb95-4bc4-9911-aed2ae6cc695", userPreferences.language)}
+                                                        placeholder={contentData.getContent("a73f6868-bb95-4bc4-9911-aed2ae6cc695")}
                                                         value={warrantyFormState.pincode}
                                                         onChange={(e) => {
                                                             const action: WarrantyFormStateInputsAction = {
@@ -937,12 +964,10 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                             </div>
                                             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-4 lg:tw-gap-2">
                                                 <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                        {getVernacularString("5132b06f-9057-4e22-a21e-aca383247dda", userPreferences.language)}
-                                                    </div>
+                                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("5132b06f-9057-4e22-a21e-aca383247dda")}</div>
                                                     <input
                                                         type="text"
-                                                        placeholder={getVernacularString("154d8f5a-9084-4860-b588-c17bb178226e", userPreferences.language)}
+                                                        placeholder={contentData.getContent("154d8f5a-9084-4860-b588-c17bb178226e")}
                                                         name="city"
                                                         className="lg-text-input"
                                                         value={warrantyFormState.city}
@@ -957,13 +982,11 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                 </div>
 
                                                 <div className="tw-col-start-1 lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
-                                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                        {getVernacularString("a677f88a-dabc-45d5-8542-9954d0c7535b", userPreferences.language)}
-                                                    </div>
+                                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("a677f88a-dabc-45d5-8542-9954d0c7535b")}</div>
 
                                                     <input
                                                         type="text"
-                                                        placeholder={getVernacularString("9fdfab81-7e99-4e76-8fbb-d1c3b634a735", userPreferences.language)}
+                                                        placeholder={contentData.getContent("9fdfab81-7e99-4e76-8fbb-d1c3b634a735")}
                                                         name="state"
                                                         className="lg-text-input"
                                                         value={warrantyFormState.state}
@@ -986,7 +1009,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                     }}
                                                     disabled={otpFetcher.data == null || !otpSubmitted}
                                                 >
-                                                    {getVernacularString("79acc43f-692e-439a-ae40-75f7f0e60c95", userPreferences.language)}
+                                                    {contentData.getContent("79acc43f-692e-439a-ae40-75f7f0e60c95")}
                                                 </button>
                                             </div>
 
@@ -1024,7 +1047,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                             dispatchWarrantyFormAction(action);
                                                         }}
                                                     >
-                                                        {getVernacularString("988b89be-d6ef-4008-9faf-c5b6cb3eea06", userPreferences.language)}
+                                                        {contentData.getContent("988b89be-d6ef-4008-9faf-c5b6cb3eea06")}
                                                     </button>
                                                     <button
                                                         type="button"
@@ -1039,7 +1062,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                             dispatchWarrantyFormAction(action);
                                                         }}
                                                     >
-                                                        {getVernacularString("46655054-3f4d-46b5-ad00-510a9f00de36", userPreferences.language)}
+                                                        {contentData.getContent("46655054-3f4d-46b5-ad00-510a9f00de36")}
                                                     </button>
                                                     <div className="tw-row-start-3 lg:tw-row-start-2 tw-col-start-1 tw-col-span-2 tw-flex tw-gap-2">
                                                         <input
@@ -1053,7 +1076,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                             }}
                                                         />
 
-                                                        <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}} />
+                                                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("contactUsTermsAndConditionsCheckboxtext")}} />
                                                     </div>
                                                     <button
                                                         type="button"
@@ -1068,7 +1091,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                         }}
                                                         className="tw-cursor-pointer tw-row-start-4 lg:tw-row-start-3 tw-col-start-1 tw-col-span-2 lg:tw-col-span-1 tw-my-3 tw-w-full lg-text-body lg-cta-button !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start tw-rounded-full tw-p-3 disabled:!tw-bg-none disabled:!tw-bg-secondary-300-light disabled:dark:!tw-bg-secondary-300-dark disabled:!tw-text-secondary-700-light disabled:dark:!tw-text-secondary-700-dark"
                                                     >
-                                                        {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
+                                                        {contentData.getContent("contactUsS3FormButtonText")}
                                                     </button>
                                                 </div>
 
@@ -1126,14 +1149,14 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                     </div>
 
                                     <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
+                                        dangerouslySetInnerHTML={{__html: contentData.getContent("contactPagesuccessT1")}}
                                         className="lg-text-banner tw-row-start-4 tw-text-center"
                                     />
 
                                     <div className="tw-row-start-6 tw-text-center">
                                         {!warrantyDateOfBirthSubmitted
-                                            ? getVernacularString("10fb7b8f-7d05-4bf3-9267-ea07410b3e49", userPreferences.language)
-                                            : getVernacularString("41bcbb30-f453-487a-be09-bdb22ac8e49c", userPreferences.language)}
+                                            ? contentData.getContent("10fb7b8f-7d05-4bf3-9267-ea07410b3e49")
+                                            : contentData.getContent("41bcbb30-f453-487a-be09-bdb22ac8e49c")}
                                     </div>
 
                                     {!warrantyDateOfBirthSubmitted ? (
@@ -1142,7 +1165,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                             action="/warranty/date-of-birth"
                                             className="tw-row-start-8 tw-grid tw-grid-flow-row"
                                         >
-                                            <div className="lg-text-body lg-text-secondary-900">{getVernacularString("b034be5d-2864-4ab3-bdac-d5a12e40e8d8", userPreferences.language)}</div>
+                                            <div className="lg-text-body lg-text-secondary-900">{contentData.getContent("b034be5d-2864-4ab3-bdac-d5a12e40e8d8")}</div>
 
                                             <VerticalSpacer className="tw-h-2" />
 
@@ -1150,7 +1173,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                 type="date"
                                                 name="dateOfBirth"
                                                 className="lg-text-input"
-                                                placeholder={getVernacularString("b680144d-0d44-4f46-af80-dcacabae78de", userPreferences.language)}
+                                                placeholder={contentData.getContent("b680144d-0d44-4f46-af80-dcacabae78de")}
                                             />
 
                                             <input
@@ -1166,7 +1189,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                 type="submit"
                                                 className="lg-cta-button tw-place-self-center"
                                             >
-                                                {getVernacularString("cf74f848-853c-493e-acc9-fb054f374e63", userPreferences.language)}
+                                                {contentData.getContent("cf74f848-853c-493e-acc9-fb054f374e63")}
                                             </button>
                                         </fetcher.Form>
                                     ) : (
@@ -1176,7 +1199,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                     <SocialMediaIcons className="tw-row-start-10 tw-w-full tw-justify-center" />
 
                                     <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("bf43b0f2-2e29-4290-a7a6-4fc1bb305c56", userPreferences.language)}}
+                                        dangerouslySetInnerHTML={{__html: contentData.getContent("bf43b0f2-2e29-4290-a7a6-4fc1bb305c56")}}
                                         className="tw-row-start-12 tw-text-center lg-text-body"
                                     />
                                 </div>
@@ -1200,16 +1223,17 @@ function RegisterFormProductInputFields({
     warrantyFormState: WarrantyFormStateInputs;
     dispatchWarrantyFormAction: React.Dispatch<WarrantyFormStateInputsAction>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const formSelectItems = getFormSelectProductItems(userPreferences.language);
     return (
         <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-grid-flow-row tw-gap-2">
-            {index > 0 && <p className="tw-row-start-1 ">{`${getVernacularString("3060b50b-5b8c-4feb-9abe-4d18a51e39e1", userPreferences.language)} ${index + 1}`}</p>}
+            {index > 0 && <p className="tw-row-start-1 ">{`${contentData.getContent("3060b50b-5b8c-4feb-9abe-4d18a51e39e1")} ${index + 1}`}</p>}
             <div className="tw-grid tw-row-start-2 tw-col-start-1 tw-gap-2">
-                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("69e30a83-d3d3-4ff3-bba7-b56849edd3c0", userPreferences.language)}</div>
+                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("69e30a83-d3d3-4ff3-bba7-b56849edd3c0")}</div>
 
                 <FormSelectComponent
                     items={formSelectItems}
-                    itemBuilder={(item) => (item == "" ? `${getVernacularString("69e30a83-d3d3-4ff3-bba7-b56849edd3c0", userPreferences.language)}` : `<div class="">${item}</div>`)}
+                    itemBuilder={(item) => (item == "" ? `${contentData.getContent("69e30a83-d3d3-4ff3-bba7-b56849edd3c0")}` : `<div class="">${item}</div>`)}
                     value={warrantyFormState.products[index].productType}
                     setValue={(item) => {
                         const action: WarrantyFormStateInputsAction = {
@@ -1226,11 +1250,11 @@ function RegisterFormProductInputFields({
                 />
             </div>
             <div className="tw-grid tw-row-start-3 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-2 tw-grid-flow-row tw-gap-2">
-                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("f0b96564-0f72-493f-8d69-11a797004751", userPreferences.language)}</div>
+                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("f0b96564-0f72-493f-8d69-11a797004751")}</div>
 
                 <input
                     type="text"
-                    placeholder={getVernacularString("cc30e4da-6578-4fe7-8526-5ee7337a6515", userPreferences.language)}
+                    placeholder={contentData.getContent("cc30e4da-6578-4fe7-8526-5ee7337a6515")}
                     name={`serialNumber${index}`}
                     value={warrantyFormState.products[index].serialNumber}
                     onChange={(event) => {
@@ -1248,7 +1272,7 @@ function RegisterFormProductInputFields({
                 />
             </div>
             <div className="tw-grid tw-row-start-4 lg:tw-row-start-3 tw-grid-flow-row tw-gap-2">
-                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1 tw-col-start-1">{getVernacularString("a678f917-a247-4e95-99f2-303db4d122c9", userPreferences.language)}</div>
+                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1 tw-col-start-1">{contentData.getContent("a678f917-a247-4e95-99f2-303db4d122c9")}</div>
 
                 <input
                     type="file"
@@ -1269,10 +1293,10 @@ function RegisterFormProductInputFields({
                             dispatchWarrantyFormAction(action);
                         }
                     }}
-                    placeholder={getVernacularString("ae64dabe-c22a-429b-9868-5b19b57559a8", userPreferences.language)}
+                    placeholder={contentData.getContent("ae64dabe-c22a-429b-9868-5b19b57559a8")}
                     key={warrantyFormState.products[index].internalId}
                 />
-                <p className="lg-text-secondary-900 lg-text-icon tw-row-start-3 tw-w-1/2 lg:tw-w-full">{getVernacularString("a704f8f5-79db-437c-8f23-d64a634899a7", userPreferences.language)}</p>
+                <p className="lg-text-secondary-900 lg-text-icon tw-row-start-3 tw-w-1/2 lg:tw-w-full">{contentData.getContent("a704f8f5-79db-437c-8f23-d64a634899a7")}</p>
 
                 {index !== warrantyFormState.products.length - 1 && (
                     <>
@@ -1287,7 +1311,7 @@ function RegisterFormProductInputFields({
                                 dispatchWarrantyFormAction(action);
                             }}
                         >
-                            {getVernacularString("7c3fd7d9-651f-4e02-803e-a5bf1efdc519", userPreferences.language)}
+                            {contentData.getContent("7c3fd7d9-651f-4e02-803e-a5bf1efdc519")}
                         </button>
                     </>
                 )}
@@ -1312,6 +1336,7 @@ function ContactUsDialog({
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
     }
+    const contentData = useContext(ContentProviderContext);
 
     return (
         <Transition
@@ -1349,7 +1374,7 @@ function ContactUsDialog({
                     >
                         <div className="tw-w-full lg:tw-max-w-[30rem] tw-mx-auto tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col">
                             <div className="tw-grid tw-grid-cols-[1.5rem_minmax(0,1fr)_1.5rem]">
-                                <div className="tw-row-start-1 tw-col-start-2 tw-w-full tw-text-center lg-text-headline">{getVernacularString(headerTextContentId, userPreferences.language)}</div>
+                                <div className="tw-row-start-1 tw-col-start-2 tw-w-full tw-text-center lg-text-headline">{contentData.getContent(headerTextContentId)}</div>
                                 <button
                                     type="button"
                                     onClick={tryToCloseContactUsDialog}
@@ -1361,7 +1386,7 @@ function ContactUsDialog({
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT2", userPreferences.language)}</div>
+                            <div className="lg-text-title2">{contentData.getContent("headerContactUsDialogT2")}</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
@@ -1384,7 +1409,7 @@ function ContactUsDialog({
 
                             {dialogType !== "chat-with-us" && (
                                 <>
-                                    <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT3", userPreferences.language)}</div>
+                                    <div className="lg-text-title2">{contentData.getContent("headerContactUsDialogT3")}</div>
 
                                     <VerticalSpacer className="tw-h-2" />
 
@@ -1415,13 +1440,14 @@ function ContactUsDialog({
 }
 
 function ContactTeamOfExperts({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "contact-us": {
-                humanReadableName: getVernacularString("f1ab4d68-c36d-4484-851d-58a6c48bc4ee", userPreferences.language),
+                humanReadableName: contentData.getContent("f1ab4d68-c36d-4484-851d-58a6c48bc4ee"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1465,7 +1491,7 @@ function ContactTeamOfExperts({userPreferences, className}: {userPreferences: Us
                 </div>
 
                 <div className="tw-flex tw-justify-center tw-row-start-3">
-                    <div className="tw-text-center lg-text-body">{getVernacularString(cardTextID, userPreferences.language)}</div>
+                    <div className="tw-text-center lg-text-body">{contentData.getContent(cardTextID)}</div>
                 </div>
                 <div className="tw-flex tw-justify-center tw-row-start-5">
                     <button
@@ -1475,7 +1501,7 @@ function ContactTeamOfExperts({userPreferences, className}: {userPreferences: Us
                             setIsContactUsDialogOpen(true);
                         }}
                     >
-                        {getVernacularString(buttonCtaTextID, userPreferences.language)}
+                        {contentData.getContent(buttonCtaTextID)}
                     </button>
                 </div>
             </div>
@@ -1489,13 +1515,13 @@ function ContactTeamOfExperts({userPreferences, className}: {userPreferences: Us
             ref={sectionRef}
         >
             <DefaultTextAnimation className="lg-text-headline tw-text-center">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("4e6a2a00-461a-4407-a51e-ebee08a59f1f", userPreferences.language))}} />
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("4e6a2a00-461a-4407-a51e-ebee08a59f1f"))}} />
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-2" />
 
             <DefaultTextAnimation className="lg-text-headline tw-text-center">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("94cc6e89-af38-4bdf-9c02-f666eb559837", userPreferences.language))}} />
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("94cc6e89-af38-4bdf-9c02-f666eb559837"))}} />
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-6" />
@@ -1529,6 +1555,7 @@ function ContactTeamOfExperts({userPreferences, className}: {userPreferences: Us
 }
 
 function RequestAServiceBanner({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -1536,7 +1563,7 @@ function RequestAServiceBanner({userPreferences, className}: {userPreferences: U
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "request-a-service": {
-                humanReadableName: getVernacularString("bd423b50-de84-4397-9141-ac7b3527feb9", userPreferences.language),
+                humanReadableName: contentData.getContent("bd423b50-de84-4397-9141-ac7b3527feb9"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1563,18 +1590,18 @@ function RequestAServiceBanner({userPreferences, className}: {userPreferences: U
 
             <DefaultTextAnimation className="tw-row-start-3 lg:tw-row-start-2 tw-col-start-1 lg-px-screen-edge-2">
                 <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start tw-text-center">
-                    {getVernacularString("16deb412-ea49-403d-9f2d-b8279dabd5a7", userPreferences.language)}
+                    {contentData.getContent("16deb412-ea49-403d-9f2d-b8279dabd5a7")}
                 </div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-4 lg:tw-row-start-3 tw-col-start-1 lg-px-screen-edge-2">
-                <div className="lg-text-body !tw-text-secondary-900-dark tw-text-center">{getVernacularString("1156ca19-8b0c-4c06-bd91-23e394bdee5f", userPreferences.language)}</div>
+                <div className="lg-text-body !tw-text-secondary-900-dark tw-text-center">{contentData.getContent("1156ca19-8b0c-4c06-bd91-23e394bdee5f")}</div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-flex tw-justify-center tw-row-start-6 lg:tw-row-start-5 tw-col-start-1 tw-z-10">
                 <Link to="/service">
                     <button className="lg-text-body tw-px-10 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-center tw-text-center">
-                        {getVernacularString("51d7f3dd-6922-4a86-8934-2eaf5ec55433", userPreferences.language)}
+                        {contentData.getContent("51d7f3dd-6922-4a86-8934-2eaf5ec55433")}
                     </button>
                 </Link>
             </DefaultTextAnimation>

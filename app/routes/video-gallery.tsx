@@ -1,6 +1,6 @@
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {useLoaderData} from "@remix-run/react";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
@@ -8,7 +8,7 @@ import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
@@ -16,7 +16,11 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -56,7 +60,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/video-gallery/video-gallery-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -95,7 +99,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/video-gallery/video-gallery-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -107,6 +111,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -115,34 +126,49 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("videoGalleryPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("videoGalleryPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/video-gallery/video-gallery-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "da7484cc-f689-4649-8a7a-5c4fab3b0a0f", link: "#"},
-                ]}
-            >
-                <VideoGallery userPreferences={userPreferences} />
-            </PageScaffold>
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
+                        userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "da7484cc-f689-4649-8a7a-5c4fab3b0a0f", link: "#"},
+                        ]}
+                    >
+                        <VideoGallery userPreferences={userPreferences} />
+                    </PageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 };
@@ -170,6 +196,7 @@ function VideoGallery({userPreferences}: {userPreferences: UserPreferences}) {
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const contentData = useContext(ContentProviderContext);
 
     return (
         <div
@@ -189,7 +216,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
             </div>
 
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 tw-text-center lg:tw-text-start">
-                <div className="lg-text-banner tw-text-secondary-900-dark lg-px-screen-edge-2">{getVernacularString("93410e83-2080-4748-b66c-bb3152e48b0e", userPreferences.language)}</div>
+                <div className="lg-text-banner tw-text-secondary-900-dark lg-px-screen-edge-2">{contentData.getContent("93410e83-2080-4748-b66c-bb3152e48b0e")}</div>
             </DefaultTextAnimation>
         </div>
     );
@@ -263,6 +290,7 @@ const videoTypeData = [
 ];
 
 function OurVideoGallery({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const [selectedProductType, setSelectedProductType] = useState(ProductType.all);
     const [videoTypeDataArr, setVideoTypeDataArr] = useState(videoTypeData);
     const [selectedVideo, setSelectedVideo] = useState(videoTypeData?.[0]);
@@ -282,7 +310,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                 <DefaultTextAnimation className="tw-row-start-1 tw-justify-self-center lg-px-screen-edge-2">
                     <div
                         className="lg-text-headline tw-place-self-center lg:tw-place-self-start"
-                        dangerouslySetInnerHTML={{__html: getVernacularString("7b821e90-174f-45a4-ba42-97566a0a09ae", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("7b821e90-174f-45a4-ba42-97566a0a09ae")}}
                     />
                 </DefaultTextAnimation>
                 <VerticalSpacer className="tw-h-6" />
@@ -299,7 +327,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                             }}
                         >
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedProductType == ProductType.all ? "tw-text-secondary-100-light" : "lg-text-body"}`)}>
-                                {getVernacularString("0465146e-0127-4109-9c83-f0fa9b81b878", userPreferences.language)}
+                                {contentData.getContent("0465146e-0127-4109-9c83-f0fa9b81b878")}
                             </div>
                         </button>
                     </DefaultElementAnimation>
@@ -315,7 +343,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                             }}
                         >
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedProductType == ProductType.inverter ? "tw-text-secondary-100-light" : "lg-text-body"}`)}>
-                                {getVernacularString("b80ff1bf-5d72-41c4-b1b7-20376cd9e43c", userPreferences.language)}
+                                {contentData.getContent("b80ff1bf-5d72-41c4-b1b7-20376cd9e43c")}
                             </div>
                         </button>
                     </DefaultElementAnimation>
@@ -331,7 +359,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                             }}
                         >
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedProductType == ProductType.solar ? "tw-text-secondary-100-light" : "lg-text-body"}`)}>
-                                {getVernacularString("41c87e2b-3640-42ee-85e0-80aad377ee8a", userPreferences.language)}
+                                {contentData.getContent("41c87e2b-3640-42ee-85e0-80aad377ee8a")}
                             </div>
                         </button>
                     </DefaultElementAnimation>
@@ -347,7 +375,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                             }}
                         >
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedProductType == ProductType.automotive ? "tw-text-secondary-100-light" : "lg-text-body"}`)}>
-                                {getVernacularString("d643ce5a-83e4-4026-9e9e-f1959175a6db", userPreferences.language)}
+                                {contentData.getContent("d643ce5a-83e4-4026-9e9e-f1959175a6db")}
                             </div>
                         </button>
                     </DefaultElementAnimation>
@@ -363,7 +391,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                             }}
                         >
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedProductType == ProductType.erickshaw ? "tw-text-secondary-100-light" : "lg-text-body"}`)}>
-                                {getVernacularString("ad195899-aa04-427f-b939-a88ecdb8650a", userPreferences.language)}
+                                {contentData.getContent("ad195899-aa04-427f-b939-a88ecdb8650a")}
                             </div>
                         </button>
                     </DefaultElementAnimation>
@@ -379,7 +407,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                             }}
                         >
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedProductType == ProductType.testimonials ? "tw-text-secondary-100-light" : "lg-text-body"}`)}>
-                                {getVernacularString("2d8630fa-9bd5-4ca7-aa34-aeaa48f79a49", userPreferences.language)}
+                                {contentData.getContent("2d8630fa-9bd5-4ca7-aa34-aeaa48f79a49")}
                             </div>
                         </button>
                     </DefaultElementAnimation>

@@ -1,7 +1,10 @@
+import {useContext} from "react";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {OfferContactUsCta} from "~/routes/offers/inverter-and-battery-jodi";
 import {UserPreferences} from "~/typeDefinitions";
 
 export function OfferPageBottomBar({userPreferences, pageUrl}: {userPreferences: UserPreferences; pageUrl: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-sticky tw-bottom-0 lg-bg-secondary-100 lg-card lg-sticky-bottom-bar-shadow tw-rounded-t-lg tw-flex tw-flex-row tw-py-[0.8125rem] tw-text-center tw-justify-center tw-gap-x-10 tw-px-10 tw-z-[63] lg:tw-hidden">
             <OfferContactUsCta
@@ -19,7 +22,7 @@ export function OfferPageBottomBar({userPreferences, pageUrl}: {userPreferences:
                         width="1.5rem"
                     />
                     <Spacer className="tw-w-2" />
-                    <div className="lg-text-body !tw-text-[#FFFFFF]">{getVernacularString("landingPageBottomBarT2", userPreferences.language)}</div>
+                    <div className="lg-text-body !tw-text-[#FFFFFF]">{contentData.getContent("landingPageBottomBarT2")}</div>
                 </a>
             </div> */}
         </div>

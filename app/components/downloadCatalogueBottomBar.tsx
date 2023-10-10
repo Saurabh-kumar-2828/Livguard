@@ -1,11 +1,13 @@
 import {DocumentIcon} from "@heroicons/react/20/solid";
+import {useContext} from "react";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {Spacer} from "~/global-common-typescript/components/spacer";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function DownloadCatalogueBottomBar({userPreferences}: {userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="lg:tw-hidden tw-sticky tw-bottom-0 lg-bg-secondary-100 lg-card lg-sticky-bottom-bar-shadow tw-rounded-t-lg tw-flex tw-flex-row tw-py-[0.8125rem] tw-text-center tw-justify-between lg:tw-justify-center lg:tw-gap-10 tw-px-2 tw-z-[63]">
             <div className="tw-flex tw-flex-row tw-items-center tw-text-center lg-bg-secondary-100 tw-rounded-3xl tw-p-2 tw-px-5">
@@ -20,7 +22,7 @@ export function DownloadCatalogueBottomBar({userPreferences}: {userPreferences: 
                         width="1.5rem"
                     />
                     <Spacer className="tw-w-2" />
-                    <div className="lg-text-icon">{getVernacularString("downloadCatalogueBottomBarT1", userPreferences.language)}</div>
+                    <div className="lg-text-icon">{contentData.getContent("downloadCatalogueBottomBarT1")}</div>
                 </a>
             </div>
 
@@ -34,7 +36,7 @@ export function DownloadCatalogueBottomBar({userPreferences}: {userPreferences: 
                         width="1.5rem"
                     />
                     <Spacer className="tw-w-2" />
-                    <div className="lg-text-icon tw-text-[#FFFFFF]">{getVernacularString("landingPageBottomBarT2", userPreferences.language)}</div>
+                    <div className="lg-text-icon tw-text-[#FFFFFF]">{contentData.getContent("landingPageBottomBarT2")}</div>
                 </a>
             </div>
         </div>

@@ -12,7 +12,7 @@ import {FaqSectionInternal} from "~/components/faqs";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, Theme, UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
 import {convertProductInternalNameToPublicName, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
@@ -21,7 +21,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
 import React, {useContext, useEffect, useState} from "react";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import LivguardDialog from "~/components/livguardDialog";
 import {StickyBottomBar} from "~/components/bottomBar";
@@ -35,6 +35,10 @@ import {SecondaryNavigationController, useSecondaryNavigationController} from "~
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
 import {useInView} from "react-intersection-observer";
 import {getProductFromSlugAndLanguage} from "~/backend/product.server";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -74,7 +78,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/inverter-trolley/inverter-trolley-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -113,7 +117,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/inverter-trolley/inverter-trolley-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -126,6 +130,13 @@ type LoaderData = {
     redirectTo: string;
     pageUrl: string;
     products: Array<ProductDetails>;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -136,51 +147,65 @@ export const loader: LoaderFunction = async ({request}) => {
 
     const slugs = ["trolley"];
     const products = slugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
+    const vernacularData = getVernacularFromBackend("inverterTrolleyPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("inverterTrolleyPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/inverter-trolley/inverter-trolley-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
         products: products,
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl, products} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, products, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "6596ffc6-6377-4446-92b9-4cac254af278", link: "#"},
-                ]}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <InverterTrolleyPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
                         userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "6596ffc6-6377-4446-92b9-4cac254af278", link: "#"},
+                        ]}
                         secondaryNavigationController={secondaryNavigationController}
-                        products={products}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <InverterTrolleyPage
+                                userPreferences={userPreferences}
+                                secondaryNavigationController={secondaryNavigationController}
+                                products={products}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
 
-            <ProductAndCategoryBottomBar
-                userPreferences={userPreferences}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-            />
+                    <ProductAndCategoryBottomBar
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                    />
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 };
@@ -259,6 +284,7 @@ function InverterTrolleyPage({
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -266,7 +292,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     //     secondaryNavigationController.setSections((previousSections) => ({
     //         ...previousSections,
     //         top: {
-    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
     //             isCurrentlyVisible: sectionInView,
     //         },
     //     }));
@@ -293,13 +319,13 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
             <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2">
                 <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 tw-z-[2]">
                     <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start lg:tw-text-left">
-                        {getVernacularString("c8044356-0123-4e47-a1b9-a453d40c6f41", userPreferences.language)}
+                        {contentData.getContent("c8044356-0123-4e47-a1b9-a453d40c6f41")}
                     </div>
                 </DefaultTextAnimation>
 
                 <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 tw-z-[2]">
                     <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start lg:tw-text-left">
-                        {getVernacularString("a44c1ac7-94e3-4b5f-92a7-97d56aa17619", userPreferences.language)}
+                        {contentData.getContent("a44c1ac7-94e3-4b5f-92a7-97d56aa17619")}
                     </div>
                 </DefaultTextAnimation>
             </div>
@@ -308,13 +334,14 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function ExperienceHighPower({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "features": {
-                humanReadableName: getVernacularString("f19bea1b-ce21-4a14-af85-b49b68827611", userPreferences.language),
+            features: {
+                humanReadableName: contentData.getContent("f19bea1b-ce21-4a14-af85-b49b68827611"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -327,7 +354,10 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
                 )}
             >
                 <div className="tw-row-start-2">
-                    <FullWidthImage relativePath={imageRelativePath} className="tw-rounded-lg"/>
+                    <FullWidthImage
+                        relativePath={imageRelativePath}
+                        className="tw-rounded-lg"
+                    />
                 </div>
 
                 <div className="tw-row-start-4 tw-text-center lg-text-title1 lg-text-sondery-900">{title}</div>
@@ -392,8 +422,8 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
                 ref={sectionRef}
             >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg:lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("71072fc8-967d-4e21-9922-2bab4b7513b5", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("1d257cca-7858-42b7-ba71-cb411c5b6bf3", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("71072fc8-967d-4e21-9922-2bab4b7513b5")}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("1d257cca-7858-42b7-ba71-cb411c5b6bf3")}} />
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
@@ -401,8 +431,8 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
                 <CarouselStyle5
                     items={invertersData.map((batteryData, batteryDataIndex) => (
                         <InverterUSPCard
-                            title={getVernacularString(batteryData.titleTextContentPiece, userPreferences.language)}
-                            description={getVernacularString(batteryData.bodyTextContentPiece, userPreferences.language)}
+                            title={contentData.getContent(batteryData.titleTextContentPiece)}
+                            description={contentData.getContent(batteryData.bodyTextContentPiece)}
                             imageRelativePath={batteryData.imageRelativePath}
                             key={batteryDataIndex}
                         />
@@ -418,13 +448,14 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
 }
 
 function OurSuggestionsBasedOnYourChoice({userPreferences, className, products}: {userPreferences: UserPreferences; className?: string; products: Array<ProductDetails>}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "overview": {
-                humanReadableName: getVernacularString("f4004e8d-d0a5-443f-91a0-9e97bc0b45ed", userPreferences.language),
+            overview: {
+                humanReadableName: contentData.getContent("f4004e8d-d0a5-443f-91a0-9e97bc0b45ed"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -450,9 +481,9 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className, products}:
         >
             <div
                 className="lg-text-headline tw-place-self-center"
-                dangerouslySetInnerHTML={{__html: getVernacularString("9b082fd9-8254-4ea0-a76f-f831d2bd3248", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("9b082fd9-8254-4ea0-a76f-f831d2bd3248")}}
             />
-            <div className="lg-text-headline tw-place-self-center">{getVernacularString("3bee363a-d749-49b8-8f1e-fa1cc640c526", userPreferences.language)}</div>
+            <div className="lg-text-headline tw-place-self-center">{contentData.getContent("3bee363a-d749-49b8-8f1e-fa1cc640c526")}</div>
 
             <VerticalSpacer className="tw-h-4 lg:tw-h-6" />
 
@@ -494,6 +525,7 @@ function InverterCard({
     grid: string;
     dimensions: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:tw-gap-x-2 lg-bg-new-background-500 lg-card tw-rounded-lg tw-p-4 lg:tw-p-8">
             <div className="tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-place-items-center">
@@ -510,7 +542,7 @@ function InverterCard({
                     className="tw-hidden lg:tw-block"
                     to={batterySlug}
                 >
-                    <button className="lg-cta-button">{getVernacularString("dd68b98c-5aa6-4f3f-824e-056ffa6ae4ee", userPreferences.language)}</button>
+                    <button className="lg-cta-button">{contentData.getContent("dd68b98c-5aa6-4f3f-824e-056ffa6ae4ee")}</button>
                 </Link>
             </div>
 
@@ -532,7 +564,7 @@ function InverterCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("306e1020-9ae2-467a-b761-ad45d235b707", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("306e1020-9ae2-467a-b761-ad45d235b707")}</div>
                             <div className="tw-row-start-3">{warranty}</div>
                         </div>
                     </div>
@@ -543,7 +575,7 @@ function InverterCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("713dcf1c-e56f-4cc8-8196-7cc7094baeb4", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("713dcf1c-e56f-4cc8-8196-7cc7094baeb4")}</div>
                             <div className="tw-row-start-3">{capacity}</div>
                         </div>
                     </div>
@@ -554,7 +586,7 @@ function InverterCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("2f6077a8-553c-491d-967a-819dd2fd9a2a", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("2f6077a8-553c-491d-967a-819dd2fd9a2a")}</div>
                             <div className="tw-row-start-3">{grid}</div>
                         </div>
                     </div>
@@ -565,7 +597,7 @@ function InverterCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("989926cd-1e5a-45c0-bf0c-7b4a3048d3fb", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("989926cd-1e5a-45c0-bf0c-7b4a3048d3fb")}</div>
                             <div className="tw-row-start-3">{dimensions}</div>
                         </div>
                     </div>
@@ -577,7 +609,7 @@ function InverterCard({
                     className="tw-place-self-center lg:tw-hidden"
                     to={batterySlug}
                 >
-                    <button className="lg-cta-button">{getVernacularString("dd68b98c-5aa6-4f3f-824e-056ffa6ae4ee", userPreferences.language)}</button>
+                    <button className="lg-cta-button">{contentData.getContent("dd68b98c-5aa6-4f3f-824e-056ffa6ae4ee")}</button>
                 </Link>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
@@ -587,13 +619,14 @@ function InverterCard({
 }
 
 function YourGuideToFindingTheRightInverter({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "your-guide": {
-                humanReadableName: getVernacularString("2223a612-f480-45b4-86fb-d5d02dc1a69d", userPreferences.language),
+                humanReadableName: contentData.getContent("2223a612-f480-45b4-86fb-d5d02dc1a69d"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -604,12 +637,12 @@ function YourGuideToFindingTheRightInverter({userPreferences, className}: {userP
             id="your-guide"
             ref={sectionRef}
         >
-            <div className="tw-row-start-2 tw-text-center lg-text-headline">{getVernacularString("e596f970-68cb-4c78-a74f-885ff89a0f84", userPreferences.language)}</div>
+            <div className="tw-row-start-2 tw-text-center lg-text-headline">{contentData.getContent("e596f970-68cb-4c78-a74f-885ff89a0f84")}</div>
             <div
                 className="tw-row-start-3 tw-text-center lg-text-headline"
-                dangerouslySetInnerHTML={{__html: getVernacularString("da847308-2fc2-449f-9346-7372e8f72d97", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("da847308-2fc2-449f-9346-7372e8f72d97")}}
             />
-            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{getVernacularString("6e9b8409-2e42-4c63-9d68-9be787e999ab", userPreferences.language)}</div>
+            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{contentData.getContent("6e9b8409-2e42-4c63-9d68-9be787e999ab")}</div>
 
             <div className="tw-row-start-7 tw-grid tw-p-4 tw-justify-center tw-w-full">
                 <div className="tw-w-fit tw-grid tw-grid-rows-2 lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-gap-4 tw-grid-flow-col">
@@ -624,16 +657,14 @@ function YourGuideToFindingTheRightInverter({userPreferences, className}: {userP
                             src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
                         />
                         <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
-                            {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
+                            {contentData.getContent("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26")}
                         </div>
                     </a>
                     <Link
                         to="/inverter-for-home"
                         className="tw-h-full tw-w-full tw-grid tw-place-items-center"
                     >
-                        <div className="tw-h-full tw-w-full tw-grid tw-items-center lg-cta-button tw-place-self-center">
-                            {getVernacularString("a6db6f71-e1e6-4166-b5e0-9d2722918f17", userPreferences.language)}
-                        </div>
+                        <div className="tw-h-full tw-w-full tw-grid tw-items-center lg-cta-button tw-place-self-center">{contentData.getContent("a6db6f71-e1e6-4166-b5e0-9d2722918f17")}</div>
                     </Link>
                 </div>
             </div>
@@ -677,13 +708,14 @@ function FaqSection({userPreferences, className}: {userPreferences: UserPreferen
 }
 
 function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "social-handles": {
-                humanReadableName: getVernacularString("01553562-bafd-4ad3-a18c-7b6cc113f03f", userPreferences.language),
+                humanReadableName: contentData.getContent("01553562-bafd-4ad3-a18c-7b6cc113f03f"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -713,9 +745,9 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                 <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text1)}} />
 
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text2)}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
@@ -724,7 +756,7 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+                <div className="lg-text-body">{contentData.getContent("homeS11T2")}</div>
 
                 <VerticalSpacer className="tw-h-2" />
 
@@ -768,9 +800,9 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                 <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text1)}} />
 
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text2)}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-8" />
@@ -787,7 +819,7 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
 
                                 <VerticalSpacer className="tw-h-2" />
 
-                                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+                                <div className="lg-text-body">{contentData.getContent("homeS11T2")}</div>
 
                                 <div className="tw-flex tw-justify-evenly">
                                     <a

@@ -1,5 +1,5 @@
 import {useFetcher} from "@remix-run/react";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import {toast} from "react-toastify";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
@@ -9,9 +9,9 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 import confettiAnimationData from "~/components/find-the-thief/confetti-lottie.json";
 import Lottie from "react-lottie-player";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function LoadCalculatorDialogComponent({
     userPreferences,
@@ -58,7 +58,7 @@ function LoadCalculatorDialogMobile({
     couponCode: string;
     setCouponCode: React.Dispatch<string>;
 }) {
-    const [step, setStep] = useState(0);
+    const [step, setStep] = useState(2);
 
     return (
         <div className="tw-px-4 tw-py-8 tw-z-[64]">
@@ -127,16 +127,20 @@ function LoadCalculatorDialogDesktop({
 }
 
 function VictoryComponent({userPreferences, setStep, className}: {userPreferences: UserPreferences; setStep?: React.Dispatch<number>; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row", userPreferences.language)}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row")}>
             <div className="lg-text-primary-500 lg-text-headline tw-place-self-center lg:tw-justify-self-start tw-text-center lg:tw-text-left">
-                {getVernacularString("e6419d6a-b775-4e93-81e5-9a18b1a1c809", userPreferences.language)}
+                {contentData.getContent("e6419d6a-b775-4e93-81e5-9a18b1a1c809")}
             </div>
             <div
                 className=" tw-place-self-center lg:tw-justify-self-start tw-text-center lg:tw-text-left tw-text-[1.5rem] md:tw-text-[2.125rem] tw-leading-[1.75rem] md:tw-leading-[2.5rem]"
-                dangerouslySetInnerHTML={{__html: getVernacularString("fb5b1b3a-a82c-4968-a9da-25b3cd9d62db", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("fb5b1b3a-a82c-4968-a9da-25b3cd9d62db")}}
             />
-            <div dangerouslySetInnerHTML={{__html: getVernacularString("f34a013d-dc49-425b-bc87-984766a35a2d", userPreferences.language)}} className="lg-text-body tw-place-self-center lg:tw-justify-self-start tw-text-center lg:tw-hidden"/>
+            <div
+                dangerouslySetInnerHTML={{__html: contentData.getContent("f34a013d-dc49-425b-bc87-984766a35a2d")}}
+                className="lg-text-body tw-place-self-center lg:tw-justify-self-start tw-text-center lg:tw-hidden"
+            />
 
             <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
             <div className="tw-w-2/3 tw-max-w-xs tw-h-full tw-px-4 tw-place-self-center tw-relative tw-z-10">
@@ -161,7 +165,7 @@ function VictoryComponent({userPreferences, setStep, className}: {userPreference
                 }}
                 className="lg-cta-button tw-w-fit tw-place-self-center lg:tw-hidden tw-z-20"
             >
-                {getVernacularString("78b0281f-e8cf-4b38-82c0-23382b168795", userPreferences.language)}
+                {contentData.getContent("78b0281f-e8cf-4b38-82c0-23382b168795")}
             </button>
         </div>
     );
@@ -180,6 +184,7 @@ function FormSection({
     couponCode: string;
     setCouponCode: React.Dispatch<string>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const [showOtpField, setShowOtpField] = useState(false);
     const [showOtpButton, setShowOtpButton] = useState(false);
     const [resendTimeOut, setResendTimeOut] = useState(0);
@@ -241,15 +246,16 @@ function FormSection({
         }
     }, [formFetcher.data]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row", userPreferences.language)}>
-            <div className="lg:tw-hidden lg-text-primary-500 lg-text-headline tw-place-self-center tw-text-center">
-                {getVernacularString("e6419d6a-b775-4e93-81e5-9a18b1a1c809", userPreferences.language)}
-            </div>
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row")}>
+            <div className="lg:tw-hidden lg-text-primary-500 lg-text-headline tw-place-self-center tw-text-center">{contentData.getContent("e6419d6a-b775-4e93-81e5-9a18b1a1c809")}</div>
             <div
                 className="lg:tw-hidden tw-place-self-center tw-text-center tw-text-[1.5rem] md:tw-text-[2.125rem] tw-leading-[1.75rem] md:tw-leading-[2.5rem]"
-                dangerouslySetInnerHTML={{__html: getVernacularString("fb5b1b3a-a82c-4968-a9da-25b3cd9d62db", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("fb5b1b3a-a82c-4968-a9da-25b3cd9d62db")}}
             />
-            <div dangerouslySetInnerHTML={{__html: getVernacularString("f34a013d-dc49-425b-bc87-984766a35a2d", userPreferences.language)}} className="lg-text-body tw-place-self-center lg:tw-justify-self-start tw-text-center lg:tw-text-left"/>
+            <div
+                dangerouslySetInnerHTML={{__html: contentData.getContent("f34a013d-dc49-425b-bc87-984766a35a2d")}}
+                className="lg-text-body tw-place-self-center lg:tw-justify-self-start tw-text-center lg:tw-text-left"
+            />
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -259,7 +265,7 @@ function FormSection({
                 action="/find-the-thief/lead-submission"
             >
                 <div className="tw-gap-2 tw-grid">
-                    {/* <label htmlFor="name">{getVernacularString("79436419-5a42-4720-be85-19bc0b46c7bb", userPreferences.language)}</label> */}
+                    {/* <label htmlFor="name">{contentData.getContent("79436419-5a42-4720-be85-19bc0b46c7bb")}</label> */}
                     <input
                         type="text"
                         name="name"
@@ -267,26 +273,26 @@ function FormSection({
                         required
                         onChange={(e) => setName(e.target.value)}
                         className="lg-text-secondary-900 lg-text-input !tw-bg-transparent placeholder:tw-font-semibold placeholder:tw-text-secondary-700 dark:placeholder:tw-text-secondary-700-dark tw-w-full tw-rounded-full"
-                        placeholder={getVernacularString("79436419-5a42-4720-be85-19bc0b46c7bb", userPreferences.language)}
+                        placeholder={contentData.getContent("79436419-5a42-4720-be85-19bc0b46c7bb")}
                     />
                 </div>
 
                 <div className="tw-gap-2 tw-grid">
-                    {/* <label htmlFor="email">{getVernacularString("fe032013-d1e7-45d7-9c0c-d289c5f80c52", userPreferences.language)}</label> */}
+                    {/* <label htmlFor="email">{contentData.getContent("fe032013-d1e7-45d7-9c0c-d289c5f80c52")}</label> */}
                     <input
                         type="email"
                         name="email"
                         required
                         className="lg-text-secondary-900 lg-text-input !tw-bg-transparent placeholder:tw-font-semibold placeholder:tw-text-secondary-700 dark:placeholder:tw-text-secondary-700-dark tw-w-full tw-rounded-full"
-                        placeholder={getVernacularString("fe032013-d1e7-45d7-9c0c-d289c5f80c52", userPreferences.language)}
+                        placeholder={contentData.getContent("fe032013-d1e7-45d7-9c0c-d289c5f80c52")}
                     />
                 </div>
                 <div className="tw-grid tw-grid-flow-row tw-gap-2">
                     {!showOtpField ? (
-                        // <label>{getVernacularString("b24cf3a3-c834-487e-8ca3-5f78e02a267e", userPreferences.language)}</label>
+                        // <label>{contentData.getContent("b24cf3a3-c834-487e-8ca3-5f78e02a267e")}</label>
                         ""
                     ) : (
-                        // <div className="lg-text-secondary-900">{getVernacularString("17cfa283-6fcc-4a49-9dfe-a392e0310b27", userPreferences.language)}</div>
+                        // <div className="lg-text-secondary-900">{contentData.getContent("17cfa283-6fcc-4a49-9dfe-a392e0310b27")}</div>
                         <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
                             <div
                                 className="tw-col-start-1 tw-text-primary-500-light hover:tw-cursor-pointer lg-text-body-bold"
@@ -298,7 +304,7 @@ function FormSection({
                                     }
                                 }}
                             >
-                                {getVernacularString("phoneNumberChnage", userPreferences.language)}
+                                {contentData.getContent("phoneNumberChnage")}
                             </div>
                             <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{phoneNumber}</div>
                         </div>
@@ -310,7 +316,7 @@ function FormSection({
                                 type="text"
                                 name="phoneNumber"
                                 pattern={indianPhoneNumberValidationPattern}
-                                placeholder={getVernacularString("b24cf3a3-c834-487e-8ca3-5f78e02a267e", userPreferences.language)}
+                                placeholder={contentData.getContent("b24cf3a3-c834-487e-8ca3-5f78e02a267e")}
                                 required
                                 className="lg-text-secondary-900 lg-text-input !tw-bg-transparent placeholder:tw-font-semibold placeholder:tw-text-secondary-700 dark:placeholder:tw-text-secondary-700-dark tw-w-full"
                                 disabled={showOtpField}
@@ -358,7 +364,7 @@ function FormSection({
                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                 }}
                             >
-                                {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                {contentData.getContent("OfferFormGetOTP")}
                             </div>
                         </div>
                     ) : (
@@ -374,7 +380,7 @@ function FormSection({
                                     name="otpSubmitted"
                                     className="lg-text-secondary-900 lg-text-input !tw-bg-transparent placeholder:tw-font-semibold placeholder:tw-text-secondary-700 dark:placeholder:tw-text-secondary-700-dark"
                                     required
-                                    placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                    placeholder={contentData.getContent("contactUsOTPT3E")}
                                     ref={otpFieldRef}
                                     onChange={(e) => {
                                         setIsOtpSubmitted(true);
@@ -382,7 +388,7 @@ function FormSection({
                                 />
                                 {invalidOtp && (
                                     <div className="lg-text-secondary-900 lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
-                                        {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                        {contentData.getContent("OfferInvalidOTP")}
                                     </div>
                                 )}
                             </div>
@@ -391,7 +397,7 @@ function FormSection({
                 </div>
 
                 <div className="tw-gap-2 tw-grid">
-                    {/* <label htmlFor="couponCode">{getVernacularString("88d4bc6f-64ee-4910-8b1e-27ad5aea32c1", userPreferences.language)}</label> */}
+                    {/* <label htmlFor="couponCode">{contentData.getContent("88d4bc6f-64ee-4910-8b1e-27ad5aea32c1")}</label> */}
                     <input
                         type="text"
                         name="userName"
@@ -399,7 +405,7 @@ function FormSection({
                         // readOnly
                         // defaultValue={couponCode}
                         className="lg-text-secondary-900 lg-text-input !tw-bg-transparent placeholder:tw-font-semibold placeholder:tw-text-secondary-700 dark:placeholder:tw-text-secondary-700-dark tw-w-full tw-rounded-full"
-                        placeholder={getVernacularString("88d4bc6f-64ee-4910-8b1e-27ad5aea32c1", userPreferences.language)}
+                        placeholder={contentData.getContent("88d4bc6f-64ee-4910-8b1e-27ad5aea32c1")}
                     />
                 </div>
                 <HiddenFormField
@@ -418,7 +424,7 @@ function FormSection({
                     type="submit"
                     className="lg-cta-button tw-w-fit tw-place-self-center lg:tw-w-full"
                 >
-                    {getVernacularString("2a9b9149-ae09-452b-b02d-8ab5b8850557", userPreferences.language)}
+                    {contentData.getContent("2a9b9149-ae09-452b-b02d-8ab5b8850557")}
                 </button>
             </formFetcher.Form>
         </div>
@@ -426,17 +432,18 @@ function FormSection({
 }
 
 function ThankYouSection({userPreferences, className, setIsDialogOpen}: {userPreferences: UserPreferences; className?: string; setIsDialogOpen: React.Dispatch<boolean>}) {
+    const contentData = useContext(ContentProviderContext);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-relative", userPreferences.language)}>
-            <div className="lg-text-headline tw-place-self-center tw-text-center">{getVernacularString("29a1dc30-0f20-4075-b14e-52197e83f059", userPreferences.language)}</div>
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-relative")}>
+            <div className="lg-text-headline tw-place-self-center tw-text-center">{contentData.getContent("29a1dc30-0f20-4075-b14e-52197e83f059")}</div>
             <div
                 className=" tw-place-self-center tw-text-center tw-text-[1.5rem] md:tw-text-[2.125rem] tw-leading-[1.75rem] md:tw-leading-[2.5rem]"
-                dangerouslySetInnerHTML={{__html: getVernacularString("1a109702-9407-4945-aa54-acde384ace7a", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("1a109702-9407-4945-aa54-acde384ace7a")}}
             />
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="lg-text-body tw-place-self-center tw-text-center">{getVernacularString("37118df1-c2d2-4cbb-af54-288487236384", userPreferences.language)}</div>
+            <div className="lg-text-body tw-place-self-center tw-text-center">{contentData.getContent("37118df1-c2d2-4cbb-af54-288487236384")}</div>
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -445,7 +452,7 @@ function ThankYouSection({userPreferences, className, setIsDialogOpen}: {userPre
             <VerticalSpacer className="tw-h-8" />
 
             <div
-                dangerouslySetInnerHTML={{__html: getVernacularString("38d347bc-e85b-46f2-82a0-dd41a118daaf", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("38d347bc-e85b-46f2-82a0-dd41a118daaf")}}
                 className="tw-text-center lg-text-body"
             />
         </div>

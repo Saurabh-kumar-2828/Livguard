@@ -1,7 +1,7 @@
 import {GoogleMap, LoadScript, MarkerF} from "@react-google-maps/api";
 import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {Form, Link, useActionData, useFetcher, useTransition} from "@remix-run/react";
-import React, {useEffect, useReducer, useRef, useState} from "react";
+import React, {useContext, useEffect, useReducer, useRef, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
@@ -16,7 +16,7 @@ import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFi
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider, type Uuid} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata, type Uuid} from "~/common--type-definitions/typeDefinitions";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
@@ -28,9 +28,13 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {Dealer, UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -70,7 +74,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
             {
                 "script:ld+json": {
@@ -147,7 +151,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -192,6 +196,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request, params}) => {
@@ -200,17 +211,24 @@ export const loader: LoaderFunction = async ({request, params}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("dealerLocatorPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("dealerLocatorPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/common/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
     const [isApplyNowDialogOpen, setIsApplyNowDialogOpen] = useState(false);
 
     const actionData = useActionData();
@@ -224,42 +242,49 @@ export default function () {
     }, [actionData]);
 
     return (
-        <div className="tw-flex tw-flex-col tw-relative">
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "ee7b3699-a35c-4ad9-981d-ee178abd03e3", link: "#"},
-                ]}
-            >
-                <DealerLocatorPage
-                    userPreferences={userPreferences}
-                    actionData={actionData}
-                    utmParameters={utmSearchParameters}
-                    className="lg:tw-px-[60px]"
-                    pageUrl={pageUrl}
-                    setIsApplyNowDialogOpen={setIsApplyNowDialogOpen}
-                />
-            </PageScaffold>
+        <>
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <div className="tw-flex tw-flex-col tw-relative">
+                        <PageScaffold
+                            userPreferences={userPreferences}
+                            redirectTo={redirectTo}
+                            showMobileMenuIcon={true}
+                            utmParameters={utmSearchParameters}
+                            pageUrl={pageUrl}
+                            breadcrumbs={[
+                                {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                                {contentId: "ee7b3699-a35c-4ad9-981d-ee178abd03e3", link: "#"},
+                            ]}
+                        >
+                            <DealerLocatorPage
+                                userPreferences={userPreferences}
+                                actionData={actionData}
+                                utmParameters={utmSearchParameters}
+                                className="lg:tw-px-[60px]"
+                                pageUrl={pageUrl}
+                                setIsApplyNowDialogOpen={setIsApplyNowDialogOpen}
+                            />
+                        </PageScaffold>
 
-            {/* <DealerLocatorPageBottomBar
+                        {/* <DealerLocatorPageBottomBar
                 userPreferences={userPreferences}
                 setApplyNowDialogOpen={setIsApplyNowDialogOpen}
             /> */}
 
-            <ApplyNowForDealerDialog
-                userPreferences={userPreferences}
-                isApplyNowDialogOpen={isApplyNowDialogOpen}
-                setApplyNowDialogOpen={setIsApplyNowDialogOpen}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-            />
+                        <ApplyNowForDealerDialog
+                            userPreferences={userPreferences}
+                            isApplyNowDialogOpen={isApplyNowDialogOpen}
+                            setApplyNowDialogOpen={setIsApplyNowDialogOpen}
+                            utmParameters={utmSearchParameters}
+                            pageUrl={pageUrl}
+                        />
 
-            {/* <div className="tw-hidden lg:tw-block tw-sticky tw-left-[1rem] tw-bottom-[1.75rem] tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-py-2 tw-px-4 tw-max-w-fit">
+                        {/* <div className="tw-hidden lg:tw-block tw-sticky tw-left-[1rem] tw-bottom-[1.75rem] tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-py-2 tw-px-4 tw-max-w-fit">
                 <a
                     href="/offers/inverter-and-battery-jodi"
                     className="tw-grid tw-grid-cols-[auto_0.5rem_auto] tw-items-center"
@@ -277,12 +302,15 @@ export default function () {
                             fill="#FCFCFC"
                         />
                     </svg>
-                    <div className="tw-col-start-3 tw-text-white">{getVernacularString("dealerLocatorBottomBarT1", userPreferences.language)}</div>
+                    <div className="tw-col-start-3 tw-text-white">{contentData.getContent("dealerLocatorBottomBarT1")}</div>
                 </a>
             </div> */}
 
-            <StickyBottomBar userPreferences={userPreferences} />
-        </div>
+                        <StickyBottomBar userPreferences={userPreferences} />
+                    </div>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
+        </>
     );
 }
 
@@ -303,6 +331,7 @@ export function DealerLocatorPage({
     pageUrl: string;
     setIsApplyNowDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const transition = useTransition();
 
     const [dealerList, setDealerList] = useState<Array<Dealer> | null>([]);
@@ -352,7 +381,7 @@ export function DealerLocatorPage({
                                 name="query"
                                 required
                                 className="lg-text-input tw-w-full tw-text-center lg:tw-max-w-[22rem]"
-                                placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
+                                placeholder={`${contentData.getContent("dealerLocatorInputText")}`}
                             ></input>
 
                             {/* <FancySearchableSelect
@@ -362,7 +391,7 @@ export function DealerLocatorPage({
                                     label: city.name,
                                 }))}
                                 className="lg-text-input tw-w-full tw-text-center"
-                                placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
+                                placeholder={`${contentData.getContent("dealerLocatorInputText")}`}
                                 onChange={(newValue) => setSelectedCity(newValue.value)}
                                 datastore={datastore}
                             /> */}
@@ -393,7 +422,7 @@ export function DealerLocatorPage({
                                     setShowMore(false);
                                 }}
                             >
-                                {`${getVernacularString("dealerLocatorButtonText", userPreferences.language)}`}
+                                {`${contentData.getContent("dealerLocatorButtonText")}`}
                             </button>
                         </Form>
 
@@ -401,7 +430,7 @@ export function DealerLocatorPage({
                             <>
                                 <VerticalSpacer className="tw-h-4" />
 
-                                <div className="lg-text-body tw-text-center lg-text-primary-500">{`${getVernacularString("noDealerLocatorText", userPreferences.language)}`} </div>
+                                <div className="lg-text-body tw-text-center lg-text-primary-500">{`${contentData.getContent("noDealerLocatorText")}`} </div>
                             </>
                         ) : (
                             <>
@@ -411,14 +440,14 @@ export function DealerLocatorPage({
                                     to="#dealer-list"
                                     className="tw-block tw-text-title2 tw-text-center tw-px-4 tw-py-1 tw-border lg-border-secondary-900-dark tw-rounded-lg tw-w-fit tw-mx-auto"
                                 >
-                                    {`${getVernacularString("dealerLocatorShowText", userPreferences.language)} (${actionData.dealerList.length})`}
+                                    {`${contentData.getContent("dealerLocatorShowText")} (${actionData.dealerList.length})`}
                                 </Link> */}
                                 <button
                                     type="button"
                                     className="tw-block tw-text-title2 tw-text-center tw-px-4 tw-py-1 tw-border lg-border-secondary-900-dark tw-rounded-lg tw-w-fit tw-mx-auto"
                                     onClick={() => document.getElementById("dealer-list")?.scrollIntoView()}
                                 >
-                                    {`${getVernacularString("dealerLocatorShowText", userPreferences.language)} (${actionData.dealerList.length})`}
+                                    {`${contentData.getContent("dealerLocatorShowText")} (${actionData.dealerList.length})`}
                                 </button>
                             </>
                         )}
@@ -435,7 +464,7 @@ export function DealerLocatorPage({
                         >
                             <div className="tw-flex tw-flex-col tw-gap-1">
                                 <div className="lg-text-banner tw-text-center">{userPreferences.language === Language.Hindi ? "नमस्ते!" : "Namaste"}</div>
-                                <div className="lg-text-headline tw-text-center tw-py-1">{getVernacularString("dealerLocatorHighlightedText", userPreferences.language)}</div>
+                                <div className="lg-text-headline tw-text-center tw-py-1">{contentData.getContent("dealerLocatorHighlightedText")}</div>
                                 {/* <div className="lg-text-title2 tw-text-center">{dealerList[0].city}</div> */}
                             </div>
 
@@ -478,7 +507,7 @@ export function DealerLocatorPage({
                                                             >
                                                                 <div className="tw-absolute tw-h-[calc(100%+4px)] tw-w-[calc(100%+4px)] -tw-left-[2px] tw-top-0 tw-rounded-full tw-inset-0 tw-m-auto tw-opacity-0 group-hover:tw-opacity-100 tw-duration-200 tw-ease-in lg-cta-button-gradient"></div>
                                                                 <button className="tw-text-center tw-relative tw-duration-200 group-hover:tw-text-secondary-900-dark tw-grid tw-place-items-center">
-                                                                    {getVernacularString("5b6a1674-797b-430e-a1d0-19a052886b10", userPreferences.language)}
+                                                                    {contentData.getContent("5b6a1674-797b-430e-a1d0-19a052886b10")}
                                                                 </button>
                                                             </Link>
                                                         )}
@@ -557,6 +586,7 @@ export function DealerLocatorPage({
 }
 
 function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
+    const contentData = useContext(ContentProviderContext);
     const defaultCenter = {
         lat: 22.7679,
         lng: 78.8718,
@@ -2655,18 +2685,19 @@ function TroubleFindingDealers({
     };
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center">
             <VerticalSpacer className="tw-h-10" />
 
             <DefaultTextAnimation>
-                <div className="lg-text-headline tw-text-center">{getVernacularString("dealerLocatorS2H", userPreferences.language)}</div>
+                <div className="lg-text-headline tw-text-center">{contentData.getContent("dealerLocatorS2H")}</div>
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-3" />
 
             <DefaultTextAnimation>
-                <div className="lg-text-title2 lg-text-secondary-700 tw-text-center">{getVernacularString("dealerLocatorS2T", userPreferences.language)}</div>
+                <div className="lg-text-title2 lg-text-secondary-700 tw-text-center">{contentData.getContent("dealerLocatorS2T")}</div>
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-3" />
@@ -2687,18 +2718,19 @@ function TroubleFindingDealers({
 }
 
 function JoinLivguardNetwork({userPreferences, setIsApplyNowDialogOpen}: {userPreferences: UserPreferences; setIsApplyNowDialogOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center">
             <VerticalSpacer className="tw-h-10" />
 
             <DefaultTextAnimation>
-                <div className="lg-text-headline tw-text-center">{getVernacularString("dealerLocatorS4H", userPreferences.language)}</div>
+                <div className="lg-text-headline tw-text-center">{contentData.getContent("dealerLocatorS4H")}</div>
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-3" />
 
             <DefaultTextAnimation>
-                <div className="lg-text-title2 lg-text-secondary-700 tw-text-center">{getVernacularString("dealerLocatorS4T", userPreferences.language)}</div>
+                <div className="lg-text-title2 lg-text-secondary-700 tw-text-center">{contentData.getContent("dealerLocatorS4T")}</div>
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-3" />
@@ -2728,6 +2760,7 @@ export function ApplyNowForDealerCta({
     className?: string;
     setIsApplyNowDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     function tryToOpenpplyNowDialog() {
         setIsApplyNowDialogOpen(true);
     }
@@ -2738,7 +2771,7 @@ export function ApplyNowForDealerCta({
                 className="lg-cta-button"
                 onClick={tryToOpenpplyNowDialog}
             >
-                {getVernacularString(textVernacId, userPreferences.language)}
+                {contentData.getContent(textVernacId)}
             </button>
         </div>
     );
@@ -2759,6 +2792,7 @@ export function ApplyNowForDealerDialog({
     };
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const fetcher = useFetcher();
     const otpFetcher = useFetcher();
     const otpFieldRef = useRef(null);
@@ -2836,7 +2870,7 @@ export function ApplyNowForDealerDialog({
             <LivguardDialog
                 isDialogOpen={isApplyNowDialogOpen && !formStateInputs.formSuccessfullySubmitted}
                 tryToCloseDialog={tryToCloseApplyNowDialog}
-                title={getVernacularString("applyNowForDealerT1", userPreferences.language)}
+                title={contentData.getContent("applyNowForDealerT1")}
                 showCloseIcon={true}
             >
                 <fetcher.Form
@@ -2844,7 +2878,7 @@ export function ApplyNowForDealerDialog({
                     method="post"
                     action="/apply-for-dealership"
                 >
-                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{`${getVernacularString("applyNowForDealerT3", userPreferences.language)}*`}</div>
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{`${contentData.getContent("applyNowForDealerT3")}*`}</div>
 
                     <VerticalSpacer className="tw-h-1" />
 
@@ -2853,7 +2887,7 @@ export function ApplyNowForDealerDialog({
                         className="lg-text-input"
                         name="name"
                         required
-                        placeholder={getVernacularString("applyNowForDealerPH3", userPreferences.language)}
+                        placeholder={contentData.getContent("applyNowForDealerPH3")}
                         onChange={(e) => {
                             const action: FormStateInputsAction = {
                                 actionType: FormStateInputsActionType.SetName,
@@ -2865,7 +2899,7 @@ export function ApplyNowForDealerDialog({
 
                     <VerticalSpacer className="tw-h-2" />
 
-                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{`${getVernacularString("applyNowForDealerT4", userPreferences.language)}*`}</div>
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{`${contentData.getContent("applyNowForDealerT4")}*`}</div>
 
                     <VerticalSpacer className="tw-h-1" />
 
@@ -2875,7 +2909,7 @@ export function ApplyNowForDealerDialog({
                         name="emailId"
                         pattern={emailIdValidationPattern}
                         required
-                        placeholder={getVernacularString("applyNowForDealerPH4", userPreferences.language)}
+                        placeholder={contentData.getContent("applyNowForDealerPH4")}
                         onChange={(e) => {
                             const action: FormStateInputsAction = {
                                 actionType: FormStateInputsActionType.SetEmail,
@@ -2888,7 +2922,7 @@ export function ApplyNowForDealerDialog({
                     <VerticalSpacer className="tw-h-2" />
 
                     {!formStateInputs.showOtpField ? (
-                        <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsT2")}</div>
                     ) : (
                         <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
                             <div
@@ -2904,7 +2938,7 @@ export function ApplyNowForDealerDialog({
                                     }
                                 }}
                             >
-                                {getVernacularString("phoneNumberChnage", userPreferences.language)}
+                                {contentData.getContent("phoneNumberChnage")}
                             </div>
                             <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{formStateInputs.inputData.phoneNumber}</div>
                         </div>
@@ -2988,7 +3022,7 @@ export function ApplyNowForDealerDialog({
                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                 }}
                             >
-                                {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                {contentData.getContent("OfferFormGetOTP")}
                             </div>
                         </div>
                     ) : (
@@ -2998,7 +3032,7 @@ export function ApplyNowForDealerDialog({
                                 formStateInputs.showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100",
                             )}
                         >
-                            {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsOTPT3", userPreferences.language)}</div>
+                            {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsOTPT3")}</div>
 
                             <VerticalSpacer className="tw-h-1" /> */}
 
@@ -3008,7 +3042,7 @@ export function ApplyNowForDealerDialog({
                                     name="otpSubmitted"
                                     className="lg-text-input"
                                     required
-                                    placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                    placeholder={contentData.getContent("contactUsOTPT3E")}
                                     ref={otpFieldRef}
                                     onChange={(e) => {
                                         const action: FormStateInputsAction = {
@@ -3019,9 +3053,7 @@ export function ApplyNowForDealerDialog({
                                     }}
                                 />
                                 {formStateInputs.invalidOtp && (
-                                    <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
-                                        {getVernacularString("OfferInvalidOTP", userPreferences.language)}
-                                    </div>
+                                    <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">{contentData.getContent("OfferInvalidOTP")}</div>
                                 )}
                             </div>
                         </div>
@@ -3053,7 +3085,7 @@ export function ApplyNowForDealerDialog({
                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                 }}
                             >
-                                {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                {contentData.getContent("OfferResendOTP")}
                             </div>
                             <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${formStateInputs.resendTimeOut}`}</div>
                         </div>
@@ -3061,7 +3093,7 @@ export function ApplyNowForDealerDialog({
 
                     <VerticalSpacer className="tw-h-2" />
 
-                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{`${getVernacularString("applyNowForDealerT5", userPreferences.language)}*`}</div>
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{`${contentData.getContent("applyNowForDealerT5")}*`}</div>
 
                     <VerticalSpacer className="tw-h-1" />
 
@@ -3070,7 +3102,7 @@ export function ApplyNowForDealerDialog({
                         className="lg-text-input"
                         name="city"
                         required
-                        placeholder={getVernacularString("applyNowForDealerPH5", userPreferences.language)}
+                        placeholder={contentData.getContent("applyNowForDealerPH5")}
                         onChange={(e) => {
                             const action: FormStateInputsAction = {
                                 actionType: FormStateInputsActionType.SetCity,
@@ -3126,7 +3158,7 @@ export function ApplyNowForDealerDialog({
                             }}
                         />
 
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("termsAndConditionsCheckboxtext", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("termsAndConditionsCheckboxtext")}} />
                     </div>
 
                     <button
@@ -3143,7 +3175,7 @@ export function ApplyNowForDealerDialog({
                             formStateInputs.inputData.city == ""
                         }
                     >
-                        {getVernacularString("applyNowForDealerT6", userPreferences.language)}
+                        {contentData.getContent("applyNowForDealerT6")}
                     </button>
                 </fetcher.Form>
             </LivguardDialog>
@@ -3158,6 +3190,7 @@ export function ApplyNowForDealerDialog({
 }
 
 export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {userPreferences: UserPreferences; tryToCloseDialog: () => void}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-pt-6 tw-rounded-lg tw-flex tw-flex-col tw-text-center tw-justify-center tw-items-center tw-relative">
             <button
@@ -3176,14 +3209,14 @@ export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {user
             <VerticalSpacer className="tw-h-2" />
 
             <div
-                dangerouslySetInnerHTML={{__html: getVernacularString("successT1", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("successT1")}}
                 className="lg-text-banner"
             />
 
             <VerticalSpacer className="tw-h-4" />
 
             <div
-                dangerouslySetInnerHTML={{__html: getVernacularString("successT2", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("successT2")}}
                 className="lg-text-title2"
             />
 
@@ -3225,7 +3258,7 @@ export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {user
             <VerticalSpacer className="tw-h-4" />
 
             <div
-                dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("successT3")}}
                 className="lg-text-body"
             />
 
@@ -3242,6 +3275,7 @@ export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {user
 }
 
 export function FormSubmissionSuccessLivguardDialog({userPreferences, isDialogOpen, tryToCloseDialog}: {userPreferences: UserPreferences; isDialogOpen: boolean; tryToCloseDialog: () => void}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <LivguardDialog
             isDialogOpen={isDialogOpen}
@@ -3258,14 +3292,14 @@ export function FormSubmissionSuccessLivguardDialog({userPreferences, isDialogOp
                 <VerticalSpacer className="tw-h-4" />
 
                 <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("successT1", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("successT1")}}
                     className="lg-text-banner"
                 />
 
                 <VerticalSpacer className="tw-h-8" />
 
                 <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("successT2", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("successT2")}}
                     className="lg-text-title2"
                 />
 
@@ -3307,7 +3341,7 @@ export function FormSubmissionSuccessLivguardDialog({userPreferences, isDialogOp
                 <VerticalSpacer className="tw-h-8" />
 
                 <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("successT3")}}
                     className="lg-text-body"
                 />
 

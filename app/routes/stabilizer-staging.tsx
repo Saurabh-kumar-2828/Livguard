@@ -4,6 +4,7 @@ import {useEffect, useState, useContext} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -14,6 +15,7 @@ import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -27,7 +29,7 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -118,6 +120,9 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -126,10 +131,13 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("stabilizerPage", userPreferences.language);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
     };
 
     return loaderData;
@@ -143,37 +151,43 @@ enum StabilizerType {
 }
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "273b847e-61e5-4a66-8c6d-a0539da153e2", link: "#"},
-                ]}
+            <ContentProviderContext.Provider
+                value={{
+                    getContent: getContentGenerator(vernacularData),
+                }}
             >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <StabilizerPage
-                        userPreferences={userPreferences}
-                        secondaryNavigationController={secondaryNavigationController}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
+                <PageScaffold
+                    userPreferences={userPreferences}
+                    redirectTo={redirectTo}
+                    showMobileMenuIcon={true}
+                    utmParameters={utmSearchParameters}
+                    pageUrl={pageUrl}
+                    breadcrumbs={[
+                        {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                        {contentId: "273b847e-61e5-4a66-8c6d-a0539da153e2", link: "#"},
+                    ]}
+                >
+                    <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                        <StabilizerPage
+                            userPreferences={userPreferences}
+                            secondaryNavigationController={secondaryNavigationController}
+                        />
+                    </SecondaryNavigationControllerContext.Provider>
+                </PageScaffold>
 
-            <ProductAndCategoryBottomBar
-                userPreferences={userPreferences}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-            />
+                <ProductAndCategoryBottomBar
+                    userPreferences={userPreferences}
+                    utmParameters={utmSearchParameters}
+                    pageUrl={pageUrl}
+                />
+            </ContentProviderContext.Provider>
         </>
     );
 };
@@ -242,6 +256,7 @@ function StabilizerPage({userPreferences, secondaryNavigationController}: {userP
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
     const isScreenSizeBelow = useIsScreenSizeBelow(640);
     // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
@@ -250,7 +265,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     //     secondaryNavigationController.setSections((previousSections) => ({
     //         ...previousSections,
     //         top: {
-    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
     //             isCurrentlyVisible: sectionInView,
     //         },
     //     }));
@@ -272,32 +287,29 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
             />
 
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 lg:tw-px-0">
-                <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("dead4984-38fc-490e-8b38-0670a9a03631", userPreferences.language)}
-                </div>
+                <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">{contentData.getContent("dead4984-38fc-490e-8b38-0670a9a03631")}</div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 lg:tw-px-0">
-                <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("e716f6b1-74ad-4087-80e1-fb88fb9a44ce", userPreferences.language)}
-                </div>
+                <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">{contentData.getContent("e716f6b1-74ad-4087-80e1-fb88fb9a44ce")}</div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 lg:tw-px-0">
-                <div className="lg-text-body !tw-text-secondary-900-dark">{getVernacularString("10653f56-45cc-4317-9951-d6db74523397", userPreferences.language)}</div>
+                <div className="lg-text-body !tw-text-secondary-900-dark">{contentData.getContent("10653f56-45cc-4317-9951-d6db74523397")}</div>
             </DefaultTextAnimation>
         </div>
     );
 }
 
 function StabilizersThatAreMeantToLast({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "meant-to-last": {
-                humanReadableName: getVernacularString("8bb57774-d155-41f1-bf07-6906c1026203", userPreferences.language),
+                humanReadableName: contentData.getContent("8bb57774-d155-41f1-bf07-6906c1026203"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -372,8 +384,8 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
                 ref={sectionRef}
             >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
-                    <div>{getVernacularString("612038bf-767c-475f-beca-aa4428c56d9f", userPreferences.language)}</div>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("4a65b232-e2e5-4a85-9004-a84a5e04f91d", userPreferences.language)}} />
+                    <div>{contentData.getContent("612038bf-767c-475f-beca-aa4428c56d9f")}</div>
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("4a65b232-e2e5-4a85-9004-a84a5e04f91d")}} />
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
@@ -381,8 +393,8 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
                 <CarouselStyle5
                     items={stabilizersData.map((batteryData, batteryDataIndex) => (
                         <StabilizerCard
-                            title={getVernacularString(batteryData.titleTextContentPiece, userPreferences.language)}
-                            description={getVernacularString(batteryData.bodyTextContentPiece, userPreferences.language)}
+                            title={contentData.getContent(batteryData.titleTextContentPiece)}
+                            description={contentData.getContent(batteryData.bodyTextContentPiece)}
                             imageRelativePath={batteryData.imageRelativePath}
                             key={batteryDataIndex}
                         />
@@ -397,13 +409,14 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
 }
 
 function StabilizersForHome({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "stabilizers-for-home": {
-                humanReadableName: getVernacularString("c00d2678-dc68-4ded-99aa-4612742a4542", userPreferences.language),
+                humanReadableName: contentData.getContent("c00d2678-dc68-4ded-99aa-4612742a4542"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -730,14 +743,14 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
                     <VerticalSpacer className="tw-h-2" />
 
                     <div className="tw-w-full tw-text-center lg-text-secondary-700">
-                        {getVernacularString("c17b911e-a564-4192-a363-11def77e12b9", userPreferences.language)}
+                        {contentData.getContent("c17b911e-a564-4192-a363-11def77e12b9")}
                         {productPrice}
-                        {getVernacularString("28c8bd29-74e4-425b-8654-9d0f51a98cba", userPreferences.language)}
+                        {contentData.getContent("28c8bd29-74e4-425b-8654-9d0f51a98cba")}
                     </div>
 
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-primary-500">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</div>
+                    <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-primary-500">{contentData.getContent("063dc56b-910e-4a48-acb8-8f52668a4c72")}</div>
                 </div>
             </Link>
         );
@@ -753,10 +766,10 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
         >
             <div className="tw-grid tw-grid-cols-1">
                 <h2 className="lg-text-headline tw-text-center">
-                    <span className="lg-text-highlighted">{getVernacularString("342e7f22-6183-4d16-afd9-3f4e05c36a04", userPreferences.language)}</span>
+                    <span className="lg-text-highlighted">{contentData.getContent("342e7f22-6183-4d16-afd9-3f4e05c36a04")}</span>
                 </h2>
 
-                <h2 className="lg-text-headline tw-text-center">{getVernacularString("d0d3b5e3-a618-4174-b3a8-14e8d6d11ff2", userPreferences.language)}</h2>
+                <h2 className="lg-text-headline tw-text-center">{contentData.getContent("d0d3b5e3-a618-4174-b3a8-14e8d6d11ff2")}</h2>
 
                 <VerticalSpacer className="tw-h-2" />
 
@@ -789,7 +802,7 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
 
                                 <div
                                     className={`tw-col-start-4 ${isSelected ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900"}`}
-                                    dangerouslySetInnerHTML={{__html: getVernacularString(typeSelector.textContentPiece, userPreferences.language)}}
+                                    dangerouslySetInnerHTML={{__html: contentData.getContent(typeSelector.textContentPiece)}}
                                 />
                             </div>
                         );
@@ -820,13 +833,14 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
 }
 
 function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "choose-best-stabilizer": {
-                humanReadableName: getVernacularString("c5937b05-1396-4be3-a508-6478d48700aa", userPreferences.language),
+                humanReadableName: contentData.getContent("c5937b05-1396-4be3-a508-6478d48700aa"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -837,12 +851,12 @@ function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences:
             id="choose-best-stabilizer"
             ref={sectionRef}
         >
-            <div className="tw-row-start-2 tw-text-center lg-text-headline">{getVernacularString("53bbe30f-9859-42e5-add2-64dd0de0d415", userPreferences.language)}</div>
+            <div className="tw-row-start-2 tw-text-center lg-text-headline">{contentData.getContent("53bbe30f-9859-42e5-add2-64dd0de0d415")}</div>
             <div
                 className="tw-row-start-3 tw-text-center lg-text-headline"
-                dangerouslySetInnerHTML={{__html: getVernacularString("91461747-63e3-4cfa-bacf-715015891ee8", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("91461747-63e3-4cfa-bacf-715015891ee8")}}
             />
-            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{getVernacularString("8e88b1c7-bac7-4b9e-a112-5fc7431b4ccd", userPreferences.language)}</div>
+            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{contentData.getContent("8e88b1c7-bac7-4b9e-a112-5fc7431b4ccd")}</div>
 
             <div className="tw-row-start-7 tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-p-4 tw-gap-4">
                 <a
@@ -855,9 +869,7 @@ function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences:
                         className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
                         src="https://files.growthjockey.com/livguard/icons/stabilizer/buying-guide.svg"
                     />
-                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">
-                        {getVernacularString("b3660763-f092-42d4-a97d-76a34dd701f6", userPreferences.language)}
-                    </div>
+                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">{contentData.getContent("b3660763-f092-42d4-a97d-76a34dd701f6")}</div>
                 </a>
                 <a
                     href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
@@ -869,9 +881,7 @@ function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences:
                         className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
                         src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
                     />
-                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">
-                        {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
-                    </div>
+                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">{contentData.getContent("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26")}</div>
                 </a>
             </div>
 
@@ -881,7 +891,7 @@ function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences:
                 to="/load-calculator"
                 className="tw-row-start-9 tw-grid tw-place-items-center"
             >
-                <div className="lg-cta-button tw-place-self-center">{getVernacularString("1271cac7-693c-48bc-850f-16199416dd0e", userPreferences.language)}</div>
+                <div className="lg-cta-button tw-place-self-center">{contentData.getContent("1271cac7-693c-48bc-850f-16199416dd0e")}</div>
             </Link>
 
             <VerticalSpacer className="lg:tw-row-start-10 tw-hidden lg:tw-block lg:tw-h-12" />
@@ -923,13 +933,14 @@ function FaqSection({userPreferences, className}: {userPreferences: UserPreferen
 }
 
 function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "social-handles": {
-                humanReadableName: getVernacularString("01553562-bafd-4ad3-a18c-7b6cc113f03f", userPreferences.language),
+                humanReadableName: contentData.getContent("01553562-bafd-4ad3-a18c-7b6cc113f03f"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -960,9 +971,9 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                 <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text1)}} />
 
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text2)}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
@@ -971,7 +982,7 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+                <div className="lg-text-body">{contentData.getContent("homeS11T2")}</div>
 
                 <VerticalSpacer className="tw-h-2" />
 
@@ -1015,9 +1026,9 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                 <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text1)}} />
 
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text2)}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-8" />
@@ -1034,7 +1045,7 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
 
                                 <VerticalSpacer className="tw-h-2" />
 
-                                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+                                <div className="lg-text-body">{contentData.getContent("homeS11T2")}</div>
 
                                 <div className="tw-flex tw-justify-evenly">
                                     <a

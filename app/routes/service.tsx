@@ -22,7 +22,7 @@ import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigati
 import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
@@ -35,7 +35,11 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language, Theme} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -75,7 +79,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/service/service-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
             {
                 "script:ld+json": {
@@ -129,7 +133,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/service/service-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -141,6 +145,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -149,10 +160,17 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("servicePage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("servicePage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/service/service-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
@@ -250,7 +268,7 @@ export const action: ActionFunction = async ({request, params}) => {
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
     const actionData = useActionData() as ActionData;
 
     const utmSearchParameters = useUtmSearchParameters();
@@ -258,26 +276,34 @@ export default () => {
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "84ec1aea-1f61-4508-ae92-cd3647247ef1", link: "/"},
-                    {contentId: "9672b1a1-0713-48e3-98a2-17322eda6ff2", link: "#"},
-                ]}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <ServicesPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
                         userPreferences={userPreferences}
-                        actionData={actionData}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "84ec1aea-1f61-4508-ae92-cd3647247ef1", link: "/"},
+                            {contentId: "9672b1a1-0713-48e3-98a2-17322eda6ff2", link: "#"},
+                        ]}
                         secondaryNavigationController={secondaryNavigationController}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <ServicesPage
+                                userPreferences={userPreferences}
+                                actionData={actionData}
+                                secondaryNavigationController={secondaryNavigationController}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 };
@@ -353,6 +379,7 @@ function ServicesPage({
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -360,7 +387,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     //     secondaryNavigationController.setSections((previousSections) => ({
     //         ...previousSections,
     //         top: {
-    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
     //             isCurrentlyVisible: sectionInView,
     //         },
     //     }));
@@ -385,7 +412,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
             </div>
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("1f489840-705d-44b1-a18a-73a2645594de", userPreferences.language)}
+                    {contentData.getContent("1f489840-705d-44b1-a18a-73a2645594de")}
                 </div>
             </DefaultTextAnimation>
         </div>
@@ -393,13 +420,14 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function EffortlessService({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "effortless-services": {
-                humanReadableName: getVernacularString("20672940-27d8-4e36-a37e-cdabf2bfedb1", userPreferences.language),
+                humanReadableName: contentData.getContent("20672940-27d8-4e36-a37e-cdabf2bfedb1"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -453,15 +481,15 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
     const serviceSpecialities = [
         {
             iconUrl: "https://files.growthjockey.com/livguard/icons/service/pan-india-presence.svg",
-            title: getVernacularString("521eb4a5-fa32-4ac8-aa40-b8866848e565", userPreferences.language),
+            title: contentData.getContent("521eb4a5-fa32-4ac8-aa40-b8866848e565"),
         },
         {
             iconUrl: "https://files.growthjockey.com/livguard/icons/service/service-excellence.svg",
-            title: getVernacularString("dce77179-dece-4a32-87e8-571459bccdbb", userPreferences.language),
+            title: contentData.getContent("dce77179-dece-4a32-87e8-571459bccdbb"),
         },
         {
             iconUrl: "https://files.growthjockey.com/livguard/icons/service/quick-resolution.svg",
-            title: getVernacularString("4fc10235-8e85-48c9-9202-916a0bda22db", userPreferences.language),
+            title: contentData.getContent("4fc10235-8e85-48c9-9202-916a0bda22db"),
         },
     ];
 
@@ -473,15 +501,15 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
                 ref={sectionRef}
             >
                 <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("2cc7bf42-cb40-4316-8429-f65309b51501", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("2cc7bf42-cb40-4316-8429-f65309b51501")}}
                     className="tw-row-start-1 lg-text-headline tw-text-center tw-mb-1"
                 />
 
-                <div className="tw-row-start-2 lg-text-title2 tw-text-center">{getVernacularString("f4a43cd6-7aea-444f-8f0f-6499ebedb2bf", userPreferences.language)}</div>
+                <div className="tw-row-start-2 lg-text-title2 tw-text-center">{contentData.getContent("f4a43cd6-7aea-444f-8f0f-6499ebedb2bf")}</div>
 
                 <ReadMore
                     className="tw-row-start-4 tw-text-center"
-                    text={getVernacularString("3815727b-e9b3-4e71-a167-1c85c66b9e1d", userPreferences.language)}
+                    text={contentData.getContent("3815727b-e9b3-4e71-a167-1c85c66b9e1d")}
                 />
 
                 <div className="tw-row-start-6 tw-grid tw-grid-cols-[repeat(3,minmax(0,1fr))] lg:lg-px-screen-edge-2">
@@ -502,6 +530,7 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
 }
 
 function RequestAService({userPreferences, className, actionData}: {userPreferences: UserPreferences; className?: string; actionData: ActionData}) {
+    const contentData = useContext(ContentProviderContext);
     const utmSearchParameters = useUtmSearchParameters();
 
     const [isServiceRequestFormSubmitted, setIsServiceRequestFormSubmitted] = useState(false);
@@ -516,7 +545,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "request-a-service": {
-                humanReadableName: getVernacularString("91a2a7a5-561e-4fd7-bb9f-76969e89b296", userPreferences.language),
+                humanReadableName: contentData.getContent("91a2a7a5-561e-4fd7-bb9f-76969e89b296"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -587,7 +616,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
             ref={sectionRef}
         >
             <div className="tw-row-start-1 lg-text-headline tw-text-center tw-w-full">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("58490cb1-5f27-4f67-98d3-939b5a3b9b10", userPreferences.language))}} />
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("58490cb1-5f27-4f67-98d3-939b5a3b9b10"))}} />
             </div>
 
             <VerticalSpacer className="tw-h-4 tw-row-start-2" />
@@ -602,12 +631,12 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                     className="tw-grid tw-grid-flow-row tw-gap-x-4 tw-w-full"
                                 >
                                     <div className="tw-grid tw-grid-flow-col tw-gap-2">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("1cc00f3b-4b94-4e16-bc4f-a0337877d25e", userPreferences.language)}</div>
+                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("1cc00f3b-4b94-4e16-bc4f-a0337877d25e")}</div>
 
                                         <textarea
                                             name="issueDetails"
                                             className="lg-text-input !tw-rounded-lg tw-row-start-2"
-                                            placeholder={getVernacularString("2f725e91-eb31-4d56-898a-87db94a21e48", userPreferences.language)}
+                                            placeholder={contentData.getContent("2f725e91-eb31-4d56-898a-87db94a21e48")}
                                             rows={3}
                                             required
                                         />
@@ -617,16 +646,12 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
                                     <div className="tw-grid lg:tw-grid-cols-2 tw-gap-4">
                                         <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                {getVernacularString("43e7ced0-33d1-46a2-ab06-4e50dae64256", userPreferences.language)}
-                                            </div>
+                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("43e7ced0-33d1-46a2-ab06-4e50dae64256")}</div>
 
                                             <div className="tw-row-start-2">
                                                 <FormSelectComponent
                                                     items={productItems}
-                                                    itemBuilder={(item) =>
-                                                        item == null ? getVernacularString("48aa62c2-244f-45ac-9750-56016d86d5b9", userPreferences.language) : `<div>${item}</div>`
-                                                    }
+                                                    itemBuilder={(item) => (item == null ? contentData.getContent("48aa62c2-244f-45ac-9750-56016d86d5b9") : `<div>${item}</div>`)}
                                                     value={serviceRequestFormSelectedProduct == null ? null : productItems[serviceRequestFormSelectedProduct]}
                                                     setValue={(item) => (item != null ? setServiceRequestFormSelectedProduct(productItems.indexOf(item)) : setServiceRequestFormSelectedProduct(null))}
                                                     buttonClassName="!tw-rounded-full"
@@ -635,16 +660,14 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                         </div>
 
                                         <div className="lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                {getVernacularString("7de002e7-afeb-40d5-8bf5-6f2cd2be88ea", userPreferences.language)}
-                                            </div>
+                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("7de002e7-afeb-40d5-8bf5-6f2cd2be88ea")}</div>
 
                                             <input
                                                 type="text"
                                                 name="emailId"
                                                 className="lg-text-input"
                                                 pattern={emailIdValidationPattern}
-                                                placeholder={getVernacularString("01fce108-4fe0-40c2-bb3a-3fb980fcec72", userPreferences.language)}
+                                                placeholder={contentData.getContent("01fce108-4fe0-40c2-bb3a-3fb980fcec72")}
                                                 required
                                             />
                                         </div>
@@ -654,9 +677,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
                                     <div className="tw-grid lg:tw-grid-cols-2 tw-gap-4">
                                         <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                {getVernacularString("6a37e3ee-a8a6-4999-9494-80465aaad48d", userPreferences.language)}
-                                            </div>
+                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("6a37e3ee-a8a6-4999-9494-80465aaad48d")}</div>
 
                                             <input
                                                 type="text"
@@ -666,14 +687,14 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                     setName(e.target.value);
                                                 }}
                                                 className="lg-text-input"
-                                                placeholder={getVernacularString("a0d68490-ad84-47fb-863c-2a9c812feaec", userPreferences.language)}
+                                                placeholder={contentData.getContent("a0d68490-ad84-47fb-863c-2a9c812feaec")}
                                                 required
                                             />
                                         </div>
 
                                         <div className="lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
                                             {/* <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                {getVernacularString("17cfa283-6fcc-4a49-9dfe-a392e0310b27", userPreferences.language)}
+                                                {contentData.getContent("17cfa283-6fcc-4a49-9dfe-a392e0310b27")}
                                             </div>
 
                                             <input
@@ -681,12 +702,12 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 name="contactNumber"
                                                 className="lg-text-input"
                                                 pattern={indianPhoneNumberValidationPattern}
-                                                placeholder={getVernacularString("1e90dca7-b78f-4231-b2df-644a3b0322d1", userPreferences.language)}
+                                                placeholder={contentData.getContent("1e90dca7-b78f-4231-b2df-644a3b0322d1")}
                                                 required
                                             /> */}
                                             <div className="tw-grid lg:tw-col-start-1 tw-grid-flow-row tw-gap-2">
                                                 {!showOtpField ? (
-                                                    <div className="lg-text-secondary-900">{getVernacularString("17cfa283-6fcc-4a49-9dfe-a392e0310b27", userPreferences.language)}</div>
+                                                    <div className="lg-text-secondary-900">{contentData.getContent("17cfa283-6fcc-4a49-9dfe-a392e0310b27")}</div>
                                                 ) : (
                                                     <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
                                                         <div
@@ -699,7 +720,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                                 }
                                                             }}
                                                         >
-                                                            {getVernacularString("phoneNumberChnage", userPreferences.language)}
+                                                            {contentData.getContent("phoneNumberChnage")}
                                                         </div>
                                                         <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{phoneNumber}</div>
                                                     </div>
@@ -711,7 +732,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                             type="text"
                                                             name="phoneNumber"
                                                             pattern={indianPhoneNumberValidationPattern}
-                                                            placeholder={getVernacularString("1e90dca7-b78f-4231-b2df-644a3b0322d1", userPreferences.language)}
+                                                            placeholder={contentData.getContent("1e90dca7-b78f-4231-b2df-644a3b0322d1")}
                                                             required
                                                             className="lg-text-input tw-w-full"
                                                             disabled={showOtpField}
@@ -759,7 +780,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                                 otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                                             }}
                                                         >
-                                                            {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                                            {contentData.getContent("OfferFormGetOTP")}
                                                         </div>
                                                     </div>
                                                 ) : (
@@ -775,7 +796,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                                 name="otpSubmitted"
                                                                 className="lg-text-input"
                                                                 required
-                                                                placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                                                placeholder={contentData.getContent("contactUsOTPT3E")}
                                                                 ref={otpFieldRef}
                                                                 onChange={(e) => {
                                                                     setIsOtpSubmitted(true);
@@ -783,7 +804,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                             />
                                                             {invalidOtp && (
                                                                 <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
-                                                                    {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                                                    {contentData.getContent("OfferInvalidOTP")}
                                                                 </div>
                                                             )}
                                                         </div>
@@ -815,7 +836,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                                 }}
                                             >
-                                                {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                                {contentData.getContent("OfferResendOTP")}
                                             </div>
                                             <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
                                         </div>
@@ -825,30 +846,26 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
                                     <div className="tw-grid lg:tw-grid-cols-2 tw-gap-4 tw-items-start">
                                         <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                {getVernacularString("31241b10-2784-43df-a2ea-a614c9ef7468", userPreferences.language)}
-                                            </div>
+                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("31241b10-2784-43df-a2ea-a614c9ef7468")}</div>
 
                                             <input
                                                 type="text"
                                                 name="pinCode"
                                                 pattern={pinCodeValidationPattern}
                                                 className="lg-text-input"
-                                                placeholder={getVernacularString("848eb522-5221-4035-ac77-94338e97ac9c", userPreferences.language)}
+                                                placeholder={contentData.getContent("848eb522-5221-4035-ac77-94338e97ac9c")}
                                                 required
                                             />
                                         </div>
 
                                         <div className="lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                {getVernacularString("a1a00432-ed7a-4e11-9e9b-4cc783a6776a", userPreferences.language)}
-                                            </div>
+                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("a1a00432-ed7a-4e11-9e9b-4cc783a6776a")}</div>
 
                                             <input
                                                 type="text"
                                                 name="city"
                                                 className="lg-text-input"
-                                                placeholder={getVernacularString("c5702705-3fa4-4f7d-a706-4e22ea024aac", userPreferences.language)}
+                                                placeholder={contentData.getContent("c5702705-3fa4-4f7d-a706-4e22ea024aac")}
                                                 required
                                             />
                                         </div>
@@ -858,29 +875,25 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
                                     <div className="tw-grid lg:tw-grid-cols-2 tw-gap-4 tw-items-start">
                                         <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                {getVernacularString("d8a55222-554d-48c5-a638-118f37baf66b", userPreferences.language)}
-                                            </div>
+                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("d8a55222-554d-48c5-a638-118f37baf66b")}</div>
 
                                             <input
                                                 type="text"
                                                 name="state"
                                                 className="lg-text-input"
-                                                placeholder={getVernacularString("981952eb-5f5c-4b14-b4e8-f1b766851c64", userPreferences.language)}
+                                                placeholder={contentData.getContent("981952eb-5f5c-4b14-b4e8-f1b766851c64")}
                                                 required
                                             />
                                         </div>
 
                                         <div className="lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                {getVernacularString("5d393e57-cef0-497c-b9c6-87e469e34fe8", userPreferences.language)}
-                                            </div>
+                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{contentData.getContent("5d393e57-cef0-497c-b9c6-87e469e34fe8")}</div>
 
                                             <input
                                                 type="text"
                                                 name="serviceNumber"
                                                 className="lg-text-input"
-                                                placeholder={getVernacularString("54ff368f-0a01-443e-b940-9a9240cbe783", userPreferences.language)}
+                                                placeholder={contentData.getContent("54ff368f-0a01-443e-b940-9a9240cbe783")}
                                             />
                                         </div>
                                     </div>
@@ -899,7 +912,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                             }}
                                         />
 
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}} />
+                                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("contactUsTermsAndConditionsCheckboxtext")}} />
                                     </div>
 
                                     <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
@@ -933,7 +946,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                         className="tw-self-stretch lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-place-self-stretch lg:tw-place-self-center"
                                         disabled={serviceRequestFormSelectedProduct == null || otpFetcher.data == null || !otpSubmitted}
                                     >
-                                        {getVernacularString("0bc7a8cd-72d0-4f85-ab9d-39abdb269e6a", userPreferences.language)}
+                                        {contentData.getContent("0bc7a8cd-72d0-4f85-ab9d-39abdb269e6a")}
                                     </button>
                                 </Form>
                             ) : (
@@ -946,12 +959,12 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                     </div>
 
                                     <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("6d0f2700-ee1b-4215-b60c-f920ba0d0a2b", userPreferences.language)}}
+                                        dangerouslySetInnerHTML={{__html: contentData.getContent("6d0f2700-ee1b-4215-b60c-f920ba0d0a2b")}}
                                         className="lg-text-banner tw-row-start-4 tw-text-center"
                                     />
 
                                     <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("d0b96a23-94c3-45c9-af3e-0722264c7ed5", userPreferences.language)}}
+                                        dangerouslySetInnerHTML={{__html: contentData.getContent("d0b96a23-94c3-45c9-af3e-0722264c7ed5")}}
                                         className="lg-text-body tw-row-start-6 tw-text-center"
                                     />
                                 </div>
@@ -965,6 +978,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 }
 
 function ClickConnectPowerUpSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
     const [dialogOptions, setDialogOptions] = useState<{dialogType: string; headerTextContentId: string}>({dialogType: "", headerTextContentId: "call-us"});
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
@@ -973,7 +987,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             connect: {
-                humanReadableName: getVernacularString("d0a88af5-fba8-43cd-bda5-813e7363db53", userPreferences.language),
+                humanReadableName: contentData.getContent("d0a88af5-fba8-43cd-bda5-813e7363db53"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -992,9 +1006,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <VerticalSpacer className="tw-h-4 tw-row-start-2" />
 
                 <div className="tw-h-full tw-row-start-3 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-flow-row tw-gap-4">
-                    <div className="lg-text-body tw-row-start-1 tw-place-self-center lg:tw-place-self-start lg:tw-text-center">
-                        {getVernacularString("contactUsS2Option1Text", userPreferences.language)}
-                    </div>
+                    <div className="lg-text-body tw-row-start-1 tw-place-self-center lg:tw-place-self-start lg:tw-text-center">{contentData.getContent("contactUsS2Option1Text")}</div>
 
                     <button
                         className="lg-cta-button tw-w-full !tw-px-6 tw-justify-self-center tw-self-end tw-row-start-2"
@@ -1003,7 +1015,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                             setIsContactUsDialogOpen(true);
                         }}
                     >
-                        {getVernacularString("contactUsS2Option1ButtonText", userPreferences.language)}
+                        {contentData.getContent("contactUsS2Option1ButtonText")}
                     </button>
                 </div>
             </div>
@@ -1023,7 +1035,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <VerticalSpacer className="tw-h-4 tw-row-start-2" />
 
                 <div className="tw-h-full tw-row-start-3 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-flow-row tw-gap-4">
-                    <div className="lg-text-body tw-row-start-1 lg:tw-text-center">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
+                    <div className="lg-text-body tw-row-start-1 lg:tw-text-center">{contentData.getContent("contactUsS2Option2Text")}</div>
 
                     <button
                         className="lg-cta-button tw-w-full !tw-px-6 tw-place-self-center tw-self-end tw-row-start-2"
@@ -1032,7 +1044,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                             setIsContactUsDialogOpen(true);
                         }}
                     >
-                        {getVernacularString("contactUsS2Option2ButtonText", userPreferences.language)}
+                        {contentData.getContent("contactUsS2Option2ButtonText")}
                     </button>
                 </div>
             </div>
@@ -1052,7 +1064,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <VerticalSpacer className="tw-h-4 tw-row-start-2" />
 
                 <div className="tw-h-full tw-row-start-3 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-flow-row tw-gap-4">
-                    <div className="lg-text-body tw-row-start-1 lg:tw-text-center">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
+                    <div className="lg-text-body tw-row-start-1 lg:tw-text-center">{contentData.getContent("contactUsS2Option3Text")}</div>
 
                     <button
                         className="lg-cta-button tw-w-full !tw-px-6 tw-justify-self-center tw-self-end tw-row-start-2"
@@ -1061,7 +1073,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                             setIsContactUsDialogOpen(true);
                         }}
                     >
-                        {getVernacularString("contactUsS2Option3ButtonText", userPreferences.language)}
+                        {contentData.getContent("contactUsS2Option3ButtonText")}
                     </button>
                 </div>
             </div>
@@ -1075,14 +1087,14 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
             ref={sectionRef}
         >
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("3ed955c3-a090-4862-9132-e08af40bc379", userPreferences.language))}} />
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("3ed955c3-a090-4862-9132-e08af40bc379"))}} />
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-2 lg:tw-h-4 tw-row-start-2" />
 
             <div className="lg:tw-grid lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,7fr)_minmax(0,3fr)]  lg:tw-rounded-lg lg:tw-py-6">
                 <DefaultTextAnimation className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-2 lg-text-headline tw-text-center lg:tw-text-left lg:tw-place-self-center lg:tw-px-16">
-                    <div className="lg-text-body lg:tw-text-center">{getVernacularString("contactUsS2HText", userPreferences.language)}</div>
+                    <div className="lg-text-body lg:tw-text-center">{contentData.getContent("contactUsS2HText")}</div>
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-4 lg:tw-hidden" />
@@ -1134,6 +1146,7 @@ function ContactUsDialog({
     headerTextContentId: string;
     dialogType: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
     }
@@ -1174,7 +1187,7 @@ function ContactUsDialog({
                     >
                         <div className="tw-w-full lg:tw-max-w-[30rem] tw-mx-auto tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col">
                             <div className="tw-grid tw-grid-cols-[1.5rem_minmax(0,1fr)_1.5rem]">
-                                <div className="tw-row-start-1 tw-col-start-2 tw-w-full tw-text-center lg-text-headline">{getVernacularString(headerTextContentId, userPreferences.language)}</div>
+                                <div className="tw-row-start-1 tw-col-start-2 tw-w-full tw-text-center lg-text-headline">{contentData.getContent(headerTextContentId)}</div>
                                 <button
                                     type="button"
                                     onClick={tryToCloseContactUsDialog}
@@ -1186,7 +1199,7 @@ function ContactUsDialog({
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT2", userPreferences.language)}</div>
+                            <div className="lg-text-title2">{contentData.getContent("headerContactUsDialogT2")}</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
@@ -1224,7 +1237,7 @@ function ContactUsDialog({
 
                             {dialogType !== "chat-with-us" && (
                                 <>
-                                    <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT3", userPreferences.language)}</div>
+                                    <div className="lg-text-title2">{contentData.getContent("headerContactUsDialogT3")}</div>
 
                                     <VerticalSpacer className="tw-h-2" />
 
@@ -1270,13 +1283,14 @@ function ContactUsDialog({
 }
 
 function Testimonials({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             testimonials: {
-                humanReadableName: getVernacularString("4dfaa3c8-918c-46d3-a2a7-865f2ac6a9b7", userPreferences.language),
+                humanReadableName: contentData.getContent("4dfaa3c8-918c-46d3-a2a7-865f2ac6a9b7"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1289,8 +1303,8 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                 ref={sectionRef}
             >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
-                    <div>{getVernacularString("74058229-5e75-4efe-833c-18009f248c6a", userPreferences.language)}</div>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("afe86242-a8aa-4955-8951-516c560fc956", userPreferences.language)}} />
+                    <div>{contentData.getContent("74058229-5e75-4efe-833c-18009f248c6a")}</div>
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("afe86242-a8aa-4955-8951-516c560fc956")}} />
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-h-4" />
@@ -1306,12 +1320,12 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                                     className="tw-rounded-lg"
                                 />
                             ),
-                            name: `${getVernacularString("review1Name", userPreferences.language)}`,
+                            name: `${contentData.getContent("review1Name")}`,
                             rating: 5,
-                            state: `${getVernacularString("review1State", userPreferences.language)}`,
-                            message: `${getVernacularString("review1Message", userPreferences.language)}`,
+                            state: `${contentData.getContent("review1State")}`,
+                            message: `${contentData.getContent("review1Message")}`,
                             productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
-                            // productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
+                            // productName: `${contentData.getContent("review1ProductName")}`,
                         },
                         // {
                         //     video: (
@@ -1320,28 +1334,28 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                         //             style={{aspectRatio: "560/315"}}
                         //         />
                         //     ),
-                        //     name: `${getVernacularString("review2Name", userPreferences.language)}`,
+                        //     name: `${contentData.getContent("review2Name")}`,
                         //     rating: 5,
-                        //     state: `${getVernacularString("review2State", userPreferences.language)}`,
-                        //     message: `${getVernacularString("review2Message", userPreferences.language)}`,
+                        //     state: `${contentData.getContent("review2State")}`,
+                        //     message: `${contentData.getContent("review2Message")}`,
                         //     productImage: "/livguard/products/urban-combo/thumbnail.png",
-                        //     productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
+                        //     productName: `${contentData.getContent("review2ProductName")}`,
                         // },
                         {
-                            name: `${getVernacularString("review3Name", userPreferences.language)}`,
+                            name: `${contentData.getContent("review3Name")}`,
                             rating: 5,
-                            state: `${getVernacularString("review3State", userPreferences.language)}`,
-                            message: `${getVernacularString("review3Message", userPreferences.language)}`,
+                            state: `${contentData.getContent("review3State")}`,
+                            message: `${contentData.getContent("review3Message")}`,
                             productImage: "/livguard/products/lgs1100i/thumbnail.png",
-                            // productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
+                            // productName: `${contentData.getContent("review3ProductName")}`,
                         },
                         {
-                            name: `${getVernacularString("review4Name", userPreferences.language)}`,
+                            name: `${contentData.getContent("review4Name")}`,
                             rating: 4,
-                            state: `${getVernacularString("review4State", userPreferences.language)}`,
-                            message: `${getVernacularString("review4Message", userPreferences.language)}`,
+                            state: `${contentData.getContent("review4State")}`,
+                            message: `${contentData.getContent("review4Message")}`,
                             productImage: "/livguard/products/urban-combo/thumbnail.png",
-                            // productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
+                            // productName: `${contentData.getContent("review4ProductName")}`,
                         },
                     ]}
                 />
@@ -1351,6 +1365,7 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
 }
 
 function WarrantyBanner({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -1358,7 +1373,7 @@ function WarrantyBanner({userPreferences, className}: {userPreferences: UserPref
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             warranty: {
-                humanReadableName: getVernacularString("89840280-463a-4cd3-b9c4-1e94eb5babd7", userPreferences.language),
+                humanReadableName: contentData.getContent("89840280-463a-4cd3-b9c4-1e94eb5babd7"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -1385,20 +1400,18 @@ function WarrantyBanner({userPreferences, className}: {userPreferences: UserPref
 
             <DefaultTextAnimation className="tw-row-start-3 lg:tw-row-start-2 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start tw-text-center">
-                    {getVernacularString("aec063e5-c0a7-4ec7-8d66-8c2a92b61b5d", userPreferences.language)}
+                    {contentData.getContent("aec063e5-c0a7-4ec7-8d66-8c2a92b61b5d")}
                 </div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-4 lg:tw-row-start-3 tw-col-start-1">
-                <div className="lg-text-title1 lg-px-screen-edge-2 tw-text-secondary-900-dark !tw-font-normal tw-text-center">
-                    {getVernacularString("cbe9f24f-08f3-4448-aeb5-556dc08fd017", userPreferences.language)}
-                </div>
+                <div className="lg-text-title1 lg-px-screen-edge-2 tw-text-secondary-900-dark !tw-font-normal tw-text-center">{contentData.getContent("cbe9f24f-08f3-4448-aeb5-556dc08fd017")}</div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-flex tw-justify-center tw-row-start-6 lg:tw-row-start-5 tw-col-start-1 lg-px-screen-edge-2 tw-z-10">
                 <Link to="/warranty">
                     <button className="lg-text-body tw-px-16 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-center tw-text-center">
-                        {getVernacularString("d1030527-97b8-4772-9810-e98c5c0b30c3", userPreferences.language)}
+                        {contentData.getContent("d1030527-97b8-4772-9810-e98c5c0b30c3")}
                     </button>
                 </Link>
             </DefaultTextAnimation>

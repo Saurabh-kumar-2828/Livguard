@@ -14,7 +14,7 @@ import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigati
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
@@ -25,7 +25,11 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -65,7 +69,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/india-ops/india-ops-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -104,7 +108,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/india-ops/india-ops-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -116,6 +120,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -124,48 +135,64 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("indiaOpsPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("indiaOpsPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/india-ops/india-ops-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "3d7d661c-5848-4670-a0bb-3990374c7303", link: "#"},
-                ]}
-                pageUrl={pageUrl}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <IndiaOpsPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
                         userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "3d7d661c-5848-4670-a0bb-3990374c7303", link: "#"},
+                        ]}
                         pageUrl={pageUrl}
                         secondaryNavigationController={secondaryNavigationController}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <IndiaOpsPage
+                                userPreferences={userPreferences}
+                                pageUrl={pageUrl}
+                                secondaryNavigationController={secondaryNavigationController}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 };
 
 function IndiaOpsPage({userPreferences, pageUrl, secondaryNavigationController}: {userPreferences: UserPreferences; pageUrl: string; secondaryNavigationController?: SecondaryNavigationController}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
@@ -214,11 +241,9 @@ function IndiaOpsPage({userPreferences, pageUrl, secondaryNavigationController}:
                 <div className="tw-row-start-7 tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-flow-row tw-w-full tw-max-w-7xl tw-mx-auto lg-px-screen-edge-2 tw-grid-cols-1 lg:tw-grid-cols-2 lg:tw-gap-x-20">
                     <div
                         className="lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
-                        dangerouslySetInnerHTML={{__html: getVernacularString("2f75c946-eefa-4173-ba70-2bf71894c373", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("2f75c946-eefa-4173-ba70-2bf71894c373")}}
                     />
-                    <div className="lg-text-headline tw-text-center tw-row-start-2 tw-col-start-1 lg:tw-col-span-full">
-                        {getVernacularString("75f36250-5f38-4b37-99a3-39caaee72b31", userPreferences.language)}
-                    </div>
+                    <div className="lg-text-headline tw-text-center tw-row-start-2 tw-col-start-1 lg:tw-col-span-full">{contentData.getContent("75f36250-5f38-4b37-99a3-39caaee72b31")}</div>
 
                     <VerticalSpacer className="tw-h-4" />
 
@@ -245,6 +270,7 @@ function IndiaOpsPage({userPreferences, pageUrl, secondaryNavigationController}:
 }
 
 function HeroSection({userPreferences, className, pageUrl}: {userPreferences: UserPreferences; className?: string; pageUrl: string}) {
+    const contentData = useContext(ContentProviderContext);
     const utmParameters = useUtmSearchParameters();
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
@@ -292,7 +318,7 @@ function HeroSection({userPreferences, className, pageUrl}: {userPreferences: Us
 
             {/* <VerticalSpacer className="tw-h-4 lg:tw-h-10" /> */}
 
-            {/* <div className="lg-px-screen-edge-2 tw-w-full tw-max-w-7xl tw-mx-auto">{getVernacularString("434a3b79-cd9d-47e9-8284-f23b7d677d97", userPreferences.language)}</div> */}
+            {/* <div className="lg-px-screen-edge-2 tw-w-full tw-max-w-7xl tw-mx-auto">{contentData.getContent("434a3b79-cd9d-47e9-8284-f23b7d677d97")}</div> */}
         </div>
     );
 }
@@ -308,13 +334,14 @@ function PowerThatEmpowersLives({
     };
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-w-4/5 lg:tw-w-full tw-place-self-center tw-relative tw-bottom-4 tw-z-[2] tw-p-4 tw-rounded-lg tw-row-start-2 tw-col-start-1 max-lg:lg-bg-secondary-100 max-lg:lg-card lg:!tw-bg-transparent tw-grid tw-grid-rows-[repeat(4,auto)] max-lg:lg-ops-pages-shadow">
             <div className="lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-z-[2] lg:tw-justify-self-start lg:tw-ml-20 lg-text-headline lg:tw-text-secondary-900-dark">
-                {getVernacularString("d1c50aa6-1529-4fe4-8e3b-b526888ec7e9", userPreferences.language)}
+                {contentData.getContent("d1c50aa6-1529-4fe4-8e3b-b526888ec7e9")}
             </div>
             <div className="lg:tw-row-start-2 lg:tw-col-start-1 lg:tw-z-[2] lg:tw-justify-self-start lg:tw-ml-20 lg-text-title2 lg:tw-text-secondary-900-dark">
-                {getVernacularString("ac1d1b59-b34e-4bad-8b06-bf9de7999447", userPreferences.language)}
+                {contentData.getContent("ac1d1b59-b34e-4bad-8b06-bf9de7999447")}
             </div>
 
             <VerticalSpacer className="lg:tw-row-start-3 tw-h-4" />
@@ -331,6 +358,7 @@ function PowerThatEmpowersLives({
 }
 
 function EnergySolutions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -338,7 +366,7 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "energy-solutions": {
-                humanReadableName: getVernacularString("f73b94be-d44a-48f8-a1b7-623071cf1fe0", userPreferences.language),
+                humanReadableName: contentData.getContent("f73b94be-d44a-48f8-a1b7-623071cf1fe0"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -354,7 +382,7 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
         >
             <h2 className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-2">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("f0a9f643-18b1-4220-ab20-07882267fb84", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("f0a9f643-18b1-4220-ab20-07882267fb84")}} />
                 </DefaultTextAnimation>
             </h2>
 
@@ -408,7 +436,7 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
 
                             <VerticalSpacer className="tw-h-2" />
 
-                            <div className="lg-text-icon tw-text-center">{`${getVernacularString(item.title, userPreferences.language)}`}</div>
+                            <div className="lg-text-icon tw-text-center">{`${contentData.getContent(item.title)}`}</div>
                         </button>
                     )}
                 />
@@ -423,46 +451,46 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
                         items={[
                             {
                                 image: "/livguard/home/3/2.jpg",
-                                headingContent1: `${getVernacularString("homeS3Tab2HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("32f80d9c-f431-45c9-9791-4fae42e9a37d", userPreferences.language)}`,
-                                content: `${getVernacularString("a8d7b8ac-859d-4c52-ab5f-3dbc5e310af9", userPreferences.language)}`,
-                                buttontext: `${getVernacularString("homeS3Tab2BT", userPreferences.language)}`,
+                                headingContent1: `${contentData.getContent("homeS3Tab2HC1")}`,
+                                headingContent2: `${contentData.getContent("32f80d9c-f431-45c9-9791-4fae42e9a37d")}`,
+                                content: `${contentData.getContent("a8d7b8ac-859d-4c52-ab5f-3dbc5e310af9")}`,
+                                buttontext: `${contentData.getContent("homeS3Tab2BT")}`,
                                 buttonLink: "/inverter-for-home",
                                 target: null,
                             },
                             {
                                 image: "/livguard/home/3/3.jpg",
-                                headingContent1: `${getVernacularString("homeS3Tab3HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("homeS3Tab3HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("9c7f2168-03a6-4d44-8a52-829135aab8fb", userPreferences.language)}`,
-                                buttontext: `${getVernacularString("homeS3Tab3BT", userPreferences.language)}`,
+                                headingContent1: `${contentData.getContent("homeS3Tab3HC1")}`,
+                                headingContent2: `${contentData.getContent("homeS3Tab3HC2")}`,
+                                content: `${contentData.getContent("9c7f2168-03a6-4d44-8a52-829135aab8fb")}`,
+                                buttontext: `${contentData.getContent("homeS3Tab3BT")}`,
                                 buttonLink: "/inverter-batteries",
                                 target: null,
                             },
                             {
                                 image: "/livguard/home/3/1.jpg",
-                                headingContent1: `${getVernacularString("homeS3Tab1HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("homeS3Tab1HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("81c86672-33a4-4aae-80e8-da18b67ecdbc", userPreferences.language)}`,
-                                buttontext: `${getVernacularString("homeS3Tab1BT", userPreferences.language)}`,
+                                headingContent1: `${contentData.getContent("homeS3Tab1HC1")}`,
+                                headingContent2: `${contentData.getContent("homeS3Tab1HC2")}`,
+                                content: `${contentData.getContent("81c86672-33a4-4aae-80e8-da18b67ecdbc")}`,
+                                buttontext: `${contentData.getContent("homeS3Tab1BT")}`,
                                 buttonLink: "/battery-finder",
                                 target: null,
                             },
                             {
                                 image: "/livguard/home/3/4.jpg",
-                                headingContent1: `${getVernacularString("homeS3Tab4HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("homeS3Tab4HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("164717a3-598c-477c-99b9-cf2f40646026", userPreferences.language)}`,
-                                buttontext: `${getVernacularString("homeS3Tab4BT", userPreferences.language)}`,
+                                headingContent1: `${contentData.getContent("homeS3Tab4HC1")}`,
+                                headingContent2: `${contentData.getContent("homeS3Tab4HC2")}`,
+                                content: `${contentData.getContent("164717a3-598c-477c-99b9-cf2f40646026")}`,
+                                buttontext: `${contentData.getContent("homeS3Tab4BT")}`,
                                 buttonLink: "https://www.livguardsolar.com/",
                                 target: "_blank",
                             },
                             {
                                 image: "/livguard/home/3/5.jpg",
-                                headingContent1: `${getVernacularString("homeS3Tab5HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("homeS3Tab5HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("ef976dde-0707-440e-b576-c3722ca507a2", userPreferences.language)}`,
-                                buttontext: `${getVernacularString("homeS3Tab5BT", userPreferences.language)}`,
+                                headingContent1: `${contentData.getContent("homeS3Tab5HC1")}`,
+                                headingContent2: `${contentData.getContent("homeS3Tab5HC2")}`,
+                                content: `${contentData.getContent("ef976dde-0707-440e-b576-c3722ca507a2")}`,
+                                buttontext: `${contentData.getContent("homeS3Tab5BT")}`,
                                 buttonLink: "/lg-trolley-category/",
                                 target: "_blank",
                             },
@@ -527,13 +555,14 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
 }
 
 function WhyLivguard({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "why-livguard": {
-                humanReadableName: getVernacularString("16d054b7-e1e8-4a21-b9b9-b99c4ec7ad97", userPreferences.language),
+                humanReadableName: contentData.getContent("16d054b7-e1e8-4a21-b9b9-b99c4ec7ad97"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -549,35 +578,33 @@ function WhyLivguard({userPreferences, className}: {userPreferences: UserPrefere
         >
             <DefaultTextAnimation>
                 <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("1c837763-6546-4d29-a8cf-53ea73f3fe0b", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("1c837763-6546-4d29-a8cf-53ea73f3fe0b")}}
                     className="tw-text-center lg-text-headline lg:tw-row-start-1"
                 />
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-4 lg:tw-hidden lg:tw-row-start-2" />
 
-            <DefaultTextAnimation className="tw-text-center lg-text-body lg:tw-row-start-3">
-                {getVernacularString("e461e21e-79be-4fc9-891c-725ff8dcd336", userPreferences.language)}
-            </DefaultTextAnimation>
+            <DefaultTextAnimation className="tw-text-center lg-text-body lg:tw-row-start-3">{contentData.getContent("e461e21e-79be-4fc9-891c-725ff8dcd336")}</DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-6 lg:tw-hidden lg:tw-row-start-4" />
 
             <div className="tw-grid tw-w-full tw-h-full tw-grid-cols-2 tw-grid-rows-2 tw-gap-2 tw-place-items-center lg:tw-row-start-5">
                 <div className="tw-w-full tw-row-start-1 tw-col-start-1 lg-card tw-text-center tw-rounded-lg tw-px-4 tw-py-4 lg-ops-pages-shadow">
-                    <div className="lg-text-title1">{getVernacularString("e416be0f-8181-43bb-9914-bd9fcf072388", userPreferences.language)}</div>
-                    <div className="lg-text-icon">{getVernacularString("8452789c-6e24-4998-af36-6e9c54dac50d", userPreferences.language)}</div>
+                    <div className="lg-text-title1">{contentData.getContent("e416be0f-8181-43bb-9914-bd9fcf072388")}</div>
+                    <div className="lg-text-icon">{contentData.getContent("8452789c-6e24-4998-af36-6e9c54dac50d")}</div>
                 </div>
                 <div className="tw-w-full tw-row-start-1 tw-col-start-2 lg-card tw-text-center tw-rounded-lg tw-px-4 tw-py-4 lg-ops-pages-shadow">
-                    <div className="lg-text-title1">{getVernacularString("08480ce3-5f9e-4d09-910d-779b36d312d3", userPreferences.language)}</div>
-                    <div className="lg-text-icon">{getVernacularString("e81a4f23-4e59-4e14-88bf-a78fa13218e0", userPreferences.language)}</div>
+                    <div className="lg-text-title1">{contentData.getContent("08480ce3-5f9e-4d09-910d-779b36d312d3")}</div>
+                    <div className="lg-text-icon">{contentData.getContent("e81a4f23-4e59-4e14-88bf-a78fa13218e0")}</div>
                 </div>
                 <div className="tw-w-full tw-row-start-2 tw-col-start-1 lg-card tw-text-center tw-rounded-lg tw-px-4 tw-py-4 lg-ops-pages-shadow">
-                    <div className="lg-text-title1">{getVernacularString("7ab1943f-7e7d-4fbe-8c67-67541b59d8dc", userPreferences.language)}</div>
-                    <div className="lg-text-icon">{getVernacularString("36b96437-768d-44b7-9715-eb9658574b6d", userPreferences.language)}</div>
+                    <div className="lg-text-title1">{contentData.getContent("7ab1943f-7e7d-4fbe-8c67-67541b59d8dc")}</div>
+                    <div className="lg-text-icon">{contentData.getContent("36b96437-768d-44b7-9715-eb9658574b6d")}</div>
                 </div>
                 <div className="tw-w-full tw-row-start-2 tw-col-start-2 lg-card tw-text-center tw-rounded-lg tw-px-4 tw-py-4 lg-ops-pages-shadow">
-                    <div className="lg-text-title1">{getVernacularString("2b763748-e9c4-4f29-9063-84844e38ab13", userPreferences.language)}</div>
-                    <div className="lg-text-icon">{getVernacularString("b002d357-ffa0-43d2-b9b9-ced844e6d0c5", userPreferences.language)}</div>
+                    <div className="lg-text-title1">{contentData.getContent("2b763748-e9c4-4f29-9063-84844e38ab13")}</div>
+                    <div className="lg-text-icon">{contentData.getContent("b002d357-ffa0-43d2-b9b9-ced844e6d0c5")}</div>
                 </div>
             </div>
         </div>
@@ -585,13 +612,14 @@ function WhyLivguard({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function HeadOffice({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "head-office": {
-                humanReadableName: getVernacularString("bd35a39d-092b-4a59-bb3b-6f60086a9e01", userPreferences.language),
+                humanReadableName: contentData.getContent("bd35a39d-092b-4a59-bb3b-6f60086a9e01"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -605,7 +633,7 @@ function HeadOffice({userPreferences, className}: {userPreferences: UserPreferen
             <div className="tw-grid tw-py-8 tw-px-4 tw-grid-flow-row tw-place-items-center lg:tw-auto-rows-max lg:tw-items-start lg-card tw-rounded-lg tw-h-full">
                 <DefaultTextAnimation>
                     <div
-                        dangerouslySetInnerHTML={{__html: getVernacularString("c984cd4a-eae3-4584-a958-8b18d1df3f0e", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("c984cd4a-eae3-4584-a958-8b18d1df3f0e")}}
                         className="tw-text-center lg-text-headline"
                     />
                 </DefaultTextAnimation>
@@ -622,13 +650,13 @@ function HeadOffice({userPreferences, className}: {userPreferences: UserPreferen
 
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="tw-text-center lg-text-title1">{getVernacularString("a6e58719-05ec-4bfb-8b33-cea19d8e172e", userPreferences.language)}</div>
+                    <div className="tw-text-center lg-text-title1">{contentData.getContent("a6e58719-05ec-4bfb-8b33-cea19d8e172e")}</div>
 
                     <VerticalSpacer className="tw-h-2" />
 
                     <div
                         className="tw-text-center lg-text-body"
-                        dangerouslySetInnerHTML={{__html: getVernacularString("a0f90939-327f-4308-9150-4896b4608ecd", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("a0f90939-327f-4308-9150-4896b4608ecd")}}
                     />
                 </div>
             </div>
@@ -637,13 +665,14 @@ function HeadOffice({userPreferences, className}: {userPreferences: UserPreferen
 }
 
 function RegionalOffices({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "regional-office": {
-                humanReadableName: getVernacularString("ed9a0f62-e79d-49e0-a10f-784e4587a699", userPreferences.language),
+                humanReadableName: contentData.getContent("ed9a0f62-e79d-49e0-a10f-784e4587a699"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -676,7 +705,7 @@ function RegionalOffices({userPreferences, className}: {userPreferences: UserPre
                 <DefaultElementAnimation className="tw-px-3">
                     <div
                         className="tw-text-center lg-text-headline"
-                        dangerouslySetInnerHTML={{__html: getVernacularString("b98270e9-5f07-47d8-9cd9-67235c9e92d7", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("b98270e9-5f07-47d8-9cd9-67235c9e92d7")}}
                     />
                 </DefaultElementAnimation>
 
@@ -698,13 +727,13 @@ function RegionalOffices({userPreferences, className}: {userPreferences: UserPre
 
                                 <VerticalSpacer className="tw-h-2 lg:tw-h-4" />
 
-                                <div className="lg-text-title2 tw-text-center">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
+                                <div className="lg-text-title2 tw-text-center">{contentData.getContent(item.titleTextContentPiece)}</div>
 
                                 <VerticalSpacer className="lg:tw-h-2" />
 
                                 <div
                                     className="lg-text-body tw-text-center"
-                                    dangerouslySetInnerHTML={{__html: getVernacularString(item.descriptionTextContentPiece, userPreferences.language)}}
+                                    dangerouslySetInnerHTML={{__html: contentData.getContent(item.descriptionTextContentPiece)}}
                                 />
                             </div>
                         );
@@ -717,6 +746,7 @@ function RegionalOffices({userPreferences, className}: {userPreferences: UserPre
 }
 
 function ChooseTheRightInverter({userPreferences, className, pageUrl}: {userPreferences: UserPreferences; className?: string; pageUrl: string}) {
+    const contentData = useContext(ContentProviderContext);
     const utmParameters = useUtmSearchParameters();
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -724,7 +754,7 @@ function ChooseTheRightInverter({userPreferences, className, pageUrl}: {userPref
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "your-guide": {
-                humanReadableName: getVernacularString("2223a612-f480-45b4-86fb-d5d02dc1a69d", userPreferences.language),
+                humanReadableName: contentData.getContent("2223a612-f480-45b4-86fb-d5d02dc1a69d"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -738,13 +768,13 @@ function ChooseTheRightInverter({userPreferences, className, pageUrl}: {userPref
         >
             <div
                 className="tw-row-start-2 tw-text-center lg-text-headline"
-                dangerouslySetInnerHTML={{__html: getVernacularString("56fb901a-105b-41f6-9f28-5352624665ea", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("56fb901a-105b-41f6-9f28-5352624665ea")}}
             />
             <div
                 className="tw-row-start-3 tw-text-center lg-text-headline"
-                dangerouslySetInnerHTML={{__html: getVernacularString("2c808484-f637-4570-8825-b0e8d877a58f", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("2c808484-f637-4570-8825-b0e8d877a58f")}}
             />
-            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2 lg:tw-px-0">{getVernacularString("eb5b90de-47c1-423e-8f2c-9945498c0d5d", userPreferences.language)}</div>
+            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2 lg:tw-px-0">{contentData.getContent("eb5b90de-47c1-423e-8f2c-9945498c0d5d")}</div>
 
             <VerticalSpacer className="tw-row-start-6 tw-h-6" />
 
@@ -772,7 +802,7 @@ function ChooseTheRightInverter({userPreferences, className, pageUrl}: {userPref
                             src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
                         />
                         <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
-                            {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
+                            {contentData.getContent("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26")}
                         </div>
                     </a> */}
                     <DownloadCatalogueButton
@@ -794,13 +824,14 @@ function ChooseTheRightInverter({userPreferences, className, pageUrl}: {userPref
 }
 
 function DownloadCatalogueButton({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <Menu
             as="div"
             className={concatenateNonNullStringsWithSpaces("tw-relative tw-z-[2]", className)}
         >
             {/* <Menu.Button className="lg-cta-outline-button lg-cta-outline-button-category-section-transition tw-w-fit">
-                {getVernacularString("47f28213-0a21-4782-b006-cf696dec0758", userPreferences.language)}
+                {contentData.getContent("47f28213-0a21-4782-b006-cf696dec0758")}
             </Menu.Button> */}
             <Menu.Button className="tw-w-max lg-cta-outline-button lg-cta-outline-button-category-section-transition-ops tw-py-3 tw-rounded-full tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-group tw-h-full tw-px-4">
                 <img
@@ -808,7 +839,7 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
                     src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
                 />
                 <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
-                    {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
+                    {contentData.getContent("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26")}
                 </div>
             </Menu.Button>
 
@@ -820,7 +851,7 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
                         className="tw-w-fit tw-py-2 lg-text-primary-500"
                         target="_blank"
                     >
-                        {getVernacularString("7d4dc76d-c541-4f5c-af15-3ec0f0ef4487", userPreferences.language)}
+                        {contentData.getContent("7d4dc76d-c541-4f5c-af15-3ec0f0ef4487")}
                     </a>
                 </Menu.Item>
 
@@ -833,7 +864,7 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
                         className="tw-w-fit tw-py-2 lg-text-primary-500"
                         target="_blank"
                     >
-                        {getVernacularString("b3026d95-83f1-4957-82b0-80480b7a31e3", userPreferences.language)}
+                        {contentData.getContent("b3026d95-83f1-4957-82b0-80480b7a31e3")}
                     </a>
                 </Menu.Item>
 
@@ -846,7 +877,7 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
                         className="tw-w-fit tw-py-2 lg-text-primary-500"
                         target="_blank"
                     >
-                        {getVernacularString("cbff5c39-b943-438a-b015-e71287f37b93", userPreferences.language)}
+                        {contentData.getContent("cbff5c39-b943-438a-b015-e71287f37b93")}
                     </a>
                 </Menu.Item>
 
@@ -859,7 +890,7 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
                         className="tw-w-fit tw-py-2 lg-text-primary-500"
                         target="_blank"
                     >
-                        {getVernacularString("3850de5b-b7ba-4b2a-863a-bfb9416da0e6", userPreferences.language)}
+                        {contentData.getContent("3850de5b-b7ba-4b2a-863a-bfb9416da0e6")}
                     </a>
                 </Menu.Item>
 
@@ -872,7 +903,7 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
                         className="tw-w-fit tw-py-2 lg-text-primary-500"
                         target="_blank"
                     >
-                        {getVernacularString("d1aa9371-f547-41b6-9d8a-650971f771f8", userPreferences.language)}
+                        {contentData.getContent("d1aa9371-f547-41b6-9d8a-650971f771f8")}
                     </a>
                 </Menu.Item> */}
             </Menu.Items>

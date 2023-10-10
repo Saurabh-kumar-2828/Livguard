@@ -1,5 +1,5 @@
 import {Link} from "@remix-run/react";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Whatsapp} from "react-bootstrap-icons";
 import {CookieDialog} from "~/components/cookieDialog";
 import {FindTheThiefDialog} from "~/components/find-the-thief/findTheThiefDialog";
@@ -7,11 +7,11 @@ import {InitialFindTheThiefDialogComponent} from "~/components/find-the-thief/in
 import {FooterComponent} from "~/components/footers/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import type {SecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import type {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function PageScaffold({
     userPreferences,
@@ -38,6 +38,7 @@ export function PageScaffold({
 
     const [isFindTheThiefDialogOpen, setIsFindTheThiefDialogOpen] = useState(false);
     const [isCookieDialogOpen, setIsCookieDialogOpen] = useState(false);
+    const contentData = useContext(ContentProviderContext);
 
     useEffect(() => {
         if (localStorage.getItem("cookiesAccepted") == null) {
@@ -95,7 +96,7 @@ export function PageScaffold({
                                     to={item.link}
                                     key={itemIndex}
                                 >
-                                    {getVernacularString(item.contentId, userPreferences.language)}
+                                    {contentData.getContent(item.contentId)}
                                 </Link>
                             )}
                             spaceBuilder={(spaceIndex) => (

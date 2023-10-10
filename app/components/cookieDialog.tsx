@@ -1,10 +1,10 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {X} from "react-bootstrap-icons";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import type {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function CookieDialog({
     userPreferences,
@@ -15,6 +15,7 @@ export function CookieDialog({
     isCookieDialogOpen: boolean;
     setIsCookieDialogOpen: React.Dispatch<boolean>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     useEffect(() => {
         const cookiesAccepted = localStorage.getItem("cookiesAccepted");
         if (cookiesAccepted == null) {
@@ -48,7 +49,7 @@ export function CookieDialog({
 
                     <div
                         className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-1 tw-self-center"
-                        dangerouslySetInnerHTML={{__html: getVernacularString("c5054f84-2266-408e-87f1-bf4cce619706", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("c5054f84-2266-408e-87f1-bf4cce619706")}}
                     />
 
                     <VerticalSpacer className="tw-row-start-3 lg:tw-hidden tw-h-4" />
@@ -61,7 +62,7 @@ export function CookieDialog({
                         }}
                         className="tw-row-start-4 lg:tw-row-start-1 lg:tw-col-start-3 tw-h-fit lg-cta-button tw-self-end tw-text-center"
                     >
-                        {getVernacularString("286eb099-4488-4fa6-a2aa-23132972a9de", userPreferences.language)}
+                        {contentData.getContent("286eb099-4488-4fa6-a2aa-23132972a9de")}
                     </button>
                 </div>
             </div>
@@ -76,13 +77,13 @@ export function CookieDialog({
                         <HorizontalSpacer className="max-lg:tw-hidden tw-w-4 lg:tw-col-start-3" />
 
                         <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-1 tw-self-center">
-                            {getVernacularString("c5054f84-2266-408e-87f1-bf4cce619706", userPreferences.language)}
+                            {contentData.getContent("c5054f84-2266-408e-87f1-bf4cce619706")}
                         </div>
 
                         <VerticalSpacer className="tw-row-start-3 lg:tw-hidden tw-h-4" />
 
                         <Popover.Button className="tw-row-start-4 lg:tw-row-start-1 lg:tw-col-start-2 tw-h-fit lg-cta-button tw-self-end tw-text-center">
-                            {getVernacularString("286eb099-4488-4fa6-a2aa-23132972a9de", userPreferences.language)}
+                            {contentData.getContent("286eb099-4488-4fa6-a2aa-23132972a9de")}
                         </Popover.Button>
                     </div>
                 </Popover.Panel>

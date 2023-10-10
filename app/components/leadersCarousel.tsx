@@ -1,16 +1,18 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import Autoplay from "embla-carousel-autoplay";
+import {useContext} from "react";
 import {StarFill} from "react-bootstrap-icons";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function LeadersCarousel({userPreferences, leaders}: {userPreferences: UserPreferences; leaders: Array<{image: string; name: string; designation: string; bio: string}>}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
+    const contentData = useContext(ContentProviderContext);
 
     return (
         <div className="lg:tw-h-full">
@@ -56,15 +58,15 @@ export function LeadersCarousel({userPreferences, leaders}: {userPreferences: Us
                                     <VerticalSpacer className="tw-h-4" />
 
                                     <div className="tw-flex tw-flex-col">
-                                        <div className="lg-text-headline !tw-text-secondary-900-dark">{getVernacularString(leader.name, userPreferences.language)}</div>
+                                        <div className="lg-text-headline !tw-text-secondary-900-dark">{contentData.getContent(leader.name)}</div>
 
                                         <VerticalSpacer className="tw-h-1" />
 
-                                        <div className="lg-text-title2 !tw-text-secondary-900-dark">{getVernacularString(leader.designation, userPreferences.language)}</div>
+                                        <div className="lg-text-title2 !tw-text-secondary-900-dark">{contentData.getContent(leader.designation)}</div>
 
                                         <VerticalSpacer className="tw-h-4" />
 
-                                        <div className="lg-text-body !tw-text-secondary-900-dark">{getVernacularString(leader.bio, userPreferences.language)}</div>
+                                        <div className="lg-text-body !tw-text-secondary-900-dark">{contentData.getContent(leader.bio)}</div>
                                     </div>
                                 </div>
                             </div>

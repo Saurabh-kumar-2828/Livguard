@@ -20,7 +20,7 @@ import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigati
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
@@ -32,7 +32,11 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {InverterType, Language} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -72,7 +76,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/category/inverters/inverter-home-for.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
             {
                 "script:ld+json": {
@@ -151,7 +155,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/category/inverters/inverter-home-for.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -164,6 +168,13 @@ type LoaderData = {
     redirectTo: string;
     pageUrl: string;
     humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -178,18 +189,25 @@ export const loader: LoaderFunction = async ({request}) => {
         humanReadableModelNumbersForSuggestionsObj[slug] = getProductFromSlugAndLanguage(slug, userPreferences.language).humanReadableModelNumber;
     });
 
+    const vernacularData = getVernacularFromBackend("homeInverterPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("inverterForHomePage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/category/inverters/inverter-home-for.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
         humanReadableModelNumbersForSuggestions: humanReadableModelNumbersForSuggestionsObj,
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl, humanReadableModelNumbersForSuggestions} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, humanReadableModelNumbersForSuggestions, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -197,34 +215,42 @@ export default function () {
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "#"},
-                ]}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <CategoryPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
+                        userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "#"},
+                        ]}
+                        secondaryNavigationController={secondaryNavigationController}
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <CategoryPage
+                                userPreferences={userPreferences}
+                                utmParameters={utmSearchParameters}
+                                pageUrl={pageUrl}
+                                secondaryNavigationController={secondaryNavigationController}
+                                humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
+
+                    <ProductAndCategoryBottomBar
                         userPreferences={userPreferences}
                         utmParameters={utmSearchParameters}
                         pageUrl={pageUrl}
-                        secondaryNavigationController={secondaryNavigationController}
-                        humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
                     />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
-
-            <ProductAndCategoryBottomBar
-                userPreferences={userPreferences}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-            />
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 }
@@ -335,17 +361,20 @@ function HeroSection({
     pageUrl: string;
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-    // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    // useEffect(() => {
-    //     secondaryNavigationController.setSections((previousSections) => ({
-    //         ...previousSections,
-    //         top: {
-    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
-    //             isCurrentlyVisible: sectionInView,
-    //         },
-    //     }));
-    // }, [sectionRef, sectionInView]);
+    //const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    //const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    //useEffect(() => {
+    //    secondaryNavigationController.setSections((previousSections) => ({
+    //        ...previousSections,
+    //        top: {
+    //            humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41"),
+    //            isCurrentlyVisible: sectionInView,
+    //        },
+    //    }));
+    //}, [sectionRef, sectionInView]);
+
+    const contentData = useContext(ContentProviderContext);
+
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
@@ -373,15 +402,15 @@ function HeroSection({
                 )}
 
                 <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
-                    <div className="lg-text-banner lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS1T1", userPreferences.language)}</div>
+                    <div className="lg-text-banner lg-px-screen-edge tw-text-secondary-900-dark">{contentData.getContent("categoryInvertersS1T1")}</div>
                 </DefaultTextAnimation>
 
                 <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
-                    <div className="lg-text-title1 lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS1T2", userPreferences.language)}</div>
+                    <div className="lg-text-title1 lg-px-screen-edge tw-text-secondary-900-dark">{contentData.getContent("categoryInvertersS1T2")}</div>
                 </DefaultTextAnimation>
 
                 <DefaultTextAnimation className="tw-row-start-[8] tw-col-start-1">
-                    <div className="lg-text-body lg-px-screen-edge !tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS1T3", userPreferences.language)}</div>
+                    <div className="lg-text-body lg-px-screen-edge !tw-text-secondary-900-dark">{contentData.getContent("categoryInvertersS1T3")}</div>
                 </DefaultTextAnimation>
 
                 <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
@@ -396,11 +425,14 @@ export function OurInvertersSection({userPreferences, className}: {userPreferenc
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "choose-your-inverter": {
-                humanReadableName: getVernacularString("fdb7fec0-6865-44e5-a84c-73b11f76c326", userPreferences.language),
+                humanReadableName: contentData.getContent("fdb7fec0-6865-44e5-a84c-73b11f76c326"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
     }, [sectionRef, sectionInView]);
+
+    const contentData = useContext(ContentProviderContext);
+
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-items-center lg:tw-justify-center", className)}
@@ -408,8 +440,8 @@ export function OurInvertersSection({userPreferences, className}: {userPreferenc
             ref={sectionRef}
         >
             <h2 className="lg-text-screen-edge lg-text-headline tw-text-center">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryInvertersS3T1", userPreferences.language))}} />
-                <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS3T2", userPreferences.language)}} />
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("categoryInvertersS3T1"))}} />
+                <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryInvertersS3T2")}} />
             </h2>
 
             <VerticalSpacer className="tw-h-6" />
@@ -420,6 +452,7 @@ export function OurInvertersSection({userPreferences, className}: {userPreferenc
 }
 
 export function OurInvertersSectionInternal({userPreferences}: {userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div>
             <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)_minmax(0,1fr)] lg:tw-grid-cols-[4.5rem_22rem_22rem] tw-gap-x-2">
@@ -453,53 +486,52 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
                     </div>
                 </div>
 
-                <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryInvertersS3R1C2", userPreferences.language)}</div>
+                <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{contentData.getContent("categoryInvertersS3R1C2")}</div>
 
-                <div className="tw-row-start-2 tw-col-start-3 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryInvertersS3R1C3", userPreferences.language)}</div>
+                <div className="tw-row-start-2 tw-col-start-3 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{contentData.getContent("categoryInvertersS3R1C3")}</div>
 
                 <div className="tw-row-start-3 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50 lg-text-secondary">
-                    {getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}
+                    {contentData.getContent("categoryInvertersS3R2C1")}
                 </div>
 
                 <div className="tw-row-start-3 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                    {getVernacularString("categoryInvertersS3R2C2", userPreferences.language)}
+                    {contentData.getContent("categoryInvertersS3R2C2")}
                 </div>
 
                 <div className="tw-row-start-3 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                    {getVernacularString("categoryInvertersS3R2C3", userPreferences.language)}
+                    {contentData.getContent("categoryInvertersS3R2C3")}
                 </div>
 
                 <div className="tw-row-start-4 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50 text-secondary">
-                    {getVernacularString("categoryInvertersS3R3C1", userPreferences.language)}
+                    {contentData.getContent("categoryInvertersS3R3C1")}
                 </div>
 
                 <div className="tw-row-start-4 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                    {getVernacularString("categoryInvertersS3R3C2", userPreferences.language)}
+                    {contentData.getContent("categoryInvertersS3R3C2")}
                 </div>
 
                 <div className="tw-row-start-4 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                    {getVernacularString("categoryInvertersS3R3C3", userPreferences.language)}
+                    {contentData.getContent("categoryInvertersS3R3C3")}
                 </div>
 
-                <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 tw-pb-8 lg-text-icon lg-text-secondary-900">
-                    {getVernacularString("categoryInvertersS3R4C1", userPreferences.language)}
-                </div>
+                <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 tw-pb-8 lg-text-icon lg-text-secondary-900">{contentData.getContent("categoryInvertersS3R4C1")}</div>
 
-                <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{getVernacularString("categoryInvertersS3R4C2", userPreferences.language)}</div>
+                <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{contentData.getContent("categoryInvertersS3R4C2")}</div>
 
-                <div className="tw-row-start-5 tw-col-start-3 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{getVernacularString("categoryInvertersS3R4C3", userPreferences.language)}</div>
+                <div className="tw-row-start-5 tw-col-start-3 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{contentData.getContent("categoryInvertersS3R4C3")}</div>
 
-                {/* <div className="tw-row-start-6 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS3R5C1", userPreferences.language)}</div>
+                {/* <div className="tw-row-start-6 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-text-secondary-900-dark">{contentData.getContent("categoryInvertersS3R5C1")}</div>
 
-                <div className="tw-row-start-6 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryInvertersS3R5C2", userPreferences.language)}</div>
+                <div className="tw-row-start-6 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">{contentData.getContent("categoryInvertersS3R5C2")}</div>
 
-                <div className="tw-row-start-6 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryInvertersS3R5C3", userPreferences.language)}</div> */}
+                <div className="tw-row-start-6 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center">{contentData.getContent("categoryInvertersS3R5C3")}</div> */}
             </div>
         </div>
     );
 }
 
 export function InvertersAreMeantToLast({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const sectionData: Array<{titleTextContentPiece: string; bodyTextContentPiece: string; imageRelativePath: string}> = [
         {
             titleTextContentPiece: "categoryInvertersS2Slide1Heading",
@@ -528,7 +560,7 @@ export function InvertersAreMeantToLast({userPreferences, className}: {userPrefe
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "inverter-features": {
-                humanReadableName: getVernacularString("eb553bbb-e1af-4d2a-923a-096c297441e2", userPreferences.language),
+                humanReadableName: contentData.getContent("eb553bbb-e1af-4d2a-923a-096c297441e2"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -541,10 +573,10 @@ export function InvertersAreMeantToLast({userPreferences, className}: {userPrefe
         >
             <h1 className="lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryInvertersS2HT1", userPreferences.language))}} />
+                    <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("categoryInvertersS2HT1"))}} />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS2HT2", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryInvertersS2HT2")}} />
                 </DefaultTextAnimation>
             </h1>
 
@@ -568,6 +600,7 @@ export function OurSuggestionsSection({
     className: string;
     humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const [selectedInverterType, setSelectedInverterType] = useState(InverterType.sine);
 
     const sectionData: Array<{
@@ -582,67 +615,67 @@ export function OurSuggestionsSection({
         relatedProducts: Array<string>;
     }> = [
         {
-            heading: `${getVernacularString("categoryInvertersS4Slide1Heading", userPreferences.language)}`,
-            description: `${getVernacularString("categoryInvertersS4Slide1Description", userPreferences.language)}`,
-            specificationHeading: `${getVernacularString("categoryInvertersS4SpecificationHeading", userPreferences.language)}`,
+            heading: `${contentData.getContent("categoryInvertersS4Slide1Heading")}`,
+            description: `${contentData.getContent("categoryInvertersS4Slide1Description")}`,
+            specificationHeading: `${contentData.getContent("categoryInvertersS4SpecificationHeading")}`,
             keySpecifications: [
                 {
-                    keySpecificationTitle: getVernacularString("categoryInvertersS2Slide1KS1Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryInvertersSlide1KS1Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryInvertersS2Slide1KS1Title"),
+                    keySpecificationContent: contentData.getContent("categoryInvertersSlide1KS1Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryInvertersS2Slide1KS2Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryInvertersSlide1KS2Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryInvertersS2Slide1KS2Title"),
+                    keySpecificationContent: contentData.getContent("categoryInvertersSlide1KS2Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryInvertersS2Slide1KS3Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryInvertersSlide1KS3Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryInvertersS2Slide1KS3Title"),
+                    keySpecificationContent: contentData.getContent("categoryInvertersSlide1KS3Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/aiCharging.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryInvertersS2Slide1KS4Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryInvertersSlide1KS4Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryInvertersS2Slide1KS4Title"),
+                    keySpecificationContent: contentData.getContent("categoryInvertersSlide1KS4Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
             imagesRelativePath: "/livguard/products/",
             link: "/product/lgs1100i",
-            exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
-            relatedProductsHeading: getVernacularString("categoryInvertersS4RelatedProductsHeading", userPreferences.language),
+            exploreButton: contentData.getContent("categoryBatteriesS4BT"),
+            relatedProductsHeading: contentData.getContent("categoryInvertersS4RelatedProductsHeading"),
             relatedProducts: ["lgs900i", "lgs1000i", "lgs1600", "lgs1700"],
         },
         {
-            heading: `${getVernacularString("categoryInvertersS4Slide2Heading", userPreferences.language)}`,
-            description: `${getVernacularString("categoryInvertersS4Slide2Description", userPreferences.language)}`,
-            specificationHeading: `${getVernacularString("categoryInvertersS4SpecificationHeading", userPreferences.language)}`,
+            heading: `${contentData.getContent("categoryInvertersS4Slide2Heading")}`,
+            description: `${contentData.getContent("categoryInvertersS4Slide2Description")}`,
+            specificationHeading: `${contentData.getContent("categoryInvertersS4SpecificationHeading")}`,
             keySpecifications: [
                 {
-                    keySpecificationTitle: getVernacularString("categoryInvertersS2Slide2KS1Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryInvertersSlide2KS1Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryInvertersS2Slide2KS1Title"),
+                    keySpecificationContent: contentData.getContent("categoryInvertersSlide2KS1Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryInvertersS2Slide2KS2Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryInvertersSlide2KS2Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryInvertersS2Slide2KS2Title"),
+                    keySpecificationContent: contentData.getContent("categoryInvertersSlide2KS2Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryInvertersS2Slide2KS3Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryInvertersSlide2KS3Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryInvertersS2Slide2KS3Title"),
+                    keySpecificationContent: contentData.getContent("categoryInvertersSlide2KS3Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/aiCharging.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryInvertersS2Slide2KS4Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryInvertersSlide2KS4Description", userPreferences.language),
+                    keySpecificationTitle: contentData.getContent("categoryInvertersS2Slide2KS4Title"),
+                    keySpecificationContent: contentData.getContent("categoryInvertersSlide2KS4Description"),
                     keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
             imagesRelativePath: "/livguard/products/",
             link: "/product/lg1550i",
-            exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
-            relatedProductsHeading: getVernacularString("categoryInvertersS4RelatedProductsHeading", userPreferences.language),
+            exploreButton: contentData.getContent("categoryBatteriesS4BT"),
+            relatedProductsHeading: contentData.getContent("categoryInvertersS4RelatedProductsHeading"),
             relatedProducts: ["lg700e", "lg900", "lg1100", "lg1450i", "lg1950i"],
         },
     ];
@@ -652,7 +685,7 @@ export function OurSuggestionsSection({
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "recommended-inverters": {
-                humanReadableName: getVernacularString("0620b5a6-a7bb-4d55-84fb-6a3202439edb", userPreferences.language),
+                humanReadableName: contentData.getContent("0620b5a6-a7bb-4d55-84fb-6a3202439edb"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -666,17 +699,17 @@ export function OurSuggestionsSection({
             <div className="tw-flex tw-flex-col tw-items-center">
                 <h2 className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryInvertersS4HT1", userPreferences.language))}} />
+                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("categoryInvertersS4HT1"))}} />
                     </DefaultTextAnimation>
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS4HT2", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryInvertersS4HT2")}} />
                     </DefaultTextAnimation>
                 </h2>
 
                 <VerticalSpacer className="tw-h-6" />
 
                 <DefaultTextAnimation>
-                    <div className="lg-text-title2 tw-text-center">{getVernacularString("categoryInvertersS4Heading", userPreferences.language)}</div>
+                    <div className="lg-text-title2 tw-text-center">{contentData.getContent("categoryInvertersS4Heading")}</div>
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-6" />
@@ -712,7 +745,7 @@ export function OurSuggestionsSection({
                                             className="dark:tw-invert"
                                         />
                                     </div>
-                                    <div className="tw-text-body">{getVernacularString(item.textContentId, userPreferences.language)}</div>
+                                    <div className="tw-text-body">{contentData.getContent(item.textContentId)}</div>
                                     <div
                                         className={concatenateNonNullStringsWithSpaces(
                                             "tw-text-body tw-text-center",
@@ -740,6 +773,7 @@ export function OurSuggestionsSection({
 }
 
 export function SideBySideOverviewSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const productOverview: Array<{
         heading: string;
         image: string;
@@ -747,90 +781,90 @@ export function SideBySideOverviewSection({userPreferences, className}: {userPre
     }> = [
         {
             image: "",
-            heading: `${getVernacularString("categoryInvertersS5Slide1Heading", userPreferences.language)}`,
+            heading: `${contentData.getContent("categoryInvertersS5Slide1Heading")}`,
             features: [
                 {
-                    title: `${getVernacularString("categoryInvertersS5F1Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F1Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F2Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F2Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F3Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F3Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F4Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F4Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F5Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F5Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F6Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F6Title")}`,
                     highlighted: true,
                 },
             ],
         },
         {
             image: "",
-            heading: `${getVernacularString("categoryInvertersS5Slide2Heading", userPreferences.language)}`,
+            heading: `${contentData.getContent("categoryInvertersS5Slide2Heading")}`,
             features: [
                 {
-                    title: `${getVernacularString("categoryInvertersS5F1Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F1Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F2Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F2Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F3Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F3Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F4Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F4Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F5Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F5Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F6Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F6Title")}`,
                     highlighted: true,
                 },
             ],
         },
         {
             image: "",
-            heading: `${getVernacularString("categoryInvertersS5Slide3Heading", userPreferences.language)}`,
+            heading: `${contentData.getContent("categoryInvertersS5Slide3Heading")}`,
             features: [
                 {
-                    title: `${getVernacularString("categoryInvertersS5F1Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F1Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F2Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F2Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F3Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F3Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F4Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F4Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F5Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F5Title")}`,
                     highlighted: true,
                 },
                 {
-                    title: `${getVernacularString("categoryInvertersS5F6Title", userPreferences.language)}`,
+                    title: `${contentData.getContent("categoryInvertersS5F6Title")}`,
                     highlighted: true,
                 },
             ],
@@ -841,7 +875,7 @@ export function SideBySideOverviewSection({userPreferences, className}: {userPre
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS5HT1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryInvertersS5HT1")}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-6" />
@@ -864,24 +898,25 @@ export function SideBySideOverviewSection({userPreferences, className}: {userPre
 }
 
 export function SuggestedComboSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const combosData: Array<ProductDetailsRecommendedProduct> = [
         {
-            humanReadableModelNumber: getVernacularString("categoryInvertersS6Combo1Title", userPreferences.language),
+            humanReadableModelNumber: contentData.getContent("categoryInvertersS6Combo1Title"),
             slug: "urban-combo",
             bestseller: false,
         },
         {
-            humanReadableModelNumber: getVernacularString("categoryInvertersS6Combo2Title", userPreferences.language),
+            humanReadableModelNumber: contentData.getContent("categoryInvertersS6Combo2Title"),
             slug: "peace-of-mind-combo",
             bestseller: true,
         },
         {
-            humanReadableModelNumber: getVernacularString("categoryInvertersS6Combo3Title", userPreferences.language),
+            humanReadableModelNumber: contentData.getContent("categoryInvertersS6Combo3Title"),
             slug: "super-life-combo",
             bestseller: true,
         },
         {
-            humanReadableModelNumber: getVernacularString("categoryInvertersS6Combo4Title", userPreferences.language),
+            humanReadableModelNumber: contentData.getContent("categoryInvertersS6Combo4Title"),
             slug: "hi-power-combo",
             bestseller: true,
         },
@@ -892,7 +927,7 @@ export function SuggestedComboSection({userPreferences, className}: {userPrefere
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "suggested-combo": {
-                humanReadableName: getVernacularString("5270f2b4-c38b-45b7-8dac-0434f3e7bfcf", userPreferences.language),
+                humanReadableName: contentData.getContent("5270f2b4-c38b-45b7-8dac-0434f3e7bfcf"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -906,7 +941,7 @@ export function SuggestedComboSection({userPreferences, className}: {userPrefere
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS6HT1", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryInvertersS6HT1")}} />
                     </DefaultTextAnimation>
                 </div>
             </div>
@@ -935,27 +970,28 @@ export function SuggestedComboSection({userPreferences, className}: {userPrefere
 }
 
 export function ChooseBestInverterBattery({userPreferences, utmParameters, className}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const sectionData: {
         description: string;
         downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string; popup: boolean}>;
         buttonText: string;
     } = {
-        description: `${getVernacularString("categoryInvertersS8Description", userPreferences.language)}`,
+        description: `${contentData.getContent("categoryInvertersS8Description")}`,
         downloadButtons: [
             {
                 iconRelativePath: "/livguard/icons/buyingGuide.png",
-                text: `${getVernacularString("categoryInvertersS8B1T", userPreferences.language)}`,
+                text: `${contentData.getContent("categoryInvertersS8B1T")}`,
                 downloadLink: "https://www.livguard.com/static-assets/livguard-buying-guide.pdf",
                 popup: false,
             },
             {
                 iconRelativePath: "/livguard/icons/downloadCatalogue.png",
-                text: `${getVernacularString("categoryInvertersS8B2T", userPreferences.language)}`,
+                text: `${contentData.getContent("categoryInvertersS8B2T")}`,
                 downloadLink: "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf",
                 popup: false,
             },
         ],
-        buttonText: `${getVernacularString("categoryInvertersS8BT", userPreferences.language)}`,
+        buttonText: `${contentData.getContent("categoryInvertersS8BT")}`,
     };
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -963,7 +999,7 @@ export function ChooseBestInverterBattery({userPreferences, utmParameters, class
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "load-calculator": {
-                humanReadableName: getVernacularString("4364581e-7ad6-4f87-9c83-66bf480d3fab", userPreferences.language),
+                humanReadableName: contentData.getContent("4364581e-7ad6-4f87-9c83-66bf480d3fab"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -977,10 +1013,10 @@ export function ChooseBestInverterBattery({userPreferences, utmParameters, class
             <div className="tw-flex tw-flex-col">
                 <h2 className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryInvertersS8HT1", userPreferences.language))}} />
+                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent("categoryInvertersS8HT1"))}} />
                     </DefaultTextAnimation>
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS8HT2", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryInvertersS8HT2")}} />
                     </DefaultTextAnimation>
                 </h2>
 

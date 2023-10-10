@@ -1,6 +1,9 @@
+import {useContext} from "react";
 import type {ImageMetadata} from "~/common--type-definitions/typeDefinitions";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 import {imageMetadataLibrary} from "~/imageMetadataLibrary";
 import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductType} from "~/productData.types";
+import {ImageProvider} from "~/typeDefinitions";
 
 //TODO: replace this with production url correctly
 export function getUrlFromRequest(request: Request) {
@@ -31,14 +34,19 @@ export function enumFromStringValue<T>(enum_: {[s: string]: T}, input: string): 
 // }
 
 export function getMetadataForImage(relativePath: string) {
-    const imageMetadata = imageMetadataLibrary[relativePath];
+    const imageMetadataLibraryForPage: ImageProvider = useContext(ImageProviderContext);
+    if (!imageMetadataLibraryForPage[relativePath]) {
+        // throw new Error(`"${relativePath}"`);
+        console.log(`"${relativePath}",`);
+    }
+    const imageMetadata = imageMetadataLibraryForPage[relativePath];
+    // const imageMetadata = imageMetadataLibrary[relativePath];
 
     if (imageMetadata != null) {
         return imageMetadata;
     }
 
     // throw new Error(`Image metadata not updated for image ${relativePath}`);
-    console.error(`Image metadata not updated for image ${relativePath}`);
     // console.trace();
 
     const imageMetadata_: ImageMetadata = {
@@ -255,4 +263,3 @@ export function createGroupByReducer<T, U extends string | number | symbol>(attr
     };
     return reducer;
 }
-

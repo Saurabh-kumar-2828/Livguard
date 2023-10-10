@@ -1,11 +1,12 @@
 import {Disclosure, Transition} from "@headlessui/react";
 import {ChevronDownIcon, ChevronUpIcon} from "@heroicons/react/20/solid";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {getVernacularString} from "~/vernacularProvider";
 import {UserPreferences} from "~/typeDefinitions";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {getMetadataForImage} from "~/utilities";
 import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {useContext} from "react";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function FilterAccordion({
     userPreferences,
@@ -18,6 +19,7 @@ export function FilterAccordion({
     buttonTextContentId: string;
     filterIcon: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <Disclosure defaultOpen={true}>
             {({open}) => (
@@ -34,7 +36,7 @@ export function FilterAccordion({
                                 className="tw-brightness-0 tw-invert-0 dark:tw-invert"
                             />
                         </div>
-                        <div className="lg-text-secondary-900 tw-flex-1 tw-text-center">{getVernacularString(buttonTextContentId, userPreferences.language)}</div>
+                        <div className="lg-text-secondary-900 tw-flex-1 tw-text-center">{contentData.getContent(buttonTextContentId)}</div>
                         <div className="tw-h-6 tw-w-6 lg-bg-background-500 tw-rounded-lg tw-flex-0">{open ? <ChevronUpIcon /> : <ChevronDownIcon />}</div>
                     </Disclosure.Button>
 

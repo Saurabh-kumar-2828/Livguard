@@ -6,10 +6,20 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
+import {useContext} from "react";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
-export function CarouselStyle2({userPreferences, items, className}: {userPreferences: UserPreferences; items: Array<{imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}>, className?: string}) {
+export function CarouselStyle2({
+    userPreferences,
+    items,
+    className,
+}: {
+    userPreferences: UserPreferences;
+    items: Array<{imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}>;
+    className?: string;
+}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
+    const contentData = useContext(ContentProviderContext);
 
     return (
         <div
@@ -55,12 +65,12 @@ export function CarouselStyle2({userPreferences, items, className}: {userPrefere
 
                                 <DefaultTextAnimation className="tw-row-start-4 tw-col-start-2">
                                     <div className="lg-text-title1 [@media(min-width:1024px)]:lg-text-title2 xl:lg-text-title2 tw-whitespace-pre-line tw-text-secondary-900-dark">
-                                        {getVernacularString(item.titleTextContentPiece, userPreferences.language)}
+                                        {contentData.getContent(item.titleTextContentPiece)}
                                     </div>
                                 </DefaultTextAnimation>
 
                                 <DefaultTextAnimation className="tw-row-start-6 tw-col-start-2">
-                                    <div className="lg-text-body !tw-text-secondary-900-dark">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
+                                    <div className="lg-text-body !tw-text-secondary-900-dark">{contentData.getContent(item.bodyTextContentPiece)}</div>
                                 </DefaultTextAnimation>
                             </div>
                         </div>

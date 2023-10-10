@@ -1,15 +1,17 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
+import {useContext} from "react";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
 
 export function CarouselStyle1({userPreferences, items}: {userPreferences: UserPreferences; items: Array<{imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}>}) {
+    const contentData = useContext(ContentProviderContext);
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
 
     return (
@@ -36,13 +38,13 @@ export function CarouselStyle1({userPreferences, items}: {userPreferences: UserP
                                 <VerticalSpacer className="tw-h-4" />
 
                                 <DefaultTextAnimation>
-                                    <div className="lg-text-title1">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
+                                    <div className="lg-text-title1">{contentData.getContent(item.titleTextContentPiece)}</div>
                                 </DefaultTextAnimation>
 
                                 <VerticalSpacer className="tw-h-2" />
 
                                 <DefaultTextAnimation className="tw-flex-1">
-                                    <div className="lg-text-body lg-text-secondary-700">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
+                                    <div className="lg-text-body lg-text-secondary-700">{contentData.getContent(item.bodyTextContentPiece)}</div>
                                 </DefaultTextAnimation>
 
                                 <VerticalSpacer className="tw-h-4" />

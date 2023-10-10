@@ -1,11 +1,13 @@
 import type {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
 import {Form, useActionData, useLoaderData} from "@remix-run/react";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {toast} from "react-toastify";
 import {sendDataToFreshsalesForOrmTracking} from "~/backend/freshsales.server";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -15,7 +17,7 @@ import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.comp
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
 
 export type OrmActionData = {
     error: string | null;
@@ -63,6 +65,9 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -71,18 +76,21 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("ormTrackingPage", userPreferences.language);
+
     const pageUrl = getUrlFromRequest(request);
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: "/orm-tracking",
         pageUrl: pageUrl,
+        vernacularData: vernacularData,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData} = useLoaderData() as LoaderData;
     const actionData = useActionData() as OrmActionData;
     const [refreshForm, setRefreshForm] = useState(false);
 
@@ -102,25 +110,32 @@ export default function () {
 
     return (
         <>
-            <CampaignPageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={false}
-                utmParameters={utmSearchParameters}
-                showContactCtaButton={false}
-                showSearchOption={false}
-                pageUrl={pageUrl}
+            <ContentProviderContext.Provider
+                value={{
+                    getContent: getContentGenerator(vernacularData),
+                }}
             >
-                <ContactForm
+                <CampaignPageScaffold
                     userPreferences={userPreferences}
-                    refreshForm={refreshForm}
-                />
-            </CampaignPageScaffold>
+                    redirectTo={redirectTo}
+                    showMobileMenuIcon={false}
+                    utmParameters={utmSearchParameters}
+                    showContactCtaButton={false}
+                    showSearchOption={false}
+                    pageUrl={pageUrl}
+                >
+                    <ContactForm
+                        userPreferences={userPreferences}
+                        refreshForm={refreshForm}
+                    />
+                </CampaignPageScaffold>
+            </ContentProviderContext.Provider>
         </>
     );
 }
 
 export function ContactForm({userPreferences, refreshForm}: {userPreferences: UserPreferences; refreshForm: boolean}) {
+    const contentData = useContext(ContentProviderContext);
     type FormInputs = {
         product: string;
         name: string;
@@ -152,7 +167,7 @@ export function ContactForm({userPreferences, refreshForm}: {userPreferences: Us
 
             <div className="lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("ormTrackingH1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("ormTrackingH1")}} />
                 </DefaultTextAnimation>
             </div>
 
@@ -165,7 +180,7 @@ export function ContactForm({userPreferences, refreshForm}: {userPreferences: Us
                 >
                     <div className="tw-w-full tw-grid tw-grid-flow-row lg:tw-grid-flow-col lg:tw-grid-cols-2 tw-gap-6">
                         <div className="tw-w-full tw-flex tw-flex-col">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT1", userPreferences.language)}</div>
+                            <div className="lg-text-body-bold tw-pl-3">{contentData.getContent("ormTrackingFormT1")}</div>
 
                             <VerticalSpacer className="tw-h-1" />
 
@@ -183,15 +198,15 @@ export function ContactForm({userPreferences, refreshForm}: {userPreferences: Us
                                     value="Inverter"
                                     selected
                                 >
-                                    {getVernacularString("ormTrackingFormProduct1", userPreferences.language)}
+                                    {contentData.getContent("ormTrackingFormProduct1")}
                                 </option>
-                                <option value="Battery">{getVernacularString("ormTrackingFormProduct2", userPreferences.language)}</option>
-                                <option value="Inverter & Battery">{getVernacularString("ormTrackingFormProduct3", userPreferences.language)}</option>
-                                <option value="Solar">{getVernacularString("ormTrackingFormProduct4", userPreferences.language)}</option>
+                                <option value="Battery">{contentData.getContent("ormTrackingFormProduct2")}</option>
+                                <option value="Inverter & Battery">{contentData.getContent("ormTrackingFormProduct3")}</option>
+                                <option value="Solar">{contentData.getContent("ormTrackingFormProduct4")}</option>
                             </select>
                         </div>
                         <div className="">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT4", userPreferences.language)}</div>
+                            <div className="lg-text-body-bold tw-pl-3">{contentData.getContent("ormTrackingFormT4")}</div>
 
                             <VerticalSpacer className="tw-h-1" />
 
@@ -211,7 +226,7 @@ export function ContactForm({userPreferences, refreshForm}: {userPreferences: Us
 
                     <div className="tw-w-full tw-grid tw-grid-flow-row lg:tw-grid-flow-col tw-gap-6">
                         <div className="tw-w-full tw-flex tw-flex-col">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT5", userPreferences.language)}</div>
+                            <div className="lg-text-body-bold tw-pl-3">{contentData.getContent("ormTrackingFormT5")}</div>
 
                             <VerticalSpacer className="tw-h-1" />
 
@@ -229,7 +244,7 @@ export function ContactForm({userPreferences, refreshForm}: {userPreferences: Us
                             />
                         </div>
                         <div className="">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT6", userPreferences.language)}</div>
+                            <div className="lg-text-body-bold tw-pl-3">{contentData.getContent("ormTrackingFormT6")}</div>
 
                             <VerticalSpacer className="tw-h-1" />
 
@@ -250,7 +265,7 @@ export function ContactForm({userPreferences, refreshForm}: {userPreferences: Us
 
                     <div className="tw-w-full tw-grid tw-grid-flow-row lg:tw-grid-flow-col tw-gap-6">
                         <div className="tw-w-full tw-flex tw-flex-col">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT13", userPreferences.language)}</div>
+                            <div className="lg-text-body-bold tw-pl-3">{contentData.getContent("ormTrackingFormT13")}</div>
 
                             <VerticalSpacer className="tw-h-1" />
 
@@ -273,7 +288,7 @@ export function ContactForm({userPreferences, refreshForm}: {userPreferences: Us
                             type="submit"
                             className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
                         >
-                            {getVernacularString("ormTrackingFormSubmit", userPreferences.language)}
+                            {contentData.getContent("ormTrackingFormSubmit")}
                         </button>
                     </div>
                 </Form>

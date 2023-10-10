@@ -1,6 +1,6 @@
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useFetcher} from "@remix-run/react";
-import React, {useEffect, useReducer, useState} from "react";
+import React, {useContext, useEffect, useReducer, useState} from "react";
 import {useLoaderData} from "react-router";
 import {busAndTruckBatteryBrands, carAndSuvBatteriesBrands, threeWheelerBatteryBrands, tractorBatteryBrands, twoWheelerBatteryBrands} from "~/backend/battery-finder.server";
 import {getProductFromSlugAndLanguage} from "~/backend/product.server";
@@ -17,7 +17,7 @@ import {ButtonWithIconAndText} from "~/components/scratchpad";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
@@ -31,7 +31,11 @@ import {VehicleCategory, categories, categoryNames, indexToVehicleTypeMap} from 
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, type UserPreferences} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -71,7 +75,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/battery-finder/battery-finder-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -110,7 +114,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/battery-finder/battery-finder-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -139,6 +143,13 @@ type LoaderData = {
     carAndSuvProducts: Array<DisplayProductsSchema>;
     busAndTruckProducts: Array<DisplayProductsSchema>;
     tractorProducts: Array<DisplayProductsSchema>;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -203,6 +214,9 @@ export const loader: LoaderFunction = async ({request}) => {
     const busAndTruckProducts = busAndTruckProductSlugs.map((slug) => convertSlugToRequiredProductSchema(slug));
     const tractorProductSlugs = ["lgptr800r", "lgptr900l", "lgptr1000l", "lgptr1000r", "lgpxtr8048r", "lgpxtr9048l", "lgpxtr10048l", "lgpxtr10048r", "lgpxtr9048h29l"];
     const tractorProducts = tractorProductSlugs.map((slug) => convertSlugToRequiredProductSchema(slug));
+    const vernacularData = getVernacularFromBackend("batteryFinderPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("batteryFinderPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/battery-finder/battery-finder-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
@@ -214,43 +228,66 @@ export const loader: LoaderFunction = async ({request}) => {
         carAndSuvProducts: carAndSuvProducts,
         busAndTruckProducts: busAndTruckProducts,
         tractorProducts: tractorProducts,
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl, categoryBrands, twoWheelerProducts, threeWheelerProducts, busAndTruckProducts, carAndSuvProducts, tractorProducts} = useLoaderData() as LoaderData;
+    const {
+        userPreferences,
+        redirectTo,
+        pageUrl,
+        categoryBrands,
+        twoWheelerProducts,
+        threeWheelerProducts,
+        busAndTruckProducts,
+        carAndSuvProducts,
+        tractorProducts,
+        vernacularData,
+        imageMetaDataLibrary,
+    } = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "#"},
-                    {contentId: "62fd3993-d903-4d1b-b008-07be08fbfdef", link: "#"},
-                ]}
-                pageUrl={pageUrl}
-            >
-                <BatteryFinder
-                    userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
-                    pageUrl={pageUrl}
-                    categoryBrands={categoryBrands}
-                    twoWheelerProducts={twoWheelerProducts}
-                    threeWheelerProducts={threeWheelerProducts}
-                    carAndSuvProducts={carAndSuvProducts}
-                    busAndTruckProducts={busAndTruckProducts}
-                    tractorProducts={tractorProducts}
-                />
-            </PageScaffold>
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
+                        userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "#"},
+                            {contentId: "62fd3993-d903-4d1b-b008-07be08fbfdef", link: "#"},
+                        ]}
+                        pageUrl={pageUrl}
+                    >
+                        <BatteryFinder
+                            userPreferences={userPreferences}
+                            utmParameters={utmSearchParameters}
+                            pageUrl={pageUrl}
+                            categoryBrands={categoryBrands}
+                            twoWheelerProducts={twoWheelerProducts}
+                            threeWheelerProducts={threeWheelerProducts}
+                            carAndSuvProducts={carAndSuvProducts}
+                            busAndTruckProducts={busAndTruckProducts}
+                            tractorProducts={tractorProducts}
+                        />
+                    </PageScaffold>
 
-            <StickyBottomBar userPreferences={userPreferences} />
+                    <StickyBottomBar userPreferences={userPreferences} />
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 }
@@ -354,7 +391,7 @@ function HeroSection({
     pageUrl: string;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
+    const contentData = useContext(ContentProviderContext);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
@@ -371,11 +408,11 @@ function HeroSection({
             )}
 
             <DefaultTextAnimation className="tw-row-start-2 lg-px-screen-edge-2">
-                <div className="lg-text-banner !tw-text-secondary-900-dark tw-text-center lg:tw-text-left">{getVernacularString("d718f6ae-3052-448c-b6ef-95d7c3f5a15d", userPreferences.language)}</div>
+                <div className="lg-text-banner !tw-text-secondary-900-dark tw-text-center lg:tw-text-left">{contentData.getContent("d718f6ae-3052-448c-b6ef-95d7c3f5a15d")}</div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-3 lg-px-screen-edge-2">
-                <div className="lg-text-banner !tw-text-secondary-900-dark tw-text-center lg:tw-text-left">{getVernacularString("c60d4c86-6b68-41d5-b0da-5a6e3930a6f2", userPreferences.language)}</div>
+                <div className="lg-text-banner !tw-text-secondary-900-dark tw-text-center lg:tw-text-left">{contentData.getContent("c60d4c86-6b68-41d5-b0da-5a6e3930a6f2")}</div>
             </DefaultTextAnimation>
         </div>
     );
@@ -399,6 +436,7 @@ function ChooseYourVehicle({
     const modelFetcher = useFetcher();
     const fuelFetcher = useFetcher();
     const findBatteryFetcher = useFetcher();
+    const contentData = useContext(ContentProviderContext);
 
     useEffect(() => {
         if (modelFetcher.data != null) {
@@ -420,7 +458,6 @@ function ChooseYourVehicle({
 
     useEffect(() => {
         if (findBatteryFetcher.data != null) {
-            console.log(findBatteryFetcher.data);
             dispatch({
                 actionType: BatteryFinderActionType.setRecommendedBatteries,
                 payload: findBatteryFetcher.data.recommendedBatteries,
@@ -434,7 +471,7 @@ function ChooseYourVehicle({
                 <div className="tw-p-4 ">
                     <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
-                    <div className="tw-w-full lg-text-title1 lg-text-secondary-900">{getVernacularString("454f7c18-bc20-49a9-a1f8-273420f2679b", userPreferences.language)}</div>
+                    <div className="tw-w-full lg-text-title1 lg-text-secondary-900">{contentData.getContent("454f7c18-bc20-49a9-a1f8-273420f2679b")}</div>
 
                     <VerticalSpacer className="tw-h-4" />
 
@@ -469,7 +506,7 @@ function ChooseYourVehicle({
 
                     <div className="lg:tw-grid lg:tw-grid-cols-4 lg:tw-grid-flow-col lg:tw-gap-x-6">
                         <div className="tw-flex tw-flex-col tw-w-full tw-z-10">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("18953b2c-d9bf-4992-bcbd-903f9c78c0e7", userPreferences.language)}</div>
+                            <div className="lg-text-body-bold tw-pl-3">{contentData.getContent("18953b2c-d9bf-4992-bcbd-903f9c78c0e7")}</div>
 
                             <VerticalSpacer className="tw-h-1" />
 
@@ -488,7 +525,7 @@ function ChooseYourVehicle({
                                         {method: "GET", action: "/battery-finder/get-models"},
                                     );
                                 }}
-                                itemBuilder={(item) => (item != null ? item : getVernacularString("261ddd0c-6c3c-40e5-a899-e07dee17d221", userPreferences.language))}
+                                itemBuilder={(item) => (item != null ? item : contentData.getContent("261ddd0c-6c3c-40e5-a899-e07dee17d221"))}
                                 buttonClassName="!tw-rounded-full"
                             />
                         </div>
@@ -496,13 +533,13 @@ function ChooseYourVehicle({
                         <VerticalSpacer className="tw-h-2 lg:tw-hidden" />
 
                         <div className="tw-flex tw-flex-col tw-w-full tw-z-10">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("4990cdb1-9ee8-44d0-876f-3a668f2e7f9b", userPreferences.language)}</div>
+                            <div className="lg-text-body-bold tw-pl-3">{contentData.getContent("4990cdb1-9ee8-44d0-876f-3a668f2e7f9b")}</div>
 
                             <VerticalSpacer className="tw-h-1" />
 
                             <FormSelectComponent
                                 items={batteryFinderState.models}
-                                itemBuilder={(item) => (item != null ? item : getVernacularString("f5207071-fe8f-462d-bbf6-19cd5db04407", userPreferences.language))}
+                                itemBuilder={(item) => (item != null ? item : contentData.getContent("f5207071-fe8f-462d-bbf6-19cd5db04407"))}
                                 value={batteryFinderState.selectedModel}
                                 setValue={(item) => {
                                     dispatch({
@@ -529,13 +566,13 @@ function ChooseYourVehicle({
                         <VerticalSpacer className="tw-h-2 lg:tw-hidden" />
 
                         <div className="tw-flex tw-flex-col tw-w-full tw-z-10">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("e2131e40-08cc-401d-958c-46baa3fa8642", userPreferences.language)}</div>
+                            <div className="lg-text-body-bold tw-pl-3">{contentData.getContent("e2131e40-08cc-401d-958c-46baa3fa8642")}</div>
 
                             <VerticalSpacer className="tw-h-1" />
 
                             <FormSelectComponent
                                 items={batteryFinderState.fuelTypes}
-                                itemBuilder={(item) => (item != null ? item : getVernacularString("8bbfc17d-9232-4f80-8758-6a4a1b98a122", userPreferences.language))}
+                                itemBuilder={(item) => (item != null ? item : contentData.getContent("8bbfc17d-9232-4f80-8758-6a4a1b98a122"))}
                                 value={batteryFinderState.selectedFuelType}
                                 setValue={(item) =>
                                     dispatch({
@@ -556,7 +593,7 @@ function ChooseYourVehicle({
 
                         <div className="tw-flex tw-flex-col tw-w-full tw-z-10 tw-h-full">
                             {/* Quick Hack to make button height equal to select components */}
-                            <div className="lg-text-body-bold tw-pl-3 tw-invisible">{getVernacularString("e2131e40-08cc-401d-958c-46baa3fa8642", userPreferences.language)}</div>
+                            <div className="lg-text-body-bold tw-pl-3 tw-invisible">{contentData.getContent("e2131e40-08cc-401d-958c-46baa3fa8642")}</div>
 
                             <VerticalSpacer className="tw-h-1" />
 
@@ -576,7 +613,7 @@ function ChooseYourVehicle({
                                     );
                                 }}
                             >
-                                {getVernacularString("112996e0-2850-4283-af77-7514a386d172", userPreferences.language)}
+                                {contentData.getContent("112996e0-2850-4283-af77-7514a386d172")}
                             </button>
                         </div>
                     </div>
@@ -601,15 +638,15 @@ function ChooseYourVehicle({
                                 </div>
 
                                 <div className="lg-text-body-bold tw-row-start-3 tw-text-center tw-border tw-border-dashed tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-rounded-[4px] tw-p-2">
-                                    <span>{getVernacularString("b5397d56-d5b3-4697-a419-6502cdd1ff81", userPreferences.language)} </span>
+                                    <span>{contentData.getContent("b5397d56-d5b3-4697-a419-6502cdd1ff81")} </span>
                                     <span>{batteryFinderState.recommendedBatteries.length}</span>
-                                    <span> {getVernacularString("7cfaf737-8887-4f28-936f-014215c0dda7", userPreferences.language)}</span>
+                                    <span> {contentData.getContent("7cfaf737-8887-4f28-936f-014215c0dda7")}</span>
                                 </div>
 
                                 <div className="lg-text-body tw-row-start-4 tw-text-center">
-                                    <span>{getVernacularString("e7c60040-8fbd-4296-82ce-9ab85cc9bbea", userPreferences.language)} </span>
-                                    <span>{getVernacularString(categoryNames[batteryFinderState.selectedCategoryIndex], userPreferences.language).toLowerCase()}</span>
-                                    <span>{getVernacularString("14dc2eb0-2c97-40c7-ba8f-aead0e174deb", userPreferences.language)} </span>
+                                    <span>{contentData.getContent("e7c60040-8fbd-4296-82ce-9ab85cc9bbea")} </span>
+                                    <span>{contentData.getContent(categoryNames[batteryFinderState.selectedCategoryIndex]).toLowerCase()}</span>
+                                    <span>{contentData.getContent("14dc2eb0-2c97-40c7-ba8f-aead0e174deb")} </span>
                                 </div>
                             </div>
 
@@ -668,6 +705,7 @@ function VehicleCategoryDetails({
     busAndTruckProducts: Array<DisplayProductsSchema>;
     tractorProducts: Array<DisplayProductsSchema>;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const products = {
         [VehicleCategory.twoWheeler]: twoWheelerProducts,
         [VehicleCategory.threeWheeler]: threeWheelerProducts,
@@ -724,28 +762,26 @@ function VehicleCategoryDetails({
 
                 <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg-px-screen-edge-2 lg:tw-px-0">
                     <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start lg:tw-text-left lg:lg-px-screen-edge-2">
-                        {getVernacularString("d11295cc-c71b-40d3-b0c3-6dfb96473a3a", userPreferences.language)}
+                        {contentData.getContent("d11295cc-c71b-40d3-b0c3-6dfb96473a3a")}
                     </div>
                 </DefaultTextAnimation>
 
                 <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg-px-screen-edge-2 lg:tw-px-0">
                     <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start lg:tw-text-left lg:lg-px-screen-edge-2">
-                        {getVernacularString(categories[batteryFinderState.selectedCategoryIndex].titleContentId, userPreferences.language)}
+                        {contentData.getContent(categories[batteryFinderState.selectedCategoryIndex].titleContentId)}
                     </div>
                 </DefaultTextAnimation>
             </div>
 
             <div className="lg-px-screen-edge-2 tw-z-10 tw-max-w-7xl tw-mx-auto">
                 <div className="tw-w-full tw-rounded-lg lg-bg-secondary-100 lg-card -tw-mt-4 lg:-tw-mt-4 tw-grid tw-grid-cols-1 tw-gap-x-4 tw-gap-y-4 tw-p-9">
-                    <div className="tw-row-start-1 tw-col-start-1 tw-self-center tw-text-center">
-                        {getVernacularString(categories[batteryFinderState.selectedCategoryIndex].bodyContentId, userPreferences.language)}
-                    </div>
+                    <div className="tw-row-start-1 tw-col-start-1 tw-self-center tw-text-center">{contentData.getContent(categories[batteryFinderState.selectedCategoryIndex].bodyContentId)}</div>
 
                     <Link
                         to={categories[batteryFinderState.selectedCategoryIndex].link}
                         className="tw-row-start-2 tw-col-start-1 tw-place-self-center lg-cta-outline-button lg-cta-outline-button-transition hover:tw-px-[4.125rem] tw-w-full lg:tw-w-fit tw-px-4 lg:tw-px-16 tw-mx-auto tw-text-center"
                     >
-                        {getVernacularString("8b6be5de-9c57-461a-8ec5-106f29eccaca", userPreferences.language)}
+                        {contentData.getContent("8b6be5de-9c57-461a-8ec5-106f29eccaca")}
                     </Link>
                 </div>
             </div>
@@ -764,8 +800,8 @@ function VehicleCategoryDetails({
                                       imageRelativeUrl={`/livguard/products/${product.slug}/thumbnail.png`}
                                       productName={product.productName}
                                       productPrice={product.productPrice}
-                                      specification1={`${product.capacity} ${getVernacularString("2e8cc29a-b2ca-4363-90d8-aba062f1d5fb", userPreferences.language)}`}
-                                      specification2={`${product.warranty} ${getVernacularString("05c55898-5398-4058-86d3-2d0002a1b3d4", userPreferences.language)}`}
+                                      specification1={`${product.capacity} ${contentData.getContent("2e8cc29a-b2ca-4363-90d8-aba062f1d5fb")}`}
+                                      specification2={`${product.warranty} ${contentData.getContent("05c55898-5398-4058-86d3-2d0002a1b3d4")}`}
                                       isBestSeller={false}
                                       key={productIndex}
                                   />
@@ -780,8 +816,8 @@ function VehicleCategoryDetails({
                                       imageRelativeUrl={`/livguard/products/${product.slug}/thumbnail.png`}
                                       productName={product.productName}
                                       productPrice={product.productPrice}
-                                      specification1={`${product.capacity} ${getVernacularString("2e8cc29a-b2ca-4363-90d8-aba062f1d5fb", userPreferences.language)}`}
-                                      specification2={`${product.warranty} ${getVernacularString("05c55898-5398-4058-86d3-2d0002a1b3d4", userPreferences.language)}`}
+                                      specification1={`${product.capacity} ${contentData.getContent("2e8cc29a-b2ca-4363-90d8-aba062f1d5fb")}`}
+                                      specification2={`${product.warranty} ${contentData.getContent("05c55898-5398-4058-86d3-2d0002a1b3d4")}`}
                                       isBestSeller={false}
                                       key={productIndex}
                                   />
@@ -799,9 +835,7 @@ function VehicleCategoryDetails({
                           className="lg-cta-button tw-place-self-center"
                           onClick={() => setIsViewMore((prev) => !prev)}
                       >
-                          {isViewMore
-                              ? getVernacularString("ac9a30fb-5654-4692-9995-84c2dbe8301b", userPreferences.language)
-                              : getVernacularString("8993dcbc-2216-4dd2-954e-e8145571049f", userPreferences.language)}
+                          {isViewMore ? contentData.getContent("ac9a30fb-5654-4692-9995-84c2dbe8301b") : contentData.getContent("8993dcbc-2216-4dd2-954e-e8145571049f")}
                       </button>
                   )}
         </div>

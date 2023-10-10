@@ -11,7 +11,7 @@ import {SecondaryNavigation} from "~/components/secondaryNavigation";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
@@ -20,12 +20,22 @@ import {FinancialStatements} from "~/routes/investors";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -34,41 +44,54 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("governancePage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("governancePage");
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     const secondaryNavigationController = useSecondaryNavigationController();
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                secondaryNavigationController={secondaryNavigationController}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "59cc9aaf-ed88-4639-9fb4-634aeac22825", link: "#"},
-                ]}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <GovernancePage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
                         userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
                         secondaryNavigationController={secondaryNavigationController}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "59cc9aaf-ed88-4639-9fb4-634aeac22825", link: "#"},
+                        ]}
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <GovernancePage
+                                userPreferences={userPreferences}
+                                secondaryNavigationController={secondaryNavigationController}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 };
@@ -111,6 +134,7 @@ function GovernancePage({userPreferences, secondaryNavigationController}: {userP
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <div
@@ -130,12 +154,12 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1">
                 <div className="lg-text-banner tw-text-secondary-900-dark lg-px-screen-edge-2 tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("a8b4f849-32eb-4bc1-b25e-69450d63cf61", userPreferences.language)}
+                    {contentData.getContent("a8b4f849-32eb-4bc1-b25e-69450d63cf61")}
                 </div>
             </DefaultTextAnimation>
             <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1">
                 <div className="lg-text-banner tw-text-secondary-900-dark lg-px-screen-edge-2 tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("050b72f1-1e00-435b-a879-2c7da1cdabe0", userPreferences.language)}
+                    {contentData.getContent("050b72f1-1e00-435b-a879-2c7da1cdabe0")}
                 </div>
             </DefaultTextAnimation>
         </div>
@@ -143,13 +167,14 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function CsrInitiative({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "our-csr-efforts": {
-                humanReadableName: getVernacularString("16248ec0-c540-495b-9340-724bc296c3cf", userPreferences.language),
+                humanReadableName: contentData.getContent("16248ec0-c540-495b-9340-724bc296c3cf"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -164,11 +189,11 @@ function CsrInitiative({userPreferences, className}: {userPreferences: UserPrefe
                 <div>
                     <div
                         className="lg-text-headline tw-place-self-center lg:tw-place-self-start"
-                        dangerouslySetInnerHTML={{__html: getVernacularString("1f335371-269e-4a18-ab21-c8aa8eaee078", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("1f335371-269e-4a18-ab21-c8aa8eaee078")}}
                     />
                     <div
                         className="lg-text-headline tw-place-self-center tw-text-center"
-                        dangerouslySetInnerHTML={{__html: getVernacularString("fbdf2119-fb17-4ea8-8407-e3e4594c934c", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("fbdf2119-fb17-4ea8-8407-e3e4594c934c")}}
                     />
                 </div>
             </DefaultTextAnimation>
@@ -177,24 +202,24 @@ function CsrInitiative({userPreferences, className}: {userPreferences: UserPrefe
             <div className={concatenateNonNullStringsWithSpaces("tw-w-full")}>
                 <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-2 tw-gap-y-4 tw-px-4 lg:tw-pl-8 tw-py-4 lg-bg-new-background-500 lg-card tw-rounded-lg">
                     <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-headline">
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T1", userPreferences.language)}} />
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T2", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("homeS12H1T1")}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("homeS12H1T2")}} />
                     </div>
 
-                    <div className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg-text-body lg:tw-pr-[60px]">{getVernacularString("homeS12T2", userPreferences.language)}</div>
+                    <div className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg-text-body lg:tw-pr-[60px]">{contentData.getContent("homeS12T2")}</div>
 
                     <ul className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-start-1 tw-list-disc tw-ml-5 lg:tw-pr-[60px]">
                         <li>
-                            <div className="lg-text-body">{getVernacularString("homeS12T3P1", userPreferences.language)}</div>
+                            <div className="lg-text-body">{contentData.getContent("homeS12T3P1")}</div>
                         </li>
                         <li>
-                            <div className="lg-text-body">{getVernacularString("homeS12T3P2", userPreferences.language)}</div>
+                            <div className="lg-text-body">{contentData.getContent("homeS12T3P2")}</div>
                         </li>
                         <li>
-                            <div className="lg-text-body">{getVernacularString("homeS12T3P3", userPreferences.language)}</div>
+                            <div className="lg-text-body">{contentData.getContent("homeS12T3P3")}</div>
                         </li>
                         <li>
-                            <div className="lg-text-body">{getVernacularString("homeS12T3P4", userPreferences.language)}</div>
+                            <div className="lg-text-body">{contentData.getContent("homeS12T3P4")}</div>
                         </li>
                     </ul>
 
@@ -220,7 +245,7 @@ function CsrInitiative({userPreferences, className}: {userPreferences: UserPrefe
                         to="/csr"
                         className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg-cta-button tw-justify-self-center lg:tw-justify-self-start"
                     >
-                        {getVernacularString("homeS12T4", userPreferences.language)}
+                        {contentData.getContent("homeS12T4")}
                     </Link>
                 </div>
             </div>
@@ -229,6 +254,7 @@ function CsrInitiative({userPreferences, className}: {userPreferences: UserPrefe
 }
 
 function ResponsibleRecycling({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const items = [
         {
             svgIcon: "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg",
@@ -309,7 +335,7 @@ function ResponsibleRecycling({userPreferences, className}: {userPreferences: Us
                 <DefaultTextAnimation className="tw-row-start-1 tw-justify-self-center">
                     <div
                         className="lg-text-headline tw-place-self-center lg:tw-place-self-start tw-text-center"
-                        dangerouslySetInnerHTML={{__html: getVernacularString("02044d34-919d-418c-8212-1293f03bcf2d", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("02044d34-919d-418c-8212-1293f03bcf2d")}}
                     />
                 </DefaultTextAnimation>
 
@@ -331,7 +357,7 @@ function ResponsibleRecycling({userPreferences, className}: {userPreferences: Us
                                 </div>
                                 <div
                                     className="lg-text-body-bold tw-text-center tw-justify-start tw-row-start-3"
-                                    dangerouslySetInnerHTML={{__html: getVernacularString(item.title, userPreferences.language)}}
+                                    dangerouslySetInnerHTML={{__html: contentData.getContent(item.title)}}
                                 />
                             </div>
                         );

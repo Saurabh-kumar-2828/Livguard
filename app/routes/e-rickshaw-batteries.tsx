@@ -12,7 +12,7 @@ import {FaqSectionInternal} from "~/components/faqs";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, Theme, UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
@@ -20,7 +20,7 @@ import {CarouselStyle3} from "~/components/carouselStyle3";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import React, {useContext, useEffect} from "react";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import LivguardDialog from "~/components/livguardDialog";
 import {StickyBottomBar} from "~/components/bottomBar";
@@ -33,6 +33,10 @@ import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigati
 import {useInView} from "react-intersection-observer";
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
 import {getProductFromSlugAndLanguage} from "~/backend/product.server";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -72,7 +76,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-rickshaw-batteries/e-rickshaw-batteries-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -111,7 +115,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-rickshaw-batteries/e-rickshaw-batteries-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -124,6 +128,13 @@ type LoaderData = {
     redirectTo: string;
     pageUrl: string;
     products: Array<ProductDetails>;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -136,52 +147,67 @@ export const loader: LoaderFunction = async ({request}) => {
 
     const products = slugs.map((slug) => getProductFromSlugAndLanguage(slug, userPreferences.language));
 
+    const vernacularData = getVernacularFromBackend("eRickshawBatteriesPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("eRickshawBatteriesPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/e-rickshaw-batteries/e-rickshaw-batteries-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
         products: products,
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl, products} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, products, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
     const secondaryNavigationController = useSecondaryNavigationController();
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "b8b98109-dcab-45bf-873e-db9da7c798eb", link: "#"},
-                ]}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <ERickshawBatteriesPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
+                        userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "b8b98109-dcab-45bf-873e-db9da7c798eb", link: "#"},
+                        ]}
+                        secondaryNavigationController={secondaryNavigationController}
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <ERickshawBatteriesPage
+                                userPreferences={userPreferences}
+                                utmParameters={utmSearchParameters}
+                                pageUrl={pageUrl}
+                                secondaryNavigationController={secondaryNavigationController}
+                                products={products}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
+
+                    <ProductAndCategoryBottomBar
                         userPreferences={userPreferences}
                         utmParameters={utmSearchParameters}
                         pageUrl={pageUrl}
-                        secondaryNavigationController={secondaryNavigationController}
-                        products={products}
                     />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
-
-            <ProductAndCategoryBottomBar
-                userPreferences={userPreferences}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-            />
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 };
@@ -271,6 +297,7 @@ function ERickshawBatteriesPage({
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <div
@@ -291,7 +318,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
             </div>
 
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg-px-screen-edge-2 tw-place-self-center lg:tw-place-self-start tw-z-[2]">
-                <div className="lg-text-banner tw-text-secondary-900-dark tw-text-center lg:tw-text-left">{getVernacularString("67f761e4-5c9d-4ef7-87fa-df19fc2b92aa", userPreferences.language)}</div>
+                <div className="lg-text-banner tw-text-secondary-900-dark tw-text-center lg:tw-text-left">{contentData.getContent("67f761e4-5c9d-4ef7-87fa-df19fc2b92aa")}</div>
             </DefaultTextAnimation>
 
             <div className="tw-row-start-4 tw-col-start-1 lg-px-screen-edge-2 tw-place-self-center lg:tw-place-self-start tw-z-[2] tw-grid">
@@ -305,6 +332,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const contentData = useContext(ContentProviderContext);
     const BatteryCard = ({title, description, imageRelativePath}: {title: string; description: string; imageRelativePath: string}) => {
         return (
             <div
@@ -359,7 +387,7 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "superior-features": {
-                humanReadableName: getVernacularString("f19bea1b-ce21-4a14-af85-b49b68827611", userPreferences.language),
+                humanReadableName: contentData.getContent("f19bea1b-ce21-4a14-af85-b49b68827611"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -372,8 +400,8 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
                 ref={sectionRef}
             >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg:lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("3e08230a-fc5d-4191-abfa-6b6be76e983f", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("eb77dfed-047e-4fb7-bfb2-bbe06d128a93", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("3e08230a-fc5d-4191-abfa-6b6be76e983f")}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("eb77dfed-047e-4fb7-bfb2-bbe06d128a93")}} />
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
@@ -381,8 +409,8 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
                 <CarouselStyle5
                     items={batteriesData.map((batteryData, batteryDataIndex) => (
                         <BatteryCard
-                            title={getVernacularString(batteryData.titleTextContentPiece, userPreferences.language)}
-                            description={getVernacularString(batteryData.bodyTextContentPiece, userPreferences.language)}
+                            title={contentData.getContent(batteryData.titleTextContentPiece)}
+                            description={contentData.getContent(batteryData.bodyTextContentPiece)}
                             imageRelativePath={batteryData.imageRelativePath}
                             key={batteryDataIndex}
                         />
@@ -398,6 +426,7 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
 }
 
 function OurRangeToEmpowerYourGrowth({userPreferences, className, products}: {userPreferences: UserPreferences; className?: string; products: Array<ProductDetails>}) {
+    const contentData = useContext(ContentProviderContext);
     const batteriesData = products.map((product) => ({
         batterySlug: product.slug,
         name: product.humanReadableModelNumber,
@@ -414,7 +443,7 @@ function OurRangeToEmpowerYourGrowth({userPreferences, className, products}: {us
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "our-range": {
-                humanReadableName: getVernacularString("f455acf2-de2a-48bb-afa1-c1b400f1fc09", userPreferences.language),
+                humanReadableName: contentData.getContent("f455acf2-de2a-48bb-afa1-c1b400f1fc09"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -429,9 +458,9 @@ function OurRangeToEmpowerYourGrowth({userPreferences, className, products}: {us
 
             <div
                 className="lg-text-headline tw-place-self-center"
-                dangerouslySetInnerHTML={{__html: getVernacularString("368be9b9-37b1-4c94-9b54-9c7b8bbea351", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("368be9b9-37b1-4c94-9b54-9c7b8bbea351")}}
             />
-            <div className="lg-text-headline tw-place-self-center">{getVernacularString("e102bc0e-f831-4631-abb2-60f166440bbe", userPreferences.language)}</div>
+            <div className="lg-text-headline tw-place-self-center">{contentData.getContent("e102bc0e-f831-4631-abb2-60f166440bbe")}</div>
 
             <VerticalSpacer className="tw-h-4 lg:tw-h-6" />
 
@@ -485,10 +514,11 @@ function BatteryCard({
     grid: string;
     dimensions: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-max-w-3xl tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:tw-gap-x-2 lg-bg-new-background-500 lg-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8">
             <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-place-items-center">
-                <div className="lg:tw-hidden lg-bg-primary-500 tw-text-secondary-900-dark tw-p-2">{getVernacularString("3ae8e96f-5ed1-4f8c-8e2f-194f16674982", userPreferences.language)}</div>
+                <div className="lg:tw-hidden lg-bg-primary-500 tw-text-secondary-900-dark tw-p-2">{contentData.getContent("3ae8e96f-5ed1-4f8c-8e2f-194f16674982")}</div>
                 <div className="tw-w-full tw-h-full">
                     <FullWidthImage relativePath={`/livguard/products/${batterySlug}/thumbnail.png`} />
                 </div>
@@ -497,7 +527,7 @@ function BatteryCard({
                     className="tw-hidden lg:tw-block"
                     to={`/product/${batterySlug}`}
                 >
-                    <button className="lg-cta-button">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</button>
+                    <button className="lg-cta-button">{contentData.getContent("063dc56b-910e-4a48-acb8-8f52668a4c72")}</button>
                 </Link>
             </div>
 
@@ -517,7 +547,7 @@ function BatteryCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("b384b853-774d-4227-b7e5-03dd24f5f1aa", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("b384b853-774d-4227-b7e5-03dd24f5f1aa")}</div>
                             <div className="tw-row-start-3">{warranty}</div>
                         </div>
                     </div>
@@ -528,7 +558,7 @@ function BatteryCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("b6a49b1c-fa41-4958-a2ed-79f87707416c", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("b6a49b1c-fa41-4958-a2ed-79f87707416c")}</div>
                             <div className="tw-row-start-3">{capacity}</div>
                         </div>
                     </div>
@@ -539,7 +569,7 @@ function BatteryCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("2d4c7020-d295-4227-a8bf-c4ba7e047228", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("2d4c7020-d295-4227-a8bf-c4ba7e047228")}</div>
                             <div className="tw-row-start-3">{grid}</div>
                         </div>
                     </div>
@@ -550,7 +580,7 @@ function BatteryCard({
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("151dfac3-66f4-4aa0-be1a-d92228015ee2", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{contentData.getContent("151dfac3-66f4-4aa0-be1a-d92228015ee2")}</div>
                             <div className="tw-row-start-3">{dimensions}</div>
                         </div>
                     </div>
@@ -562,7 +592,7 @@ function BatteryCard({
                     className="tw-place-self-center lg:tw-hidden"
                     to={`/product/${batterySlug}`}
                 >
-                    <button className="lg-cta-button">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</button>
+                    <button className="lg-cta-button">{contentData.getContent("063dc56b-910e-4a48-acb8-8f52668a4c72")}</button>
                 </Link>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
@@ -572,13 +602,14 @@ function BatteryCard({
 }
 
 function DiscoverMore({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "video-guide": {
-                humanReadableName: getVernacularString("067bdc8d-d3a5-4f85-b579-4655b69b6a16", userPreferences.language),
+                humanReadableName: contentData.getContent("067bdc8d-d3a5-4f85-b579-4655b69b6a16"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -590,12 +621,12 @@ function DiscoverMore({userPreferences, className}: {userPreferences: UserPrefer
             ref={sectionRef}
         >
             <DefaultTextAnimation className="tw-place-self-center">
-                <div className="lg-text-headline">{getVernacularString("98c90c88-6fc4-4786-b130-a52ce614d5d0", userPreferences.language)}</div>
+                <div className="lg-text-headline">{contentData.getContent("98c90c88-6fc4-4786-b130-a52ce614d5d0")}</div>
             </DefaultTextAnimation>
             <DefaultTextAnimation className="tw-place-self-center">
                 <div
                     className="lg-text-headline"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("73095405-033a-4718-b6de-e4d0b6dbc0f6", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("73095405-033a-4718-b6de-e4d0b6dbc0f6")}}
                 />
             </DefaultTextAnimation>
 
@@ -610,13 +641,14 @@ function DiscoverMore({userPreferences, className}: {userPreferences: UserPrefer
 }
 
 function ChooseTheRightBattery({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "e-rickshaw-charger": {
-                humanReadableName: getVernacularString("361b437f-a453-40f8-8ea5-1d89d31ed8aa", userPreferences.language),
+                humanReadableName: contentData.getContent("361b437f-a453-40f8-8ea5-1d89d31ed8aa"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -629,13 +661,13 @@ function ChooseTheRightBattery({userPreferences, className}: {userPreferences: U
         >
             <div
                 className="tw-row-start-2 tw-text-center lg-text-headline"
-                dangerouslySetInnerHTML={{__html: getVernacularString("c52ecf6e-bc7d-4934-88d1-43660af8fe2d", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("c52ecf6e-bc7d-4934-88d1-43660af8fe2d")}}
             />
             <div
                 className="tw-row-start-3 tw-text-center lg-text-headline"
-                dangerouslySetInnerHTML={{__html: getVernacularString("bdd593f6-18f6-47d2-af26-af2a71693731", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: contentData.getContent("bdd593f6-18f6-47d2-af26-af2a71693731")}}
             />
-            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{getVernacularString("66e82d76-b469-46b4-87fe-0e2b1a73118e", userPreferences.language)}</div>
+            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{contentData.getContent("66e82d76-b469-46b4-87fe-0e2b1a73118e")}</div>
 
             <div className="tw-row-start-7 tw-grid tw-p-4 tw-justify-center tw-w-full">
                 <div className="tw-w-fit tw-grid tw-grid-rows-2 lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-gap-4 tw-grid-flow-col">
@@ -650,16 +682,14 @@ function ChooseTheRightBattery({userPreferences, className}: {userPreferences: U
                             src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
                         />
                         <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
-                            {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
+                            {contentData.getContent("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26")}
                         </div>
                     </a>
                     <Link
                         to="/e-rickshaw-charger"
                         className="tw-h-full tw-w-full tw-grid tw-place-items-center"
                     >
-                        <div className="tw-h-full tw-w-full tw-grid tw-items-center lg-cta-button tw-place-self-center">
-                            {getVernacularString("df2ff393-aa90-47f1-a4cf-04f0b5ace0fc", userPreferences.language)}
-                        </div>
+                        <div className="tw-h-full tw-w-full tw-grid tw-items-center lg-cta-button tw-place-self-center">{contentData.getContent("df2ff393-aa90-47f1-a4cf-04f0b5ace0fc")}</div>
                     </Link>
                 </div>
             </div>
@@ -704,6 +734,7 @@ function FaqSection({userPreferences, className}: {userPreferences: UserPreferen
 }
 
 function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const embeddedVideos = [
         <EmbeddedYoutubeVideo
             id="b6gqLXTnZnw"
@@ -724,7 +755,7 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             testimonials: {
-                humanReadableName: getVernacularString("ab5df361-c4a5-4f3a-b26e-21eff3cb23bc", userPreferences.language),
+                humanReadableName: contentData.getContent("ab5df361-c4a5-4f3a-b26e-21eff3cb23bc"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -739,9 +770,9 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                 <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text1)}} />
 
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text2)}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
@@ -750,7 +781,7 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+                <div className="lg-text-body">{contentData.getContent("homeS11T2")}</div>
 
                 <VerticalSpacer className="tw-h-2" />
 
@@ -794,9 +825,9 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                 <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text1)}} />
 
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text2)}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-8" />
@@ -813,7 +844,7 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
 
                                 <VerticalSpacer className="tw-h-2" />
 
-                                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+                                <div className="lg-text-body">{contentData.getContent("homeS11T2")}</div>
 
                                 <div className="tw-flex tw-justify-evenly">
                                     <a
@@ -896,13 +927,14 @@ export function FilterDialog({
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
     }
+    const contentData = useContext(ContentProviderContext);
 
     return (
         <>
             <LivguardDialog
                 isDialogOpen={isContactUsDialogOpen}
                 tryToCloseDialog={tryToCloseContactUsDialog}
-                title={getVernacularString("0dc1ec96-3b51-4314-ab45-9b5b542f66c5", userPreferences.language)}
+                title={contentData.getContent("0dc1ec96-3b51-4314-ab45-9b5b542f66c5")}
                 showCloseIcon={true}
             >
                 <div className="tw-place-self-center tw-w-full tw-grid tw-grid-flow-row tw-gap-y-6">
@@ -910,7 +942,7 @@ export function FilterDialog({
                         <FormSelectComponent
                             items={Object.keys(brandBatteries)}
                             itemBuilder={(item) => {
-                                return item == "" ? getVernacularString("51d56374-4d1d-46c1-8ef1-f72396e12e6a", userPreferences.language) : item;
+                                return item == "" ? contentData.getContent("51d56374-4d1d-46c1-8ef1-f72396e12e6a") : item;
                             }}
                             value={selectedBrand}
                             setValue={(item) => {
@@ -931,7 +963,7 @@ export function FilterDialog({
                         <FormSelectComponent
                             items={selectedBrand == "" ? [] : Object.keys(brandBatteries[selectedBrand])}
                             itemBuilder={(item) => {
-                                return item == "" ? getVernacularString("5793b8a3-16b1-4c11-bc37-ef5062160855", userPreferences.language) : item;
+                                return item == "" ? contentData.getContent("5793b8a3-16b1-4c11-bc37-ef5062160855") : item;
                             }}
                             value={selectedSegment}
                             setValue={(item) => {
@@ -952,7 +984,7 @@ export function FilterDialog({
                         <FormSelectComponent
                             items={selectedBrand == "" || selectedSegment == "" ? [] : Object.keys(brandBatteries[selectedBrand][selectedSegment])}
                             itemBuilder={(item) => {
-                                return item == "" ? getVernacularString("97f3fc31-1116-46f6-a385-d4df5e25bde1", userPreferences.language) : item;
+                                return item == "" ? contentData.getContent("97f3fc31-1116-46f6-a385-d4df5e25bde1") : item;
                             }}
                             value={selectedModel}
                             setValue={(item) => {
@@ -985,7 +1017,7 @@ export function FilterDialog({
                                 setAppliedModel(selectedModel);
                             }}
                         >
-                            {getVernacularString("3231d38a-1950-46eb-be3b-76bd8bce6998", userPreferences.language)}
+                            {contentData.getContent("3231d38a-1950-46eb-be3b-76bd8bce6998")}
                         </button>
                     </div>
                 </div>

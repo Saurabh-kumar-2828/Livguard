@@ -1,4 +1,4 @@
-import type {ImageCdnProvider, Uuid} from "~/common--type-definitions/typeDefinitions";
+import type {ImageCdnProvider, ImageMetadata, Uuid} from "~/common--type-definitions/typeDefinitions";
 import {ProductDetails} from "./productData.types";
 
 export type UserDetails = {
@@ -154,8 +154,14 @@ export enum FormType {
     offerContactUsSubmission = "offer-contact-us-submission",
 }
 
+export type ContentProvider = {
+    getContent: (id: string) => string;
+};
+
 export type AllProductDetails = {
     [id: string]: {
         [language: string]: ProductDetails;
     };
 };
+
+export type ImageProvider = {[relativePath: string]: ImageMetadata | undefined};

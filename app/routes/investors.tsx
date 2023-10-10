@@ -9,7 +9,7 @@ import {SecondaryNavigation} from "~/components/secondaryNavigation";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
@@ -18,7 +18,11 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -58,7 +62,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/investor/investor-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -97,7 +101,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/investor/investor-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -109,6 +113,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -117,46 +128,62 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("investorsPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("investorsPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/investor/investor-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     const secondaryNavigationController = useSecondaryNavigationController();
     return (
         <>
-            <PageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={true}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-                breadcrumbs={[
-                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "6baac105-c0e8-4412-90cd-802739069c52", link: "#"},
-                ]}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <InvestorPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <PageScaffold
                         userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={true}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        breadcrumbs={[
+                            {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                            {contentId: "6baac105-c0e8-4412-90cd-802739069c52", link: "#"},
+                        ]}
                         secondaryNavigationController={secondaryNavigationController}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </PageScaffold>
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <InvestorPage
+                                userPreferences={userPreferences}
+                                secondaryNavigationController={secondaryNavigationController}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </PageScaffold>
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 };
 
 function InvestorPage({userPreferences, secondaryNavigationController}: {userPreferences: UserPreferences; secondaryNavigationController?: SecondaryNavigationController}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <>
@@ -180,6 +207,7 @@ function InvestorPage({userPreferences, secondaryNavigationController}: {userPre
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -187,7 +215,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     //     secondaryNavigationController.setSections((previousSections) => ({
     //         ...previousSections,
     //         top: {
-    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
     //             isCurrentlyVisible: sectionInView,
     //         },
     //     }));
@@ -211,15 +239,14 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 )}
             </div>
             <DefaultTextAnimation className="lg:tw-row-start-2  tw-row-start-3 tw-col-start-1">
-                <div className="lg-text-banner lg-px-screen-edge-2 tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("89fb5c95-3b83-4a5a-8bc9-aa810d620ee9", userPreferences.language)}
-                </div>
+                <div className="lg-text-banner lg-px-screen-edge-2 tw-place-self-center lg:tw-place-self-start">{contentData.getContent("89fb5c95-3b83-4a5a-8bc9-aa810d620ee9")}</div>
             </DefaultTextAnimation>
         </div>
     );
 }
 
 export function FinancialStatements({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const documents = [
         {
             name: "LBPL - Secured creditors meeting - April'23",
@@ -248,7 +275,7 @@ export function FinancialStatements({userPreferences, className}: {userPreferenc
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             financials: {
-                humanReadableName: getVernacularString("b2a44a66-bdca-45c5-b848-a103cc193da4", userPreferences.language),
+                humanReadableName: contentData.getContent("b2a44a66-bdca-45c5-b848-a103cc193da4"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -262,7 +289,7 @@ export function FinancialStatements({userPreferences, className}: {userPreferenc
             <DefaultTextAnimation className="tw-row-start-1 tw-justify-self-center">
                 <div
                     className="lg-text-headline"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("9119e503-aa95-4d61-8daa-323c666e9986", userPreferences.language)}}
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("9119e503-aa95-4d61-8daa-323c666e9986")}}
                 />
             </DefaultTextAnimation>
 
@@ -284,6 +311,7 @@ export function FinancialStatements({userPreferences, className}: {userPreferenc
 }
 
 function DownloadPdfDocument({userPreferences, className, documentName, documentLink}: {userPreferences: UserPreferences; className?: string; documentName: string; documentLink: string}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <a
             href={documentLink}
@@ -295,7 +323,7 @@ function DownloadPdfDocument({userPreferences, className, documentName, document
                 src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/investor/2/pdf-download-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
                 className="tw-row-start-2"
             />
-            <div className="tw-row-start-3 lg-text-primary-500">{getVernacularString("6dbfd771-e134-4326-96d6-8c37b1827056", userPreferences.language)}</div>
+            <div className="tw-row-start-3 lg-text-primary-500">{contentData.getContent("6dbfd771-e134-4326-96d6-8c37b1827056")}</div>
             <div className="tw-row-start-5">{documentName}</div>
         </a>
     );

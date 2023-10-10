@@ -17,24 +17,26 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {allProductDetails, type ProductDetailsRecommendedProduct} from "~/productData.types";
+import type {ProductDetailsRecommendedProduct} from "~/productData.types";
 import {HumanReadableModelNumbersForSuggestions} from "~/routes/__category/inverter-batteries";
 import type {UserPreferences} from "~/typeDefinitions";
 import {convertProductInternalNameToPublicName, getMetadataForImage, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function EmpowerYourHomeComponent({userPreferences, item}: {userPreferences: UserPreferences; item: {imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[auto,minmax(0,1fr)] tw-gap-6 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 lg:tw-gap-10 tw-items-center tw-justify-center">
             <div className="tw-row-start-1 lg:tw-col-start-1 tw-text-center lg:tw-text-left lg:tw-pl-20">
                 <DefaultTextAnimation>
-                    <div className="lg-text-title1">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
+                    <div className="lg-text-title1">{contentData.getContent(item.titleTextContentPiece)}</div>
                 </DefaultTextAnimation>
 
                 <div className="tw-h-2" />
 
                 <DefaultTextAnimation className="tw-flex-1">
-                    <div className="lg-text-body lg-text-secondary-700">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
+                    <div className="lg-text-body lg-text-secondary-700">{contentData.getContent(item.bodyTextContentPiece)}</div>
                 </DefaultTextAnimation>
             </div>
             <div className="tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1">
@@ -70,6 +72,7 @@ export function OurSuggestionsComponent({
     className?: string;
     humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div>
             <div
@@ -200,6 +203,7 @@ export function OurSuggestionsComponent({
 }
 
 export function ProductCardComponent({recommendedProduct, ctaTextId, userPreferences}: {recommendedProduct: ProductDetailsRecommendedProduct; ctaTextId?: string; userPreferences: UserPreferences}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-w-full tw-h-full tw-grid tw-grid-rows-[repeat(2,auto)_minmax(0,1fr)_repeat(2,auto)] tw-grid-flow-row tw-justify-stretch tw-relative tw-px-3 lg-card tw-rounded-lg">
             {recommendedProduct.bestseller && (
@@ -227,7 +231,7 @@ export function ProductCardComponent({recommendedProduct, ctaTextId, userPrefere
                     to={`/product/${recommendedProduct.slug}`}
                     className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center"
                 >
-                    {getVernacularString(ctaTextId ?? "categoryViewProductButtontext", userPreferences.language)}
+                    {contentData.getContent(ctaTextId ?? "categoryViewProductButtontext")}
                 </Link>
             </DefaultElementAnimation>
         </div>
@@ -389,7 +393,7 @@ export function DownloadCta({
     // function tryToOpenDownloadDialog() {
     //     setIsDownloadDialogOpen(true);
     // }
-
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className={className}>
             <a
@@ -401,7 +405,7 @@ export function DownloadCta({
                 <div className="tw-h-8 tw-min-w-[32px]">
                     <FullWidthImage relativePath="/livguard/icons/downloadCatalogue.png" />
                 </div>
-                <div className="lg-text-title2">{getVernacularString(textVernacId, userPreferences.language)}</div>
+                <div className="lg-text-title2">{contentData.getContent(textVernacId)}</div>
             </a>
 
             {/* <div
@@ -413,7 +417,7 @@ export function DownloadCta({
                         relativePath="/livguard/icons/downloadCatalogue.png"
                     />
                 </div>
-                <div className="lg-text-title2">{getVernacularString(textVernacId, userPreferences.language)}</div>
+                <div className="lg-text-title2">{contentData.getContent(textVernacId)}</div>
             </div> */}
 
             {/* <DownloadDialog
@@ -516,15 +520,15 @@ export function DownloadCta({
 
 //                                         <div className="tw-row-start-2 tw-col-start-1 lg-text-title1 tw-text-center lg-text-secondary-900-dark tw-z-10">
 //                                             <DefaultTextAnimation>
-//                                                 <div dangerouslySetInnerHTML={{__html: getVernacularString("downloadFormHT1", userPreferences.language)}} />
+//                                                 <div dangerouslySetInnerHTML={{__html: contentData.getContent("downloadFormHT1")}} />
 //                                             </DefaultTextAnimation>
 //                                             <DefaultTextAnimation>
-//                                                 <div dangerouslySetInnerHTML={{__html: getVernacularString("downloadFormHT2", userPreferences.language)}} />
+//                                                 <div dangerouslySetInnerHTML={{__html: contentData.getContent("downloadFormHT2")}} />
 //                                             </DefaultTextAnimation>
 //                                         </div>
 
 //                                         <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-//                                             <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+//                                             <div className="lg-text-title2 tw-pl-3">{contentData.getContent("contactUsT2")}</div>
 
 //                                             <input
 //                                                 type="text"
@@ -532,24 +536,24 @@ export function DownloadCta({
 //                                                 pattern={phoneNumberValidationPattern}
 //                                                 required
 //                                                 className="lg-text-input"
-//                                                 placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
+//                                                 placeholder={contentData.getContent("contactUsT2E")}
 //                                             />
 //                                         </div>
 
 //                                         <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-//                                             <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
+//                                             <div className="lg-text-title2 tw-pl-3">{contentData.getContent("contactUsT3")}</div>
 
 //                                             <input
 //                                                 type="text"
 //                                                 name="name"
 //                                                 required
 //                                                 className="lg-text-input"
-//                                                 placeholder={getVernacularString("contactUsT3E", userPreferences.language)}
+//                                                 placeholder={contentData.getContent("contactUsT3E")}
 //                                             />
 //                                         </div>
 
 //                                         <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-//                                             <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
+//                                             <div className="lg-text-title2 tw-pl-3">{contentData.getContent("contactUsT4")}</div>
 
 //                                             <input
 //                                                 type="text"
@@ -557,7 +561,7 @@ export function DownloadCta({
 //                                                 pattern={emailIdValidationPattern}
 //                                                 required
 //                                                 className="lg-text-input"
-//                                                 placeholder={getVernacularString("contactUsT4E", userPreferences.language)}
+//                                                 placeholder={contentData.getContent("contactUsT4E")}
 //                                             />
 //                                         </div>
 
@@ -573,7 +577,7 @@ export function DownloadCta({
 //                                                 type="submit"
 //                                                 className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
 //                                             >
-//                                                 {getVernacularString("downloadFormT3", userPreferences.language)}
+//                                                 {contentData.getContent("downloadFormT3")}
 //                                             </button>
 //                                         </div>
 //                                     </fetcher.Form>
@@ -606,14 +610,14 @@ export function DownloadCta({
 //             <VerticalSpacer className="tw-h-2" />
 
 //             <div
-//                 dangerouslySetInnerHTML={{__html: getVernacularString("successT1", userPreferences.language)}}
+//                 dangerouslySetInnerHTML={{__html: contentData.getContent("successT1")}}
 //                 className="lg-text-banner"
 //             />
 
 //             <VerticalSpacer className="tw-h-4" />
 
 //             <div
-//                 dangerouslySetInnerHTML={{__html: getVernacularString("downloadSuccessT2", userPreferences.language)}}
+//                 dangerouslySetInnerHTML={{__html: contentData.getContent("downloadSuccessT2")}}
 //                 className="lg-text-title2"
 //             />
 
@@ -624,7 +628,7 @@ export function DownloadCta({
 //                 className="lg-text-body"
 //             >
 //                 <div
-//                     dangerouslySetInnerHTML={{__html: getVernacularString("downloadSuccessT3", userPreferences.language)}}
+//                     dangerouslySetInnerHTML={{__html: contentData.getContent("downloadSuccessT3")}}
 //                     className="lg-text-body"
 //                 />
 //             </a>
@@ -668,13 +672,14 @@ export function DownloadCta({
 // }
 
 export function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "social-handles": {
-                humanReadableName: getVernacularString("01553562-bafd-4ad3-a18c-7b6cc113f03f", userPreferences.language),
+                humanReadableName: contentData.getContent("01553562-bafd-4ad3-a18c-7b6cc113f03f"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -704,9 +709,9 @@ export function SocialHandles({userPreferences, heading, className}: {userPrefer
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                 <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text1)}} />
 
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text2)}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
@@ -715,7 +720,7 @@ export function SocialHandles({userPreferences, heading, className}: {userPrefer
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+                <div className="lg-text-body">{contentData.getContent("homeS11T2")}</div>
 
                 <VerticalSpacer className="tw-h-2" />
 
@@ -759,9 +764,9 @@ export function SocialHandles({userPreferences, heading, className}: {userPrefer
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                 <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text1)}} />
 
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent(heading.text2)}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-8" />
@@ -778,7 +783,7 @@ export function SocialHandles({userPreferences, heading, className}: {userPrefer
 
                                 <VerticalSpacer className="tw-h-2" />
 
-                                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+                                <div className="lg-text-body">{contentData.getContent("homeS11T2")}</div>
 
                                 <div className="tw-flex tw-justify-evenly">
                                     <a

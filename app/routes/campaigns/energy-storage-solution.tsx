@@ -23,7 +23,7 @@ import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigati
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ImageCdnProvider, type Uuid} from "~/common--type-definitions/typeDefinitions";
+import {ImageCdnProvider, ImageMetadata, type Uuid} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
@@ -37,7 +37,11 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
+import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
+import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
+import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -77,7 +81,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
             {
                 "script:ld+json": {
@@ -126,7 +130,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+                content: loaderData.ogBanner,
             },
         ];
     } else {
@@ -138,6 +142,13 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    vernacularData: {
+        [id: string]: string;
+    };
+    imageMetaDataLibrary: {
+        [relativePath: string]: ImageMetadata | undefined;
+    };
+    ogBanner: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -146,17 +157,24 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const vernacularData = getVernacularFromBackend("energyStorageSolutionCampaignPage", userPreferences.language);
+    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("energyStorageSolutionCampaignPage");
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        vernacularData: vernacularData,
+        imageMetaDataLibrary: imageMetaDataLibrary,
+        ogBanner: ogBanner,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -164,26 +182,35 @@ export default function () {
 
     return (
         <>
-            <CampaignPageScaffold
-                userPreferences={userPreferences}
-                redirectTo={redirectTo}
-                showMobileMenuIcon={false}
-                utmParameters={utmSearchParameters}
-                showContactCtaButton={false}
-                showSearchOption={true}
-                secondaryNavigationController={secondaryNavigationController}
-            >
-                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
-                    <LandingPage
+            <ImageProviderContext.Provider value={imageMetaDataLibrary}>
+                <ContentProviderContext.Provider
+                    value={{
+                        getContent: getContentGenerator(vernacularData),
+                    }}
+                >
+                    <CampaignPageScaffold
                         userPreferences={userPreferences}
+                        redirectTo={redirectTo}
+                        showMobileMenuIcon={false}
                         utmParameters={utmSearchParameters}
                         pageUrl={pageUrl}
+                        showContactCtaButton={false}
+                        showSearchOption={true}
                         secondaryNavigationController={secondaryNavigationController}
-                    />
-                </SecondaryNavigationControllerContext.Provider>
-            </CampaignPageScaffold>
+                    >
+                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                            <LandingPage
+                                userPreferences={userPreferences}
+                                utmParameters={utmSearchParameters}
+                                pageUrl={pageUrl}
+                                secondaryNavigationController={secondaryNavigationController}
+                            />
+                        </SecondaryNavigationControllerContext.Provider>
+                    </CampaignPageScaffold>
 
-            <StickyLandingPageBottomBar userPreferences={userPreferences} />
+                    <StickyLandingPageBottomBar userPreferences={userPreferences} />
+                </ContentProviderContext.Provider>
+            </ImageProviderContext.Provider>
         </>
     );
 }
@@ -367,6 +394,7 @@ function HeroSection({
     leadId: Uuid;
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
     // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -374,7 +402,7 @@ function HeroSection({
     //     secondaryNavigationController.setSections((previousSections) => ({
     //         ...previousSections,
     //         top: {
-    //             humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+    //             humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
     //             isCurrentlyVisible: sectionInView,
     //         },
     //     }));
@@ -402,13 +430,13 @@ function HeroSection({
                 )}
                 <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
                     <div
-                        dangerouslySetInnerHTML={{__html: getVernacularString("landingPage1S1T1", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage1S1T1")}}
                         className="lg-text-banner lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
                     />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 lg:tw-place-self-start lg:tw-max-w-[620px] lg:tw-col-start-1">
                     <div
-                        dangerouslySetInnerHTML={{__html: getVernacularString("landingPage1S1T2", userPreferences.language)}}
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage1S1T2")}}
                         className="lg-text-title1 lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
                     />
                 </DefaultTextAnimation>
@@ -417,7 +445,7 @@ function HeroSection({
                         to="#contact-us-form-mobile"
                         className="lg-cta-button lg-px-screen-edge lg:tw-pl-[60px]"
                     >
-                        {getVernacularString("landingPage1S1T3", userPreferences.language)}
+                        {contentData.getContent("landingPage1S1T3")}
                     </Link>
                 </DefaultElementAnimation>
                 <div className="tw-row-[11] tw-col-start-1 tw-col-span-full">
@@ -462,6 +490,7 @@ function HeroSection({
 }
 
 export function LimitlessEnergy({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const sectionData = [
         {
             imageRelativePath: "/livguard/landing-pages/1/section3/1.jpg",
@@ -485,7 +514,7 @@ export function LimitlessEnergy({userPreferences, className}: {userPreferences: 
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "limitless-energy": {
-                humanReadableName: getVernacularString("556945af-1937-475d-8e41-0bea36fb1a86", userPreferences.language),
+                humanReadableName: contentData.getContent("556945af-1937-475d-8e41-0bea36fb1a86"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -498,10 +527,10 @@ export function LimitlessEnergy({userPreferences, className}: {userPreferences: 
         >
             <div className="tw-px-6 lg-text-headline">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage1S3HT1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage1S3HT1")}} />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage1S3HT2", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("landingPage1S3HT2")}} />
                 </DefaultTextAnimation>
             </div>
 
@@ -531,11 +560,11 @@ export function LimitlessEnergy({userPreferences, className}: {userPreferences: 
                                 </DefaultImageAnimation>
 
                                 <DefaultTextAnimation className="tw-row-start-4 tw-col-start-2">
-                                    <div className="lg-text-title1 tw-whitespace-pre-line tw-text-secondary-900-dark">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
+                                    <div className="lg-text-title1 tw-whitespace-pre-line tw-text-secondary-900-dark">{contentData.getContent(item.titleTextContentPiece)}</div>
                                 </DefaultTextAnimation>
 
                                 <DefaultTextAnimation className="tw-row-start-6 tw-col-start-2">
-                                    <div className="lg-text-body !tw-text-secondary-900-dark">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
+                                    <div className="lg-text-body !tw-text-secondary-900-dark">{contentData.getContent(item.bodyTextContentPiece)}</div>
                                 </DefaultTextAnimation>
                             </div>
                         )}
@@ -547,7 +576,7 @@ export function LimitlessEnergy({userPreferences, className}: {userPreferences: 
 
             <div className="tw-self-center tw-px-6">
                 <Link to="/">
-                    <div className="lg-cta-button">{getVernacularString("landingPage1S3BT", userPreferences.language)}</div>
+                    <div className="lg-cta-button">{contentData.getContent("landingPage1S3BT")}</div>
                 </Link>
             </div>
         </div>
@@ -557,11 +586,12 @@ export function LimitlessEnergy({userPreferences, className}: {userPreferences: 
 export function QualityMeetsExpertise({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    const contentData = useContext(ContentProviderContext);
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "meets-expertise": {
-                humanReadableName: getVernacularString("adfcccd0-8c11-4545-8773-5ff7fe6f6215", userPreferences.language),
+                humanReadableName: contentData.getContent("adfcccd0-8c11-4545-8773-5ff7fe6f6215"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -576,10 +606,10 @@ export function QualityMeetsExpertise({userPreferences, className}: {userPrefere
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPageS4HT1", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("landingPageS4HT1")}} />
                     </DefaultTextAnimation>
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPageS4HT2", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("landingPageS4HT2")}} />
                     </DefaultTextAnimation>
                 </div>
 
@@ -588,30 +618,30 @@ export function QualityMeetsExpertise({userPreferences, className}: {userPrefere
                 <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] [@media(min-width:1080px)]:tw-grid-rows-2 tw-gap-2 tw-text-center lg:tw-gap-8">
                     <div className="tw-col-start-1 tw-row-start-1 lg-card tw-rounded-lg tw-py-8 lg:tw-py-16">
                         <DefaultElementAnimation>
-                            <div className="lg-text-banner">{getVernacularString("landingPageS4Box1T1", userPreferences.language)}</div>
+                            <div className="lg-text-banner">{contentData.getContent("landingPageS4Box1T1")}</div>
                             <VerticalSpacer className="tw-h-2" />
-                            <div className="lg-text-titile2">{getVernacularString("landingPageS4Box1T2", userPreferences.language)}</div>
+                            <div className="lg-text-titile2">{contentData.getContent("landingPageS4Box1T2")}</div>
                         </DefaultElementAnimation>
                     </div>
                     <div className="tw-col-start-2 tw-row-start-1 lg-card tw-rounded-lg tw-py-8 lg:tw-py-16">
                         <DefaultElementAnimation>
-                            <div className="lg-text-banner">{getVernacularString("landingPageS4Box2T1", userPreferences.language)}</div>
+                            <div className="lg-text-banner">{contentData.getContent("landingPageS4Box2T1")}</div>
                             <VerticalSpacer className="tw-h-2" />
-                            <div className="lg-text-titile2">{getVernacularString("landingPageS4Box2T2", userPreferences.language)}</div>
+                            <div className="lg-text-titile2">{contentData.getContent("landingPageS4Box2T2")}</div>
                         </DefaultElementAnimation>
                     </div>
                     <div className="tw-col-start-1 tw-row-start-2 lg-card tw-rounded-lg tw-py-8 lg:tw-py-16">
                         <DefaultElementAnimation>
-                            <div className="lg-text-banner">{getVernacularString("landingPageS4Box3T1", userPreferences.language)}</div>
+                            <div className="lg-text-banner">{contentData.getContent("landingPageS4Box3T1")}</div>
                             <VerticalSpacer className="tw-h-2" />
-                            <div className="lg-text-titile2">{getVernacularString("landingPageS4Box3T2", userPreferences.language)}</div>
+                            <div className="lg-text-titile2">{contentData.getContent("landingPageS4Box3T2")}</div>
                         </DefaultElementAnimation>
                     </div>
                     <div className="tw-col-start-2 tw-row-start-2 lg-card tw-rounded-lg tw-py-8 lg:tw-py-16">
                         <DefaultElementAnimation>
-                            <div className="lg-text-banner">{getVernacularString("landingPageS4Box4T1", userPreferences.language)}</div>
+                            <div className="lg-text-banner">{contentData.getContent("landingPageS4Box4T1")}</div>
                             <VerticalSpacer className="tw-h-2" />
-                            <div className="lg-text-titile2">{getVernacularString("landingPageS4Box4T2", userPreferences.language)}</div>
+                            <div className="lg-text-titile2">{contentData.getContent("landingPageS4Box4T2")}</div>
                         </DefaultElementAnimation>
                     </div>
                 </div>
@@ -655,13 +685,14 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
 }
 
 function EnergySolutionsSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "energy-solutions": {
-                humanReadableName: getVernacularString("f73b94be-d44a-48f8-a1b7-623071cf1fe0", userPreferences.language),
+                humanReadableName: contentData.getContent("f73b94be-d44a-48f8-a1b7-623071cf1fe0"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -700,13 +731,14 @@ export function ContactFormSection({
     leadId: Uuid;
     pageUrl: string;
 }) {
+    const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "reliable-power": {
-                humanReadableName: getVernacularString("11372be1-3074-49ea-aaf7-ec9d0b3ca48e", userPreferences.language),
+                humanReadableName: contentData.getContent("11372be1-3074-49ea-aaf7-ec9d0b3ca48e"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -740,11 +772,12 @@ export function ContactFormSection({
 export function PowerPlanner({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    const contentData = useContext(ContentProviderContext);
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "power-planner": {
-                humanReadableName: getVernacularString("8d7859c7-a9d9-44e9-a854-d43697bc3abd", userPreferences.language),
+                humanReadableName: contentData.getContent("8d7859c7-a9d9-44e9-a854-d43697bc3abd"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
