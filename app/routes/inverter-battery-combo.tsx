@@ -47,7 +47,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             {
                 tagName: "link",
                 rel: "canonical",
-                href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/",
+                href: "https://www.Livguard.com/inverter-battery-combo",
             },
             {
                 title: "Livguard Smart & Strong Inverter and Battery Combos",
@@ -58,7 +58,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:url",
-                content: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/",
+                content: "https://www.Livguard.com/inverter-battery-combo",
             },
             {
                 property: "og:title",
@@ -96,7 +96,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             {
                 tagName: "link",
                 rel: "canonical",
-                href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/",
+                href: "https://www.Livguard.com/inverter-battery-combo",
             },
             {
                 title: "लिवगार्ड स्मार्ट और मजबूत इनवर्टर और बैटरी जोड़ी देखे",
@@ -107,7 +107,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:url",
-                content: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/",
+                content: "https://www.Livguard.com/inverter-battery-combo",
             },
             {
                 property: "og:title",
@@ -156,7 +156,7 @@ export const loader: LoaderFunction = async ({request}) => {
 
     const vernacularData = getVernacularFromBackend("inverterBatteryComboPage", userPreferences.language);
     const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("inverterBatteryComboPage");
-    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
+    const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/common/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,

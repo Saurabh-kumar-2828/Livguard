@@ -36,7 +36,7 @@ export function ProductCardFourDetails({
 }) {
     const contentData = useContext(ContentProviderContext);
     return (
-        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 lg-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8">
+        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 lg-card tw-border-[1px] tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8">
             <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-place-items-center">
                 <div className="lg:tw-hidden lg-bg-our-suggestions tw-p-2">{contentData.getContent("e2ceac17-9977-44d4-933b-1f221aed6c85")}</div>
                 <div className="tw-w-full tw-aspect-square">

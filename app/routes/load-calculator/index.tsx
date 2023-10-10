@@ -964,7 +964,7 @@ function RoomSelection({
                                                         className="tw-w-6 tw-h-8"
                                                         key={deviceTypeIndex}
                                                     >
-                                                        <div className="tw-w-8 tw-h-8 lg-bg-secondary-300 tw-rounded-full tw-outline-3 tw-outline tw-outline-secondary-100-light dark:tw-outline-secondary-100-dark tw-flex tw-flex-col tw-justify-center tw-items-center">
+                                                        <div className="tw-w-8 tw-h-8 lg-bg-secondary-300 tw-rounded-full tw-outline-3 tw-outline tw-outline-secondary-100-light dark:tw-outline-secondary-100-dark tw-flex tw-flex-col tw-justify-center tw-items-center tw-bg-new-background-border-500-light">
                                                             +{room.devices.length - 2}
                                                         </div>
                                                     </div>
@@ -985,7 +985,7 @@ function RoomSelection({
                     className="tw-w-full tw-h-[8rem] tw-rounded-lg tw-flex tw-opacity-60 tw-border tw-border-dashed tw-flex-col tw-justify-center tw-items-center tw-gap-y-2 tw-group tw-duration-200 lg-card"
                     onClick={tryToOpenNewRoomDialog}
                 >
-                    <PlusCircleFill className="tw-w-8 tw-h-8 lg-text-secondary-700 tw-opacity-100" />
+                    <PlusCircleFill className="tw-w-8 tw-h-8 lg-text-secondary-700 tw-opacity-100 tw-invert" />
                     <div className="tw-opacity-100">Add Room</div>
                 </button>
             </div>
@@ -1353,7 +1353,7 @@ function NewRoomDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto lg-bg-new-background-border-500">
                             <div className="lg-text-title1">Add Room</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -1366,7 +1366,7 @@ function NewRoomDialog({
                                 value={selectedRoomType}
                                 onChange={setSelectedRoomType}
                             >
-                                <Listbox.Button className="tw-w-full lg-bg-secondary-300 tw-py-4 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-text-left">
+                                <Listbox.Button className="tw-w-full lg-bg-secondary-300 tw-py-4 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-text-left tw-bg-secondary-900-dark">
                                     {getRoomTypeDetails(selectedRoomType).humanReadableString}
                                 </Listbox.Button>
 
@@ -1404,7 +1404,7 @@ function NewRoomDialog({
 
                             <input
                                 type="text"
-                                className="tw-w-full lg-bg-secondary-300 tw-py-4 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                                className="tw-w-full lg-bg-secondary-300 tw-py-4 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-bg-secondary-900-dark"
                                 value={selectedRoomName}
                                 onChange={(e) => setSelectedRoomName(e.target.value)}
                             />
@@ -1541,7 +1541,7 @@ function EditRoomDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-card tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                        <div className="tw-w-full lg-card tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto lg-bg-new-background-500">
                             <div className="lg-text-title1 lg-px-screen-edge">Edit {room.roomName}</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -1597,7 +1597,7 @@ function EditRoomDialog({
 
                             <VerticalSpacer className="tw-h-2" />
 
-                            <div className="tw-h-96 tw-overflow-x-visible tw-overflow-y-auto lg-bg-secondary-300 tw-relative">
+                            <div className="tw-h-96 tw-overflow-x-visible tw-overflow-y-auto tw-bg-new-background-border-500-light lg-bg-new-background-border-500 tw-relative">
                                 <ItemBuilder
                                     items={distinct(Object.values(deviceTypeLibrary).map((deviceDetails) => deviceDetails.category))}
                                     itemBuilder={(deviceCategory, deviceCategoryIndex) => (
@@ -1647,7 +1647,7 @@ function EditRoomDialog({
                                         </div>
                                     )}
                                 />
-                                <div className="tw-sticky tw-w-full tw-bottom-0 tw-h-4 tw-bg-gradient-to-b tw-from-[#1f202200] tw-to-[#1f2022ff]"></div>
+                                <div className="tw-sticky tw-w-full tw-bottom-0 tw-h-4 tw-bg-gradient-to-b dark:tw-from-[#1f202200] dark:tw-to-[#1f2022ff] tw-from-[#f2f2f200] tw-to-[#f2f2f2FF]"></div>
                             </div>
 
                             <VerticalSpacer className="tw-h-6" />
@@ -1968,7 +1968,7 @@ function NewDeviceDialogNewUi({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto tw-bg-secondary-100-light dark:tw-bg-secondary-900-light">
                             <div className="lg-text-title1">{contentData.getContent("loadCalculatorAdditionalInputsT5")}</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -2291,7 +2291,7 @@ function AdditionalInputsSection({
                         -
                     </button>
                     <input
-                        className="tw-w-12 tw-h-8 lg-bg-secondary-300 tw-text-center"
+                        className="tw-w-12 tw-h-8 lg-bg-new-background-border-500 tw-text-center"
                         value={loadCalculatorInputs.backupHours}
                         onChange={(e) => {
                             const newBackupHours = safeParse(getIntegerFromUnknown, e.target.value);

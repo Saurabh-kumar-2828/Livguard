@@ -566,6 +566,18 @@ export function SocialMediaFeeds({userPreferences, className}: {userPreferences:
     const posts = [
         {
             type: SocialMediaPosts.instagram,
+            url: "https://www.instagram.com/p/Cx4b9zjoXx8",
+        },
+        {
+            type: SocialMediaPosts.instagram,
+            url: "https://www.instagram.com/p/CyFq1euI-yP",
+        },
+        {
+            type: SocialMediaPosts.instagram,
+            url: "https://www.instagram.com/p/Cx-WNodIr98",
+        },
+        {
+            type: SocialMediaPosts.instagram,
             url: "https://www.instagram.com/p/CxaX4L1I4VK",
         },
         {

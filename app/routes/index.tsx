@@ -2,7 +2,7 @@ import {ChevronDoubleDownIcon, ChevronLeftIcon, ChevronRightIcon} from "@heroico
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useFetcher, useNavigate} from "@remix-run/react";
 import React, {useContext, useEffect, useReducer, useRef, useState} from "react";
-import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
+import {Facebook, Instagram, Linkedin, Twitter, Whatsapp, Youtube} from "react-bootstrap-icons";
 import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
@@ -517,7 +517,7 @@ function HeroSection({
     const contentData = useContext(ContentProviderContext);
 
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-    // const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
@@ -526,21 +526,22 @@ function HeroSection({
                 "tw-overflow-hidden tw-h-[calc(100vh-16.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] lg:tw-min-h-[calc(100vw*7.5/16)] tw-relative",
                 className,
             )}
+            ref={emblaRef}
         >
             <div
-                className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch"
+                className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch tw-z-20"
                 ref={ref}
             >
                 <ItemBuilder
                     items={[
-                        // {
-                        //     mobileImageRelativePath: "/livguard/home/1/mobile-banner-2.jpg",
-                        //     desktopImageRelativePath: "/livguard/home/1/desktop-banner2.jpg",
-                        //     titleVernacId: "",
-                        //     subTitleVernacId: "",
-                        //     contactButtonVernacId: "8b6be5de-9c57-461a-8ec5-106f29eccaca",
-                        //     buttonLink: "/events/renewable-energy-india-expo",
-                        // },
+                        {
+                            mobileImageRelativePath: "/livguard/home/1/mob-banner-2.jpg",
+                            desktopImageRelativePath: "/livguard/home/1/banner-2.jpg",
+                            titleVernacId: "0f24d13c-8b25-4165-b0d4-197c059e4794",
+                            subTitleVernacId: "bb45dab0-a985-4bf8-9f07-845806b20b77",
+                            contactButtonVernacId: "ab1da9d6-1aaa-46d4-9b50-b911b3006b11",
+                            buttonLink: "https://api.whatsapp.com/send?phone=9599198444",
+                        },
                         {
                             mobileImageRelativePath: "/livguard/home/1/new-mobile.jpg",
                             desktopImageRelativePath: "/livguard/home/1/new-desktop.jpg",
@@ -561,11 +562,16 @@ function HeroSection({
                     itemBuilder={(item, itemIndex) => (
                         <div
                             // tw-grid-rows-[3rem_minmax(0,1fr)_auto_minmax(0,1fr)_3rem]
-                            className="tw-h-full tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate"
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-h-full tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate",
+                                itemIndex == 0
+                                    ? "tw-h-full tw-overflow-hidden tw-grid lg:tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem]  md:tw-grid-rows-[1rem_1rem_1rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-grid-rows-[0.5rem_0.5rem_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem]  tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate"
+                                    : "",
+                            )}
                             key={itemIndex}
                         >
                             {/* {item.englishDesktopImageRelativePath &&
-                                item.englishMobileImageRelativePath &&
+                                item.englishMobileImageRelativePath &&B
                                 (containerWidth == null || containerHeight == null ? null : (
                                     <Link
                                         to="/offers/inverter-and-battery-jodi"
@@ -608,7 +614,12 @@ function HeroSection({
                             {item.titleVernacId && <div className="tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40" />}
 
                             {item.titleVernacId && item.subTitleVernacId && (
-                                <h2 className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge">
+                                <h2
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge",
+                                        // itemIndex === 1 ? "tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge" : "",
+                                    )}
+                                >
                                     <DefaultTextAnimation>
                                         <div className={concatenateNonNullStringsWithSpaces("lg-text-banner", item.titleVernacId == "" ? "tw-visibility-hidden" : "")}>
                                             {appendSpaceToString(contentData.getContent(item.titleVernacId))}
@@ -625,7 +636,7 @@ function HeroSection({
                                 <DefaultElementAnimation
                                     className={concatenateNonNullStringsWithSpaces(
                                         "tw-row-start-6 tw-col-start-1 tw-z-10 ",
-                                        itemIndex == 1 ? "tw-relative max-lg:tw-top-[3rem] lg:max-xl:tw-top-2 max-sm:tw-top-0" : "",
+                                        // itemIndex == 1 ? "tw-relative max-lg:tw-top-[3rem] lg:max-xl:tw-top-2 max-sm:tw-top-0" : "",
                                     )}
                                 >
                                     <ContactUsCta
@@ -638,16 +649,19 @@ function HeroSection({
                                 </DefaultElementAnimation>
                             )}
 
-                            {/* {item.buttonLink != null && (
+                            {item.buttonLink != null && (
                                 <DefaultElementAnimation className={concatenateNonNullStringsWithSpaces("tw-row-start-6 tw-col-start-1 tw-z-10")}>
                                     <Link
-                                        className="lg-cta-button tw-z-10 tw-grid tw-place-items-center lg:tw-top-6 tw-top-20 max-sm:tw-top-14 md:tw-top-24 xl:tw-top-0 tw-relative tw-w-full"
+                                        className="tw-rounded-full tw-bg-[#3AC340] tw-pr-4 tw-z-10 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-2 tw-place-items-center"
                                         to={item.buttonLink}
                                     >
+                                        <span className="tw-bg-[#40D421] tw-rounded-full tw-p-2">
+                                            <Whatsapp className="tw-h-6 tw-w-6" />
+                                        </span>
                                         {contentData.getContent(item.contactButtonVernacId)}
                                     </Link>
                                 </DefaultElementAnimation>
-                            )} */}
+                            )}
 
                             <Link
                                 to="#energy-storage-solutions"
@@ -660,7 +674,7 @@ function HeroSection({
                 />
             </div>
             {/* <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center tw-absolute tw-top-0 tw-bottom-0 tw-right-0 tw-left-0 tw-px-6"> */}
-            {/* <button
+            <button
                 type="button"
                 className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-left-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
                 onClick={() => {
@@ -678,7 +692,7 @@ function HeroSection({
                 }}
             >
                 <ChevronRightIcon className="tw-w-6 tw-h-6" />
-            </button> */}
+            </button>
             {/* </div> */}
         </div>
     );

@@ -287,113 +287,138 @@ function FormSection({
                         placeholder={contentData.getContent("fe032013-d1e7-45d7-9c0c-d289c5f80c52")}
                     />
                 </div>
-                <div className="tw-grid tw-grid-flow-row tw-gap-2">
-                    {!showOtpField ? (
-                        // <label>{contentData.getContent("b24cf3a3-c834-487e-8ca3-5f78e02a267e")}</label>
-                        ""
-                    ) : (
-                        // <div className="lg-text-secondary-900">{contentData.getContent("17cfa283-6fcc-4a49-9dfe-a392e0310b27")}</div>
-                        <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
-                            <div
-                                className="tw-col-start-1 tw-text-primary-500-light hover:tw-cursor-pointer lg-text-body-bold"
-                                onClick={(e) => {
-                                    setShowOtpField(false);
-                                    setResendTimeOut(0);
-                                    if (phoneNumberRef.current != null) {
-                                        phoneNumberRef.current.focus();
-                                    }
-                                }}
-                            >
-                                {contentData.getContent("phoneNumberChnage")}
+                <div>
+                    <div className="tw-grid tw-grid-flow-row tw-gap-2">
+                        {!showOtpField ? (
+                            // <label>{contentData.getContent("b24cf3a3-c834-487e-8ca3-5f78e02a267e")}</label>
+                            ""
+                        ) : (
+                            // <div className="lg-text-secondary-900">{contentData.getContent("17cfa283-6fcc-4a49-9dfe-a392e0310b27")}</div>
+                            <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
+                                <div
+                                    className="tw-col-start-1 tw-text-primary-500-light hover:tw-cursor-pointer lg-text-body-bold"
+                                    onClick={(e) => {
+                                        setShowOtpField(false);
+                                        setResendTimeOut(0);
+                                        if (phoneNumberRef.current != null) {
+                                            phoneNumberRef.current.focus();
+                                        }
+                                    }}
+                                >
+                                    {contentData.getContent("phoneNumberChnage")}
+                                </div>
+                                <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{phoneNumber}</div>
                             </div>
-                            <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{phoneNumber}</div>
-                        </div>
-                    )}
+                        )}
 
-                    {!showOtpField ? (
-                        <div className="tw-relative tw-w-full tw-items-center tw-grid">
-                            <input
-                                type="text"
-                                name="phoneNumber"
-                                pattern={indianPhoneNumberValidationPattern}
-                                placeholder={contentData.getContent("b24cf3a3-c834-487e-8ca3-5f78e02a267e")}
-                                required
-                                className="lg-text-secondary-900 lg-text-input !tw-bg-transparent placeholder:tw-font-semibold placeholder:tw-text-secondary-700 dark:placeholder:tw-text-secondary-700-dark tw-w-full"
-                                disabled={showOtpField}
-                                defaultValue={phoneNumber}
-                                ref={phoneNumberRef}
-                                onChange={(e) => {
-                                    setPhoneNumber(e.target.value);
-                                    if (e.target.value.length == 10) {
-                                        setShowOtpButton(true);
-                                    } else {
-                                        setShowOtpButton(false);
-                                    }
-                                }}
-                                onBlur={(e) => {
-                                    if (phoneNumber.length == 10) {
-                                        setShowOtpButton(true);
-                                    }
-                                }}
-                                onFocus={(e) => {
-                                    if (phoneNumber.length == 10) {
-                                        setShowOtpButton(true);
-                                    }
-                                }}
-                            />
-                            <div
-                                className={concatenateNonNullStringsWithSpaces(
-                                    "tw-absolute tw-right-2 tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-px-2 tw-py-1 tw-items-center tw-text-secondary-100-light hover:tw-cursor-pointer",
-                                    showOtpButton ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-10 tw-duration-100",
-                                )}
-                                onClick={(e) => {
-                                    if (name.length === 0) {
-                                        toast.error("Name cannot be null! Error code: 3b08d311-0e27-477e-b2dc-38eb172db2f7");
-                                        return;
-                                    }
-                                    setShowOtpButton(false);
-                                    setShowOtpField(true);
-                                    setResendTimeOut(60);
-
-                                    if (otpFieldRef.current != null) {
-                                        otpFieldRef.current.focus();
-                                    }
-                                    const data = new FormData();
-                                    data.append("phoneNumber", phoneNumber);
-                                    data.append("name", name);
-                                    otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
-                                }}
-                            >
-                                {contentData.getContent("OfferFormGetOTP")}
-                            </div>
-                        </div>
-                    ) : (
-                        <div
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-w-full",
-                                showOtpField ? "tw-flex tw-flex-col tw-opacity-100 tw-duration-100 tw-z-10" : "tw-hidden tw-opacity-0 -tw-z-100",
-                            )}
-                        >
-                            <div className="tw-relative">
+                        {!showOtpField ? (
+                            <div className="tw-relative tw-w-full tw-items-center tw-grid">
                                 <input
                                     type="text"
-                                    name="otpSubmitted"
-                                    className="lg-text-secondary-900 lg-text-input !tw-bg-transparent placeholder:tw-font-semibold placeholder:tw-text-secondary-700 dark:placeholder:tw-text-secondary-700-dark"
+                                    name="phoneNumber"
+                                    pattern={indianPhoneNumberValidationPattern}
+                                    placeholder={contentData.getContent("b24cf3a3-c834-487e-8ca3-5f78e02a267e")}
                                     required
-                                    placeholder={contentData.getContent("contactUsOTPT3E")}
-                                    ref={otpFieldRef}
+                                    className="lg-text-secondary-900 lg-text-input !tw-bg-transparent placeholder:tw-font-semibold placeholder:tw-text-secondary-700 dark:placeholder:tw-text-secondary-700-dark tw-w-full"
+                                    disabled={showOtpField}
+                                    defaultValue={phoneNumber}
+                                    ref={phoneNumberRef}
                                     onChange={(e) => {
-                                        setIsOtpSubmitted(true);
+                                        setPhoneNumber(e.target.value);
+                                        if (e.target.value.length == 10) {
+                                            setShowOtpButton(true);
+                                        } else {
+                                            setShowOtpButton(false);
+                                        }
+                                    }}
+                                    onBlur={(e) => {
+                                        if (phoneNumber.length == 10) {
+                                            setShowOtpButton(true);
+                                        }
+                                    }}
+                                    onFocus={(e) => {
+                                        if (phoneNumber.length == 10) {
+                                            setShowOtpButton(true);
+                                        }
                                     }}
                                 />
-                                {invalidOtp && (
-                                    <div className="lg-text-secondary-900 lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
-                                        {contentData.getContent("OfferInvalidOTP")}
-                                    </div>
-                                )}
+                                <div
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-absolute tw-right-2 tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-px-2 tw-py-1 tw-items-center tw-text-secondary-100-light hover:tw-cursor-pointer",
+                                        showOtpButton ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-10 tw-duration-100",
+                                    )}
+                                    onClick={(e) => {
+                                        if (name.length === 0) {
+                                            toast.error("Name cannot be null! Error code: 3b08d311-0e27-477e-b2dc-38eb172db2f7");
+                                            return;
+                                        }
+                                        setShowOtpButton(false);
+                                        setShowOtpField(true);
+                                        setResendTimeOut(60);
+
+                                        if (otpFieldRef.current != null) {
+                                            otpFieldRef.current.focus();
+                                        }
+                                        const data = new FormData();
+                                        data.append("phoneNumber", phoneNumber);
+                                        data.append("name", name);
+                                        otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                                    }}
+                                >
+                                    {contentData.getContent("OfferFormGetOTP")}
+                                </div>
                             </div>
+                        ) : (
+                            <div
+                                className={concatenateNonNullStringsWithSpaces(
+                                    "tw-w-full",
+                                    showOtpField ? "tw-flex tw-flex-col tw-opacity-100 tw-duration-100 tw-z-10" : "tw-hidden tw-opacity-0 -tw-z-100",
+                                )}
+                            >
+                                <div className="tw-relative">
+                                    <input
+                                        type="text"
+                                        name="otpSubmitted"
+                                        className="lg-text-secondary-900 lg-text-input !tw-bg-transparent placeholder:tw-font-semibold placeholder:tw-text-secondary-700 dark:placeholder:tw-text-secondary-700-dark"
+                                        required
+                                        placeholder={contentData.getContent("contactUsOTPT3E")}
+                                        ref={otpFieldRef}
+                                        onChange={(e) => {
+                                            setIsOtpSubmitted(true);
+                                        }}
+                                    />
+                                    {invalidOtp && (
+                                        <div className="lg-text-secondary-900 lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
+                                            {contentData.getContent("OfferInvalidOTP")}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    <div
+                        className={concatenateNonNullStringsWithSpaces(
+                            "tw-w-full tw-px-3 lg:tw-col-start-1",
+                            showOtpField ? "tw-flex tw-flex-row tw-justify-between tw-opacity-100 tw-duration-100 tw-z-10" : "tw-hidden tw-opacity-0 -tw-z-100",
+                        )}
+                    >
+                        <div
+                            className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
+                            onClick={() => {
+                                setIsOtpResent(true);
+                                setResendTimeOut(60);
+
+                                const data = new FormData();
+                                data.append("phoneNumber", phoneNumber);
+                                data.append("name", name);
+                                otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                            }}
+                        >
+                            {contentData.getContent("OfferResendOTP")}
                         </div>
-                    )}
+                        <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
+                    </div>
                 </div>
 
                 <div className="tw-gap-2 tw-grid">

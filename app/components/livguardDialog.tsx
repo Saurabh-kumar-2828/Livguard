@@ -76,7 +76,7 @@ export default function LivguardDialog({
                             <button
                                 type="button"
                                 onClick={tryToCloseDialog}
-                                className="lg-bg-secondary-300 tw-rounded-full tw-absolute tw-top-2 tw-right-2"
+                                className="tw-bg-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-rounded-full tw-absolute tw-top-2 tw-right-2"
                             >
                                 <X className="tw-w-8 tw-h-8" />
                             </button>

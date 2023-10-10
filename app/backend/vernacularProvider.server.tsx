@@ -1033,20 +1033,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "आपकी शहरी जीवन शैली की जरूरतों को कुशलता से पूरा करने के लिए एक आदर्श कॉम्बो। शुद्ध साइन वेव आउटपुट और स्मार्ट एआई चार्जिंग के साथ, यह कॉम्बो घंटों तक चल सकती है और उपकरणों का भारी लोड उठा सकती है।",
     },
     landingPage2S4J1Specification1Content: {
-        [Language.English]: "36 Months | 36 + 24* Months",
+        [Language.English]: "3 Years | 36 + 24* Months",
         [Language.Hindi]: "3 साल | 36 + 24* महीने",
     },
-    "e0db4e01-ba5c-404a-b5a0-9ca311333fb7": {
-        [Language.English]: "3 Years",
-        [Language.Hindi]: "3 साल",
-    },
-    "b7895214-8ecb-44a7-bf86-4974deaee879": {
-        [Language.English]: "36 + 24* Months",
-        [Language.Hindi]: "36 + 24* महीने",
-    },
     landingPage2S4J1Specification2Content: {
-        [Language.English]: "900 VA",
-        [Language.Hindi]: "900 वीए",
+        [Language.English]: "3500 VA",
+        [Language.Hindi]: "3500 वीए",
     },
     landingPage2S4J1Specification3Content: {
         [Language.English]: "150 Ah",
@@ -1055,14 +1047,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     landingPage2S4J1Specification4Content: {
         [Language.English]: "Sine Wave",
         [Language.Hindi]: "साइन तरंग",
-    },
-    "bc4a0a42-adf2-404c-85c2-d9f768511c2a": {
-        [Language.English]: "Short Tall Tubular",
-        [Language.Hindi]: "?????",
-    },
-    "9bfee583-a1e4-43ef-b0e4-37f8a5ad6124": {
-        [Language.English]: "Tall Tubular",
-        [Language.Hindi]: "?????",
     },
     landingPage2S4J2Title: {
         [Language.English]: "The Peace of Mind Combo",
@@ -1075,20 +1059,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "एक कॉम्बो जो अपने लंबे जीवन और उच्च बैकअप शक्ति के साथ आपके मन की शांति सुनिश्चित करेगी। मजबूत इनवर्टर के साथ सटीक रूप से चुनी गई बैटरी आपकी आवश्यकताओं को पूरा करने के लिए ऊर्जा का निर्बाध प्रवाह सुनिश्चित करती है।",
     },
     landingPage2S4J2Specification1Content: {
-        [Language.English]: "36 Months | 36 + 24* Months",
+        [Language.English]: "3 Years | 36 + 24* Months",
         [Language.Hindi]: "3 साल | 36 + 24* महीने",
     },
-    "51db98f7-13b7-4667-9b12-69f552370851": {
-        [Language.English]: "3 Years",
-        [Language.Hindi]: "3 साल",
-    },
-    "20824b11-5143-4b72-841c-84726766e13f": {
-        [Language.English]: "36 + 24* Months",
-        [Language.Hindi]: "36 + 24* महीने",
-    },
     landingPage2S4J2Specification2Content: {
-        [Language.English]: "1250 VA",
-        [Language.Hindi]: "1250 वीए",
+        [Language.English]: "1500 VA",
+        [Language.Hindi]: "1500 वीए",
     },
     landingPage2S4J2Specification3Content: {
         [Language.English]: "200 Ah",
@@ -1107,20 +1083,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "बेस्ट-इन-क्लास वारंटी और लंबे समय तक चलने वाले इनवर्टर के साथ समर्थित बैटरी के साथ, यह कॉम्बो आपकी रोजमर्रा की ऊर्जा आवश्यकताओं के लिए बिल्कुल सही विकल्प है।",
     },
     landingPage2S4J3Specification1Content: {
-        [Language.English]: "36 Months | 60 + 24* Months",
+        [Language.English]: "3 Years | 60 + 24* Months",
         [Language.Hindi]: "3 साल | 60 + 24* महीने",
     },
-    "17722d26-de05-4cf9-9e06-ca678c57fa27": {
-        [Language.English]: "3 Years",
-        [Language.Hindi]: "3 साल",
-    },
-    "a1b4d09c-4d05-4aa3-9278-4af3cf2e2fad": {
-        [Language.English]: "60 + 24* Months",
-        [Language.Hindi]: "60 + 24* महीने",
-    },
     landingPage2S4J3Specification2Content: {
-        [Language.English]: "1500 VA",
-        [Language.Hindi]: "1500 वीए",
+        [Language.English]: "3500 VA",
+        [Language.Hindi]: "3500 वीए",
     },
     landingPage2S4J3Specification3Content: {
         [Language.English]: "150 Ah",
@@ -1141,20 +1109,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "लंबे समय तक बैकअप आवश्यकताओं को पूरा करने के लिए एकदम सही कॉम्बो। शुद्ध साइनवेव आउटपुट के साथ स्मार्ट एआई चार्जिंग बेहतर जीवन के साथ एक सहज और कुशल ऊर्जा प्रवाह प्रदान करता है।",
     },
     landingPage2S4J4Specification1Content: {
-        [Language.English]: "36 Months | 42 + 30* Months",
+        [Language.English]: "3 Years | 42 + 30* Months",
         [Language.Hindi]: "3 साल | 42 + 30* महीने",
     },
-    "d7112457-05a3-4616-9dc2-4d6eb6a09e4d": {
-        [Language.English]: "3 Years",
-        [Language.Hindi]: "3 साल",
-    },
-    "fa118110-53d4-4696-85bd-8ad69e7400b6": {
-        [Language.English]: "42 + 30* Months",
-        [Language.Hindi]: "42 + 30* महीने",
-    },
     landingPage2S4J4Specification2Content: {
-        [Language.English]: "2000 VA",
-        [Language.Hindi]: "2000 वीए",
+        [Language.English]: "800 VA",
+        [Language.Hindi]: "800 वीए",
     },
     landingPage2S4J4Specification3Content: {
         [Language.English]: "260 Ah",
@@ -3472,7 +3432,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `220 Ah कैपेसिटी`,
     },
     "4a6d0641-1194-4e47-9ed8-57f27989c541": {
-        [Language.English]: `36 Months | 36 + 24* Months Warranty`,
+        [Language.English]: `3 Years | 36 + 24* Months Warranty`,
         [Language.Hindi]: `3 वर्ष | 36 + 24* महीने वारंटी`,
     },
     "f0aaf884-f888-4743-b6f3-2a22a6472038": {
@@ -3480,16 +3440,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `1250VA | 200Ah कैपेसिटी`,
     },
     "c79c879d-a81a-4348-8684-f5c745c0c701": {
-        [Language.English]: `36 Months | 60 + 24* Months Warranty`,
-        [Language.Hindi]: `36 Months | 60 + 24* महीने वारंटी`,
+        [Language.English]: `3 Years | 60 + 24* Months Warranty`,
+        [Language.Hindi]: `3 Years | 60 + 24* महीने वारंटी`,
     },
     "32b02219-4da3-4ef3-9014-8aec2d563414": {
         [Language.English]: `1500VA | 150 Ah Capacity`,
         [Language.Hindi]: `1500VA | 150 Ah कैपेसिटी`,
     },
     "7c7cb84c-8890-4044-87fa-03264f5a5d9c": {
-        [Language.English]: `36 Months | 42 + 30* Months Warranty`,
-        [Language.Hindi]: `36 Months | 42 + 30* महीने वारंटी`,
+        [Language.English]: `3 Years | 42 + 30* Months Warranty`,
+        [Language.Hindi]: `3 Years | 42 + 30* महीने वारंटी`,
     },
     "2f80ec77-0512-4838-aeef-308518466ecd": {
         [Language.English]: `2000VA | 260 Ah Capacity`,
@@ -10467,7 +10427,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "4364581e-7ad6-4f87-9c83-66bf480d3fab": {
         [Language.English]: `Load Calculator`,
-        [Language.Hindi]: "लोड कैलकुलेटर",
+        [Language.Hindi]: "?????",
     },
     "eb553bbb-e1af-4d2a-923a-096c297441e2": {
         [Language.English]: `Inverter Features`,
@@ -11831,77 +11791,25 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Overview`,
         [Language.Hindi]: `?????`,
     },
-    "64538664-71d0-4080-900a-8b54176456bc": {
-        [Language.English]: `Explore Our `,
-        [Language.Hindi]: `?????`,
-    },
-    "d170b1e3-9ac0-40f7-8ba4-ad1884dda08c": {
-        [Language.English]: `<span class="lg-text-highlighted">Brochure Collection</span>`,
-        [Language.Hindi]: `<span class="lg-text-highlighted">सबसे अलग हैं</span>`,
-    },
-    "6b8f84b8-2fc2-4dcc-a031-e4dbcfa2f635": {
-        [Language.English]: "Select Solution",
-        [Language.Hindi]: "कृपया अपना समाधान चुनें",
-    },
-    "563b22d2-8286-47a4-8ad0-1782496a3c98": {
-        [Language.English]: "Download Brochure",
-        [Language.Hindi]: "डाउनलोड विवरणिका",
-    },
-    "35274dfd-803e-424c-9a95-04c1bcea7a5d": {
-        [Language.English]: `Discover & Download`,
-        [Language.Hindi]: "?????",
-    },
-    "f6ef02af-f66d-4564-9dca-cd8e1592afcb": {
-        [Language.English]: `Brochures`,
-        [Language.Hindi]: "?????",
-    },
-    "3ad88a6b-4448-4395-af28-c86a8f07f45e": {
-        [Language.English]: `Explore Our`,
-        [Language.Hindi]: `?????`,
-    },
-    "ef406184-26b6-42a4-98a1-5853097d7163": {
-        [Language.English]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">Home Solution</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "0999c838-f6d4-4af4-b9a7-21413b3ad562": {
-        [Language.English]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">Automotive Solution</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "2f30c959-a70d-410d-be4e-3aee24145b6b": {
-        [Language.English]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">Solar Solution</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "d9d27569-28d8-423e-ba3e-d6344b779b94": {
-        [Language.English]: `All Category`,
-        [Language.Hindi]: `?????`,
-    },
-    "2fdc65c7-2c2f-4ec0-9f80-32666da203cc": {
-        [Language.English]: `Power Your Journey`,
-        [Language.Hindi]: `?????`,
-    },
-    "047f42da-ed6c-43e0-a259-a6e3e6355dc9": {
-        [Language.English]: `Empower Your Drive`,
-        [Language.Hindi]: `?????`,
-    },
-    "c372d16f-4b66-486c-9fc4-107ca0bbb50d": {
-        [Language.English]: `Easy Maintenance`,
-        [Language.Hindi]: `?????`,
-    },
-    "026446e6-e7f3-4fea-9e71-2d7bdba75aa2": {
-        [Language.English]: `Long Battery Life`,
-        [Language.Hindi]: `?????`,
-    },
-    "9b868952-6f42-4719-a408-5b4c4fc11eff": {
-        [Language.English]: `Better Cranking Power`,
-        [Language.Hindi]: `?????`,
-    },
     "34faf8f5-f199-4cb7-be52-dc46737415e6": {
         [Language.English]: `Social Media`,
         [Language.Hindi]: `?????`,
     },
     "fd934962-ffce-41c6-ac8d-ebee55615f2b": {
         [Language.English]: `Load Calculator`,
-        [Language.Hindi]: `लोड कैलकुलेटर`,
+        [Language.Hindi]: `?????`,
+    },
+    "0f24d13c-8b25-4165-b0d4-197c059e4794": {
+        [Language.English]: `GOOD NEWS`,
+        [Language.Hindi]: `?????`,
+    },
+    "bb45dab0-a985-4bf8-9f07-845806b20b77": {
+        [Language.English]: `We are now available on Whatsapp too.`,
+        [Language.Hindi]: `?????`,
+    },
+    "ab1da9d6-1aaa-46d4-9b50-b911b3006b11": {
+        [Language.English]: `+91 95991 98444`,
+        [Language.Hindi]: `?????`,
     },
 };
 
@@ -12151,6 +12059,9 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...findTheThiefStrings,
         ...footerStrings,
+        "0f24d13c-8b25-4165-b0d4-197c059e4794",
+        "bb45dab0-a985-4bf8-9f07-845806b20b77",
+        "ab1da9d6-1aaa-46d4-9b50-b911b3006b11",
         "34faf8f5-f199-4cb7-be52-dc46737415e6",
         "639fd244-9283-4467-b186-6ee26321127b",
         "cfab263f-0175-43fb-91e5-fccc64209d36",

@@ -7464,6 +7464,18 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 468,
         finalUrl: "/livguard/inverter-batteries-combo/1/combo-mobile-banner-681148.png",
     },
+    "/livguard/home/1/banner-2.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "LkNIaF.myX-;-;t,eTni.T%MnPae",
+        finalUrl: "/livguard/home/1/banner-2-fe0d39.jpg",
+    },
+    "/livguard/home/1/mob-banner-2.jpg": {
+        width: 3839,
+        height: 3840,
+        blurHash: "LdMYBIuOk==y-WyDjso0.m-;xbof",
+        finalUrl: "/livguard/home/1/mob-banner-2-cef4a8.jpg",
+    },
 };
 
 export function getImageMetadataLibraryForPage(ids: Array<string>): {[relativePath: string]: ImageMetadata | undefined} {
@@ -7503,6 +7515,8 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/home/1/banner-2.jpg",
+        "/livguard/home/1/mob-banner-2.jpg",
         "/livguard/find-the-thief/treasure-inverter.png",
         "/livguard/find-the-thief/step-2-pattern.png",
         "/livguard/find-the-thief/step-2-desktop.jpg",

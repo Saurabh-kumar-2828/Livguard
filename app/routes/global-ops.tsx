@@ -298,7 +298,7 @@ function HeroSection({
                     </>
                 )}
             </div>
-            <div className="tw-col-start-1 lg:tw-row-start-3 tw-row-start-2 tw-row-span-2 tw-grid tw-items-center">
+            <div className="tw-col-start-1 lg:tw-row-start-2 lg:tw-row-span-1 tw-row-start-2 tw-row-span-2 tw-grid max-lg:tw-items-center">
                 <PowerThatEmpowersLives
                     userPreferences={userPreferences}
                     utmParameters={utmParameters}
