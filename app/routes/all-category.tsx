@@ -308,7 +308,7 @@ const ItemCard = ({item}: {item: any}) => {
                     <div className="tw-row-start-1 tw-p-2 tw-grid tw-items-center tw-grid-rows-1 lg-card tw-bf tw-h-full tw-w-full">
                         <FullWidthImage relativePath={item.relativeImageUrl} />
                     </div>
-                    <h1 className=" tw-row-start-2 lg-text-title2 lg-text-headline tw-text-[#000000] tw-text-center">{item.downTitle}</h1>
+                    <h1 className=" tw-row-start-2 lg-text-title2 lg-text-headline lg-secondary-100 tw-text-center">{item.downTitle}</h1>
                 </div>
             </Link>
         </>

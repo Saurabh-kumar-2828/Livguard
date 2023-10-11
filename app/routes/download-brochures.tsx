@@ -142,7 +142,7 @@ const DownloadGallery = ({userPreferences}: {userPreferences: UserPreferences}) 
                             return (
                                 <div
                                     key={itemIndex}
-                                    className="tw-grid tw-grid-cols-1 tw-grid-rows-[auto_auto_minmax(0,1fr)_auto] tw-rounded-2xl tw-shadow-xl tw-p-4 tw-gap-2"
+                                    className="tw-grid tw-grid-cols-1 tw-grid-rows-[auto_auto_minmax(0,1fr)_auto] tw-rounded-2xl lg-card tw-p-4 tw-gap-2"
                                 >
                                     <div className="tw-rounded-lg tw-row-start-1">
                                         <FullWidthImage relativePath={item.imageRelativeUrl} />
