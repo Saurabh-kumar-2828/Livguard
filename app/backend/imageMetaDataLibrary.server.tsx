@@ -6084,12 +6084,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "L57Arj:N$lwfxzrnRjo30MRhW;j]",
         finalUrl: "/livguard/contact-us/1/mobile-banner-f69033.jpg",
     },
-    "/livguard/video-gallery/1/desktop-banner.jpg": {
-        width: 3840,
-        height: 1141,
-        blurHash: "LICFG9_#^S,@^m#6xbxHoNsls:a#",
-        finalUrl: "/livguard/video-gallery/1/desktop-banner-c53a87.jpg",
-    },
     "/livguard/video-gallery/1/mobile-banner.jpg": {
         width: 3840,
         height: 3840,
@@ -7475,6 +7469,12 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 3840,
         blurHash: "LdMYBIuOk==y-WyDjso0.m-;xbof",
         finalUrl: "/livguard/home/1/mob-banner-2-cef4a8.jpg",
+    },
+    "/livguard/video-gallery/1/desktop-banner.jpg": {
+        "width": 3840,
+        "height": 1140,
+        "blurHash": "LHC~DE_#^S=L~Ez.xbxHjcsls:a#",
+        "finalUrl": "/livguard/video-gallery/1/desktop-banner-2870ac.jpg"
     },
 };
 

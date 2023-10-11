@@ -1641,7 +1641,7 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                                                           </div>
                                                       ))}
                                                   </div>
-                                              )}
+                                        )}
                                     </>
                                 </div>
                             </div>
@@ -2009,15 +2009,15 @@ function HeaderItemLinkMobileComponent({headerItemLink, userPreferences, indenta
     return (
         <>
             {/* item.to.startsWith("/") */}
-            <Link
-                to={headerItemLink.to}
+            <a
+                href={headerItemLink.to}
                 className={concatenateNonNullStringsWithSpaces(indentationLevel == 0 ? "lg-text-title2 tw-py-4" : "lg-text-body-bold dark:!tw-text-new-foreground-500-dark tw-py-2")}
                 style={{
                     paddingLeft: indentationLevel * headerMobileItemIndentation,
                 }}
             >
                 {contentData.getContent(headerItemLink.contentId)}
-            </Link>
+            </a>
 
             {indentationLevel != 0 ? null : <div className="tw-h-px lg-bg-secondary-900 tw-opacity-50 tw-flex-none" />}
         </>

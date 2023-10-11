@@ -475,7 +475,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                                 ))}
                             </div>
                         </div>
-                        <div className="tw-h-[3rem] tw-bg-gradient-to-b tw-from-transparent tw-to-white tw-w-full tw-absolute tw-left-0 tw-bottom-0 tw-right-0 tw-pointer-events-none"></div>
+                        <div className="tw-h-[3rem] tw-bg-gradient-to-b tw-from-transparent tw-to-white dark:tw-to-black dark:tw-opacity-60 tw-w-full tw-absolute tw-left-0 tw-bottom-0 tw-right-0 tw-pointer-events-none"></div>
                     </div>
                 </div>
             </div>

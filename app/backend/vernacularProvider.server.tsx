@@ -46,129 +46,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Contact Us",
         [Language.Hindi]: "हमसे संपर्क करें",
     },
-    "360f578c-4a1f-49a7-baf8-ee0680fb3301": {
-        [Language.English]: "Request a Call Back",
-        [Language.Hindi]: "कॉल बैक का अनुरोध करें",
-    },
-    headerMenuSM1T1: {
-        [Language.English]: "Inverters",
-        [Language.Hindi]: "इनवर्टर",
-    },
-    headerMenuSM1T2: {
-        [Language.English]: "Home Inverters",
-        [Language.Hindi]: "होम इनवर्टर",
-    },
-    headerMenuSM1T3: {
-        [Language.English]: "High Capacity Inverters",
-        [Language.Hindi]: "हाय-कैपेसिटी इनवर्टर",
-    },
-    headerMenuSM2T1: {
-        [Language.English]: "Inverter Batteries",
-        [Language.Hindi]: "इनवर्टर बैटरी",
-    },
-    headerMenuSM3T1: {
-        [Language.English]: "Automotive Batteries",
-        [Language.Hindi]: "ऑटोमोटिव बैटरी",
-    },
-    headerMenuSM3T2: {
-        [Language.English]: "Car and SUV Batteries",
-        [Language.Hindi]: "गाड़ी और SUV बैटरी",
-    },
-    headerMenuSM3T3: {
-        [Language.English]: "Two Wheeler Batteries",
-        [Language.Hindi]: "2-पहिया बैटरी",
-    },
-    headerMenuSM3T4: {
-        [Language.English]: "Bus & Truck Batteries",
-        [Language.Hindi]: "बस और ट्रक की बैटरी",
-    },
-    headerMenuSM3T5: {
-        [Language.English]: "Tractor Batteries",
-        [Language.Hindi]: "ट्रैक्टर बैटरी",
-    },
-    headerMenuSM3T6: {
-        [Language.English]: "Three Wheeler Batteries",
-        [Language.Hindi]: "3-पहिया बैटरी",
-    },
-    headerMenuSM3T7: {
-        [Language.English]: "E-Rickshaw Batteries",
-        [Language.Hindi]: "ई-रिक्शा की बैटरी",
-    },
-    headerMenuSM4T1: {
-        [Language.English]: "Solar",
-        [Language.Hindi]: "सोलर",
-    },
-    headerMenuSM4T2: {
-        [Language.English]: "Solar Inverters",
-        [Language.Hindi]: "सोलर इनवर्टर",
-    },
-    headerMenuSM4T3: {
-        [Language.English]: "Solar Batteries",
-        [Language.Hindi]: "सोलर बैटरी",
-    },
-    headerMenuSM4T4: {
-        [Language.English]: "Solar Solutions",
-        [Language.Hindi]: "सोलर सलूशन",
-    },
-    headerMenuSM5T1: {
-        [Language.English]: "Accessories & Other Batteries",
-        [Language.Hindi]: "सहायक उपकरण",
-    },
-    headerMenuSM5T2: {
-        [Language.English]: "Stabilizer",
-        [Language.Hindi]: "स्टेबिलाइजर्स",
-    },
-    headerMenuSM5T3: {
-        [Language.English]: "E-Rickshaw Chargers",
-        [Language.Hindi]: "ई-रिक्शा चार्जर",
-    },
-    headerMenuSM5T4: {
-        [Language.English]: "Lithium Batteries",
-        [Language.Hindi]: "लिथियम बैटरी",
-    },
-    headerMenuSM5T5: {
-        [Language.English]: "VRLA Batteries",
-        [Language.Hindi]: "VRLA बैटरी",
-    },
     headerMenuSM5T6: {
         [Language.English]: "Inverter Trolley",
         [Language.Hindi]: "इनवर्टर ट्राली",
     },
-    headerMenuSM6T1: {
-        [Language.English]: "Dealer Locator",
-        [Language.Hindi]: "डीलर ढूँढें",
-    },
-    headerMenuSM7T1: {
-        [Language.English]: "Register Your Product",
-        [Language.Hindi]: "उत्पाद रजिस्टर करवायें",
-    },
-    headerMenuSM8T1: {
-        [Language.English]: "More",
-        [Language.Hindi]: "और देखें",
-    },
-    headerMenuSM8T2: {
-        [Language.English]: "About Us",
-        [Language.Hindi]: "हमारे बारे में",
-    },
-    headerMenuSM8T3: {
-        [Language.English]: "Blogs",
-        [Language.Hindi]: "ब्लॉग",
-    },
-    "7ad4abbd-2d09-4f4a-9605-f0f2c5008fa8": {
-        [Language.English]: "Offers",
-        [Language.Hindi]: "ऑफर्स",
-    },
-    "088ccfe9-7891-49bd-b01f-2ea4836b0342": {
-        [Language.English]: "Contact Us",
-        [Language.Hindi]: "हमसे संपर्क करें",
-    },
     "9316f275-c395-4344-99d7-895d162602c0": {
         [Language.English]: "Get Offers",
         [Language.Hindi]: "ऑफर्स पाएं",
-    },
-    "0d7eacab-de68-49a3-a0d2-c25eba53a1e3": {
-        [Language.English]: "E-Waste Management",
-        [Language.Hindi]: "ई-वेस्ट मैनेजमेंट",
     },
     headerMenuSM8T6: {
         [Language.English]: "E-Waste Management",
@@ -186,17 +70,9 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Sales Enquiry",
         [Language.Hindi]: "बिक्री पूछताछ",
     },
-    "07871c3d-b0ce-4d09-8cad-f2258217eb53": {
-        [Language.English]: "Products",
-        [Language.Hindi]: "प्रोडक्ट्स",
-    },
-    "58ab0356-4a3b-4ec9-b2a2-1b36ac4dee0f": {
-        [Language.English]: "Batteries",
-        [Language.Hindi]: "???",
-    },
     "f54e5fcb-25a7-4af2-836c-75eff3e2916e": {
         [Language.English]: "Inverter Batteries",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "इनवर्टर बैटरी",
     },
     "816e8c1d-93cc-4629-b808-043e46fba2fd": {
         [Language.English]: "Automotive Batteries",
@@ -222,10 +98,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Bus and Truck Batteries",
         [Language.Hindi]: "बस और ट्रक की बैटरी",
     },
-    "e057dd65-bdc4-4a61-9350-881e46db892a": {
-        [Language.English]: "Solar Batteries",
-        [Language.Hindi]: "???",
-    },
+    // "e057dd65-bdc4-4a61-9350-881e46db892a": {
+    //     [Language.English]: "Solar Batteries",
+    //     [Language.Hindi]: "???",
+    // },
     "3272fdec-2fca-490f-b0fa-857a45df8f0e": {
         [Language.English]: "Inverters",
         [Language.Hindi]: "इनवर्टर",
@@ -266,60 +142,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Inverter Trolley",
         [Language.Hindi]: "इनवर्टर ट्राली",
     },
-    "22f65f90-4e23-41ef-8eee-ad3ad43d3cc1": {
-        [Language.English]: "About Us",
-        [Language.Hindi]: "???",
-    },
-    "acc5d1b0-6eeb-4d83-8d9e-b10124c39f3f": {
-        [Language.English]: "About Us",
-        [Language.Hindi]: "???",
-    },
-    "8a05cd2e-d60d-4eb4-9c04-28aa17936671": {
-        [Language.English]: "Presence in India",
-        [Language.Hindi]: "भारत में उपस्थिति",
-    },
-    "49162714-5f92-492f-af84-355a69688f70": {
-        [Language.English]: "International Presence",
-        [Language.Hindi]: "वैश्विक उपस्थिति",
-    },
-    "c00c6383-63f2-4dc0-b65b-ef1ecfb4ee2c": {
-        [Language.English]: "Careers",
-        [Language.Hindi]: "???",
-    },
-    "6ca8db68-b2e4-41bc-a910-97750f73b9be": {
-        [Language.English]: "Blogs",
-        [Language.Hindi]: "???",
-    },
-    "d59a87d7-e624-4437-bfd8-57ccc3ac9b0f": {
-        [Language.English]: "Blogs Home",
-        [Language.Hindi]: "???",
-    },
-    "3da06e51-2ce1-41cc-b7b0-e50f014643a2": {
-        [Language.English]: "Inverters",
-        [Language.Hindi]: "इनवर्टर",
-    },
-    "09d53d44-f25f-4340-a67a-77c1e483c764": {
-        [Language.English]: "Inverter Batteries",
-        [Language.Hindi]: "???",
-    },
-    "429677df-14ea-4491-8aca-5044787bfa5d": {
-        [Language.English]: "Stabilizer",
-        [Language.Hindi]: "???",
-    },
-    "570fb1bb-e61c-4447-8a52-0eb8cccba564": {
-        [Language.English]: "Solar Solutions",
-        [Language.Hindi]: "???",
-    },
-    "5ae37b56-b08d-4928-adf7-5a5827f199ab": {
-        [Language.English]: "Solar Inverters",
-        [Language.Hindi]: "???",
-    },
     "c4965a0f-b4e4-4afd-9e5f-fda80734f3b4": {
         [Language.English]: "Solar Panels",
-        [Language.Hindi]: "???",
-    },
-    "2d020521-337f-4e2e-b526-22c915bfb563": {
-        [Language.English]: "Automotive Batteries",
         [Language.Hindi]: "???",
     },
     "57dfdb7b-3b26-4918-81fc-15aee33119a6": {

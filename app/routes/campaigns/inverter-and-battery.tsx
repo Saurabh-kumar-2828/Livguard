@@ -813,7 +813,7 @@ function BatteryCard({
 
                 {/* <div className="tw-grid tw-grid-rows-[auto_auto_minmax(0,1fr)] md:max-lg:tw-grid-cols-1 md:max-lg:tw-grid-flow-row md:max-lg:tw-place-items-center md:max-lg:tw-place-self-center md:max-lg:tw-w-fit tw-grid-cols-2"> */}
                 <div className="tw-grid md:max-lg:tw-place-items-center md:max-lg:tw-place-self-center md:max-lg:tw-w-fit tw-grid-cols-2 tw-gap-x-4">
-                    <div className="tw-border-[1px] tw-rounded-[8px] tw-border-[#F2F2F2] tw-p-4 tw-grid tw-gap-2">
+                    <div className="tw-border-[2px] tw-rounded-[8px] tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-p-4 tw-grid tw-gap-2">
                         <div className="tw-text-left tw-text-[#EB2A2B] tw-font-bold">{contentData.getContent("ormTrackingFormProduct1")}</div>
                         <div className="md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 lg:tw-place-self-start">
                             <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
@@ -861,7 +861,7 @@ function BatteryCard({
                             </div>
                         </div>
                     </div>
-                    <div className="tw-border-[1px] tw-rounded-[8px] tw-border-[#F2F2F2] tw-p-4 tw-grid tw-gap-2">
+                    <div className="tw-border-[2px] tw-rounded-[8px] tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-p-4 tw-grid tw-gap-2">
                         <div className="tw-text-left tw-text-[#EB2A2B] tw-font-bold">{contentData.getContent("ormTrackingFormProduct2")}</div>
                         <div className="md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 lg:tw-place-self-start">
                             <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">

@@ -1098,9 +1098,8 @@ export function FooterComponent({
                     className="lg:tw-hidden tw-mx-[calc(-1*var(--lg-px-screen-edge))]"
                 />
 
-                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-row-span-3">
+                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-row-span-3 lg:tw-gap-2">
                     <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("eb4e6810-b019-4d59-94b2-41351f268590")}</div>
-                    <VerticalSpacer className="tw-h-1" />
                     <ItemBuilder
                         items={shoppingToolsAccordianList}
                         itemBuilder={(item, itemIndex) => (
@@ -1134,9 +1133,8 @@ export function FooterComponent({
                 </div>
 
                 <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3">
-                    <div className="tw-flex tw-flex-col">
+                    <div className="tw-flex tw-flex-col lg:tw-gap-2">
                         <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("bf233b5c-c4e0-4161-aa37-8d0eba708d4c")}</div>
-                        <VerticalSpacer className="tw-h-1" />
                         <ItemBuilder
                             items={companyAccordianList}
                             itemBuilder={(item, itemIndex) => (
@@ -1198,9 +1196,8 @@ export function FooterComponent({
                 </div>
 
                 <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-4 lg:tw-row-span-3">
-                    <div className="tw-flex tw-flex-col">
+                    <div className="tw-flex tw-flex-col lg:tw-gap-2">
                         <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("fc828855-64e1-4be5-b95f-bee9fe4a3262")}</div>
-                        <VerticalSpacer className="tw-h-1" />
                         <ItemBuilder
                             items={dealerLocatorAccordionList}
                             itemBuilder={(item, itemIndex) => (
@@ -1233,9 +1230,8 @@ export function FooterComponent({
                         />
                     </div>
                     <VerticalSpacer className="tw-h-8" />
-                    <div className="tw-flex tw-flex-col">
+                    <div className="tw-flex tw-flex-col lg:tw-gap-2">
                         <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("31850c84-bfb5-42cb-b470-489a351c2d99")}</div>
-                        <VerticalSpacer className="tw-h-1" />
                         <ItemBuilder
                             items={supportAccordianList}
                             itemBuilder={(item, itemIndex) => (
@@ -1298,9 +1294,8 @@ export function FooterComponent({
                     </div>
                     <VerticalSpacer className="tw-h-8" /> */}
                     <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3">
-                        <div className="tw-flex tw-flex-col">
+                        <div className="tw-flex tw-flex-col lg:tw-gap-2">
                             <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("c54ca3ff-b15f-445a-8e7b-c85985e5d355")}</div>
-                            <VerticalSpacer className="tw-h-1" />
                             <ItemBuilder
                                 items={customerPoliciesAccordianList}
                                 itemBuilder={(item, itemIndex) => (
@@ -1333,9 +1328,9 @@ export function FooterComponent({
                             />
                         </div>
                         <VerticalSpacer className="tw-h-8" />
-                        <div className="tw-flex tw-flex-col">
+                        <div className="tw-flex tw-flex-col lg:tw-gap-2">
                             <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("6d46ed34-f819-4c0a-a7ca-29ac67f6486b")}</div>
-                            <VerticalSpacer className="tw-h-1" />
+                            {/* <VerticalSpacer className="tw-h-1" /> */}
                             <ItemBuilder
                                 items={mediaAndGalleryAccordianList}
                                 itemBuilder={(item, itemIndex) => (
@@ -1417,7 +1412,7 @@ export function FooterComponent({
                     <div className="tw-grid tw-gap-4">
                         <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4 tw-items-center">
                             <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("e9624c2c-a16e-4f56-88a2-3e2710461b14")}</div>{" "}
-                            <hr className="tw-border-new-foreground-500-light dark:tw-border-new-foreground-500-dark" />
+                            <hr className="tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-border-[2px]" />
                         </div>
                         <div className="tw-flex tw-flex-wrap tw-gap-2 lg:tw-pr-[4.5rem]">
                             <ItemBuilder
@@ -1463,7 +1458,7 @@ export function FooterComponent({
                     <div className="tw-grid tw-gap-4">
                         <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4 tw-items-center">
                             <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("3a186513-50e2-4738-8d17-0f8691fa7b1c")}</div>
-                            <hr className="tw-border-new-foreground-500-light dark:tw-border-new-foreground-500-dark" />
+                            <hr className="tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-border-[2px]" />
                         </div>
                         <div className="tw-flex tw-flex-wrap tw-gap-2 lg:tw-pr-[4.5rem]">
                             <ItemBuilder
@@ -1506,7 +1501,7 @@ export function FooterComponent({
                     <div className="tw-grid tw-gap-4">
                         <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4 tw-items-center">
                             <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("642467c3-8136-4523-b231-fa5aae9a075a")}</div>{" "}
-                            <hr className="tw-border-new-foreground-500-light dark:tw-border-new-foreground-500-dark" />
+                            <hr className="tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-border-[2px]" />
                         </div>
                         <div className="tw-flex tw-flex-wrap tw-gap-2 lg:tw-pr-[4.5rem]">
                             <ItemBuilder
