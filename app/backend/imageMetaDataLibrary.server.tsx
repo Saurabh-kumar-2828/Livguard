@@ -7775,6 +7775,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/icons/squareWave.png",
         "/livguard/icons/sineWave.png",
         "/livguard/icons/tall tubular white.png",
         "/livguard/terms-and-conditions/og-banner.jpg",

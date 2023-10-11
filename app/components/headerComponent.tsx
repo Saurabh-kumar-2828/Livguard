@@ -98,7 +98,7 @@ function FirstBar({showContactDetails, userPreferences, redirectTo}: {showContac
     function tryToOpenContactUsDialog() {
         setIsContactUsDialogOpen(true);
     }
-
+    const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
             {showContactDetails == false ? null : (
@@ -1793,6 +1793,8 @@ function ContactUsDialog({
         setIsContactUsDialogOpen(false);
     }
 
+    const contentData = useContext(ContentProviderContext);
+
     return (
         <Transition
             show={isContactUsDialogOpen}
@@ -1954,6 +1956,7 @@ function HeaderItemAccordionMobileComponent({
     userPreferences: UserPreferences;
     indentationLevel: number;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <Disclosure>
             {({open}) => (
@@ -2002,6 +2005,7 @@ function HeaderItemAccordionMobileComponent({
 }
 
 function HeaderItemLinkMobileComponent({headerItemLink, userPreferences, indentationLevel}: {headerItemLink: HeaderItemLink; userPreferences: UserPreferences; indentationLevel: number}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <>
             {/* item.to.startsWith("/") */}
@@ -2045,6 +2049,7 @@ function HeaderItemAccordionDesktopComponent({
     userPreferences: UserPreferences;
     indentationLevel: number;
 }) {
+    const contentData = useContext(ContentProviderContext);
     return (
         <Disclosure>
             {({open}) => (
@@ -2089,6 +2094,7 @@ function HeaderItemAccordionDesktopComponent({
 }
 
 function HeaderItemLinkDesktopComponent({headerItemLink, userPreferences, indentationLevel}: {headerItemLink: HeaderItemLink; userPreferences: UserPreferences; indentationLevel: number}) {
+    const contentData = useContext(ContentProviderContext);
     return (
         // item.to.startsWith("/")
         <Link

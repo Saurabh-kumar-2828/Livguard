@@ -100,28 +100,27 @@ const AllCategoryPage = ({userPreferences}: {userPreferences: UserPreferences}) 
     };
     return (
         <>
-            <div className="tw-grid">
+            <div className="tw-grid tw-gap-y-10 lg:tw-gap-y-20">
                 <HeroSection userPreferences={userPreferences} />
-                <VerticalSpacer className="tw-h-8" />
                 <ContentSection
                     userPreferences={userPreferences}
                     list={HomeList}
                     title={sectionHeading.first}
                 />
-                <VerticalSpacer className="tw-h-4" />
+
                 <ContentSection
                     userPreferences={userPreferences}
                     list={AutomotiveList}
                     title={sectionHeading.second}
                 />
-                <VerticalSpacer className="tw-h-4" />
+
                 <ContentSection
                     userPreferences={userPreferences}
                     list={SolarList}
                     title={sectionHeading.third}
                 />
-                <VerticalSpacer className="tw-h-4" />
             </div>
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
         </>
     );
 };
@@ -225,10 +224,12 @@ const ContentSection = ({userPreferences, list, title}: {userPreferences: UserPr
     return (
         <>
             <div>
-                <div className="tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-gap-3">
-                    <div className="tw-text-center lg-text-title1 tw-grid tw-gap-2">
+                <div className="tw-grid tw-grid-rows-[auto_auto_auto_auto]">
+                    <div className="tw-text-center lg-text-title1 tw-grid">
                         <h1>{contentData.getContent("3ad88a6b-4448-4395-af28-c86a8f07f45e")}</h1>
+                        <VerticalSpacer className="lg:tw-h-1"/>
                         <h1 dangerouslySetInnerHTML={{__html: title}}></h1>
+                        <VerticalSpacer className="tw-h-6 lg:tw-h-8" />
                     </div>
                     <div
                         className="tw-w-full tw-overflow-hidden tw-pl-6"

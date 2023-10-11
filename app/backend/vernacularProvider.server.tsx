@@ -2102,7 +2102,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review1Name: {
         [Language.English]: "Pankaj Kumar Verma",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "पंकज कुमार वर्मा",
     },
     review1State: {
         [Language.English]: "Uttar Pradesh",
@@ -2110,7 +2110,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review1Message: {
         [Language.English]: `"Purchased Livguard's Inverter Battery after a thorough research, and it's safe to say Livguard is the leading brand in energy solutions based on their prices and performance."`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `मैंने काफ़ी सोच विमर्श के बाद लिवगार्ड की इनवर्टर बैटरी खरीदी है, और यह कहना सुरक्षित है कि मूल्य और प्रदर्शन के आधार पर लिवगार्ड ऊर्जा समाधान में सबसे अच्छा ब्रांड है।`,
     },
     review1ProductName: {
         [Language.English]: "Inverter",
@@ -2118,7 +2118,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review2Name: {
         [Language.English]: "Shravan Pathak",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "श्रवण पाठक",
     },
     review2State: {
         [Language.English]: "",
@@ -2150,15 +2150,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review4Name: {
         [Language.English]: "Sudhanshu",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सुधांशु",
     },
     review4State: {
         [Language.English]: "Delhi",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "दिल्ली",
     },
     review4Message: {
         [Language.English]: `"Livguard is lighting up lives, even in the remotest corners of India, with uninterrupted power for essentials like fans, lights, and even television."`,
-        [Language.Hindi]: `"?????`,
+        [Language.Hindi]: `लिवगार्ड भारत के हर कोने में भी जीवन को प्रकाशित कर रहा है, बिना रुकावट के पंखे, बत्तियाँ, और यहां तक कि टेलीविजन के लिए जरूरी बिजली प्रदान करके।`,
     },
     review4ProductName: {
         [Language.English]: "Combo",
@@ -7072,7 +7072,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "a0f90939-327f-4308-9150-4896b4608ecd": {
         [Language.English]: `Registered Office - Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India <a class="tw-inline-block tw-underline" href="tel:+91-124-4987 400">+91-124-4987 400</a>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `Registered Office - Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India <a class="tw-inline-block tw-underline" href="tel:+91-124-4987 400">+91-124-4987 400</a>`,
     },
     "b98270e9-5f07-47d8-9cd9-67235c9e92d7": {
         [Language.English]: `Our <span class="lg-text-highlighted">Manufacturing Centers</span>`,
@@ -7088,7 +7088,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "8feca67b-7fe9-4672-a4cc-cf958dc8fdf8": {
         [Language.English]: `Registered Office - Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India <a class="tw-inline-block tw-underline" href="tel:+91-124-4987 400">+91-124-4987 400</a>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `Registered Office - Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India <a class="tw-inline-block tw-underline" href="tel:+91-124-4987 400">+91-124-4987 400</a>`,
     },
     "a704b916-2aa5-4cd9-8251-968d635f27de": {
         [Language.English]: `Battery Plant`,
@@ -8601,7 +8601,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "ad6b181f-0115-4496-a9f8-4fb7d7d6e990": {
         [Language.English]: "Delhi ",
-        [Language.Hindi]: "?????????????????",
+        [Language.Hindi]: "दिल्ली",
     },
     "91cb41a5-571d-4516-91fb-fc5e67266990": {
         [Language.English]: "Enter Your City ",
@@ -8609,7 +8609,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "07ac43fc-8777-4379-81d5-8c80533d5e66": {
         [Language.English]: "New Delhi ",
-        [Language.Hindi]: "?????????????????",
+        [Language.Hindi]: "नई दिल्ली",
     },
     "5fc70a88-5ac0-4369-991c-354a4d48deed": {
         [Language.English]: "Center Name",
@@ -10223,7 +10223,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "22156ff3-a4a5-4d59-ab0c-902c21b667f9": {
         [Language.English]: `Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India`,
     },
     "1f8b2070-1c48-4396-999d-3195c96cabd7": {
         [Language.English]: `Inverter`,
@@ -11520,7 +11520,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "986605b0-30a0-433b-ac6a-10e8deba3063": {
         [Language.English]: `Delhi`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `दिल्ली`,
     },
     "676de8c8-861f-48d7-9111-5fc01c2aae76": {
         [Language.English]: `Touseef Ahmad`,
@@ -11532,11 +11532,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "df0d4329-4cb4-4a4b-a23c-84ad9c7ed2dd": {
         [Language.English]: `Uttar Pradesh`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `उत्तर प्रदेश`,
     },
     "92471019-483f-4429-8234-42df112baa9c": {
         [Language.English]: `Shravan Pathak`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `श्रवण पाठक`,
     },
     "607cc572-1388-4e27-9c1b-80f38e7a2173": {
         [Language.English]: `Madhya Pradesh`,
@@ -11669,11 +11669,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "3aa92d4a-6977-4381-82ab-240477064ea6": {
         [Language.English]: `Pankaj Kumar Verma`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `पंकज कुमार वर्मा`,
     },
     "3ae30ba6-92d9-4b8f-b347-f77aa5b28db1": {
         [Language.English]: `Shravan Pathak`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `श्रवण पाठक`,
     },
     "84aa7183-9c17-47fb-b528-6c9e159e1ae3": {
         [Language.English]: `Rohit Singh`,
@@ -11681,7 +11681,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "b7f38972-802c-4910-afd9-f174c62b7859": {
         [Language.English]: `Sudhanshu`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सुधांशु`,
     },
     "03954a87-ce9d-4852-92d0-97aa7fa0379f": {
         [Language.English]: `REI 2022`,
@@ -11809,7 +11809,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "ab1da9d6-1aaa-46d4-9b50-b911b3006b11": {
         [Language.English]: `+91 95991 98444`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `+91 95991 98444`,
     },
     "64538664-71d0-4080-900a-8b54176456bc": {
         [Language.English]: `Explore Our `,
@@ -11865,7 +11865,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "026446e6-e7f3-4fea-9e71-2d7bdba75aa2": {
         [Language.English]: `Long Battery Life`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लंबी बैटरी आयु`,
     },
     "9b868952-6f42-4719-a408-5b4c4fc11eff": {
         [Language.English]: `Better Cranking Power`,
@@ -11875,7 +11875,68 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Explore Our`,
         [Language.Hindi]: `?????`,
     },
+    "e0db4e01-ba5c-404a-b5a0-9ca311333fb7": {
+        [Language.English]: "3 Years",
+        [Language.Hindi]: "3 साल",
+    },
+    "b7895214-8ecb-44a7-bf86-4974deaee879": {
+        [Language.English]: "36 + 24* Months",
+        [Language.Hindi]: "36 + 24* महीने",
+    },
+    "bc4a0a42-adf2-404c-85c2-d9f768511c2a": {
+        [Language.English]: "Short Tall Tubular",
+        [Language.Hindi]: "?????",
+    },
+    "9bfee583-a1e4-43ef-b0e4-37f8a5ad6124": {
+        [Language.English]: "Tall Tubular",
+        [Language.Hindi]: "?????",
+    },
+    "51db98f7-13b7-4667-9b12-69f552370851": {
+        [Language.English]: "3 Years",
+        [Language.Hindi]: "3 साल",
+    },
+    "20824b11-5143-4b72-841c-84726766e13f": {
+        [Language.English]: "36 + 24* Months",
+        [Language.Hindi]: "36 + 24* महीने",
+    },
+    "17722d26-de05-4cf9-9e06-ca678c57fa27": {
+        [Language.English]: "3 Years",
+        [Language.Hindi]: "3 साल",
+    },
+    "a1b4d09c-4d05-4aa3-9278-4af3cf2e2fad": {
+        [Language.English]: "60 + 24* Months",
+        [Language.Hindi]: "60 + 24* महीने",
+    },
+    "d7112457-05a3-4616-9dc2-4d6eb6a09e4d": {
+        [Language.English]: "3 Years",
+        [Language.Hindi]: "3 साल",
+    },
+    "fa118110-53d4-4696-85bd-8ad69e7400b6": {
+        [Language.English]: "42 + 30* Months",
+        [Language.Hindi]: "42 + 30* महीने",
+    },
 };
+
+const popUpFormStrings = [
+    "contactUsT1",
+    "contactUsT3",
+    "7ce2eaa7-4d46-4f80-80d2-b91b81085a49",
+    "contactUsT4",
+    "29ca1701-2fb9-49ec-a4d6-3af793c194b1",
+    "5132b06f-9057-4e22-a21e-aca383247dda",
+    "91cb41a5-571d-4516-91fb-fc5e67266990",
+    "76bb0c30-c244-4815-b68d-a1780f8c697e",
+    "11eba4f7-13aa-45bd-93bd-31d98b72531a",
+    "contactUsT2",
+    "10b102a7-4be9-4832-9240-f747cf81a855",
+    "OfferFormGetOTP",
+    "OfferResendOTP",
+    "termsAndConditionsCheckboxtext",
+    "contactUsT5",
+    "successT1",
+    "successT2",
+    "successT3",
+];
 
 const headerStrings: Array<string> = [
     "642467c3-8136-4523-b231-fa5aae9a075a",
@@ -11937,27 +11998,6 @@ const headerStrings: Array<string> = [
     "286eb099-4488-4fa6-a2aa-23132972a9de",
     "landingPage3S7BT",
     "landingPageBottomBarT2",
-];
-
-const popUpFormStrings = [
-    "contactUsT1",
-    "contactUsT3",
-    "7ce2eaa7-4d46-4f80-80d2-b91b81085a49",
-    "contactUsT4",
-    "29ca1701-2fb9-49ec-a4d6-3af793c194b1",
-    "5132b06f-9057-4e22-a21e-aca383247dda",
-    "91cb41a5-571d-4516-91fb-fc5e67266990",
-    "76bb0c30-c244-4815-b68d-a1780f8c697e",
-    "11eba4f7-13aa-45bd-93bd-31d98b72531a",
-    "contactUsT2",
-    "10b102a7-4be9-4832-9240-f747cf81a855",
-    "OfferFormGetOTP",
-    "OfferResendOTP",
-    "termsAndConditionsCheckboxtext",
-    "contactUsT5",
-    "successT1",
-    "successT2",
-    "successT3",
 ];
 
 const footerStrings = [
