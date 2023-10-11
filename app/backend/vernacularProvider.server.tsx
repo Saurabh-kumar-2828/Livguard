@@ -1037,8 +1037,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "3 साल | 36 + 24* महीने",
     },
     landingPage2S4J1Specification2Content: {
-        [Language.English]: "3500 VA",
-        [Language.Hindi]: "3500 वीए",
+        [Language.English]: "900VA",
+        [Language.Hindi]: "900 वीए",
     },
     landingPage2S4J1Specification3Content: {
         [Language.English]: "150 Ah",
@@ -1063,8 +1063,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "3 साल | 36 + 24* महीने",
     },
     landingPage2S4J2Specification2Content: {
-        [Language.English]: "1500 VA",
-        [Language.Hindi]: "1500 वीए",
+        [Language.English]: "1250 VA",
+        [Language.Hindi]: "1250 वीए",
     },
     landingPage2S4J2Specification3Content: {
         [Language.English]: "200 Ah",
@@ -1087,8 +1087,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "3 साल | 60 + 24* महीने",
     },
     landingPage2S4J3Specification2Content: {
-        [Language.English]: "3500 VA",
-        [Language.Hindi]: "3500 वीए",
+        [Language.English]: "1500 VA",
+        [Language.Hindi]: "1500 वीए",
     },
     landingPage2S4J3Specification3Content: {
         [Language.English]: "150 Ah",
@@ -1113,8 +1113,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "3 साल | 42 + 30* महीने",
     },
     landingPage2S4J4Specification2Content: {
-        [Language.English]: "800 VA",
-        [Language.Hindi]: "800 वीए",
+        [Language.English]: "2000 VA",
+        [Language.Hindi]: "2000 वीए",
     },
     landingPage2S4J4Specification3Content: {
         [Language.English]: "260 Ah",
@@ -11876,8 +11876,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `?????`,
     },
     "e0db4e01-ba5c-404a-b5a0-9ca311333fb7": {
-        [Language.English]: "3 Years",
-        [Language.Hindi]: "3 साल",
+        [Language.English]: "36 Months",
+        [Language.Hindi]: "36 महीने",
     },
     "b7895214-8ecb-44a7-bf86-4974deaee879": {
         [Language.English]: "36 + 24* Months",
@@ -11892,24 +11892,24 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "51db98f7-13b7-4667-9b12-69f552370851": {
-        [Language.English]: "3 Years",
-        [Language.Hindi]: "3 साल",
+        [Language.English]: "36 Months",
+        [Language.Hindi]: "36 महीने",
     },
     "20824b11-5143-4b72-841c-84726766e13f": {
         [Language.English]: "36 + 24* Months",
         [Language.Hindi]: "36 + 24* महीने",
     },
     "17722d26-de05-4cf9-9e06-ca678c57fa27": {
-        [Language.English]: "3 Years",
-        [Language.Hindi]: "3 साल",
+        [Language.English]: "36 Months",
+        [Language.Hindi]: "36 महीने",
     },
     "a1b4d09c-4d05-4aa3-9278-4af3cf2e2fad": {
         [Language.English]: "60 + 24* Months",
         [Language.Hindi]: "60 + 24* महीने",
     },
     "d7112457-05a3-4616-9dc2-4d6eb6a09e4d": {
-        [Language.English]: "3 Years",
-        [Language.Hindi]: "3 साल",
+        [Language.English]: "36 Months",
+        [Language.Hindi]: "36 महीने",
     },
     "fa118110-53d4-4696-85bd-8ad69e7400b6": {
         [Language.English]: "42 + 30* Months",

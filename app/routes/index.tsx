@@ -563,10 +563,9 @@ function HeroSection({
                         <div
                             // tw-grid-rows-[3rem_minmax(0,1fr)_auto_minmax(0,1fr)_3rem]
                             className={concatenateNonNullStringsWithSpaces(
-                                "tw-h-full tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate",
                                 itemIndex == 0
                                     ? "tw-h-full tw-overflow-hidden tw-grid lg:tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem]  md:tw-grid-rows-[1rem_1rem_1rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-grid-rows-[0.5rem_0.5rem_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem]  tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate"
-                                    : "",
+                                    : "tw-h-full tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate",
                             )}
                             key={itemIndex}
                         >
