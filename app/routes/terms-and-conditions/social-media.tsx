@@ -26,6 +26,7 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    doNotOpenDialogue: string | null;
     vernacularData: {
         [id: string]: string;
     };
@@ -40,6 +41,9 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const url = new URL(request.url);
+    const doNotOpenDialogue = url.searchParams.get("doNotOpenDialogue");
+
     const vernacularData = getVernacularFromBackend("termsAndConditionsSocialMediaPage", userPreferences.language);
     const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("termsAndConditionsSocialMediaPage");
 
@@ -49,13 +53,14 @@ export const loader: LoaderFunction = async ({request}) => {
         pageUrl: getUrlFromRequest(request),
         vernacularData: vernacularData,
         imageMetaDataLibrary: imageMetaDataLibrary,
+        doNotOpenDialogue: doNotOpenDialogue,
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, vernacularData, imageMetaDataLibrary, doNotOpenDialogue} = useLoaderData() as LoaderData;
     const utmSearchParameters = useUtmSearchParameters();
 
     return (
@@ -72,6 +77,7 @@ export default () => {
                         showMobileMenuIcon={true}
                         utmParameters={utmSearchParameters}
                         pageUrl={pageUrl}
+                        doNotOpenDialogue={doNotOpenDialogue}
                         breadcrumbs={
                             [
                                 // {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},

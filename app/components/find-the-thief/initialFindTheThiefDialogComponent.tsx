@@ -87,7 +87,7 @@ export function InitialFindTheThiefDialogComponent({userPreferences, buttonClick
                 <div className="tw-row-start-3 tw-grid">
                     <VerticalSpacer className="tw-h-2" />
                     <Link
-                        to="/terms-and-conditions/social-media"
+                        to="/terms-and-conditions/social-media/?doNotOpenDialogue=1"
                         target="_blank"
                         rel="noopener noreferrer"
                         className=" tw-text-center lg-text-icon hover:lg-text-primary-500 tw-place-self-center"

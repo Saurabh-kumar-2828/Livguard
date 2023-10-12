@@ -22,11 +22,13 @@ export function PageScaffold({
     breadcrumbs,
     pageUrl,
     secondaryNavigationController,
+    doNotOpenDialogue,
 }: {
     userPreferences: UserPreferences;
     children: any;
     redirectTo: string;
     showMobileMenuIcon: boolean;
+    doNotOpenDialogue?: string | null;
     utmParameters: {
         [searchParameter: string]: string;
     };
@@ -47,7 +49,7 @@ export function PageScaffold({
         }
 
         const treasureHuntStep = localStorage.getItem("treasureHuntStep");
-        if (treasureHuntStep == null || treasureHuntStep == "0") {
+        if (treasureHuntStep == null || treasureHuntStep == "0" || doNotOpenDialogue !== "1") {
             setIsFindTheThiefDialogOpen(true);
         }
     }, []);
@@ -55,9 +57,12 @@ export function PageScaffold({
     useEffect(() => {
         const treasureHuntStep = localStorage.getItem("treasureHuntStep");
         if (isCookieDialogOpen === false && localStorage.getItem("cookiesAccepted") != null && (treasureHuntStep == null || treasureHuntStep === "0")) {
+            if(doNotOpenDialogue !== "1")
             setTimeout(() => {
                 setIsFindTheThiefDialogOpen(true);
             }, 1000);
+            else
+                setIsFindTheThiefDialogOpen(false)
         }
     }, [isCookieDialogOpen]);
 

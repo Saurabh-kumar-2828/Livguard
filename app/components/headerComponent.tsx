@@ -57,253 +57,251 @@ export function HeaderComponent({
     );
 }
 
-function FirstBar({showContactDetails, userPreferences, redirectTo}: {showContactDetails: boolean; userPreferences: UserPreferences; redirectTo: string}) {
-    const submit = useSubmit();
+// function FirstBar({showContactDetails, userPreferences, redirectTo}: {showContactDetails: boolean; userPreferences: UserPreferences; redirectTo: string}) {
+//     const submit = useSubmit();
 
-    const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
+//     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
 
-    const languageOptions = [Language.English, Language.Hindi];
-    const [selectedLanguage, setSelectedLanguage] = useState(userPreferences.language);
-    const languageFormRef = useRef<HTMLFormElement>(null);
-    const previousLanguage = useRef(userPreferences.language);
+//     const languageOptions = [Language.English, Language.Hindi];
+//     const [selectedLanguage, setSelectedLanguage] = useState(userPreferences.language);
+//     const languageFormRef = useRef<HTMLFormElement>(null);
+//     const previousLanguage = useRef(userPreferences.language);
 
-    useEffect(() => {
-        // Used to safegaurd against sending a language change request the moment a user enters the page
-        if (selectedLanguage != previousLanguage.current) {
-            submit(languageFormRef.current, {replace: true});
-            previousLanguage.current = selectedLanguage;
-            if(!useIsScreenSizeBelow(1024)) {
-                setHaptikLanguage(selectedLanguage);
-            }
-        }
-    }, [selectedLanguage]);
+//     useEffect(() => {
+//         // Used to safegaurd against sending a language change request the moment a user enters the page
+//         if (selectedLanguage != previousLanguage.current) {
+//             submit(languageFormRef.current, {replace: true});
+//             previousLanguage.current = selectedLanguage;
+//             setHaptikLanguage(selectedLanguage);
+//         }
+//     }, [selectedLanguage]);
 
-    const themeOptions = [null, Theme.Light, Theme.Dark];
-    const [selectedTheme, setSelectedTheme] = useState(userPreferences.theme);
-    const themeFormRef = useRef<HTMLFormElement>(null);
-    const previousTheme = useRef(userPreferences.theme);
+//     const themeOptions = [null, Theme.Light, Theme.Dark];
+//     const [selectedTheme, setSelectedTheme] = useState(userPreferences.theme);
+//     const themeFormRef = useRef<HTMLFormElement>(null);
+//     const previousTheme = useRef(userPreferences.theme);
 
-    useEffect(() => {
-        // Used to safegaurd against sending a theme change request the moment a user enters the page
-        if (selectedTheme != previousTheme.current) {
-            submit(themeFormRef.current, {replace: true});
-            previousTheme.current = selectedTheme;
+//     useEffect(() => {
+//         // Used to safegaurd against sending a theme change request the moment a user enters the page
+//         if (selectedTheme != previousTheme.current) {
+//             submit(themeFormRef.current, {replace: true});
+//             previousTheme.current = selectedTheme;
 
-            // TODO: Remove this now?
-            if (selectedTheme == Theme.Dark || (selectedTheme == null && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-                document.documentElement.classList.add("tw-dark");
-            } else {
-                document.documentElement.classList.remove("tw-dark");
-            }
-        }
-    }, [selectedTheme]);
+//             // TODO: Remove this now?
+//             if (selectedTheme == Theme.Dark || (selectedTheme == null && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+//                 document.documentElement.classList.add("tw-dark");
+//             } else {
+//                 document.documentElement.classList.remove("tw-dark");
+//             }
+//         }
+//     }, [selectedTheme]);
 
-    function tryToOpenContactUsDialog() {
-        setIsContactUsDialogOpen(true);
-    }
-    const contentData = useContext(ContentProviderContext);
-    return (
-        <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
-            {showContactDetails == false ? null : (
-                <>
-                    <button
-                        onClick={tryToOpenContactUsDialog}
-                        className="tw-underline tw-underline-offset-4 lg:tw-hidden"
-                    >
-                        {contentData.getContent("headerS1T1")}
-                    </button>
+//     function tryToOpenContactUsDialog() {
+//         setIsContactUsDialogOpen(true);
+//     }
 
-                    <div className="tw-hidden lg:tw-flex tw-flex-row tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
-                        {contentData.getContent("headerContactUsDialogT2")}:
-                        <HorizontalSpacer className="tw-w-1" />
-                        <a href="tel:18001025551">1800-1025-551</a>
-                        <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
-                        <HorizontalSpacer className="tw-w-4" />
-                        {contentData.getContent("headerContactUsDialogT3")}:
-                        <HorizontalSpacer className="tw-w-1" />
-                        <a href="tel:+919205667999">+91 92056-67999</a>
-                    </div>
-                </>
-            )}
+//     return (
+//         <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
+//             {showContactDetails == false ? null : (
+//                 <>
+//                     <button
+//                         onClick={tryToOpenContactUsDialog}
+//                         className="tw-underline tw-underline-offset-4 lg:tw-hidden"
+//                     >
+//                         {contentData.getContent("headerS1T1")}
+//                     </button>
 
-            <div className="tw-flex-1" />
+//                     <div className="tw-hidden lg:tw-flex tw-flex-row tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
+//                         {contentData.getContent("headerContactUsDialogT2")}:
+//                         <HorizontalSpacer className="tw-w-1" />
+//                         <a href="tel:18001025551">1800-1025-551</a>
+//                         <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
+//                         <HorizontalSpacer className="tw-w-4" />
+//                         {contentData.getContent("headerContactUsDialogT3")}:
+//                         <HorizontalSpacer className="tw-w-1" />
+//                         <a href="tel:+919205667999">+91 92056-67999</a>
+//                     </div>
+//                 </>
+//             )}
 
-            <Link
-                to="/offers"
-                className="tw-hidden lg:tw-flex flex-row tw-justify-between tw-items-center tw-transition tw-duration-200 hover:lg-text-primary-500"
-            >
-                <img
-                    className="tw-h-4 tw-w-4"
-                    src={
-                        userPreferences.theme === Theme.Light
-                            ? getAbsolutePathForRelativePath(getMetadataForImage("/livguard/icons/get-offers-light.png").finalUrl, ImageCdnProvider.Bunny, null, null)
-                            : getAbsolutePathForRelativePath(getMetadataForImage("/livguard/icons/get-offers-dark.png").finalUrl, ImageCdnProvider.Bunny, null, null)
-                    }
-                />
-                <HorizontalSpacer className="tw-w-1" />
-                {contentData.getContent("9316f275-c395-4344-99d7-895d162602c0")}
-            </Link>
-            <HorizontalSpacer className="tw-w-5" />
+//             <div className="tw-flex-1" />
 
-            {/* <Link
-                        to="/e-waste-management"
-                        target="_blank"
-                        className="tw-hidden lg:tw-flex flex-row tw-justify-between tw-items-center tw-transition tw-duration-200 hover:lg-text-primary-500"
-                    >
-                        <img
-                            className="tw-invert dark:tw-invert-0"
-                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/header/e-waste-management.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
-                        />
-                        <HorizontalSpacer className="tw-w-1" />
-                        {contentData.getContent("headerMenuSM8T6")}
-                    </Link> */}
+//             <Link
+//                 to="/offers"
+//                 className="tw-hidden lg:tw-flex flex-row tw-justify-between tw-items-center tw-transition tw-duration-200 hover:lg-text-primary-500"
+//             >
+//                 <img
+//                     className="tw-h-4 tw-w-4"
+//                     src={
+//                         userPreferences.theme === Theme.Light
+//                             ? getAbsolutePathForRelativePath(getMetadataForImage("/livguard/icons/get-offers-light.png").finalUrl, ImageCdnProvider.Bunny, null, null)
+//                             : getAbsolutePathForRelativePath(getMetadataForImage("/livguard/icons/get-offers-dark.png").finalUrl, ImageCdnProvider.Bunny, null, null)
+//                     }
+//                 />
+//                 <HorizontalSpacer className="tw-w-1" />
+//                 {contentData.getContent("9316f275-c395-4344-99d7-895d162602c0")}
+//             </Link>
+//             <HorizontalSpacer className="tw-w-5" />
 
-            <HorizontalSpacer className="tw-w-5" />
+//             {/* <Link
+//                         to="/e-waste-management"
+//                         target="_blank"
+//                         className="tw-hidden lg:tw-flex flex-row tw-justify-between tw-items-center tw-transition tw-duration-200 hover:lg-text-primary-500"
+//                     >
+//                         <img
+//                             className="tw-invert dark:tw-invert-0"
+//                             src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/header/e-waste-management.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+//                         />
+//                         <HorizontalSpacer className="tw-w-1" />
+//                         {contentData.getContent("headerMenuSM8T6")}
+//                     </Link> */}
 
-            <Form
-                method="post"
-                action="/set-theme"
-                ref={themeFormRef}
-                className="tw-relative tw-h-6"
-            >
-                <Listbox
-                    value={selectedTheme}
-                    onChange={setSelectedTheme}
-                >
-                    <Listbox.Button className="lg-text-secondary-900">
-                        <BrightnessHighFill className="tw-w-6 tw-h-6 tw-block dark:tw-hidden" />
-                        <MoonStarsFill className="tw-w-6 tw-h-6 dark:tw-block tw-hidden" />
-                    </Listbox.Button>
+//             <HorizontalSpacer className="tw-w-5" />
 
-                    <Listbox.Options className="tw-absolute tw-z-[60] tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden tw-w-max">
-                        <ItemBuilder
-                            items={themeOptions}
-                            itemBuilder={(item, itemIndex) => (
-                                <Listbox.Option
-                                    value={item}
-                                    key={itemIndex}
-                                    as={React.Fragment}
-                                >
-                                    {({active, selected}) => (
-                                        <li
-                                            className={concatenateNonNullStringsWithSpaces(
-                                                "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
-                                                active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-100",
-                                            )}
-                                        >
-                                            <div>{themeToHumanFriendlyString(userPreferences, item)}</div>
-                                            {selected ? <Check2 className="tw-w-5 tw-h-5" /> : <div className="tw-w-5 tw-h-5" />}
-                                        </li>
-                                    )}
-                                </Listbox.Option>
-                            )}
-                            spaceBuilder={(spaceIndex) => (
-                                <div
-                                    className="tw-h-px lg-bg-secondary-700"
-                                    key={spaceIndex}
-                                />
-                            )}
-                        />
-                    </Listbox.Options>
-                </Listbox>
+//             <Form
+//                 method="post"
+//                 action="/set-theme"
+//                 ref={themeFormRef}
+//                 className="tw-relative tw-h-6"
+//             >
+//                 <Listbox
+//                     value={selectedTheme}
+//                     onChange={setSelectedTheme}
+//                 >
+//                     <Listbox.Button className="lg-text-secondary-900">
+//                         <BrightnessHighFill className="tw-w-6 tw-h-6 tw-block dark:tw-hidden" />
+//                         <MoonStarsFill className="tw-w-6 tw-h-6 dark:tw-block tw-hidden" />
+//                     </Listbox.Button>
 
-                <input
-                    type="text"
-                    name="theme"
-                    value={selectedTheme ?? ""}
-                    readOnly
-                    className="tw-hidden"
-                />
+//                     <Listbox.Options className="tw-absolute tw-z-[60] tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden tw-w-max">
+//                         <ItemBuilder
+//                             items={themeOptions}
+//                             itemBuilder={(item, itemIndex) => (
+//                                 <Listbox.Option
+//                                     value={item}
+//                                     key={itemIndex}
+//                                     as={React.Fragment}
+//                                 >
+//                                     {({active, selected}) => (
+//                                         <li
+//                                             className={concatenateNonNullStringsWithSpaces(
+//                                                 "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
+//                                                 active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-100",
+//                                             )}
+//                                         >
+//                                             <div>{themeToHumanFriendlyString(userPreferences, item)}</div>
+//                                             {selected ? <Check2 className="tw-w-5 tw-h-5" /> : <div className="tw-w-5 tw-h-5" />}
+//                                         </li>
+//                                     )}
+//                                 </Listbox.Option>
+//                             )}
+//                             spaceBuilder={(spaceIndex) => (
+//                                 <div
+//                                     className="tw-h-px lg-bg-secondary-700"
+//                                     key={spaceIndex}
+//                                 />
+//                             )}
+//                         />
+//                     </Listbox.Options>
+//                 </Listbox>
 
-                <input
-                    type="text"
-                    name="redirectTo"
-                    value={redirectTo}
-                    readOnly
-                    className="tw-hidden"
-                />
-            </Form>
+//                 <input
+//                     type="text"
+//                     name="theme"
+//                     value={selectedTheme ?? ""}
+//                     readOnly
+//                     className="tw-hidden"
+//                 />
 
-            <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
+//                 <input
+//                     type="text"
+//                     name="redirectTo"
+//                     value={redirectTo}
+//                     readOnly
+//                     className="tw-hidden"
+//                 />
+//             </Form>
 
-            <HorizontalSpacer className="tw-w-4" />
+//             <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
 
-            <Form
-                method="post"
-                action="/set-language"
-                ref={languageFormRef}
-                className="tw-relative"
-            >
-                <Listbox
-                    value={selectedLanguage}
-                    onChange={setSelectedLanguage}
-                >
-                    <Listbox.Button className="lg-text-secondary-900 tw-grid tw-grid-cols-[1rem_1rem] tw-gap-x-2 tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
-                        {languageToShortHumanFriendlyFormat(selectedLanguage)}
-                        <ChevronDown className="tw-w-4 tw-h-4" />
-                    </Listbox.Button>
+//             <HorizontalSpacer className="tw-w-4" />
 
-                    <Listbox.Options className="tw-absolute tw-z-[60] tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden tw-w-max">
-                        <ItemBuilder
-                            items={languageOptions}
-                            itemBuilder={(item, itemIndex) => (
-                                <Listbox.Option
-                                    value={item}
-                                    key={itemIndex}
-                                    as={React.Fragment}
-                                >
-                                    {({active, selected}) => (
-                                        <li
-                                            className={concatenateNonNullStringsWithSpaces(
-                                                "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
-                                                active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
-                                            )}
-                                        >
-                                            <div>{languageToHumanFriendlyString(item)}</div>
-                                            {selected ? (
-                                                <Check2 className="tw-w-5 tw-h-5 lg:tw-h-3 lg:tw-w-3 xl:tw-h-5 xl:tw-w-5" />
-                                            ) : (
-                                                <div className="tw-w-5 tw-h-5 lg:tw-h-3 lg:tw-w-3 xl:tw-h-5 xl:tw-w-5" />
-                                            )}
-                                        </li>
-                                    )}
-                                </Listbox.Option>
-                            )}
-                            spaceBuilder={(spaceIndex) => (
-                                <div
-                                    className="tw-h-px lg-bg-secondary-700"
-                                    key={spaceIndex}
-                                />
-                            )}
-                        />
-                    </Listbox.Options>
-                </Listbox>
+//             <Form
+//                 method="post"
+//                 action="/set-language"
+//                 ref={languageFormRef}
+//                 className="tw-relative"
+//             >
+//                 <Listbox
+//                     value={selectedLanguage}
+//                     onChange={setSelectedLanguage}
+//                 >
+//                     <Listbox.Button className="lg-text-secondary-900 tw-grid tw-grid-cols-[1rem_1rem] tw-gap-x-2 tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
+//                         {languageToShortHumanFriendlyFormat(selectedLanguage)}
+//                         <ChevronDown className="tw-w-4 tw-h-4" />
+//                     </Listbox.Button>
 
-                <input
-                    type="text"
-                    name="language"
-                    value={selectedLanguage}
-                    readOnly
-                    className="tw-hidden"
-                />
+//                     <Listbox.Options className="tw-absolute tw-z-[60] tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden tw-w-max">
+//                         <ItemBuilder
+//                             items={languageOptions}
+//                             itemBuilder={(item, itemIndex) => (
+//                                 <Listbox.Option
+//                                     value={item}
+//                                     key={itemIndex}
+//                                     as={React.Fragment}
+//                                 >
+//                                     {({active, selected}) => (
+//                                         <li
+//                                             className={concatenateNonNullStringsWithSpaces(
+//                                                 "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
+//                                                 active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
+//                                             )}
+//                                         >
+//                                             <div>{languageToHumanFriendlyString(item)}</div>
+//                                             {selected ? (
+//                                                 <Check2 className="tw-w-5 tw-h-5 lg:tw-h-3 lg:tw-w-3 xl:tw-h-5 xl:tw-w-5" />
+//                                             ) : (
+//                                                 <div className="tw-w-5 tw-h-5 lg:tw-h-3 lg:tw-w-3 xl:tw-h-5 xl:tw-w-5" />
+//                                             )}
+//                                         </li>
+//                                     )}
+//                                 </Listbox.Option>
+//                             )}
+//                             spaceBuilder={(spaceIndex) => (
+//                                 <div
+//                                     className="tw-h-px lg-bg-secondary-700"
+//                                     key={spaceIndex}
+//                                 />
+//                             )}
+//                         />
+//                     </Listbox.Options>
+//                 </Listbox>
 
-                <input
-                    type="text"
-                    name="redirectTo"
-                    value={redirectTo}
-                    readOnly
-                    className="tw-hidden"
-                />
-            </Form>
+//                 <input
+//                     type="text"
+//                     name="language"
+//                     value={selectedLanguage}
+//                     readOnly
+//                     className="tw-hidden"
+//                 />
 
-            <ContactUsDialog
-                userPreferences={userPreferences}
-                isContactUsDialogOpen={isContactUsDialogOpen}
-                setIsContactUsDialogOpen={setIsContactUsDialogOpen}
-            />
-        </div>
-    );
-}
+//                 <input
+//                     type="text"
+//                     name="redirectTo"
+//                     value={redirectTo}
+//                     readOnly
+//                     className="tw-hidden"
+//                 />
+//             </Form>
+
+//             <ContactUsDialog
+//                 userPreferences={userPreferences}
+//                 isContactUsDialogOpen={isContactUsDialogOpen}
+//                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
+//             />
+//         </div>
+//     );
+// }
 
 function SecondBar({
     showMobileMenuIcon,
@@ -345,7 +343,7 @@ function SecondBar({
         if (selectedLanguage != previousLanguage.current) {
             submit(languageFormRef.current, {replace: true});
             previousLanguage.current = selectedLanguage;
-            if(!isScreenSizeBelow) {
+            if (!isScreenSizeBelow) {
                 setHaptikLanguage(selectedLanguage);
             }
         }
@@ -1648,7 +1646,7 @@ function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserP
                                                           </div>
                                                       ))}
                                                   </div>
-                                        )}
+                                              )}
                                     </>
                                 </div>
                             </div>
@@ -1700,7 +1698,7 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
         >
             <Dialog
                 as="div"
-                className="tw-relative tw-z-[60]"
+                className="tw-relative tw-z-[65]"
                 onClose={tryToCloseSearch}
             >
                 <Dialog.Panel className="tw-fixed tw-inset-0 tw-grid tw-grid-rows-[5.25rem_minmax(0,1fr)]">
