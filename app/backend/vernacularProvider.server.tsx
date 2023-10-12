@@ -11628,8 +11628,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `?????`,
     },
     "ab1da9d6-1aaa-46d4-9b50-b911b3006b11": {
-        [Language.English]: `+91 95991 98444`,
-        [Language.Hindi]: `+91 95991 98444`,
+        [Language.English]: `Strat Here`,
+        [Language.Hindi]: `यहाँ से शुरू`,
     },
     "64538664-71d0-4080-900a-8b54176456bc": {
         [Language.English]: `Explore Our `,

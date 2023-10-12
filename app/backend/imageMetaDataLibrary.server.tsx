@@ -7476,6 +7476,18 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "blurHash": "LHC~DE_#^S=L~Ez.xbxHjcsls:a#",
         "finalUrl": "/livguard/video-gallery/1/desktop-banner-2870ac.jpg"
     },
+    "/livguard/home/second-banner/desktop-banner.jpg": {
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "LjNIdN.myX-;-;t,eTni.T%Mniae",
+        "finalUrl": "/livguard/home/second-banner/desktop-banner-abc407.jpg"
+    },
+    "/livguard/home/second-banner/mobile-banner.jpg": {
+        "width": 3839,
+        "height": 3840,
+        "blurHash": "LNMO8OyDK4=|+by?pcsoyr-;%#x]",
+        "finalUrl": "/livguard/home/second-banner/mobile-banner-89e6ad.jpg"
+    },
 };
 
 export function getImageMetadataLibraryForPage(ids: Array<string>): {[relativePath: string]: ImageMetadata | undefined} {
@@ -7515,6 +7527,8 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/home/second-banner/desktop-banner.jpg",
+        "/livguard/home/second-banner/mobile-banner.jpg",
         "/livguard/home/1/banner-2.jpg",
         "/livguard/home/1/mob-banner-2.jpg",
         "/livguard/find-the-thief/treasure-inverter.png",
