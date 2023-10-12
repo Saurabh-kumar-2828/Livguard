@@ -58,7 +58,7 @@ function LoadCalculatorDialogMobile({
     couponCode: string;
     setCouponCode: React.Dispatch<string>;
 }) {
-    const [step, setStep] = useState(2);
+    const [step, setStep] = useState(1);
 
     return (
         <div className="tw-px-4 tw-py-8 tw-z-[64]">
@@ -83,7 +83,7 @@ function LoadCalculatorDialogMobile({
                     userPreferences={userPreferences}
                     setIsDialogOpen={setIsDialogOpen}
                 />
-            )}
+            )}           
         </div>
     );
 }

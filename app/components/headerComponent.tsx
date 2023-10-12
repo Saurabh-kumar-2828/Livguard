@@ -16,6 +16,7 @@ import type {UserPreferences} from "~/typeDefinitions";
 import {Language, Theme, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, themeToHumanFriendlyString} from "~/typeDefinitions";
 import {getMetadataForImage} from "~/utilities";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 
 export function HeaderComponent({
     userPreferences,
@@ -71,7 +72,9 @@ function FirstBar({showContactDetails, userPreferences, redirectTo}: {showContac
         if (selectedLanguage != previousLanguage.current) {
             submit(languageFormRef.current, {replace: true});
             previousLanguage.current = selectedLanguage;
-            setHaptikLanguage(selectedLanguage);
+            if(!useIsScreenSizeBelow(1024)) {
+                setHaptikLanguage(selectedLanguage);
+            }
         }
     }, [selectedLanguage]);
 
@@ -335,12 +338,16 @@ function SecondBar({
     const languageFormRef = useRef<HTMLFormElement>(null);
     const previousLanguage = useRef(userPreferences.language);
 
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     useEffect(() => {
         // Used to safegaurd against sending a language change request the moment a user enters the page
         if (selectedLanguage != previousLanguage.current) {
             submit(languageFormRef.current, {replace: true});
             previousLanguage.current = selectedLanguage;
-            setHaptikLanguage(selectedLanguage);
+            if(!isScreenSizeBelow) {
+                setHaptikLanguage(selectedLanguage);
+            }
         }
     }, [selectedLanguage]);
 
@@ -532,7 +539,7 @@ function SecondBar({
                                         <li
                                             className={concatenateNonNullStringsWithSpaces(
                                                 "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
-                                                active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
+                                                active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-100",
                                             )}
                                         >
                                             <div>{languageToHumanFriendlyString(item)}</div>

@@ -523,10 +523,10 @@ function HeroSection({
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-overflow-hidden tw-h-[calc(100vh-16.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] lg:tw-min-h-[calc(100vw*7.5/16)] tw-relative",
+                "tw-overflow-hidden max-[380px]:tw-h-[calc(100vh-10rem-var(--lg-mobile-ui-height))] tw-h-[calc(100vh-16.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] lg:tw-min-h-[calc(100vw*7.5/16)] tw-relative",
                 className,
             )}
-            ref={emblaRef}
+            // ref={emblaRef}
         >
             <div
                 className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch tw-z-20"
@@ -535,7 +535,7 @@ function HeroSection({
                 <ItemBuilder
                     items={[
                         {
-                            mobileImageRelativePath: "/livguard/home/second-banner/mobile-banner.jpg",
+                            mobileImageRelativePath: "/livguard/home/second-banner/mob-banner.jpg",
                             desktopImageRelativePath: "/livguard/home/second-banner/desktop-banner.jpg",
                             titleVernacId: "0f24d13c-8b25-4165-b0d4-197c059e4794",
                             subTitleVernacId: "bb45dab0-a985-4bf8-9f07-845806b20b77",
@@ -623,7 +623,7 @@ function HeroSection({
                             {item.titleVernacId && item.subTitleVernacId && (
                                 <h2
                                     className={concatenateNonNullStringsWithSpaces(
-                                        "tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge",
+                                        "tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge max-[380px]:tw-px-[1rem]",
                                         // itemIndex === 1 ? "tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge" : "",
                                     )}
                                 >

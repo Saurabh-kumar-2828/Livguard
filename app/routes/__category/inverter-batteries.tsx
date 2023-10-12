@@ -1110,129 +1110,129 @@ export function OurSuggestionsSection({
     );
 }
 
-export function SideBySideOverviewSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const productOverview: Array<{
-        heading: string;
-        image: string;
-        features: Array<{title: string; highlighted: boolean}>;
-    }> = [
-        {
-            image: "",
-            heading: `${contentData.getContent("categoryBatteriesS5Slide1Heading")}`,
-            features: [
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F1Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F2Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F3Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F4Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F5Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F6Title")}`,
-                    highlighted: true,
-                },
-            ],
-        },
-        {
-            image: "",
-            heading: `${contentData.getContent("categoryBatteriesS5Slide2Heading")}`,
-            features: [
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F1Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F2Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F3Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F4Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F5Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F6Title")}`,
-                    highlighted: true,
-                },
-            ],
-        },
-        {
-            image: "",
-            heading: `${contentData.getContent("categoryBatteriesS5Slide3Heading")}`,
-            features: [
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F1Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F2Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F3Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F4Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F5Title")}`,
-                    highlighted: true,
-                },
-                {
-                    title: `${contentData.getContent("categoryBatteriesS5F6Title")}`,
-                    highlighted: true,
-                },
-            ],
-        },
-    ];
-    const contentData = useContext(ContentProviderContext);
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryBatteriesS5HT1")}} />
-                </div>
+// export function SideBySideOverviewSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+//     const productOverview: Array<{
+//         heading: string;
+//         image: string;
+//         features: Array<{title: string; highlighted: boolean}>;
+//     }> = [
+//         {
+//             image: "",
+//             heading: `${contentData.getContent("categoryBatteriesS5Slide1Heading")}`,
+//             features: [
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F1Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F2Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F3Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F4Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F5Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F6Title")}`,
+//                     highlighted: true,
+//                 },
+//             ],
+//         },
+//         {
+//             image: "",
+//             heading: `${contentData.getContent("categoryBatteriesS5Slide2Heading")}`,
+//             features: [
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F1Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F2Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F3Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F4Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F5Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F6Title")}`,
+//                     highlighted: true,
+//                 },
+//             ],
+//         },
+//         {
+//             image: "",
+//             heading: `${contentData.getContent("categoryBatteriesS5Slide3Heading")}`,
+//             features: [
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F1Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F2Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F3Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F4Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F5Title")}`,
+//                     highlighted: true,
+//                 },
+//                 {
+//                     title: `${contentData.getContent("categoryBatteriesS5F6Title")}`,
+//                     highlighted: true,
+//                 },
+//             ],
+//         },
+//     ];
+//     const contentData = useContext(ContentProviderContext);
+//     return (
+//         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
+//             <div className="tw-flex tw-flex-col">
+//                 <div className="lg-text-headline tw-text-center">
+//                     <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryBatteriesS5HT1")}} />
+//                 </div>
 
-                <VerticalSpacer className="tw-h-6" />
+//                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="tw-flex tw-flex-row tw-gap-3 tw-overflow-auto tw-w-full">
-                    <ItemBuilder
-                        items={productOverview}
-                        itemBuilder={(productOverview, productIndex) => (
-                            <ProductOverviewComponent
-                                vernacularContent={productOverview}
-                                className="tw-min-w-[40%]"
-                                key={productIndex}
-                            />
-                        )}
-                    />
-                </div>
-            </div>
-        </div>
-    );
-}
+//                 <div className="tw-flex tw-flex-row tw-gap-3 tw-overflow-auto tw-w-full">
+//                     <ItemBuilder
+//                         items={productOverview}
+//                         itemBuilder={(productOverview, productIndex) => (
+//                             <ProductOverviewComponent
+//                                 vernacularContent={productOverview}
+//                                 className="tw-min-w-[40%]"
+//                                 key={productIndex}
+//                             />
+//                         )}
+//                     />
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// }
 
 export function ChooseBestInverterBattery({
     userPreferences,

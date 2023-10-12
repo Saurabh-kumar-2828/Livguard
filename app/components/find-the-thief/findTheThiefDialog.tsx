@@ -64,7 +64,7 @@ export function FindTheThiefDialog({
                         <div className="tw-w-fit tw-inset-0 tw-m-auto lg:tw-max-w-4xl tw-h-full tw-grid max-lg:tw-max-h-[95vh] max-lg:tw-overflow-y-auto max-lg:tw-overflow-x-hidden tw-relative">
                             <button
                                 onClick={() => setIsDialogOpen(false)}
-                                className="tw-absolute tw-top-2 tw-right-2 tw-h-10 tw-w-10 lg-bg-secondary-100 lg-card tw-grid tw-place-items-center tw-z-30"
+                                className="tw-absolute tw-top-2 tw-right-2 tw-h-10 tw-w-10 lg-bg-secondary-100 lg-card tw-grid tw-place-items-center tw-z-[100]"
                             >
                                 <X className="tw-h-6 tw-w-6" />
                             </button>

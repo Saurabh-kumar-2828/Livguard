@@ -7488,6 +7488,12 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "blurHash": "LNMO8OyDK4=|+by?pcsoyr-;%#x]",
         "finalUrl": "/livguard/home/second-banner/mobile-banner-89e6ad.jpg"
     },
+    "/livguard/home/second-banner/mob-banner.jpg": {
+        "width": 3839,
+        "height": 3840,
+        "blurHash": "LKMEs@u3K4=y*}y?l9t7yr-;%~%M",
+        "finalUrl": "/livguard/home/second-banner/mob-banner-6904e4.jpg"
+    },
 };
 
 export function getImageMetadataLibraryForPage(ids: Array<string>): {[relativePath: string]: ImageMetadata | undefined} {
@@ -7527,6 +7533,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/home/second-banner/mob-banner.jpg",
         "/livguard/home/second-banner/desktop-banner.jpg",
         "/livguard/home/second-banner/mobile-banner.jpg",
         "/livguard/home/1/banner-2.jpg",

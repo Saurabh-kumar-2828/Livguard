@@ -99,6 +99,9 @@ export const links: LinksFunction = () => [
 export default function Root() {
     const {userPreferences, canonicalUrl, websiteConfiguration, haptikInitSettings} = useLoaderData() as LoaderData;
 
+    // const {initialLoadSize, setInitialLoadSize} = useState('desktop');
+
+
     // function addScript(scriptContent: string) {
     //     const scriptTag = document.createElement("script");
     //     scriptTag.innerHTML = scriptContent;
@@ -113,11 +116,16 @@ export default function Root() {
         window.addEventListener("cookiesAccepted", () => {
             setCookiesAccepted(localStorage.getItem("cookiesAccepted"));
         });
+
+        // if(useIsScreenSizeBelow(1024)) {
+        //     setInitialLoadSize('mobile');
+        // }
+
     }, []);
 
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
-    useExternalScript("https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js", {removeOnUnmount: true, appendInHead: true, timeoutDuration: 5000}, isScreenSizeBelow? "false" : "true", () => {
+    useExternalScript("https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js", {removeOnUnmount: true, appendInHead: true, timeoutDuration: 5000}, isScreenSizeBelow ? "false" : "true", () => {
         document.addEventListener("haptik_sdk", () => setHaptikLanguage(userPreferences.language));
     });
     useExternalScript(

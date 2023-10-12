@@ -142,33 +142,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Inverter Trolley",
         [Language.Hindi]: "इनवर्टर ट्राली",
     },
-    "c4965a0f-b4e4-4afd-9e5f-fda80734f3b4": {
-        [Language.English]: "Solar Panels",
-        [Language.Hindi]: "???",
-    },
+    // "c4965a0f-b4e4-4afd-9e5f-fda80734f3b4": {
+    //     [Language.English]: "Solar Panels",
+    //     [Language.Hindi]: "???",
+    // },
     "57dfdb7b-3b26-4918-81fc-15aee33119a6": {
         [Language.English]: "Two Wheeler",
         [Language.Hindi]: "2-पहिया बैटरी",
-    },
-    "109fecc7-85fc-46c2-9f6f-a7b330bfe03b": {
-        [Language.English]: "Car",
-        [Language.Hindi]: "???",
-    },
-    "fbbf41f7-9141-4c3a-8e2d-6203f59bb511": {
-        [Language.English]: "E-Rikshaw",
-        [Language.Hindi]: "???",
-    },
-    "5ad559b4-eb41-457b-a460-01611bca3e59": {
-        [Language.English]: "Commercial Vehicles",
-        [Language.Hindi]: "???",
-    },
-    "6168e049-da78-4bc6-923b-9446914b8912": {
-        [Language.English]: "Contact Us",
-        [Language.Hindi]: "???",
-    },
-    "ae2b8d62-1469-4c68-a9fa-2cd416ed578c": {
-        [Language.English]: "More",
-        [Language.Hindi]: "???",
     },
     "98f2d242-eb78-4ff3-882e-fbc504673165": {
         [Language.English]: "Pricing",
@@ -181,10 +161,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "e7df1392-3354-4f8c-82a4-9d284da7d9bb": {
         [Language.English]: "Governance",
         [Language.Hindi]: "शासन",
-    },
-    "78d6e103-5022-4d48-8ea7-94b38566d327": {
-        [Language.English]: "Investor Page",
-        [Language.Hindi]: "???",
     },
     "a9df629a-e685-4822-be66-f59678e45cbc": {
         [Language.English]: "CSR",
@@ -1006,19 +982,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Connect Now",
         [Language.Hindi]: "संपर्क करें",
     },
-    landingPage3S3T1: {
-        [Language.English]: "Enter Location,city or Pincode",
-        [Language.Hindi]: "?????",
-    },
-    landingPage3S3T2: {
-        [Language.English]: "Use Current Location",
-        [Language.Hindi]: "?????",
-    },
-    landingPage3S3T3: {
-        [Language.English]: "Find My Dealer",
-        [Language.Hindi]: "?????",
-    },
-
     landingPage3S7HT1: {
         [Language.English]: `Top Reasons to Buy Home`,
         [Language.Hindi]: `घर के लिए इनवर्टर और बैटरी <span class="lg-text-highlighted">कॉम्बो</span>`,
@@ -1027,7 +990,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Inverter and Battery <span class="lg-text-highlighted">Combo</span>`,
         [Language.Hindi]: `ख़रीदने के मुख्य कारण`,
     },
-
     landingPage3S7Slide1Heading: {
         [Language.English]: `Effortless <span class="lg-text-highlighted">Compatibility</span>`,
         [Language.Hindi]: `सहज <span class="lg-text-highlighted">अनुकूलता</span>`,
@@ -1365,42 +1327,42 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Side-by-Side Overview",
         [Language.Hindi]: "बैटरी साथ देखें",
     },
-    categoryBatteriesS5F1Title: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-    },
-    categoryBatteriesS5F2Title: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-    },
-    categoryBatteriesS5F3Title: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-    },
-    categoryBatteriesS5F4Title: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-    },
-    categoryBatteriesS5F5Title: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-    },
-    categoryBatteriesS5F6Title: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-    },
-    categoryBatteriesS5Slide1Heading: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-    },
-    categoryBatteriesS5Slide2Heading: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-    },
-    categoryBatteriesS5Slide3Heading: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-    },
+    // categoryBatteriesS5F1Title: {
+    //     [Language.English]: "?????",
+    //     [Language.Hindi]: "?????",
+    // },
+    // categoryBatteriesS5F2Title: {
+    //     [Language.English]: "?????",
+    //     [Language.Hindi]: "?????",
+    // },
+    // categoryBatteriesS5F3Title: {
+    //     [Language.English]: "?????",
+    //     [Language.Hindi]: "?????",
+    // },
+    // categoryBatteriesS5F4Title: {
+    //     [Language.English]: "?????",
+    //     [Language.Hindi]: "?????",
+    // },
+    // categoryBatteriesS5F5Title: {
+    //     [Language.English]: "?????",
+    //     [Language.Hindi]: "?????",
+    // },
+    // categoryBatteriesS5F6Title: {
+    //     [Language.English]: "?????",
+    //     [Language.Hindi]: "?????",
+    // },
+    // categoryBatteriesS5Slide1Heading: {
+    //     [Language.English]: "?????",
+    //     [Language.Hindi]: "?????",
+    // },
+    // categoryBatteriesS5Slide2Heading: {
+    //     [Language.English]: "?????",
+    //     [Language.Hindi]: "?????",
+    // },
+    // categoryBatteriesS5Slide3Heading: {
+    //     [Language.English]: "?????",
+    //     [Language.Hindi]: "?????",
+    // },
     categoryBatteriesS6HT1: {
         [Language.English]: `Suggested <span class="lg-text-highlighted">Combos</span>`,
         [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted">कॉम्बो</span>`, // TODO: Fix
@@ -11628,7 +11590,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `?????`,
     },
     "ab1da9d6-1aaa-46d4-9b50-b911b3006b11": {
-        [Language.English]: `Strat Here`,
+        [Language.English]: `Start Here`,
         [Language.Hindi]: `यहाँ से शुरू`,
     },
     "64538664-71d0-4080-900a-8b54176456bc": {
