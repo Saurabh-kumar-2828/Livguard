@@ -11634,11 +11634,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `?????`,
     },
     "2fdc65c7-2c2f-4ec0-9f80-32666da203cc": {
-        [Language.English]: `Power Your Journey`,
-        [Language.Hindi]: `?????`,
-    },
-    "047f42da-ed6c-43e0-a259-a6e3e6355dc9": {
-        [Language.English]: `Empower Your Drive`,
+        [Language.English]: `Power Your Journey <br/> Empower Your Drive`,
         [Language.Hindi]: `?????`,
     },
     "c372d16f-4b66-486c-9fc4-107ca0bbb50d": {

@@ -125,7 +125,74 @@ const AllCategoryPage = ({userPreferences}: {userPreferences: UserPreferences}) 
     );
 };
 
-const HeroSection = ({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) => {
+function HeroSection() {
+    const isScreenSizeBelow = useIsScreenSizeBelow(768);
+    const contentData = useContext(ContentProviderContext);
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true, align: "start"});
+
+    const items = [
+        {
+            desktopImagePath: "/livguard/all-category/1/desktop.png",
+            mobileImagePath: "/livguard/all-category/1/mobile.png",
+            textVernacId: "2fdc65c7-2c2f-4ec0-9f80-32666da203cc",
+        },
+        {
+            desktopImagePath: "/livguard/all-category/1/desktop.png",
+            mobileImagePath: "/livguard/all-category/1/mobile.png",
+            textVernacId: "2fdc65c7-2c2f-4ec0-9f80-32666da203cc",
+        },
+    ];
+    return (
+        <div
+            className="tw-overflow-hidden tw-relative"
+            ref={emblaRef}
+        >
+            <div className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch tw-z-20">
+                <ItemBuilder
+                    items={items}
+                    itemBuilder={(item, itemIndex) => {
+                        return (
+                            <div
+                                key={itemIndex}
+                                className="tw-grid"
+                            >
+                                <div className="tw-row-start-1 tw-col-start-1">
+                                    <FullWidthImage relativePath={isScreenSizeBelow ? item.mobileImagePath : item.desktopImagePath} />
+                                </div>
+                                <div
+                                    dangerouslySetInnerHTML={{__html: contentData.getContent(item.textVernacId)}}
+                                    className="tw-row-start-1 tw-col-start-1 tw-h-fit tw-text-center md:tw-text-start tw-self-start md:tw-self-center tw-text-[28px] tw-font-bold md:lg-text-headline tw-text-secondary-100-light tw-pt-8 md:tw-pl-14 md:tw-pt-0 max-md:tw-leading-8"
+                                />
+                            </div>
+                        );
+                    }}
+                />
+            </div>
+
+            <button
+                type="button"
+                className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-left-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
+                onClick={() => {
+                    emblaApi?.scrollPrev();
+                }}
+            >
+                <ChevronLeftIcon className="tw-w-6 tw-h-6" />
+            </button>
+
+            <button
+                type="button"
+                className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-right-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
+                onClick={() => {
+                    emblaApi?.scrollNext();
+                }}
+            >
+                <ChevronRightIcon className="tw-w-6 tw-h-6" />
+            </button>
+        </div>
+    );
+}
+
+const HeroSection1 = ({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) => {
     const contentData = useContext(ContentProviderContext);
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
@@ -185,7 +252,7 @@ const HeroSection = ({userPreferences, className}: {userPreferences: UserPrefere
                             {item.mobileImageRelativePath &&
                                 item.desktopImageRelativePath &&
                                 (containerWidth == null || containerHeight == null ? null : (
-                                    <CoverImage
+                                    <FullWidthImage
                                         relativePath={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
                                         className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
                                         key={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
@@ -211,7 +278,6 @@ const HeroSection = ({userPreferences, className}: {userPreferences: UserPrefere
                     )}
                 />
             </div>
-            {/* </div> */}
         </div>
     );
 };
@@ -227,7 +293,7 @@ const ContentSection = ({userPreferences, list, title}: {userPreferences: UserPr
                 <div className="tw-grid tw-grid-rows-[auto_auto_auto_auto]">
                     <div className="tw-text-center lg-text-title1 tw-grid">
                         <h1>{contentData.getContent("3ad88a6b-4448-4395-af28-c86a8f07f45e")}</h1>
-                        <VerticalSpacer className="lg:tw-h-1"/>
+                        <VerticalSpacer className="lg:tw-h-1" />
                         <h1 dangerouslySetInnerHTML={{__html: title}}></h1>
                         <VerticalSpacer className="tw-h-6 lg:tw-h-8" />
                     </div>
