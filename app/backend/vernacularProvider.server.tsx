@@ -74,10 +74,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Inverter Batteries",
         [Language.Hindi]: "इनवर्टर बैटरी",
     },
-    "816e8c1d-93cc-4629-b808-043e46fba2fd": {
-        [Language.English]: "Automotive Batteries",
-        [Language.Hindi]: "???",
-    },
+    // "816e8c1d-93cc-4629-b808-043e46fba2fd": {
+    //     [Language.English]: "Automotive Batteries",
+    //     [Language.Hindi]: "???",
+    // },
     "4254cae7-7bda-4303-bc24-80dcf71c0647": {
         [Language.English]: "Car and SUV Batteries",
         [Language.Hindi]: "गाड़ी और SUV बैटरी",
@@ -106,34 +106,34 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Inverters",
         [Language.Hindi]: "इनवर्टर",
     },
-    "893bd439-ee92-4bfb-a05d-476854330caa": {
-        [Language.English]: "Solar Solutions",
-        [Language.Hindi]: "???",
-    },
-    "b9da5f04-2f6a-48be-8942-9fadf03543bb": {
-        [Language.English]: "Lithium Solutions",
-        [Language.Hindi]: "???",
-    },
+    // "893bd439-ee92-4bfb-a05d-476854330caa": {
+    //     [Language.English]: "Solar Solutions",
+    //     [Language.Hindi]: "???",
+    // },
+    // "b9da5f04-2f6a-48be-8942-9fadf03543bb": {
+    //     [Language.English]: "Lithium Solutions",
+    //     [Language.Hindi]: "???",
+    // },
     "b98f5c9e-16fc-4803-8494-1f54a8eb55c9": {
         [Language.English]: "Accessories",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "सहायक उपकरण",
     },
-    "0faf2ddb-4220-456c-a5fb-935716db76ec": {
-        [Language.English]: "Battery Accessories",
-        [Language.Hindi]: "???",
-    },
+    // "0faf2ddb-4220-456c-a5fb-935716db76ec": {
+    //     [Language.English]: "Battery Accessories",
+    //     [Language.Hindi]: "???",
+    // },
     "52a70998-083b-4b6e-977c-475295c0aa19": {
         [Language.English]: "E-Rickshaw Charger",
         [Language.Hindi]: "ई-रिक्शा चार्जर",
     },
-    "15fbd08d-74e9-45f7-a7a1-645fd0679c14": {
-        [Language.English]: "VRLA",
-        [Language.Hindi]: "???",
-    },
-    "77534355-2fbc-4c69-851c-58a2e4034168": {
-        [Language.English]: "Inverter Accessories",
-        [Language.Hindi]: "???",
-    },
+    // "15fbd08d-74e9-45f7-a7a1-645fd0679c14": {
+    //     [Language.English]: "VRLA",
+    //     [Language.Hindi]: "???",
+    // },
+    // "77534355-2fbc-4c69-851c-58a2e4034168": {
+    //     [Language.English]: "Inverter Accessories",
+    //     [Language.Hindi]: "???",
+    // },
     "5d654da3-2d50-4150-86a1-633152d775c8": {
         [Language.English]: "Stabilizer",
         [Language.Hindi]: "???",
@@ -8453,7 +8453,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "3a2ac2b6-a897-4d0a-ac7e-0abf6425ba24": {
         [Language.English]: "Continue",
-        [Language.Hindi]: "????????????",
+        [Language.Hindi]: "आगे बढ़ें",
     },
     "4eb87934-841c-4c9f-898e-3bfbac44f2a2": {
         [Language.English]: "in E-Waste Management",
@@ -10604,19 +10604,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "58790af6-e242-4064-9f92-8c7af56524f9": {
         [Language.English]: `Calling all Detectives!`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सभी जासूसों को बुलावा!",
     },
     "474f66f2-b713-4581-85de-39cad89f813f": {
         [Language.English]: `Earn Exciting <span class="lg-text-primary-500">Rewards</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `जीतें रोमांचक <span class="lg-text-primary-500">इनाम</span>`,
     },
     "a8794019-66aa-4fa3-bd6d-4376e703626e": {
         [Language.English]: `The mischievous energy thief 'Wattson' is on the move with an inverter and battery combo! Help us in this quest to find and catch him. Follow the clues, unmask the mystery, and seize unique rewards along the way!`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `शरारती ऊर्जा चोर 'वॉटसन' हमारे इनवर्टर और बैटरी कॉम्बो के साथ भाग रहा है! हमें इस खोज में उसे ढूंढने और पकड़ने में मदद करें। संकेतों का पालन करें, रहस्य को खोलें और रास्ते में अनोखे इनाम पाएं!`,
     },
     "850e8c45-a6a4-428b-9e11-4acd93205160": {
         [Language.English]: `<span class="tw-font-semibold">First Clue :</span> He is hiding somewhere on the homepage. Catch him before he escapes!`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="tw-font-semibold">पहला सुराग :</span> वह यहीं होम पेज पर कहीं छिपा हुआ है। उसके भागने से पहले उसे पकड़ें!`,
     },
     "af17ff8e-ce85-491e-ba24-b430a512162a": {
         [Language.English]: `Find Natwarlal`,
@@ -10624,27 +10624,27 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "6b3b89fd-ba28-481a-86ee-8932e25ef249": {
         [Language.English]: `<span class="lg-text-primary-500">Congrats!</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="lg-text-primary-500">बधाई हो!</span>`,
     },
     "9d0d2fb1-93ce-40e7-ae8a-afd396c7159f": {
         [Language.English]: `Your detective skills found the <span class="tw-font-bold">stolen inverter</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `आपके जासूसी कौशल ने <span class="tw-font-bold">चुराए गए इनवर्टर</span> को ढूंढ लिया।`,
     },
     "011c1d97-5ae2-4392-b789-a422bc75b9ee": {
         [Language.English]: `Continue Your Quest`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `अपनी खोज जारी रखें`,
     },
     "773cc962-c03e-4643-9f7b-bb9d6eeab67b": {
         [Language.English]: `Don’t forget to do the following <br/> at the END of the quest.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `खोज के अंत में निम्नलिखित <br /> करना न भूलें`,
     },
     "4c03ff14-2235-45bd-a773-cf027c81fd86": {
         [Language.English]: `Submit your contact details`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `अपना संपर्क विवरण दें।`,
     },
     "8e337c72-d495-4840-9fcc-3670a8e9bd83": {
-        [Language.English]: `Share on livguard <a class="tw-underline tw-decoration-red-500" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/livguardenergy/"><b>social post</b></a> as to which page have you found the  inverter and batttery`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `Share on which page you found the stolen inverter and battery on the Livguard <a class="tw-underline tw-decoration-red-500" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/livguardenergy/"><b>Social Media post.</b></a>`,
+        [Language.Hindi]: `लिवगार्ड <a class="tw-underline tw-decoration-red-500" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/livguardenergy/"><b>सोशल मीडिया पोस्ट</b></a> पर बताएँ कि आपको चोरी हुए इनवर्टर और बैटरी किस पेज पर मिले।`,
     },
     "10f2f51f-a177-48ec-be50-990650be4f59": {
         [Language.English]: `Tag 3 friends along the code`,
@@ -10652,15 +10652,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "bc3184f6-0f40-4633-bca8-1e9c2c21852a": {
         [Language.English]: `Continue`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आगे बढ़ें",
     },
     "e8190da2-de31-41e3-a749-f3e77acc2807": {
         [Language.English]: `Press <span class="tw-font-bold">"Continue"</span> to get second clue 👉💡!`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `दूसरा सुराग पाने के लिए <span class="tw-font-bold">"आगे बढ़ें"</span> दबाएँ 👉💡!`,
     },
     "98395654-ab14-47c2-9ba8-bb52a9297368": {
         [Language.English]: `Terms & Conditions  - Social Media`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `नियम और शर्तें - सोशल मीडिया`,
     },
     "a71eedc4-b0f8-46b3-88d1-c7427315de8c": {
         [Language.English]: `Copy`,
@@ -10672,35 +10672,35 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "6dd8ca3b-6542-4fc4-81ce-6183b8359ec5": {
         [Language.English]: `Find The Thief`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `चोर का पता लगाएं`,
     },
     "99a6da97-c8bf-4ce3-b95a-611ec00c880a": {
         [Language.English]: `Follow <span class="tw-text-primary-500-light">him</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="tw-text-primary-500-light">उसका</span> पीछा करें`,
     },
     "23992b81-60ed-4164-9e5c-91dcc6752f39": {
         [Language.English]: `<b>2nd Clue</b> 💡:Find Wattson with the stolen inverter battery and end the quest.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<b>दूसरा सुराग:</b> 💡:चोरी हुई इनवर्टर बैटरी के साथ वॉटसन को ढूंढें और खोज समाप्त करें।`,
     },
     "7ec1488f-530c-40b6-a86b-dc2ea8840310": {
         [Language.English]: `<b>Wattson</b> now has the stolen inverter battery, and is going towards the Power Planner. Find him before he calculates his power consumption and takes the inverter battery home!`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<b>वॉटसन</b> के पास अब चोरी हुई इनवर्टर बैटरी है और वह पावर प्लानर की ओर जा रहा है। इससे पहले कि वह अपनी बिजली की खपत की गणना करे और इनवर्टर बैटरी घर ले जाए, उसे ढूंढें!`,
     },
     "3e9f691e-f760-4691-b6d8-85733ce4d416": {
         [Language.English]: `Find Him`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "उसे खोजों",
     },
     "e6419d6a-b775-4e93-81e5-9a18b1a1c809": {
         [Language.English]: `Victory!`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `विजय!`,
     },
     "fb5b1b3a-a82c-4968-a9da-25b3cd9d62db": {
         [Language.English]: `You successfully found the <span class="tw-font-bold">stolen inverter battery</span> and completed <b>the Quest</b>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `आपने  <span class="tw-font-bold">चोरी हुई इनवर्टर बैटरी</span> सफलतापूर्वक ढूंढ ली और  <span class="tw-font-bold">खोज पूरी कर ली</span>`,
     },
     "f34a013d-dc49-425b-bc87-984766a35a2d": {
         [Language.English]: `Share your details to complete your <b>participation</b>.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `अपनी <b>भागीदारी</b> पूरी करने के लिए अपना विवरण दें `,
     },
     "78b0281f-e8cf-4b38-82c0-23382b168795": {
         [Language.English]: `Claim Now`,
@@ -10708,43 +10708,39 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "79436419-5a42-4720-be85-19bc0b46c7bb": {
         [Language.English]: `Your Name*`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `आपका नाम*`,
     },
     "fe032013-d1e7-45d7-9c0c-d289c5f80c52": {
         [Language.English]: `Your Email*`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `आपका ईमेल*`,
     },
     "b24cf3a3-c834-487e-8ca3-5f78e02a267e": {
         [Language.English]: `Your Mobile*`,
-        [Language.Hindi]: "?????",
-    },
-    "3942668d-37f8-4964-ac34-5eaef54e3f77": {
-        [Language.English]: `Username`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `आपका मोबाइल*`,
     },
     "88d4bc6f-64ee-4910-8b1e-27ad5aea32c1": {
         [Language.English]: `Instagram Username*`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `इंस्टाग्राम आईडी का नाम*`,
     },
     "2a9b9149-ae09-452b-b02d-8ab5b8850557": {
-        [Language.English]: `Submit Now`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `Submit details`,
+        [Language.Hindi]: `विवरण जमा करें`,
     },
     "29a1dc30-0f20-4075-b14e-52197e83f059": {
         [Language.English]: `Perfect!`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `अति उत्तम!`,
     },
     "1a109702-9407-4945-aa54-acde384ace7a": {
         [Language.English]: `Your detective skills found the <span class="tw-font-bold">inverter & battery!</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `आपके जासूसी कौशल ने चुराए गए इनवर्टर और बैटरी को ढूंढ लिया।`,
     },
     "37118df1-c2d2-4cbb-af54-288487236384": {
         [Language.English]: `Your efforts deserve another amazing reward!`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `आपके प्रयास एक और अद्भुत पुरस्कार के पात्र हैं!`,
     },
     "38d347bc-e85b-46f2-82a0-dd41a118daaf": {
         [Language.English]: `Our team will reach out to you with your reward shortly.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `हमारी टीम शीघ्र ही आपके इनाम के साथ आपसे संपर्क करेगी।`,
     },
     "69d20806-45ec-42e0-951e-54a4d0f46b14": {
         [Language.English]: `More About Livguard`,
@@ -11481,7 +11477,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "ead3f26e-89df-44b3-8237-774b924f13eb": {
         [Language.English]: `Accessories`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सहायक उपकरण`,
     },
     "6074c564-2033-43e5-8d9f-02d5c9052ca4": {
         [Language.English]: `Registered Office`,
@@ -11517,15 +11513,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "f3abeab1-a2c7-46c1-8111-72c3145fd5c7": {
         [Language.English]: `Find Wattson`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वॉटसन को खोजें`,
     },
     "5614a9cb-7935-49de-a887-d129b9bd27a4": {
-        [Language.English]: `Terms & Conditions  - Social Media`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Terms & Conditions - Social Media`,
+        [Language.Hindi]: `नियम और शर्तें - सोशल मीडिया`,
     },
     "eb76fa52-9cc6-4ce5-b570-2bbd8f606dac": {
         [Language.English]: `Find him`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उसे खोजों`,
     },
     "d8ece6dc-63bc-417e-a972-534df74fe32f": {
         [Language.English]: `Suggested Batteries`,
