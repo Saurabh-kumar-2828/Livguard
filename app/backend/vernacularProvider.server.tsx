@@ -1950,7 +1950,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review2Message: {
         [Language.English]: `"For over a year now, I've been experiencing the reliable power of Livguard's exceptional inverter and battery combo without a single issue."`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `एक साल से ज्यादा समय से, मैं लिवगार्ड के बेहतरीन इनवर्टर और बैटरी कॉम्बो की विश्वसनीय शक्ति का अनुभव कर रहा हूँ, बिना किसी समस्या के।`,
     },
     review2ProductName: {
         [Language.English]: "Inverter Battery",
@@ -1958,7 +1958,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review3Name: {
         [Language.English]: "Rohit Singh ",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "रोहित सिंह",
     },
     review3State: {
         [Language.English]: "",
@@ -1966,7 +1966,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review3Message: {
         [Language.English]: `"Enjoying seamless and maintanence free experience of Long-Lasting Livguard batteries for over 2 years."`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `दो साल से ज्यादा समय से, मैं लिवगार्ड बैटरी के बिना रुकावट और कम देखभाल के अनुभव का आनंद ले रहा हूँ।`,
     },
     review3ProductName: {
         [Language.English]: "Inverter",
@@ -11336,7 +11336,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "3eb9cad0-bbd1-4dad-967f-1073a6adaf2e": {
         [Language.English]: `Rohit Singh`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `रोहित सिंह`,
     },
     "f66aed4d-418d-4d55-8ab0-6548030e3af6": {
         [Language.English]: `Rohit Singh's 2-Year Livguard Inverter & Battery Experience | Join Our Satisfied Livguard Family!`,
@@ -11501,7 +11501,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "84aa7183-9c17-47fb-b528-6c9e159e1ae3": {
         [Language.English]: `Rohit Singh`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `रोहित सिंह`,
     },
     "b7f38972-802c-4910-afd9-f174c62b7859": {
         [Language.English]: `Sudhanshu`,
