@@ -7494,18 +7494,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LKMEs@u3K4=y*}y?l9t7yr-;%~%M",
         finalUrl: "/livguard/home/second-banner/mob-banner-6904e4.jpg",
     },
-    "/livguard/home/1/mobile-banner-3.jpg": {
-        width: 3839,
-        height: 3840,
-        blurHash: "L2DH56PT0e;4l@r]Kinj7f+|^Q%1",
-        finalUrl: "/livguard/home/1/mobile-banner-3-d4bec5.jpg",
-    },
-    "/livguard/home/1/desktop-banner-3.jpg": {
-        width: 3840,
-        height: 3840,
-        blurHash: "L3D7mnTxKi}Y0ONGR*Nd8H#onONb",
-        finalUrl: "/livguard/home/1/desktop-banner-3-6d9ed8.jpg",
-    },
     "/livguard/find-the-thief/desktop-step-1.jpg": {
         width: 1290,
         height: 1458,
@@ -7666,8 +7654,8 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
     "/livguard/home/1/desktop-banner-3.jpg": {
         width: 3840,
         height: 3840,
-        blurHash: "L3D7mnTxKi}Y0ONGR*Nd8H#onONb",
-        finalUrl: "/livguard/home/1/desktop-banner-3-6d9ed8.jpg",
+        blurHash: "L3C}2[PUGF}Y8xEfSeR+0NRPRPEg",
+        finalUrl: "/livguard/home/1/desktop-banner-3-2ec540.jpg",
     },
 };
 
