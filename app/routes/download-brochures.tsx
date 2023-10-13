@@ -144,11 +144,11 @@ const DownloadGallery = ({userPreferences}: {userPreferences: UserPreferences}) 
                                     key={itemIndex}
                                     className="tw-grid tw-grid-cols-1 tw-grid-rows-[auto_auto_minmax(0,1fr)_auto] tw-rounded-2xl lg-card tw-p-4 tw-gap-2"
                                 >
-                                    <div className="tw-rounded-lg tw-row-start-1 lg-bg-new-background-border-500 tw-grid tw-justify-center tw-items-center tw-p-2">
+                                    <div className="tw-rounded-lg tw-row-start-1 lg-bg-new-background-border-500 tw-grid tw-justify-center tw-items-center">
                                         <FullWidthImage relativePath={item.imageRelativeUrl} />
                                     </div>
 
-                                    <h1 className="lg-text-title2 tw-row-start-2">{item.title}</h1>
+                                    <h1 className="lg-text-title2 tw-row-start-2">{contentData.getContent(item.title)}</h1>
                                     <a
                                         href={item.buttonLink}
                                         download
@@ -194,8 +194,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 {isScreenSizeBelow == null ? null : (
                     <>
                         <FullWidthImage
-                            relativePath={isScreenSizeBelow ? "/livguard/download-brochures/2/mobile-banner.png" : "/livguard/download-brochures/2/desktop-banner.png"}
-                            key={isScreenSizeBelow ? "/livguard/download-brochures/2/mobile-banner.png" : "/livguard/download-brochures/2/desktop-banner.png"}
+                            relativePath={isScreenSizeBelow ? "/livguard/download-brochures/1/mobile-banner.jpg" : "/livguard/download-brochures/1/desktop-banner.jpg"}
+                            key={isScreenSizeBelow ? "/livguard/download-brochures/1/mobile-banner.jpg" : "/livguard/download-brochures/1/desktop-banner.jpg"}
                         />
                     </>
                 )}
@@ -214,61 +214,61 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 
 const galleryCardsData = [
     {
-        imageRelativeUrl: "/livguard/download-brochures/2/home-inverter.png",
+        imageRelativeUrl: "/livguard/download-brochures/2/Home-inverter.png",
         title: "headerMenuSM1T2",
         buttonLink: "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf",
         type: "Home",
     },
     {
-        imageRelativeUrl: "/livguard/download-brochures/2/hkva.png",
+        imageRelativeUrl: "/livguard/download-brochures/2/HKVA.png",
         title: "headerMenuSM1T3",
         buttonLink: "https://www.livguard.com/static-assets/leaflet-hkva.pdf",
         type: "Home",
     },
     {
-        imageRelativeUrl: "/livguard/download-brochures/2/inverter-battery.png",
+        imageRelativeUrl: "/livguard/download-brochures/2/Inverter-battery.png",
         title: "review2ProductName",
         buttonLink: "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf",
         type: "Home",
     },
     {
-        imageRelativeUrl: "/livguard/download-brochures/2/inverter-trolley.png",
+        imageRelativeUrl: "/livguard/download-brochures/2/Inverter-trolley.png",
         title: "6596ffc6-6377-4446-92b9-4cac254af278",
         buttonLink: "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf",
         type: "Home",
     },
     {
-        imageRelativeUrl: "/livguard/download-brochures/2/two-wheeler.png",
+        imageRelativeUrl: "/livguard/download-brochures/2/Two-wheeler.png",
         title: "3be9fa84-b556-42a0-95d8-093c1254891a",
         buttonLink: "https://www.livguard.com/static-assets/leaflet-two-wheeler.pdf",
         type: "Automotive",
     },
     {
-        imageRelativeUrl: "/livguard/download-brochures/2/passenger-vehicle.png",
+        imageRelativeUrl: "/livguard/download-brochures/2/Passenger-vehicle.png",
         title: "23384cb7-5097-4db3-964c-3010ed24ea63",
         buttonLink: "https://www.livguard.com/static-assets/leaflet-car-n-suv.pdf",
         type: "Automotive",
     },
     {
-        imageRelativeUrl: "/livguard/download-brochures/2/commerical.png",
+        imageRelativeUrl: "/livguard/download-brochures/2/Commercial.png",
         title: "8c1ffd32-d901-4cae-b508-1ac6498f84f9",
         buttonLink: "https://www.livguard.com/static-assets/leaflet-commercial-vehicles.pdf",
         type: "Automotive",
     },
     {
-        imageRelativeUrl: "/livguard/download-brochures/2/farm-vehicle.png",
+        imageRelativeUrl: "/livguard/download-brochures/2/Farm-vehicle.png",
         title: "fbbc862d-69ec-4906-8f81-7e139dcdf047",
         buttonLink: "https://www.livguard.com/static-assets/leaflet-tractor.pdf",
         type: "Automotive",
     },
     {
-        imageRelativeUrl: "/livguard/download-brochures/2/e-rickshaw-solution.png",
+        imageRelativeUrl: "/livguard/download-brochures/2/E-rickshaw.png",
         title: "60aaf8a6-2e05-465c-9442-4354111a0433",
         buttonLink: "https://www.livguard.com/static-assets/leaflet-e-rickshaw.pdf",
         type: "Automotive",
     },
     {
-        imageRelativeUrl: "/livguard/download-brochures/2/solar-solution.png",
+        imageRelativeUrl: "/livguard/download-brochures/2/Solar-Sol.png",
         title: "headerMenuSM4T4",
         buttonLink: "https://www.livguard.com/static-assets/leaflet-solar-solutions.pdf",
         type: "Solar",

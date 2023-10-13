@@ -11594,11 +11594,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `यहाँ से शुरू`,
     },
     "64538664-71d0-4080-900a-8b54176456bc": {
-        [Language.English]: `Explore Our `,
+        [Language.English]: `Select and `,
         [Language.Hindi]: `?????`,
     },
     "d170b1e3-9ac0-40f7-8ba4-ad1884dda08c": {
-        [Language.English]: `<span class="lg-text-highlighted">Brochure Collection</span>`,
+        [Language.English]: `<span class="lg-text-highlighted">Download Brochure</span>`,
         [Language.Hindi]: `<span class="lg-text-highlighted">सबसे अलग हैं</span>`,
     },
     "6b8f84b8-2fc2-4dcc-a031-e4dbcfa2f635": {
@@ -11720,6 +11720,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "a782b30b-13a2-48f1-90f5-0569dba18c1c": {
         [Language.English]: "And Hidden It On The Website <br /> Find Him And Win Amazing Prizes!*",
         [Language.Hindi]: "???????",
+    },
+    "db8138a4-47a7-44b0-9652-936ac5a7fecc": {
+        [Language.English]: `Wattson, The Thief Has Stolen <br /> Our Inverter And Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "9b0aceac-6695-4fca-9621-00c5e54a3df9": {
+        [Language.English]: `And Hidden It On The Website. <br /> Find Him And Win Amazing Prizes!*`,
+        [Language.Hindi]: `?????`,
     },
 };
 

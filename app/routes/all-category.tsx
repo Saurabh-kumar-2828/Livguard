@@ -138,7 +138,7 @@ function HeroSection() {
         },
         {
             desktopImagePath: "/livguard/all-category/1/desktop-banner-2.png",
-            mobileImagePath: "/livguard/all-category/1/mobile.png",
+            mobileImagePath: "/livguard/all-category/1/mobile-banner-2.jpg",
             textVernacId: "01c23336-eab7-4639-8eec-9e3f78a0c5a4",
         },
     ];
