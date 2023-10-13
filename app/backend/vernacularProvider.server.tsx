@@ -11595,11 +11595,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "64538664-71d0-4080-900a-8b54176456bc": {
         [Language.English]: `Select and `,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `चुनें और`,
     },
     "d170b1e3-9ac0-40f7-8ba4-ad1884dda08c": {
         [Language.English]: `<span class="lg-text-highlighted">Download Brochure</span>`,
-        [Language.Hindi]: `<span class="lg-text-highlighted">सबसे अलग हैं</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">ब्रोशर डाउनलोड करें</span>`,
     },
     "6b8f84b8-2fc2-4dcc-a031-e4dbcfa2f635": {
         [Language.English]: "Select Solution",
@@ -11611,19 +11611,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "35274dfd-803e-424c-9a95-04c1bcea7a5d": {
         [Language.English]: `Discover & Download`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "खोजें और डाउनलोड करें",
     },
     "f6ef02af-f66d-4564-9dca-cd8e1592afcb": {
         [Language.English]: `Brochures`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ब्रोशर",
     },
     "ef406184-26b6-42a4-98a1-5853097d7163": {
         [Language.English]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">Home Solution</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">घर के समाधान</span>`,
     },
     "0999c838-f6d4-4af4-b9a7-21413b3ad562": {
         [Language.English]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">Automotive Solution</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">ऑटोमोटिव समाधान</span>`,
     },
     "2f30c959-a70d-410d-be4e-3aee24145b6b": {
         [Language.English]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">Solar Solution</span>`,
@@ -11634,8 +11634,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `?????`,
     },
     "2fdc65c7-2c2f-4ec0-9f80-32666da203cc": {
-        [Language.English]: `Power Your Journey <br/> Empower Your Drive`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Empower Your Journeys <br/> With Our Automotive Solutions`,
+        [Language.Hindi]: `अपनी यात्राओं को सशक्त बनाएं <br/> हमारे ऑटोमोटिव समाधानों के साथ`,
     },
     "c372d16f-4b66-486c-9fc4-107ca0bbb50d": {
         [Language.English]: `Easy Maintenance`,
@@ -11651,11 +11651,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "3ad88a6b-4448-4395-af28-c86a8f07f45e": {
         [Language.English]: `Explore Our`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `देखिए हमारे`,
     },
     "01c23336-eab7-4639-8eec-9e3f78a0c5a4": {
-        [Language.English]: `Smart Inverters <br /> For A Limitless Experience`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Discover Reliable Solutions <br /> For Your Home Needs`,
+        [Language.Hindi]: `पाएँ विश्वसनीय समाधान  <br/> आपके घर की ज़रूरतों के लिए`,
     },
     "60aaf8a6-2e05-465c-9442-4354111a0433": {
         [Language.English]: `E-Rickshaw Solution`,
@@ -11728,6 +11728,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "9b0aceac-6695-4fca-9621-00c5e54a3df9": {
         [Language.English]: `And Hidden It On The Website. <br /> Find Him And Win Amazing Prizes!*`,
         [Language.Hindi]: `?????`,
+    },
+    "162df6d1-e194-4ea4-9bc5-48e3249d857b": {
+        [Language.English]: `E-Rikshaw Battery`,
+        [Language.Hindi]: `ई-रिक्शा बैटरी`,
+    },
+    "b2f6c8e0-4da7-4d9e-ba9b-f174690746c6": {
+        [Language.English]: `E-Rikshaw Charger`,
+        [Language.Hindi]: `ई-रिक्शा चार्जर`,
     },
 };
 
@@ -16554,6 +16562,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...footerStrings,
         ...findTheThiefStrings,
+        "review2ProductName",
+        "headerMenuSM5T6",
         "01c23336-eab7-4639-8eec-9e3f78a0c5a4",
         "cfab263f-0175-43fb-91e5-fccc64209d36",
         "d9d27569-28d8-423e-ba3e-d6344b779b94",
@@ -16567,6 +16577,10 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "c372d16f-4b66-486c-9fc4-107ca0bbb50d",
         "026446e6-e7f3-4fea-9e71-2d7bdba75aa2",
         "9b868952-6f42-4719-a408-5b4c4fc11eff",
+        "57dfdb7b-3b26-4918-81fc-15aee33119a6",
+        "b569ea15-be7b-422b-a6ef-3c09a1b8328d",
+        "162df6d1-e194-4ea4-9bc5-48e3249d857b",
+        "b2f6c8e0-4da7-4d9e-ba9b-f174690746c6",
     ],
 };
 

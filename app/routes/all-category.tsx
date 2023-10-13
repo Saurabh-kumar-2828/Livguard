@@ -200,9 +200,9 @@ const ContentSection = ({userPreferences, list, title}: {userPreferences: UserPr
             <div>
                 <div className="tw-grid tw-grid-rows-[auto_auto_auto_auto]">
                     <div className="tw-text-center lg-text-title1 tw-grid">
-                        <h1>{contentData.getContent("3ad88a6b-4448-4395-af28-c86a8f07f45e")}</h1>
+                        <div>{contentData.getContent("3ad88a6b-4448-4395-af28-c86a8f07f45e")}</div>
                         <VerticalSpacer className="lg:tw-h-1" />
-                        <h1 dangerouslySetInnerHTML={{__html: title}}></h1>
+                        <div dangerouslySetInnerHTML={{__html: title}}></div>
                         <VerticalSpacer className="tw-h-6 lg:tw-h-8" />
                     </div>
                     <div
@@ -282,7 +282,10 @@ const ItemCard = ({item}: {item: any}) => {
                     <div className="tw-row-start-1 tw-p-2 tw-grid tw-items-center tw-grid-rows-1 lg-card tw-bf tw-h-full tw-w-full">
                         <FullWidthImage relativePath={item.relativeImageUrl} />
                     </div>
-                    <h1 className=" tw-row-start-2 lg-text-title2 lg-text-headline lg-secondary-100 tw-text-center">{item.downTitle}</h1>
+                    <div
+                        dangerouslySetInnerHTML={{__html: contentData.getContent(item.downTitleId)}}
+                        className="tw-row-start-2 lg-text-title2 lg-text-headline lg-secondary-100 tw-text-center"
+                    />
                 </div>
             </Link>
         </>
@@ -349,13 +352,13 @@ const AutomotiveSolutionList = [
     },
     {
         downTitle: "E-Rikshaw Battery",
-        downTitleId: "?????",
+        downTitleId: "162df6d1-e194-4ea4-9bc5-48e3249d857b",
         relativeImageUrl: "/livguard/all-category/3/3.6.png",
         redirectLink: "/e-rickshaw-batteries",
     },
     {
         downTitle: "E-Rikshaw Charger",
-        downTitleId: "?????",
+        downTitleId: "b2f6c8e0-4da7-4d9e-ba9b-f174690746c6",
         relativeImageUrl: "/livguard/all-category/3/3.7.png",
         redirectLink: "/e-rickshaw-charger",
     },
