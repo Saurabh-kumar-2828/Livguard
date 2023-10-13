@@ -293,25 +293,25 @@ const HomeSolutionList = [
     {
         downTitle: "Home Inverter",
         downTitleId: "2257b2c1-280c-49a6-9399-8abd4847993f",
-        relativeImageUrl: "/livguard/all-category/2/2.1.png",
+        relativeImageUrl: "/livguard/download-brochures/2/Home-inverter.png",
         redirectLink: "/inverter-for-home",
     },
     {
         downTitle: "High Capacity Inverter",
         downTitleId: "a6d509fa-dc46-498b-b363-fbf309c70449",
-        relativeImageUrl: "/livguard/all-category/2/2.2.png",
+        relativeImageUrl: "/livguard/download-brochures/2/HKVA.png",
         redirectLink: "/high-capacity-inverters",
     },
     {
         downTitle: "Inverter Battery",
         downTitleId: "review2ProductName",
-        relativeImageUrl: "/livguard/all-category/2/2.3.png",
+        relativeImageUrl: "/livguard/download-brochures/2/Inverter-battery.png",
         redirectLink: "/inverter-batteries",
     },
     {
         downTitle: "Inverter Trolley",
         downTitleId: "headerMenuSM5T6",
-        relativeImageUrl: "/livguard/all-category/2/2.4.png",
+        relativeImageUrl: "/livguard/download-brochures/2/Inverter-trolley.png",
         redirectLink: "/inverter-trolley",
     },
 ];
