@@ -215,13 +215,13 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 const galleryCardsData = [
     {
         imageRelativeUrl: "/livguard/download-brochures/2/Home-inverter.png",
-        title: "headerMenuSM1T2",
+        title: "homeS3Tab2H",
         buttonLink: "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf",
         type: "Home",
     },
     {
         imageRelativeUrl: "/livguard/download-brochures/2/HKVA.png",
-        title: "headerMenuSM1T3",
+        title: "footerDisclosure2T3",
         buttonLink: "https://www.livguard.com/static-assets/leaflet-hkva.pdf",
         type: "Home",
     },
@@ -269,7 +269,7 @@ const galleryCardsData = [
     },
     {
         imageRelativeUrl: "/livguard/download-brochures/2/Solar-Sol.png",
-        title: "headerMenuSM4T4",
+        title: "homeS3Tab4H",
         buttonLink: "https://www.livguard.com/static-assets/leaflet-solar-solutions.pdf",
         type: "Solar",
     },

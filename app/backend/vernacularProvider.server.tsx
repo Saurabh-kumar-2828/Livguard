@@ -2021,7 +2021,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "इनवर्टर बैटरी",
     },
     footerDisclosure2T3: {
-        [Language.English]: "High Capacity Inverters ",
+        [Language.English]: "High Capacity Inverters",
         [Language.Hindi]: "उच्च क्षमता वाले इनवर्टर",
     },
     footerDisclosure3H: {
@@ -11659,7 +11659,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "60aaf8a6-2e05-465c-9442-4354111a0433": {
         [Language.English]: `E-Rickshaw Solution`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ई-रिक्शा सलूशन`,
     },
     "e0db4e01-ba5c-404a-b5a0-9ca311333fb7": {
         [Language.English]: "36 Months",
@@ -16521,8 +16521,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...footerStrings,
         ...findTheThiefStrings,
-        "headerMenuSM1T2",
-        "headerMenuSM1T3",
+        "homeS3Tab2H",
+        "footerDisclosure2T3",
         "review2ProductName",
         "6596ffc6-6377-4446-92b9-4cac254af278",
         "3be9fa84-b556-42a0-95d8-093c1254891a",
@@ -16530,7 +16530,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "8c1ffd32-d901-4cae-b508-1ac6498f84f9",
         "fbbc862d-69ec-4906-8f81-7e139dcdf047",
         "60aaf8a6-2e05-465c-9442-4354111a0433",
-        "headerMenuSM4T4",
+        "homeS3Tab4H",
         "35274dfd-803e-424c-9a95-04c1bcea7a5d",
         "f6ef02af-f66d-4564-9dca-cd8e1592afcb",
         "64538664-71d0-4080-900a-8b54176456bc",

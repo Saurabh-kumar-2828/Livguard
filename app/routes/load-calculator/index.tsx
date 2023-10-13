@@ -260,6 +260,7 @@ export default function () {
                             {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                             {contentId: "cea6d04c-15b9-4c11-8d83-2e51af979f54", link: "#"},
                         ]}
+                        doNotOpenDialogue="1"
                     >
                         <LoadCalculator userPreferences={userPreferences} />
                     </PageScaffold>

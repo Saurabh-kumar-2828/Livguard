@@ -92,11 +92,11 @@ const AllCategoryPage = ({userPreferences}: {userPreferences: UserPreferences}) 
     const contentData = useContext(ContentProviderContext);
     let HomeList = HomeSolutionList;
     let AutomotiveList = AutomotiveSolutionList;
-    let SolarList = SolarSolutionList;
+    // let SolarList = SolarSolutionList;
     const sectionHeading = {
         first: contentData.getContent("ef406184-26b6-42a4-98a1-5853097d7163"),
         second: contentData.getContent("0999c838-f6d4-4af4-b9a7-21413b3ad562"),
-        third: contentData.getContent("2f30c959-a70d-410d-be4e-3aee24145b6b"),
+        // third: contentData.getContent("2f30c959-a70d-410d-be4e-3aee24145b6b"),
     };
     return (
         <>
@@ -114,11 +114,11 @@ const AllCategoryPage = ({userPreferences}: {userPreferences: UserPreferences}) 
                     title={sectionHeading.second}
                 />
 
-                <ContentSection
+                {/* <ContentSection
                     userPreferences={userPreferences}
                     list={SolarList}
                     title={sectionHeading.third}
-                />
+                /> */}
             </div>
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
         </>

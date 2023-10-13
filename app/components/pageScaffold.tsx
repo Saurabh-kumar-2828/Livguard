@@ -49,7 +49,7 @@ export function PageScaffold({
         }
 
         const treasureHuntStep = localStorage.getItem("treasureHuntStep");
-        if (treasureHuntStep == null || treasureHuntStep == "0" || doNotOpenDialogue !== "1") {
+        if (treasureHuntStep == null || treasureHuntStep == "0" || (doNotOpenDialogue != null && doNotOpenDialogue !== "1")) {
             setIsFindTheThiefDialogOpen(true);
         }
     }, []);
@@ -57,12 +57,13 @@ export function PageScaffold({
     useEffect(() => {
         const treasureHuntStep = localStorage.getItem("treasureHuntStep");
         if (isCookieDialogOpen === false && localStorage.getItem("cookiesAccepted") != null && (treasureHuntStep == null || treasureHuntStep === "0")) {
-            if(doNotOpenDialogue !== "1")
-            setTimeout(() => {
-                setIsFindTheThiefDialogOpen(true);
-            }, 1000);
-            else
-                setIsFindTheThiefDialogOpen(false)
+            if (doNotOpenDialogue !== "1") {
+                setTimeout(() => {
+                    setIsFindTheThiefDialogOpen(true);
+                }, 1000);
+            } else {
+                setIsFindTheThiefDialogOpen(false);
+            }
         }
     }, [isCookieDialogOpen]);
 
