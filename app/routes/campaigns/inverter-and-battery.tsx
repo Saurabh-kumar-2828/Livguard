@@ -338,6 +338,7 @@ function LandingPage({
                 <>
                     <div className="tw-grid tw-grid-rows-[auto,auto,auto] tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-row-start-7 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-span-full">
                         <ComboSection
+                            secondaryNavigationName="1f5379fc-7cc5-40f6-8715-6a86a77073cc"
                             userPreferences={userPreferences}
                             className="tw-row-start-1 tw-col-start-1 lg:tw-pl-[72px] xl:tw-pl-[120px]"
                         />
@@ -345,6 +346,7 @@ function LandingPage({
                         <VerticalSpacer className="tw-h-10 tw-row-start-2 lg:tw-hidden" />
 
                         <WhyLivguardCombo
+                            secondaryNavigationName="a70a34a0-4f68-4ff6-9bc5-3000c1191f7d"
                             userPreferences={userPreferences}
                             className="tw-row-start-3 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px]"
                         />
@@ -369,12 +371,14 @@ function LandingPage({
                 <>
                     <div className="tw-grid tw-grid-rows-1 tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-col-start-1 tw-row-start-6 lg:tw-col-span-full">
                         <ComboSection
+                            secondaryNavigationName="1f5379fc-7cc5-40f6-8715-6a86a77073cc"
                             userPreferences={userPreferences}
                             className="tw-row-start-1 tw-col-start-1 lg:tw-pl-[72px] xl:tw-pl-[120px]"
                         />
 
                         <WhyLivguardCombo
                             userPreferences={userPreferences}
+                            secondaryNavigationName="a70a34a0-4f68-4ff6-9bc5-3000c1191f7d"
                             className="tw-row-start-1 tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px]"
                         />
                     </div>
@@ -522,7 +526,7 @@ function HeroSection({
     );
 }
 
-export function ComboSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+export function ComboSection({userPreferences, className, secondaryNavigationName}: {userPreferences: UserPreferences; className?: string; secondaryNavigationName: string}) {
     const contentData = useContext(ContentProviderContext);
     const comboData: Array<{
         title: string;
@@ -695,7 +699,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "our-top-combo": {
-                humanReadableName: contentData.getContent("1f5379fc-7cc5-40f6-8715-6a86a77073cc"),
+                humanReadableName: contentData.getContent(secondaryNavigationName),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -929,7 +933,7 @@ function BatteryCard({
     );
 }
 
-export function WhyLivguardCombo({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+export function WhyLivguardCombo({userPreferences, className, secondaryNavigationName}: {userPreferences: UserPreferences; className: string; secondaryNavigationName: string}) {
     const contentData = useContext(ContentProviderContext);
     const sectionData = [
         {
@@ -957,7 +961,7 @@ export function WhyLivguardCombo({userPreferences, className}: {userPreferences:
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "why-livguard-combo": {
-                humanReadableName: contentData.getContent("a70a34a0-4f68-4ff6-9bc5-3000c1191f7d"),
+                humanReadableName: contentData.getContent(secondaryNavigationName),
                 isCurrentlyVisible: sectionInView,
             },
         }));

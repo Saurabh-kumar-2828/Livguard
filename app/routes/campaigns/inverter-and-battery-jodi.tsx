@@ -330,12 +330,14 @@ function LandingPage({
             )}
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 lg:tw-row-start-5 tw-col-start-1 tw-col-span-full" />
-            <WhyLivguardComboSection
+            <WhyLivguardCombo
+                secondaryNavigationName="b708a357-961a-4b28-afec-1e538023a140"
                 userPreferences={userPreferences}
                 className="tw-row-start-5 lg:tw-row-start-6 lg:tw-col-span-full lg:tw-pr-[72px] xl:tw-pr-[120px]"
             />
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-row-start-7 tw-col-start-1 tw-col-span-full" />
-            <OurCombos
+            <ComboSection
+                secondaryNavigationName="e0e7bba0-3200-4edf-870d-4c03a86ce636"
                 userPreferences={userPreferences}
                 className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-8 lg:tw-col-start-1 lg:tw-col-span-2"
             />
@@ -934,60 +936,6 @@ function DealerLocator({userPreferences, showCtaButton, className}: {userPrefere
                     </div>
                 </div>
             </div>
-        </div>
-    );
-}
-
-function WhyLivguardComboSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const contentData = useContext(ContentProviderContext);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            "livguard-combo": {
-                humanReadableName: contentData.getContent("b708a357-961a-4b28-afec-1e538023a140"),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
-    return (
-        <div
-            className={concatenateNonNullStringsWithSpaces("", className)}
-            id="livguard-combo"
-            ref={sectionRef}
-        >
-            <WhyLivguardCombo
-                userPreferences={userPreferences}
-                className=""
-            />
-        </div>
-    );
-}
-
-function OurCombos({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const contentData = useContext(ContentProviderContext);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            "our-combos": {
-                humanReadableName: contentData.getContent("e0e7bba0-3200-4edf-870d-4c03a86ce636"),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
-    return (
-        <div
-            className={concatenateNonNullStringsWithSpaces("", className)}
-            id="our-combos"
-            ref={sectionRef}
-        >
-            <ComboSection
-                userPreferences={userPreferences}
-                className=""
-            />
         </div>
     );
 }

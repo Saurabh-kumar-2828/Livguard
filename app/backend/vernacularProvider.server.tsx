@@ -11697,6 +11697,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "42 + 30* Months",
         [Language.Hindi]: "42 + 30* महीने",
     },
+    "b5c93618-db31-4418-add5-a8ed41233d89": {
+        [Language.English]: "Why us",
+        [Language.Hindi]: "??????",
+    },
+    "b4a80c10-cdab-4fea-9721-e978d67e57d6": {
+        [Language.English]: "Digital Film",
+        [Language.Hindi]: "???????",
+    },
+    "a6250469-99cc-440f-a91d-426021ebcaea": {
+        [Language.English]: "Advantages of Buying Combo",
+        [Language.Hindi]: "???????",
+    },
 };
 
 const popUpFormStrings = [
@@ -13053,6 +13065,10 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...findTheThiefStrings,
         ...footerStrings,
+        "b5c93618-db31-4418-add5-a8ed41233d89",
+        "e0e7bba0-3200-4edf-870d-4c03a86ce636",
+        "b4a80c10-cdab-4fea-9721-e978d67e57d6",
+        "a6250469-99cc-440f-a91d-426021ebcaea",
         "e0db4e01-ba5c-404a-b5a0-9ca311333fb7",
         "b7895214-8ecb-44a7-bf86-4974deaee879",
         "bc4a0a42-adf2-404c-85c2-d9f768511c2a",
