@@ -25,10 +25,10 @@ export function InitialFindTheThiefDialogComponent({userPreferences, buttonClick
                 {isScreenSizeBelow ? (
                     <FullWidthImage
                         className="tw-rounded-t-lg lg:tw-rounded-tl-lg"
-                        relativePath="/livguard/find-the-thief/step-1-mobile.jpg"
+                        relativePath="/livguard/find-the-thief/mobile-step-1.jpg"
                     />
                 ) : (
-                    <FullWidthImage relativePath="/livguard/find-the-thief/step-1-desktop.jpg" />
+                    <FullWidthImage relativePath="/livguard/find-the-thief/desktop-step-1.jpg" />
                 )}
             </div>
 

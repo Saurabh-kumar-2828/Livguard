@@ -7494,6 +7494,46 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "blurHash": "LKMEs@u3K4=y*}y?l9t7yr-;%~%M",
         "finalUrl": "/livguard/home/second-banner/mob-banner-6904e4.jpg"
     },
+    "/livguard/home/1/mobile-banner-3.jpg": {
+        "width": 3839,
+        "height": 3840,
+        "blurHash": "L2DH56PT0e;4l@r]Kinj7f+|^Q%1",
+        "finalUrl": "/livguard/home/1/mobile-banner-3-d4bec5.jpg"
+    },
+    "/livguard/home/1/desktop-banner-3.jpg": {
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "L3D7mnTxKi}Y0ONGR*Nd8H#onONb",
+        "finalUrl": "/livguard/home/1/desktop-banner-3-6d9ed8.jpg"
+    },
+    "/livguard/find-the-thief/desktop-step-1.jpg": {
+        "width": 1290,
+        "height": 1458,
+        "blurHash": "L@HnBDjFV@xu~Cn%jFt7-poLoJof",
+        "finalUrl": "/livguard/find-the-thief/desktop-step-1-2890b7.jpg"
+    },
+    "/livguard/find-the-thief/mobile-step-2.png": {
+        "width": 1376,
+        "height": 944,
+        "finalUrl": "/livguard/find-the-thief/mobile-step-2-c8171c.png"
+    },
+    "/livguard/find-the-thief/desktop-step-2.jpg": {
+        "width": 1672,
+        "height": 1896,
+        "blurHash": "L57Tte9]57}@}[NHEL$%0f-U-U5R",
+        "finalUrl": "/livguard/find-the-thief/desktop-step-2-3fefa5.jpg"
+    },
+    "/livguard/find-the-thief/inverter-battery.png": {
+        "width": 1080,
+        "height": 1024,
+        "finalUrl": "/livguard/find-the-thief/inverter-battery-b6cc94.png"
+    },
+    "/livguard/find-the-thief/mobile-step-1.jpg": {
+        "width": 1368,
+        "height": 992,
+        "blurHash": "LqOCEWicr]-p~Xr=xZoz.7jHM|kW",
+        "finalUrl": "/livguard/find-the-thief/mobile-step-1-f0f775.jpg"
+    },
 };
 
 export function getImageMetadataLibraryForPage(ids: Array<string>): {[relativePath: string]: ImageMetadata | undefined} {
@@ -7523,8 +7563,8 @@ const commonIcons = [
     "/livguard/home/10/1-light.jpg",
     "/livguard/home/10/1-dark.jpg",
     "/livguard/find-the-thief/arrow.svg",
-    "/livguard/find-the-thief/step-1-desktop.jpg",
-    "/livguard/find-the-thief/step-1-mobile.jpg",
+   "/livguard/find-the-thief/desktop-step-1.jpg",
+   "/livguard/find-the-thief/mobile-step-1.jpg",
     "/livguard/find-the-thief/step-1-pattern.svg",
 ];
 
@@ -7533,6 +7573,8 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/home/1/desktop-banner-3.jpg",
+        "/livguard/home/1/mobile-banner-3.jpg",
         "/livguard/home/second-banner/mob-banner.jpg",
         "/livguard/home/second-banner/desktop-banner.jpg",
         "/livguard/home/second-banner/mobile-banner.jpg",
@@ -7540,8 +7582,8 @@ const imageMetadataIdsForPage = {
         "/livguard/home/1/mob-banner-2.jpg",
         "/livguard/find-the-thief/treasure-inverter.png",
         "/livguard/find-the-thief/step-2-pattern.png",
-        "/livguard/find-the-thief/step-2-desktop.jpg",
-        "/livguard/find-the-thief/step-2-mobile.jpg",
+        "/livguard/find-the-thief/mobile-step-2.png",
+        "/livguard/find-the-thief/desktop-step-2.jpg",
         "/livguard/home/home-og-banner.jpg",
         "/livguard/home/3/2.jpg",
         "/livguard/home/3/3.jpg",
@@ -7679,7 +7721,7 @@ const imageMetadataIdsForPage = {
         ...footerImages,
         ...commonIcons,
         "/livguard/find-the-thief/step-2-pattern.png",
-        "/livguard/find-the-thief/treasure-battery.png",
+       "/livguard/find-the-thief/inverter-battery.png",
         "/livguard/find-the-thief/coupon.png",
         "/livguard/home/5/1.png",
         "/livguard/products/super-life-combo/thumbnail.png",

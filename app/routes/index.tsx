@@ -526,7 +526,7 @@ function HeroSection({
                 "tw-overflow-hidden max-[380px]:tw-h-[calc(100vh-10rem-var(--lg-mobile-ui-height))] tw-h-[calc(100vh-16.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] lg:tw-min-h-[calc(100vw*7.5/16)] tw-relative",
                 className,
             )}
-            // ref={emblaRef}
+            ref={emblaRef}
         >
             <div
                 className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch tw-z-20"
@@ -549,6 +549,13 @@ function HeroSection({
                             subTitleVernacId: "homeS1T2",
                             contactButtonVernacId: "homeS1T3",
                         },
+                        {
+                            mobileImageRelativePath: "/livguard/home/1/mobile-banner-3.jpg",
+                            desktopImageRelativePath: "/livguard/home/1/desktop-banner-3.jpg",
+                            titleVernacId: "13419db0-afcd-4c94-a571-35f6c62de3b4",
+                            subTitleVernacId: "a782b30b-13a2-48f1-90f5-0569dba18c1c",
+                            contactButtonVernacId: "",
+                        },
                         // {
                         //     englishMobileImageRelativePath: "/livguard/landing-pages/3/top-banner-mobile-english.jpg",
                         //     hindiMobileImageRelativePath: "/livguard/landing-pages/3/top-banner-mobile-hindi.jpg",
@@ -563,8 +570,10 @@ function HeroSection({
                         <div
                             // tw-grid-rows-[3rem_minmax(0,1fr)_auto_minmax(0,1fr)_3rem]
                             className={concatenateNonNullStringsWithSpaces(
-                                itemIndex == 0
+                                itemIndex === 0
                                     ? "tw-h-full tw-overflow-hidden tw-grid lg:tw-grid-rows-[0.5rem_1rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-grid-rows-[1rem_2rem_1rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate"
+                                    : itemIndex === 2
+                                    ? "tw-h-full tw-overflow-hidden tw-grid lg:tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_5rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate"
                                     : "tw-h-full tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate",
                             )}
                             key={itemIndex}
@@ -628,13 +637,17 @@ function HeroSection({
                                     )}
                                 >
                                     <DefaultTextAnimation>
-                                        <div className={concatenateNonNullStringsWithSpaces("lg-text-banner", item.titleVernacId == "" ? "tw-visibility-hidden" : "")}>
-                                            {appendSpaceToString(contentData.getContent(item.titleVernacId))}
-                                        </div>
+                                        <div
+                                            className={concatenateNonNullStringsWithSpaces("lg-text-banner", item.titleVernacId == "" ? "tw-visibility-hidden" : "")}
+                                            dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent(item.titleVernacId))}}
+                                        ></div>
                                     </DefaultTextAnimation>
 
                                     <DefaultTextAnimation>
-                                        <div className="lg-text-title1">{contentData.getContent(item.subTitleVernacId)}</div>
+                                        <div
+                                            className="lg-text-title1"
+                                            dangerouslySetInnerHTML={{__html: contentData.getContent(item.subTitleVernacId)}}
+                                        ></div>
                                     </DefaultTextAnimation>
                                 </h2>
                             )}

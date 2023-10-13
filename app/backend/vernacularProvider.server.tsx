@@ -11709,6 +11709,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Advantages of Buying Combo",
         [Language.Hindi]: "???????",
     },
+    "13419db0-afcd-4c94-a571-35f6c62de3b4": {
+        [Language.English]: "Wattson, The Thief Has Stolen <br /> Our Inverter And Battery",
+        [Language.Hindi]: "???????",
+    },
+    "a782b30b-13a2-48f1-90f5-0569dba18c1c": {
+        [Language.English]: "And Hidden It On The Website <br /> Find Him And Win Amazing Prizes!*",
+        [Language.Hindi]: "???????",
+    },
 };
 
 const popUpFormStrings = [
@@ -11957,6 +11965,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...findTheThiefStrings,
         ...footerStrings,
+        "13419db0-afcd-4c94-a571-35f6c62de3b4",
+        "a782b30b-13a2-48f1-90f5-0569dba18c1c",
         "0f24d13c-8b25-4165-b0d4-197c059e4794",
         "bb45dab0-a985-4bf8-9f07-845806b20b77",
         "ab1da9d6-1aaa-46d4-9b50-b911b3006b11",

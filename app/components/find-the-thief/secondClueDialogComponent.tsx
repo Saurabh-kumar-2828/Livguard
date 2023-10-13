@@ -14,12 +14,12 @@ export function SecondClueDialogComponent({userPreferences, buttonClickFunction}
                 {isScreenSizeBelow ? (
                     <FullWidthImage
                         className="tw-rounded-t-lg"
-                        relativePath="/livguard/find-the-thief/step-2-mobile.jpg"
+                        relativePath="/livguard/find-the-thief/mobile-step-2.png"
                     />
                 ) : (
                     <FullWidthImage
                         className="tw-rounded-l-lg"
-                        relativePath="/livguard/find-the-thief/step-2-desktop.jpg"
+                        relativePath="/livguard/find-the-thief/desktop-step-2.jpg"
                     />
                 )}
             </div>

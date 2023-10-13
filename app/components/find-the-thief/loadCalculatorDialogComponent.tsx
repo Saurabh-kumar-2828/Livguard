@@ -144,7 +144,7 @@ function VictoryComponent({userPreferences, setStep, className}: {userPreference
 
             <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
             <div className="tw-w-2/3 tw-max-w-xs tw-h-full tw-px-4 tw-place-self-center tw-relative tw-z-10">
-                <FullWidthImage relativePath="/livguard/find-the-thief/treasure-battery.png" />
+                <FullWidthImage relativePath="/livguard/find-the-thief/inverter-battery.png" />
                 <div className="tw-absolute tw-inset-0 tw-m-auto">
                     <Lottie
                         animationData={confettiAnimationData}
