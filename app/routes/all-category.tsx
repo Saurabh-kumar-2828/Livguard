@@ -1,10 +1,6 @@
 import {LoaderFunction} from "@remix-run/node";
 import React, {useContext} from "react";
 import {Link, useLoaderData} from "@remix-run/react";
-import {useResizeDetector} from "react-resize-detector";
-import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {CoverImage} from "~/components/images/coverImage";
 import {PageScaffold} from "~/components/pageScaffold";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -13,8 +9,8 @@ import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {ChevronDoubleDownIcon, ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
+import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
@@ -23,6 +19,7 @@ import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 import {getImageMetadataLibraryFromBackend} from "~/backend/imageMetaDataLibrary.server";
 import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ImageMetadata} from "~/common--type-definitions/typeDefinitions";
+import {twMerge} from "tailwind-merge";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -101,7 +98,7 @@ const AllCategoryPage = ({userPreferences}: {userPreferences: UserPreferences}) 
     return (
         <>
             <div className="tw-grid tw-gap-y-10 lg:tw-gap-y-20">
-                <HeroSection userPreferences={userPreferences} />
+                <HeroSection />
                 <ContentSection
                     userPreferences={userPreferences}
                     list={HomeList}
@@ -192,95 +189,6 @@ function HeroSection() {
     );
 }
 
-const HeroSection1 = ({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) => {
-    const contentData = useContext(ContentProviderContext);
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
-
-    // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    // useEffect(() => {
-    //     secondaryNavigationController.setSections((previousSections) => ({
-    //         ...previousSections,
-    //         top: {
-    //             humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41"),
-    //             isCurrentlyVisible: sectionInView,
-    //         },
-    //     }));
-    // }, [sectionRef, sectionInView]);
-
-    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
-    return (
-        // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
-        <div
-            className={concatenateNonNullStringsWithSpaces(
-                "tw-overflow-hidden tw-h-[calc(100vh-16.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] lg:tw-min-h-[calc(100vw*7.5/16)] tw-relative",
-                className,
-            )}
-            id="top"
-            // ref={emblaRef}
-            // ref={emblaRef}
-        >
-            <div
-                className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch"
-                ref={ref}
-            >
-                <ItemBuilder
-                    items={[
-                        // {
-                        //     mobileImageRelativePath: "/livguard/home/1/mobile-banner-2.jpg",
-                        //     desktopImageRelativePath: "/livguard/home/1/desktop-banner2.jpg",
-                        //     titleVernacId: "",
-                        //     subTitleVernacId: "",
-                        //     contactButtonVernacId: "8b6be5de-9c57-461a-8ec5-106f29eccaca",
-                        //     buttonLink: "/events/renewable-energy-india-expo",
-                        // },
-                        {
-                            mobileImageRelativePath: "/livguard/all-category/1/mobile.png",
-                            desktopImageRelativePath: "/livguard/all-category/1/desktop.png",
-                            titleVernacId: "homeS1T1",
-                            subTitleVernacId: "homeS1T2",
-                            contactButtonVernacId: "homeS1T3",
-                        },
-                    ]}
-                    itemBuilder={(item, itemIndex) => (
-                        <div
-                            className="tw-h-full tw-overflow-hidden tw-grid tw-grid-rows-[auto_1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-text-secondary-900-dark"
-                            key={itemIndex}
-                        >
-                            {item.mobileImageRelativePath &&
-                                item.desktopImageRelativePath &&
-                                (containerWidth == null || containerHeight == null ? null : (
-                                    <FullWidthImage
-                                        relativePath={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
-                                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                                        key={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
-                                    />
-                                ))}
-
-                            {item.titleVernacId && item.subTitleVernacId && (
-                                <h2 className="tw-row-start-1 tw-text-center md:tw-text-left md:tw-row-start-3 lg:tw-row-start-5 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 lg-px-screen-edge lg:tw-ml-28">
-                                    <DefaultTextAnimation>
-                                        <div className="lg-text-banner">{contentData.getContent("2fdc65c7-2c2f-4ec0-9f80-32666da203cc")}</div>
-                                    </DefaultTextAnimation>
-                                    <DefaultTextAnimation>
-                                        <div className="lg-text-banner">{contentData.getContent("047f42da-ed6c-43e0-a259-a6e3e6355dc9")}</div>
-                                    </DefaultTextAnimation>
-                                    <div className="tw-flex tw-flex-row tw-gap-6 lg:tw-gap-12">
-                                        <div className="lg-text-lg-text-title2">{contentData.getContent("c372d16f-4b66-486c-9fc4-107ca0bbb50d")}</div>
-                                        <div className="lg-text-lg-text-title2">{contentData.getContent("026446e6-e7f3-4fea-9e71-2d7bdba75aa2")}</div>
-                                        <div className="lg-text-lg-text-title2">{contentData.getContent("9b868952-6f42-4719-a408-5b4c4fc11eff")}</div>
-                                    </div>
-                                </h2>
-                            )}
-                        </div>
-                    )}
-                />
-            </div>
-        </div>
-    );
-};
 // 3ad88a6b-4448-4395-af28-c86a8f07f45e
 const ContentSection = ({userPreferences, list, title}: {userPreferences: UserPreferences; list: any; title: string}) => {
     const contentData = useContext(ContentProviderContext);
@@ -298,10 +206,10 @@ const ContentSection = ({userPreferences, list, title}: {userPreferences: UserPr
                         <VerticalSpacer className="tw-h-6 lg:tw-h-8" />
                     </div>
                     <div
-                        className="tw-w-full tw-overflow-hidden tw-pl-6"
+                        className={twMerge("tw-w-full tw-overflow-hidden", isScreenSizeBelow ? "tw-pl-6" : "lg-px-screen-edge-2")}
                         ref={isScreenSizeBelow ? emblaRef : null}
                     >
-                        <div className="tw-grid tw-grid-flow-col sm:tw-grid-flow-row sm:tw-grid-cols-2 md:tw-grid-cols-3 lg:tw-grid-cols-4 lg:tw-grid-flow-row tw-gap-3 lg:tw-max-w-7xl lg:tw-mx-auto">
+                        <div className="tw-grid tw-grid-flow-col sm:tw-grid-flow-row sm:tw-grid-cols-2 md:tw-grid-cols-3 xl:tw-grid-cols-4 lg:tw-grid-flow-row tw-gap-3 lg:tw-max-w-7xl lg:tw-mx-auto">
                             <ItemBuilder
                                 items={list}
                                 itemBuilder={(item, index) => (
