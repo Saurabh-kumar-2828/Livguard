@@ -29,7 +29,7 @@ export function useExternalScript(
         addScriptAsText?: boolean;
         timeoutDuration?: number;
     },
-    attachScript: string | null,
+    attachScript: boolean | null,
     eventTriggerCallback?: Function,
 ): void {
     const initialized = useRef(false);
@@ -40,7 +40,7 @@ export function useExternalScript(
         }
 
         if (attachScript != null) {
-            if (attachScript == "false") {
+            if (attachScript == false) {
                 if (options.addScriptAsText) {
                     document.body.querySelectorAll("script").forEach((script) => {
                         if (script.innerHTML == src) {

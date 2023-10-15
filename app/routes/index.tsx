@@ -55,6 +55,7 @@ import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
+import {SimpleCoverImage} from "~/components/images/simpleCoverImage";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -612,7 +613,7 @@ function HeroSection({
                             {item.mobileImageRelativePath &&
                                 item.desktopImageRelativePath &&
                                 (containerWidth == null || containerHeight == null ? null : (
-                                    <CoverImage
+                                    <SimpleCoverImage
                                         relativePath={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
                                         className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
                                         key={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
@@ -1502,7 +1503,7 @@ export function DealerLocator({
             <div className="tw-relative lg-card tw-h-[21.875rem] tw-overflow-hidden lg:tw-h-full lg:tw-min-h-[31.25rem] lg:tw-px-2">
                 <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                     <div className="tw-absolute tw-inset-0">
-                        <CoverImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"} />
+                        <SimpleCoverImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"} />
                     </div>
 
                     <div className="tw-z-10 lg-text-headline tw-text-center">
@@ -2359,6 +2360,7 @@ export function SocialMediaFeedsSection({userPreferences, className}: {userPrefe
     const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
@@ -2368,13 +2370,23 @@ export function SocialMediaFeedsSection({userPreferences, className}: {userPrefe
             },
         }));
     }, [sectionRef, sectionInView]);
+
+    const [loadEmbeds, setLoadEmbeds] = useState(false);
+    useEffect(() => {
+        if (sectionInView == true && loadEmbeds == false) {
+            setLoadEmbeds(true);
+        }
+    }, [sectionInView]);
+
     return (
         <div
             className={className}
             id="social-media"
             ref={sectionRef}
         >
-            <SocialMediaFeeds userPreferences={userPreferences} />
+            {loadEmbeds == false ? null : (
+                <SocialMediaFeeds userPreferences={userPreferences} />
+            )}
         </div>
     );
 }
