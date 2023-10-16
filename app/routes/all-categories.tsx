@@ -140,51 +140,53 @@ function HeroSection() {
         },
     ];
     return (
-        <div
-            className="tw-overflow-hidden tw-relative"
-            ref={emblaRef}
-        >
-            <div className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch tw-z-20">
-                <ItemBuilder
-                    items={items}
-                    itemBuilder={(item, itemIndex) => {
-                        return (
-                            <div
-                                key={itemIndex}
-                                className="tw-grid"
-                            >
-                                <div className="tw-row-start-1 tw-col-start-1">
-                                    <FullWidthImage relativePath={isScreenSizeBelow ? item.mobileImagePath : item.desktopImagePath} />
-                                </div>
+        <div>
+            <div
+                className="tw-overflow-hidden tw-relative"
+                ref={emblaRef}
+            >
+                <div className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch tw-z-20">
+                    <ItemBuilder
+                        items={items}
+                        itemBuilder={(item, itemIndex) => {
+                            return (
                                 <div
-                                    dangerouslySetInnerHTML={{__html: contentData.getContent(item.textVernacId)}}
-                                    className="tw-row-start-1 tw-col-start-1 tw-h-fit tw-text-center md:tw-text-start tw-self-start md:tw-self-center tw-text-[28px] tw-font-bold md:lg-text-headline tw-text-secondary-100-light tw-pt-8 md:tw-pl-14 md:tw-pt-0 max-md:tw-leading-8"
-                                />
-                            </div>
-                        );
+                                    key={itemIndex}
+                                    className="tw-grid"
+                                >
+                                    <div className="tw-row-start-1 tw-col-start-1">
+                                        <FullWidthImage relativePath={isScreenSizeBelow ? item.mobileImagePath : item.desktopImagePath} />
+                                    </div>
+                                    <div
+                                        dangerouslySetInnerHTML={{__html: contentData.getContent(item.textVernacId)}}
+                                        className="tw-row-start-1 tw-col-start-1 tw-h-fit tw-text-center md:tw-text-start tw-self-start md:tw-self-center tw-text-[28px] tw-font-bold md:lg-text-headline tw-text-secondary-100-light tw-pt-8 md:tw-pl-14 md:tw-pt-0 max-md:tw-leading-8"
+                                    />
+                                </div>
+                            );
+                        }}
+                    />
+                </div>
+
+                <button
+                    type="button"
+                    className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-left-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
+                    onClick={() => {
+                        emblaApi?.scrollPrev();
                     }}
-                />
+                >
+                    <ChevronLeftIcon className="tw-w-6 tw-h-6" />
+                </button>
+
+                <button
+                    type="button"
+                    className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-right-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
+                    onClick={() => {
+                        emblaApi?.scrollNext();
+                    }}
+                >
+                    <ChevronRightIcon className="tw-w-6 tw-h-6" />
+                </button>
             </div>
-
-            <button
-                type="button"
-                className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-left-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
-                onClick={() => {
-                    emblaApi?.scrollPrev();
-                }}
-            >
-                <ChevronLeftIcon className="tw-w-6 tw-h-6" />
-            </button>
-
-            <button
-                type="button"
-                className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-right-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
-                onClick={() => {
-                    emblaApi?.scrollNext();
-                }}
-            >
-                <ChevronRightIcon className="tw-w-6 tw-h-6" />
-            </button>
         </div>
     );
 }

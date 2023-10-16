@@ -622,9 +622,7 @@ function HeroSection({
                             {item.titleVernacId && (
                                 <div
                                     className={concatenateNonNullStringsWithSpaces(
-                                        itemIndex === 0
-                                            ? "max-lg:tw-row-1 max-lg:tw-col-start-1 max-lg:tw-row-span-7 max-lg:tw-w-full max-lg:tw-h-full max-lg:tw-bg-black max-lg:tw-opacity-40"
-                                            : "tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40",
+                                        itemIndex === 1 ? "tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40" : undefined,
                                     )}
                                 />
                             )}
