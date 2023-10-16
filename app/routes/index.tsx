@@ -7,7 +7,6 @@ import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
-import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {CarouselStyle1Video} from "~/components/carouselStyle1Video";
 import {CarouselStyle2} from "~/components/carouselStyle2";
@@ -41,21 +40,21 @@ import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/gl
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
-import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
 import type {FormStateInputsAction} from "~/routes/lead-form.state";
 import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
-import {MiniPowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {Dealer, UserPreferences} from "~/typeDefinitions";
 import {FormType, Language, Theme} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getContentGenerator} from "~/vernacularProvider";
-import {SocialMediaFeeds} from "./events/renewable-energy-india-expo";
+import {SocialMediaFeeds} from "~/routes/events/renewable-energy-india-expo";
 import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 import {SimpleCoverImage} from "~/components/images/simpleCoverImage";
+import {FormSubmissionSuccessLivguardDialog} from "~/reusableSections/formSubmissionSuccessLivguardDialog";
+import {MiniPowerPlannerTeaser} from "~/reusableSections/miniPowerPlannerTeaser";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
