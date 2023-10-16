@@ -614,16 +614,12 @@ function HeroSection({
                                     </Link>
                                 ))} */}
 
-                            {item.mobileImageRelativePath &&
-                                item.desktopImageRelativePath &&
-                                (containerWidth == null || containerHeight == null ? null : (
-                                    <SimpleCoverImage
-                                        relativePath={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
-                                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                                        key={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
-                                        loading={itemIndex == 0 ? "eager" : "lazy"}
-                                    />
-                                ))}
+                            <SimpleCoverImage
+                                relativePath={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
+                                className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                                key={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
+                                loading={itemIndex == 0 ? "eager" : "lazy"}
+                            />
 
                             {item.titleVernacId && (
                                 <div
