@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon, ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
-import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useFetcher, useNavigate} from "@remix-run/react";
 import React, {useContext, useEffect, useReducer, useRef, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Whatsapp, Youtube} from "react-bootstrap-icons";
@@ -221,6 +221,10 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
         throw Error(`Undefined language ${userPreferences.language}`);
     }
 };
+
+export const links: LinksFunction = () => [
+    {rel: "preload", as: "image", imageSrcSet: "https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=3840 3840w", imageSizes: "(max-width: 480px) 480w, (max-width: 720px) 720w, (max-width: 1280px) 1280w, (max-width: 1366px) 1366w, (max-width: 1920px) 1920w, (max-width: 2560px) 2560w, (max-width: 3840px) 3840w"},
+];
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -617,7 +621,7 @@ function HeroSection({
                                         relativePath={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
                                         className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
                                         key={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
-                                        loading="eager"
+                                        loading={itemIndex == 0 ? "eager" : "lazy"}
                                     />
                                 ))}
 
