@@ -68,26 +68,20 @@ export function useExternalScript(
             }
 
             script.async = true;
-            if (options.timeoutDuration) {
+            if (options.timeoutDuration != null) {
                 setTimeout(() => {
+                    console.log("appended in timeout");
                     appendScript(document, options, script);
                     if (eventTriggerCallback != null) {
                         eventTriggerCallback();
                     }
                 }, options.timeoutDuration);
             } else {
+                console.log("appended");
                 appendScript(document, options, script);
                 if (eventTriggerCallback != null) {
                     eventTriggerCallback();
                 }
-            }
-
-            if ((options.appendInBody == null && options.appendInHead == null) || (!options.appendInHead && !options.appendInBody) || options.appendInHead) {
-                document.head.appendChild(script);
-            }
-
-            if (options.appendInBody) {
-                document.body.appendChild(script);
             }
 
             return () => {
