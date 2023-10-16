@@ -1,6 +1,6 @@
 import {useContext} from "react";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
-import {OfferContactUsCta} from "~/routes/offers/inverter-and-battery-jodi";
+import {OfferContactUsCta} from "~/components/offerContactUsCta";
 import {UserPreferences} from "~/typeDefinitions";
 
 export function OfferPageBottomBar({userPreferences, pageUrl}: {userPreferences: UserPreferences; pageUrl: string}) {
