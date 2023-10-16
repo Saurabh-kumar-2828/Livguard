@@ -45,7 +45,7 @@ import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormStat
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {Dealer, UserPreferences} from "~/typeDefinitions";
 import {FormType, Language} from "~/typeDefinitions";
-import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
+import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getContentGenerator} from "~/vernacularProvider";
 import {SocialMediaFeeds} from "~/reusableSections/socialMediaFeeds";
 import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
@@ -542,6 +542,13 @@ function HeroSection({
             subTitleVernacId: "homeS1T2",
             contactButtonVernacId: "homeS1T3",
         },
+        {
+            mobileImageRelativePath: "/livguard/home/1/mobile-banner-3.jpg",
+            desktopImageRelativePath: "/livguard/home/1/desktop-banner-3.jpg",
+            titleVernacId: "13419db0-afcd-4c94-a571-35f6c62de3b4",
+            subTitleVernacId: "a782b30b-13a2-48f1-90f5-0569dba18c1c",
+            contactButtonVernacId: "",
+        },
     ];
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
@@ -598,11 +605,25 @@ function HeroSection({
                                     </Link>
                                 ))} */}
 
-                    <SimpleCoverImage
+                    {/* <SimpleCoverImage
                         relativePath={isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath}
                         className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
                         key={isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath}
                         loading={selectedBannerIndex == 0 ? "eager" : "lazy"}
+                    /> */}
+
+                    <img
+                        // src={getAbsolutePathForRelativePath(getMetadataForImage(isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath), ImageCdnProvider.Bunny, null, null)}
+                        srcSet={
+                            selectedBannerIndex === 0
+                                ? "https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=3840 3840w"
+                                : selectedBannerIndex === 1
+                                ? "https://intellsys-optimizer.b-cdn.net/livguard/home/1/mobile-banner-3-d4bec5.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/mobile-banner-3-d4bec5.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-6d9ed8.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-6d9ed8.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-6d9ed8.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-6d9ed8.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-6d9ed8.jpg?quality=85&width=3840 3840w"
+                                : "https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-mobile-72612f.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-mobile-72612f.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=3840 3840w"
+                        }
+                        sizes="(max-width: 480px) 480w, (max-width: 720px) 720w, (max-width: 1280px) 1280w, (max-width: 1366px) 1366w, (max-width: 1920px) 1920w, (max-width: 2560px) 2560w, (max-width: 3840px) 3840w"
+                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-object-cover tw-w-full tw-h-full"
+                        key={isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath}
                     />
 
                     {banners[selectedBannerIndex].titleVernacId && (
@@ -851,7 +872,7 @@ function HeroSection({
                 className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-right-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
                 onClick={() => {
                     // emblaApi?.scrollNext();
-                    setSelectedBannerIndex(selectedBannerIndex + 1 > 1 ? 0 : selectedBannerIndex + 1);
+                    setSelectedBannerIndex(selectedBannerIndex + 1 > banners.length - 1 ? 0 : selectedBannerIndex + 1);
                 }}
             >
                 <ChevronRightIcon className="tw-w-6 tw-h-6" />
