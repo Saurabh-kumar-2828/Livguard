@@ -10605,8 +10605,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `अपना संपर्क विवरण दें।`,
     },
     "8e337c72-d495-4840-9fcc-3670a8e9bd83": {
-        [Language.English]: `Share on which page you found the stolen inverter and battery on the Livguard <a class="tw-underline tw-decoration-red-500" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/livguardenergy/"><b>Social Media post.</b></a>`,
-        [Language.Hindi]: `लिवगार्ड <a class="tw-underline tw-decoration-red-500" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/livguardenergy/"><b>सोशल मीडिया पोस्ट</b></a> पर बताएँ कि आपको चोरी हुए इनवर्टर और बैटरी किस पेज पर मिले।`,
+        [Language.English]: `Share on which page you found the stolen inverter and battery on the Livguard <a class="tw-underline tw-decoration-red-500" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/reel/Cydg6oOoSgU/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="><b>Social Media post.</b></a>`,
+        [Language.Hindi]: `लिवगार्ड <a class="tw-underline tw-decoration-red-500" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/reel/Cydg6oOoSgU/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="><b>सोशल मीडिया पोस्ट</b></a> पर बताएँ कि आपको चोरी हुए इनवर्टर और बैटरी किस पेज पर मिले।`,
     },
     "10f2f51f-a177-48ec-be50-990650be4f59": {
         [Language.English]: `Tag 3 friends along the code`,
@@ -11467,11 +11467,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "03954a87-ce9d-4852-92d0-97aa7fa0379f": {
         [Language.English]: `REI 2022`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `REI 2022`,
     },
     "0057d3d3-9147-4975-b299-fefc8a50f91a": {
         [Language.English]: `REI 2023`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `REI 2023`,
     },
     "f3abeab1-a2c7-46c1-8111-72c3145fd5c7": {
         [Language.English]: `Find Wattson`,
@@ -11583,11 +11583,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "0f24d13c-8b25-4165-b0d4-197c059e4794": {
         [Language.English]: `GOOD NEWS`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अच्छी खबर!`,
     },
     "bb45dab0-a985-4bf8-9f07-845806b20b77": {
         [Language.English]: `We are now available on Whatsapp too.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हम अब व्हाट्सएप पर भी उपलब्ध हैं`,
     },
     "ab1da9d6-1aaa-46d4-9b50-b911b3006b11": {
         [Language.English]: `Start Here`,
