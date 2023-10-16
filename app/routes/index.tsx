@@ -535,18 +535,18 @@ function HeroSection({
             buttonLink: "https://api.whatsapp.com/send?phone=9599198444",
         },
         {
-            mobileImageRelativePath: "/livguard/home/1/new-mobile.jpg",
-            desktopImageRelativePath: "/livguard/home/1/new-desktop.jpg",
-            titleVernacId: "homeS1T1",
-            subTitleVernacId: "homeS1T2",
-            contactButtonVernacId: "homeS1T3",
-        },
-        {
             mobileImageRelativePath: "/livguard/home/1/mobile-banner-3.jpg",
             desktopImageRelativePath: "/livguard/home/1/desktop-banner-3.jpg",
             titleVernacId: "13419db0-afcd-4c94-a571-35f6c62de3b4",
             subTitleVernacId: "a782b30b-13a2-48f1-90f5-0569dba18c1c",
             contactButtonVernacId: "",
+        },
+        {
+            mobileImageRelativePath: "/livguard/home/1/new-mobile.jpg",
+            desktopImageRelativePath: "/livguard/home/1/new-desktop.jpg",
+            titleVernacId: "homeS1T1",
+            subTitleVernacId: "homeS1T2",
+            contactButtonVernacId: "homeS1T3",
         },
     ];
     return (

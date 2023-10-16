@@ -18,16 +18,17 @@ import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
-import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
+import {FormSubmissionSuccessLivguardDialog} from "~/components/formSubmissionSuccessLivguardDialog";
 import type {FormStateInputsAction} from "~/routes/lead-form.state";
 import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {FormType, Language} from "~/typeDefinitions";
-import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getContentGenerator} from "~/vernacularProvider";
 import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
