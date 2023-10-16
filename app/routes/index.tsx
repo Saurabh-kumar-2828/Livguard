@@ -55,6 +55,7 @@ import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
+import {InitialFindTheThiefDialogComponent} from "~/components/find-the-thief/initialFindTheThiefDialogComponent";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -262,6 +263,28 @@ export default function () {
     const utmSearchParameters = useUtmSearchParameters();
 
     const secondaryNavigationController = useSecondaryNavigationController();
+    const [isFindTheThiefDialogOpen, setIsFindTheThiefDialogOpen] = useState(false);
+
+    useEffect(() => {
+        if (localStorage.getItem("cookiesAccepted") == null) {
+            setIsFindTheThiefDialogOpen(false);
+            return;
+        }
+
+        const treasureHuntStep = localStorage.getItem("treasureHuntStep");
+        if (treasureHuntStep == null || treasureHuntStep == "0") {
+            setIsFindTheThiefDialogOpen(true);
+        }
+    }, []);
+
+    // useEffect(() => {
+    //     const treasureHuntStep = localStorage.getItem("treasureHuntStep");
+    //     if (isCookieDialogOpen === false && localStorage.getItem("cookiesAccepted") != null && (treasureHuntStep == null || treasureHuntStep === "0")) {
+    //         setTimeout(() => {
+    //             setIsFindTheThiefDialogOpen(true);
+    //         }, 1000);
+    //     }
+    // }, [isCookieDialogOpen]);
 
     return (
         <>
@@ -289,6 +312,22 @@ export default function () {
                             />
                         </SecondaryNavigationControllerContext.Provider>
                     </PageScaffold>
+
+                    <FindTheThiefDialog
+                        isDialogOpen={isFindTheThiefDialogOpen}
+                        setIsDialogOpen={setIsFindTheThiefDialogOpen}
+                        userPreferences={userPreferences}
+                        showSunraysPattern={false}
+                    >
+                        <InitialFindTheThiefDialogComponent
+                            userPreferences={userPreferences}
+                            buttonClickFunction={() => {
+                                setIsFindTheThiefDialogOpen(false);
+                                localStorage.setItem("treasureHuntStep", "1");
+                                window.dispatchEvent(new Event("treasureHuntInitiated"));
+                            }}
+                        />
+                    </FindTheThiefDialog>
 
                     <StickyBottomBar userPreferences={userPreferences} />
                 </ContentProviderContext.Provider>
@@ -543,18 +582,18 @@ function HeroSection({
                             buttonLink: "https://api.whatsapp.com/send?phone=9599198444",
                         },
                         {
-                            mobileImageRelativePath: "/livguard/home/1/new-mobile.jpg",
-                            desktopImageRelativePath: "/livguard/home/1/new-desktop.jpg",
-                            titleVernacId: "homeS1T1",
-                            subTitleVernacId: "homeS1T2",
-                            contactButtonVernacId: "homeS1T3",
-                        },
-                        {
                             mobileImageRelativePath: "/livguard/home/1/mobile-banner-3.jpg",
                             desktopImageRelativePath: "/livguard/home/1/desktop-banner-3.jpg",
                             titleVernacId: "13419db0-afcd-4c94-a571-35f6c62de3b4",
                             subTitleVernacId: "a782b30b-13a2-48f1-90f5-0569dba18c1c",
                             contactButtonVernacId: "",
+                        },
+                        {
+                            mobileImageRelativePath: "/livguard/home/1/new-mobile.jpg",
+                            desktopImageRelativePath: "/livguard/home/1/new-desktop.jpg",
+                            titleVernacId: "homeS1T1",
+                            subTitleVernacId: "homeS1T2",
+                            contactButtonVernacId: "homeS1T3",
                         },
                         // {
                         //     englishMobileImageRelativePath: "/livguard/landing-pages/3/top-banner-mobile-english.jpg",
@@ -622,7 +661,7 @@ function HeroSection({
                             {item.titleVernacId && (
                                 <div
                                     className={concatenateNonNullStringsWithSpaces(
-                                        itemIndex === 1 ? "tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40" : undefined,
+                                        itemIndex === 2 ? "tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40" : undefined,
                                     )}
                                 />
                             )}

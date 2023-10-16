@@ -37,35 +37,8 @@ export function PageScaffold({
     secondaryNavigationController?: SecondaryNavigationController;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
-    const [isFindTheThiefDialogOpen, setIsFindTheThiefDialogOpen] = useState(false);
-    const [isCookieDialogOpen, setIsCookieDialogOpen] = useState(false);
     const contentData = useContext(ContentProviderContext);
-
-    useEffect(() => {
-        if (localStorage.getItem("cookiesAccepted") == null) {
-            setIsFindTheThiefDialogOpen(false);
-            return;
-        }
-
-        const treasureHuntStep = localStorage.getItem("treasureHuntStep");
-        if (treasureHuntStep == null || treasureHuntStep == "0" || (doNotOpenDialogue != null && doNotOpenDialogue !== "1")) {
-            setIsFindTheThiefDialogOpen(true);
-        }
-    }, []);
-
-    useEffect(() => {
-        const treasureHuntStep = localStorage.getItem("treasureHuntStep");
-        if (isCookieDialogOpen === false && localStorage.getItem("cookiesAccepted") != null && (treasureHuntStep == null || treasureHuntStep === "0")) {
-            if (doNotOpenDialogue !== "1") {
-                setTimeout(() => {
-                    setIsFindTheThiefDialogOpen(true);
-                }, 1000);
-            } else {
-                setIsFindTheThiefDialogOpen(false);
-            }
-        }
-    }, [isCookieDialogOpen]);
+    const [isCookieDialogOpen, setIsCookieDialogOpen] = useState(false);
 
     return (
         <>
@@ -123,22 +96,6 @@ export function PageScaffold({
                     utmParameters={utmParameters}
                     pageUrl={pageUrl}
                 />
-
-                <FindTheThiefDialog
-                    isDialogOpen={isFindTheThiefDialogOpen}
-                    setIsDialogOpen={setIsFindTheThiefDialogOpen}
-                    userPreferences={userPreferences}
-                    showSunraysPattern={false}
-                >
-                    <InitialFindTheThiefDialogComponent
-                        userPreferences={userPreferences}
-                        buttonClickFunction={() => {
-                            setIsFindTheThiefDialogOpen(false);
-                            localStorage.setItem("treasureHuntStep", "1");
-                            window.dispatchEvent(new Event("treasureHuntInitiated"));
-                        }}
-                    />
-                </FindTheThiefDialog>
 
                 <CookieDialog
                     userPreferences={userPreferences}

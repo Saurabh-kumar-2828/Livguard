@@ -70,20 +70,24 @@ function LoadCalculatorDialogMobile({
             )}
 
             {step === 1 && (
-                <FormSection
-                    userPreferences={userPreferences}
-                    setStep={setStep}
-                    couponCode={couponCode}
-                    setCouponCode={setCouponCode}
-                />
-            )}
-
-            {step === 2 && (
+                // <FormSection
+                //     userPreferences={userPreferences}
+                //     setStep={setStep}
+                //     couponCode={couponCode}
+                //     setCouponCode={setCouponCode}
+                // />
                 <ThankYouSection
                     userPreferences={userPreferences}
                     setIsDialogOpen={setIsDialogOpen}
                 />
-            )}           
+            )}
+
+            {/* {step === 2 && (
+                <ThankYouSection
+                    userPreferences={userPreferences}
+                    setIsDialogOpen={setIsDialogOpen}
+                />
+            )}            */}
         </div>
     );
 }
@@ -108,19 +112,23 @@ function LoadCalculatorDialogDesktop({
 
             <div className="tw-col-start-2 tw-px-8 tw-py-6 lg-bg-new-background-border-500 tw-rounded-lg">
                 {step === 1 && (
-                    <FormSection
-                        userPreferences={userPreferences}
-                        setStep={setStep}
-                        couponCode={couponCode}
-                        setCouponCode={setCouponCode}
-                    />
-                )}
-                {step === 2 && (
+                    // <FormSection
+                    //     userPreferences={userPreferences}
+                    //     setStep={setStep}
+                    //     couponCode={couponCode}
+                    //     setCouponCode={setCouponCode}
+                    // />
                     <ThankYouSection
                         userPreferences={userPreferences}
                         setIsDialogOpen={setIsDialogOpen}
                     />
                 )}
+                {/* {step === 2 && (
+                    <ThankYouSection
+                        userPreferences={userPreferences}
+                        setIsDialogOpen={setIsDialogOpen}
+                    />
+                )} */}
             </div>
         </div>
     );
@@ -472,14 +480,25 @@ function ThankYouSection({userPreferences, className, setIsDialogOpen}: {userPre
 
             <VerticalSpacer className="tw-h-4" />
 
-            <FullWidthImage relativePath="/livguard/find-the-thief/coupon.png" />
+            <div className="tw-w-full tw-px-16">
+                <FullWidthImage relativePath="/livguard/find-the-thief/coupon.png" />
+            </div>
+
+            <VerticalSpacer className="tw-h-4" />
+
+            <div className="tw-grid tw-grid-flow-col tw-grid-cols-1 tw-gap-x-3 tw-w-full tw-text-center">
+                {/* <div className="lg-bg-primary-500 !tw-text-secondary-900-dark tw-grid tw-place-items-center tw-h-6 tw-w-6 tw-rounded-full">2</div> */}
+                <div dangerouslySetInnerHTML={{__html: contentData.getContent("8e337c72-d495-4840-9fcc-3670a8e9bd83")}} />
+            </div>
 
             <VerticalSpacer className="tw-h-8" />
 
-            <div
-                dangerouslySetInnerHTML={{__html: contentData.getContent("38d347bc-e85b-46f2-82a0-dd41a118daaf")}}
-                className="tw-text-center lg-text-body"
-            />
+            <div className="tw-border-2 tw-border-dashed tw-border-primary-500-dark tw-rounded-md tw-p-2">
+                <div
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("38d347bc-e85b-46f2-82a0-dd41a118daaf")}}
+                    className="tw-text-center lg-text-body tw-px-12"
+                />
+            </div>
         </div>
     );
 }
