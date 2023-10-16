@@ -1,5 +1,5 @@
+import {Link} from "@remix-run/react";
 import {useContext, useEffect} from "react";
-import {Link} from "react-bootstrap-icons";
 import {useInView} from "react-intersection-observer";
 import {Thief} from "~/components/find-the-thief/thiefComponent";
 import {SimpleCoverImage} from "~/components/images/simpleCoverImage";

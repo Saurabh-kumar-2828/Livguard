@@ -1,5 +1,5 @@
 import {useContext, useEffect, useState} from "react";
-import {InstagramEmbed} from "react-social-media-embed";
+import {InstagramEmbed} from "react-social-media-embed/dist/components/embeds/InstagramEmbed.js";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
