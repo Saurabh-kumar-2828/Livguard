@@ -19,7 +19,7 @@ import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDe
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import LivguardDialog from "~/components/livguardDialog";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
-import {DealerLocator} from "~/routes";
+import {DealerLocator} from "~/reusableSections/dealerLocator";
 import {SocialHandles} from "~/components/category/common";
 import {ProductDetails} from "~/productData.types";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";

@@ -29,7 +29,7 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductDetails, ProductType} from "~/productData.types";
-import {DealerLocator} from "~/routes";
+import {DealerLocator} from "~/reusableSections/dealerLocator";
 import {SuggestedComboSection} from "~/routes/__category/inverter-for-home";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
@@ -451,13 +451,13 @@ function HeroSection({
     // const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     // const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
     // useEffect(() => {
-        // secondaryNavigationController.setSections((previousSections) => ({
-            // ...previousSections,
-            // top: {
-                // humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41"),
-                // isCurrentlyVisible: sectionInView,
-            // },
-        // }));
+    // secondaryNavigationController.setSections((previousSections) => ({
+    // ...previousSections,
+    // top: {
+    // humanReadableName: contentData.getContent("9fc64723-0e15-4211-983a-ba03cf9a4d41"),
+    // isCurrentlyVisible: sectionInView,
+    // },
+    // }));
     // }, [sectionRef, sectionInView]);
     return (
         <div
@@ -557,7 +557,7 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            "features": {
+            features: {
                 humanReadableName: contentData.getContent("8bb57774-d155-41f1-bf07-6906c1026203"),
                 isCurrentlyVisible: sectionInView,
             },

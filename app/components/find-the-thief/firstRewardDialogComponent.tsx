@@ -8,8 +8,6 @@ import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {Theme, UserPreferences} from "~/typeDefinitions";
 import {getMetadataForImage} from "~/utilities";
-import confettiAnimationData from "~/components/find-the-thief/confetti-lottie.json";
-import Lottie from "react-lottie-player";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function FirstRewardDialogComponent({userPreferences, buttonClickFunction}: {userPreferences: UserPreferences; buttonClickFunction: React.MouseEventHandler<HTMLButtonElement>}) {
@@ -57,12 +55,12 @@ export function FirstRewardDialogComponent({userPreferences, buttonClickFunction
                 <div className="tw-rounded-t-lg lg:tw-rounded-tl-lg tw-w-2/3 tw-max-w-xs tw-h-full tw-px-4 tw-grid tw-place-self-center tw-relative">
                     <FullWidthImage relativePath="/livguard/find-the-thief/treasure-inverter.png" />
                     <div className="tw-absolute tw-inset-0 tw-m-auto">
-                        <Lottie
+                        {/* <Lottie
                             animationData={confettiAnimationData}
                             loop
                             play
                             className="tw-w-full tw-h-full"
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>

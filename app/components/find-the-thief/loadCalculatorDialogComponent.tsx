@@ -9,8 +9,6 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {UserPreferences} from "~/typeDefinitions";
-import confettiAnimationData from "~/components/find-the-thief/confetti-lottie.json";
-import Lottie from "react-lottie-player";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 
 export function LoadCalculatorDialogComponent({
@@ -154,12 +152,12 @@ function VictoryComponent({userPreferences, setStep, className}: {userPreference
             <div className="tw-w-2/3 tw-max-w-xs tw-h-full tw-px-4 tw-place-self-center tw-relative tw-z-10">
                 <FullWidthImage relativePath="/livguard/find-the-thief/inverter-battery.png" />
                 <div className="tw-absolute tw-inset-0 tw-m-auto">
-                    <Lottie
+                    {/* <Lottie
                         animationData={confettiAnimationData}
                         loop
                         play
                         className="tw-w-full tw-h-full"
-                    />
+                    /> */}
                 </div>
             </div>
 

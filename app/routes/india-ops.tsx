@@ -20,7 +20,8 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
-import {ContactUsCta, DealerLocator} from "~/routes";
+import {ContactUsCta} from "~/routes";
+import {DealerLocator} from "~/reusableSections/dealerLocator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";

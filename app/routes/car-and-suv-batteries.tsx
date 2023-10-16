@@ -27,7 +27,7 @@ import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {ProductDetails, ProductType} from "~/productData.types";
-import {DealerLocator} from "~/routes";
+import {DealerLocator} from "~/reusableSections/dealerLocator";
 import type {BatteryFinderAction} from "~/routes/car-and-suv/index.state";
 import {BatteryFinderActionType, batteryFinderInitialState, batteryFinderReducer} from "~/routes/car-and-suv/index.state";
 import type {BatteryFinderState} from "~/routes/car-and-suv/index.types";

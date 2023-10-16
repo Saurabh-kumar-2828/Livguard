@@ -27,7 +27,7 @@ import {StickyBottomBar} from "~/components/bottomBar";
 import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
-import {DealerLocator} from "~/routes";
+import {DealerLocator} from "~/reusableSections/dealerLocator";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {useInView} from "react-intersection-observer";

@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon, ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
-import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useFetcher, useNavigate} from "@remix-run/react";
 import React, {useContext, useEffect, useReducer, useRef, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Whatsapp, Youtube} from "react-bootstrap-icons";
@@ -7,7 +7,6 @@ import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
-import {getProductFromSlugAndLanguage} from "~/backend/product.server";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {CarouselStyle1Video} from "~/components/carouselStyle1Video";
 import {CarouselStyle2} from "~/components/carouselStyle2";
@@ -24,10 +23,9 @@ import {Thief} from "~/components/find-the-thief/thiefComponent";
 import {CoverImage} from "~/components/images/coverImage";
 import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
 import {InTheNewsCarousel} from "~/components/inTheNewsCarousel";
-import {LeadersCarousel} from "~/components/leadersCarousel";
 import LivguardDialog from "~/components/livguardDialog";
 import {PageScaffold} from "~/components/pageScaffold";
-import {FancySearchableSelect, SearchableSelect} from "~/components/scratchpad";
+import {FancySearchableSelect, SearchableSelect} from "~/components/searchableSelects";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
@@ -41,20 +39,22 @@ import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/gl
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
-import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
 import type {FormStateInputsAction} from "~/routes/lead-form.state";
 import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
-import {MiniPowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {Dealer, UserPreferences} from "~/typeDefinitions";
-import {FormType, Language, Theme} from "~/typeDefinitions";
+import {FormType, Language} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getContentGenerator} from "~/vernacularProvider";
-import {SocialMediaFeeds} from "./events/renewable-energy-india-expo";
+import {SocialMediaFeeds} from "~/reusableSections/socialMediaFeeds";
 import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
+import {SimpleCoverImage} from "~/components/images/simpleCoverImage";
+import {FormSubmissionSuccessLivguardDialog} from "~/reusableSections/formSubmissionSuccessLivguardDialog";
+import {MiniPowerPlannerTeaser} from "~/reusableSections/miniPowerPlannerTeaser";
+import {DealerLocator, DialogType} from "~/reusableSections/dealerLocator";
 import {InitialFindTheThiefDialogComponent} from "~/components/find-the-thief/initialFindTheThiefDialogComponent";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
@@ -222,6 +222,17 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
     }
 };
 
+export const links: LinksFunction = () => [
+    {
+        rel: "preload",
+        as: "image",
+        imageSrcSet:
+            "https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=3840 3840w",
+        imageSizes:
+            "(max-width: 480px) 480w, (max-width: 720px) 720w, (max-width: 1280px) 1280w, (max-width: 1366px) 1366w, (max-width: 1920px) 1920w, (max-width: 2560px) 2560w, (max-width: 3840px) 3840w",
+    },
+];
+
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
@@ -334,12 +345,6 @@ export default function () {
             </ImageProviderContext.Provider>
         </>
     );
-}
-
-enum DialogType {
-    initialDialog = 0,
-    firstRewardDialog = 1,
-    secondClueDialog = 2,
 }
 
 function HomePage({
@@ -556,8 +561,33 @@ function HeroSection({
     const contentData = useContext(ContentProviderContext);
 
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 10000);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const [selectedBannerIndex, setSelectedBannerIndex] = useState(0);
+    const banners = [
+        {
+            mobileImageRelativePath: "/livguard/home/second-banner/mob-banner.jpg",
+            desktopImageRelativePath: "/livguard/home/second-banner/desktop-banner.jpg",
+            titleVernacId: "0f24d13c-8b25-4165-b0d4-197c059e4794",
+            subTitleVernacId: "bb45dab0-a985-4bf8-9f07-845806b20b77",
+            contactButtonVernacId: "ab1da9d6-1aaa-46d4-9b50-b911b3006b11",
+            buttonLink: "https://api.whatsapp.com/send?phone=9599198444",
+        },
+        {
+            mobileImageRelativePath: "/livguard/home/1/mobile-banner-3.jpg",
+            desktopImageRelativePath: "/livguard/home/1/desktop-banner-3.jpg",
+            titleVernacId: "13419db0-afcd-4c94-a571-35f6c62de3b4",
+            subTitleVernacId: "a782b30b-13a2-48f1-90f5-0569dba18c1c",
+            contactButtonVernacId: "",
+        },
+        {
+            mobileImageRelativePath: "/livguard/home/1/new-mobile.jpg",
+            desktopImageRelativePath: "/livguard/home/1/new-desktop.jpg",
+            titleVernacId: "homeS1T1",
+            subTitleVernacId: "homeS1T2",
+            contactButtonVernacId: "homeS1T3",
+        },
+    ];
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
@@ -565,13 +595,147 @@ function HeroSection({
                 "tw-overflow-hidden max-[380px]:tw-h-[calc(100vh-10rem-var(--lg-mobile-ui-height))] tw-h-[calc(100vh-16.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] lg:tw-min-h-[calc(100vw*7.5/16)] tw-relative",
                 className,
             )}
-            ref={emblaRef}
+            // ref={emblaRef}
         >
             <div
                 className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch tw-z-20"
                 ref={ref}
             >
-                <ItemBuilder
+                <div
+                    // tw-grid-rows-[3rem_minmax(0,1fr)_auto_minmax(0,1fr)_3rem]
+                    className={concatenateNonNullStringsWithSpaces(
+                        selectedBannerIndex === 0
+                            ? "tw-h-full tw-overflow-hidden tw-grid lg:tw-grid-rows-[0.5rem_1rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-grid-rows-[1rem_2rem_1rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate"
+                            : selectedBannerIndex === 2
+                            ? "tw-h-full tw-overflow-hidden tw-grid lg:tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_5rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate"
+                            : "tw-h-full tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate",
+                    )}
+                    key={selectedBannerIndex}
+                >
+                    {/* {item.englishDesktopImageRelativePath &&
+                                item.englishMobileImageRelativePath &&B
+                                (containerWidth == null || containerHeight == null ? null : (
+                                    <Link
+                                        to="/offers/inverter-and-battery-jodi"
+                                        className="tw-w-full tw-h-full tw-row-span-full tw-absolute"
+                                    >
+                                        <CoverImage
+                                            relativePath={
+                                                containerHeight > containerWidth || containerWidth < 640
+                                                    ? userPreferences.language == Language.English
+                                                        ? item.englishMobileImageRelativePath
+                                                        : item.hindiMobileImageRelativePath
+                                                    : userPreferences.language == Language.English
+                                                    ? item.englishDesktopImageRelativePath
+                                                    : item.hindiDesktopImageRelativePath
+                                            }
+                                            className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                                            key={
+                                                containerHeight > containerWidth || containerWidth < 640
+                                                    ? userPreferences.language == Language.English
+                                                        ? item.englishMobileImageRelativePath
+                                                        : item.hindiMobileImageRelativePath
+                                                    : userPreferences.language == Language.English
+                                                    ? item.englishDesktopImageRelativePath
+                                                    : item.hindiDesktopImageRelativePath
+                                            }
+                                        />
+                                    </Link>
+                                ))} */}
+
+                    {/* <SimpleCoverImage
+                        relativePath={isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath}
+                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                        key={isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath}
+                        loading={selectedBannerIndex == 0 ? "eager" : "lazy"}
+                    /> */}
+
+                    <img
+                        // src={getAbsolutePathForRelativePath(getMetadataForImage(isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath), ImageCdnProvider.Bunny, null, null)}
+                        srcSet={
+                            selectedBannerIndex === 0
+                                ? "https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=3840 3840w"
+                                : selectedBannerIndex === 1
+                                ? "https://intellsys-optimizer.b-cdn.net/livguard/home/1/mobile-banner-3-d4bec5.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/mobile-banner-3-d4bec5.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=3840 3840w"
+                                : "https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-mobile-72612f.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-mobile-72612f.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=3840 3840w"
+                        }
+                        sizes="(max-width: 480px) 480w, (max-width: 720px) 720w, (max-width: 1280px) 1280w, (max-width: 1366px) 1366w, (max-width: 1920px) 1920w, (max-width: 2560px) 2560w, (max-width: 3840px) 3840w"
+                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-object-cover tw-w-full tw-h-full"
+                        key={isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath}
+                    />
+
+                    {banners[selectedBannerIndex].titleVernacId && (
+                        <div
+                            className={concatenateNonNullStringsWithSpaces(
+                                selectedBannerIndex === 0
+                                    ? "max-lg:tw-row-1 max-lg:tw-col-start-1 max-lg:tw-row-span-7 max-lg:tw-w-full max-lg:tw-h-full max-lg:tw-bg-black max-lg:tw-opacity-40"
+                                    : "tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40",
+                            )}
+                        />
+                    )}
+
+                    {banners[selectedBannerIndex].titleVernacId && banners[selectedBannerIndex].subTitleVernacId && (
+                        <h2
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge max-[380px]:tw-px-[1rem]",
+                                // itemIndex === 1 ? "tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge" : "",
+                            )}
+                        >
+                            <DefaultTextAnimation>
+                                <div
+                                    className={concatenateNonNullStringsWithSpaces("lg-text-banner", banners[selectedBannerIndex].titleVernacId == "" ? "tw-visibility-hidden" : "")}
+                                    dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent(banners[selectedBannerIndex].titleVernacId))}}
+                                ></div>
+                            </DefaultTextAnimation>
+
+                            <DefaultTextAnimation>
+                                <div
+                                    className="lg-text-title1"
+                                    dangerouslySetInnerHTML={{__html: contentData.getContent(banners[selectedBannerIndex].subTitleVernacId)}}
+                                ></div>
+                            </DefaultTextAnimation>
+                        </h2>
+                    )}
+
+                    {banners[selectedBannerIndex].contactButtonVernacId && banners[selectedBannerIndex].buttonLink == null && (
+                        <DefaultElementAnimation
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-row-start-6 tw-col-start-1 tw-z-10 ",
+                                // itemIndex == 1 ? "tw-relative max-lg:tw-top-[3rem] lg:max-xl:tw-top-2 max-sm:tw-top-0" : "",
+                            )}
+                        >
+                            <ContactUsCta
+                                userPreferences={userPreferences}
+                                textVernacId={banners[selectedBannerIndex].contactButtonVernacId}
+                                className="tw-z-10"
+                                utmParameters={utmParameters}
+                                pageUrl={pageUrl}
+                            />
+                        </DefaultElementAnimation>
+                    )}
+
+                    {banners[selectedBannerIndex].buttonLink != null && (
+                        <DefaultElementAnimation className={concatenateNonNullStringsWithSpaces("tw-row-start-6 tw-col-start-1 tw-z-10")}>
+                            <Link
+                                className="tw-rounded-full tw-bg-[#3AC340] tw-pr-4 tw-z-10 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-2 tw-place-items-center"
+                                to={banners[selectedBannerIndex].buttonLink}
+                            >
+                                <span className="tw-bg-[#40D421] tw-rounded-full tw-p-2">
+                                    <Whatsapp className="tw-h-6 tw-w-6" />
+                                </span>
+                                {contentData.getContent(banners[selectedBannerIndex].contactButtonVernacId)}
+                            </Link>
+                        </DefaultElementAnimation>
+                    )}
+
+                    <Link
+                        to="#energy-storage-solutions"
+                        className="tw-row-[9] tw-col-start-1"
+                    >
+                        <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
+                    </Link>
+                </div>
+                {/* <ItemBuilder
                     items={[
                         {
                             mobileImageRelativePath: "/livguard/home/second-banner/mob-banner.jpg",
@@ -648,15 +812,12 @@ function HeroSection({
                                     </Link>
                                 ))} */}
 
-                            {item.mobileImageRelativePath &&
-                                item.desktopImageRelativePath &&
-                                (containerWidth == null || containerHeight == null ? null : (
-                                    <CoverImage
-                                        relativePath={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
-                                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                                        key={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
-                                    />
-                                ))}
+                {/* <SimpleCoverImage
+                                relativePath={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
+                                className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                                key={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
+                                loading={itemIndex == 0 ? "eager" : "lazy"}
+                            />
 
                             {item.titleVernacId && (
                                 <div
@@ -727,15 +888,16 @@ function HeroSection({
                                 <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
                             </Link>
                         </div>
-                    )}
-                />
+                    )} */}
+                {/* /> */}
             </div>
             {/* <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center tw-absolute tw-top-0 tw-bottom-0 tw-right-0 tw-left-0 tw-px-6"> */}
             <button
                 type="button"
                 className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-left-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
                 onClick={() => {
-                    emblaApi?.scrollPrev();
+                    // emblaApi?.scrollPrev();
+                    setSelectedBannerIndex(selectedBannerIndex - 1 < 0 ? banners.length - 1 : selectedBannerIndex - 1);
                 }}
             >
                 <ChevronLeftIcon className="tw-w-6 tw-h-6" />
@@ -745,7 +907,8 @@ function HeroSection({
                 type="button"
                 className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-right-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
                 onClick={() => {
-                    emblaApi?.scrollNext();
+                    // emblaApi?.scrollNext();
+                    setSelectedBannerIndex(selectedBannerIndex + 1 > banners.length - 1 ? 0 : selectedBannerIndex + 1);
                 }}
             >
                 <ChevronRightIcon className="tw-w-6 tw-h-6" />
@@ -1026,6 +1189,8 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
         }));
     }, [sectionRef, sectionInView]);
 
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}
@@ -1058,16 +1223,9 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <DefaultImageAnimation className="tw-block lg:tw-hidden tw-w-full">
+                <DefaultImageAnimation className="tw-w-full">
                     <FullWidthImage
-                        relativePath="/livguard/home/4/1-mobile.jpg"
-                        className="tw-rounded-lg"
-                    />
-                </DefaultImageAnimation>
-
-                <DefaultImageAnimation className="tw-hidden lg:tw-block tw-w-full">
-                    <FullWidthImage
-                        relativePath="/livguard/home/4/1-desktop.jpg"
+                        relativePath={isScreenSizeBelow ? "/livguard/home/4/1-mobile.jpg" : "/livguard/home/4/1-desktop.jpg"}
                         className="tw-rounded-lg"
                     />
                 </DefaultImageAnimation>
@@ -1402,50 +1560,6 @@ export function SolarSolutions({userPreferences, className}: {userPreferences: U
     );
 }
 
-export function MeetOurLeadership({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const contentData = useContext(ContentProviderContext);
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-h-full", className)}>
-            <div className="[@media(max-width:1024px)]:lg-px-screen-edge [@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2 tw-text-center lg:tw-hidden">
-                <div dangerouslySetInnerHTML={{__html: contentData.getContent("homeS8H1T1")}} />
-                <div dangerouslySetInnerHTML={{__html: contentData.getContent("homeS8H1T2")}} />
-            </div>
-
-            <VerticalSpacer className="tw-h-8 lg:tw-hidden" />
-
-            <LeadersCarousel
-                userPreferences={userPreferences}
-                leaders={[
-                    {
-                        image: "/livguard/home/8/1.jpg",
-                        name: "homeS8Slide1T1",
-                        designation: "homeS8Slide1T2",
-                        bio: "homeS8Slide1T3",
-                    },
-                    {
-                        image: "/livguard/home/8/2.jpg",
-                        name: "homeS8Slide2T1",
-                        designation: "homeS8Slide2T2",
-                        bio: "homeS8Slide2T3",
-                    },
-                    {
-                        image: "/livguard/home/8/3.jpg",
-                        name: "homeS8Slide3T1",
-                        designation: "homeS8Slide3T2",
-                        bio: "homeS8Slide3T3",
-                    },
-                    {
-                        image: "/livguard/home/8/4.jpg",
-                        name: "homeS8Slide4T1",
-                        designation: "homeS8Slide4T2",
-                        bio: "homeS8Slide4T3",
-                    },
-                ]}
-            />
-        </div>
-    );
-}
-
 export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const faqs = [
         {
@@ -1477,94 +1591,6 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
                 userPreferences={userPreferences}
                 className="tw-h-full tw-w-full"
             />
-        </div>
-    );
-}
-
-export function DealerLocator({
-    userPreferences,
-    showCtaButton,
-    className,
-    currentThiefLocation,
-    setCurrentThiefLocation,
-    setDialogType,
-    setIsDialogOpen,
-    secondaryNavigationName,
-}: {
-    userPreferences: UserPreferences;
-    showCtaButton: boolean;
-    className?: string;
-    currentThiefLocation?: number | null;
-    setCurrentThiefLocation?: React.Dispatch<number>;
-    setDialogType?: React.Dispatch<DialogType>;
-    setIsDialogOpen?: React.Dispatch<boolean>;
-    secondaryNavigationName?: string;
-}) {
-    const contentData = useContext(ContentProviderContext);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            "dealer-locator": {
-                humanReadableName: secondaryNavigationName == null ? contentData.getContent("0cb6d442-7df4-4272-a36d-9f956bdd8a54") : contentData.getContent(secondaryNavigationName),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
-    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
-    return (
-        <div
-            id="dealer-locator"
-            ref={sectionRef}
-            className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-relative", className)}
-        >
-            {isScreenSizeBelow || currentThiefLocation == null || setCurrentThiefLocation == null
-                ? null
-                : setDialogType != null &&
-                  setIsDialogOpen != null && (
-                      <Thief
-                          currentThiefLocation={currentThiefLocation}
-                          thiefShowLocation={1}
-                          onClick={() => {
-                              setCurrentThiefLocation(2);
-                              setDialogType(DialogType.firstRewardDialog);
-                              setIsDialogOpen(true);
-                          }}
-                          thiefClassName="tw-bottom-4 -tw-left-1 lg:-tw-left-[4.125rem]"
-                          direction="right"
-                      />
-                  )}
-            <div className="tw-relative lg-card tw-h-[21.875rem] tw-overflow-hidden lg:tw-h-full lg:tw-min-h-[31.25rem] lg:tw-px-2">
-                <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
-                    <div className="tw-absolute tw-inset-0">
-                        <CoverImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"} />
-                    </div>
-
-                    <div className="tw-z-10 lg-text-headline tw-text-center">
-                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("homeS10H1T1")}} />
-                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("homeS10H1T2")}} />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-1" />
-
-                    <div className="tw-z-10 lg-text-title2 tw-text-center">{contentData.getContent("homeS10T2")}</div>
-
-                    {showCtaButton && (
-                        <>
-                            <VerticalSpacer className="tw-h-6" />
-
-                            <Link
-                                to="/dealer-for-inverters-and-batteries"
-                                className="tw-z-10 lg-cta-button"
-                            >
-                                {contentData.getContent("homeS10T3")}
-                            </Link>
-                        </>
-                    )}
-                </div>
-            </div>
         </div>
     );
 }
@@ -2396,6 +2422,7 @@ export function SocialMediaFeedsSection({userPreferences, className}: {userPrefe
     const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
@@ -2405,13 +2432,21 @@ export function SocialMediaFeedsSection({userPreferences, className}: {userPrefe
             },
         }));
     }, [sectionRef, sectionInView]);
+
+    const [loadEmbeds, setLoadEmbeds] = useState(false);
+    useEffect(() => {
+        if (sectionInView == true && loadEmbeds == false) {
+            setLoadEmbeds(true);
+        }
+    }, [sectionInView]);
+
     return (
         <div
             className={className}
             id="social-media"
             ref={sectionRef}
         >
-            <SocialMediaFeeds userPreferences={userPreferences} />
+            {loadEmbeds == false ? null : <SocialMediaFeeds userPreferences={userPreferences} />}
         </div>
     );
 }

@@ -1,9 +1,10 @@
+import {twMerge} from "tailwind-merge";
 import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {getMetadataForImage} from "~/utilities";
 
-export function FullWidthImage({relativePath, className, loading}: {relativePath: string; className?: string; loading?: "eager" | "lazy"}) {
+export function SimpleCoverImage({relativePath, className, loading}: {relativePath: string; className?: string; loading?: "eager" | "lazy"}) {
     const imageMetadata = getMetadataForImage(relativePath);
 
     // TODO: Optimize later with useMemo
@@ -15,12 +16,9 @@ export function FullWidthImage({relativePath, className, loading}: {relativePath
         //     src={getAbsolutePathForRelativePath(imageMetadata.finalUrl, ImageCdnProvider.Bunny, null, null)}
         //     style={{aspectRatio: `${imageMetadata.width}/${imageMetadata.height}`}}
         // />
-        <div className="tw-w-full">
+        <div className={twMerge("tw-w-full tw-h-full", className)}>
             <img
-                className={concatenateNonNullStringsWithSpaces("tw-w-full", className)}
-                style={{
-                    aspectRatio: `${imageMetadata.width}/${imageMetadata.height}`,
-                }}
+                className="tw-w-full tw-h-full tw-object-cover"
                 srcSet={srcSet}
                 sizes={sizes}
                 src={getAbsolutePathForRelativePath(imageMetadata.finalUrl, ImageCdnProvider.Bunny, null, null)}

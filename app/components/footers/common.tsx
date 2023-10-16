@@ -4,7 +4,7 @@ import {Facebook, Twitter, Instagram, Linkedin, Youtube} from "react-bootstrap-i
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {FormSubmissionSuccess} from "~/routes/dealer-for-inverters-and-batteries";
+import {FormSubmissionSuccess} from "~/components/formSubmissionSuccess";
 import type {UserPreferences} from "~/typeDefinitions";
 
 export function SubscribeSuccessDialog({

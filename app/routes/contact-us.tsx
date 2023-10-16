@@ -28,7 +28,8 @@ import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, g
 import {getContentGenerator} from "~/vernacularProvider";
 import type {DealerActionData} from "~/routes/contact-us/get-dealers-for-pin-code";
 import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
-import {FancySearchableSelect, Loader} from "~/components/scratchpad";
+import {FancySearchableSelect} from "~/components/searchableSelects";
+import {Loader} from "~/components/scratchpad";
 import {verifyOtp} from "~/backend/authentication.server";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
@@ -505,7 +506,7 @@ function HeroSection({
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
-                className
+                className,
             )}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">

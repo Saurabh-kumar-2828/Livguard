@@ -23,8 +23,9 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
-import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
-import {ContactUsDialog, DealerLocator} from "~/routes";
+import {ProductDetails, ProductType} from "~/productData.types";
+import {ContactUsDialog} from "~/routes";
+import {DealerLocator} from "~/reusableSections/dealerLocator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, type UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, convertProductInternalNameToPublicName, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";

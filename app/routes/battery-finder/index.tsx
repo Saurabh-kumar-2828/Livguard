@@ -23,7 +23,7 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {ProductType, allProductDetails} from "~/productData.types";
-import {DealerLocator} from "~/routes";
+import {DealerLocator} from "~/reusableSections/dealerLocator";
 import type {BatteryFinderAction} from "~/routes/battery-finder/index.state";
 import {BatteryFinderActionType, batteryFinderInitialState, batteryFinderReducer} from "~/routes/battery-finder/index.state";
 import type {BatteryFinderState} from "~/routes/battery-finder/index.types";

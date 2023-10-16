@@ -11,7 +11,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {ImageCdnProvider} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {setHaptikLanguage} from "~/root";
-import {OfferContactUsCta} from "~/routes/offers/inverter-and-battery-jodi";
+import {OfferContactUsCta} from "~/components/offerContactUsCta";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language, Theme, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, themeToHumanFriendlyString} from "~/typeDefinitions";
 import {getMetadataForImage} from "~/utilities";

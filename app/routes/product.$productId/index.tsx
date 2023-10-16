@@ -26,13 +26,14 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import type {ProductDetails, ProductType} from "~/productData.types";
-import {ContactUsCta, DealerLocator, FaqSection, TransformingLives} from "~/routes";
+import {ContactUsCta, FaqSection, TransformingLives} from "~/routes";
+import {DealerLocator} from "~/reusableSections/dealerLocator";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getBreadcrumbsConditionally, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
-import {addVernacularString, getContentGenerator} from "~/vernacularProvider";
+import {getContentGenerator} from "~/vernacularProvider";
 import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {getImageMetadataLibraryForPage, getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
