@@ -518,7 +518,7 @@ function HeroSection({
     const contentData = useContext(ContentProviderContext);
 
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 10000);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
@@ -617,6 +617,7 @@ function HeroSection({
                                         relativePath={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
                                         className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
                                         key={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
+                                        loading="eager"
                                     />
                                 ))}
 
@@ -990,6 +991,8 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
         }));
     }, [sectionRef, sectionInView]);
 
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}
@@ -1022,16 +1025,9 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <DefaultImageAnimation className="tw-block lg:tw-hidden tw-w-full">
+                <DefaultImageAnimation className="tw-w-full">
                     <FullWidthImage
-                        relativePath="/livguard/home/4/1-mobile.jpg"
-                        className="tw-rounded-lg"
-                    />
-                </DefaultImageAnimation>
-
-                <DefaultImageAnimation className="tw-hidden lg:tw-block tw-w-full">
-                    <FullWidthImage
-                        relativePath="/livguard/home/4/1-desktop.jpg"
+                        relativePath={isScreenSizeBelow ? "/livguard/home/4/1-mobile.jpg" : "/livguard/home/4/1-desktop.jpg"}
                         className="tw-rounded-lg"
                     />
                 </DefaultImageAnimation>

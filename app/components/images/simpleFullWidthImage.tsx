@@ -25,6 +25,8 @@ export function FullWidthImage({relativePath, className, loading}: {relativePath
                 sizes={sizes}
                 src={getAbsolutePathForRelativePath(imageMetadata.finalUrl, ImageCdnProvider.Bunny, null, null)}
                 loading={loading ?? "lazy"}
+                width={imageMetadata.width}
+                height={imageMetadata.height}
             />
         </div>
         // <FullWidthImageInternal

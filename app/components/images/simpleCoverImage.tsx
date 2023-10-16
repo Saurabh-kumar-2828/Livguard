@@ -19,13 +19,12 @@ export function SimpleCoverImage({relativePath, className, loading}: {relativePa
         <div className={twMerge("tw-w-full tw-h-full", className)}>
             <img
                 className="tw-w-full tw-h-full tw-object-cover"
-                style={{
-                    aspectRatio: `${imageMetadata.width}/${imageMetadata.height}`,
-                }}
                 srcSet={srcSet}
                 sizes={sizes}
                 src={getAbsolutePathForRelativePath(imageMetadata.finalUrl, ImageCdnProvider.Bunny, null, null)}
                 loading={loading ?? "lazy"}
+                width={imageMetadata.width}
+                height={imageMetadata.height}
             />
         </div>
         // <FullWidthImageInternal
