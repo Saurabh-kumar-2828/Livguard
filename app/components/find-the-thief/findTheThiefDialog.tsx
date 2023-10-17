@@ -28,7 +28,7 @@ export function FindTheThiefDialog({
         >
             <Dialog
                 as="div"
-                className="tw-relative tw-z-[64] tw-w-full"
+                className="tw-relative tw-z-[100] tw-w-full"
                 onClose={tryToCloseDialog}
             >
                 <Transition.Child

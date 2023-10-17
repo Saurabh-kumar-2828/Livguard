@@ -70,14 +70,12 @@ export function useExternalScript(
             script.async = true;
             if (options.timeoutDuration != null) {
                 setTimeout(() => {
-                    console.log("appended in timeout");
                     appendScript(document, options, script);
                     if (eventTriggerCallback != null) {
                         eventTriggerCallback();
                     }
                 }, options.timeoutDuration);
             } else {
-                console.log("appended");
                 appendScript(document, options, script);
                 if (eventTriggerCallback != null) {
                     eventTriggerCallback();

@@ -277,10 +277,10 @@ export default function () {
     const [isFindTheThiefDialogOpen, setIsFindTheThiefDialogOpen] = useState(false);
 
     useEffect(() => {
-        if (localStorage.getItem("cookiesAccepted") == null) {
-            setIsFindTheThiefDialogOpen(false);
-            return;
-        }
+        // if (localStorage.getItem("cookiesAccepted") == null) {
+        //     setIsFindTheThiefDialogOpen(false);
+        //     return;
+        // }
 
         const treasureHuntStep = localStorage.getItem("treasureHuntStep");
         if (treasureHuntStep == null || treasureHuntStep == "0") {
@@ -1849,19 +1849,19 @@ export function ContactUsCta({
 }) {
     const contentData = useContext(ContentProviderContext);
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
-    const cityFetcher = useFetcher();
+    // const cityFetcher = useFetcher();
 
     function tryToOpenContactUsDialog() {
         setIsContactUsDialogOpen(true);
     }
 
-    const [cities, setCities] = useState(null);
+    // const [cities, setCities] = useState(null);
 
-    useEffect(() => {
-        if (cityFetcher.data != null) {
-            setCities(cityFetcher.data.cityList);
-        }
-    }, [cityFetcher.data]);
+    // useEffect(() => {
+    //     if (cityFetcher.data != null) {
+    //         setCities(cityFetcher.data.cityList);
+    //     }
+    // }, [cityFetcher.data]);
 
     return (
         <div className={className}>
@@ -1870,7 +1870,7 @@ export function ContactUsCta({
                 className={concatenateNonNullStringsWithSpaces("lg-cta-button", buttonClassName)}
                 onClick={() => {
                     tryToOpenContactUsDialog();
-                    cityFetcher.submit(null, {method: "get", action: "/get-city-of-dealers"});
+                    // cityFetcher.submit(null, {method: "get", action: "/get-city-of-dealers"});
                 }}
             >
                 {contentData.getContent(textVernacId)}
@@ -1882,7 +1882,7 @@ export function ContactUsCta({
                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
                 utmParameters={utmParameters}
                 pageUrl={pageUrl}
-                cityFetcherData={cities}
+                // cityFetcherData={cities}
             />
         </div>
     );
@@ -1973,12 +1973,12 @@ export function ContactUsDialog({
         }
     }, [formStateInputs.resendTimeOut]);
 
-    useEffect(() => {
-        if (dealerFetcher.data != null) {
-            setDealerList([]);
-            dealerFetcher.data.dealerList.map((item: Dealer) => setDealerList((prev) => [...prev, {name: item.name, code: item.dealerCode}]));
-        }
-    }, [dealerFetcher.data]);
+    // useEffect(() => {
+    //     if (dealerFetcher.data != null) {
+    //         setDealerList([]);
+    //         dealerFetcher.data.dealerList.map((item: Dealer) => setDealerList((prev) => [...prev, {name: item.name, code: item.dealerCode}]));
+    //     }
+    // }, [dealerFetcher.data]);
 
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
@@ -2045,7 +2045,7 @@ export function ContactUsDialog({
 
                     <VerticalSpacer className="tw-h-2" />
 
-                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("5132b06f-9057-4e22-a21e-aca383247dda")}</div>
+                    {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("5132b06f-9057-4e22-a21e-aca383247dda")}</div>
 
                     <VerticalSpacer className="tw-h-1" />
 
@@ -2154,7 +2154,7 @@ export function ContactUsDialog({
                         }}
                         disabled={cityFetcherData == null}
                         inputClassName="disabled:tw-opacity-[0.6] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
-                    />
+                    /> */}
 
                     <VerticalSpacer className="tw-h-2" />
 
@@ -2362,7 +2362,7 @@ export function ContactUsDialog({
                         value={pageUrl}
                     />
 
-                    <HiddenFormField
+                    {/* <HiddenFormField
                         name="city"
                         value={cityFetcherData && selectedCityIndex != null ? cityFetcherData[selectedCityIndex].city : ""}
                     />
@@ -2370,7 +2370,7 @@ export function ContactUsDialog({
                     <HiddenFormField
                         name="dealer"
                         value={dealerList && selectedDealerIndex != null ? dealerList[selectedDealerIndex] : ""}
-                    />
+                    /> */}
 
                     <div className="tw-w-full tw-flex tw-flex-row tw-gap-x-2 tw-justify-center tw-items-center">
                         <input
