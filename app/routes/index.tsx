@@ -227,9 +227,8 @@ export const links: LinksFunction = () => [
         rel: "preload",
         as: "image",
         imageSrcSet:
-            "https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=3840 3840w",
-        imageSizes:
-            "(max-width: 480px) 480w, (max-width: 720px) 720w, (max-width: 1280px) 1280w, (max-width: 1366px) 1366w, (max-width: 1920px) 1920w, (max-width: 2560px) 2560w, (max-width: 3840px) 3840w",
+            "https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=720 720w",
+        imageSizes: "100vw",
     },
 ];
 
@@ -650,7 +649,43 @@ function HeroSection({
                         loading={selectedBannerIndex == 0 ? "eager" : "lazy"}
                     /> */}
 
-                    <img
+                    <picture className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full">
+                        <source
+                            srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].mobileImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 480, null)}`}
+                            media="(max-width: 480px)"
+                        />
+                        <source
+                            srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].mobileImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 720, null)}`}
+                            media="(max-width: 720px)"
+                        />
+                        <source
+                            srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 1280, null)}`}
+                            media="(min-width: 1280px)"
+                        />
+                        <source
+                            srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 1366, null)}`}
+                            media="(min-width: 1366px)"
+                        />
+                        <source
+                            srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 1920, null)}`}
+                            media="(min-width: 1920px)"
+                        />
+                        <source
+                            srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 2560, null)}`}
+                            media="(min-width: 2560px)"
+                        />
+                        <source
+                            srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 3840, null)}`}
+                            media="(min-width: 3840px)"
+                        />
+                        <img
+                            src={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].mobileImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 1920, null)}`}
+                            key={isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath}
+                            className="tw-object-cover tw-w-full tw-h-full"
+                        />
+                    </picture>
+
+                    {/* <img
                         // src={getAbsolutePathForRelativePath(getMetadataForImage(isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath), ImageCdnProvider.Bunny, null, null)}
                         srcSet={
                             selectedBannerIndex === 0
@@ -659,10 +694,10 @@ function HeroSection({
                                 ? "https://intellsys-optimizer.b-cdn.net/livguard/home/1/mobile-banner-3-d4bec5.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/mobile-banner-3-d4bec5.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=3840 3840w"
                                 : "https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-mobile-72612f.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-mobile-72612f.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=3840 3840w"
                         }
-                        sizes="(max-width: 480px) 480w, (max-width: 720px) 720w, (max-width: 1280px) 1280w, (max-width: 1366px) 1366w, (max-width: 1920px) 1920w, (max-width: 2560px) 2560w, (max-width: 3840px) 3840w"
+                        sizes="100vw"
                         className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-object-cover tw-w-full tw-h-full"
                         key={isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath}
-                    />
+                    /> */}
 
                     {banners[selectedBannerIndex].titleVernacId && (
                         <div
