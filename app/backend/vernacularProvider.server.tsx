@@ -10605,8 +10605,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `अपना संपर्क विवरण दें।`,
     },
     "8e337c72-d495-4840-9fcc-3670a8e9bd83": {
-        [Language.English]: `Share on which page you found the stolen inverter and battery on the Livguard <b>Social Media post</b>`,
-        [Language.Hindi]: `लिवगार्ड <b>सोशल मीडिया पोस्ट</b> पर बताएँ कि आपको चोरी हुए इनवर्टर और बैटरी किस पेज पर मिले।`,
+        [Language.English]: `To ensure you get your <b>rewards</b>, please share on which page you <b>found the stolen inverter battery</b>. Please <b>click</b> on the <b>link</b> below to share`,
+        [Language.Hindi]: `यह सुनिश्चित करने के लिए कि आपको अपना पुरस्कार मिले, कृपया उस पेज पर साझा करें जहां आपको चोरी हुई इन्वर्टर बैटरी मिली। कृपया साझा करने के लिए नीचे दिए गए लिंक पर क्लिक करें`,
     },
     "10f2f51f-a177-48ec-be50-990650be4f59": {
         [Language.English]: `Tag 3 friends along the code`,

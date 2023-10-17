@@ -478,8 +478,8 @@ function ThankYouSection({userPreferences, className, setIsDialogOpen}: {userPre
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-w-full tw-px-16">
-                <FullWidthImage relativePath="/livguard/find-the-thief/coupon.png" />
+            <div className="tw-w-full max-lg:tw-px-20 lg:tw-px-28">
+                <FullWidthImage relativePath="/livguard/find-the-thief/reward.png" />
             </div>
 
             <VerticalSpacer className="tw-h-4" />

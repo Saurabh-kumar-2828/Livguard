@@ -16,27 +16,27 @@ export function SocialMediaFeeds({userPreferences, className}: {userPreferences:
     const posts = [
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/Cx4b9zjoXx8",
+            url: "https://www.instagram.com/reel/Cydg6oOoSgU",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CyFq1euI-yP",
+            url: "https://www.instagram.com/reel/CyaeUDLIANP",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/Cx-WNodIr98",
+            url: "https://www.instagram.com/p/CyXwA_dB24c",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CxaX4L1I4VK",
+            url: "https://www.instagram.com/p/CyVpgzRI4xi",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CwpqRMGo5Qv",
+            url: "https://www.instagram.com/p/CyTEA-Oosn8",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CwxeHprOZq-",
+            url: "https://www.instagram.com/p/CyQevh2I5EL",
         },
         {
             type: SocialMediaPosts.instagram,

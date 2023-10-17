@@ -7657,6 +7657,11 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "L3C}2[PUGF}Y8xEfSeR+0NRPRPEg",
         finalUrl: "/livguard/home/1/desktop-banner-3-2ec540.jpg",
     },
+    "/livguard/find-the-thief/reward.png": {
+        width: 288,
+        height: 300,
+        finalUrl: "/livguard/find-the-thief/reward-2908b0.png",
+    },
 };
 
 export function getImageMetadataLibraryForPage(ids: Array<string>): {[relativePath: string]: ImageMetadata | undefined} {
@@ -7735,6 +7740,7 @@ const imageMetadataIdsForPage = {
         "/livguard/home/12/logo-nbt.png",
         "/livguard/home/12/logo-toi.png",
         "/livguard/home/12/logo-indiablooms.png",
+        "/livguard/find-the-thief/reward.png",
     ],
     inverterForHomePage: [
         ...headerImages,
@@ -7846,6 +7852,7 @@ const imageMetadataIdsForPage = {
         "/livguard/find-the-thief/step-2-pattern.png",
         "/livguard/find-the-thief/inverter-battery.png",
         "/livguard/find-the-thief/coupon.png",
+        "/livguard/find-the-thief/reward.png",
         "/livguard/home/5/1.png",
         "/livguard/products/super-life-combo/thumbnail.png",
         "/livguard/load-calculator/1-bhk.svg",
