@@ -76,8 +76,8 @@ pipeline {
                     }
 
                     sshagent(["f74f1a2f-5c3d-49e4-a0e5-646f8d9e87ea"]){
-                        sh """ssh ubuntu@ec2-43-204-40-59.ap-south-1.compute.amazonaws.com 'sudo su'"""
-                        sh """ssh ubuntu@ec2-43-204-40-59.ap-south-1.compute.amazonaws.com '/home/ubuntu/sar-deployment/livguard-$DIRECTORY-deployment.sh'"""
+                        sh """ssh ubuntu@43.204.40.59 'sudo su'"""
+                        sh """ssh ubuntu@43.204.40.59 '/home/ubuntu/sar-deployment/livguard-$DIRECTORY-deployment.sh'"""
                     }
                 }
             }
