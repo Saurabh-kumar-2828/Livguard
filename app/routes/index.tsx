@@ -226,8 +226,7 @@ export const links: LinksFunction = () => [
     {
         rel: "preload",
         as: "image",
-        imageSrcSet:
-            "https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=720 720w",
+        imageSrcSet: "https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=720 720w",
         imageSizes: "100vw",
     },
 ];
@@ -650,17 +649,17 @@ function HeroSection({
                     /> */}
 
                     <picture className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full">
-                        <source
+                        {/* <source
                             srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].mobileImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 480, null)}`}
                             media="(max-width: 480px)"
-                        />
+                        /> */}
                         <source
                             srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].mobileImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 720, null)}`}
                             media="(max-width: 720px)"
                         />
                         <source
-                            srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 1280, null)}`}
-                            media="(min-width: 1280px)"
+                            srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 1080, null)}`}
+                            media="(min-width: 1080px)"
                         />
                         <source
                             srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 1366, null)}`}
