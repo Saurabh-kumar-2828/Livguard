@@ -1,4 +1,4 @@
-import {useFetcher} from "@remix-run/react";
+import {Link, useFetcher} from "@remix-run/react";
 import React, {useContext, useEffect, useRef, useState} from "react";
 import {toast} from "react-toastify";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
@@ -491,12 +491,23 @@ function ThankYouSection({userPreferences, className, setIsDialogOpen}: {userPre
 
             <VerticalSpacer className="tw-h-8" />
 
+            <Link
+                to="https://www.instagram.com/reel/Cydg6oOoSgU/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lg-cta-button tw-w-fit tw-place-self-center"
+            >
+                {contentData.getContent("99c5d78c-5238-4d07-a03d-f1ee21241ac0")}
+            </Link>
+
+            {/* <VerticalSpacer className="tw-h-8" />
+
             <div className="tw-border-2 tw-border-dashed tw-border-primary-500-dark tw-rounded-md tw-p-2">
                 <div
                     dangerouslySetInnerHTML={{__html: contentData.getContent("38d347bc-e85b-46f2-82a0-dd41a118daaf")}}
                     className="tw-text-center lg-text-body tw-px-12"
                 />
-            </div>
+            </div> */}
         </div>
     );
 }

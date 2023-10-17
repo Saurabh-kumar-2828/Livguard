@@ -10605,8 +10605,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `अपना संपर्क विवरण दें।`,
     },
     "8e337c72-d495-4840-9fcc-3670a8e9bd83": {
-        [Language.English]: `Share on which page you found the stolen inverter and battery on the Livguard <a class="tw-underline tw-decoration-red-500" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/reel/Cydg6oOoSgU/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="><b>Social Media post.</b></a>`,
-        [Language.Hindi]: `लिवगार्ड <a class="tw-underline tw-decoration-red-500" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/reel/Cydg6oOoSgU/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="><b>सोशल मीडिया पोस्ट</b></a> पर बताएँ कि आपको चोरी हुए इनवर्टर और बैटरी किस पेज पर मिले।`,
+        [Language.English]: `Share on which page you found the stolen inverter and battery on the Livguard <b>Social Media post</b>`,
+        [Language.Hindi]: `लिवगार्ड <b>सोशल मीडिया पोस्ट</b> पर बताएँ कि आपको चोरी हुए इनवर्टर और बैटरी किस पेज पर मिले।`,
     },
     "10f2f51f-a177-48ec-be50-990650be4f59": {
         [Language.English]: `Tag 3 friends along the code`,
@@ -11737,6 +11737,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `E-Rikshaw Charger`,
         [Language.Hindi]: `ई-रिक्शा चार्जर`,
     },
+    "99c5d78c-5238-4d07-a03d-f1ee21241ac0": {
+        [Language.English]: `Share on Social Media`,
+        [Language.Hindi]: `सोशल मीडिया पर साझा करें`,
+    },
 };
 
 const popUpFormStrings = [
@@ -11978,6 +11982,7 @@ const findTheThiefStrings = [
     "1a109702-9407-4945-aa54-acde384ace7a",
     "37118df1-c2d2-4cbb-af54-288487236384",
     "38d347bc-e85b-46f2-82a0-dd41a118daaf",
+    "99c5d78c-5238-4d07-a03d-f1ee21241ac0",
 ];
 
 const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
