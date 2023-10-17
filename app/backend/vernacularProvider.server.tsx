@@ -7509,9 +7509,9 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "2dcaf5d9-964e-408d-9348-ac2a6f5aa28d": {
         [Language.English]:
-            "The following terms and conditions are applicable for the Social Media Independence Day Quiz contest run by Livguard during the 12th, 13th, and 14th of August.  By participating in the contests, you agree to the said terms and conditions.",
+            "The following terms and conditions are applicable for the Social Media Find the Thief contest run by Livguard from 16th October 2023 to 5th November 2023.  By participating in the contests, you agree to the said terms and conditions.",
         [Language.Hindi]:
-            "12, 13 और 14 अगस्त के दौरान लिवगार्ड द्वारा संचालित सोशल मीडिया स्वतंत्रता दिवस क्विज़ प्रतियोगिता के लिए निम्नलिखित नियम और शर्तें लागू हैं। प्रतियोगिताओं में भाग लेकर, आप उक्त नियमों और शर्तों से सहमत होते हैं।",
+            "16 अक्तूबर से लेकर 5 नवंबर तक लिवगार्ड द्वारा संचालित सोशल मीडिया “चोर को ढूँढें” प्रतियोगिता के लिए निम्नलिखित नियम और शर्तें लागू हैं। प्रतियोगिताओं में भाग लेकर, आप उक्त नियमों और शर्तों से सहमत होते हैं।",
     },
     "2122f878-eff2-4af4-8510-94913a31665f": {
         [Language.English]:
@@ -8446,8 +8446,9 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "396e58f7-ced3-4234-b823-ed5d1876acc9": {
         [Language.English]:
-            "The Livguard Social Media Contest is open to all participants aged 18 and above, residing in India. Livguard reserves the right to request proof of a participant's eligibility if there is a doubt over his/her eligibility for the participation.",
-        [Language.Hindi]: "लिवगार्ड सोशल मीडिया प्रतियोगिता सभी 18 और उससे अधिक आयु वाले भारत में निवास करने वाले प्रतिभागियों के लिए खुली है। यदि किसी प्रतिभागी की पात्रता में संदेह होता है, ",
+            "The Livguard Social Media Contest is open to all participants aged 18 and above, residing in India. Livguard reserves the right to request proof of a participant's eligibility if there is a doubt over his/her eligibility for the participation. Employees from SAR Group are not eligible to participate in this contest.",
+        [Language.Hindi]:
+            "लिवगार्ड सोशल मीडिया प्रतियोगिता सभी 18 और उससे अधिक आयु वाले भारत में निवास करने वाले प्रतिभागियों के लिए खुली है। यदि किसी प्रतिभागी की पात्रता में संदेह होता है। SAR समूह के कर्मचारी इस प्रतियोगिता में भाग लेने के पात्र नहीं हैं।",
     },
     "03a0d75d-4a8e-4467-8920-3dcd8754d532": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>Entry Requirements`,
@@ -8474,9 +8475,9 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>प्रवेश की अंतिम तिथि`,
     },
     "a3c2f2c2-f763-4448-bde7-05df14f33b02": {
-        [Language.English]: `All entries must be submitted within 48 hours of publishing the contest (GMT+5:30) to be considered valid.<br>
+        [Language.English]: `All entries must submitted by the end of the contest, i.e., 5th November 2023 to be considered valid.<br>
         Entries received after the deadline set forth in the contest announcement are ineligible, null and void.`,
-        [Language.Hindi]: `सभी प्रविष्टियों को प्रकाशित प्रतियोगिता के 48 घंटे के भीतर प्रस्तुत किया जाना चाहिए ताकि वे मान्य माने जा सकें।<br>
+        [Language.Hindi]: `वैध माने जाने के लिए सभी प्रविष्टियाँ प्रतियोगिता के अंत तक, यानी 5 नवंबर 2023 तक जमा की जानी चाहिए। <br>
         प्रतियोगिता घोषणा में निर्धारित समयसीमा के बाद प्राप्त प्रविष्टियाँ अवैध, अमान्य और अनुकूल मानी जाएँगी।`,
     },
     "afbb26d7-3eab-470d-93a7-09ebcbb9241b": {
@@ -8484,10 +8485,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>पुरस्कार विवरण`,
     },
     "d5128079-075b-4e7b-9c09-c99ace37c173": {
-        [Language.English]: `The contest will have 3 winners, each receiving Livguard's Akshay Kumar bobblehead figurines and Amazon vouchers worth Rs. 500 as rewards for the contest. The prizes are non-transferable and cannot be exchanged for cash or other products.<br>
+        [Language.English]: `The contest will have 5 winners, each receiving Amazon vouchers worth Rs. 1000 as rewards for the contest. The prizes are non-transferable and cannot be exchanged for cash or other products.<br>
             If the specified gratification becomes unavailable for any reason, Livguard in its sole and absolute discretion to cancel the gratification. The gratification is non-transferable and non-refundable. If the specified gratification becomes unavailable for any reason, Livguard in its sole and absolute discretion to cancel the gratification, Livguard reserves the right to substitute either any part of gratification or whole gratification for similar gratification of equal or greater value.<br>
             The winner of the contest will not be provided any transportation or reimbursement in lieu of it to travel to the event venue, if any proposed.`,
-        [Language.Hindi]: `प्रतियोगिता में 3 विजेता होंगे, प्रत्येक को लिवगार्ड की अक्षय कुमार बॉबलहेड मूर्तियाँ और 500 रुपए के अमेज़न वाउचर पुरस्कार के रूप में मिलेंगे। पुरस्कार गैर-हस्तांतरणीय हैं और इन्हें नकद या अन्य उत्पादों के बदले नहीं दिया जा सकता। यदि किसी कारणवश निर्धारित प्रतिपुष्टि अनुपलब्ध हो जाती है, तो लिवगार्ड को अपने एकल और पूर्ण विवेक के आधार पर प्रतिपुष्टि को रद्द करने का अधिकार होता है। परितुष्टि गैर-हस्तांतरणीय और गैर-वापसी है। यदि किसी कारणवश निर्धारित प्रतिपुष्टि अनुपलब्ध हो जाती है, तो लिवगार्ड को अपने एकल और पूर्ण विवेक के आधार पर प्रतिपुष्टि को रद्द करने का अधिकार रखता है, लिवगार्ड को अधिकाधिक मूल्यवान समान प्रतिपुष्टि के लिए किसी भाग को या पूरे प्रतिपुष्टि को समान मूल्यवान या उच्च मूल्यवान से प्रतिस्थानित करने का अधिकार है।`,
+        [Language.Hindi]: `प्रतियोगिता में 5 विजेता होंगे, प्रत्येक को 1000 रुपए के अमेज़न वाउचर पुरस्कार के रूप में मिलेंगे। पुरस्कार गैर-हस्तांतरणीय हैं और इन्हें नकद या अन्य उत्पादों के बदले नहीं दिया जा सकता। यदि किसी कारणवश निर्धारित प्रतिपुष्टि अनुपलब्ध हो जाती है, तो लिवगार्ड को अपने एकल और पूर्ण विवेक के आधार पर प्रतिपुष्टि को रद्द करने का अधिकार होता है। परितुष्टि गैर-हस्तांतरणीय और गैर-वापसी है। यदि किसी कारणवश निर्धारित प्रतिपुष्टि अनुपलब्ध हो जाती है, तो लिवगार्ड को अपने एकल और पूर्ण विवेक के आधार पर प्रतिपुष्टि को रद्द करने का अधिकार रखता है, लिवगार्ड को अधिकाधिक मूल्यवान समान प्रतिपुष्टि के लिए किसी भाग को या पूरे प्रतिपुष्टि को समान मूल्यवान या उच्च मूल्यवान से प्रतिस्थानित करने का अधिकार है।`,
     },
     "1dcc125e-a230-4df4-93de-7729ac296b0a": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span> Winner Selection`,
