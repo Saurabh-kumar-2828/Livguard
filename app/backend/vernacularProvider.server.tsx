@@ -9853,8 +9853,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `ऑटोमोटिव बैटरी खोजें`,
     },
     "454a8070-92b6-419a-af59-6f6253283c07": {
-        [Language.English]: `Download brochures`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Download Brochures`,
+        [Language.Hindi]: `ब्रोशर डाउनलोड करें`,
     },
     "1a1fc6c9-a8b2-4ae7-9154-9999e251449c": {
         [Language.English]: `Owners`,
@@ -11742,6 +11742,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Share on Social Media`,
         [Language.Hindi]: `सोशल मीडिया पर साझा करें`,
     },
+    "2dfd3730-84d5-46ab-bc31-6f0a85dea07f": {
+        [Language.English]: `Quick Menu`,
+        [Language.Hindi]: `क्विक मेनू`,
+    },
 };
 
 const popUpFormStrings = [
@@ -11825,6 +11829,8 @@ const headerStrings: Array<string> = [
     "286eb099-4488-4fa6-a2aa-23132972a9de",
     "landingPage3S7BT",
     "landingPageBottomBarT2",
+    "454a8070-92b6-419a-af59-6f6253283c07",
+    "2dfd3730-84d5-46ab-bc31-6f0a85dea07f",
 ];
 
 const footerStrings = [
@@ -11934,6 +11940,9 @@ const footerStrings = [
     "bottomBarT4",
     "bottomBarT5",
     "fd934962-ffce-41c6-ac8d-ebee55615f2b",
+    "homeS3Tab1HC1",
+    "642467c3-8136-4523-b231-fa5aae9a075a",
+    "e9624c2c-a16e-4f56-88a2-3e2710461b14",
 ];
 
 const ourOperationsComponentStrings = [

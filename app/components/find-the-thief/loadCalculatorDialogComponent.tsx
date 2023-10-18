@@ -68,24 +68,24 @@ function LoadCalculatorDialogMobile({
             )}
 
             {step === 1 && (
-                // <FormSection
+                <FormSection
+                    userPreferences={userPreferences}
+                    setStep={setStep}
+                    couponCode={couponCode}
+                    setCouponCode={setCouponCode}
+                />
+                // <ThankYouSection
                 //     userPreferences={userPreferences}
-                //     setStep={setStep}
-                //     couponCode={couponCode}
-                //     setCouponCode={setCouponCode}
+                //     setIsDialogOpen={setIsDialogOpen}
                 // />
+            )}
+
+            {step === 2 && (
                 <ThankYouSection
                     userPreferences={userPreferences}
                     setIsDialogOpen={setIsDialogOpen}
                 />
             )}
-
-            {/* {step === 2 && (
-                <ThankYouSection
-                    userPreferences={userPreferences}
-                    setIsDialogOpen={setIsDialogOpen}
-                />
-            )}            */}
         </div>
     );
 }
@@ -110,23 +110,23 @@ function LoadCalculatorDialogDesktop({
 
             <div className="tw-col-start-2 tw-px-8 tw-py-6 lg-bg-new-background-border-500 tw-rounded-lg">
                 {step === 1 && (
-                    // <FormSection
+                    <FormSection
+                        userPreferences={userPreferences}
+                        setStep={setStep}
+                        couponCode={couponCode}
+                        setCouponCode={setCouponCode}
+                    />
+                    // <ThankYouSection
                     //     userPreferences={userPreferences}
-                    //     setStep={setStep}
-                    //     couponCode={couponCode}
-                    //     setCouponCode={setCouponCode}
+                    //     setIsDialogOpen={setIsDialogOpen}
                     // />
+                )}
+                {step === 2 && (
                     <ThankYouSection
                         userPreferences={userPreferences}
                         setIsDialogOpen={setIsDialogOpen}
                     />
                 )}
-                {/* {step === 2 && (
-                    <ThankYouSection
-                        userPreferences={userPreferences}
-                        setIsDialogOpen={setIsDialogOpen}
-                    />
-                )} */}
             </div>
         </div>
     );

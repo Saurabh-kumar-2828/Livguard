@@ -400,6 +400,7 @@ export function FooterComponent({
         //     target: true,
         // },
     ];
+
     const homeSolutionsAccordianList = [
         // {
         //     title: `${contentData.getContent("1f8b2070-1c48-4396-999d-3195c96cabd7")}`,
@@ -618,6 +619,20 @@ export function FooterComponent({
         //     target: false,
         // },
     ];
+
+    const energySolutionsAccordianList = [
+        {
+            title: `${contentData.getContent("642467c3-8136-4523-b231-fa5aae9a075a")}`,
+            link: "/energy-solutions#homeSolutions",
+            target: false,
+        },
+        {
+            title: `${contentData.getContent("e9624c2c-a16e-4f56-88a2-3e2710461b14")}`,
+            link: "/energy-solutions#automativeSolutions",
+            target: false,
+        },
+    ];
+
     return (
         <div className="lg-px-screen-edge lg:tw-px-0">
             {/* TODO: Check if this is intentional, otherwise remove */}
@@ -874,7 +889,6 @@ export function FooterComponent({
                                     <Link
                                         to={item.link}
                                         className="hover:lg-text-primary-500"
-                                        target="_blank"
                                     >
                                         {item.title}
                                     </Link>
@@ -903,7 +917,6 @@ export function FooterComponent({
                                     <Link
                                         to={item.link}
                                         className="hover:lg-text-primary-500"
-                                        target="_blank"
                                     >
                                         {item.title}
                                     </Link>
@@ -932,7 +945,6 @@ export function FooterComponent({
                                     <Link
                                         to={item.link}
                                         className="hover:lg-text-primary-500"
-                                        target="_blank"
                                     >
                                         {item.title}
                                     </Link>
@@ -961,6 +973,33 @@ export function FooterComponent({
                                     <Link
                                         to={item.link}
                                         target="_blank"
+                                        className="hover:lg-text-primary-500"
+                                    >
+                                        {item.title}
+                                    </Link>
+                                </div>
+                            )}
+                        />
+                    }
+                    className="lg:tw-hidden"
+                    // openDisclosureTitle={openDisclosureTitle}
+                    // setOpenDisclosureTitle={setOpenDisclosureTitle}
+                />
+                <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
+
+                <Accordion
+                    disclosurePanelContainerClassName="!tw-max-h-[unset]"
+                    title={contentData.getContent("homeS3Tab1HC1")}
+                    panelItem={
+                        <ItemBuilder
+                            items={solarSolutionsAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
+                                    <Link
+                                        to={item.link}
                                         className="hover:lg-text-primary-500"
                                     >
                                         {item.title}
@@ -1098,10 +1137,44 @@ export function FooterComponent({
                     className="lg:tw-hidden tw-mx-[calc(-1*var(--lg-px-screen-edge))]"
                 />
 
-                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-row-span-3 lg:tw-gap-2">
+                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-row-span-3 lg:tw-gap-2 tw-grid-rows-[]">
                     <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("eb4e6810-b019-4d59-94b2-41351f268590")}</div>
                     <ItemBuilder
                         items={shoppingToolsAccordianList}
+                        itemBuilder={(item, itemIndex) => (
+                            <div
+                                className="lg-text-secondary-900 tw-overflow-hidden"
+                                key={itemIndex}
+                            >
+                                {item.target ? (
+                                    <Link
+                                        to={item.link}
+                                        target="_blank"
+                                        className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
+                                    >
+                                        {item.title}
+                                        <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                    </Link>
+                                ) : (
+                                    <Link
+                                        className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
+                                        to={item.link}
+                                    >
+                                        {item.title}
+                                        <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                    </Link>
+                                )}
+
+                                <VerticalSpacer className="tw-h-1" />
+                            </div>
+                        )}
+                    />
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("homeS3Tab1HC1")}</div>
+                    <ItemBuilder
+                        items={energySolutionsAccordianList}
                         itemBuilder={(item, itemIndex) => (
                             <div
                                 className="lg-text-secondary-900 tw-overflow-hidden"
@@ -1407,148 +1480,17 @@ export function FooterComponent({
                         </div>
                     </div>
                 </div> */}
-                <VerticalSpacer className="tw-h-4 tw-col-start-1 tw-col-span-full" />
-                <div className="tw-hidden lg:tw-grid lg:tw-row-start-8 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[4.5rem]">
-                    <div className="tw-grid tw-gap-4">
-                        <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4 tw-items-center">
-                            <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("e9624c2c-a16e-4f56-88a2-3e2710461b14")}</div>{" "}
-                            <hr className="tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-border-[2px]" />
-                        </div>
-                        <div className="tw-flex tw-flex-wrap tw-gap-2 lg:tw-pr-[4.5rem]">
-                            <ItemBuilder
-                                items={automotiveSolutionsAccordianList}
-                                itemBuilder={(item, itemIndex) => (
-                                    <div
-                                        className={concatenateNonNullStringsWithSpaces(
-                                            "lg-text-secondary-900 tw-overflow-hidden",
-                                            itemIndex === automotiveSolutionsAccordianList.length - 1
-                                                ? ""
-                                                : "tw-border-r tw-pr-4 tw-border-new-foreground-500-light dark:tw-border-new-foreground-500-dark",
-                                        )}
-                                        key={itemIndex}
-                                    >
-                                        {item.target ? (
-                                            <Link
-                                                className="hover:lg-text-primary-500 tw-duration-300 tw-relative tw-group tw-transition"
-                                                to={item.link}
-                                                target="_blank"
-                                            >
-                                                {item.title}
-                                                <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
-                                            </Link>
-                                        ) : (
-                                            <Link
-                                                className="hover:lg-text-primary-500 tw-duration-300 tw-relative tw-group tw-transition"
-                                                to={item.link}
-                                            >
-                                                {item.title}
-                                                <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
-                                            </Link>
-                                        )}
-
-                                        <VerticalSpacer className="tw-h-1" />
-                                    </div>
-                                )}
-                            />
-                        </div>
-                    </div>
-                </div>
-                <VerticalSpacer className="tw-h-4 tw-col-start-1 tw-col-span-full" />
-                <div className="tw-hidden lg:tw-grid lg:tw-row-start-9 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[4.5rem]">
-                    <div className="tw-grid tw-gap-4">
-                        <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4 tw-items-center">
-                            <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("3a186513-50e2-4738-8d17-0f8691fa7b1c")}</div>
-                            <hr className="tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-border-[2px]" />
-                        </div>
-                        <div className="tw-flex tw-flex-wrap tw-gap-2 lg:tw-pr-[4.5rem]">
-                            <ItemBuilder
-                                items={solarSolutionsAccordianList}
-                                itemBuilder={(item, itemIndex) => (
-                                    <div
-                                        className={concatenateNonNullStringsWithSpaces(
-                                            "lg-text-secondary-900 tw-overflow-hidden",
-                                            itemIndex === solarSolutionsAccordianList.length - 1 ? "" : "tw-border-r tw-pr-4 tw-border-new-foreground-500-light dark:tw-border-new-foreground-500-dark",
-                                        )}
-                                        key={itemIndex}
-                                    >
-                                        {item.target ? (
-                                            <Link
-                                                className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
-                                                to={item.link}
-                                                target="_blank"
-                                            >
-                                                {item.title}
-                                                <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
-                                            </Link>
-                                        ) : (
-                                            <Link
-                                                className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
-                                                to={item.link}
-                                            >
-                                                {item.title}
-                                                <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
-                                            </Link>
-                                        )}
-
-                                        <VerticalSpacer className="tw-h-1" />
-                                    </div>
-                                )}
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className="tw-hidden lg:tw-grid lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[4.5rem]">
-                    <div className="tw-grid tw-gap-4">
-                        <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4 tw-items-center">
-                            <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("642467c3-8136-4523-b231-fa5aae9a075a")}</div>{" "}
-                            <hr className="tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-border-[2px]" />
-                        </div>
-                        <div className="tw-flex tw-flex-wrap tw-gap-2 lg:tw-pr-[4.5rem]">
-                            <ItemBuilder
-                                items={homeSolutionsAccordianList}
-                                itemBuilder={(item, itemIndex) => (
-                                    <div
-                                        className={concatenateNonNullStringsWithSpaces(
-                                            "lg-text-secondary-900 hover:lg-text-primary-500 tw-duration-3000 tw-overflow-hidden tw-relative tw-group tw-transition",
-                                            itemIndex === homeSolutionsAccordianList.length - 1 ? "" : "tw-border-r tw-pr-4 tw-border-new-foreground-500-light dark:tw-border-new-foreground-500-dark",
-                                        )}
-                                        key={itemIndex}
-                                    >
-                                        {item.target ? (
-                                            <Link
-                                                to={item.link}
-                                                target="_blank"
-                                            >
-                                                {item.title}
-                                                <span
-                                                    className={concatenateNonNullStringsWithSpaces(
-                                                        "tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-[calc(100%-1rem)] lg-bg-primary-500",
-                                                        itemIndex === homeSolutionsAccordianList.length - 1 ? "tw-w-full" : "tw-w-[calc(100%-1rem)]",
-                                                    )}
-                                                ></span>
-                                            </Link>
-                                        ) : (
-                                            <Link to={item.link}>
-                                                {item.title}
-                                                <span
-                                                    className={concatenateNonNullStringsWithSpaces(
-                                                        "tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-[calc(100%-1rem)] lg-bg-primary-500",
-                                                        itemIndex === homeSolutionsAccordianList.length - 1 ? "tw-w-full" : "tw-w-[calc(100%-1rem)]",
-                                                    )}
-                                                ></span>
-                                            </Link>
-                                        )}
-                                    </div>
-                                )}
-                            />
-                        </div>
-                    </div>
-                </div>
 
                 <div className="lg:tw-row-start-10 tw-col-start-1 max-lg:tw-mx-[-24px] max-lg:tw-px-[24px] lg:tw-col-span-full lg-card lg-text-secondary-900 lg:tw-px-[72px]">
                     <MoreAboutLivguardAccordian
                         title={contentData.getContent("69d20806-45ec-42e0-951e-54a4d0f46b14")}
-                        panelItem={<MoreAboutLivguard userPreferences={userPreferences} />}
+                        panelItem={
+                            <MoreAboutLivguard
+                                homeSolutionsAccordianList={homeSolutionsAccordianList}
+                                automotiveSolutionsAccordianList={automotiveSolutionsAccordianList}
+                                solarSolutionsAccordianList={solarSolutionsAccordianList}
+                            />
+                        }
                     />
                 </div>
 
@@ -1560,7 +1502,15 @@ export function FooterComponent({
     );
 }
 
-function MoreAboutLivguard({userPreferences}: {userPreferences: UserPreferences}) {
+function MoreAboutLivguard({
+    homeSolutionsAccordianList,
+    automotiveSolutionsAccordianList,
+    solarSolutionsAccordianList,
+}: {
+    homeSolutionsAccordianList: Array<{title: string; link: string; target: boolean}>;
+    automotiveSolutionsAccordianList: Array<{title: string; link: string; target: boolean}>;
+    solarSolutionsAccordianList: Array<{title: string; link: string; target: boolean}>;
+}) {
     const batteryRangeList: Array<string> = [
         "474e6e60-db1c-4c7e-b158-caf6a2425ee8",
         "2f15fc7f-1e7f-4a5d-a97b-899fdb3062f3",
@@ -1596,6 +1546,144 @@ function MoreAboutLivguard({userPreferences}: {userPreferences: UserPreferences}
             <div className="tw-grid tw-gap-2 md:tw-gap-4">
                 <div className="lg-text-title2 lg-text-secondary-900">{contentData.getContent("b65da678-f08a-46fd-ae2a-b2df56391d4d")}</div>
                 <div className="lg-text-body lg-text-secondary-900">{contentData.getContent("74a5eaf0-dc22-4227-8c5c-c1ee276a56bf")}</div>
+            </div>
+
+            <div className="tw-hidden lg:tw-grid">
+                <div className="tw-grid tw-gap-4">
+                    <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4 tw-items-center">
+                        <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("642467c3-8136-4523-b231-fa5aae9a075a")}</div>{" "}
+                        <hr className="tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-border-[2px]" />
+                    </div>
+                    <div className="tw-flex tw-flex-wrap tw-gap-2 lg:tw-pr-[4.5rem]">
+                        <ItemBuilder
+                            items={homeSolutionsAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "lg-text-secondary-900 hover:lg-text-primary-500 tw-duration-3000 tw-overflow-hidden tw-relative tw-group tw-transition",
+                                        itemIndex === homeSolutionsAccordianList.length - 1 ? "" : "tw-border-r tw-pr-4 tw-border-new-foreground-500-light dark:tw-border-new-foreground-500-dark",
+                                    )}
+                                    key={itemIndex}
+                                >
+                                    {item.target ? (
+                                        <Link
+                                            to={item.link}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                            <span
+                                                className={concatenateNonNullStringsWithSpaces(
+                                                    "tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-[calc(100%-1rem)] lg-bg-primary-500",
+                                                    itemIndex === homeSolutionsAccordianList.length - 1 ? "tw-w-full" : "tw-w-[calc(100%-1rem)]",
+                                                )}
+                                            ></span>
+                                        </Link>
+                                    ) : (
+                                        <Link to={item.link}>
+                                            {item.title}
+                                            <span
+                                                className={concatenateNonNullStringsWithSpaces(
+                                                    "tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-[calc(100%-1rem)] lg-bg-primary-500",
+                                                    itemIndex === homeSolutionsAccordianList.length - 1 ? "tw-w-full" : "tw-w-[calc(100%-1rem)]",
+                                                )}
+                                            ></span>
+                                        </Link>
+                                    )}
+                                </div>
+                            )}
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div className="tw-hidden lg:tw-grid">
+                <div className="tw-grid tw-gap-4">
+                    <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4 tw-items-center">
+                        <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("e9624c2c-a16e-4f56-88a2-3e2710461b14")}</div>{" "}
+                        <hr className="tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-border-[2px]" />
+                    </div>
+                    <div className="tw-flex tw-flex-wrap tw-gap-2 lg:tw-pr-[4.5rem]">
+                        <ItemBuilder
+                            items={automotiveSolutionsAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "lg-text-secondary-900 tw-overflow-hidden",
+                                        itemIndex === automotiveSolutionsAccordianList.length - 1
+                                            ? ""
+                                            : "tw-border-r tw-pr-4 tw-border-new-foreground-500-light dark:tw-border-new-foreground-500-dark",
+                                    )}
+                                    key={itemIndex}
+                                >
+                                    {item.target ? (
+                                        <Link
+                                            className="hover:lg-text-primary-500 tw-duration-300 tw-relative tw-group tw-transition"
+                                            to={item.link}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            className="hover:lg-text-primary-500 tw-duration-300 tw-relative tw-group tw-transition"
+                                            to={item.link}
+                                        >
+                                            {item.title}
+                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                        </Link>
+                                    )}
+
+                                    <VerticalSpacer className="tw-h-1" />
+                                </div>
+                            )}
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div className="tw-hidden lg:tw-grid">
+                <div className="tw-grid tw-gap-4">
+                    <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4 tw-items-center">
+                        <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("3a186513-50e2-4738-8d17-0f8691fa7b1c")}</div>
+                        <hr className="tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-border-[2px]" />
+                    </div>
+                    <div className="tw-flex tw-flex-wrap tw-gap-2 lg:tw-pr-[4.5rem]">
+                        <ItemBuilder
+                            items={solarSolutionsAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "lg-text-secondary-900 tw-overflow-hidden",
+                                        itemIndex === solarSolutionsAccordianList.length - 1 ? "" : "tw-border-r tw-pr-4 tw-border-new-foreground-500-light dark:tw-border-new-foreground-500-dark",
+                                    )}
+                                    key={itemIndex}
+                                >
+                                    {item.target ? (
+                                        <Link
+                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
+                                            to={item.link}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
+                                            to={item.link}
+                                        >
+                                            {item.title}
+                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                        </Link>
+                                    )}
+
+                                    <VerticalSpacer className="tw-h-1" />
+                                </div>
+                            )}
+                        />
+                    </div>
+                </div>
             </div>
 
             <div className="tw-grid tw-gap-2 md:tw-gap-4">

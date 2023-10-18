@@ -103,12 +103,14 @@ const AllCategoryPage = ({userPreferences}: {userPreferences: UserPreferences}) 
                     userPreferences={userPreferences}
                     list={HomeList}
                     title={sectionHeading.first}
+                    sectionId="homeSolutions"
                 />
 
                 <ContentSection
                     userPreferences={userPreferences}
                     list={AutomotiveList}
                     title={sectionHeading.second}
+                    sectionId="automativeSolutions"
                 />
 
                 {/* <ContentSection
@@ -192,14 +194,18 @@ function HeroSection() {
 }
 
 // 3ad88a6b-4448-4395-af28-c86a8f07f45e
-const ContentSection = ({userPreferences, list, title}: {userPreferences: UserPreferences; list: any; title: string}) => {
+const ContentSection = ({userPreferences, list, title, sectionId}: {userPreferences: UserPreferences; list: any; title: string; sectionId: string}) => {
     const contentData = useContext(ContentProviderContext);
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true, align: "start"});
     const isScreenSizeBelow = useIsScreenSizeBelow(640);
     let snapDotsDivisionFactor: any;
     return (
         <>
-            <div>
+            <div className="tw-relative">
+                <div
+                    className="tw-absolute tw-top-[-5rem]"
+                    id={sectionId}
+                />
                 <div className="tw-grid tw-grid-rows-[auto_auto_auto_auto]">
                     <div className="tw-text-center lg-text-title1 tw-grid">
                         <div>{contentData.getContent("3ad88a6b-4448-4395-af28-c86a8f07f45e")}</div>
