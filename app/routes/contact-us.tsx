@@ -1723,7 +1723,7 @@ function ContactUsDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg:tw-max-w-[30rem] tw-mx-auto tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col">
+                        <div className="tw-w-full lg:tw-max-w-[30rem] tw-mx-auto lg-card lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col">
                             <div className="tw-grid tw-grid-cols-[1.5rem_minmax(0,1fr)_1.5rem]">
                                 <div className="tw-row-start-1 tw-col-start-2 tw-w-full tw-text-center lg-text-headline">{contentData.getContent(headerTextContentId)}</div>
                                 <button
@@ -1806,6 +1806,27 @@ function ContactUsDialog({
                                                     src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us-dialog.svg"
                                                 />
                                             )}
+                                        </div>
+                                    </Link>
+                                </>
+                            )}
+
+                            {dialogType === "call-us" && (
+                                <>
+                                    <VerticalSpacer className="tw-h-4" />
+                                    <div className="lg-text-title2">{contentData.getContent("bbfcc492-d063-4024-bef5-605b7782bb80")}</div>
+                                    <VerticalSpacer className="tw-h-2" />
+                                    <Link
+                                        to="tel:+918828829500"
+                                        className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
+                                    >
+                                        <div className="tw-flex tw-flex-row tw-items-center">
+                                            <div className="tw-flex-1">+91 8828829500</div>
+
+                                            <img
+                                                className="tw-w-6 tw-h-6 tw-flex-0"
+                                                src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
+                                            />
                                         </div>
                                     </Link>
                                 </>

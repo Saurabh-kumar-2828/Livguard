@@ -11750,6 +11750,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Quick Menu`,
         [Language.Hindi]: `क्विक मेनू`,
     },
+    "bbfcc492-d063-4024-bef5-605b7782bb80": {
+        [Language.English]: `Solar Enquiry`,
+        [Language.Hindi]: `सोलर पूछताछ`,
+    },
 };
 
 const popUpFormStrings = [
@@ -14865,6 +14869,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...findTheThiefStrings,
         ...footerStrings,
+        "bbfcc492-d063-4024-bef5-605b7782bb80",
         "contactFormS1T1",
         "contactFormS1T2",
         "contactFormS1T3",
