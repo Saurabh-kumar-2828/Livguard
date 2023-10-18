@@ -486,15 +486,26 @@ function ThankYouSection({userPreferences, className, setIsDialogOpen}: {userPre
                 <div dangerouslySetInnerHTML={{__html: contentData.getContent("8e337c72-d495-4840-9fcc-3670a8e9bd83")}} />
             </div>
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-6" />
 
             <Link
                 to="https://www.facebook.com/LivguardEnergy/videos/355148986863116/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="lg-cta-button tw-w-fit tw-place-self-center"
+                className="lg-cta-button tw-w-fit tw-place-self-center tw-animate-[blink-shadow_1s_infinite]"
             >
                 {contentData.getContent("99c5d78c-5238-4d07-a03d-f1ee21241ac0")}
+            </Link>
+
+            <VerticalSpacer className="tw-h-3" />
+
+            <Link
+                to="/terms-and-conditions/social-media"
+                className="tw-place-self-center lg-text-icon hover:lg-text-primary-500"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <div dangerouslySetInnerHTML={{__html: contentData.getContent("98395654-ab14-47c2-9ba8-bb52a9297368")}} />
             </Link>
 
             {/* <VerticalSpacer className="tw-h-8" />

@@ -10606,8 +10606,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `अपना संपर्क विवरण दें।`,
     },
     "8e337c72-d495-4840-9fcc-3670a8e9bd83": {
-        [Language.English]: `To ensure you get your <b>rewards</b>, please share on which page you <b>found the stolen inverter battery</b>. Please <b>click</b> on the <b>link</b> below to share`,
-        [Language.Hindi]: `यह सुनिश्चित करने के लिए कि आपको अपना पुरस्कार मिले, कृपया उस पेज पर साझा करें जहां आपको चोरी हुई इन्वर्टर बैटरी मिली। कृपया साझा करने के लिए नीचे दिए गए लिंक पर क्लिक करें`,
+        [Language.English]: `To get a chance to win <b>amazing rewards</b>, please share on which page you <b>found the stolen inverter battery</b>. Please <b>click</b> on the <b>link</b> below to share`,
+        [Language.Hindi]: `अद्भुत पुरस्कार जीतने का मौका पाने के लिए, कृपया उस पेज पर साझा करें जहां आपको चोरी हुई इन्वर्टर बैटरी मिली। कृपया साझा करने के लिए नीचे दिए गए लिंक पर क्लिक करें`,
     },
     "61e8d7bf-3589-4bf5-850f-f075182fd241": {
         [Language.English]: `Share on which page you found the stolen inverter and battery on the Livguard <b>Social Media post</b>`,
@@ -10626,8 +10626,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `दूसरा सुराग पाने के लिए <span class="tw-font-bold">"आगे बढ़ें"</span> दबाएँ 👉💡!`,
     },
     "98395654-ab14-47c2-9ba8-bb52a9297368": {
-        [Language.English]: `Terms & Conditions  - Social Media`,
-        [Language.Hindi]: `नियम और शर्तें - सोशल मीडिया`,
+        [Language.English]: `* Terms & Conditions  - Social Media`,
+        [Language.Hindi]: `* नियम और शर्तें - सोशल मीडिया`,
     },
     "a71eedc4-b0f8-46b3-88d1-c7427315de8c": {
         [Language.English]: `Copy`,
@@ -11743,8 +11743,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `ई-रिक्शा चार्जर`,
     },
     "99c5d78c-5238-4d07-a03d-f1ee21241ac0": {
-        [Language.English]: `Share on Social Media`,
-        [Language.Hindi]: `सोशल मीडिया पर साझा करें`,
+        [Language.English]: `Share to Win`,
+        [Language.Hindi]: `Share to Win`,
     },
     "2dfd3730-84d5-46ab-bc31-6f0a85dea07f": {
         [Language.English]: `Quick Menu`,
