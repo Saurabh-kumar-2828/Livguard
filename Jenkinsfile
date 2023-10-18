@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         REMOTE_PORT = 22
-        GITHUB_REPOSITORY_NAME = "livguard-solar-website"
-        JENKINS_JOB = "livguard-solar-website"
+        GITHUB_REPOSITORY_NAME = "livguard-website"
+        JENKINS_JOB = "livguard-website"
     }
 
     tools {
@@ -48,9 +48,12 @@ pipeline {
                 script {
                     if (env.BRANCH_NAME == "staging") {
                         DIRECTORY = "staging"
+                    } else if (env.BRANCH_NAME == "prod") {
+                        DIRECTORY = "prod"
                     } else {
                         return
                     }
+
                     sh """
                         cd /var/lib/jenkins/workspace/${GITHUB_REPOSITORY_NAME}_${DIRECTORY}
                     """
@@ -60,21 +63,27 @@ pipeline {
             }
         }
 
-        stage("Transfer folder to livguard-solar-staging-server") {
+        stage("Transfer folder to sar-server") {
             steps {
                 script {
                     if (env.BRANCH_NAME == "staging") {
                         DIRECTORY = "staging"
-                        FOLDER = "livguard-solar-website"
+                        FOLDER = "livguard-website"
+                    } else if (env.BRANCH_NAME == "prod") {
+                        DIRECTORY = "prod"
+                        FOLDER = "livguard-website-prod"
                     } else {
                         return
                     }
+
                     sshagent(["f74f1a2f-5c3d-49e4-a0e5-646f8d9e87ea"]) {
                         sh """
                             scp -r -P $REMOTE_PORT /var/lib/jenkins/workspace/${GITHUB_REPOSITORY_NAME}_$DIRECTORY/build ubuntu@43.204.40.59:/home/ubuntu/$FOLDER/
                             scp -r -P $REMOTE_PORT /var/lib/jenkins/workspace/${GITHUB_REPOSITORY_NAME}_$DIRECTORY/public ubuntu@43.204.40.59:/home/ubuntu/$FOLDER/
                             scp -P $REMOTE_PORT /var/lib/jenkins/workspace/${GITHUB_REPOSITORY_NAME}_$DIRECTORY/package.json ubuntu@43.204.40.59:/home/ubuntu/$FOLDER/
                             scp -P $REMOTE_PORT /var/lib/jenkins/workspace/${GITHUB_REPOSITORY_NAME}_$DIRECTORY/package-lock.json ubuntu@43.204.40.59:/home/ubuntu/$FOLDER/
+                            scp -P $REMOTE_PORT /var/lib/jenkins/workspace/${GITHUB_REPOSITORY_NAME}_$DIRECTORY/server.js ubuntu@43.204.40.59:/home/ubuntu/$FOLDER/
+
                         """
                     }
                 }
@@ -86,22 +95,18 @@ pipeline {
                 script {
                     if (env.BRANCH_NAME == "staging") {
                         DIRECTORY = "staging"
+                    } else if (env.BRANCH_NAME == "prod") {
+                        DIRECTORY = "prod"
                     } else {
                         return
                     }
+
                     sshagent(["f74f1a2f-5c3d-49e4-a0e5-646f8d9e87ea"]){
                         sh """ssh ubuntu@43.204.40.59 'sudo su'"""
-                        sh """ssh ubuntu@43.204.40.59 '/home/ubuntu/sar-deployment/livguard-solar-deployment.sh'"""
+                        sh """ssh ubuntu@43.204.40.59 '/home/ubuntu/sar-deployment/livguard-$DIRECTORY-deployment.sh'"""
                     }
                 }
             }
         }
     }
 }
-
-
-
-
-
-
-
