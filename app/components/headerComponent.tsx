@@ -1310,7 +1310,7 @@ const headerMenuItems: Array<HeaderItem> = [
                 to: "/investors",
                 col: 1,
                 desktopClassName:
-                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-6 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
             },
             // {
             //     contentId: "af709c5d-4066-419b-b775-17a43a234c9f",
