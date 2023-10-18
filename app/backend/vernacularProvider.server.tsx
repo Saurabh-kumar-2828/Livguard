@@ -10609,6 +10609,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `To ensure you get your <b>rewards</b>, please share on which page you <b>found the stolen inverter battery</b>. Please <b>click</b> on the <b>link</b> below to share`,
         [Language.Hindi]: `यह सुनिश्चित करने के लिए कि आपको अपना पुरस्कार मिले, कृपया उस पेज पर साझा करें जहां आपको चोरी हुई इन्वर्टर बैटरी मिली। कृपया साझा करने के लिए नीचे दिए गए लिंक पर क्लिक करें`,
     },
+    "61e8d7bf-3589-4bf5-850f-f075182fd241": {
+        [Language.English]: `Share on which page you found the stolen inverter and battery on the Livguard <b>Social Media post</b>`,
+        [Language.Hindi]: `लिवगार्ड <b>सोशल मीडिया पोस्ट</b> पर बताएँ कि आपको चोरी हुए इनवर्टर और बैटरी किस पेज पर मिले।`,
+    },
     "10f2f51f-a177-48ec-be50-990650be4f59": {
         [Language.English]: `Tag 3 friends along the code`,
         [Language.Hindi]: "?????",
@@ -11993,6 +11997,7 @@ const findTheThiefStrings = [
     "37118df1-c2d2-4cbb-af54-288487236384",
     "38d347bc-e85b-46f2-82a0-dd41a118daaf",
     "99c5d78c-5238-4d07-a03d-f1ee21241ac0",
+    "61e8d7bf-3589-4bf5-850f-f075182fd241",
 ];
 
 const vernacularStringIdsForPage: {[page: string]: Array<string>} = {

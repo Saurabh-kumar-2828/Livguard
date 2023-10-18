@@ -79,11 +79,11 @@ export function FirstRewardDialogComponent({userPreferences, buttonClickFunction
 
                 <VerticalSpacer className="tw-h-10" />
 
-                {/* <div className="tw-grid tw-grid-flow-col tw-gap-x-3 tw-grid-cols-[1.5rem_auto]">
+                <div className="tw-grid tw-grid-flow-col tw-gap-x-3 tw-grid-cols-[1.5rem_auto]">
                     <div className="lg-bg-primary-500 !tw-text-secondary-900-dark tw-grid tw-place-items-center tw-w-full tw-aspect-square tw-rounded-full">1</div>
                     <div>{contentData.getContent("4c03ff14-2235-45bd-a773-cf027c81fd86")}</div>
                 </div>
-                <VerticalSpacer className="tw-h-6" /> */}
+                <VerticalSpacer className="tw-h-6" />
 
                 {/* <div
                     onClick={() => {
@@ -127,9 +127,9 @@ export function FirstRewardDialogComponent({userPreferences, buttonClickFunction
 
                 <VerticalSpacer className="tw-h-3" /> */}
 
-                <div className="tw-grid tw-grid-flow-col tw-grid-cols-1 tw-gap-x-3 tw-w-full max-lg:tw-text-center">
-                    {/* <div className="lg-bg-primary-500 !tw-text-secondary-900-dark tw-grid tw-place-items-center tw-h-6 tw-w-6 tw-rounded-full">2</div> */}
-                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("8e337c72-d495-4840-9fcc-3670a8e9bd83")}} />
+                <div className="tw-grid tw-grid-flow-col tw-grid-cols-[1.5rem_auto] tw-gap-x-3">
+                    <div className="lg-bg-primary-500 !tw-text-secondary-900-dark tw-grid tw-place-items-center tw-h-6 tw-w-6 tw-rounded-full">2</div>
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("61e8d7bf-3589-4bf5-850f-f075182fd241")}} />
                 </div>
                 {/* <VerticalSpacer className="tw-h-3" />
 

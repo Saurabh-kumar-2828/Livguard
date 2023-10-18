@@ -108,7 +108,7 @@ function LoadCalculatorDialogDesktop({
                 <VictoryComponent userPreferences={userPreferences} />
             </div>
 
-            <div className="tw-col-start-2 tw-px-8 tw-py-6 lg-bg-new-background-border-500 tw-rounded-lg">
+            <div className="tw-col-start-2 tw-px-8 tw-py-6 lg-bg-new-background-border-500 tw-rounded-lg tw-grid tw-items-center">
                 {step === 1 && (
                     <FormSection
                         userPreferences={userPreferences}
@@ -427,18 +427,15 @@ function FormSection({
                     </div>
                 </div>
 
-                <div className="tw-gap-2 tw-grid">
-                    {/* <label htmlFor="couponCode">{contentData.getContent("88d4bc6f-64ee-4910-8b1e-27ad5aea32c1")}</label> */}
+                {/* <div className="tw-gap-2 tw-grid">
                     <input
                         type="text"
                         name="userName"
                         required
-                        // readOnly
-                        // defaultValue={couponCode}
                         className="lg-text-secondary-900 lg-text-input !tw-bg-transparent placeholder:tw-font-semibold placeholder:tw-text-secondary-700 dark:placeholder:tw-text-secondary-700-dark tw-w-full tw-rounded-full"
                         placeholder={contentData.getContent("88d4bc6f-64ee-4910-8b1e-27ad5aea32c1")}
                     />
-                </div>
+                </div> */}
                 <HiddenFormField
                     name="phoneNumber"
                     value={phoneNumber}
@@ -492,7 +489,7 @@ function ThankYouSection({userPreferences, className, setIsDialogOpen}: {userPre
             <VerticalSpacer className="tw-h-8" />
 
             <Link
-                to="https://www.instagram.com/reel/Cydg6oOoSgU/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
+                to="https://www.facebook.com/LivguardEnergy/videos/355148986863116/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lg-cta-button tw-w-fit tw-place-self-center"
