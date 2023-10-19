@@ -135,20 +135,33 @@ function HeroSection() {
             mobileImagePath: "/livguard/all-category/1/mobile-banner-3.jpg",
             textVernacId: "1604eb18-88d2-45d9-b39f-6a66414cb122",
         },
-        {
-            desktopImagePath: "/livguard/all-category/1/desktop.png",
-            mobileImagePath: "/livguard/all-category/1/mobile.png",
-            textVernacId: "2fdc65c7-2c2f-4ec0-9f80-32666da203cc",
-        },
-        {
-            desktopImagePath: "/livguard/all-category/1/desktop-banner-2.png",
-            mobileImagePath: "/livguard/all-category/1/mobile-banner-2.jpg",
-            textVernacId: "01c23336-eab7-4639-8eec-9e3f78a0c5a4",
-        },
+        // {
+        //     desktopImagePath: "/livguard/all-category/1/desktop.png",
+        //     mobileImagePath: "/livguard/all-category/1/mobile-banner-1.jpg",
+        //     textVernacId: "2fdc65c7-2c2f-4ec0-9f80-32666da203cc",
+        // },
+        // {
+        //     desktopImagePath: "/livguard/all-category/1/desktop-banner-2.png",
+        //     mobileImagePath: "/livguard/all-category/1/mobile-banner-2.jpg",
+        //     textVernacId: "01c23336-eab7-4639-8eec-9e3f78a0c5a4",
+        // },
     ];
     return (
         <div>
             <div
+                // key={itemIndex}
+                className="tw-grid"
+            >
+                <div className="tw-row-start-1 tw-col-start-1">
+                    <FullWidthImage relativePath={isScreenSizeBelow ? "/livguard/all-category/1/mobile-banner-3.jpg" : "/livguard/all-category/1/desktop-banner-3.jpg"} />
+                </div>
+                <div
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("1604eb18-88d2-45d9-b39f-6a66414cb122")}}
+                    className="tw-row-start-1 tw-col-start-1 tw-h-fit tw-text-center md:tw-text-start tw-self-start md:tw-self-center tw-text-[28px] tw-font-bold md:lg-text-headline tw-text-secondary-100-light tw-pt-8 md:tw-pl-14 md:tw-pt-0 max-md:tw-leading-8"
+                />
+            </div>
+
+            {/* <div
                 className="tw-overflow-hidden tw-relative"
                 ref={emblaRef}
             >
@@ -172,9 +185,9 @@ function HeroSection() {
                             );
                         }}
                     />
-                </div>
+                </div> */}
 
-                <button
+            {/* <button
                     type="button"
                     className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-left-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
                     onClick={() => {
@@ -192,8 +205,8 @@ function HeroSection() {
                     }}
                 >
                     <ChevronRightIcon className="tw-w-6 tw-h-6" />
-                </button>
-            </div>
+                </button> */}
+            {/* </div> */}
         </div>
     );
 }

@@ -11511,7 +11511,7 @@
                 },
                 {
                     "icon": "/livguard/icons/capacity.png",
-                    "text": "2000 VA"
+                    "text": "2500 VA"
                 },
                 {
                     "icon": "/livguard/icons/technology.png",
@@ -11529,7 +11529,7 @@
                 },
                 {
                     "title": "Capacity",
-                    "value": "2000 VA / 24V"
+                    "value": "2500 VA / 24V"
                 },
                 {
                     "title": "Technology",
@@ -11605,7 +11605,7 @@
                 },
                 {
                     "icon": "/livguard/icons/capacity.png",
-                    "text": "2000 VA"
+                    "text": "2500 VA"
                 },
                 {
                     "icon": "/livguard/icons/technology.png",
@@ -11623,7 +11623,7 @@
                 },
                 {
                     "title": "Capacity",
-                    "value": "2000 VA / 24V"
+                    "value": "2500 VA / 24V"
                 },
                 {
                     "title": "Technology",
@@ -11691,7 +11691,7 @@
             ],
             "slug": "lgs3000",
             "humanReadableModelNumber": "Heavy Duty Inverters | 3500VA Capacity | 24 Months Warranty",
-            "title": "Heavy Duty Inverters | 3500VA Capacity | 24 Months Warranty",
+            "title": "Heavy Duty Inverters | 3000VA Capacity | 24 Months Warranty",
             "subTitle": "",
             "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
             "productIcons": [
@@ -11701,7 +11701,7 @@
                 },
                 {
                     "icon": "/livguard/icons/capacity.png",
-                    "text": "2500 VA"
+                    "text": "3000 VA"
                 },
                 {
                     "icon": "/livguard/icons/technology.png",
@@ -11719,7 +11719,7 @@
                 },
                 {
                     "title": "Capacity",
-                    "value": "2500 VA / 24V"
+                    "value": "3000 VA / 24V"
                 },
                 {
                     "title": "Technology",
@@ -11785,7 +11785,7 @@
             ],
             "slug": "lgs3000",
             "humanReadableModelNumber": "Heavy Duty Inverters | 3500VA Capacity | 24 Months Warranty",
-            "title": "Heavy Duty Inverters | 3500VA Capacity | 24 Months Warranty",
+            "title": "Heavy Duty Inverters | 3000VA Capacity | 24 Months Warranty",
             "subTitle": "",
             "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
             "productIcons": [
@@ -11795,7 +11795,7 @@
                 },
                 {
                     "icon": "/livguard/icons/capacity.png",
-                    "text": "2500 VA"
+                    "text": "3000 VA"
                 },
                 {
                     "icon": "/livguard/icons/technology.png",
@@ -11813,7 +11813,7 @@
                 },
                 {
                     "title": "Capacity",
-                    "value": "2500 VA / 24V"
+                    "value": "3000 VA / 24V"
                 },
                 {
                     "title": "Technology",
@@ -12081,7 +12081,7 @@
                 },
                 {
                     "icon": "/livguard/icons/capacity.png",
-                    "text": "3500VA"
+                    "text": "4000VA"
                 },
                 {
                     "icon": "/livguard/icons/technology.png",
@@ -12099,7 +12099,7 @@
                 },
                 {
                     "title": "Capacity",
-                    "value": "3500 VA / 36V"
+                    "value": "4000 VA / 36V"
                 },
                 {
                     "title": "Technology",
@@ -12175,7 +12175,7 @@
                 },
                 {
                     "icon": "/livguard/icons/capacity.png",
-                    "text": "3500VA"
+                    "text": "4000VA"
                 },
                 {
                     "icon": "/livguard/icons/technology.png",
@@ -12193,7 +12193,7 @@
                 },
                 {
                     "title": "Capacity",
-                    "value": "3500 VA / 36V"
+                    "value": "4000 VA / 36V"
                 },
                 {
                     "title": "Technology",
@@ -12271,7 +12271,7 @@
                 },
                 {
                     "icon": "/livguard/icons/capacity.png",
-                    "text": "4000 VA"
+                    "text": "5000 VA"
                 },
                 {
                     "icon": "/livguard/icons/technology.png",
@@ -12289,7 +12289,7 @@
                 },
                 {
                     "title": "Capacity",
-                    "value": "4000 VA / 48 V"
+                    "value": "5000 VA / 48 V"
                 },
                 {
                     "title": "Technology",
@@ -12365,7 +12365,7 @@
                 },
                 {
                     "icon": "/livguard/icons/capacity.png",
-                    "text": "4000 VA"
+                    "text": "5000 VA"
                 },
                 {
                     "icon": "/livguard/icons/technology.png",
@@ -12383,7 +12383,7 @@
                 },
                 {
                     "title": "Capacity",
-                    "value": "4000 VA / 48 V"
+                    "value": "5000 VA / 48 V"
                 },
                 {
                     "title": "Technology",

@@ -7577,12 +7577,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 380,
         finalUrl: "/livguard/all-category/1/desktop-banner-2-4141d8.png",
     },
-    "/livguard/all-category/1/mobile-banner-2.jpg": {
-        width: 361,
-        height: 432,
-        blurHash: "L98gpi%2bb%N_Nt7oK%L?b%Mxut6",
-        finalUrl: "/livguard/all-category/1/mobile-banner-2-30b198.jpg",
-    },
     "/livguard/download-brochures/2/Commercial.png": {
         width: 672,
         height: 600,
@@ -7668,11 +7662,23 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LiF{xKI:}ZoM,@S2$jWBo0S3soS1",
         finalUrl: "/livguard/all-category/1/desktop-banner-3-7804df.jpg",
     },
+    "/livguard/all-category/1/mobile-banner-1.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "LOF5z3xuKOtR_4a}aekCTxWU#ne.",
+        finalUrl: "/livguard/all-category/1/mobile-banner-1-d69989.jpg",
+    },
+    "/livguard/all-category/1/mobile-banner-2.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "L45}dS%2R*%g_N%Mxa%M_3%M%Mxa",
+        finalUrl: "/livguard/all-category/1/mobile-banner-2-3447f5.jpg",
+    },
     "/livguard/all-category/1/mobile-banner-3.jpg": {
         width: 3840,
         height: 3840,
         blurHash: "LMDs|I1b|wE#aJNb,@jFODaet6n%",
-        finalUrl: "/livguard/all-category/1/mobile-banner-3-41a500.jpg",
+        finalUrl: "/livguard/all-category/1/mobile-banner-3-fd3c63.jpg",
     },
 };
 
@@ -9143,6 +9149,7 @@ const imageMetadataIdsForPage = {
         "/livguard/all-category/1/mobile.png",
         "/livguard/all-category/1/desktop-banner-3.jpg",
         "/livguard/all-category/1/mobile-banner-3.jpg",
+        "/livguard/all-category/1/mobile-banner-1.jpg",
     ],
 };
 

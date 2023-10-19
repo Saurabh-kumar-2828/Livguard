@@ -11965,9 +11965,10 @@ const footerStrings = [
     "e39f4d11-25b9-44e9-a976-057e24ad9b7f",
     "headerMenuS2T1",
     "1e2cde6f-fb53-4b4a-8044-6aae22b4c361",
-    "SupportS2Option2ButtonText",
+    "bbfcc492-d063-4024-bef5-605b7782bb80",
     "headerSupportDialogT3",
     "c13afdef-ed06-4b83-be72-772fbb7a5706",
+    "793169c2-90d3-47a6-8d4e-ea93ae0ec10d",
 ];
 
 const ourOperationsComponentStrings = [
@@ -12849,6 +12850,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "2223a612-f480-45b4-86fb-d5d02dc1a69d",
         "3479de37-c724-4254-a536-acf8c8de4c20",
         "01553562-bafd-4ad3-a18c-7b6cc113f03f",
+        "05dd627c-2d81-4390-a8ec-4543cb8b8cd7",
     ],
     loadCalculatorPage: [
         ...headerStrings,

@@ -76,7 +76,7 @@ export default function SupportDialog({isSupportDialogOpen, tryToCloseSupportDia
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title2">{contentData.getContent("SupportS2Option2ButtonText")}</div>
+                            <div className="lg-text-title2">{contentData.getContent("793169c2-90d3-47a6-8d4e-ea93ae0ec10d")}</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
@@ -96,7 +96,7 @@ export default function SupportDialog({isSupportDialogOpen, tryToCloseSupportDia
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title2">{contentData.getContent("headerSupportDialogT3")}</div>
+                            <div className="lg-text-title2">{contentData.getContent("bbfcc492-d063-4024-bef5-605b7782bb80")}</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
