@@ -131,6 +131,11 @@ function HeroSection() {
 
     const items = [
         {
+            desktopImagePath: "/livguard/all-category/1/desktop-banner-3.jpg",
+            mobileImagePath: "/livguard/all-category/1/mobile-banner-3.jpg",
+            textVernacId: "1604eb18-88d2-45d9-b39f-6a66414cb122",
+        },
+        {
             desktopImagePath: "/livguard/all-category/1/desktop.png",
             mobileImagePath: "/livguard/all-category/1/mobile.png",
             textVernacId: "2fdc65c7-2c2f-4ec0-9f80-32666da203cc",

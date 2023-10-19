@@ -11761,6 +11761,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Energy </br>Solutions",
         [Language.Hindi]: "ऊर्जा </br> समाधान",
     },
+    "1604eb18-88d2-45d9-b39f-6a66414cb122": {
+        [Language.English]: "Bringing Innovation to <br/> Your Energy Needs",
+        [Language.Hindi]: "आपकी ऊर्जा ज़रूरतों के लिए <br/>लिवगार्ड की निरंतर नवीनता",
+    },
 };
 
 const popUpFormStrings = [
@@ -16619,6 +16623,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "b569ea15-be7b-422b-a6ef-3c09a1b8328d",
         "162df6d1-e194-4ea4-9bc5-48e3249d857b",
         "b2f6c8e0-4da7-4d9e-ba9b-f174690746c6",
+        "1604eb18-88d2-45d9-b39f-6a66414cb122",
     ],
 };
 

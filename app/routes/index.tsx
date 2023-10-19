@@ -569,11 +569,20 @@ function HeroSection({
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 10000);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     const [selectedBannerIndex, setSelectedBannerIndex] = useState(0);
-    let treasureHuntStep: string | null = null;
+    const [treasureHuntStep, setTreasureHuntStep] = useState<null | string>(null);
+
+    const treasureHuntInitiatedListener = () => {
+        setTreasureHuntStep("1");
+    };
 
     useEffect(() => {
-        treasureHuntStep = localStorage.getItem("treasureHuntStep");
+        setTreasureHuntStep(localStorage.getItem("treasureHuntStep"));
+        window.addEventListener("treasureHuntInitiated", treasureHuntInitiatedListener);
+        return () => {
+            window.removeEventListener("treasureHuntInitiated", treasureHuntInitiatedListener);
+        };
     }, []);
+
     const banners = [
         {
             mobileImageRelativePath: "/livguard/home/second-banner/mob-banner.jpg",
@@ -598,6 +607,8 @@ function HeroSection({
             contactButtonVernacId: "homeS1T3",
         },
     ];
+
+    console.log("Tresure hunt step", treasureHuntStep);
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
@@ -745,7 +756,7 @@ function HeroSection({
 
                     {selectedBannerIndex === 1 && treasureHuntStep != null && treasureHuntStep === "0" && (
                         <div
-                            className="lg-cta-button tw-w-fit tw-row-start-6 tw-col-start-1 tw-z-10 "
+                            className="lg-cta-button tw-w-fit tw-row-start-6 tw-col-start-1 tw-z-10 hover:tw-cursor-pointer"
                             onClick={() => setIsFindTheThiefDialogOpen(true)}
                         >
                             {contentData.getContent("homeS12T4")}
