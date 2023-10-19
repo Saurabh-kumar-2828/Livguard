@@ -11720,19 +11720,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "13419db0-afcd-4c94-a571-35f6c62de3b4": {
         [Language.English]: "Wattson, The Thief Has Stolen <br /> Our Inverter And Battery",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "ऊर्जा चोर वॉटसन ने हमारी <br /> इनवर्टर और बैटरी चुरा ली है",
     },
     "a782b30b-13a2-48f1-90f5-0569dba18c1c": {
         [Language.English]: "And Hidden It On The Website <br /> Find Him And Win Amazing Prizes!*",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "और उन्हें वेबसाइट पर कहीं छुपा दिया है। <br/ > उसे ढूँढें और जीतें अद्भुद पुरस्कार!",
     },
     "db8138a4-47a7-44b0-9652-936ac5a7fecc": {
         [Language.English]: `Wattson, The Thief Has Stolen <br /> Our Inverter And Battery`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ऊर्जा चोर वॉटसन ने हमारी <br /> इनवर्टर और बैटरी चुरा ली है`,
     },
     "9b0aceac-6695-4fca-9621-00c5e54a3df9": {
         [Language.English]: `And Hidden It On The Website. <br /> Find Him And Win Amazing Prizes!*`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `और उन्हें वेबसाइट पर कहीं छुपा दिया है। <br/ > उसे ढूँढें और जीतें अद्भुद पुरस्कार!`,
     },
     "162df6d1-e194-4ea4-9bc5-48e3249d857b": {
         [Language.English]: `E-Rikshaw Battery`,

@@ -183,7 +183,7 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
-    const slugs = ["lgs900i", "lgs1000i", "lgs1600", "lgs1700", "lg700e", "lg900", "lg1100", "lg1450i", "lg1950i"];
+    const slugs = ["lgs900i", "lgs1000i", "lgs1600", "lgs1700", "lg700e", "lg900", "lg1100", "lg1450i", "lg1950i", "lgs1100i", "lg1550i"];
     let humanReadableModelNumbersForSuggestionsObj: HumanReadableModelNumbersForSuggestions = {};
     slugs.forEach((slug) => {
         humanReadableModelNumbersForSuggestionsObj[slug] = getProductFromSlugAndLanguage(slug, userPreferences.language).humanReadableModelNumber;
