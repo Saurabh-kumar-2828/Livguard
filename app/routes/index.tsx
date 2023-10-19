@@ -56,6 +56,7 @@ import {FormSubmissionSuccessLivguardDialog} from "~/reusableSections/formSubmis
 import {MiniPowerPlannerTeaser} from "~/reusableSections/miniPowerPlannerTeaser";
 import {DealerLocator, DialogType} from "~/reusableSections/dealerLocator";
 import {InitialFindTheThiefDialogComponent} from "~/components/find-the-thief/initialFindTheThiefDialogComponent";
+import termsAndConditions from "~/routes/terms-and-conditions";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -318,6 +319,7 @@ export default function () {
                                 utmParameters={utmSearchParameters}
                                 pageUrl={pageUrl}
                                 secondaryNavigationController={secondaryNavigationController}
+                                setIsFindTheThiefDialogOpen={setIsFindTheThiefDialogOpen}
                             />
                         </SecondaryNavigationControllerContext.Provider>
                     </PageScaffold>
@@ -350,6 +352,7 @@ function HomePage({
     utmParameters,
     pageUrl,
     secondaryNavigationController,
+    setIsFindTheThiefDialogOpen,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -357,6 +360,7 @@ function HomePage({
     };
     pageUrl: string;
     secondaryNavigationController?: SecondaryNavigationController;
+    setIsFindTheThiefDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -419,6 +423,7 @@ function HomePage({
                 utmParameters={utmParameters}
                 pageUrl={pageUrl}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
+                setIsFindTheThiefDialogOpen={setIsFindTheThiefDialogOpen}
             />
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-3 tw-col-span-full" />
@@ -548,6 +553,7 @@ function HeroSection({
     utmParameters,
     className,
     pageUrl,
+    setIsFindTheThiefDialogOpen,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -555,6 +561,7 @@ function HeroSection({
     };
     className?: string;
     pageUrl: string;
+    setIsFindTheThiefDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
     const contentData = useContext(ContentProviderContext);
 
@@ -562,6 +569,11 @@ function HeroSection({
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 10000);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     const [selectedBannerIndex, setSelectedBannerIndex] = useState(0);
+    let treasureHuntStep: string | null = null;
+
+    useEffect(() => {
+        treasureHuntStep = localStorage.getItem("treasureHuntStep");
+    }, []);
     const banners = [
         {
             mobileImageRelativePath: "/livguard/home/second-banner/mob-banner.jpg",
@@ -576,7 +588,7 @@ function HeroSection({
             desktopImageRelativePath: "/livguard/home/1/desktop-banner-3.jpg",
             titleVernacId: "13419db0-afcd-4c94-a571-35f6c62de3b4",
             subTitleVernacId: "a782b30b-13a2-48f1-90f5-0569dba18c1c",
-            contactButtonVernacId: "",
+            vernacId: "homeS12T4",
         },
         {
             mobileImageRelativePath: "/livguard/home/1/new-mobile.jpg",
@@ -698,7 +710,7 @@ function HeroSection({
                         key={isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath}
                     /> */}
 
-                    {banners[selectedBannerIndex].titleVernacId && (
+                    {/* {banners[selectedBannerIndex].titleVernacId && (
                         <div
                             className={concatenateNonNullStringsWithSpaces(
                                 selectedBannerIndex === 0
@@ -706,7 +718,7 @@ function HeroSection({
                                     : "tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40",
                             )}
                         />
-                    )}
+                    )} */}
 
                     {banners[selectedBannerIndex].titleVernacId && banners[selectedBannerIndex].subTitleVernacId && (
                         <h2
@@ -729,6 +741,15 @@ function HeroSection({
                                 ></div>
                             </DefaultTextAnimation>
                         </h2>
+                    )}
+
+                    {selectedBannerIndex === 1 && treasureHuntStep != null && treasureHuntStep === "0" && (
+                        <div
+                            className="lg-cta-button tw-w-fit tw-row-start-6 tw-col-start-1 tw-z-10 "
+                            onClick={() => setIsFindTheThiefDialogOpen(true)}
+                        >
+                            {contentData.getContent("homeS12T4")}
+                        </div>
                     )}
 
                     {banners[selectedBannerIndex].contactButtonVernacId && banners[selectedBannerIndex].buttonLink == null && (

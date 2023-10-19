@@ -985,7 +985,7 @@ export function FooterComponent({
                     // openDisclosureTitle={openDisclosureTitle}
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
-                {/* <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
+                <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
                 <Accordion
                     disclosurePanelContainerClassName="!tw-max-h-[unset]"
@@ -1009,7 +1009,7 @@ export function FooterComponent({
                         />
                     }
                     className="lg:tw-hidden"
-                /> */}
+                />
                 <VerticalSpacer className="tw-h-5 lg:tw-hidden" />
 
                 <div className="lg:tw-row-start-5 lg:tw-col-start-1 tw-flex tw-flex-col lg-text-secondary-900 tw-px-10 lg:tw-px-0 tw-text-center tw-items-center lg:tw-items-start lg:tw-text-left lg:tw-pl-[4.5rem]">
@@ -1167,12 +1167,10 @@ export function FooterComponent({
                             </div>
                         )}
                     />
-
                     <VerticalSpacer className="tw-h-2" />
-
-                    {/* <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("homeS3Tab1HC1")}</div>
+                    <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("c54ca3ff-b15f-445a-8e7b-c85985e5d355")}</div>
                     <ItemBuilder
-                        items={energySolutionsAccordianList}
+                        items={customerPoliciesAccordianList}
                         itemBuilder={(item, itemIndex) => (
                             <div
                                 className="lg-text-secondary-900 tw-overflow-hidden"
@@ -1200,7 +1198,7 @@ export function FooterComponent({
                                 <VerticalSpacer className="tw-h-1" />
                             </div>
                         )}
-                    /> */}
+                    />
                 </div>
 
                 <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3">
@@ -1364,11 +1362,12 @@ export function FooterComponent({
                         />
                     </div>
                     <VerticalSpacer className="tw-h-8" /> */}
+
                     <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3">
                         <div className="tw-flex tw-flex-col lg:tw-gap-2">
-                            <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("c54ca3ff-b15f-445a-8e7b-c85985e5d355")}</div>
+                            <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("homeS3Tab1HC1")}</div>
                             <ItemBuilder
-                                items={customerPoliciesAccordianList}
+                                items={energySolutionsAccordianList}
                                 itemBuilder={(item, itemIndex) => (
                                     <div
                                         className="lg-text-secondary-900 tw-overflow-hidden"

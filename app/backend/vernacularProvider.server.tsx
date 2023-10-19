@@ -66,6 +66,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Service",
         [Language.Hindi]: "सर्विस",
     },
+    "1e2cde6f-fb53-4b4a-8044-6aae22b4c361": {
+        [Language.English]: "Service Enquiry",
+        [Language.Hindi]: "सर्विस पूछताछ",
+    },
     headerContactUsDialogT3: {
         [Language.English]: "Sales Enquiry",
         [Language.Hindi]: "बिक्री पूछताछ",
@@ -11584,7 +11588,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "fd934962-ffce-41c6-ac8d-ebee55615f2b": {
         [Language.English]: `Load Calculator`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लोड कैलकुलेटर`,
     },
     "0f24d13c-8b25-4165-b0d4-197c059e4794": {
         [Language.English]: `GOOD NEWS`,
@@ -11753,6 +11757,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "bbfcc492-d063-4024-bef5-605b7782bb80": {
         [Language.English]: `Solar Enquiry`,
         [Language.Hindi]: `सोलर पूछताछ`,
+    },
+    "e39f4d11-25b9-44e9-a976-057e24ad9b7f": {
+        [Language.English]: "Energy </br>Solutions",
+        [Language.Hindi]: "ऊर्जा </br> समाधान",
     },
 };
 
@@ -11951,6 +11959,12 @@ const footerStrings = [
     "homeS3Tab1HC1",
     "642467c3-8136-4523-b231-fa5aae9a075a",
     "e9624c2c-a16e-4f56-88a2-3e2710461b14",
+    "e39f4d11-25b9-44e9-a976-057e24ad9b7f",
+    "headerMenuS2T1",
+    "1e2cde6f-fb53-4b4a-8044-6aae22b4c361",
+    "SupportS2Option2ButtonText",
+    "headerSupportDialogT3",
+    "c13afdef-ed06-4b83-be72-772fbb7a5706",
 ];
 
 const ourOperationsComponentStrings = [
