@@ -682,23 +682,23 @@ function HeroSection({
                         />
                         <source
                             srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 1080, null)}`}
-                            media="(min-width: 1080px)"
+                            media="(max-width: 1080px)"
                         />
                         <source
                             srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 1366, null)}`}
-                            media="(min-width: 1366px)"
+                            media="(max-width: 1366px)"
                         />
                         <source
                             srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 1920, null)}`}
-                            media="(min-width: 1920px)"
+                            media="(max-width: 1920px)"
                         />
                         <source
                             srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 2560, null)}`}
-                            media="(min-width: 2560px)"
+                            media="(max-width: 2560px)"
                         />
                         <source
                             srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].desktopImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 3840, null)}`}
-                            media="(min-width: 3840px)"
+                            media="(max-width: 3840px)"
                         />
                         <img
                             src={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].mobileImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 1920, null)}`}
@@ -754,7 +754,7 @@ function HeroSection({
                         </h2>
                     )}
 
-                    {selectedBannerIndex === 1 && treasureHuntStep != null && treasureHuntStep === "0" && (
+                    {selectedBannerIndex === 1 && (treasureHuntStep == null || treasureHuntStep === "0") && (
                         <div
                             className="lg-cta-button tw-w-fit tw-row-start-6 tw-col-start-1 tw-z-10 hover:tw-cursor-pointer"
                             onClick={() => setIsFindTheThiefDialogOpen(true)}
