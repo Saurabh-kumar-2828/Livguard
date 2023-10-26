@@ -9620,7 +9620,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `वैश्विक उपस्थिति`,
     },
     "c13afdef-ed06-4b83-be72-772fbb7a5706": {
-        [Language.English]: `Pricing`,
+        [Language.English]: `Check Price`,
         [Language.Hindi]: `मूल्य निर्धारण`,
     },
     "2ab590ad-712c-420c-8315-896e4be9a0ac": {
