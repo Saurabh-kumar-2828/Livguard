@@ -118,7 +118,7 @@ export const loader: LoaderFunction = async ({request, params}) => {
 
     const productId = getNonEmptyStringFromUnknown(params.productId as string);
 
-    const productData = getProductFromSlug(productId);
+    const productData = getProductFromSlug(productId.toLowerCase());
     if (productData == null) {
         throw new Response(null, {status: 404});
     }
