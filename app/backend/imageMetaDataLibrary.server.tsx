@@ -7680,6 +7680,18 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LMDs|I1b|wE#aJNb,@jFODaet6n%",
         finalUrl: "/livguard/all-category/1/mobile-banner-3-fd3c63.jpg",
     },
+    "/livguard/home/1/festive-desktop.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "L18Cdf^Q0~wa7F1II=$j02Io}rs=",
+        finalUrl: "/livguard/home/1/festive-desktop-910cb1.jpg",
+    },
+    "/livguard/home/1/festive-mobile.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "L0Al2;?P000b00A11-0K$W0R~Lo|",
+        finalUrl: "/livguard/home/1/festive-mobile-352e8c.jpg",
+    },
 };
 
 export function getImageMetadataLibraryForPage(ids: Array<string>): {[relativePath: string]: ImageMetadata | undefined} {
@@ -7759,6 +7771,8 @@ const imageMetadataIdsForPage = {
         "/livguard/home/12/logo-toi.png",
         "/livguard/home/12/logo-indiablooms.png",
         "/livguard/find-the-thief/reward.png",
+        "/livguard/home/1/festive-desktop.jpg",
+        "/livguard/home/1/festive-mobile.jpg",
     ],
     inverterForHomePage: [
         ...headerImages,

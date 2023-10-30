@@ -11725,6 +11725,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Wattson, The Thief Has Stolen <br /> Our Inverter And Battery",
         [Language.Hindi]: "ऊर्जा चोर वॉटसन ने हमारी <br /> इनवर्टर और बैटरी चुरा ली है",
     },
+    "87a34c18-dea6-4303-b174-5a7b5bda3d1e": {
+        [Language.English]: "Celebrate Festival of Lights",
+        [Language.Hindi]: "लाईट्स का त्योहार मनाएं",
+    },
     "a782b30b-13a2-48f1-90f5-0569dba18c1c": {
         [Language.English]: "And Hidden It On The Website <br /> Find Him And Win Amazing Prizes!*",
         [Language.Hindi]: "और उन्हें वेबसाइट पर कहीं छुपा दिया है। <br/ > उसे ढूँढें और जीतें अद्भुद पुरस्कार!",
@@ -12035,6 +12039,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "34faf8f5-f199-4cb7-be52-dc46737415e6",
         "639fd244-9283-4467-b186-6ee26321127b",
         "cfab263f-0175-43fb-91e5-fccc64209d36",
+        "87a34c18-dea6-4303-b174-5a7b5bda3d1e",
         "homeS1T1",
         "homeS1T2",
         "homeS1T3",

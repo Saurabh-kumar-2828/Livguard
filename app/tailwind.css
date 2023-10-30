@@ -40,7 +40,7 @@
         /* --gj-px-screen-edge: clamp(1.5rem, 5%, 10rem); */
         /* --gj-px-screen-edge: clamp(1.5rem, 5vw, 10rem); */
         /* --lg-px-screen-edge: 5vw; */
-        --lg-px-screen-edge: 1.5rem;
+        --lg-px-screen-edge: clamp(1.5rem, 5vw, 6rem);
         /* --gj-py-section-divider: clamp(2rem, 5vw, 6rem); */
     }
 

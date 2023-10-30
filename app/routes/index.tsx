@@ -428,11 +428,6 @@ function HomePage({
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-3 tw-col-span-full" />
 
-            {/* <EnergyStorageSolutions
-                userPreferences={userPreferences}
-                className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
-            /> */}
-
             <EnergySolutions
                 userPreferences={userPreferences}
                 className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-start-1 lg:tw-col-span-3 lg:tw-pl-[72px] xl:tw-pl-[120px]"
@@ -464,12 +459,6 @@ function HomePage({
                 setIsDialogOpen={setIsDialogOpen}
                 secondaryNavigationName="bc9269a0-800f-4adf-ac22-d866887da9f4"
             />
-
-            {/* <ShowerSomeLoveOnSocialHandles
-                userPreferences={userPreferences}
-                heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
-                className="tw-row-start-6 lg:tw-row-start-6 lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end lg:tw-pr-[40px] xl:tw-pr-[120px] lg:tw-h-full"
-            /> */}
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-7 tw-col-span-full" />
 
@@ -585,12 +574,20 @@ function HeroSection({
 
     const banners = [
         {
+            mobileImageRelativePath: "/livguard/home/1/festive-mobile.jpg",
+            desktopImageRelativePath: "/livguard/home/1/festive-desktop.jpg",
+            titleVernacId: "87a34c18-dea6-4303-b174-5a7b5bda3d1e",
+            subTitleVernacId: "homeS1T2",
+            textAlign: "left",
+        },
+        {
             mobileImageRelativePath: "/livguard/home/second-banner/mob-banner.jpg",
             desktopImageRelativePath: "/livguard/home/second-banner/desktop-banner.jpg",
             titleVernacId: "0f24d13c-8b25-4165-b0d4-197c059e4794",
             subTitleVernacId: "bb45dab0-a985-4bf8-9f07-845806b20b77",
             contactButtonVernacId: "ab1da9d6-1aaa-46d4-9b50-b911b3006b11",
             buttonLink: "https://api.whatsapp.com/send?phone=9599198444",
+            textAlign: "center",
         },
         {
             mobileImageRelativePath: "/livguard/home/1/mobile-banner-3.jpg",
@@ -598,6 +595,7 @@ function HeroSection({
             titleVernacId: "13419db0-afcd-4c94-a571-35f6c62de3b4",
             subTitleVernacId: "a782b30b-13a2-48f1-90f5-0569dba18c1c",
             vernacId: "homeS12T4",
+            textAlign: "center",
         },
         {
             mobileImageRelativePath: "/livguard/home/1/new-mobile.jpg",
@@ -605,6 +603,7 @@ function HeroSection({
             titleVernacId: "homeS1T1",
             subTitleVernacId: "homeS1T2",
             contactButtonVernacId: "homeS1T3",
+            textAlign: "center",
         },
     ];
 
@@ -616,66 +615,23 @@ function HeroSection({
                 "tw-overflow-hidden max-[380px]:tw-h-[calc(100vh-10rem-var(--lg-mobile-ui-height))] tw-h-[calc(100vh-16.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] lg:tw-min-h-[calc(100vw*7.5/16)] tw-relative",
                 className,
             )}
-            // ref={emblaRef}
         >
             <div
                 className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch tw-z-20"
                 ref={ref}
             >
                 <div
-                    // tw-grid-rows-[3rem_minmax(0,1fr)_auto_minmax(0,1fr)_3rem]
                     className={concatenateNonNullStringsWithSpaces(
-                        selectedBannerIndex === 0
-                            ? "tw-h-full tw-overflow-hidden tw-grid lg:tw-grid-rows-[0.5rem_1rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-grid-rows-[1rem_2rem_1rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate"
-                            : selectedBannerIndex === 2
-                            ? "tw-h-full tw-overflow-hidden tw-grid lg:tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_5rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate"
-                            : "tw-h-full tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate",
+                        "tw-h-full tw-overflow-hidden tw-grid tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate",
+                        selectedBannerIndex === 1 || selectedBannerIndex === 0
+                            ? " lg:tw-grid-rows-[0.5rem_1rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem] tw-grid-rows-[1rem_2rem_1rem_auto_1rem_auto_1rem_minmax(0,1fr)_3rem]"
+                            : selectedBannerIndex === 3
+                            ? "lg:tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem] tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_5rem_minmax(0,1fr)_3rem]"
+                            : "tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem]",
                     )}
                     key={selectedBannerIndex}
                 >
-                    {/* {item.englishDesktopImageRelativePath &&
-                                item.englishMobileImageRelativePath &&B
-                                (containerWidth == null || containerHeight == null ? null : (
-                                    <Link
-                                        to="/offers/inverter-and-battery-jodi"
-                                        className="tw-w-full tw-h-full tw-row-span-full tw-absolute"
-                                    >
-                                        <CoverImage
-                                            relativePath={
-                                                containerHeight > containerWidth || containerWidth < 640
-                                                    ? userPreferences.language == Language.English
-                                                        ? item.englishMobileImageRelativePath
-                                                        : item.hindiMobileImageRelativePath
-                                                    : userPreferences.language == Language.English
-                                                    ? item.englishDesktopImageRelativePath
-                                                    : item.hindiDesktopImageRelativePath
-                                            }
-                                            className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                                            key={
-                                                containerHeight > containerWidth || containerWidth < 640
-                                                    ? userPreferences.language == Language.English
-                                                        ? item.englishMobileImageRelativePath
-                                                        : item.hindiMobileImageRelativePath
-                                                    : userPreferences.language == Language.English
-                                                    ? item.englishDesktopImageRelativePath
-                                                    : item.hindiDesktopImageRelativePath
-                                            }
-                                        />
-                                    </Link>
-                                ))} */}
-
-                    {/* <SimpleCoverImage
-                        relativePath={isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath}
-                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                        key={isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath}
-                        loading={selectedBannerIndex == 0 ? "eager" : "lazy"}
-                    /> */}
-
                     <picture className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full">
-                        {/* <source
-                            srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].mobileImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 480, null)}`}
-                            media="(max-width: 480px)"
-                        /> */}
                         <source
                             srcSet={`${getAbsolutePathForRelativePath(getMetadataForImage(banners[selectedBannerIndex].mobileImageRelativePath).finalUrl, ImageCdnProvider.Bunny, 720, null)}`}
                             media="(max-width: 720px)"
@@ -707,35 +663,11 @@ function HeroSection({
                         />
                     </picture>
 
-                    {/* <img
-                        // src={getAbsolutePathForRelativePath(getMetadataForImage(isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath), ImageCdnProvider.Bunny, null, null)}
-                        srcSet={
-                            selectedBannerIndex === 0
-                                ? "https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/mob-banner-6904e4.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/second-banner/desktop-banner-abc407.jpg?quality=85&width=3840 3840w"
-                                : selectedBannerIndex === 1
-                                ? "https://intellsys-optimizer.b-cdn.net/livguard/home/1/mobile-banner-3-d4bec5.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/mobile-banner-3-d4bec5.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/desktop-banner-3-2ec540.jpg?quality=85&width=3840 3840w"
-                                : "https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-mobile-72612f.jpg?quality=85&width=480 480w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-mobile-72612f.jpg?quality=85&width=720 720w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=1280 1280w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=1366 1366w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=1920 1920w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=2560 2560w, https://intellsys-optimizer.b-cdn.net/livguard/home/1/new-desktop-ffc115.jpg?quality=85&width=3840 3840w"
-                        }
-                        sizes="100vw"
-                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-object-cover tw-w-full tw-h-full"
-                        key={isScreenSizeBelow ? banners[selectedBannerIndex].mobileImageRelativePath : banners[selectedBannerIndex].desktopImageRelativePath}
-                    /> */}
-
-                    {/* {banners[selectedBannerIndex].titleVernacId && (
-                        <div
-                            className={concatenateNonNullStringsWithSpaces(
-                                selectedBannerIndex === 0
-                                    ? "max-lg:tw-row-1 max-lg:tw-col-start-1 max-lg:tw-row-span-7 max-lg:tw-w-full max-lg:tw-h-full max-lg:tw-bg-black max-lg:tw-opacity-40"
-                                    : "tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40",
-                            )}
-                        />
-                    )} */}
-
                     {banners[selectedBannerIndex].titleVernacId && banners[selectedBannerIndex].subTitleVernacId && (
                         <h2
                             className={concatenateNonNullStringsWithSpaces(
-                                "tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge max-[380px]:tw-px-[1rem]",
-                                // itemIndex === 1 ? "tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge" : "",
+                                "tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 lg-px-screen-edge max-[380px]:tw-px-[1rem] tw-w-full tw-text-center",
+                                banners[selectedBannerIndex].textAlign == "center" ? "lg:tw-text-center" : "lg:tw-text-left",
                             )}
                         >
                             <DefaultTextAnimation>
@@ -754,7 +686,7 @@ function HeroSection({
                         </h2>
                     )}
 
-                    {selectedBannerIndex === 1 && (treasureHuntStep == null || treasureHuntStep === "0") && (
+                    {selectedBannerIndex === 2 && (treasureHuntStep == null || treasureHuntStep === "0") && (
                         <div
                             className="lg-cta-button tw-w-fit tw-row-start-6 tw-col-start-1 tw-z-10 hover:tw-cursor-pointer"
                             onClick={() => setIsFindTheThiefDialogOpen(true)}
@@ -783,7 +715,7 @@ function HeroSection({
                     {banners[selectedBannerIndex].buttonLink != null && (
                         <DefaultElementAnimation className={concatenateNonNullStringsWithSpaces("tw-row-start-6 tw-col-start-1 tw-z-10")}>
                             <Link
-                                className="tw-rounded-full tw-bg-[#3AC340] tw-pr-4 tw-z-10 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-2 tw-place-items-center"
+                                className="tw-rounded-full tw-bg-[#3AC340] tw-pr-4 tw-z-10 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-2 tw-place-items-center tw-max-w-fit"
                                 to={banners[selectedBannerIndex].buttonLink}
                             >
                                 <span className="tw-bg-[#40D421] tw-rounded-full tw-p-2">
@@ -793,171 +725,8 @@ function HeroSection({
                             </Link>
                         </DefaultElementAnimation>
                     )}
-
-                    <Link
-                        to="#energy-storage-solutions"
-                        className="tw-row-[9] tw-col-start-1"
-                    >
-                        <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
-                    </Link>
                 </div>
-                {/* <ItemBuilder
-                    items={[
-                        {
-                            mobileImageRelativePath: "/livguard/home/second-banner/mob-banner.jpg",
-                            desktopImageRelativePath: "/livguard/home/second-banner/desktop-banner.jpg",
-                            titleVernacId: "0f24d13c-8b25-4165-b0d4-197c059e4794",
-                            subTitleVernacId: "bb45dab0-a985-4bf8-9f07-845806b20b77",
-                            contactButtonVernacId: "ab1da9d6-1aaa-46d4-9b50-b911b3006b11",
-                            buttonLink: "https://api.whatsapp.com/send?phone=9599198444",
-                        },
-                        {
-                            mobileImageRelativePath: "/livguard/home/1/mobile-banner-3.jpg",
-                            desktopImageRelativePath: "/livguard/home/1/desktop-banner-3.jpg",
-                            titleVernacId: "13419db0-afcd-4c94-a571-35f6c62de3b4",
-                            subTitleVernacId: "a782b30b-13a2-48f1-90f5-0569dba18c1c",
-                            contactButtonVernacId: "",
-                        },
-                        {
-                            mobileImageRelativePath: "/livguard/home/1/new-mobile.jpg",
-                            desktopImageRelativePath: "/livguard/home/1/new-desktop.jpg",
-                            titleVernacId: "homeS1T1",
-                            subTitleVernacId: "homeS1T2",
-                            contactButtonVernacId: "homeS1T3",
-                        },
-                        // {
-                        //     englishMobileImageRelativePath: "/livguard/landing-pages/3/top-banner-mobile-english.jpg",
-                        //     hindiMobileImageRelativePath: "/livguard/landing-pages/3/top-banner-mobile-hindi.jpg",
-                        //     englishDesktopImageRelativePath: "/livguard/landing-pages/3/top-banner-desktop-english.jpg",
-                        //     hindiDesktopImageRelativePath: "/livguard/landing-pages/3/top-banner-desktop-hindi.jpg",
-                        //     titleVernacId: null,
-                        //     subTitleVernacId: null,
-                        //     contactButtonVernacId: null,
-                        // },
-                    ]}
-                    itemBuilder={(item, itemIndex) => (
-                        <div
-                            // tw-grid-rows-[3rem_minmax(0,1fr)_auto_minmax(0,1fr)_3rem]
-                            className={concatenateNonNullStringsWithSpaces(
-                                itemIndex === 0
-                                    ? "tw-h-full tw-overflow-hidden tw-grid lg:tw-grid-rows-[0.5rem_1rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-grid-rows-[1rem_2rem_1rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate"
-                                    : itemIndex === 2
-                                    ? "tw-h-full tw-overflow-hidden tw-grid lg:tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_5rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate"
-                                    : "tw-h-full tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate",
-                            )}
-                            key={itemIndex}
-                        >
-                            {/* {item.englishDesktopImageRelativePath &&
-                                item.englishMobileImageRelativePath &&B
-                                (containerWidth == null || containerHeight == null ? null : (
-                                    <Link
-                                        to="/offers/inverter-and-battery-jodi"
-                                        className="tw-w-full tw-h-full tw-row-span-full tw-absolute"
-                                    >
-                                        <CoverImage
-                                            relativePath={
-                                                containerHeight > containerWidth || containerWidth < 640
-                                                    ? userPreferences.language == Language.English
-                                                        ? item.englishMobileImageRelativePath
-                                                        : item.hindiMobileImageRelativePath
-                                                    : userPreferences.language == Language.English
-                                                    ? item.englishDesktopImageRelativePath
-                                                    : item.hindiDesktopImageRelativePath
-                                            }
-                                            className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                                            key={
-                                                containerHeight > containerWidth || containerWidth < 640
-                                                    ? userPreferences.language == Language.English
-                                                        ? item.englishMobileImageRelativePath
-                                                        : item.hindiMobileImageRelativePath
-                                                    : userPreferences.language == Language.English
-                                                    ? item.englishDesktopImageRelativePath
-                                                    : item.hindiDesktopImageRelativePath
-                                            }
-                                        />
-                                    </Link>
-                                ))} */}
-
-                {/* <SimpleCoverImage
-                                relativePath={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
-                                className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                                key={isScreenSizeBelow ? item.mobileImageRelativePath : item.desktopImageRelativePath}
-                                loading={itemIndex == 0 ? "eager" : "lazy"}
-                            />
-
-                            {item.titleVernacId && (
-                                <div
-                                    className={concatenateNonNullStringsWithSpaces(
-                                        itemIndex === 2 ? "tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40" : undefined,
-                                    )}
-                                />
-                            )}
-
-                            {item.titleVernacId && item.subTitleVernacId && (
-                                <h2
-                                    className={concatenateNonNullStringsWithSpaces(
-                                        "tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge max-[380px]:tw-px-[1rem]",
-                                        // itemIndex === 1 ? "tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge" : "",
-                                    )}
-                                >
-                                    <DefaultTextAnimation>
-                                        <div
-                                            className={concatenateNonNullStringsWithSpaces("lg-text-banner", item.titleVernacId == "" ? "tw-visibility-hidden" : "")}
-                                            dangerouslySetInnerHTML={{__html: appendSpaceToString(contentData.getContent(item.titleVernacId))}}
-                                        ></div>
-                                    </DefaultTextAnimation>
-
-                                    <DefaultTextAnimation>
-                                        <div
-                                            className="lg-text-title1"
-                                            dangerouslySetInnerHTML={{__html: contentData.getContent(item.subTitleVernacId)}}
-                                        ></div>
-                                    </DefaultTextAnimation>
-                                </h2>
-                            )}
-
-                            {item.contactButtonVernacId && item.buttonLink == null && (
-                                <DefaultElementAnimation
-                                    className={concatenateNonNullStringsWithSpaces(
-                                        "tw-row-start-6 tw-col-start-1 tw-z-10 ",
-                                        // itemIndex == 1 ? "tw-relative max-lg:tw-top-[3rem] lg:max-xl:tw-top-2 max-sm:tw-top-0" : "",
-                                    )}
-                                >
-                                    <ContactUsCta
-                                        userPreferences={userPreferences}
-                                        textVernacId={item.contactButtonVernacId}
-                                        className="tw-z-10"
-                                        utmParameters={utmParameters}
-                                        pageUrl={pageUrl}
-                                    />
-                                </DefaultElementAnimation>
-                            )}
-
-                            {item.buttonLink != null && (
-                                <DefaultElementAnimation className={concatenateNonNullStringsWithSpaces("tw-row-start-6 tw-col-start-1 tw-z-10")}>
-                                    <Link
-                                        className="tw-rounded-full tw-bg-[#3AC340] tw-pr-4 tw-z-10 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-2 tw-place-items-center"
-                                        to={item.buttonLink}
-                                    >
-                                        <span className="tw-bg-[#40D421] tw-rounded-full tw-p-2">
-                                            <Whatsapp className="tw-h-6 tw-w-6" />
-                                        </span>
-                                        {contentData.getContent(item.contactButtonVernacId)}
-                                    </Link>
-                                </DefaultElementAnimation>
-                            )}
-
-                            <Link
-                                to="#energy-storage-solutions"
-                                className="tw-row-[9] tw-col-start-1"
-                            >
-                                <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
-                            </Link>
-                        </div>
-                    )} */}
-                {/* /> */}
             </div>
-            {/* <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center tw-absolute tw-top-0 tw-bottom-0 tw-right-0 tw-left-0 tw-px-6"> */}
             <button
                 type="button"
                 className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-left-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
@@ -979,7 +748,6 @@ function HeroSection({
             >
                 <ChevronRightIcon className="tw-w-6 tw-h-6" />
             </button>
-            {/* </div> */}
         </div>
     );
 }
@@ -1001,22 +769,6 @@ function EnergyStorageSolutions({userPreferences, className}: {userPreferences: 
             </h1>
 
             <VerticalSpacer className="tw-h-8" />
-
-            {/* <CarouselStyle1
-                userPreferences={userPreferences}
-                items={[
-                    {
-                        imageRelativePath: "/livguard/home/2/1.jpg",
-                        titleTextContentPiece: "homeS2C1T1",
-                        bodyTextContentPiece: "homeS2C1T2",
-                    },
-                    {
-                        imageRelativePath: "/livguard/home/2/2.jpg",
-                        titleTextContentPiece: "homeS2C2T1",
-                        bodyTextContentPiece: "homeS2C2T2",
-                    },
-                ]}
-            /> */}
 
             <CarouselStyle1Video
                 userPreferences={userPreferences}
@@ -1110,11 +862,6 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                     `${itemIndex == selectedIndex ? "lg-bg-primary-500 tw-scale-110" : "lg-bg-secondary-300"}`,
                                 )}
                             >
-                                {/* <FixedWidthImage
-                                    relativePath={item.icon}
-                                    width="1.5rem"
-                                /> */}
-
                                 <img
                                     src={`https://growthjockey.imgix.net${item.svgIcon}`}
                                     className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 tw-brightness-0 tw-invert", itemIndex == selectedIndex ? "tw-scale-125" : "tw-opacity-50")}
@@ -1477,97 +1224,6 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         productImage: "/livguard/products/urban-combo/thumbnail.png",
                         // productName: `${contentData.getContent("review2ProductName")}`,
                     },
-                    // {
-                    //     video: (
-                    //         <EmbeddedYoutubeVideo
-                    //             id="rVC-ncTBhls"
-                    //             style={{aspectRatio: "560/315"}}
-                    //         />
-                    //     ),
-                    //     name: `${contentData.getContent("review1Name")}`,
-                    //     rating: 5,
-                    //     state: `${contentData.getContent("review1State")}`,
-                    //     message: `${contentData.getContent("review1Message")}`,
-                    //     productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
-                    //     productName: `${contentData.getContent("review1ProductName")}`,
-                    // },
-                    // {
-                    //     video: (
-                    //         <EmbeddedYoutubeVideo
-                    //             id="pNMTMVDWtiU"
-                    //             style={{aspectRatio: "560/315"}}
-                    //             className="tw-rounded-lg"
-                    //         />
-                    //     ),
-                    //     name: `${contentData.getContent("review2Name")}`,
-                    //     rating: 5,
-                    //     state: `${contentData.getContent("review2State")}`,
-                    //     message: `${contentData.getContent("review2Message")}`,
-                    //     productImage: "/livguard/products/urban-combo/thumbnail.png",
-                    //     productName: `${contentData.getContent("review2ProductName")}`,
-                    // },
-                    // {
-                    //     name: `${contentData.getContent("review3Name")}`,
-                    //     rating: 5,
-                    //     state: `${contentData.getContent("review3State")}`,
-                    //     message: `${contentData.getContent("review3Message")}`,
-                    //     productImage: "/livguard/products/lgs1100i/thumbnail.png",
-                    //     productName: `${contentData.getContent("review3ProductName")}`,
-                    // },
-                    // {
-                    //     name: `${contentData.getContent("review4Name")}`,
-                    //     rating: 4,
-                    //     state: `${contentData.getContent("review4State")}`,
-                    //     message: `${contentData.getContent("review4Message")}`,
-                    //     productImage: "/livguard/products/urban-combo/thumbnail.png",
-                    //     productName: `${contentData.getContent("review4ProductName")}`,
-                    // },
-                    // {
-                    //     video: (
-                    //         <EmbeddedYoutubeVideo
-                    //             id="rVC-ncTBhls"
-                    //             style={{aspectRatio: "560/315"}}
-                    //             className="tw-rounded-lg"
-                    //         />
-                    //     ),
-                    //     name: `${contentData.getContent("review1Name")}`,
-                    //     rating: 5,
-                    //     state: `${contentData.getContent("review1State")}`,
-                    //     message: `${contentData.getContent("review1Message")}`,
-                    //     productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
-                    //     productName: `${contentData.getContent("review1ProductName")}`,
-                    // },
-                    // {
-                    //     video: (
-                    //         <EmbeddedYoutubeVideo
-                    //             id="pNMTMVDWtiU"
-                    //             style={{aspectRatio: "560/315"}}
-                    //             className="tw-rounded-lg"
-                    //         />
-                    //     ),
-                    //     name: `${contentData.getContent("review2Name")}`,
-                    //     rating: 5,
-                    //     state: `${contentData.getContent("review2State")}`,
-                    //     message: `${contentData.getContent("review2Message")}`,
-                    //     productImage: "/livguard/products/urban-combo/thumbnail.png",
-                    //     productName: `${contentData.getContent("review2ProductName")}`,
-                    // },
-                    // {
-                    //     name: `${contentData.getContent("review3Name")}`,
-                    //     rating: 5,
-                    //     state: `${contentData.getContent("review3State")}`,
-                    //     message: `${contentData.getContent("review3Message")}`,
-                    //     productImage: "/livguard/products/lgs1100i/thumbnail.png",
-                    //     productName: `${contentData.getContent("review3ProductName")}`,
-                    // },
-                    // {
-                    //     name: `${contentData.getContent("review4Name")}`,
-                    //     rating: 4,
-                    //     state: `${contentData.getContent("review4State")}`,
-                    //     message: `${contentData.getContent("review4Message")}`,
-                    //     productImage: "/livguard/products/urban-combo/thumbnail.png",
-                    //     productName: `${contentData.getContent("review4ProductName")}`,
-                    // },
                 ]}
             />
         </div>
@@ -2039,13 +1695,6 @@ export function ContactUsDialog({
         }
     }, [formStateInputs.resendTimeOut]);
 
-    // useEffect(() => {
-    //     if (dealerFetcher.data != null) {
-    //         setDealerList([]);
-    //         dealerFetcher.data.dealerList.map((item: Dealer) => setDealerList((prev) => [...prev, {name: item.name, code: item.dealerCode}]));
-    //     }
-    // }, [dealerFetcher.data]);
-
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
         const action: FormStateInputsAction = {
@@ -2110,117 +1759,6 @@ export function ContactUsDialog({
                     />
 
                     <VerticalSpacer className="tw-h-2" />
-
-                    {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("5132b06f-9057-4e22-a21e-aca383247dda")}</div>
-
-                    <VerticalSpacer className="tw-h-1" />
-
-                    <SearchableSelect
-                        items={
-                            cityFetcherData == null
-                                ? []
-                                : cityFetcherData.map((city, cityIndex) => {
-                                      return {
-                                          city: city.city,
-                                          index: cityIndex,
-                                      };
-                                  })
-                        }
-                        selectedItem={
-                            cityFetcherData == null || selectedCityIndex == null
-                                ? null
-                                : {
-                                      city: cityFetcherData[selectedCityIndex].city,
-                                      index: selectedCityIndex,
-                                  }
-                        }
-                        placeholder={contentData.getContent("91cb41a5-571d-4516-91fb-fc5e67266990")}
-                        setSelectedItem={(item: {city: string; index: number} | null) => {
-                            if (item == null) {
-                                return null;
-                            }
-                            setSelectedCityIndex(item.index);
-                            const data = new FormData();
-                            data.append("query", item.city);
-                            dealerFetcher.submit(data, {method: "post", action: "/dealer-for-inverters-and-batteries"});
-                            const action: FormStateInputsAction = {
-                                actionType: FormStateInputsActionType.SetCity,
-                                payload: item.city,
-                            };
-                            dispatch(action);
-                            return {
-                                city: item.city,
-                            };
-                        }}
-                        filterFunction={(items: Array<{city: string; index: number}>, query: string) => items.filter((item) => item.city.toLowerCase().startsWith(query.toLowerCase()))}
-                        renderFunction={(item: {city: string; index: number}) => {
-                            if (item == null) {
-                                return "";
-                            }
-                            return item.city;
-                        }}
-                        disabled={cityFetcherData == null}
-                        inputClassName="disabled:tw-opacity-[0.6] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
-                    />
-
-                    <VerticalSpacer className="tw-h-2" />
-
-                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("76bb0c30-c244-4815-b68d-a1780f8c697e")}</div>
-
-                    <VerticalSpacer className="tw-h-1" />
-
-                    <FancySearchableSelect
-                        items={
-                            dealerList == null
-                                ? []
-                                : dealerList.sort().map((dealer, dealerIndex) => {
-                                      return {
-                                          dealer: {
-                                              name: dealer.name,
-                                              code: dealer.code,
-                                          },
-                                          index: dealerIndex,
-                                      };
-                                  })
-                        }
-                        selectedItem={
-                            dealerList == null || selectedDealerIndex == null
-                                ? null
-                                : {
-                                      dealer: {
-                                          name: dealerList[selectedDealerIndex].name,
-                                          code: dealerList[selectedDealerIndex].code,
-                                      },
-                                      index: selectedDealerIndex,
-                                  }
-                        }
-                        placeholder={contentData.getContent("11eba4f7-13aa-45bd-93bd-31d98b72531a")}
-                        setSelectedItem={(item: {dealer: {name: string; code: string}; index: number} | null) => {
-                            if (item == null) {
-                                return null;
-                            }
-                            setSelectedDealerIndex(item.index);
-                            const action: FormStateInputsAction = {
-                                actionType: FormStateInputsActionType.setDealer,
-                                payload: item.dealer.code,
-                            };
-                            dispatch(action);
-                            return {
-                                dealer: item,
-                            };
-                        }}
-                        filterFunction={(items: Array<{dealer: {name: string; code: string}; index: number}>, query: string) =>
-                            items.filter((item) => item.dealer.name.toLowerCase().startsWith(query.toLowerCase()))
-                        }
-                        renderFunction={(item: {dealer: {name: string; code: string}; index: number}) => {
-                            if (item == null) {
-                                return "";
-                            }
-                            return item.dealer.name;
-                        }}
-                        disabled={cityFetcherData == null}
-                        inputClassName="disabled:tw-opacity-[0.6] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
-                    /> */}
 
                     <VerticalSpacer className="tw-h-2" />
 
@@ -2337,10 +1875,6 @@ export function ContactUsDialog({
                                 formStateInputs.showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100",
                             )}
                         >
-                            {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsOTPT3")}</div>
-
-                            <VerticalSpacer className="tw-h-1" /> */}
-
                             <div className="tw-relative">
                                 <input
                                     type="text"
