@@ -517,109 +517,6 @@ export function FooterComponent({
         },
     ];
 
-    const solarSolutionsAccordianList = [
-        {
-            title: `${contentData.getContent("c5d478da-fd36-446a-aae6-1bfe13607be1")}`,
-            link: "https://www.livguardsolar.com/solar/solculator",
-            target: true,
-        },
-        // {
-        //     title: `${contentData.getContent("1bb35c7d-3856-46ef-a49e-cd0241c6f828")}`,
-        //     link: "#",
-        //     target: false,
-        // },
-        {
-            title: `${contentData.getContent("6017a74c-fd49-4086-892d-e0548e7c7e51")}`,
-            link: "https://www.livguard.com/solar-battery-for-home/",
-            target: true,
-        },
-        // {
-        //     title: `${contentData.getContent("f3ba3cad-77ef-4a58-9760-2ef4cd33bb11")}`,
-        //     link: "/battery-finder",
-        //     target: false,
-        // },
-        {
-            title: `${contentData.getContent("d1df7722-e72b-4c08-94d9-5e8adc4d5a93")}`,
-            link: "https://www.livguard.com/solar-panels-and-inverters-for-home/",
-            target: true,
-        },
-        // {
-        //     title: `${contentData.getContent("f262e016-6ca4-44af-a202-a3ab02100dbb")}`,
-        //     link: "#",
-        //     target: false,
-        // },
-        // {
-        //     title: `${contentData.getContent("ea124d83-7e89-4cdf-b968-fc241583ce35")}`,
-        //     link: "#",
-        //     target: false,
-        // },
-        // {
-        //     title: `${contentData.getContent("05b8415f-616b-4aed-8c0b-fd31305c6026")}`,
-        //     link: "#",
-        //     target: false,
-        // },
-        // {
-        //     title: `${contentData.getContent("2f4de646-0e7c-424f-bcd4-52deb4003705")}`,
-        //     link: "https://www.livguard.com/solar-panels-for-home/",
-        //     target: true,
-        // },
-        // {
-        //     title: `${contentData.getContent("369e90db-f15f-4ec7-834f-46e460f1e0fd")}`,
-        //     link: "#",
-        //     target: false,
-        // },
-        // {
-        //     title: `${contentData.getContent("e9218e48-d0fa-40b4-9189-39e4d37c847d")}`,
-        //     link: "#",
-        //     target: false,
-        // },
-        // {
-        //     title: `${contentData.getContent("e02353bf-c629-4104-8b43-6fe8a43610cc")}`,
-        //     link: "#",
-        //     target: false,
-        // },
-        {
-            title: `${contentData.getContent("d590735a-b2e3-4e86-a9e6-7a3991bd8956")}`,
-            link: "https://www.livguard.com/solar-charge-controller-for-home/index.php",
-            target: true,
-        },
-        {
-            title: `${contentData.getContent("f12df3fc-ddaf-4809-b2dc-d34c218db76f")}`,
-            link: "https://www.livguard.com/solar-management-unit-for-home/index.php",
-            target: true,
-        },
-        {
-            title: `${contentData.getContent("93c283cc-941d-4382-aabb-67f017dd119b")}`,
-            link: "https://www.livguard.com/solar-led-street-light/index.php",
-            target: true,
-        },
-        {
-            title: `${contentData.getContent("e45100e2-66ca-4476-9822-c37e64ae5356")}`,
-            link: "https://www.livguardsolar.com/",
-            target: true,
-        },
-        // {
-        //     title: `${contentData.getContent("3387d316-f651-4fec-82e4-8b25c923a1b2")}`,
-        //     link: "#",
-        //     target: false,
-        // },
-        // {
-        //     title: `${contentData.getContent("8641e5e9-7f63-49a8-9586-30d0be4a8e98")}`,
-        //     link: "#",
-        //     target: false,
-        // },
-        // {
-        //     title: `${contentData.getContent("d000e8b7-9e75-48b2-a131-39864fe80130")}`,
-        //     link: "#",
-        //     target: false,
-        // },
-        // {
-        //     title: `${contentData.getContent("58860329-bf1a-40c4-ba47-6103a0b013db")}`,
-        //     link: "#",
-        //     target: false,
-        // },
-    ];
-
     const energySolutionsAccordianList = [
         {
             title: `${contentData.getContent("642467c3-8136-4523-b231-fa5aae9a075a")}`,
@@ -630,6 +527,73 @@ export function FooterComponent({
             title: `${contentData.getContent("e9624c2c-a16e-4f56-88a2-3e2710461b14")}`,
             link: "/energy-solutions#automativeSolutions",
             target: false,
+        },
+    ];
+
+    const solarHomeAccordionList = [
+        {
+            title: `${contentData.getContent("006eee83-6cbd-4e55-ba78-da6e16626b7a")}`,
+            link: "/",
+            target: false,
+        },
+        {
+            title: `${contentData.getContent("f7d7b56c-1e62-4fb6-a56b-bf6c98415380")}`,
+            link: "/understanding-solar",
+            target: false,
+        },
+        {
+            title: `${contentData.getContent("f561a442-2c38-405e-9bb4-8ed3f9ed0359")}`,
+            link: "/latest-projects",
+            target: false,
+        },
+        {
+            title: `${contentData.getContent("a9b2a2c7-9d4e-4908-8463-23cb3669bb1d")}`,
+            link: "/partner-with-us",
+            target: false,
+        },
+        {
+            title: `${contentData.getContent("57a03ee7-ca2c-4a65-99ca-f462af61147d")}`,
+            link: "/dealers",
+            target: false,
+        },
+    ];
+
+    const solarSolutionsAccordianList = [
+        {
+            title: `${contentData.getContent("c5d478da-fd36-446a-aae6-1bfe13607be1")}`,
+            link: "/solculator",
+            target: false,
+        },
+        {
+            title: `${contentData.getContent("c26206f2-c606-486f-b8bc-4072e9afbf86")}`,
+            link: "/solar-panels",
+            target: false,
+        },
+        {
+            title: `${contentData.getContent("6017a74c-fd49-4086-892d-e0548e7c7e51")}`,
+            link: "/solar-batteries",
+        },
+        {
+            title: `${contentData.getContent("8609c5f9-8e8a-4410-a815-c5e8926dc94f")}`,
+            link: "/solar-on-grid-inverters",
+        },
+        {
+            title: `${contentData.getContent("b353a93a-216c-45db-b566-4f7889cf23da")}`,
+            link: "/solar-off-grid-inverters",
+        },
+        {
+            title: `${contentData.getContent("1ce35128-7be7-48aa-bd66-83160476fd11")}`,
+            link: "/hybrid-inverters",
+        },
+        {
+            title: `${contentData.getContent("d590735a-b2e3-4e86-a9e6-7a3991bd8956")}`,
+            link: "/charge-controller",
+            target: true,
+        },
+        {
+            title: `${contentData.getContent("f12df3fc-ddaf-4809-b2dc-d34c218db76f")}`,
+            link: "/solar-management-unit",
+            target: true,
         },
     ];
 
@@ -765,6 +729,33 @@ export function FooterComponent({
                 />
 
                 <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
+
+                {/* <Accordion
+                    title={contentData.getContent("407c0e47-9c3b-47b0-a1f2-13fc372dff9f")}
+                    panelItem={
+                        <ItemBuilder
+                            items={solarHomeAccordionList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className="lg-text-secondary-900 hover:lg-text-primary-500"
+                                    key={itemIndex}
+                                >
+                                    <Link
+                                        className="hover:lg-text-primary-500"
+                                        to={item.link}
+                                    >
+                                        {item.title}
+                                    </Link>
+                                </div>
+                            )}
+                        />
+                    }
+                    className="lg:tw-hidden"
+                    // openDisclosureTitle={openDisclosureTitle}
+                    // setOpenDisclosureTitle={setOpenDisclosureTitle}
+                />
+
+                <VerticalSpacer className="tw-h-3 lg:tw-hidden" /> */}
                 <Accordion
                     disclosurePanelContainerClassName="!tw-max-h-[unset]"
                     title={contentData.getContent("fc828855-64e1-4be5-b95f-bee9fe4a3262")}
@@ -1201,11 +1192,46 @@ export function FooterComponent({
                     />
                 </div>
 
-                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3">
+                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3 lg:tw-gap-2">
                     <div className="tw-flex tw-flex-col lg:tw-gap-2">
                         <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("bf233b5c-c4e0-4161-aa37-8d0eba708d4c")}</div>
                         <ItemBuilder
                             items={companyAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className="lg-text-secondary-900 tw-overflow-hidden"
+                                    key={itemIndex}
+                                >
+                                    {item.target ? (
+                                        <Link
+                                            to={item.link}
+                                            target="_blank"
+                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
+                                        >
+                                            {item.title}
+                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
+                                            to={item.link}
+                                        >
+                                            {item.title}
+                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                        </Link>
+                                    )}
+
+                                    <VerticalSpacer className="tw-h-1" />
+                                </div>
+                            )}
+                        />
+                    </div>
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <div className="tw-flex tw-flex-col lg:tw-gap-2">
+                        <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("407c0e47-9c3b-47b0-a1f2-13fc372dff9f")}</div>
+                        <ItemBuilder
+                            items={solarHomeAccordionList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900 tw-overflow-hidden"

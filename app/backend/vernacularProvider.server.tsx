@@ -11832,6 +11832,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Solar Dealer Locator`,
         [Language.Hindi]: "सोलर डीलर ढूँढें",
     },
+    "407c0e47-9c3b-47b0-a1f2-13fc372dff9f": {
+        [Language.English]: `Solar Solutions`,
+        [Language.Hindi]: "?????",
+    },
+    "b353a93a-216c-45db-b566-4f7889cf23da": {
+        [Language.English]: `Solar Off-grid Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "8609c5f9-8e8a-4410-a815-c5e8926dc94f": {
+        [Language.English]: `Solar On-grid Inverter`,
+        [Language.Hindi]: "?????",
+    },
 };
 
 const popUpFormStrings = [
@@ -11941,10 +11953,20 @@ const headerStrings: Array<string> = [
     "88de74d7-0089-4e9b-8129-8cd8657520ae",
     "1ce35128-7be7-48aa-bd66-83160476fd11",
     "b9996d74-d519-40a8-bbad-b27d3479236b",
+    "006eee83-6cbd-4e55-ba78-da6e16626b7a",
+    "f7d7b56c-1e62-4fb6-a56b-bf6c98415380",
+    "f561a442-2c38-405e-9bb4-8ed3f9ed0359",
+    "a9b2a2c7-9d4e-4908-8463-23cb3669bb1d",
+    "57a03ee7-ca2c-4a65-99ca-f462af61147d",
+    "407c0e47-9c3b-47b0-a1f2-13fc372dff9f",
 ];
 
 const footerStrings = [
     ...popUpFormStrings,
+    "c26206f2-c606-486f-b8bc-4072e9afbf86",
+    "8609c5f9-8e8a-4410-a815-c5e8926dc94f",
+    "b353a93a-216c-45db-b566-4f7889cf23da",
+    "1ce35128-7be7-48aa-bd66-83160476fd11",
     "06bdee07-e0a5-418c-8aab-90a5debb6b61",
     "a934d750-a5a0-4b8b-b343-e6af45966c63",
     "be39d262-3769-4f4c-8d54-3ed7d6500101",
