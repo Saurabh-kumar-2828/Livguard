@@ -713,10 +713,6 @@ function WhatsAppPrivacyPolicy({userPreferences, className}: {userPreferences: U
                         className="tw-pl-[3rem]"
                         dangerouslySetInnerHTML={{__html: contentData.getContent("91471559-ce87-4196-b5de-2187d80cccb2")}}
                     ></div>
-                    <div
-                        className="tw-pl-[3rem]"
-                        dangerouslySetInnerHTML={{__html: contentData.getContent("14bec3cc-b2cf-44f3-9443-835bd126bf0a")}}
-                    ></div>
                 </div>
             </div>
         </div>
