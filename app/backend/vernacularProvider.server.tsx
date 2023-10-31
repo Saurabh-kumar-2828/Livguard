@@ -8982,10 +8982,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> (ग)  </span>तृतीय-पक्ष सेवाएँ</div>`,
     },
     "f640f948-c51f-4108-9a2d-819ac11a4dc1": {
-        [Language.English]:
-            `Livguard & Livguard Solar uses WhatsApp as a third-party messaging service to interact with users. (Please note that while we are committed to protecting your privacy), You understand and are aware that WhatsApp has its own privacy practices, which are governed by their Terms of Service and Privacy Policy. We recommend reviewing <a href="https://www.whatsapp.com/privacy" target="_blank" rel="noreferrer"> WhatsApp's policies </a> to understand how they handle your data.`,
-        [Language.Hindi]:
-            `लिवगार्ड उपयोगकर्ताओं के साथ बातचीत करने के लिए व्हाट्सएप को तीसरे पक्ष की मैसेजिंग सेवा के रूप में उपयोग करता है। (कृपया ध्यान दें कि यद्यपि हम आपकी गोपनीयता की रक्षा करने के लिए प्रतिबद्ध हैं), आप समझते हैं और जानते हैं कि व्हाट्सएप की अपनी गोपनीयता प्रथाएं हैं, जो उनकी सेवा की शर्तों और गोपनीयता नीति द्वारा शासित होती हैं। हम यह समझने के लिए <a href="https://www.whatsapp.com/privacy" target="_blank" rel="noreferrer">व्हाट्सएप की नीतियों </a> की समीक्षा करने की सलाह देते हैं कि वे आपके डेटा को कैसे संभालते हैं।`,
+        [Language.English]: `Livguard & Livguard Solar uses WhatsApp as a third-party messaging service to interact with users. (Please note that while we are committed to protecting your privacy), You understand and are aware that WhatsApp has its own privacy practices, which are governed by their Terms of Service and Privacy Policy. We recommend reviewing <a href="https://www.whatsapp.com/privacy" target="_blank" rel="noreferrer"> WhatsApp's policies </a> to understand how they handle your data.`,
+        [Language.Hindi]: `लिवगार्ड उपयोगकर्ताओं के साथ बातचीत करने के लिए व्हाट्सएप को तीसरे पक्ष की मैसेजिंग सेवा के रूप में उपयोग करता है। (कृपया ध्यान दें कि यद्यपि हम आपकी गोपनीयता की रक्षा करने के लिए प्रतिबद्ध हैं), आप समझते हैं और जानते हैं कि व्हाट्सएप की अपनी गोपनीयता प्रथाएं हैं, जो उनकी सेवा की शर्तों और गोपनीयता नीति द्वारा शासित होती हैं। हम यह समझने के लिए <a href="https://www.whatsapp.com/privacy" target="_blank" rel="noreferrer">व्हाट्सएप की नीतियों </a> की समीक्षा करने की सलाह देते हैं कि वे आपके डेटा को कैसे संभालते हैं।`,
     },
 
     "f53f571a-74d1-4104-b9da-1820dbff78be": {
@@ -11761,6 +11759,78 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "1604eb18-88d2-45d9-b39f-6a66414cb122": {
         [Language.English]: "Bringing Innovation to <br/> Your Energy Needs",
         [Language.Hindi]: "आपकी ऊर्जा ज़रूरतों के लिए <br/>लिवगार्ड की निरंतर नवीनता",
+    },
+    "006eee83-6cbd-4e55-ba78-da6e16626b7a": {
+        [Language.English]: `Overview`,
+        [Language.Hindi]: "संक्षेप",
+    },
+    "f7d7b56c-1e62-4fb6-a56b-bf6c98415380": {
+        [Language.English]: `Understanding Solar`,
+        [Language.Hindi]: "सोलर समझें",
+    },
+    "f561a442-2c38-405e-9bb4-8ed3f9ed0359": {
+        [Language.English]: `Latest Projects`,
+        [Language.Hindi]: "नई परियोजनाएँ",
+    },
+    "daaa6fb5-b78d-4d57-a8ba-7c54762979c9": {
+        [Language.English]: `Tools`,
+        [Language.Hindi]: "उपकरण",
+    },
+    "c22e2175-92ca-4d88-8fbe-3bbdce62ca16": {
+        [Language.English]: `Solar Saving Calculator`,
+        [Language.Hindi]: "सोलर बचत कैलकुलेटर",
+    },
+    "c26206f2-c606-486f-b8bc-4072e9afbf86": {
+        [Language.English]: `Solar Panels`,
+        [Language.Hindi]: "सोलर पैनल",
+    },
+    "f5ade0ea-e178-48ba-b86b-25923286d7f0": {
+        [Language.English]: `Mono-perc Half Cut`,
+        [Language.Hindi]: "मोनो-पर्क आधि केटी",
+    },
+    "77e7fb4d-ac75-46a6-a46c-4cadabcf9092": {
+        [Language.English]: `Mono-perc`,
+        [Language.Hindi]: "मोनो-पर्क",
+    },
+    "d77ea485-ddbf-4530-9181-525fc5b8082b": {
+        [Language.English]: `Polycrystalline Solar Panels`,
+        [Language.Hindi]: "पॉलिक्रिस्टलाइन सोलर पैनल",
+    },
+    "51d76bcb-18b4-4d78-bf5b-c5a987fe1879": {
+        [Language.English]: `Solar Batteries`,
+        [Language.Hindi]: "सोलर बैटरी",
+    },
+    "8c95d787-e92a-4e57-8eae-6402070e50db": {
+        [Language.English]: `Solar Inverters`,
+        [Language.Hindi]: "सोलर इनवर्टर",
+    },
+    "f4a2d034-5b81-4acc-9f92-5ac4f9c89809": {
+        [Language.English]: `On Grid Inverters`,
+        [Language.Hindi]: "ऑन-ग्रिड इनवर्टर",
+    },
+    "88de74d7-0089-4e9b-8129-8cd8657520ae": {
+        [Language.English]: `Off Grid Inverters`,
+        [Language.Hindi]: "ऑफ-ग्रिड इनवर्टर",
+    },
+    "1ce35128-7be7-48aa-bd66-83160476fd11": {
+        [Language.English]: `Hybrid Inverters`,
+        [Language.Hindi]: "हाइब्रिड इनवर्टर",
+    },
+    "46eb3f74-d78f-4ba2-b681-dd51a81bc914": {
+        [Language.English]: `Solar Charge Controllers`,
+        [Language.Hindi]: "सोलर चार्ज कंट्रोलर",
+    },
+    "ad0d0afb-32f1-47e3-abb6-a2f6a1cdb1c0": {
+        [Language.English]: `Solar Management Units`,
+        [Language.Hindi]: "सोलर मैनेजमेंट यूनिट",
+    },
+    "a9b2a2c7-9d4e-4908-8463-23cb3669bb1d": {
+        [Language.English]: `Partner With Us`,
+        [Language.Hindi]: "हमसे जुड़ें",
+    },
+    "57a03ee7-ca2c-4a65-99ca-f462af61147d": {
+        [Language.English]: `Solar Dealer Locator`,
+        [Language.Hindi]: "सोलर डीलर ढूँढें",
     },
 };
 

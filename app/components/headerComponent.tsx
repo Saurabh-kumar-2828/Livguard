@@ -998,137 +998,118 @@ const headerMenuItems: Array<HeaderItem> = [
         colCount: 2,
     },
     {
-        contentId: "3a186513-50e2-4738-8d17-0f8691fa7b1c",
+        contentId: "407c0e47-9c3b-47b0-a1f2-13fc372dff9f",
         children: [
             {
-                contentId: "97b49871-9e97-48b9-af09-e2b931a8e071",
+                contentId: "006eee83-6cbd-4e55-ba78-da6e16626b7a",
+                to: "https://www.livguardsolar.com/",
+                // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
+                desktopClassName:
+                    "tw-row-start-1 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lgs-text-body [&>*]:tw-duration-200 [&>*]:hover:!tw-text-primary-500-light dark:tw-bg-new-background-border-500-dark",
+                col: 1,
+            },
+            {
+                contentId: "f7d7b56c-1e62-4fb6-a56b-bf6c98415380",
+                to: "https://www.livguardsolar.com/understanding-solar",
+                // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
+                desktopClassName:
+                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lgs-text-body [&>*]:tw-duration-200 [&>*]:hover:!tw-text-primary-500-light dark:tw-bg-new-background-border-500-dark",
+                col: 1,
+            },
+            {
+                contentId: "f561a442-2c38-405e-9bb4-8ed3f9ed0359",
+                to: "https://www.livguardsolar.com/latest-projects",
+                // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
+                desktopClassName:
+                    "tw-row-start-3 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lgs-text-body [&>*]:tw-duration-200 [&>*]:hover:!tw-text-primary-500-light dark:tw-bg-new-background-border-500-dark",
+                col: 1,
+            },
+            {
+                contentId: "a9b2a2c7-9d4e-4908-8463-23cb3669bb1d",
+                to: "https://www.livguardsolar.com/partner-with-us",
+                // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
+                desktopClassName:
+                    "tw-row-start-4 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lgs-text-body [&>*]:tw-duration-200 [&>*]:hover:!tw-text-primary-500-light dark:tw-bg-new-background-border-500-dark",
+                col: 1,
+            },
+            {
+                contentId: "daaa6fb5-b78d-4d57-a8ba-7c54762979c9",
                 children: [
                     {
-                        contentId: "9b76016a-c05d-4687-899f-aa6157ebc51c",
-                        to: "https://www.livguardsolar.com/solar/solculator",
+                        contentId: "c22e2175-92ca-4d88-8fbe-3bbdce62ca16",
+                        to: "https://www.livguardsolar.com/solculator",
                     },
-                    // {
-                    //     contentId: "267b476e-74fa-4648-a5f8-8129bbfaa8ce",
-                    //     to: "https://www.livguardsolar.com/",
-                    // },
+                    {
+                        contentId: "57a03ee7-ca2c-4a65-99ca-f462af61147d",
+                        to: "https://www.livguardsolar.com/dealers",
+                    },
                 ],
-                // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
-                desktopClassName: "tw-row-start-1 tw-col-start-1 tw-row-span-2 tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                desktopClassName: "tw-row-start-4 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 dark:tw-bg-new-background-border-500-dark",
+                col: 1,
+            },
+            {
+                contentId: "c26206f2-c606-486f-b8bc-4072e9afbf86",
+                children: [
+                    {
+                        contentId: "f5ade0ea-e178-48ba-b86b-25923286d7f0",
+                        to: "https://www.livguardsolar.com/solar-panels?id=mono-perc-half-cut",
+                    },
+                    {
+                        contentId: "77e7fb4d-ac75-46a6-a46c-4cadabcf9092",
+                        to: "https://www.livguardsolar.com/solar-panels?id=mono-perc",
+                    },
+                    {
+                        contentId: "d77ea485-ddbf-4530-9181-525fc5b8082b",
+                        to: "https://www.livguardsolar.com/solar-panels?id=polycrystalline",
+                    },
+                ],
+                desktopClassName: "tw-row-start-3 tw-col-start-2 tw-row-span-2 tw-pl-6 tw-pr-6 tw-pt-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
                 col: 2,
             },
             {
-                contentId: "e45100e2-66ca-4476-9822-c37e64ae5356",
-                // children: [
-                //     {
-                //         contentId: "f1d3fff0-6f22-4b2c-b891-8f1304c583a7",
-                //         to: "https://www.livguardsolar.com/",
-                //     },
-                // ],
-                to: "https://www.livguardsolar.com",
+                contentId: "51d76bcb-18b4-4d78-bf5b-c5a987fe1879",
+                to: "https://www.livguardsolar.com/solar-batteries",
                 // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
                 desktopClassName:
-                    "tw-row-start-1 tw-col-start-2 tw-content-start tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body-bold [&>*]:!lg-text-primary-500 dark:tw-bg-new-background-border-500-dark",
-                col: 1,
-            },
-            {
-                contentId: "6d5d47a4-ef2f-40c4-b364-1b4f96d47af9",
-                // children: [
-                //     {
-                //         contentId: "f1d3fff0-6f22-4b2c-b891-8f1304c583a7",
-                //         to: "https://www.livguardsolar.com/",
-                //     },
-                // ],
-                to: "https://www.livguard.com/solar-battery-for-home/",
-                // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
-                desktopClassName:
-                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body-bold [&>*]:!lg-text-primary-500 dark:tw-bg-new-background-border-500-dark",
-                col: 1,
-            },
-            {
-                contentId: "f996231c-b2f6-41f8-82bb-dea49b2c9a3d",
-                // children: [
-                //     {
-                //         contentId: "f9e6a204-a3e8-4725-b7f2-c03231a28813",
-                //         to: "https://www.livguardsolar.com/",
-                //     },
-                //     {
-                //         contentId: "c6c9f0ec-ff71-4a10-9bc6-5dbde9ef8a81",
-                //         to: "https://www.livguardsolar.com/",
-                //     },
-                //     {
-                //         contentId: "ebb7642d-4c02-426e-83c0-06acd292ec33",
-                //         to: "https://www.livguardsolar.com/",
-                //     },
-                // ],
-                to: "https://www.livguard.com/solar-panels-and-inverters-for-home/",
-                desktopClassName: "tw-row-start-3 tw-col-start-2 tw-row-span-2 tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body-bold [&>*]:!lg-text-primary-500 dark:tw-bg-new-background-border-500-dark",
-                col: 1,
-            },
-            // {
-            //     contentId: "b78fac32-d1d1-4775-ad04-de991106a491",
-            //     children: [
-            //         {
-            //             contentId: "53d8effd-c423-465b-b273-b2e6ab17020a",
-            //             to: "https://www.livguardsolar.com/",
-            //         },
-            //         {
-            //             contentId: "ea7d6d75-5e3f-4ad7-a72b-10e9e9449618",
-            //             to: "https://www.livguardsolar.com/",
-            //         },
-            //         {
-            //             contentId: "6fc7c58e-1eb3-4600-a449-daaa702eb619",
-            //             to: "https://www.livguardsolar.com/",
-            //         },
-            //     ],
-            //     desktopClassName: "tw-row-start-1 tw-col-start-2 tw-row-span-3 tw-pl-5 tw-pr-5 tw-pt-10 tw-pb-4",
-            // },
-            {
-                contentId: "cd9df738-ed03-4cf5-8440-c15ee171ee0f",
-                children: [
-                    {
-                        contentId: "f5986d46-458c-4fde-9516-56dee3d6d94b",
-                        to: "https://www.livguard.com/solar-charge-controller-for-home/index.php",
-                    },
-                    {
-                        contentId: "4e6fe38c-6d65-4fa0-a321-72eb79c840aa",
-                        to: "https://www.livguard.com/solar-management-unit-for-home/index.php",
-                    },
-                ],
-                desktopClassName:
-                    "tw-row-start-3 tw-col-start-1 tw-row-span-3 tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-6 tw-pb-10 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lgs-text-body-bold [&>*]:!lgs-text-primary-500 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
                 col: 2,
             },
             {
-                contentId: "7596edad-f993-41bf-a344-577762691d53",
-                to: "https://www.livguard.com/solar-led-street-light/index.php",
+                contentId: "8c95d787-e92a-4e57-8eae-6402070e50db",
+                children: [
+                    {
+                        contentId: "f4a2d034-5b81-4acc-9f92-5ac4f9c89809",
+                        to: "https://www.livguardsolar.com/solar-on-grid-inverters",
+                    },
+                    {
+                        contentId: "88de74d7-0089-4e9b-8129-8cd8657520ae",
+                        to: "https://www.livguardsolar.com/solar-off-grid-inverters",
+                    },
+                    {
+                        contentId: "1ce35128-7be7-48aa-bd66-83160476fd11",
+                        to: "https://www.livguardsolar.com/hybrid-inverters",
+                    },
+                ],
+                // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
+                desktopClassName: "tw-row-start-4 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                col: 2,
+            },
+            {
+                contentId: "46eb3f74-d78f-4ba2-b681-dd51a81bc914",
+                to: "https://www.livguardsolar.com/charge-controller",
                 // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
                 desktopClassName:
-                    "tw-row-start-4 tw-col-start-2 tw-row-span-2 tw-content-start tw-self-start tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body-bold [&>*]:!lg-text-primary-500 dark:tw-bg-new-background-border-500-dark",
-                col: 1,
+                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lgs-text-body-bold [&>*]:!lgs-text-primary-500 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                col: 2,
             },
-            // {
-            //     contentId: "54c5d2f5-501d-4bbe-bbde-f8ea37fa1f21",
-            //     children: [
-            //         {
-            //             contentId: "8fa18bba-da04-43ad-aba1-9b0192f4a9db",
-            //             to: "https://www.livguardsolar.com/",
-            //         },
-            //         {
-            //             contentId: "f9f3bfd2-74d3-4e42-8b0f-3ef0ecd469a9",
-            //             to: "https://www.livguardsolar.com/",
-            //         },
-            //         {
-            //             contentId: "dac9e320-4f31-4ea0-8cbc-742f69286b2f",
-            //             to: "https://www.livguardsolar.com/",
-            //         },
-            //         {
-            //             contentId: "32fe5fcc-99bb-4dad-a0e5-feb4b9e3963a",
-            //             to: "https://www.livguardsolar.com/",
-            //         },
-            //     ],
-            //     desktopClassName:
-            //         "tw-row-start-2 tw-col-start-3 tw-row-span-6 tw-h-full tw-content-start tw-pl-5 tw-pr-6 tw-pt-4 tw-pb-10 tw-bg-new-foreground-500-dark dark:tw-bg-new-foreground-500-light",
-            // },
+            {
+                contentId: "ad0d0afb-32f1-47e3-abb6-a2f6a1cdb1c0",
+                to: "https://www.livguardsolar.com/solar-management-unit",
+                // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
+                desktopClassName:
+                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 tw-pb-6 [&>*]:!lgs-text-body-bold [&>*]:!lgs-text-primary-500 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                col: 2,
+            },
         ],
         desktopClassName: "dark:!tw-bg-new-background-border-500-dark",
         colCount: 2,
