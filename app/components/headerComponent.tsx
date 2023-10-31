@@ -371,7 +371,7 @@ function SecondBar({
 
     return (
         // TODO: Resolve this custom media query some other way
-        <div className="lw-px-6 [@media(max-width:1080px)]:!tw-px-2 tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
+        <div className="tw-px-6 [@media(max-width:1080px)]:!tw-px-2 tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
             <div className="tw-flex lg:tw-hidden tw-flex-row">
                 <button
                     type="button"
