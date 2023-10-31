@@ -998,14 +998,14 @@ const headerMenuItems: Array<HeaderItem> = [
         colCount: 2,
     },
     {
-        contentId: "407c0e47-9c3b-47b0-a1f2-13fc372dff9f",
+        contentId: "b9996d74-d519-40a8-bbad-b27d3479236b",
         children: [
             {
                 contentId: "006eee83-6cbd-4e55-ba78-da6e16626b7a",
                 to: "https://www.livguardsolar.com/",
                 // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
                 desktopClassName:
-                    "tw-row-start-1 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lgs-text-body [&>*]:tw-duration-200 [&>*]:hover:!tw-text-primary-500-light dark:tw-bg-new-background-border-500-dark",
+                    "tw-row-start-1 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body [&>*]:tw-duration-200 [&>*]:hover:!tw-text-primary-500-light dark:tw-bg-new-background-border-500-dark",
                 col: 1,
             },
             {
@@ -1013,7 +1013,7 @@ const headerMenuItems: Array<HeaderItem> = [
                 to: "https://www.livguardsolar.com/understanding-solar",
                 // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
                 desktopClassName:
-                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lgs-text-body [&>*]:tw-duration-200 [&>*]:hover:!tw-text-primary-500-light dark:tw-bg-new-background-border-500-dark",
+                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body [&>*]:tw-duration-200 [&>*]:hover:!tw-text-primary-500-light dark:tw-bg-new-background-border-500-dark",
                 col: 1,
             },
             {
@@ -1021,7 +1021,7 @@ const headerMenuItems: Array<HeaderItem> = [
                 to: "https://www.livguardsolar.com/latest-projects",
                 // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
                 desktopClassName:
-                    "tw-row-start-3 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lgs-text-body [&>*]:tw-duration-200 [&>*]:hover:!tw-text-primary-500-light dark:tw-bg-new-background-border-500-dark",
+                    "tw-row-start-3 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body [&>*]:tw-duration-200 [&>*]:hover:!tw-text-primary-500-light dark:tw-bg-new-background-border-500-dark",
                 col: 1,
             },
             {
@@ -1029,7 +1029,7 @@ const headerMenuItems: Array<HeaderItem> = [
                 to: "https://www.livguardsolar.com/partner-with-us",
                 // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
                 desktopClassName:
-                    "tw-row-start-4 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lgs-text-body [&>*]:tw-duration-200 [&>*]:hover:!tw-text-primary-500-light dark:tw-bg-new-background-border-500-dark",
+                    "tw-row-start-4 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body [&>*]:tw-duration-200 [&>*]:hover:!tw-text-primary-500-light dark:tw-bg-new-background-border-500-dark",
                 col: 1,
             },
             {
@@ -1071,7 +1071,7 @@ const headerMenuItems: Array<HeaderItem> = [
                 to: "https://www.livguardsolar.com/solar-batteries",
                 // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
                 desktopClassName:
-                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lgs-text-body-bold [&>*]:!lgs-text-primary-500 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body-bold [&>*]:!lg-text-primary-500 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
                 col: 2,
             },
             {
@@ -1099,7 +1099,7 @@ const headerMenuItems: Array<HeaderItem> = [
                 to: "https://www.livguardsolar.com/charge-controller",
                 // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
                 desktopClassName:
-                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lgs-text-body-bold [&>*]:!lgs-text-primary-500 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body-bold [&>*]:!lg-text-primary-500 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
                 col: 2,
             },
             {
@@ -1107,7 +1107,7 @@ const headerMenuItems: Array<HeaderItem> = [
                 to: "https://www.livguardsolar.com/solar-management-unit",
                 // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
                 desktopClassName:
-                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 tw-pb-6 [&>*]:!lgs-text-body-bold [&>*]:!lgs-text-primary-500 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 tw-pb-6 [&>*]:!lg-text-body-bold [&>*]:!lg-text-primary-500 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
                 col: 2,
             },
         ],
@@ -2107,9 +2107,9 @@ const searchQueries: Array<SearchQuery> = [
     {keyword: "Inverter", link: "/inverter-for-home/", title: "Livguard Home Inverters", score: 2},
     {keyword: "Inverter", link: "/solar-panels-and-inverters-for-home/", title: "Solar Inverter for Home", score: 2},
     {keyword: "Inverter", link: "/high-capacity-inverters/", title: "Livguard High-Capacity Inverters", score: 2},
-    {keyword: "Inverter", link: "/inverters-for-home-use/i-Verter-LGS-1100.php", title: "i-Verter LGS 1100", score: 2},
-    {keyword: "Inverter", link: "/inverters-for-home-use/i-verter-LGS-1700.php", title: "i-Verter LGS 1700", score: 2},
-    {keyword: "Inverter", link: "/inverters-for-home-use/i-verter-LGS-900.php", title: "i-Verter LGS 900", score: 2},
+    {keyword: "Inverter", link: "/inverters-for-home-use/i-Verter-lg-1100.php", title: "i-Verter LGS 1100", score: 2},
+    {keyword: "Inverter", link: "/inverters-for-home-use/i-verter-lg-1700.php", title: "i-Verter LGS 1700", score: 2},
+    {keyword: "Inverter", link: "/inverters-for-home-use/i-verter-lg-900.php", title: "i-Verter LGS 900", score: 2},
     {keyword: "Inverter", link: "/inverters-for-home-use/i2-verter-LG-1100.php", title: "i2-Verter LG 1100", score: 2},
     {keyword: "Inverter", link: "/inverters-for-home-use/i2-verter-LG-1700.php", title: "i2-Verter LG 1700", score: 2},
     {keyword: "Inverter", link: "/inverters-for-home-use/i2-verter-LG-900.php", title: "i2-Verter LG 900", score: 2},
@@ -2117,9 +2117,9 @@ const searchQueries: Array<SearchQuery> = [
     {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-LG2300.php", title: "ih-verter LG2300", score: 2},
     {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-LG3500.php", title: "ih-verter LG3500", score: 2},
     {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-LG5000.php", title: "ih-verter LG5000", score: 2},
-    {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-LGS-2500.php", title: "ih-verter LGS 2500", score: 2},
-    {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-LGS-3000.php", title: "ih-verter LGS 3000", score: 2},
-    {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-LGS-4000.php", title: "ih-verter LGS 4000", score: 2},
+    {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-lg-2500.php", title: "ih-verter LGS 2500", score: 2},
+    {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-lg-3000.php", title: "ih-verter LGS 3000", score: 2},
+    {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-lg-4000.php", title: "ih-verter LGS 4000", score: 2},
     {keyword: "Inverter", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
     {keyword: "Battery", link: "/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 1},
     {keyword: "Battery", link: "/batteries.php", title: "Batteries for All Your Needs", score: 2},
@@ -2143,9 +2143,9 @@ const searchQueries: Array<SearchQuery> = [
     {keyword: "Service ", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
     {keyword: "Accessories ", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 1},
     {keyword: "3D Grid ", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "AI Charging", link: "/inverters-for-home-use/i-Verter-LGS-1100.php", title: "i-Verter LGS 1100", score: 2},
-    {keyword: "AI Charging", link: "/inverters-for-home-use/i-verter-LGS-1700.php", title: "i-Verter LGS 1700", score: 2},
-    {keyword: "AI Charging", link: "/inverters-for-home-use/i-verter-LGS-900.php", title: "i-Verter LGS 900", score: 2},
+    {keyword: "AI Charging", link: "/inverters-for-home-use/i-Verter-lg-1100.php", title: "i-Verter LGS 1100", score: 2},
+    {keyword: "AI Charging", link: "/inverters-for-home-use/i-verter-lg-1700.php", title: "i-Verter LGS 1700", score: 2},
+    {keyword: "AI Charging", link: "/inverters-for-home-use/i-verter-lg-900.php", title: "i-Verter LGS 900", score: 2},
     {keyword: "AI Charging", link: "/inverters-for-home-use/i2-verter-LG-1100.php", title: "i2-Verter LG 1100", score: 2},
     {keyword: "AI Charging", link: "/inverters-for-home-use/i2-verter-LG-1700.php", title: "i2-Verter LG 1700", score: 2},
     {keyword: "AI Charging", link: "/inverters-for-home-use/i2-verter-LG-900.php", title: "i2-Verter LG 900", score: 2},
@@ -2170,12 +2170,12 @@ const searchQueries: Array<SearchQuery> = [
     {keyword: "3500VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
     {keyword: "4000VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
     {keyword: "600VA", link: "/inverters-for-home-use/i2-verter-LG-700.php", title: "i2-Verter LG 700", score: 1},
-    {keyword: "800VA", link: "/inverters-for-home-use/i-verter-LGS-900.php", title: "i-Verter LGS 900", score: 1},
+    {keyword: "800VA", link: "/inverters-for-home-use/i-verter-lg-900.php", title: "i-Verter LGS 900", score: 1},
     {keyword: "900VA", link: "/inverters-for-home-use/i2-verter-LG-1100.php", title: "i2-Verter LG 1100", score: 1},
-    {keyword: "1500VA", link: "/inverters-for-home-use/i-verter-LGS-1700.php", title: "i-Verter LGS 1700", score: 1},
+    {keyword: "1500VA", link: "/inverters-for-home-use/i-verter-lg-1700.php", title: "i-Verter LGS 1700", score: 1},
     {keyword: "2000VA", link: "/high-capacity-inverters/ih-verter-LG2300.php", title: "ih-verter LG2300", score: 1},
-    {keyword: "2500VA", link: "/high-capacity-inverters/ih-verter-LGS-3000.php", title: "ih-verter LGS 3000", score: 1},
-    {keyword: "3500VA", link: "/high-capacity-inverters/ih-verter-LGS-4000.php", title: "ih-verter LGS 4000", score: 1},
+    {keyword: "2500VA", link: "/high-capacity-inverters/ih-verter-lg-3000.php", title: "ih-verter LGS 3000", score: 1},
+    {keyword: "3500VA", link: "/high-capacity-inverters/ih-verter-lg-4000.php", title: "ih-verter LGS 4000", score: 1},
     {keyword: "90Ah", link: "/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
     {keyword: "100Ah", link: "/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
     {keyword: "110Ah", link: "/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
