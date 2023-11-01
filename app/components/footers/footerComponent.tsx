@@ -533,27 +533,27 @@ export function FooterComponent({
     const solarHomeAccordionList = [
         {
             title: `${contentData.getContent("006eee83-6cbd-4e55-ba78-da6e16626b7a")}`,
-            link: "/",
+            link: "https://www.livguardsolar.com",
             target: false,
         },
         {
             title: `${contentData.getContent("f7d7b56c-1e62-4fb6-a56b-bf6c98415380")}`,
-            link: "/understanding-solar",
+            link: "https://www.livguardsolar.com/understanding-solar",
             target: false,
         },
         {
             title: `${contentData.getContent("f561a442-2c38-405e-9bb4-8ed3f9ed0359")}`,
-            link: "/latest-projects",
+            link: "https://www.livguardsolar.com/latest-projects",
             target: false,
         },
         {
             title: `${contentData.getContent("a9b2a2c7-9d4e-4908-8463-23cb3669bb1d")}`,
-            link: "/partner-with-us",
+            link: "https://www.livguardsolar.com/partner-with-us",
             target: false,
         },
         {
             title: `${contentData.getContent("57a03ee7-ca2c-4a65-99ca-f462af61147d")}`,
-            link: "/dealers",
+            link: "https://www.livguardsolar.com/dealers",
             target: false,
         },
     ];
@@ -561,38 +561,38 @@ export function FooterComponent({
     const solarSolutionsAccordianList = [
         {
             title: `${contentData.getContent("c5d478da-fd36-446a-aae6-1bfe13607be1")}`,
-            link: "/solculator",
+            link: "https://www.livguardsolar.com/solculator",
             target: false,
         },
         {
             title: `${contentData.getContent("c26206f2-c606-486f-b8bc-4072e9afbf86")}`,
-            link: "/solar-panels",
+            link: "https://www.livguardsolar.com/solar-panels",
             target: false,
         },
         {
             title: `${contentData.getContent("6017a74c-fd49-4086-892d-e0548e7c7e51")}`,
-            link: "/solar-batteries",
+            link: "https://www.livguardsolar.com/solar-batteries",
         },
         {
             title: `${contentData.getContent("8609c5f9-8e8a-4410-a815-c5e8926dc94f")}`,
-            link: "/solar-on-grid-inverters",
+            link: "https://www.livguardsolar.com/solar-on-grid-inverters",
         },
         {
             title: `${contentData.getContent("b353a93a-216c-45db-b566-4f7889cf23da")}`,
-            link: "/solar-off-grid-inverters",
+            link: "https://www.livguardsolar.com/solar-off-grid-inverters",
         },
         {
             title: `${contentData.getContent("1ce35128-7be7-48aa-bd66-83160476fd11")}`,
-            link: "/hybrid-inverters",
+            link: "https://www.livguardsolar.com/hybrid-inverters",
         },
         {
             title: `${contentData.getContent("d590735a-b2e3-4e86-a9e6-7a3991bd8956")}`,
-            link: "/charge-controller",
+            link: "https://www.livguardsolar.com/charge-controller",
             target: true,
         },
         {
             title: `${contentData.getContent("f12df3fc-ddaf-4809-b2dc-d34c218db76f")}`,
-            link: "/solar-management-unit",
+            link: "https://www.livguardsolar.com/solar-management-unit",
             target: true,
         },
     ];
