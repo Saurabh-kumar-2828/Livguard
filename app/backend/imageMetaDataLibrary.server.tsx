@@ -7692,6 +7692,51 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "L0Al2;?P000b00A11-0K$W0R~Lo|",
         finalUrl: "/livguard/home/1/festive-mobile-352e8c.jpg",
     },
+    "/livguard/e-rickshaw-batteries/4/c-1.png": {
+        "width": 612,
+        "height": 240,
+        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-1-8a93ac.png"
+    },
+    "/livguard/e-rickshaw-batteries/4/c-2.png": {
+        "width": 612,
+        "height": 240,
+        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-2-beb18e.png"
+    },
+    "/livguard/e-rickshaw-batteries/4/c-3.png": {
+        "width": 612,
+        "height": 240,
+        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-3-783b1a.png"
+    },
+    "/livguard/e-rickshaw-batteries/4/c-4.png": {
+        "width": 612,
+        "height": 240,
+        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-4-0cad56.png"
+    },
+    "/livguard/e-rickshaw-batteries/4/c-5.png": {
+        "width": 612,
+        "height": 240,
+        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-5-a0a3eb.png"
+    },
+    "/livguard/e-rickshaw-batteries/4/c-6.png": {
+        "width": 612,
+        "height": 240,
+        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-6-80a733.png"
+    },
+    "/livguard/e-rickshaw-batteries/4/c-7.png": {
+        "width": 612,
+        "height": 240,
+        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-7-f2a9a7.png"
+    },
+    "/livguard/e-rickshaw-batteries/4/c-8.png": {
+        "width": 612,
+        "height": 240,
+        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-8-521330.png"
+    },
+    "/livguard/e-rickshaw-batteries/4/c-9.png": {
+        "width": 612,
+        "height": 240,
+        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-9-8154dd.png"
+    },
 };
 
 export function getImageMetadataLibraryForPage(ids: Array<string>): {[relativePath: string]: ImageMetadata | undefined} {
@@ -7725,6 +7770,8 @@ const commonIcons = [
     "/livguard/find-the-thief/mobile-step-1.jpg",
     "/livguard/find-the-thief/step-1-pattern.svg",
 ];
+
+const imageMetadataIdsAutomotiveTestimonials = [ "/livguard/products/peace-of-mind-combo/thumbnail.png", "/livguard/products/urban-combo/thumbnail.png", "/livguard/products/peace-of-mind-combo/thumbnail.png", "/livguard/products/urban-combo/thumbnail.png",]
 
 const imageMetadataIdsForPage = {
     homePage: [
@@ -7904,6 +7951,12 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/products/lg1450i/thumbnail.png",
+        "/livguard/products/it2672tt/thumbnail.png",
+        "/livguard/products/lg1450i/thumbnail.png",
+        "/livguard/products/lg1550i/thumbnail.png",
+        "/livguard/products/lgs1600/thumbnail.png",
+        "/livguard/products/it2672tt/thumbnail.png",
         "/livguard/load-calculator/1.jpg",
         "/livguard/products/lg900/thumbnail.png",
         "/livguard/icons/capacity.png",
@@ -8075,6 +8128,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        ...imageMetadataIdsAutomotiveTestimonials,
         "/livguard/products/lgzhhtx7/thumbnail.png",
         "/livguard/products/lgzhhtz7/thumbnail.png",
         "/livguard/products/lgzhhtz9/thumbnail.png",
@@ -8126,6 +8180,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        ...imageMetadataIdsAutomotiveTestimonials,
         "/livguard/three-wheeler/three-wheeler-og-banner.jpg",
         "/livguard/three-wheeler/2/cranking.jpg",
         "/livguard/three-wheeler/2/maintainance.jpg",
@@ -8155,6 +8210,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        ...imageMetadataIdsAutomotiveTestimonials,
         "/livguard/products/ze38b20l/thumbnail.png",
         "/livguard/products/ze38b20r/thumbnail.png",
         "/livguard/products/ze55b24lsl/thumbnail.png",
@@ -8279,6 +8335,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        ...imageMetadataIdsAutomotiveTestimonials,
         "/livguard/bus-and-truck/bus-and-truck-og-banner.jpg",
         "/livguard/bus-and-truck/2/maintenance.jpg",
         "/livguard/bus-and-truck/2/cranking.jpg",
@@ -8336,6 +8393,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        ...imageMetadataIdsAutomotiveTestimonials,
         "/livguard/tractor/tractor-og-banner.jpg",
         "/livguard/tractor/2/cranking.jpg",
         "/livguard/tractor/2/battery-life.jpg",
@@ -8427,6 +8485,16 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        ...imageMetadataIdsAutomotiveTestimonials,
+        "/livguard/e-rickshaw-batteries/4/c-1.png",
+        "/livguard/e-rickshaw-batteries/4/c-2.png",
+        "/livguard/e-rickshaw-batteries/4/c-3.png",
+        "/livguard/e-rickshaw-batteries/4/c-4.png",
+        "/livguard/e-rickshaw-batteries/4/c-5.png",
+        "/livguard/e-rickshaw-batteries/4/c-6.png",
+        "/livguard/e-rickshaw-batteries/4/c-7.png",
+        "/livguard/e-rickshaw-batteries/4/c-8.png",
+        "/livguard/e-rickshaw-batteries/4/c-9.png",
         "/livguard/e-rickshaw-batteries/1/e-shakti.png",
         "/livguard/e-rickshaw-batteries/2/maximum-mileage.jpg",
         "/livguard/e-rickshaw-batteries/2/battery-life.jpg",
@@ -8461,6 +8529,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        ...imageMetadataIdsAutomotiveTestimonials,
         "/livguard/e-rickshaw-charger/e-rickshaw-charger-og-banner.jpg",
         "/livguard/e-rickshaw-charger/2/battery-life.jpg",
         "/livguard/e-rickshaw-charger/2/consumes-less-electricity.jpg",

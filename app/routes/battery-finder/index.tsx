@@ -36,6 +36,7 @@ import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
+import {FancySearchableSelect} from "~/components/searchableSelects";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -437,6 +438,7 @@ function ChooseYourVehicle({
     const fuelFetcher = useFetcher();
     const findBatteryFetcher = useFetcher();
     const contentData = useContext(ContentProviderContext);
+    const [brandIndex, setBrandIndex] = useState <number | null> (null);
 
     useEffect(() => {
         if (modelFetcher.data != null) {
@@ -510,7 +512,7 @@ function ChooseYourVehicle({
 
                             <VerticalSpacer className="tw-h-1" />
 
-                            <FormSelectComponent
+                            {/* <FormSelectComponent
                                 items={categoryBrands[batteryFinderState.selectedCategoryIndex]}
                                 value={batteryFinderState.selectedBrand}
                                 setValue={(item) => {
@@ -527,6 +529,53 @@ function ChooseYourVehicle({
                                 }}
                                 itemBuilder={(item) => (item != null ? item : contentData.getContent("261ddd0c-6c3c-40e5-a899-e07dee17d221"))}
                                 buttonClassName="!tw-rounded-full"
+                            /> */}
+
+                            <FancySearchableSelect
+                                items={
+                                    categoryBrands[batteryFinderState.selectedCategoryIndex] == null
+                                        ? []
+                                        : categoryBrands[batteryFinderState.selectedCategoryIndex].map((brand, brandIndex) => {
+                                              return {
+                                                  name: brand,
+                                                  index: brandIndex,
+                                              };
+                                          })
+                                }
+                                selectedItem={
+                                    categoryBrands[batteryFinderState.selectedCategoryIndex] == null || brandIndex == null
+                                        ? null
+                                        : {
+                                              name: categoryBrands[batteryFinderState.selectedCategoryIndex][brandIndex],
+                                              index: brandIndex,
+                                          }
+                                }
+                                placeholder={contentData.getContent("261ddd0c-6c3c-40e5-a899-e07dee17d221")}
+                                setSelectedItem={(item) => {
+                                    if (item == null) {
+                                        return null;
+                                    }
+                                    setBrandIndex(item.index);
+                                    dispatch({
+                                        actionType: BatteryFinderActionType.setSelectedBrand,
+                                        payload: item.name,
+                                    });
+                                    modelFetcher.submit(
+                                        {
+                                            selectedBrand: item.name,
+                                        },
+                                        {method: "GET", action: "/battery-finder/get-models"},
+                                    );
+                                }}
+                                filterFunction={(items, query) => items.filter((item) => item.name.toLowerCase().startsWith(query.toLowerCase()))}
+                                renderFunction={(item) => {
+                                    if (item == null) {
+                                        return "";
+                                    }
+                                    return `${item.name}`;
+                                }}
+                                disabled={categoryBrands[batteryFinderState.selectedCategoryIndex] == null}
+                                inputClassName="disabled:tw-opacity-[0.6] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
                             />
                         </div>
 

@@ -22,7 +22,6 @@ import React, {useContext, useEffect} from "react";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ImageCdnProvider, ImageMetadata} from "~/common--type-definitions/typeDefinitions";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import LivguardDialog from "~/components/livguardDialog";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {ProductDetails, ProductType, allProductDetails} from "~/productData.types";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
@@ -37,6 +36,7 @@ import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
+import {AutomotiveTestimonials} from "~/routes/two-wheeler-batteries";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -277,20 +277,31 @@ function ERickshawBatteriesPage({
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full" />
 
-                <FaqSection
+                <AutomotiveTestimonials
                     userPreferences={userPreferences}
-                    className="tw-row-start-[12] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-[12] lg:tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge-2"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full" />
 
-                <SocialHandles
+                <FaqSection
                     userPreferences={userPreferences}
-                    heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
-                    className="tw-row-start-[14] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[15] tw-col-start-1 lg:tw-col-span-full" />
+
+                <SocialHandles
+                    userPreferences={userPreferences}
+                    heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
+                    className="tw-row-start-[16] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                />
+
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[17] tw-col-start-1 lg:tw-col-span-full" />
+
+                <OemPartners className="tw-row-start-[18] tw-col-start-1 tw-col-span-full" />
+
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[19] tw-col-start-1 lg:tw-col-span-full" />
             </div>
         </>
     );
@@ -754,8 +765,8 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
-            testimonials: {
-                humanReadableName: contentData.getContent("ab5df361-c4a5-4f3a-b26e-21eff3cb23bc"),
+            "social-handles": {
+                humanReadableName: contentData.getContent("01553562-bafd-4ad3-a18c-7b6cc113f03f"),
                 isCurrentlyVisible: sectionInView,
             },
         }));
@@ -763,7 +774,7 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}
-            id="testimonials"
+            id="social-handles"
             ref={sectionRef}
         >
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
@@ -1023,5 +1034,69 @@ export function FilterDialog({
                 </div>
             </LivguardDialog>
         </>
+    );
+}
+
+function OemPartners({className}: {className?: string}) {
+    const contentData = useContext(ContentProviderContext);
+    const logos = [
+        {
+            image: "/livguard/e-rickshaw-batteries/4/c-1.png",
+        },
+        {
+            image: "/livguard/e-rickshaw-batteries/4/c-2.png",
+        },
+        {
+            image: "/livguard/e-rickshaw-batteries/4/c-3.png",
+        },
+        {
+            image: "/livguard/e-rickshaw-batteries/4/c-4.png",
+        },
+        {
+            image: "/livguard/e-rickshaw-batteries/4/c-5.png",
+        },
+        {
+            image: "/livguard/e-rickshaw-batteries/4/c-6.png",
+        },
+        {
+            image: "/livguard/e-rickshaw-batteries/4/c-7.png",
+        },
+        {
+            image: "/livguard/e-rickshaw-batteries/4/c-8.png",
+        },
+        {
+            image: "/livguard/e-rickshaw-batteries/4/c-9.png",
+        },
+    ];
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "oem-partners": {
+                humanReadableName: contentData.getContent("f754b360-ca73-4b3c-a709-3e60470da0de"),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+    return (
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-max-w-7xl tw-mx-auto lg-px-screen-edge-2", className)}
+            id="oem-partners"
+            ref={sectionRef}
+        >
+            <div className="lg-text-headline tw-text-center">{contentData.getContent("81064037-a0db-4016-b8c9-364f933f29df")}</div>
+            <VerticalSpacer className="tw-h-6" />
+            <div className="tw-flex tw-flex-wrap tw-gap-4 tw-justify-center">
+            <ItemBuilder
+                items={logos}
+                itemBuilder={(item, itemIndex) => (
+                    <div className="tw-min-w-[40%] tw-max-w-[45%] sm:tw-min-w-[7rem] sm:tw-max-w-[9rem] lg:tw-min-w-[10rem] lg:tw-max-w-[12rem]">
+                        <FullWidthImage relativePath={item.image} className="tw-aspect-video"/>
+                    </div>
+                )}
+            />
+            </div>
+        </div>
     );
 }

@@ -9,7 +9,6 @@ import {SocialHandles} from "~/components/category/common";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FaqSectionInternal} from "~/components/faqs";
 import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
-import LivguardDialog from "~/components/livguardDialog";
 import {PageScaffold} from "~/components/pageScaffold";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
@@ -33,6 +32,7 @@ import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
+import {AutomotiveTestimonials} from "~/routes/two-wheeler-batteries";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -275,19 +275,26 @@ function BusAndTruckBatteriesPage({
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[9] tw-col-start-1 lg:tw-col-span-full" />
 
-                <FaqSection
+                <AutomotiveTestimonials
                     userPreferences={userPreferences}
-                    className="tw-row-start-[10] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-[10] lg:tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge-2"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full" />
 
-                <SocialHandlesSection
+                <FaqSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-[12] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-[12] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full" />
+
+                <SocialHandlesSection
+                    userPreferences={userPreferences}
+                    className="tw-row-start-[14] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                />
+
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[15] tw-col-start-1 lg:tw-col-span-full" />
             </div>
         </>
     );

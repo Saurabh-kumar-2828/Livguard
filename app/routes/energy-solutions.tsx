@@ -110,7 +110,7 @@ const AllCategoryPage = ({userPreferences}: {userPreferences: UserPreferences}) 
                     userPreferences={userPreferences}
                     list={AutomotiveList}
                     title={sectionHeading.second}
-                    sectionId="automativeSolutions"
+                    sectionId="automotiveSolutions"
                 />
 
                 {/* <ContentSection

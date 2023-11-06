@@ -780,10 +780,10 @@ const headerMenuItems: Array<HeaderItem> = [
                         contentId: "a6d509fa-dc46-498b-b363-fbf309c70449",
                         to: "/high-capacity-inverters",
                     },
-                    {
-                        contentId: "824433d9-6781-46ab-afa1-a863ebef7038",
-                        to: "/load-calculator",
-                    },
+                    // {
+                    //     contentId: "824433d9-6781-46ab-afa1-a863ebef7038",
+                    //     to: "/load-calculator",
+                    // },
                     // {
                     //     contentId: "e31c0b34-e22a-4cf2-a890-15a7356188d1",
                     //     to: "/inverter-trolley",
@@ -1289,6 +1289,13 @@ const headerMenuItems: Array<HeaderItem> = [
             {
                 contentId: "89fb5c95-3b83-4a5a-8bc9-aa810d620ee9",
                 to: "/investors",
+                col: 1,
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
+            },
+            {
+                contentId: "690c2edd-1a1c-47c2-a307-4fef4c8a6b0a",
+                to: "https://www.livguard.com/blog",
                 col: 1,
                 desktopClassName:
                     "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-6 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",

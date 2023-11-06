@@ -4,7 +4,6 @@ import {useContext, useEffect, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {toast} from "react-toastify";
 import {Accordion, MoreAboutLivguardAccordian} from "~/components/accordian";
-import {FooterSocialLogosAndCopyright, SocialMediaIcons, SubscribeSuccessDialog} from "~/components/footers/common";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -13,6 +12,7 @@ import {ContactUsCta} from "~/routes";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Theme} from "~/typeDefinitions";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
+import {FooterSocialLogosAndCopyright} from "./common";
 
 export function FooterComponent({
     userPreferences,
@@ -77,10 +77,15 @@ export function FooterComponent({
             target: true,
         },
         {
-            title: `${contentData.getContent("7a2b7f51-c58b-4f43-bdf4-881209fe2acd")}`,
-            link: "https://www.livguard.com/blog/",
-            target: true,
+            title: `${contentData.getContent("454a8070-92b6-419a-af59-6f6253283c07")}`,
+            link: "/download-brochures",
+            target: false,
         },
+        // {
+        //     title: `${contentData.getContent("7a2b7f51-c58b-4f43-bdf4-881209fe2acd")}`,
+        //     link: "https://www.livguard.com/blog/",
+        //     target: true,
+        // },
         // {
         //     title: `${contentData.getContent("footerDisclosure1T7")}`,
         //     link: "/csr/",
@@ -128,6 +133,11 @@ export function FooterComponent({
             title: `${contentData.getContent("69838ae8-eb67-4ea5-9179-990db737a138")}`,
             link: "/governance",
             target: false,
+        },
+        {
+            title: `${contentData.getContent("690c2edd-1a1c-47c2-a307-4fef4c8a6b0a")}`,
+            link: "https://www.livguard.com/blog",
+            target: true,
         },
         // {
         //     title: `${contentData.getContent("footerDisclosure2T1")}`,
@@ -525,7 +535,7 @@ export function FooterComponent({
         },
         {
             title: `${contentData.getContent("e9624c2c-a16e-4f56-88a2-3e2710461b14")}`,
-            link: "/energy-solutions#automativeSolutions",
+            link: "/energy-solutions#automotiveSolutions",
             target: false,
         },
     ];
@@ -1126,7 +1136,81 @@ export function FooterComponent({
                     className="lg:tw-hidden tw-mx-[calc(-1*var(--lg-px-screen-edge))]"
                 />
 
-                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-row-span-3 lg:tw-gap-2 tw-grid-rows-[]">
+                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-row-span-3">
+                    <div className="tw-flex tw-flex-col lg:tw-gap-2">
+                        <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("homeS3Tab1HC1")}</div>
+                        <ItemBuilder
+                            items={energySolutionsAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className="lg-text-secondary-900 tw-overflow-hidden"
+                                    key={itemIndex}
+                                >
+                                    {item.target ? (
+                                        <Link
+                                            to={item.link}
+                                            target="_blank"
+                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
+                                        >
+                                            {item.title}
+                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
+                                            to={item.link}
+                                        >
+                                            {item.title}
+                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                        </Link>
+                                    )}
+
+                                    <VerticalSpacer className="tw-h-1" />
+                                </div>
+                            )}
+                        />
+                    </div>
+                    <VerticalSpacer className="tw-h-4" />
+                    <div className="tw-flex tw-flex-col lg:tw-gap-2">
+                        {/* <VerticalSpacer className="tw-h-1" /> */}
+                        <div className="tw-flex tw-flex-col lg:tw-gap-2">
+                            <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("407c0e47-9c3b-47b0-a1f2-13fc372dff9f")}</div>
+                            <ItemBuilder
+                                items={solarHomeAccordionList}
+                                itemBuilder={(item, itemIndex) => (
+                                    <div
+                                        className="lg-text-secondary-900 tw-overflow-hidden"
+                                        key={itemIndex}
+                                    >
+                                        {item.target ? (
+                                            <Link
+                                                to={item.link}
+                                                target="_blank"
+                                                className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
+                                            >
+                                                {item.title}
+                                                <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                            </Link>
+                                        ) : (
+                                            <Link
+                                                className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
+                                                to={item.link}
+                                            >
+                                                {item.title}
+                                                <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                            </Link>
+                                        )}
+
+                                        <VerticalSpacer className="tw-h-1" />
+                                    </div>
+                                )}
+                            />
+                        </div>
+                    </div>
+                    {/* <VerticalSpacer className="tw-h-4" /> */}
+                </div>
+
+                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3 lg:tw-gap-2">
                     <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("eb4e6810-b019-4d59-94b2-41351f268590")}</div>
                     <ItemBuilder
                         items={shoppingToolsAccordianList}
@@ -1158,10 +1242,10 @@ export function FooterComponent({
                             </div>
                         )}
                     />
-                    <VerticalSpacer className="tw-h-2" />
-                    <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("c54ca3ff-b15f-445a-8e7b-c85985e5d355")}</div>
+                    <VerticalSpacer className="tw-h-4" />
+                    <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("6d46ed34-f819-4c0a-a7ca-29ac67f6486b")}</div>
                     <ItemBuilder
-                        items={customerPoliciesAccordianList}
+                        items={mediaAndGalleryAccordianList}
                         itemBuilder={(item, itemIndex) => (
                             <div
                                 className="lg-text-secondary-900 tw-overflow-hidden"
@@ -1190,77 +1274,6 @@ export function FooterComponent({
                             </div>
                         )}
                     />
-                </div>
-
-                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3 lg:tw-gap-2">
-                    <div className="tw-flex tw-flex-col lg:tw-gap-2">
-                        <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("bf233b5c-c4e0-4161-aa37-8d0eba708d4c")}</div>
-                        <ItemBuilder
-                            items={companyAccordianList}
-                            itemBuilder={(item, itemIndex) => (
-                                <div
-                                    className="lg-text-secondary-900 tw-overflow-hidden"
-                                    key={itemIndex}
-                                >
-                                    {item.target ? (
-                                        <Link
-                                            to={item.link}
-                                            target="_blank"
-                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
-                                        >
-                                            {item.title}
-                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
-                                        </Link>
-                                    ) : (
-                                        <Link
-                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
-                                            to={item.link}
-                                        >
-                                            {item.title}
-                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
-                                        </Link>
-                                    )}
-
-                                    <VerticalSpacer className="tw-h-1" />
-                                </div>
-                            )}
-                        />
-                    </div>
-                    <VerticalSpacer className="tw-h-2" />
-
-                    <div className="tw-flex tw-flex-col lg:tw-gap-2">
-                        <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("407c0e47-9c3b-47b0-a1f2-13fc372dff9f")}</div>
-                        <ItemBuilder
-                            items={solarHomeAccordionList}
-                            itemBuilder={(item, itemIndex) => (
-                                <div
-                                    className="lg-text-secondary-900 tw-overflow-hidden"
-                                    key={itemIndex}
-                                >
-                                    {item.target ? (
-                                        <Link
-                                            to={item.link}
-                                            target="_blank"
-                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
-                                        >
-                                            {item.title}
-                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
-                                        </Link>
-                                    ) : (
-                                        <Link
-                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
-                                            to={item.link}
-                                        >
-                                            {item.title}
-                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
-                                        </Link>
-                                    )}
-
-                                    <VerticalSpacer className="tw-h-1" />
-                                </div>
-                            )}
-                        />
-                    </div>
                     {/* <VerticalSpacer className="tw-h-8" />
                     <div className="tw-flex tw-flex-col">
                         <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("6d46ed34-f819-4c0a-a7ca-29ac67f6486b")}</div>
@@ -1292,43 +1305,9 @@ export function FooterComponent({
 
                 <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-4 lg:tw-row-span-3">
                     <div className="tw-flex tw-flex-col lg:tw-gap-2">
-                        <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("fc828855-64e1-4be5-b95f-bee9fe4a3262")}</div>
+                        <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("bf233b5c-c4e0-4161-aa37-8d0eba708d4c")}</div>
                         <ItemBuilder
-                            items={dealerLocatorAccordionList}
-                            itemBuilder={(item, itemIndex) => (
-                                <div
-                                    className="lg-text-secondary-900 tw-overflow-hidden"
-                                    key={itemIndex}
-                                >
-                                    {item.target ? (
-                                        <Link
-                                            to={item.link}
-                                            target="_blank"
-                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
-                                        >
-                                            {item.title}
-                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
-                                        </Link>
-                                    ) : (
-                                        <Link
-                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
-                                            to={item.link}
-                                        >
-                                            {item.title}
-                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
-                                        </Link>
-                                    )}
-
-                                    <VerticalSpacer className="tw-h-1" />
-                                </div>
-                            )}
-                        />
-                    </div>
-                    <VerticalSpacer className="tw-h-8" />
-                    <div className="tw-flex tw-flex-col lg:tw-gap-2">
-                        <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("31850c84-bfb5-42cb-b470-489a351c2d99")}</div>
-                        <ItemBuilder
-                            items={supportAccordianList}
+                            items={companyAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900 tw-overflow-hidden"
@@ -1391,9 +1370,9 @@ export function FooterComponent({
 
                     <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3">
                         <div className="tw-flex tw-flex-col lg:tw-gap-2">
-                            <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("homeS3Tab1HC1")}</div>
+                            <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("fc828855-64e1-4be5-b95f-bee9fe4a3262")}</div>
                             <ItemBuilder
-                                items={energySolutionsAccordianList}
+                                items={dealerLocatorAccordionList}
                                 itemBuilder={(item, itemIndex) => (
                                     <div
                                         className="lg-text-secondary-900 tw-overflow-hidden"
@@ -1423,12 +1402,11 @@ export function FooterComponent({
                                 )}
                             />
                         </div>
-                        <VerticalSpacer className="tw-h-8" />
+                        <VerticalSpacer className="tw-h-4" />
                         <div className="tw-flex tw-flex-col lg:tw-gap-2">
-                            <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("6d46ed34-f819-4c0a-a7ca-29ac67f6486b")}</div>
-                            {/* <VerticalSpacer className="tw-h-1" /> */}
+                            <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("31850c84-bfb5-42cb-b470-489a351c2d99")}</div>
                             <ItemBuilder
-                                items={mediaAndGalleryAccordianList}
+                                items={supportAccordianList}
                                 itemBuilder={(item, itemIndex) => (
                                     <div
                                         className="lg-text-secondary-900 tw-overflow-hidden"
@@ -1458,6 +1436,38 @@ export function FooterComponent({
                                 )}
                             />
                         </div>
+                        <VerticalSpacer className="tw-h-4" />
+                        <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("c54ca3ff-b15f-445a-8e7b-c85985e5d355")}</div>
+                        <ItemBuilder
+                            items={customerPoliciesAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className="lg-text-secondary-900 tw-overflow-hidden"
+                                    key={itemIndex}
+                                >
+                                    {item.target ? (
+                                        <Link
+                                            to={item.link}
+                                            target="_blank"
+                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
+                                        >
+                                            {item.title}
+                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            className="hover:lg-text-primary-500 tw-duration-300 tw-overflow-hidden tw-relative tw-group tw-transition"
+                                            to={item.link}
+                                        >
+                                            {item.title}
+                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                        </Link>
+                                    )}
+
+                                    <VerticalSpacer className="tw-h-1" />
+                                </div>
+                            )}
+                        />
                     </div>
                 </div>
                 {/* <div className="tw-hidden lg:tw-grid lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[4.5rem]">

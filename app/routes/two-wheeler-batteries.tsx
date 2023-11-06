@@ -40,6 +40,8 @@ import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
+import {FancySearchableSelect} from "~/components/searchableSelects";
+import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -290,20 +292,27 @@ function TwoWheelerBatteriesPage({
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full" />
 
+
+                <AutomotiveTestimonials
+                    userPreferences={userPreferences}
+                    className="tw-row-start-[12] lg:tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge-2"
+                />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full" />
+
                 <FaqSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-[12] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl"
+                    className="tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[15] tw-col-start-1 lg:tw-col-span-full" />
 
                 <SocialHandles
                     userPreferences={userPreferences}
                     heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
-                    className="tw-row-start-[14] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-[16] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[15] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[17] tw-col-start-1 lg:tw-col-span-full" />
             </div>
         </>
     );
@@ -697,6 +706,7 @@ function OurSuggestionsBasedOnYourChoice({
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    const [brandIndex, setBrandIndex] = useState <number | null> (null);
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
@@ -726,7 +736,7 @@ function OurSuggestionsBasedOnYourChoice({
             <div className="tw-max-w-7xl tw-mx-auto tw-hidden tw-place-self-center lg:tw-w-full lg:tw-grid lg:tw-grid-flow-col lg:tw-grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto] tw-items-center tw-gap-4 lg-px-screen-edge-2">
                 <div>{contentData.getContent("0dc1ec96-3b51-4314-ab45-9b5b542f66c5")}</div>
                 <div>
-                    <FormSelectComponent
+                    {/* <FormSelectComponent
                         items={brands}
                         itemBuilder={(item) => {
                             return item == null ? contentData.getContent("51d56374-4d1d-46c1-8ef1-f72396e12e6a") : item;
@@ -740,6 +750,47 @@ function OurSuggestionsBasedOnYourChoice({
                             segmentFetcher.submit({selectedBrand: item}, {method: "GET", action: "/battery-finder/get-segments"});
                         }}
                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light"
+                    /> */}
+                    <FancySearchableSelect
+                        items={
+                            brands == null
+                                ? []
+                                : brands.map((brand, brandIndex) => {
+                                      return {
+                                          name: brand,
+                                          index: brandIndex,
+                                      };
+                                  })
+                        }
+                        selectedItem={
+                            brands == null || brandIndex == null
+                                ? null
+                                : {
+                                      name: brands[brandIndex],
+                                      index: brandIndex,
+                                  }
+                        }
+                        placeholder={contentData.getContent("51d56374-4d1d-46c1-8ef1-f72396e12e6a")}
+                        setSelectedItem={(item) => {
+                            if (item == null) {
+                                return null;
+                            }
+                            setBrandIndex(item.index);
+                            dispatch({
+                                actionType: BatteryFinderActionType.setSelectedBrand,
+                                payload: item.name,
+                            });
+                            segmentFetcher.submit({selectedBrand: item.name}, {method: "GET", action: "/battery-finder/get-segments"});
+                        }}
+                        filterFunction={(items, query) => items.filter((item) => item.name.toLowerCase().startsWith(query.toLowerCase()))}
+                        renderFunction={(item) => {
+                            if (item == null) {
+                                return "";
+                            }
+                            return `${item.name}`;
+                        }}
+                        disabled={brands == null}
+                        inputClassName="disabled:tw-opacity-[0.6] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark tw-rounded-lg"
                     />
                 </div>
                 <div>
@@ -1306,5 +1357,108 @@ export function FilterMobile({
                 </div>
             </div>
         </>
+    );
+}
+
+export function AutomotiveTestimonials({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const contentData = useContext(ContentProviderContext);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            testimonials: {
+                humanReadableName: contentData.getContent("ab5df361-c4a5-4f3a-b26e-21eff3cb23bc"),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
+    return (
+        <div
+            id="testimonials"
+            ref={sectionRef}
+            className={className}
+        >
+            <div className="lg-px-screen-edge lg-text-headline tw-text-center">
+                <DefaultTextAnimation>
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("homeS6H1T1")}} />
+                </DefaultTextAnimation>
+                <DefaultTextAnimation>
+                    <div dangerouslySetInnerHTML={{__html: contentData.getContent("homeS6H1T2")}} />
+                </DefaultTextAnimation>
+            </div>
+
+            <VerticalSpacer className="tw-h-8" />
+
+            <TestimonialsCarousel
+                // snapDotsDivisionFactor={2}
+                userPreferences={userPreferences}
+                testimonials={[
+                    {
+                        video: (
+                            <EmbeddedYoutubeVideo
+                                id="c1Y5SuVDPi0"
+                                style={{aspectRatio: "560/315"}}
+                                className="tw-rounded-lg"
+                            />
+                        ),
+                        name: `${contentData.getContent("review1Name")}`,
+                        rating: 5,
+                        state: `${contentData.getContent("review1State")}`,
+                        message: `${contentData.getContent("review1Message")}`,
+                        productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
+                        // productName: `${contentData.getContent("review1ProductName")}`,
+                    },
+                    {
+                        video: (
+                            <EmbeddedYoutubeVideo
+                                id="pNHmKwg073g"
+                                style={{aspectRatio: "560/315"}}
+                                className="tw-rounded-lg"
+                            />
+                        ),
+                        name: `${contentData.getContent("review2Name")}`,
+                        rating: 5,
+                        // state: `${contentData.getContent("review2State")}`,
+                        state: ``,
+                        message: `${contentData.getContent("review2Message")}`,
+                        productImage: "/livguard/products/urban-combo/thumbnail.png",
+                        // productName: `${contentData.getContent("review2ProductName")}`,
+                    },
+                    {
+                        video: (
+                            <EmbeddedYoutubeVideo
+                                id="RbRSzFRHkzo"
+                                style={{aspectRatio: "560/315"}}
+                                className="tw-rounded-lg"
+                            />
+                        ),
+                        name: `${contentData.getContent("review3Name")}`,
+                        rating: 5,
+                        // state: `${contentData.getContent("review3State")}`,
+                        state: ``,
+                        message: `${contentData.getContent("review3Message")}`,
+                        productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
+                        // productName: `${contentData.getContent("review1ProductName")}`,
+                    },
+                    {
+                        video: (
+                            <EmbeddedYoutubeVideo
+                                id="Oaj6OiYSlYQ"
+                                style={{aspectRatio: "560/315"}}
+                                className="tw-rounded-lg"
+                            />
+                        ),
+                        name: `${contentData.getContent("review4Name")}`,
+                        rating: 5,
+                        state: `${contentData.getContent("review4State")}`,
+                        message: `${contentData.getContent("review4Message")}`,
+                        productImage: "/livguard/products/urban-combo/thumbnail.png",
+                        // productName: `${contentData.getContent("review2ProductName")}`,
+                    },
+                ]}
+            />
+        </div>
     );
 }

@@ -81,7 +81,7 @@ export function SecondaryNavigation({secondaryNavigationController}: {secondaryN
                         </svg>
                         {/* {isSecondaryNavOpenMobile ? <ChevronLeftIcon className="tw-h-6  lg:tw-h-8 lg:tw-z-10" /> : <ChevronRightIcon className="tw-h-6 lg:tw-h-8 lg:tw-z-10" />} */}
 
-                        <div className="tw-rotate-90 tw-grid tw-h-full tw-w-[5rem] tw-items-center -tw-translate-x-6 tw-text-center max-lg:tw-text-[.75rem] max-lg:-tw-translate-x-7">
+                        <div className="tw-rotate-90 tw-grid tw-w-[5rem] tw-items-center -tw-translate-x-6 tw-text-center max-lg:tw-text-[.75rem] max-lg:-tw-translate-x-7">
                             {contentData.getContent("2dfd3730-84d5-46ab-bc31-6f0a85dea07f")}
                         </div>
                     </div>

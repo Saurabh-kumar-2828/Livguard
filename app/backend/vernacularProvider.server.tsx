@@ -2301,8 +2301,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     loadCalculatorS1T1: {
-        [Language.English]: `Plan Your Power Needs <br/>With Livguard <span class="lg-text-highlighted">Power Planner</span>`,
-        [Language.Hindi]: 'अपनी ऊर्जा ज़रूरतों को जानें <br/>हमारे <span class="lg-text-highlighted">पावर प्लानर</span> के साथ',
+        [Language.English]: `Plan Your Power Needs <br/>With Livguard <span class="lg-text-highlighted">Load Calculation</span>`,
+        [Language.Hindi]: 'अपनी ऊर्जा ज़रूरतों को जानें <br/>हमारे <span class="lg-text-highlighted">लोड कैलकुलेशन</span> के साथ',
     },
     loadCalculatorS1T2: {
         [Language.English]:
@@ -9859,7 +9859,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `सर्विस`,
     },
     "4f0455d6-1f64-4f56-9cea-3d1655b10c5c": {
-        [Language.English]: `Warranty registration`,
+        [Language.English]: `Warranty Registration`,
         [Language.Hindi]: `वारंटी पंजीकरण`,
     },
     "86de9899-69e7-4cca-bc82-4f2e9efe405a": {
@@ -9891,11 +9891,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "be39d262-3769-4f4c-8d54-3ed7d6500101": {
-        [Language.English]: `Load Calculator - Home`,
+        [Language.English]: `Home Load Calculator`,
         [Language.Hindi]: "लोड कैलकुलेटर - होम",
     },
     "09d8b17e-501d-4fcd-8371-930579ff3265": {
-        [Language.English]: `Battery Finder - Automotive`,
+        [Language.English]: `Automotive Battery Finder`,
         [Language.Hindi]: "ऑटोमोटिव बैटरी खोजें",
     },
     "1ab892b7-3762-49a6-a36b-205ed0980f2a": {
@@ -11657,7 +11657,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `पाएँ विश्वसनीय समाधान  <br/> आपके घर की ज़रूरतों के लिए`,
     },
     "60aaf8a6-2e05-465c-9442-4354111a0433": {
-        [Language.English]: `E-Rickshaw Solution`,
+        [Language.English]: `E-Rickshaw`,
         [Language.Hindi]: `ई-रिक्शा सलूशन`,
     },
     "e0db4e01-ba5c-404a-b5a0-9ca311333fb7": {
@@ -11717,7 +11717,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "ऊर्जा चोर वॉटसन ने हमारी <br /> इनवर्टर और बैटरी चुरा ली है",
     },
     "87a34c18-dea6-4303-b174-5a7b5bda3d1e": {
-        [Language.English]: "Celebrate Festival of Lights",
+        [Language.English]: "Celebrate The Festival of Lights",
         [Language.Hindi]: "लाईट्स का त्योहार मनाएं",
     },
     "a782b30b-13a2-48f1-90f5-0569dba18c1c": {
@@ -11844,6 +11844,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Solar On-grid Inverter`,
         [Language.Hindi]: "?????",
     },
+    "690c2edd-1a1c-47c2-a307-4fef4c8a6b0a": {
+        [Language.English]: `Bolgs`,
+        [Language.Hindi]: "?????",
+    },
+    "81064037-a0db-4016-b8c9-364f933f29df": {
+        [Language.English]: "Our OEM Partners",
+        [Language.Hindi]: "हमारे OEM साझेदार",
+    },
+    "f754b360-ca73-4b3c-a709-3e60470da0de": {
+        [Language.English]: "OEM Partners",
+        [Language.Hindi]: "OEM साझेदार",
+    },
 };
 
 const popUpFormStrings = [
@@ -11867,7 +11879,24 @@ const popUpFormStrings = [
     "successT3",
 ];
 
+const automotiveTestimonials = [
+    "ab5df361-c4a5-4f3a-b26e-21eff3cb23bc",
+    "homeS6H1T1",
+    "homeS6H1T2",
+    "review1Name",
+    "review1State",
+    "review1Message",
+    "review2Name",
+    "review2Message",
+    "review3Name",
+    "review3Message",
+    "review4Name",
+    "review4State",
+    "review4Message",
+]
+
 const headerStrings: Array<string> = [
+    "690c2edd-1a1c-47c2-a307-4fef4c8a6b0a",
     "642467c3-8136-4523-b231-fa5aae9a075a",
     "3a186513-50e2-4738-8d17-0f8691fa7b1c",
     "e9624c2c-a16e-4f56-88a2-3e2710461b14",
@@ -13022,6 +13051,17 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...findTheThiefStrings,
         ...footerStrings,
+        "categoryBatteriesS3R1C3",
+        "categoryBatteriesS3R2C1",
+        "categoryBatteriesS3R2C3",
+        "categoryBatteriesS3R3C1",
+        "categoryBatteriesS3R3C3",
+        "categoryBatteriesS3R4C1",
+        "categoryBatteriesS3R4C3",
+        "categoryBatteriesS3R5C1",
+        "categoryBatteriesS3R5C3",
+        "categoryBatteriesS3R6C1",
+        "categoryBatteriesS3R6C3",
         "loadCalculatorRecommendationsS2H1",
         "loadCalculatorRecommendationsS2H2",
         "loadCalculatorRecommendationsS1T1",
@@ -13489,6 +13529,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...findTheThiefStrings,
         ...footerStrings,
+        ...automotiveTestimonials,
         "bee977fa-8e42-472e-8aef-d1076511495c",
         "75631f2e-d3eb-4845-92cb-84e6d7560027",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
@@ -13612,6 +13653,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...findTheThiefStrings,
         ...footerStrings,
+        ...automotiveTestimonials,
         "bc05eaaf-05bc-45d2-b2b1-30386e1fc562",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "1f4dc0d2-b14b-4361-8af9-f19b722b7aff",
@@ -13707,6 +13749,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...findTheThiefStrings,
         ...footerStrings,
+        ...automotiveTestimonials,
         "fd870044-1ccb-40ac-b406-2a94d7ea0228",
         "6aa2ed07-f553-410a-bf96-7c177c13cbff",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
@@ -13833,6 +13876,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...findTheThiefStrings,
         ...footerStrings,
+        ...automotiveTestimonials,
         "f19bea1b-ce21-4a14-af85-b49b68827611",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "f37d67f3-63f7-477d-828b-6c8fac1b00b4",
@@ -13969,6 +14013,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...findTheThiefStrings,
         ...footerStrings,
+        ...automotiveTestimonials,
         "6ba6a74b-5c27-4f3d-8c73-8afae650f8eb",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "f37d67f3-63f7-477d-828b-6c8fac1b00b4",
@@ -14171,6 +14216,11 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...findTheThiefStrings,
         ...footerStrings,
+        ...automotiveTestimonials,
+        "01553562-bafd-4ad3-a18c-7b6cc113f03f",
+        "f754b360-ca73-4b3c-a709-3e60470da0de",
+        "ab5df361-c4a5-4f3a-b26e-21eff3cb23bc",
+        "81064037-a0db-4016-b8c9-364f933f29df",
         "f19bea1b-ce21-4a14-af85-b49b68827611",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "67f761e4-5c9d-4ef7-87fa-df19fc2b92aa",
@@ -14279,6 +14329,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...findTheThiefStrings,
         ...footerStrings,
+        ...automotiveTestimonials,
         "f19bea1b-ce21-4a14-af85-b49b68827611",
         "homeS10H1T1",
         "homeS10H1T2",

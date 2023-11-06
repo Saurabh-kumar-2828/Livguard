@@ -580,15 +580,15 @@ function HeroSection({
             subTitleVernacId: "homeS1T2",
             textAlign: "left",
         },
-        {
-            mobileImageRelativePath: "/livguard/home/second-banner/mob-banner.jpg",
-            desktopImageRelativePath: "/livguard/home/second-banner/desktop-banner.jpg",
-            titleVernacId: "0f24d13c-8b25-4165-b0d4-197c059e4794",
-            subTitleVernacId: "bb45dab0-a985-4bf8-9f07-845806b20b77",
-            contactButtonVernacId: "ab1da9d6-1aaa-46d4-9b50-b911b3006b11",
-            buttonLink: "https://api.whatsapp.com/send?phone=9599198444",
-            textAlign: "center",
-        },
+        // {
+        //     mobileImageRelativePath: "/livguard/home/second-banner/mob-banner.jpg",
+        //     desktopImageRelativePath: "/livguard/home/second-banner/desktop-banner.jpg",
+        //     titleVernacId: "0f24d13c-8b25-4165-b0d4-197c059e4794",
+        //     subTitleVernacId: "bb45dab0-a985-4bf8-9f07-845806b20b77",
+        //     contactButtonVernacId: "ab1da9d6-1aaa-46d4-9b50-b911b3006b11",
+        //     buttonLink: "https://api.whatsapp.com/send?phone=9599198444",
+        //     textAlign: "center",
+        // },
         {
             mobileImageRelativePath: "/livguard/home/1/mobile-banner-3.jpg",
             desktopImageRelativePath: "/livguard/home/1/desktop-banner-3.jpg",
@@ -623,9 +623,9 @@ function HeroSection({
                 <div
                     className={concatenateNonNullStringsWithSpaces(
                         "tw-h-full tw-overflow-hidden tw-grid tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate",
-                        selectedBannerIndex === 1 || selectedBannerIndex === 0
+                        selectedBannerIndex === 0
                             ? " lg:tw-grid-rows-[0.5rem_1rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem] tw-grid-rows-[1rem_2rem_1rem_auto_1rem_auto_1rem_minmax(0,1fr)_3rem]"
-                            : selectedBannerIndex === 3
+                            : selectedBannerIndex === 2
                             ? "lg:tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem] tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_5rem_minmax(0,1fr)_3rem]"
                             : "tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem]",
                     )}
@@ -686,7 +686,7 @@ function HeroSection({
                         </h2>
                     )}
 
-                    {selectedBannerIndex === 2 && (treasureHuntStep == null || treasureHuntStep === "0") && (
+                    {selectedBannerIndex === 1 && (treasureHuntStep == null || treasureHuntStep === "0") && (
                         <div
                             className="lg-cta-button tw-w-fit tw-row-start-6 tw-col-start-1 tw-z-10 hover:tw-cursor-pointer"
                             onClick={() => setIsFindTheThiefDialogOpen(true)}
