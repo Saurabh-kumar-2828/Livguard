@@ -1088,14 +1088,17 @@ function OemPartners({className}: {className?: string}) {
             <div className="lg-text-headline tw-text-center">{contentData.getContent("81064037-a0db-4016-b8c9-364f933f29df")}</div>
             <VerticalSpacer className="tw-h-6" />
             <div className="tw-flex tw-flex-wrap tw-gap-4 tw-justify-center">
-            <ItemBuilder
-                items={logos}
-                itemBuilder={(item, itemIndex) => (
-                    <div className="tw-min-w-[40%] tw-max-w-[45%] sm:tw-min-w-[7rem] sm:tw-max-w-[9rem] lg:tw-min-w-[10rem] lg:tw-max-w-[12rem]">
-                        <FullWidthImage relativePath={item.image} className="tw-aspect-video"/>
-                    </div>
-                )}
-            />
+                <ItemBuilder
+                    items={logos}
+                    itemBuilder={(item, itemIndex) => (
+                        <div className="tw-min-w-[40%] tw-max-w-[45%] sm:tw-min-w-[7rem] sm:tw-max-w-[9rem] lg:tw-min-w-[10rem] lg:tw-max-w-[12rem]">
+                            <FullWidthImage
+                                relativePath={item.image}
+                                className="tw-aspect-video"
+                            />
+                        </div>
+                    )}
+                />
             </div>
         </div>
     );
