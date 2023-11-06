@@ -361,6 +361,11 @@ function HomePage({
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-5 tw-col-span-full" />
 
+            <MiniPowerPlannerTeaser
+                userPreferences={userPreferences}
+                className="tw-row-start-4 lg:tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-3 lg:tw-self-end lg:tw-pl-[40px] xl:tw-pl-[120px] tw-h-full"
+            />
+
             <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
@@ -402,7 +407,6 @@ function HomePage({
                 userPreferences={userPreferences}
                 className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-16 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
-
         </div>
     );
 }
