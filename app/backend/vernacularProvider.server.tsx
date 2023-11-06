@@ -12123,51 +12123,9 @@ const ourOperationsComponentStrings = [
     "contactUsS4ButtonText",
 ];
 
-const findTheThiefStrings = [
-    "58790af6-e242-4064-9f92-8c7af56524f9",
-    "474f66f2-b713-4581-85de-39cad89f813f",
-    "a8794019-66aa-4fa3-bd6d-4376e703626e",
-    "850e8c45-a6a4-428b-9e11-4acd93205160",
-    "eb76fa52-9cc6-4ce5-b570-2bbd8f606dac",
-    "f3abeab1-a2c7-46c1-8111-72c3145fd5c7",
-    "5614a9cb-7935-49de-a887-d129b9bd27a4",
-    "6b3b89fd-ba28-481a-86ee-8932e25ef249",
-    "9d0d2fb1-93ce-40e7-ae8a-afd396c7159f",
-    "011c1d97-5ae2-4392-b789-a422bc75b9ee",
-    "773cc962-c03e-4643-9f7b-bb9d6eeab67b",
-    "4c03ff14-2235-45bd-a773-cf027c81fd86",
-    "8e337c72-d495-4840-9fcc-3670a8e9bd83",
-    "e8190da2-de31-41e3-a749-f3e77acc2807",
-    "bc3184f6-0f40-4633-bca8-1e9c2c21852a",
-    "98395654-ab14-47c2-9ba8-bb52a9297368",
-    "6dd8ca3b-6542-4fc4-81ce-6183b8359ec5",
-    "99a6da97-c8bf-4ce3-b95a-611ec00c880a",
-    "23992b81-60ed-4164-9e5c-91dcc6752f39",
-    "7ec1488f-530c-40b6-a86b-dc2ea8840310",
-    "3e9f691e-f760-4691-b6d8-85733ce4d416",
-    "e6419d6a-b775-4e93-81e5-9a18b1a1c809",
-    "fb5b1b3a-a82c-4968-a9da-25b3cd9d62db",
-    "f34a013d-dc49-425b-bc87-984766a35a2d",
-    "79436419-5a42-4720-be85-19bc0b46c7bb",
-    "fe032013-d1e7-45d7-9c0c-d289c5f80c52",
-    "b24cf3a3-c834-487e-8ca3-5f78e02a267e",
-    "88d4bc6f-64ee-4910-8b1e-27ad5aea32c1",
-    "2a9b9149-ae09-452b-b02d-8ab5b8850557",
-    "phoneNumberChnage",
-    "contactUsOTPT3E",
-    "OfferInvalidOTP",
-    "29a1dc30-0f20-4075-b14e-52197e83f059",
-    "1a109702-9407-4945-aa54-acde384ace7a",
-    "37118df1-c2d2-4cbb-af54-288487236384",
-    "38d347bc-e85b-46f2-82a0-dd41a118daaf",
-    "99c5d78c-5238-4d07-a03d-f1ee21241ac0",
-    "61e8d7bf-3589-4bf5-850f-f075182fd241",
-];
-
 const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     homePage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "13419db0-afcd-4c94-a571-35f6c62de3b4",
         "a782b30b-13a2-48f1-90f5-0569dba18c1c",
@@ -12284,7 +12242,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     homeInverterPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "642467c3-8136-4523-b231-fa5aae9a075a",
@@ -12720,7 +12677,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     hkvaInverterPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "f19bea1b-ce21-4a14-af85-b49b68827611",
         "5c88bf46-4d04-4588-ab8b-1be8ab296bf0",
@@ -12997,7 +12953,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     loadCalculatorPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "homeS5T5P1",
         "homeS5T5P4",
@@ -13049,7 +13004,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     loadCalculatorResultPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "categoryBatteriesS3R1C3",
         "categoryBatteriesS3R2C1",
@@ -13148,7 +13102,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     inverterBatteriesPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "774db10b-9d90-42dd-bf81-8a1b389178d3",
@@ -13290,7 +13243,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     inverterBatteryComboPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "b5c93618-db31-4418-add5-a8ed41233d89",
         "e0e7bba0-3200-4edf-870d-4c03a86ce636",
@@ -13437,7 +13389,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     inverterTrolleyPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "f19bea1b-ce21-4a14-af85-b49b68827611",
         "f4004e8d-d0a5-443f-91a0-9e97bc0b45ed",
@@ -13527,7 +13478,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     twoWheelerBatteriesPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         ...automotiveTestimonials,
         "bee977fa-8e42-472e-8aef-d1076511495c",
@@ -13651,7 +13601,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     threeWheelerBatteriesPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         ...automotiveTestimonials,
         "bc05eaaf-05bc-45d2-b2b1-30386e1fc562",
@@ -13747,7 +13696,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     carAndSuvBatteriesPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         ...automotiveTestimonials,
         "fd870044-1ccb-40ac-b406-2a94d7ea0228",
@@ -13874,7 +13822,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     busAndTruckBatteriesPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         ...automotiveTestimonials,
         "f19bea1b-ce21-4a14-af85-b49b68827611",
@@ -14011,7 +13958,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     tractorBatteriesPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         ...automotiveTestimonials,
         "6ba6a74b-5c27-4f3d-8c73-8afae650f8eb",
@@ -14214,7 +14160,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     eRickshawBatteriesPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         ...automotiveTestimonials,
         "01553562-bafd-4ad3-a18c-7b6cc113f03f",
@@ -14327,7 +14272,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     eRickshawChargerPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         ...automotiveTestimonials,
         "f19bea1b-ce21-4a14-af85-b49b68827611",
@@ -14424,7 +14368,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     batteryFinderPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "d718f6ae-3052-448c-b6ef-95d7c3f5a15d",
         "c60d4c86-6b68-41d5-b0da-5a6e3930a6f2",
@@ -14536,7 +14479,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     pricingPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "d601a330-dff5-4a63-ac15-b3ad27428b54",
         "c1ce8369-9ae0-4d33-aba7-85b0414ffaa3",
@@ -14610,7 +14552,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     offersPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "dfa03024-6e74-45c6-9634-8d83833930f3",
@@ -14692,7 +14633,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     servicePage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "89840280-463a-4cd3-b9c4-1e94eb5babd7",
         "1f489840-705d-44b1-a18a-73a2645594de",
@@ -14797,7 +14737,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     warrantyPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "bd423b50-de84-4397-9141-ac7b3527feb9",
         "6b8d915d-0091-4666-817a-e9b9d2eab472",
@@ -14906,7 +14845,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     dealerLocatorPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "dealerLocatorInputText",
         "dealerLocatorButtonText",
@@ -14968,7 +14906,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     aboutUsPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         ...ourOperationsComponentStrings,
         "1720638d-aba3-4e1e-8c5d-3f9dede7c4c8",
@@ -15051,7 +14988,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     contactUsPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "bbfcc492-d063-4024-bef5-605b7782bb80",
         "contactFormS1T1",
@@ -15124,7 +15060,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     csrPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "09b7690d-2117-461b-8a05-110dc4319240",
         "b0e9add2-cb81-4ba8-a38b-ee9ac0734225",
@@ -15201,7 +15136,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     governancePage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "a8b4f849-32eb-4bc1-b25e-69450d63cf61",
         "050b72f1-1e00-435b-a879-2c7da1cdabe0",
@@ -15226,7 +15160,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     investorsPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "9119e503-aa95-4d61-8daa-323c666e9986",
         "6dbfd771-e134-4326-96d6-8c37b1827056",
@@ -15238,7 +15171,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     reiPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "4bcb03e4-9c03-4cf1-8fd3-605340796364",
         "ca0ebdba-61a5-4385-9013-2b8b234dc798",
@@ -15319,7 +15251,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     videoGalleryPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "93410e83-2080-4748-b66c-bb3152e48b0e",
         "7b821e90-174f-45a4-ba42-97566a0a09ae",
@@ -15335,7 +15266,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     termsAndConditionsPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "c20f3105-e059-40f5-8fbf-4f607adf08a9",
         "8f4b0d15-62bd-48ed-afed-1ba749177561",
@@ -15389,7 +15319,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     termsAndConditionsSocialMediaPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "c20f3105-e059-40f5-8fbf-4f607adf08a9",
         "78317eea-9cd0-482b-988e-76272191a87d",
@@ -15425,7 +15354,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     salesReturnPolicyPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "661b01b0-1ac1-49ce-af95-39777ff6a99c",
         "74cd145f-e021-4f2d-81e4-3bdd4cbcf891",
@@ -15444,7 +15372,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     privacyPolicyPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "e1cd45c9-6258-4cfa-939f-92e24c409063",
         "5a6dd842-e7f2-4ad7-98de-fc9c76b42c80",
@@ -15519,7 +15446,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     indiaOpsPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "2f75c946-eefa-4173-ba70-2bf71894c373",
@@ -15606,9 +15532,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     globalOpsPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
-
         "d1c50aa6-1529-4fe4-8e3b-b526888ec7e9",
         "ac1d1b59-b34e-4bad-8b06-bf9de7999447",
         "2c463782-52de-4cf3-b55d-93bfce4e1ec1",
@@ -15702,7 +15626,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     eWasteManagementPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "bda064ee-6cc6-43f7-a7cb-8f14d9e050d9",
         "4eb87934-841c-4c9f-898e-3bfbac44f2a2",
@@ -15881,7 +15804,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     stabilizerPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "dead4984-38fc-490e-8b38-0670a9a03631",
         "e716f6b1-74ad-4087-80e1-fb88fb9a44ce",
@@ -15979,7 +15901,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     lithiumBatteryPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "450429b9-9d3a-47e8-acdc-667773c39d28",
         "d9eec0e4-1258-4ff7-8871-4d530e2c8424",
@@ -16022,7 +15943,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     productPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         ...footerStrings,
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "774db10b-9d90-42dd-bf81-8a1b389178d3",
@@ -16147,7 +16067,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     ormTrackingPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         "ormTrackingH1",
         "ormTrackingFormT1",
         "ormTrackingFormProduct1",
@@ -16164,7 +16083,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     inverterBatteryCampaignPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         "8d7859c7-a9d9-44e9-a854-d43697bc3abd",
         "adfcccd0-8c11-4545-8773-5ff7fe6f6215",
         "c5054f84-2266-408e-87f1-bf4cce619706",
@@ -16361,7 +16279,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     energyStorageSolutionCampaignPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         "landingPage1S1T1",
         "landingPage1S1T2",
         "landingPage1S1T3",
@@ -16493,7 +16410,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     ],
     inverterBatteryJodiCampaignPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         "642467c3-8136-4523-b231-fa5aae9a075a",
         "3a186513-50e2-4738-8d17-0f8691fa7b1c",
         "e9624c2c-a16e-4f56-88a2-3e2710461b14",
@@ -16668,7 +16584,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     // TODO: Check if we even need this page anymore
     inverterBatteryJodiOfferPage: [
         ...headerStrings,
-        ...findTheThiefStrings,
         "offerPageCta",
         "headerMenuS2T1",
         "contactUsT3",
@@ -16737,7 +16652,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     downloadBrochuresPage: [
         ...headerStrings,
         ...footerStrings,
-        ...findTheThiefStrings,
         "homeS3Tab2H",
         "footerDisclosure2T3",
         "review2ProductName",
@@ -16770,7 +16684,6 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     allCategoriesPage: [
         ...headerStrings,
         ...footerStrings,
-        ...findTheThiefStrings,
         "review2ProductName",
         "headerMenuSM5T6",
         "01c23336-eab7-4639-8eec-9e3f78a0c5a4",

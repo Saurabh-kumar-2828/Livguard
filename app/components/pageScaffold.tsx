@@ -2,8 +2,6 @@ import {Link} from "@remix-run/react";
 import {useContext, useEffect, useState} from "react";
 import {Whatsapp} from "react-bootstrap-icons";
 import {CookieDialog} from "~/components/cookieDialog";
-import {FindTheThiefDialog} from "~/components/find-the-thief/findTheThiefDialog";
-import {InitialFindTheThiefDialogComponent} from "~/components/find-the-thief/initialFindTheThiefDialogComponent";
 import {FooterComponent} from "~/components/footers/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
 import {SecondaryNavigation} from "~/components/secondaryNavigation";

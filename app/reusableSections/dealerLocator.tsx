@@ -1,7 +1,6 @@
 import {Link} from "@remix-run/react";
 import {useContext, useEffect} from "react";
 import {useInView} from "react-intersection-observer";
-import {Thief} from "~/components/find-the-thief/thiefComponent";
 import {SimpleCoverImage} from "~/components/images/simpleCoverImage";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
@@ -56,22 +55,6 @@ export function DealerLocator({
             ref={sectionRef}
             className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-relative", className)}
         >
-            {isScreenSizeBelow || currentThiefLocation == null || setCurrentThiefLocation == null
-                ? null
-                : setDialogType != null &&
-                  setIsDialogOpen != null && (
-                      <Thief
-                          currentThiefLocation={currentThiefLocation}
-                          thiefShowLocation={1}
-                          onClick={() => {
-                              setCurrentThiefLocation(2);
-                              setDialogType(DialogType.firstRewardDialog);
-                              setIsDialogOpen(true);
-                          }}
-                          thiefClassName="tw-bottom-4 -tw-left-1 lg:-tw-left-[4.125rem]"
-                          direction="right"
-                      />
-                  )}
             <div className="tw-relative lg-card tw-h-[21.875rem] tw-overflow-hidden lg:tw-h-full lg:tw-min-h-[31.25rem] lg:tw-px-2">
                 <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                     <div className="tw-absolute tw-inset-0">
