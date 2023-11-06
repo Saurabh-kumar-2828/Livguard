@@ -10,9 +10,7 @@ import {toast} from "react-toastify";
 import {insertLoadCalculatorEntry} from "~/backend/loadCalculator.server";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {FindTheThiefDialog} from "~/components/find-the-thief/findTheThiefDialog";
 import {LoadCalculatorDialogComponent} from "~/components/find-the-thief/loadCalculatorDialogComponent";
-import {Thief} from "~/components/find-the-thief/thiefComponent";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
@@ -361,45 +359,11 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                 className="tw-overflow-hidden tw-w-full tw-relative"
                 ref={emblaRef}
             >
-                {/* TODO: Convert all tw-auto-cols-[100%] to tw-auto-cols-[minmax(0,100%)]? */}
-                <Thief
-                    currentThiefLocation={thiefLocation}
-                    direction="left"
-                    thiefShowLocation={0}
-                    onClick={() => setThiefLocation(1)}
-                    thiefClassName="tw-top-[6%] -tw-left-1 lg:-tw-left-[0.5625rem]"
-                />
-
-                <Thief
-                    currentThiefLocation={thiefLocation}
-                    direction="right"
-                    thiefShowLocation={1}
-                    onClick={() => {
-                        setThiefLocation(2);
-                        setIsDialogOpen(true);
-                    }}
-                    thiefClassName="tw-top-[49%] -tw-right-1 lg:-tw-right-[0.5625rem]"
-                />
-
-                {/* {currentThiefLocation === 2 && (
-                <Thief
-                    currentThiefLocation={currentThiefLocation}
-                    direction="left"
-                    thiefShowLocation={2}
-                    onClick={() => {
-                        setCurrentThiefLocation(3);
-                        setIsDialogOpen(true);
-                    }}
-                    thiefClassName="tw-top-[64%] -tw-left-1 lg:-tw-left-[0.5625rem]"
-                />
-            )} */}
                 <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-start">
                     <DeviceSelectionNewUi
                         userPreferences={userPreferences}
                         loadCalculatorInputs={loadCalculatorInputsNewUi}
                         dispatch={dispatchNewUi}
-                        currentThiefLocation={thiefLocation}
-                        setCurrentThiefLocation={setThiefLocation}
                         setIsDialogOpen={setIsDialogOpen}
                     />
 
@@ -450,20 +414,6 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
-
-            <FindTheThiefDialog
-                isDialogOpen={isDialogOpen}
-                setIsDialogOpen={setIsDialogOpen}
-                userPreferences={userPreferences}
-                showSunraysPattern={true}
-            >
-                <LoadCalculatorDialogComponent
-                    userPreferences={userPreferences}
-                    setIsDialogOpen={setIsDialogOpen}
-                    couponCode={couponCode == null ? "" : couponCode}
-                    setCouponCode={setCouponCode}
-                />
-            </FindTheThiefDialog>
         </>
     );
 }
@@ -1016,15 +966,11 @@ function DeviceSelectionNewUi({
     userPreferences,
     loadCalculatorInputs,
     dispatch,
-    currentThiefLocation,
-    setCurrentThiefLocation,
     setIsDialogOpen,
 }: {
     userPreferences: UserPreferences;
     loadCalculatorInputs: LoadCalculatorInputs;
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
-    currentThiefLocation: number | null;
-    setCurrentThiefLocation: React.Dispatch<number>;
     setIsDialogOpen: React.Dispatch<boolean>;
 }) {
     const contentData = useContext(ContentProviderContext);

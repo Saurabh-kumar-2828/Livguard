@@ -16,10 +16,6 @@ import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FaqSectionInternal} from "~/components/faqs";
-import {FindTheThiefDialog} from "~/components/find-the-thief/findTheThiefDialog";
-import {FirstRewardDialogComponent} from "~/components/find-the-thief/firstRewardDialogComponent";
-import {SecondClueDialogComponent} from "~/components/find-the-thief/secondClueDialogComponent";
-import {Thief} from "~/components/find-the-thief/thiefComponent";
 import {CoverImage} from "~/components/images/coverImage";
 import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
 import {InTheNewsCarousel} from "~/components/inTheNewsCarousel";
@@ -55,7 +51,6 @@ import {SimpleCoverImage} from "~/components/images/simpleCoverImage";
 import {FormSubmissionSuccessLivguardDialog} from "~/reusableSections/formSubmissionSuccessLivguardDialog";
 import {MiniPowerPlannerTeaser} from "~/reusableSections/miniPowerPlannerTeaser";
 import {DealerLocator, DialogType} from "~/reusableSections/dealerLocator";
-import {InitialFindTheThiefDialogComponent} from "~/components/find-the-thief/initialFindTheThiefDialogComponent";
 import termsAndConditions from "~/routes/terms-and-conditions";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
@@ -273,28 +268,6 @@ export default function () {
     const utmSearchParameters = useUtmSearchParameters();
 
     const secondaryNavigationController = useSecondaryNavigationController();
-    const [isFindTheThiefDialogOpen, setIsFindTheThiefDialogOpen] = useState(false);
-
-    useEffect(() => {
-        // if (localStorage.getItem("cookiesAccepted") == null) {
-        //     setIsFindTheThiefDialogOpen(false);
-        //     return;
-        // }
-
-        const treasureHuntStep = localStorage.getItem("treasureHuntStep");
-        if (treasureHuntStep == null || treasureHuntStep == "0") {
-            setIsFindTheThiefDialogOpen(true);
-        }
-    }, []);
-
-    // useEffect(() => {
-    //     const treasureHuntStep = localStorage.getItem("treasureHuntStep");
-    //     if (isCookieDialogOpen === false && localStorage.getItem("cookiesAccepted") != null && (treasureHuntStep == null || treasureHuntStep === "0")) {
-    //         setTimeout(() => {
-    //             setIsFindTheThiefDialogOpen(true);
-    //         }, 1000);
-    //     }
-    // }, [isCookieDialogOpen]);
 
     return (
         <>
@@ -319,27 +292,9 @@ export default function () {
                                 utmParameters={utmSearchParameters}
                                 pageUrl={pageUrl}
                                 secondaryNavigationController={secondaryNavigationController}
-                                setIsFindTheThiefDialogOpen={setIsFindTheThiefDialogOpen}
                             />
                         </SecondaryNavigationControllerContext.Provider>
                     </PageScaffold>
-
-                    <FindTheThiefDialog
-                        isDialogOpen={isFindTheThiefDialogOpen}
-                        setIsDialogOpen={setIsFindTheThiefDialogOpen}
-                        userPreferences={userPreferences}
-                        showSunraysPattern={false}
-                    >
-                        <InitialFindTheThiefDialogComponent
-                            userPreferences={userPreferences}
-                            buttonClickFunction={() => {
-                                setIsFindTheThiefDialogOpen(false);
-                                localStorage.setItem("treasureHuntStep", "1");
-                                window.dispatchEvent(new Event("treasureHuntInitiated"));
-                            }}
-                        />
-                    </FindTheThiefDialog>
-
                     <StickyBottomBar userPreferences={userPreferences} />
                 </ContentProviderContext.Provider>
             </ImageProviderContext.Provider>
@@ -352,7 +307,6 @@ function HomePage({
     utmParameters,
     pageUrl,
     secondaryNavigationController,
-    setIsFindTheThiefDialogOpen,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -360,44 +314,12 @@ function HomePage({
     };
     pageUrl: string;
     secondaryNavigationController?: SecondaryNavigationController;
-    setIsFindTheThiefDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [dialogType, setDialogType] = useState<DialogType | null>(null);
     const [currentThiefLocation, setCurrentThiefLocation] = useState<number | null>(null);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const treasureHuntStep = localStorage.getItem("treasureHuntStep");
-
-        switch (treasureHuntStep) {
-            case "1": {
-                setCurrentThiefLocation(0);
-                break;
-            }
-            case "2": {
-                setIsDialogOpen(true);
-                setDialogType(DialogType.secondClueDialog);
-                break;
-            }
-            case "3": {
-                setIsDialogOpen(true);
-                setDialogType(DialogType.secondClueDialog);
-                break;
-            }
-        }
-
-        const treasureHuntInitiatedListener = () => {
-            setCurrentThiefLocation(0);
-            return;
-        };
-        window.addEventListener("treasureHuntInitiated", treasureHuntInitiatedListener);
-
-        return () => {
-            window.removeEventListener("treasureHuntInitiated", treasureHuntInitiatedListener);
-        };
-    }, []);
 
     const [cookiesAccepted, setCookiesAccepted] = useState<string | null>(null);
     useEffect(() => {
@@ -423,7 +345,6 @@ function HomePage({
                 utmParameters={utmParameters}
                 pageUrl={pageUrl}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
-                setIsFindTheThiefDialogOpen={setIsFindTheThiefDialogOpen}
             />
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-3 tw-col-span-full" />
@@ -440,23 +361,10 @@ function HomePage({
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-5 tw-col-span-full" />
 
-            <MiniPowerPlannerTeaserContainer
-                userPreferences={userPreferences}
-                className="tw-row-start-4 lg:tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-3 lg:tw-self-end lg:tw-pl-[40px] xl:tw-pl-[120px] tw-h-full"
-                currentThiefLocation={currentThiefLocation}
-                setCurrentThiefLocation={setCurrentThiefLocation}
-                setDialogType={setDialogType}
-                setIsDialogOpen={setIsDialogOpen}
-            />
-
             <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
                 className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-6 lg:tw-col-start-4 lg:tw-col-span-3 lg:tw-self-end lg:tw-h-full lg:tw-pr-[72px] xl:tw-pr-[120px]"
-                currentThiefLocation={currentThiefLocation}
-                setCurrentThiefLocation={setCurrentThiefLocation}
-                setDialogType={setDialogType}
-                setIsDialogOpen={setIsDialogOpen}
                 secondaryNavigationName="bc9269a0-800f-4adf-ac22-d866887da9f4"
             />
 
@@ -495,44 +403,6 @@ function HomePage({
                 className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-16 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            {cookiesAccepted == null ? null : (
-                <FindTheThiefDialog
-                    isDialogOpen={isDialogOpen}
-                    setIsDialogOpen={setIsDialogOpen}
-                    userPreferences={userPreferences}
-                    showSunraysPattern={dialogType == null ? false : [DialogType.firstRewardDialog, DialogType.secondClueDialog].includes(dialogType)}
-                >
-                    {/* {dialogType === DialogType.initialDialog && (
-                        <InitialFindTheThiefDialogComponent
-                            userPreferences={userPreferences}
-                            buttonClickFunction={() => {
-                                setIsDialogOpen(false);
-                                localStorage.setItem("treasureHuntStep", "1");
-                                setCurrentThiefLocation(0);
-                            }}
-                        />
-                    )} */}
-                    {dialogType === DialogType.firstRewardDialog && (
-                        <FirstRewardDialogComponent
-                            userPreferences={userPreferences}
-                            buttonClickFunction={() => {
-                                localStorage.setItem("treasureHuntStep", "2");
-                                setDialogType(DialogType.secondClueDialog);
-                            }}
-                        />
-                    )}
-                    {dialogType === DialogType.secondClueDialog && (
-                        <SecondClueDialogComponent
-                            userPreferences={userPreferences}
-                            buttonClickFunction={() => {
-                                setIsDialogOpen(false);
-                                localStorage.setItem("treasureHuntStep", "3");
-                                navigate("/load-calculator");
-                            }}
-                        />
-                    )}
-                </FindTheThiefDialog>
-            )}
         </div>
     );
 }
@@ -542,7 +412,6 @@ function HeroSection({
     utmParameters,
     className,
     pageUrl,
-    setIsFindTheThiefDialogOpen,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -550,7 +419,6 @@ function HeroSection({
     };
     className?: string;
     pageUrl: string;
-    setIsFindTheThiefDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
     const contentData = useContext(ContentProviderContext);
 
@@ -558,19 +426,6 @@ function HeroSection({
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 10000);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     const [selectedBannerIndex, setSelectedBannerIndex] = useState(0);
-    const [treasureHuntStep, setTreasureHuntStep] = useState<null | string>(null);
-
-    const treasureHuntInitiatedListener = () => {
-        setTreasureHuntStep("1");
-    };
-
-    useEffect(() => {
-        setTreasureHuntStep(localStorage.getItem("treasureHuntStep"));
-        window.addEventListener("treasureHuntInitiated", treasureHuntInitiatedListener);
-        return () => {
-            window.removeEventListener("treasureHuntInitiated", treasureHuntInitiatedListener);
-        };
-    }, []);
 
     const banners = [
         {
@@ -590,14 +445,6 @@ function HeroSection({
         //     textAlign: "center",
         // },
         {
-            mobileImageRelativePath: "/livguard/home/1/mobile-banner-3.jpg",
-            desktopImageRelativePath: "/livguard/home/1/desktop-banner-3.jpg",
-            titleVernacId: "13419db0-afcd-4c94-a571-35f6c62de3b4",
-            subTitleVernacId: "a782b30b-13a2-48f1-90f5-0569dba18c1c",
-            vernacId: "homeS12T4",
-            textAlign: "center",
-        },
-        {
             mobileImageRelativePath: "/livguard/home/1/new-mobile.jpg",
             desktopImageRelativePath: "/livguard/home/1/new-desktop.jpg",
             titleVernacId: "homeS1T1",
@@ -607,7 +454,6 @@ function HeroSection({
         },
     ];
 
-    console.log("Tresure hunt step", treasureHuntStep);
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
@@ -625,8 +471,6 @@ function HeroSection({
                         "tw-h-full tw-overflow-hidden tw-grid tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate",
                         selectedBannerIndex === 0
                             ? " lg:tw-grid-rows-[0.5rem_1rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem] tw-grid-rows-[1rem_2rem_1rem_auto_1rem_auto_1rem_minmax(0,1fr)_3rem]"
-                            : selectedBannerIndex === 2
-                            ? "lg:tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem] tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_5rem_minmax(0,1fr)_3rem]"
                             : "tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem]",
                     )}
                     key={selectedBannerIndex}
@@ -684,15 +528,6 @@ function HeroSection({
                                 ></div>
                             </DefaultTextAnimation>
                         </h2>
-                    )}
-
-                    {selectedBannerIndex === 1 && (treasureHuntStep == null || treasureHuntStep === "0") && (
-                        <div
-                            className="lg-cta-button tw-w-fit tw-row-start-6 tw-col-start-1 tw-z-10 hover:tw-cursor-pointer"
-                            onClick={() => setIsFindTheThiefDialogOpen(true)}
-                        >
-                            {contentData.getContent("homeS12T4")}
-                        </div>
                     )}
 
                     {banners[selectedBannerIndex].contactButtonVernacId && banners[selectedBannerIndex].buttonLink == null && (
@@ -1043,86 +878,6 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
                     />
                 </DefaultImageAnimation>
             </div>
-        </div>
-    );
-}
-
-function MiniPowerPlannerTeaserContainer({
-    userPreferences,
-    className,
-    currentThiefLocation,
-    setCurrentThiefLocation,
-    setIsDialogOpen,
-    setDialogType,
-}: {
-    userPreferences: UserPreferences;
-    className?: string;
-    currentThiefLocation: number | null;
-    setCurrentThiefLocation: React.Dispatch<number | null>;
-    setDialogType: React.Dispatch<DialogType>;
-    setIsDialogOpen: React.Dispatch<boolean>;
-}) {
-    const contentData = useContext(ContentProviderContext);
-    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
-    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    useEffect(() => {
-        secondaryNavigationController.setSections((previousSections) => ({
-            ...previousSections,
-            "power-planner": {
-                humanReadableName: contentData.getContent("02e2e193-5c13-4674-93cb-02d15e2b71da"),
-                isCurrentlyVisible: sectionInView,
-            },
-        }));
-    }, [sectionRef, sectionInView]);
-    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
-    return (
-        <div
-            id="power-planner"
-            className={concatenateNonNullStringsWithSpaces("tw-relative", className)}
-            ref={sectionRef}
-        >
-            <Thief
-                currentThiefLocation={currentThiefLocation}
-                thiefShowLocation={0}
-                onClick={() => {
-                    setCurrentThiefLocation(1);
-                }}
-                thiefClassName="max-lg:-tw-left-1 lg:-tw-right-[4.125rem] tw-top-[40%] lg:tw-top-[20%] lg:tw-z-10 -tw-z-10"
-                direction="left"
-            />
-
-            {isScreenSizeBelow && (
-                <>
-                    <Thief
-                        currentThiefLocation={currentThiefLocation}
-                        thiefShowLocation={1}
-                        onClick={() => {
-                            setCurrentThiefLocation(null);
-                            setDialogType(DialogType.firstRewardDialog);
-                            setIsDialogOpen(true);
-                        }}
-                        thiefClassName="tw-top-[60%] -tw-right-1 lg:-tw-right-[0.5625rem]"
-                        direction="right"
-                    />
-                    {/* <Thief
-                        currentThiefLocation={currentThiefLocation}
-                        thiefShowLocation={2}
-                        onClick={() => {
-                            setCurrentThiefLocation(3);
-                            setDialogType(DialogType.firstRewardDialog);
-                            setIsDialogOpen(true);
-                        }}
-                        thiefClassName="tw-top-[75%] -tw-left-1 lg:-tw-left-[0.5625rem]"
-                        direction="left"
-                    /> */}
-                </>
-            )}
-
-            <MiniPowerPlannerTeaser
-                userPreferences={userPreferences}
-                className="tw-h-full tw-w-full"
-            />
         </div>
     );
 }

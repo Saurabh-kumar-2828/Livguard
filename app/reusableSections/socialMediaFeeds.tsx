@@ -16,52 +16,60 @@ export function SocialMediaFeeds({userPreferences, className}: {userPreferences:
     const posts = [
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/reel/Cydg6oOoSgU",
+            url: "https://www.instagram.com/p/Cy-ynRcI2dk/",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/reel/CyaeUDLIANP",
+            url: "https://www.instagram.com/p/Cy-JcxvoX-j/",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CyXwA_dB24c",
+            url: "https://www.instagram.com/p/Cy0AT3uobFO/",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CyVpgzRI4xi",
+            url: "https://www.instagram.com/p/CyVpgzRI4xi/",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CyTEA-Oosn8",
+            url: "https://www.instagram.com/p/CyQevh2I5EL/",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CyQevh2I5EL",
+            url: "https://www.instagram.com/p/CyQUrMOofZ2/",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CxIWFnHo9_y",
+            url: "https://www.instagram.com/p/CyOIfogoCmF/",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CxSI51Gozku",
+            url: "https://www.instagram.com/p/CyFq1euI-yP/",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CxhgXmZIMXM",
+            url: "https://www.instagram.com/p/CyFyzSpo_Rq/",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CxFuBO6o0qZ",
+            url: "https://www.instagram.com/p/CyIc-IWIRF2/",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CxPNg3IIVNk",
+            url: "https://www.instagram.com/p/Cx4b9zjoXx8/",
         },
         {
             type: SocialMediaPosts.instagram,
-            url: "https://www.instagram.com/p/CxLIpnVoFmw",
+            url: "https://www.instagram.com/p/Cx4MiEhoCAe/",
         },
+        // {
+        //     type: SocialMediaPosts.instagram,
+        //     url: "https://www.instagram.com/p/Cx13SgBo5-h/",
+        // },
+        // {
+        //     type: SocialMediaPosts.instagram,
+        //     url: "https://www.instagram.com/reel/Cydg6oOoSgU",
+        // },
     ];
 
     const [documentState, setDocumentState] = useState<Document | undefined>(undefined);
