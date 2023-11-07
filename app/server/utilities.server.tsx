@@ -23,3 +23,14 @@ export async function getUserPreferencesFromCookiesAndUrlSearchParameters(reques
 
     return userPreferences;
 }
+
+export function getRequiredEnvironmentVariable(variable: string): string {
+    const value = process.env[variable];
+
+    if (value == null) {
+        throw Error(`Required environment variable ${variable} not found!`);
+    }
+
+    return value;
+}
+

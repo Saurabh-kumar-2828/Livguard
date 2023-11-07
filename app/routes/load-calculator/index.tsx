@@ -422,7 +422,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     const contentData = useContext(ContentProviderContext);
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
-        <div className="tw-min-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_2rem_auto_2rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark">
+        <div className="tw-min-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_2rem_auto_2rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] max-md:tw-justify-items-center tw-text-secondary-900-dark">
             {/* <CoverImage
                 relativePath="/livguard/home/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
@@ -431,13 +431,13 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             <div className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-bg-gradient-to-b tw-from-primary-500-dark tw-to-secondary-100-dark" />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 tw-z-10">
-                <h1 className="lg-text-banner lg-px-screen-edge tw-z-10 tw-text-center">
+                <h1 className="lg-text-banner lg-px-screen-edge tw-z-10 max-md:tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: contentData.getContent("loadCalculatorS1T1")}} />
                 </h1>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10 tw-max-w-2xl">
-                <div className="lg-text-body tw-text-secondary-700-dark lg-px-screen-edge tw-z-10 tw-text-center">{contentData.getContent("loadCalculatorS1T2")}</div>
+                <div className="lg-text-body tw-text-secondary-700-dark lg-px-screen-edge tw-z-10 max-md:tw-text-center">{contentData.getContent("loadCalculatorS1T2")}</div>
             </DefaultTextAnimation>
 
             <div className="tw-w-full tw-row-start-[8] tw-col-start-1">

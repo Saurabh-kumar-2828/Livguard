@@ -1376,13 +1376,15 @@ export function ContactUsDialog({
     utmParameters,
     pageUrl,
     cityFetcherData,
+    source,
 }: {
     userPreferences: UserPreferences;
     isContactUsDialogOpen: boolean;
     setIsContactUsDialogOpen: React.Dispatch<boolean>;
     utmParameters: {[searchParameter: string]: string};
     pageUrl: string;
-    cityFetcherData: Array<{city: string}> | null;
+    cityFetcherData?: Array<{city: string}> | null;
+    source?: string;
 }) {
     const contentData = useContext(ContentProviderContext);
     // TODO: Understand why we cannot use action for this
@@ -1691,6 +1693,13 @@ export function ContactUsDialog({
                         className="tw-hidden"
                         readOnly
                         value={JSON.stringify(utmParameters)}
+                    />
+
+                    <input
+                        name="source"
+                        className="tw-hidden"
+                        readOnly
+                        value={source}
                     />
 
                     <input

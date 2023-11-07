@@ -7737,6 +7737,16 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "height": 240,
         "finalUrl": "/livguard/e-rickshaw-batteries/4/c-9-8154dd.png"
     },
+    "/livguard/offers/2/offer-solar-offers-en-in.png": {
+        "width": 1791,
+        "height": 990,
+        "finalUrl": "/livguard/offers/2/offer-solar-offers-en-in-7aaa48.png"
+    },
+    "/livguard/offers/2/offer-solar-offers-hi-in.png": {
+        "width": 1794,
+        "height": 993,
+        "finalUrl": "/livguard/offers/2/offer-solar-offers-hi-in-223462.png"
+    },
 };
 
 export function getImageMetadataLibraryForPage(ids: Array<string>): {[relativePath: string]: ImageMetadata | undefined} {
@@ -8760,6 +8770,8 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/offers/2/offer-solar-offers-en-in.png",
+        "/livguard/offers/2/offer-solar-offers-hi-in.png",
         "/livguard/offers/offer-og-banner.jpg",
         "/livguard/common/akshay.png",
         "/livguard/offers/1/all-products.png",

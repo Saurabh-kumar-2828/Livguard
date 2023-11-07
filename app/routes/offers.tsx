@@ -390,7 +390,7 @@ export function BestOffers({
     className?: string;
 }) {
     const contentData = useContext(ContentProviderContext);
-    const offers: Array<Array<{offers: Array<{name: string; validTill: string}>; emptyOfferButtonTextPiece: string; emptyOfferButtonLink: string; target?: boolean}>> = [
+    const offers: Array<Array<{offers: Array<{name: string; validTill: string}>; emptyOfferButtonTextPiece: string; emptyOfferButtonLink: string; target?: boolean; source: string}>> = [
         [
             {
                 offers: [
@@ -401,6 +401,7 @@ export function BestOffers({
                 ],
                 emptyOfferButtonTextPiece: "4391ead5-8016-4a2f-9132-0b6370b40cd3",
                 emptyOfferButtonLink: "/campaigns/inverter-and-battery-jodi",
+                source: "livguard",
             },
         ],
         [
@@ -413,10 +414,23 @@ export function BestOffers({
                 ],
                 emptyOfferButtonTextPiece: "cf35b042-9f06-44d4-b0c3-f7ed9399e400",
                 emptyOfferButtonLink: "/battery-finder",
+                source: "livguard",
             },
         ],
-        [{offers: [], emptyOfferButtonTextPiece: "1945f91a-ddb2-42ab-99d0-f094a02094b0", emptyOfferButtonLink: "https://www.livguardsolar.com/", target: true}],
-        [{offers: [], emptyOfferButtonTextPiece: "15f8008f-5fa5-4b55-9876-916ff55cf323", emptyOfferButtonLink: "/inverter-trolley"}],
+        [
+            {
+                offers: [
+                    {
+                        name: "solar-offers",
+                        validTill: "June 31, 2023",
+                    },
+                ],
+                emptyOfferButtonTextPiece: "4391ead5-8016-4a2f-9132-0b6370b40cd3",
+                emptyOfferButtonLink: "/campaigns/inverter-and-battery-jodi",
+                source: "solar",
+            },
+        ],
+        [{offers: [], emptyOfferButtonTextPiece: "15f8008f-5fa5-4b55-9876-916ff55cf323", emptyOfferButtonLink: "/inverter-trolley", source: "livguard"}],
     ];
 
     const [selectedCategoryIndex, setSelectedCategoryIndex] = useState<number>(0);
@@ -544,6 +558,7 @@ export function BestOffers({
                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
                 utmParameters={utmParameters}
                 pageUrl={pageUrl}
+                source={offers[selectedCategoryIndex][0].source}
             />
         </div>
     );
