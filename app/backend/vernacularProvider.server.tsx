@@ -12008,6 +12008,7 @@ const headerStrings: Array<string> = [
     "a9b2a2c7-9d4e-4908-8463-23cb3669bb1d",
     "57a03ee7-ca2c-4a65-99ca-f462af61147d",
     "407c0e47-9c3b-47b0-a1f2-13fc372dff9f",
+    "phoneNumberChnage",
 ];
 
 const footerStrings = [
@@ -12259,6 +12260,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "c5054f84-2266-408e-87f1-bf4cce619706",
         "286eb099-4488-4fa6-a2aa-23132972a9de",
+        "phoneNumberChnage",
     ],
     homeInverterPage: [
         ...headerStrings,
@@ -12694,6 +12696,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "f2e43648-a6bb-4144-a594-280b68479566",
         "10ac51a9-2893-40c1-ad80-5017883e890f",
         "089e932e-69bf-479d-8c0b-21257fc4a8dc",
+        "phoneNumberChnage",
     ],
     hkvaInverterPage: [
         ...headerStrings,
@@ -12970,6 +12973,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "3479de37-c724-4254-a536-acf8c8de4c20",
         "01553562-bafd-4ad3-a18c-7b6cc113f03f",
         "05dd627c-2d81-4390-a8ec-4543cb8b8cd7",
+        "phoneNumberChnage",
     ],
     loadCalculatorPage: [
         ...headerStrings,
@@ -13021,6 +13025,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "639fd244-9283-4467-b186-6ee26321127b",
         "c5054f84-2266-408e-87f1-bf4cce619706",
         "286eb099-4488-4fa6-a2aa-23132972a9de",
+        "phoneNumberChnage",
     ],
     loadCalculatorResultPage: [
         ...headerStrings,
@@ -13119,6 +13124,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "cfab263f-0175-43fb-91e5-fccc64209d36",
         "cea6d04c-15b9-4c11-8d83-2e51af979f54",
         "639fd244-9283-4467-b186-6ee26321127b",
+        "phoneNumberChnage",
     ],
     inverterBatteriesPage: [
         ...headerStrings,
@@ -13260,6 +13266,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "4364581e-7ad6-4f87-9c83-66bf480d3fab",
         "3479de37-c724-4254-a536-acf8c8de4c20",
         "01553562-bafd-4ad3-a18c-7b6cc113f03f",
+        "phoneNumberChnage",
     ],
     inverterBatteryComboPage: [
         ...headerStrings,
@@ -13406,6 +13413,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "0778c1ff-2e3c-4773-889f-6f01e0e58f0e",
         "ab5df361-c4a5-4f3a-b26e-21eff3cb23bc",
         "3479de37-c724-4254-a536-acf8c8de4c20",
+        "phoneNumberChnage",
     ],
     inverterTrolleyPage: [
         ...headerStrings,
@@ -13495,6 +13503,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "2223a612-f480-45b4-86fb-d5d02dc1a69d",
         "3479de37-c724-4254-a536-acf8c8de4c20",
         "01553562-bafd-4ad3-a18c-7b6cc113f03f",
+        "phoneNumberChnage",
     ],
     twoWheelerBatteriesPage: [
         ...headerStrings,
@@ -13618,6 +13627,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "01553562-bafd-4ad3-a18c-7b6cc113f03f",
         "c505d928-fde1-4ad6-95f4-2f3109e0e87f",
         "ac9a30fb-5654-4692-9995-84c2dbe8301b",
+        "phoneNumberChnage",
     ],
     threeWheelerBatteriesPage: [
         ...headerStrings,
@@ -13713,6 +13723,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "a72629ee-930b-4f47-9d31-f630e2db0709",
         "3479de37-c724-4254-a536-acf8c8de4c20",
         "01553562-bafd-4ad3-a18c-7b6cc113f03f",
+        "phoneNumberChnage",
     ],
     carAndSuvBatteriesPage: [
         ...headerStrings,
@@ -13883,6 +13894,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "ab5df361-c4a5-4f3a-b26e-21eff3cb23bc",
         "c505d928-fde1-4ad6-95f4-2f3109e0e87f",
         "ac9a30fb-5654-4692-9995-84c2dbe8301b",
+        "phoneNumberChnage",
     ],
     busAndTruckBatteriesPage: [
         ...headerStrings,
@@ -14033,6 +14045,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "5401aff8-4337-470a-8d9d-7da5591a1118",
         "3479de37-c724-4254-a536-acf8c8de4c20",
         "01553562-bafd-4ad3-a18c-7b6cc113f03f",
+        "phoneNumberChnage",
     ],
     tractorBatteriesPage: [
         ...headerStrings,
