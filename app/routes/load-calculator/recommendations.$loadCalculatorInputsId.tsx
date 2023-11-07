@@ -29,7 +29,7 @@ import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {useContext} from "react";
 import {ImageMetadata} from "~/common--type-definitions/typeDefinitions";
-import {getImageMetadataLibraryFromBackend} from "~/backend/imageMetaDataLibrary.server";
+import {getImageMetadataLibraryForPage, getImageMetadataLibraryFromBackend} from "~/backend/imageMetaDataLibrary.server";
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 
 type LoaderData = {
@@ -65,7 +65,11 @@ export const loader: LoaderFunction = async ({request, params}) => {
     const loadCalculatorOutputs = await getLoadCalculatorOutputs(loadCalculatorInputs, userPreferences);
 
     const vernacularData = getVernacularFromBackend("loadCalculatorResultPage", userPreferences.language);
-    const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("loadCalculatorResultPage");
+    const imageMetaDataLibrary = {
+        ...getImageMetadataLibraryForPage(loadCalculatorOutputs.recommendedInverters.map((product) => `/livguard/products/${product.model}/thumbnail.png`)),
+        ...getImageMetadataLibraryForPage(loadCalculatorOutputs.recommendedBatteries.map((product) => `/livguard/products/${product.model}/thumbnail.png`)),
+        ...getImageMetadataLibraryFromBackend("loadCalculatorResultPage"),
+    };
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,

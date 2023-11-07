@@ -366,9 +366,9 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS5T2: {
         [Language.English]:
-            "Take charge of your power needs with Livguard's load calculator- Power Planned. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times.",
+            "Take charge of your power needs with Livguard's Power Planner- Power Planned. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times.",
         [Language.Hindi]:
-            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के लोड कैलकुलेटर- पावर प्लानर के साथ।यह आपको अपने घर के लिए सही इनवर्टर और इनवर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
+            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के पावर प्लानर- पावर प्लानर के साथ।यह आपको अपने घर के लिए सही इनवर्टर और इनवर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
     },
     homeS5T3: {
         [Language.English]: "Maximize your Power Potential in 3 easy steps!",
@@ -563,8 +563,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "मेरे उपयोग के लिए कौन सी इन्वर्टर बैटरी सबसे अच्छी है?",
     },
     homeS9Q1A: {
-        [Language.English]: `Livguard's <a href="/load-calculator" class="tw-underline">Power Planner</a>, a Load Calculator tool helps you find the best inverter battery for your energy needs. Trust Livguard for superior performance and durability.`,
-        [Language.Hindi]: `लिवगार्ड का <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
+        [Language.English]: `Livguard's <a href="/load-calculator" class="tw-underline">Power Planner</a>, a Power Planner tool helps you find the best inverter battery for your energy needs. Trust Livguard for superior performance and durability.`,
+        [Language.Hindi]: `लिवगार्ड का <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, एक पावर प्लानर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
     },
     homeS9Q2Q: {
         [Language.English]: "How to connect inverter to battery ?",
@@ -579,8 +579,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "कौन सा इन्वर्टर घर के लिए सबसे अच्छा है?",
     },
     homeS9Q3A: {
-        [Language.English]: `When it comes to selecting the best inverter for your home, Livguard Inverter is the top choice. Use our <a href="/load-calculator" class="tw-underline">Power Planner</a>, your personal load calculator to find the right inverter for you.`,
-        [Language.Hindi]: `जब आपके घर के लिए सर्वश्रेष्ठ इन्वर्टर चुनने की बात आती है, तो लिवगार्ड इन्वर्टर शीर्ष विकल्प है। आपके लिए सही इन्वर्टर खोजने के लिए हमारे <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, आपके व्यक्तिगत लोड कैलकुलेटर का उपयोग करें।`,
+        [Language.English]: `When it comes to selecting the best inverter for your home, Livguard Inverter is the top choice. Use our <a href="/load-calculator" class="tw-underline">Power Planner</a>, your personal Power Planner to find the right inverter for you.`,
+        [Language.Hindi]: `जब आपके घर के लिए सर्वश्रेष्ठ इन्वर्टर चुनने की बात आती है, तो लिवगार्ड इन्वर्टर शीर्ष विकल्प है। आपके लिए सही इन्वर्टर खोजने के लिए हमारे <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, आपके व्यक्तिगत पावर प्लानर का उपयोग करें।`,
     },
     homeS9Q4Q: {
         [Language.English]: "Are inverters for the home and the office different? ",
@@ -595,8 +595,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "मेरे उपयोग के लिए कौन सी इन्वर्टर बैटरी सबसे अच्छी है?",
     },
     homeS9Q5A: {
-        [Language.English]: `The <a href="/load-calculator" class="tw-underline">Livguard Power Planner</a> is a personalised Load Calculator that suggests you the best Livguard Inverter and Inverter Battery based on devices you choose, backup hours needed, and average power use. It guarantees reliable power backup solution for your home.`,
-        [Language.Hindi]: `<a href="/load-calculator" class="tw-underline">लिवगार्ड का पावर प्लानर</a>, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
+        [Language.English]: `The <a href="/load-calculator" class="tw-underline">Livguard Power Planner</a> is a personalised Power Planner that suggests you the best Livguard Inverter and Inverter Battery based on devices you choose, backup hours needed, and average power use. It guarantees reliable power backup solution for your home.`,
+        [Language.Hindi]: `<a href="/load-calculator" class="tw-underline">लिवगार्ड का पावर प्लानर</a>, एक पावर प्लानर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
     },
     homeS9T2P1: {
         [Language.English]: "Got questions on your mind?",
@@ -2301,14 +2301,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     loadCalculatorS1T1: {
-        [Language.English]: `Plan Your Power Needs <br/>With Livguard <span class="lg-text-highlighted">Load Calculation</span>`,
-        [Language.Hindi]: 'अपनी ऊर्जा ज़रूरतों को जानें <br/>हमारे <span class="lg-text-highlighted">लोड कैलकुलेशन</span> के साथ',
+        [Language.English]: `Plan Your Power Needs <br/>With Livguard <span class="lg-text-highlighted">Power Planner</span>`,
+        [Language.Hindi]: 'अपनी ऊर्जा ज़रूरतों को जानें <br/>हमारे <span class="lg-text-highlighted">पावर प्लानर</span> के साथ',
     },
     loadCalculatorS1T2: {
         [Language.English]:
-            "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times.",
+            "Take charge of your power needs with Livguard's Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times.",
         [Language.Hindi]:
-            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के लोड कैलकुलेटर- पावर प्लानर के साथ।यह आपको अपने होम लिए सही इनवर्टर और इनवर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
+            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के पावर प्लानर के साथ।यह आपको अपने होम लिए सही इनवर्टर और इनवर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
     },
     loadCalculatorRecommendationsS1T1: {
         [Language.English]: "Utilisation",
@@ -2440,8 +2440,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "कौन सा इन्वर्टर घर के लिए सबसे अच्छा है?",
     },
     categoryInveterPageFAQQ1A: {
-        [Language.English]: `When it comes to selecting the best inverter for your home, Livguard Inverter is the top choice. Use our <a href="/load-calculator" class="tw-underline">Power Planner</a>, your personal load calculator to find the right inverter for you.`,
-        [Language.Hindi]: `जब आपके घर के लिए सर्वश्रेष्ठ इन्वर्टर चुनने की बात आती है, तो लिवगार्ड इन्वर्टर शीर्ष विकल्प है। आपके लिए सही इन्वर्टर खोजने के लिए हमारे <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, आपके व्यक्तिगत लोड कैलकुलेटर का उपयोग करें।`,
+        [Language.English]: `When it comes to selecting the best inverter for your home, Livguard Inverter is the top choice. Use our <a href="/load-calculator" class="tw-underline">Power Planner</a>, your personal Power Planner to find the right inverter for you.`,
+        [Language.Hindi]: `जब आपके घर के लिए सर्वश्रेष्ठ इन्वर्टर चुनने की बात आती है, तो लिवगार्ड इन्वर्टर शीर्ष विकल्प है। आपके लिए सही इन्वर्टर खोजने के लिए हमारे <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, आपके व्यक्तिगत पावर प्लानर का उपयोग करें।`,
     },
     categoryInveterPageFAQQ2Q: {
         [Language.English]: "What is sine wave inverter?",
@@ -2480,8 +2480,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "मेरे उपयोग के लिए कौन सी इन्वर्टर बैटरी सबसे अच्छी है?",
     },
     categoryBatteryPageFAQQ1A: {
-        [Language.English]: `Livguard's <a href="/load-calculator" class="tw-underline">Power Planner</a>, a Load Calculator tool helps you find the best inverter battery for your energy needs. Trust Livguard for superior performance and durability.`,
-        [Language.Hindi]: `लिवगार्ड का <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
+        [Language.English]: `Livguard's <a href="/load-calculator" class="tw-underline">Power Planner</a>, a Power Planner tool helps you find the best inverter battery for your energy needs. Trust Livguard for superior performance and durability.`,
+        [Language.Hindi]: `लिवगार्ड का <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, एक पावर प्लानर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
     },
     categoryBatteryPageFAQQ2Q: {
         [Language.English]: "How to connect inverter to battery ?",
@@ -2560,8 +2560,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "मेरे उपयोग के लिए कौन सी इन्वर्टर बैटरी सबसे अच्छी है?",
     },
     landingPage1Q1A: {
-        [Language.English]: `Livguard's <a href="/load-calculator" class="tw-underline">Power Planner</a>, a Load Calculator tool helps you find the best inverter battery for your energy needs. Trust Livguard for superior performance and durability.`,
-        [Language.Hindi]: `लिवगार्ड का <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
+        [Language.English]: `Livguard's <a href="/load-calculator" class="tw-underline">Power Planner</a>, a Power Planner tool helps you find the best inverter battery for your energy needs. Trust Livguard for superior performance and durability.`,
+        [Language.Hindi]: `लिवगार्ड का <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, एक पावर प्लानर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
     },
     landingPage1Q2Q: {
         [Language.English]: "How to connect inverter to battery ?",
@@ -2576,8 +2576,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "कौन सा इन्वर्टर घर के लिए सबसे अच्छा है?",
     },
     landingPage1Q3A: {
-        [Language.English]: `When it comes to selecting the best inverter for your home, Livguard Inverter is the top choice. Use our <a href="/load-calculator" class="tw-underline">Power Planner</a>, your personal load calculator to find the right inverter for you.`,
-        [Language.Hindi]: `जब आपके घर के लिए सर्वश्रेष्ठ इन्वर्टर चुनने की बात आती है, तो लिवगार्ड इन्वर्टर शीर्ष विकल्प है। आपके लिए सही इन्वर्टर खोजने के लिए हमारे <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, आपके व्यक्तिगत लोड कैलकुलेटर का उपयोग करें।`,
+        [Language.English]: `When it comes to selecting the best inverter for your home, Livguard Inverter is the top choice. Use our <a href="/load-calculator" class="tw-underline">Power Planner</a>, your personal Power Planner to find the right inverter for you.`,
+        [Language.Hindi]: `जब आपके घर के लिए सर्वश्रेष्ठ इन्वर्टर चुनने की बात आती है, तो लिवगार्ड इन्वर्टर शीर्ष विकल्प है। आपके लिए सही इन्वर्टर खोजने के लिए हमारे <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, आपके व्यक्तिगत पावर प्लानर का उपयोग करें।`,
     },
     landingPage1Q4Q: {
         [Language.English]: "Are inverters for the home and the office different? ",
@@ -2592,8 +2592,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "मेरे उपयोग के लिए कौन सी इन्वर्टर बैटरी सबसे अच्छी है?",
     },
     landingPage1Q5A: {
-        [Language.English]: `The <a href="/load-calculator" class="tw-underline">Livguard Power Planner </a> is a personalised Load Calculator that suggests you the best Livguard Inverter and Inverter Battery based on devices you choose, backup hours needed, and average power use. It guarantees reliable power backup solution for your home.`,
-        [Language.Hindi]: `<a href="/load-calculator" class="tw-underline">लिवगार्ड का पावर प्लानर </a>, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
+        [Language.English]: `The <a href="/load-calculator" class="tw-underline">Livguard Power Planner </a> is a personalised Power Planner that suggests you the best Livguard Inverter and Inverter Battery based on devices you choose, backup hours needed, and average power use. It guarantees reliable power backup solution for your home.`,
+        [Language.Hindi]: `<a href="/load-calculator" class="tw-underline">लिवगार्ड का पावर प्लानर </a>, एक पावर प्लानर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
     },
     landingPage2Q1Q: {
         [Language.English]: "How to check inverter battery health ?",
@@ -2677,8 +2677,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     headerLoadCalculator: {
-        [Language.English]: "Load Calculator",
-        [Language.Hindi]: "लोड कैलकुलेटर",
+        [Language.English]: "Power Planner",
+        [Language.Hindi]: "पावर प्लानर",
     },
 
     "propertyType-1-bhk": {
@@ -2730,8 +2730,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "डीलर लोकेटर",
     },
     "cea6d04c-15b9-4c11-8d83-2e51af979f54": {
-        [Language.English]: "Load Calculator",
-        [Language.Hindi]: "लोड कैलकुलेटर",
+        [Language.English]: "Power Planner",
+        [Language.Hindi]: "पावर प्लानर",
     },
     "ded4f739-d43e-47af-ad85-2f4885413cfc": {
         [Language.English]: "Our Recommendations",
@@ -4856,7 +4856,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `क्या मैं फ्रिज के लिए HKVA इनवर्टर का उपयोग कर सकता हूँ?`,
     },
     "adf7b4db-adfb-47fe-8a4e-6290465e6abb": {
-        [Language.English]: `Yes you can opt for Livguard Sinewave inverter depending on the power requirement of the Fridge . The easiest way to find the right inverter that fits your needs is to use the Load calculator, called the Power Planner(link to Power Planner).`,
+        [Language.English]: `Yes you can opt for Livguard Sinewave inverter depending on the power requirement of the Fridge . The easiest way to find the right inverter that fits your needs is to use the Power Planner, called the Power Planner(link to Power Planner).`,
         [Language.Hindi]: `हां, आप फ्रिज की बिजली की आवश्यकता के आधार पर लिवगार्ड HKVA इनवर्टर का विकल्प चुन सकते हैं।`,
     },
     "7fe9f5d4-00a9-41a1-a09e-facb4f63ee0b": {
@@ -7745,6 +7745,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `<span class="lg-text-highlighted">Privacy Policies</span>- Overview`,
         [Language.Hindi]: `<span class="lg-text-highlighted">गोपनीयता नीतियां </span>- अवलोकन`,
     },
+    "44f6795e-31aa-489c-83cf-4855844e0c8f": {
+        [Language.English]: `Last Updated On - 31st Oct 2023`,
+        [Language.Hindi]: "आख़िरी बदलाव - 31 अक्टूबर 2023",
+    },
     "58639d61-0980-400d-acca-4c01949569d3": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Privacy Policies - Introduction</div>`,
         [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>गोपनीयता नीतियाँ - परिचय</div>`,
@@ -9647,8 +9651,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `हाय-कैपेसिटी इनवर्टर`,
     },
     "824433d9-6781-46ab-afa1-a863ebef7038": {
-        [Language.English]: `Load Calculator`,
-        [Language.Hindi]: `घर का लोड कैलकुलेटर`,
+        [Language.English]: `Power Planner`,
+        [Language.Hindi]: `घर का पावर प्लानर`,
     },
     "e31c0b34-e22a-4cf2-a890-15a7356188d1": {
         [Language.English]: `Trolley`,
@@ -9659,8 +9663,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `इनवर्टर बैटरी`,
     },
     "a6959df7-9540-429b-aad3-9e875f281167": {
-        [Language.English]: `Load Calculator`,
-        [Language.Hindi]: `लोड कैलकुलेटर`,
+        [Language.English]: `Power Planner`,
+        [Language.Hindi]: `पावर प्लानर`,
     },
     "33975412-a9dc-4a70-85af-335732d3a135": {
         [Language.English]: `Inverter Batteries`,
@@ -9839,8 +9843,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `ऑफर्स`,
     },
     "739577f2-3578-4eaf-8b45-8b3de3372aa9": {
-        [Language.English]: `Home Load Calculator`,
-        [Language.Hindi]: `घर का लोड कैलकुलेटर`,
+        [Language.English]: `Home Power Planner`,
+        [Language.Hindi]: `घर का पावर प्लानर`,
     },
     "0476c521-6376-4411-ba07-10ab93e5982f": {
         [Language.English]: `Automotive Battery Finder`,
@@ -9891,8 +9895,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "be39d262-3769-4f4c-8d54-3ed7d6500101": {
-        [Language.English]: `Home Load Calculator`,
-        [Language.Hindi]: "लोड कैलकुलेटर - होम",
+        [Language.English]: `Home Power Planner`,
+        [Language.Hindi]: "पावर प्लानर - होम",
     },
     "09d8b17e-501d-4fcd-8371-930579ff3265": {
         [Language.English]: `Automotive Battery Finder`,
@@ -10019,8 +10023,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "हाय-कैपेसिटी इनवर्टर",
     },
     "0e58360b-6e83-47da-a0c5-afca55819e50": {
-        [Language.English]: `Load Calculator`,
-        [Language.Hindi]: "लोड कैलकुलेटर",
+        [Language.English]: `Power Planner`,
+        [Language.Hindi]: "पावर प्लानर",
     },
     "f76f3bd2-566f-44fe-bedb-c66cdfc42a0e": {
         [Language.English]: `Inverter Trolley`,
@@ -10207,7 +10211,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "4364581e-7ad6-4f87-9c83-66bf480d3fab": {
-        [Language.English]: `Load Calculator`,
+        [Language.English]: `Power Planner`,
         [Language.Hindi]: "?????",
     },
     "eb553bbb-e1af-4d2a-923a-096c297441e2": {
@@ -11577,8 +11581,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `?????`,
     },
     "fd934962-ffce-41c6-ac8d-ebee55615f2b": {
-        [Language.English]: `Load Calculator`,
-        [Language.Hindi]: `लोड कैलकुलेटर`,
+        [Language.English]: `Power Planner`,
+        [Language.Hindi]: `पावर प्लानर`,
     },
     "0f24d13c-8b25-4165-b0d4-197c059e4794": {
         [Language.English]: `GOOD NEWS`,
@@ -11845,8 +11849,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "690c2edd-1a1c-47c2-a307-4fef4c8a6b0a": {
-        [Language.English]: `Bolgs`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `Blogs`,
+        [Language.Hindi]: "ब्लॉग",
     },
     "81064037-a0db-4016-b8c9-364f933f29df": {
         [Language.English]: "Our OEM Partners",
@@ -11893,7 +11897,7 @@ const automotiveTestimonials = [
     "review4Name",
     "review4State",
     "review4Message",
-]
+];
 
 const headerStrings: Array<string> = [
     "690c2edd-1a1c-47c2-a307-4fef4c8a6b0a",
@@ -15375,6 +15379,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...footerStrings,
         "e1cd45c9-6258-4cfa-939f-92e24c409063",
         "5a6dd842-e7f2-4ad7-98de-fc9c76b42c80",
+        "44f6795e-31aa-489c-83cf-4855844e0c8f",
         "58639d61-0980-400d-acca-4c01949569d3",
         "c308c1f4-5547-42b0-9831-98ac935f3b58",
         "20189d26-c91f-46d9-acfc-a5ede3236b5e",

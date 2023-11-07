@@ -313,10 +313,18 @@ function PrivacyPolicies({userPreferences, className}: {userPreferences: UserPre
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-[1.5rem] lg:tw-gap-[3rem]">
-                <div
-                    className="lg-text-headline"
-                    dangerouslySetInnerHTML={{__html: contentData.getContent("5a6dd842-e7f2-4ad7-98de-fc9c76b42c80")}}
-                ></div>
+                <div className="tw-grid tw-grid-flow-row tw-gap-1">
+                    <div
+                        className="lg-text-headline"
+                        dangerouslySetInnerHTML={{__html: contentData.getContent("5a6dd842-e7f2-4ad7-98de-fc9c76b42c80")}}
+                    ></div>
+                    <div
+                        className="lgs-text-body"
+                        dangerouslySetInnerHTML={{
+                            __html: contentData.getContent("44f6795e-31aa-489c-83cf-4855844e0c8f"),
+                        }}
+                    />
+                </div>
                 <div className="tw-grid tw-grid-flow-row tw-gap-4">
                     <div
                         className=""
