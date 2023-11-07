@@ -5976,12 +5976,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "L96HH4:N$m%3-@rBs:t9t9i^ofjv",
         finalUrl: "/livguard/warranty/1/desktop-banner-8f924d.jpg",
     },
-    "/livguard/warranty/1/mobile-banner.jpg": {
-        width: 3840,
-        height: 3840,
-        blurHash: "L73b?;ZxRijXyGVqacj[j^acogkD",
-        finalUrl: "/livguard/warranty/1/mobile-banner-78eb4c.jpg",
-    },
     "/livguard/csr/1/desktop-banner.jpg": {
         width: 3837,
         height: 1140,
@@ -7737,6 +7731,47 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "height": 240,
         "finalUrl": "/livguard/e-rickshaw-batteries/4/c-9-8154dd.png"
     },
+    "/livguard/warranty/1/mobile-banner.jpg": {
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "L73b?;ZxRijXyGVqacj[j^acogkD",
+        "finalUrl": "/livguard/warranty/1/mobile-banner-78eb4c.jpg"
+    },
+    "/livguard/all-category/4/charge-controller.png": {
+        "width": 3240,
+        "height": 3240,
+        "finalUrl": "/livguard/all-category/4/charge-controller-b0dfac.png"
+    },
+    "/livguard/all-category/4/hybrid-inverter.png": {
+        "width": 3240,
+        "height": 3240,
+        "finalUrl": "/livguard/all-category/4/hybrid-inverter-6dae16.png"
+    },
+    "/livguard/all-category/4/solar-batteries.png": {
+        "width": 3240,
+        "height": 3240,
+        "finalUrl": "/livguard/all-category/4/solar-batteries-cf6931.png"
+    },
+    "/livguard/all-category/4/solar-management-unit.png": {
+        "width": 3240,
+        "height": 3240,
+        "finalUrl": "/livguard/all-category/4/solar-management-unit-73cd4a.png"
+    },
+    "/livguard/all-category/4/solar-off-grid-inverter.png": {
+        "width": 3240,
+        "height": 3240,
+        "finalUrl": "/livguard/all-category/4/solar-off-grid-inverter-f07615.png"
+    },
+    "/livguard/all-category/4/solar-on-grid-inverter.png": {
+        "width": 3240,
+        "height": 3240,
+        "finalUrl": "/livguard/all-category/4/solar-on-grid-inverter-c8f725.png"
+    },
+    "/livguard/all-category/4/solar-panel.png": {
+        "width": 3240,
+        "height": 3240,
+        "finalUrl": "/livguard/all-category/4/solar-panel-716df7.png"
+    },
     "/livguard/offers/2/offer-solar-offers-en-in.png": {
         "width": 1791,
         "height": 990,
@@ -8826,6 +8861,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/warranty/1/mobile-banner.jpg",
         "/livguard/warranty/warranty-og-banner.jpg",
         "/livguard/warranty/1/desktop-banner.jpg",
         "/livguard/warranty/2/quick-registration.svg",
@@ -8880,6 +8916,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/csr/4/environment.jpg",
         "/livguard/csr/csr-og-banner.jpg",
         "/livguard/csr/2/education.svg",
         "/livguard/csr/2/promotion-healthcare.svg",
@@ -9217,6 +9254,13 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/all-category/4/charge-controller.png",
+        "/livguard/all-category/4/hybrid-inverter.png",
+        "/livguard/all-category/4/solar-batteries.png",
+        "/livguard/all-category/4/solar-management-unit.png",
+        "/livguard/all-category/4/solar-off-grid-inverter.png",
+        "/livguard/all-category/4/solar-on-grid-inverter.png",
+        "/livguard/all-category/4/solar-panel.png",
         "/livguard/download-brochures/2/HKVA.png",
         "/livguard/download-brochures/2/Home-inverter.png",
         "/livguard/download-brochures/2/Inverter-battery.png",

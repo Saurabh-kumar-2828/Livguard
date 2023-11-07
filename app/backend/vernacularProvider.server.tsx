@@ -9768,19 +9768,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "f9e6a204-a3e8-4725-b7f2-c03231a28813": {
         [Language.English]: `Off-Grid Inverter`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ऑफ-ग्रिड इनवर्टर`,
     },
     "c6c9f0ec-ff71-4a10-9bc6-5dbde9ef8a81": {
         [Language.English]: `On-Grid Inverter`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ऑन-ग्रिड इनवर्टर`,
     },
     "ebb7642d-4c02-426e-83c0-06acd292ec33": {
         [Language.English]: `Hybrid Inverter`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हाइब्रिड इनवर्टर`,
     },
     "b78fac32-d1d1-4775-ad04-de991106a491": {
         [Language.English]: `Solar Panels`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सोलर पैनल`,
     },
     "53d8effd-c423-465b-b273-b2e6ab17020a": {
         [Language.English]: `Polycrystalline Solar Panel`,
@@ -10104,7 +10104,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "05b8415f-616b-4aed-8c0b-fd31305c6026": {
         [Language.English]: `Hybrid Inverter`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हाइब्रिड इनवर्टर",
     },
     "2f4de646-0e7c-424f-bcd4-52deb4003705": {
         [Language.English]: `Solar Panels`,
@@ -10709,7 +10709,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "69d20806-45ec-42e0-951e-54a4d0f46b14": {
         [Language.English]: `More About Livguard`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "लिवगार्ड के बारे में अधिक जानकारी",
     },
     "b65da678-f08a-46fd-ae2a-b2df56391d4d": {
         [Language.English]: `Welcome to Livguard - Your Premier Destination for Inverter Batteries and More`,
@@ -11245,7 +11245,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "9cafbfcc-4dc4-4a85-a168-bebb2bebcb84": {
         [Language.English]: `Hybrid Inverters`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हाइब्रिड इनवर्टर`,
     },
     "3cb60479-da6d-462c-879c-5a1b510630a4": {
         [Language.English]: `GMB Dealer Locator`,
@@ -11446,11 +11446,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "6074c564-2033-43e5-8d9f-02d5c9052ca4": {
         [Language.English]: `Registered Office`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `पंजीकृत कार्यालय`,
     },
     "c1e1b2f0-d75f-409c-b0f3-cbc9c2adeb00": {
         [Language.English]: `LIVGUARD ENERGY TECHNOLOGIES PRIVATE LIMITED`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड एनर्जी टेक्नोलॉजीज प्राइवेट लिमिटेड`,
     },
     "3aa92d4a-6977-4381-82ab-240477064ea6": {
         [Language.English]: `Pankaj Kumar Verma`,
@@ -11630,11 +11630,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "2f30c959-a70d-410d-be4e-3aee24145b6b": {
         [Language.English]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">Solar Solution</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "d9d27569-28d8-423e-ba3e-d6344b779b94": {
-        [Language.English]: `All Category`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">सोलर समाधान</span>`,
     },
     "2fdc65c7-2c2f-4ec0-9f80-32666da203cc": {
         [Language.English]: `Empower Your Journeys <br/> With Our Automotive Solutions`,
@@ -11838,15 +11834,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "407c0e47-9c3b-47b0-a1f2-13fc372dff9f": {
         [Language.English]: `Solar Solutions`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सोलर समाधान",
     },
     "b353a93a-216c-45db-b566-4f7889cf23da": {
-        [Language.English]: `Solar Off-grid Inverter`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `Off grid Inverter`,
+        [Language.Hindi]: "ऑफ-ग्रिड इनवर्टर",
     },
     "8609c5f9-8e8a-4410-a815-c5e8926dc94f": {
-        [Language.English]: `Solar On-grid Inverter`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `On grid Inverter`,
+        [Language.Hindi]: "ऑन-ग्रिड इनवर्टर",
     },
     "690c2edd-1a1c-47c2-a307-4fef4c8a6b0a": {
         [Language.English]: `Blogs`,
@@ -11859,6 +11855,26 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "f754b360-ca73-4b3c-a709-3e60470da0de": {
         [Language.English]: "OEM Partners",
         [Language.Hindi]: "OEM साझेदार",
+    },
+    "85a5ec3b-3fe8-4c80-ad2a-b3127f81976e": {
+        [Language.English]: "On Grid Inverters",
+        [Language.Hindi]: "ऑन-ग्रिड इनवर्टर",
+    },
+    "f9c8836a-2d8d-4d40-916c-a6b5ae9fc0a6": {
+        [Language.English]: "Off Grid Inverters",
+        [Language.Hindi]: "ऑफ-ग्रिड इनवर्टर",
+    },
+    "452419b5-e485-4e63-9329-a99c34c82a85": {
+        [Language.English]: "Hybrid Inverters",
+        [Language.Hindi]: "हाइब्रिड इनवर्टर",
+    },
+    "5bc3ed59-391d-4242-abf5-61c46aa1d082": {
+        [Language.English]: "Solar Charger Controller",
+        [Language.Hindi]: "सोलर चार्ज कंट्रोलर",
+    },
+    "122d4f79-1d29-46b1-b14f-065e3014653e": {
+        [Language.English]: "Solar Management Units",
+        [Language.Hindi]: "सोलर मैनेजमेंट यूनिट",
     },
 };
 
@@ -14814,6 +14830,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     warrantyPage: [
         ...headerStrings,
         ...footerStrings,
+        "OfferTnCReadMore",
+        "05dd627c-2d81-4390-a8ec-4543cb8b8cd7",
         "bd423b50-de84-4397-9141-ac7b3527feb9",
         "6b8d915d-0091-4666-817a-e9b9d2eab472",
         "1720638d-aba3-4e1e-8c5d-3f9dede7c4c8",
@@ -15137,6 +15155,9 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     csrPage: [
         ...headerStrings,
         ...footerStrings,
+        "705025d8-3bd7-44fa-9ab6-26d4c002d7fd",
+        "9d9729a9-368b-4ffd-be0b-af85eaec59bf",
+        "4796d842-e26d-4ea1-9cd6-f6686b5458ad",
         "09b7690d-2117-461b-8a05-110dc4319240",
         "b0e9add2-cb81-4ba8-a38b-ee9ac0734225",
         "9b48da94-c77c-433d-a704-12c87673d23a",
@@ -16761,6 +16782,14 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     allCategoriesPage: [
         ...headerStrings,
         ...footerStrings,
+        "homeS3Tab1HC1",
+        "122d4f79-1d29-46b1-b14f-065e3014653e",
+        "5bc3ed59-391d-4242-abf5-61c46aa1d082",
+        "452419b5-e485-4e63-9329-a99c34c82a85",
+        "f9c8836a-2d8d-4d40-916c-a6b5ae9fc0a6",
+        "85a5ec3b-3fe8-4c80-ad2a-b3127f81976e",
+        "6d5d47a4-ef2f-40c4-b364-1b4f96d47af9",
+        "footerDisclosure4T1",
         "review2ProductName",
         "headerMenuSM5T6",
         "01c23336-eab7-4639-8eec-9e3f78a0c5a4",

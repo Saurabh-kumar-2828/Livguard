@@ -434,17 +434,17 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
     }, [sectionRef, sectionInView]);
 
     function ReadMore({text, className}: {text: string; className?: string}) {
-        const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-        const [isReadMore, setIsReadMore] = useState(false);
-        const toggleReadMore = () => {
-            setIsReadMore(!isReadMore);
-        };
+        // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+        // const [isReadMore, setIsReadMore] = useState(false);
+        // const toggleReadMore = () => {
+        //     setIsReadMore(!isReadMore);
+        // };
         return (
             <div
                 className={className}
-                ref={ref}
+                // ref={ref}
             >
-                {containerHeight !== undefined && containerWidth !== undefined && (containerHeight > containerWidth || containerWidth < 640) ? (
+                {/* {containerHeight !== undefined && containerWidth !== undefined && (containerHeight > containerWidth || containerWidth < 640) ? (
                     <p className="lg-text-body">
                         {!isReadMore && text.length > 135 ? text.slice(0, 135) + "..." : text}&nbsp;
                         <span
@@ -456,7 +456,12 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
                     </p>
                 ) : (
                     <p className="lg-text-body">{text}</p>
-                )}
+                )} */}
+
+                <div
+                    className="lg-text-body"
+                    dangerouslySetInnerHTML={{__html: text}}
+                />
             </div>
         );
     }

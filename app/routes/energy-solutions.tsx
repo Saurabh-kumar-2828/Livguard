@@ -73,7 +73,7 @@ const AllCategory = () => {
                         pageUrl={pageUrl}
                         breadcrumbs={[
                             {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                            {contentId: "d9d27569-28d8-423e-ba3e-d6344b779b94", link: "#"},
+                            {contentId: "homeS3Tab1HC1", link: "#"},
                         ]}
                     >
                         <AllCategoryPage userPreferences={userPreferences} />
@@ -89,11 +89,11 @@ const AllCategoryPage = ({userPreferences}: {userPreferences: UserPreferences}) 
     const contentData = useContext(ContentProviderContext);
     let HomeList = HomeSolutionList;
     let AutomotiveList = AutomotiveSolutionList;
-    // let SolarList = SolarSolutionList;
+    let SolarList = SolarSolutionList;
     const sectionHeading = {
         first: contentData.getContent("ef406184-26b6-42a4-98a1-5853097d7163"),
         second: contentData.getContent("0999c838-f6d4-4af4-b9a7-21413b3ad562"),
-        // third: contentData.getContent("2f30c959-a70d-410d-be4e-3aee24145b6b"),
+        third: contentData.getContent("2f30c959-a70d-410d-be4e-3aee24145b6b"),
     };
     return (
         <>
@@ -113,11 +113,12 @@ const AllCategoryPage = ({userPreferences}: {userPreferences: UserPreferences}) 
                     sectionId="automotiveSolutions"
                 />
 
-                {/* <ContentSection
+                <ContentSection
                     userPreferences={userPreferences}
                     list={SolarList}
                     title={sectionHeading.third}
-                /> */}
+                    sectionId="solarSolutions"
+                />
             </div>
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
         </>
@@ -392,39 +393,57 @@ const AutomotiveSolutionList = [
 
 const SolarSolutionList = [
     {
-        downTitle: "Solar Panel",
-        downTitleId: "?????",
-        relativeImageUrl: "/livguard/all-category/4/4.1.png",
-        redirectLink: "https://www.livguardsolar.com/",
-    },
-    {
-        downTitle: "Solar Inverter",
-        downTitleId: "f996231c-b2f6-41f8-82bb-dea49b2c9a3d",
-        relativeImageUrl: "/livguard/all-category/4/4.2.png",
-        redirectLink: "https://www.livguardsolar.com/",
+        downTitle: "Solar Panels",
+        downTitleId: "footerDisclosure4T1",
+        relativeImageUrl: "/livguard/all-category/4/solar-panel.png",
+        redirectLink: "https://www.livguardsolar.com/solar-panels",
     },
     {
         downTitle: "Solar Battery",
         downTitleId: "6d5d47a4-ef2f-40c4-b364-1b4f96d47af9",
-        relativeImageUrl: "/livguard/all-category/4/4.3.png",
-        redirectLink: "https://www.livguardsolar.com/",
+        relativeImageUrl: "/livguard/all-category/4/solar-batteries.png",
+        redirectLink: "https://www.livguardsolar.com/solar-batteries",
+    },
+    {
+        downTitle: "Solar-on-grid-inverters",
+        downTitleId: "85a5ec3b-3fe8-4c80-ad2a-b3127f81976e",
+        relativeImageUrl: "/livguard/all-category/4/solar-on-grid-inverter.png",
+        redirectLink: "https://www.livguardsolar.com/solar-on-grid-inverters",
+    },
+    {
+        downTitle: "Solar-off-grid-inverters",
+        downTitleId: "f9c8836a-2d8d-4d40-916c-a6b5ae9fc0a6",
+        relativeImageUrl: "/livguard/all-category/4/solar-off-grid-inverter.png",
+        redirectLink: "https://www.livguardsolar.com/solar-off-grid-inverters",
+    },
+    {
+        downTitle: "hybrid-inverters",
+        downTitleId: "452419b5-e485-4e63-9329-a99c34c82a85",
+        relativeImageUrl: "/livguard/all-category/4/hybrid-inverter.png",
+        redirectLink: "https://www.livguardsolar.com/hybrid-inverters",
     },
     {
         downTitle: "Solar Charger Controller",
-        downTitleId: "?????",
-        relativeImageUrl: "/livguard/all-category/4/4.4.png",
-        redirectLink: "https://www.livguardsolar.com/",
+        downTitleId: "5bc3ed59-391d-4242-abf5-61c46aa1d082",
+        relativeImageUrl: "/livguard/all-category/4/charge-controller.png",
+        redirectLink: "https://livguardsolar.com/charge-controller",
     },
     {
-        downTitle: "Street Light",
-        downTitleId: "93c283cc-941d-4382-aabb-67f017dd119b",
-        relativeImageUrl: "/livguard/all-category/4/4.5.png",
-        redirectLink: "https://www.livguardsolar.com/",
+        downTitle: "Solar Management Units",
+        downTitleId: "122d4f79-1d29-46b1-b14f-065e3014653e",
+        relativeImageUrl: "/livguard/all-category/4/solar-management-unit.png",
+        redirectLink: "https://www.livguardsolar.com/solar-management-unit",
     },
-    {
-        downTitle: "Accessories",
-        downTitleId: "b98f5c9e-16fc-4803-8494-1f54a8eb55c9",
-        relativeImageUrl: "/livguard/all-category/4/4.6.png",
-        redirectLink: "https://www.livguardsolar.com/",
-    },
+    // {
+    //     downTitle: "Street Light",
+    //     downTitleId: "93c283cc-941d-4382-aabb-67f017dd119b",
+    //     relativeImageUrl: "/livguard/all-category/4/4.5.png",
+    //     redirectLink: "https://www.livguardsolar.com/",
+    // },
+    // {
+    //     downTitle: "Accessories",
+    //     downTitleId: "b98f5c9e-16fc-4803-8494-1f54a8eb55c9",
+    //     relativeImageUrl: "/livguard/all-category/4/4.6.png",
+    //     redirectLink: "https://www.livguardsolar.com/",
+    // },
 ];

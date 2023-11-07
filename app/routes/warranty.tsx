@@ -417,30 +417,30 @@ function SeamlessService({userPreferences, className}: {userPreferences: UserPre
     }, [sectionRef, sectionInView]);
 
     function ReadMore({text, className}: {text: string; className?: string}) {
-        const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-        const [isReadMore, setIsReadMore] = useState(false);
-        const toggleReadMore = () => {
-            setIsReadMore(!isReadMore);
-        };
+        // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+        // const [isReadMore, setIsReadMore] = useState(false);
+        // const toggleReadMore = () => {
+        //     setIsReadMore(!isReadMore);
+        // };
 
-        const [cutoffIndex, setCutoffIndex] = useState(0);
-        useEffect(() => {
-            if (containerHeight !== undefined && containerWidth !== undefined) {
-                if (containerWidth < 640) {
-                    setCutoffIndex(225);
-                    return;
-                }
+        // const [cutoffIndex, setCutoffIndex] = useState(0);
+        // useEffect(() => {
+        //     if (containerHeight !== undefined && containerWidth !== undefined) {
+        //         if (containerWidth < 640) {
+        //             setCutoffIndex(225);
+        //             return;
+        //         }
 
-                setCutoffIndex(444);
-            }
-        }, [containerWidth]);
+        //         setCutoffIndex(444);
+        //     }
+        // }, [containerWidth]);
 
         return (
             <div
                 className={className}
-                ref={ref}
+                // ref={ref}
             >
-                <p className="lg-text-body">
+                {/* <p className="lg-text-body">
                     <span dangerouslySetInnerHTML={{__html: !isReadMore && text.length > cutoffIndex ? `${text.slice(0, cutoffIndex)}<span>...</span>` : text}} />
                     &nbsp;
                     <span
@@ -449,7 +449,10 @@ function SeamlessService({userPreferences, className}: {userPreferences: UserPre
                     >
                         {text.length > cutoffIndex && <>{isReadMore ? "Show Less" : "Read More"}</>}
                     </span>
-                </p>
+                </p> */}
+
+                <div className="lg-text-body" dangerouslySetInnerHTML={{__html: text}} />
+
             </div>
         );
     }
