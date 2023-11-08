@@ -3,7 +3,7 @@ import {json} from "@remix-run/node";
 import {verifyOtp} from "~/backend/authentication.server";
 import {insertOrUpdateLeadFormDetails} from "~/backend/dealer.server";
 import {sendDataToFreshsales} from "~/backend/freshsales.server";
-import { createLeadInLeadSquared } from "~/backend/leadSquared.server";
+import {createLeadInLeadSquared} from "~/backend/leadSquared.server";
 import {getNonEmptyStringFromUnknown, getObjectFromUnknown, getUuidFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {FormType} from "~/typeDefinitions";
 
@@ -115,7 +115,7 @@ export const action: ActionFunction = async ({request, params}) => {
             return json(actionData);
         }
 
-        if(source == "livguard"){
+        if (source == "livguard") {
             // console.log("source = livguard")
             const freshsalesResult = await sendDataToFreshsales(
                 leadId,
@@ -129,7 +129,7 @@ export const action: ActionFunction = async ({request, params}) => {
                 };
                 return json(actionData);
             }
-        }else {
+        } else {
             // console.log("source = solar")
             const leadSquaredBody = [
                 {Attribute: "FirstName", Value: `${inputData.name}`},
