@@ -133,6 +133,12 @@ export function OtpVerificationForm({
                         readOnly
                         value={pageUrl}
                     />
+                    <input
+                        name="source"
+                        className="tw-hidden"
+                        readOnly
+                        value={"livguard"}
+                    />
                 </fetcher.Form>
             </DefaultElementAnimation>
         </div>

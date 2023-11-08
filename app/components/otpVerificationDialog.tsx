@@ -203,6 +203,13 @@ export function OtpVerificationDialog({
                             readOnly
                             value={pageUrl}
                         />
+
+                        <input
+                            name="source"
+                            className="tw-hidden"
+                            readOnly
+                            value={"livguard"}
+                        />
                     </fetcher.Form>
                 </DefaultElementAnimation>
             </LivguardDialog>
