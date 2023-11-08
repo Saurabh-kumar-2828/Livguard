@@ -4,6 +4,7 @@ import {Form, useActionData, useLoaderData} from "@remix-run/react";
 import {useContext, useEffect, useState} from "react";
 import {toast} from "react-toastify";
 import {sendDataToFreshsalesForOrmTracking} from "~/backend/freshsales.server";
+import {createLeadInLeadSquared} from "~/backend/leadSquared.server";
 import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -47,12 +48,32 @@ export const action: ActionFunction = async ({request, params}) => {
         queryDetails: queryDetails,
     };
 
-    const freshsalesResult = await sendDataToFreshsalesForOrmTracking(contactData);
-    if (freshsalesResult instanceof Error) {
-        const actionData: OrmActionData = {
-            error: "Error in submitting form! Error code: 5469eb34-11d4-4b71-8055-d576beb78bdf",
-        };
-        return json(actionData);
+    if (product == "Solar") {
+        const leadSquaredBody = [
+            {Attribute: "FirstName", Value: `${name}`},
+            {Attribute: "EmailAddress", Value: `${emailId}`},
+            {Attribute: "Phone", Value: `${phoneNumber}`},
+            {Attribute: "mx_product", Value: `${product}`},
+            {Attribute: "mx_query_detail", Value: `${queryDetails}`},
+            {Attribute: "Source", Value: "OrmTracking"},
+            {Attribute: "SearchBy", Value: "Phone"},
+        ];
+
+        const leadSquaredResult = await createLeadInLeadSquared(leadSquaredBody);
+        if (leadSquaredResult instanceof Error) {
+            const actionData: OrmActionData = {
+                error: "Error in submitting form, Lead Squared api returned error response. Error code: 6213dbeb-b404-4f3d-9ba9-c4887ebbbf5f",
+            };
+            return json(actionData);
+        }
+    } else {
+        const freshsalesResult = await sendDataToFreshsalesForOrmTracking(contactData);
+        if (freshsalesResult instanceof Error) {
+            const actionData: OrmActionData = {
+                error: "Error in submitting form! Error code: 5469eb34-11d4-4b71-8055-d576beb78bdf",
+            };
+            return json(actionData);
+        }
     }
 
     const actionData: OrmActionData = {

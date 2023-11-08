@@ -130,7 +130,6 @@ export const action: ActionFunction = async ({request, params}) => {
                 return json(actionData);
             }
         } else {
-            // console.log("source = solar")
             const leadSquaredBody = [
                 {Attribute: "FirstName", Value: `${inputData.name}`},
                 {Attribute: "EmailAddress", Value: `${inputData.email}`},
