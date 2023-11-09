@@ -115,8 +115,7 @@ export const action: ActionFunction = async ({request, params}) => {
             return json(actionData);
         }
 
-        if (source == "livguard") {
-            // console.log("source = livguard")
+        if(source == "livguard"){
             const freshsalesResult = await sendDataToFreshsales(
                 leadId,
                 {mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, city: inputData.city, dealer: inputData.dealer, otpVerified: true},
@@ -129,7 +128,7 @@ export const action: ActionFunction = async ({request, params}) => {
                 };
                 return json(actionData);
             }
-        } else {
+        }else {
             const leadSquaredBody = [
                 {Attribute: "FirstName", Value: `${inputData.name}`},
                 {Attribute: "EmailAddress", Value: `${inputData.email}`},

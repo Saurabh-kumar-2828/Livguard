@@ -361,10 +361,10 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         finalUrl: "/livguard/home/3/energy solution icons/5-9b3738.png",
     },
     "/livguard/home/4/1-desktop.jpg": {
-        width: 3840,
-        height: 2509,
-        blurHash: "L48fyI^Q000#ITRQI=N@1bJ-}[}Y",
-        finalUrl: "/livguard/home/4/1-desktop-8b942a.jpg",
+        "width": 3840,
+        "height": 2509,
+        "blurHash": "L59$nQ$x011N0x$RI;NF0{Ek}t^3",
+        "finalUrl": "/livguard/home/4/1-desktop-528164.jpg"
     },
     "/livguard/home/4/1-mobile.jpg": {
         width: 3840,
@@ -7818,6 +7818,13 @@ const commonIcons = [
 
 const imageMetadataIdsAutomotiveTestimonials = [ "/livguard/products/peace-of-mind-combo/thumbnail.png", "/livguard/products/urban-combo/thumbnail.png", "/livguard/products/peace-of-mind-combo/thumbnail.png", "/livguard/products/urban-combo/thumbnail.png",]
 
+const imageMetadataForProductcardFour = [
+    "/livguard/car-and-suv/3/3.polarity.svg",
+    "/livguard/car-and-suv/3/3.warranty.svg",
+    "/livguard/car-and-suv/3/3.capacity.svg",
+    "/livguard/car-and-suv/3/3.dimensions.svg"
+]
+
 const imageMetadataIdsForPage = {
     homePage: [
         ...headerImages,
@@ -8600,6 +8607,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        ...imageMetadataForProductcardFour,
         "/livguard/battery-finder/battery-finder-og-banner.jpg",
         "/livguard/battery-finder/2/two-wheeler.svg",
         "/livguard/battery-finder/2/three-wheeler.svg",
@@ -8870,7 +8878,12 @@ const imageMetadataIdsForPage = {
         "/livguard/service/1/mobile-banner.jpg",
         "/livguard/service/1/desktop-banner.jpg",
     ],
-    dealerLocatorPage: [...headerImages, ...footerImages, ...commonIcons, "/livguard/common/og-banner.jpg"],
+    dealerLocatorPage: [
+        ...headerImages,
+        ...footerImages,
+        ...commonIcons,
+        "/livguard/common/og-banner.jpg"
+    ],
     aboutUsPage: [
         ...headerImages,
         ...footerImages,

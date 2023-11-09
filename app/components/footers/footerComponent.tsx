@@ -3,7 +3,7 @@ import {Link, useFetcher} from "@remix-run/react";
 import {useContext, useEffect, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {toast} from "react-toastify";
-import {Accordion, MoreAboutLivguardAccordian} from "~/components/accordian";
+import {Accordion, Accordion2, MoreAboutLivguardAccordian} from "~/components/accordian";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -1169,10 +1169,34 @@ export function FooterComponent({
                                 </div>
                             )}
                         />
+                        <Accordion2
+                            title={contentData.getContent("407c0e47-9c3b-47b0-a1f2-13fc372dff9f")}
+                            panelItem={
+                                <ItemBuilder
+                                    items={solarHomeAccordionList}
+                                    itemBuilder={(item, itemIndex) => (
+                                        <div
+                                            className="lg-text-secondary-900 tw-group tw-relative tw-overflow-hidden tw-w-fit"
+                                            key={itemIndex}
+                                        >
+                                            <Link
+                                                to={item.link}
+                                                className="hover:lg-text-primary-500"
+                                            >
+                                                {item.title}
+                                            </Link>
+                                            <span className="tw-absolute -tw-left-[1px] tw-bottom-0 -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 tw-h-[1px] tw-w-full lg-bg-primary-500"></span>
+                                        </div>
+                                    )}
+                                />
+                            }
+                            className=""
+                            // openDisclosureTitle={openDisclosureTitle}
+                            // setOpenDisclosureTitle={setOpenDisclosureTitle}
+                        />
                     </div>
-                    <VerticalSpacer className="tw-h-4" />
-                    <div className="tw-flex tw-flex-col lg:tw-gap-2">
-                        {/* <VerticalSpacer className="tw-h-1" /> */}
+                    {/* <VerticalSpacer className="tw-h-4" /> */}
+                    {/* <div className="tw-flex tw-flex-col lg:tw-gap-2">
                         <div className="tw-flex tw-flex-col lg:tw-gap-2">
                             <div className="lg-text-title2 lg-text-primary-500">{contentData.getContent("407c0e47-9c3b-47b0-a1f2-13fc372dff9f")}</div>
                             <ItemBuilder
@@ -1206,8 +1230,7 @@ export function FooterComponent({
                                 )}
                             />
                         </div>
-                    </div>
-                    {/* <VerticalSpacer className="tw-h-4" /> */}
+                    </div> */}
                 </div>
 
                 <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3 lg:tw-gap-2">

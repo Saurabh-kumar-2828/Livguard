@@ -431,7 +431,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             <div className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-bg-gradient-to-b tw-from-primary-500-dark tw-to-secondary-100-dark" />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 tw-z-10">
-                <h1 className="lg-text-banner lg-px-screen-edge tw-z-10 tw-text-center">
+                <h1 className="lg-text-banner lg-px-screen-edge tw-z-10 max-md:tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: contentData.getContent("loadCalculatorS1T1")}} />
                 </h1>
             </DefaultTextAnimation>

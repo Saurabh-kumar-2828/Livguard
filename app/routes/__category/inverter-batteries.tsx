@@ -34,6 +34,7 @@ import {SuggestedComboSection} from "~/routes/__category/inverter-for-home";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
+
 import {
     appendSpaceToString,
     getDownloadCatalogueLink,

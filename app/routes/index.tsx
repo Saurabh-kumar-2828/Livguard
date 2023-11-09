@@ -407,6 +407,7 @@ function HomePage({
                 userPreferences={userPreferences}
                 className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-16 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
+
         </div>
     );
 }
@@ -669,19 +670,19 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                     items={[
                         {
                             svgIcon: "/livguard/home/2/home-inverter.svg",
-                            title: "homeS3Tab2H",
-                        },
-                        {
-                            svgIcon: "/livguard/home/2/car-battery.svg",
-                            title: "homeS3Tab3H",
-                        },
-                        {
-                            svgIcon: "/livguard/home/2/car.svg",
-                            title: "homeS3Tab1H",
+                            title: "642467c3-8136-4523-b231-fa5aae9a075a",
                         },
                         {
                             svgIcon: "/livguard/home/2/home-solar-panel.svg",
                             title: "homeS3Tab4H",
+                        },
+                        {
+                            svgIcon: "/livguard/home/2/car-battery.svg",
+                            title: "e9624c2c-a16e-4f56-88a2-3e2710461b14",
+                        },
+                        {
+                            svgIcon: "/livguard/home/2/car.svg",
+                            title: "380adfbe-cb27-4b22-b601-db704a8d13ce",
                         },
                         {
                             svgIcon: "/livguard/home/2/home-other-accessories.svg",
@@ -732,13 +733,13 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                 target: null,
                             },
                             {
-                                image: "/livguard/home/3/3.jpg",
-                                headingContent1: `${contentData.getContent("homeS3Tab3HC1")}`,
-                                headingContent2: `${contentData.getContent("homeS3Tab3HC2")}`,
-                                content: `${contentData.getContent("homeS3Tab3C")}`,
-                                buttontext: `${contentData.getContent("homeS3Tab3BT")}`,
-                                buttonLink: "/inverter-batteries",
-                                target: null,
+                                image: "/livguard/home/3/4.jpg",
+                                headingContent1: `${contentData.getContent("homeS3Tab4HC1")}`,
+                                headingContent2: `${contentData.getContent("homeS3Tab4HC2")}`,
+                                content: `${contentData.getContent("homeS3Tab4C")}`,
+                                buttontext: `${contentData.getContent("homeS3Tab4BT")}`,
+                                buttonLink: "https://www.livguardsolar.com/",
+                                target: "_blank",
                             },
                             {
                                 image: "/livguard/home/3/1.jpg",
@@ -750,13 +751,13 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                 target: "_blank",
                             },
                             {
-                                image: "/livguard/home/3/4.jpg",
-                                headingContent1: `${contentData.getContent("homeS3Tab4HC1")}`,
-                                headingContent2: `${contentData.getContent("homeS3Tab4HC2")}`,
-                                content: `${contentData.getContent("homeS3Tab4C")}`,
-                                buttontext: `${contentData.getContent("homeS3Tab4BT")}`,
-                                buttonLink: "https://www.livguardsolar.com/",
-                                target: "_blank",
+                                image: "/livguard/home/3/3.jpg",
+                                headingContent1: `${contentData.getContent("homeS3Tab3HC1")}`,
+                                headingContent2: `${contentData.getContent("homeS3Tab3HC2")}`,
+                                content: `${contentData.getContent("homeS3Tab3C")}`,
+                                buttontext: `${contentData.getContent("homeS3Tab3BT")}`,
+                                buttonLink: "/inverter-batteries",
+                                target: null,
                             },
                             {
                                 image: "/livguard/home/3/5.jpg",
@@ -841,8 +842,6 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
         }));
     }, [sectionRef, sectionInView]);
 
-    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}
@@ -877,7 +876,7 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
 
                 <DefaultImageAnimation className="tw-w-full">
                     <FullWidthImage
-                        relativePath={isScreenSizeBelow ? "/livguard/home/4/1-mobile.jpg" : "/livguard/home/4/1-desktop.jpg"}
+                        relativePath="/livguard/home/4/1-desktop.jpg"
                         className="tw-rounded-lg"
                     />
                 </DefaultImageAnimation>

@@ -2303,6 +2303,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     loadCalculatorS1T1: {
         [Language.English]: `Plan Your Power Needs <br/>With Livguard <span class="lg-text-highlighted">Load Calculation</span>`,
         [Language.Hindi]: 'अपनी ऊर्जा ज़रूरतों को जानें <br/>हमारे <span class="lg-text-highlighted">लोड कैलकुलेशन</span> के साथ',
+        [Language.English]: `Plan Your Power Needs <br/>With Livguard <span class="lg-text-highlighted">Load Calculation</span>`,
+        [Language.Hindi]: 'अपनी ऊर्जा ज़रूरतों को जानें <br/>हमारे <span class="lg-text-highlighted">लोड कैलकुलेशन</span> के साथ',
     },
     loadCalculatorS1T2: {
         [Language.English]:
@@ -11913,7 +11915,7 @@ const automotiveTestimonials = [
     "review4Name",
     "review4State",
     "review4Message",
-];
+]
 
 const headerStrings: Array<string> = [
     "690c2edd-1a1c-47c2-a307-4fef4c8a6b0a",
@@ -12013,6 +12015,7 @@ const headerStrings: Array<string> = [
 
 const footerStrings = [
     ...popUpFormStrings,
+    "407c0e47-9c3b-47b0-a1f2-13fc372dff9f",
     "c26206f2-c606-486f-b8bc-4072e9afbf86",
     "8609c5f9-8e8a-4410-a815-c5e8926dc94f",
     "b353a93a-216c-45db-b566-4f7889cf23da",
@@ -12148,6 +12151,9 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     homePage: [
         ...headerStrings,
         ...footerStrings,
+        "380adfbe-cb27-4b22-b601-db704a8d13ce",
+        "e9624c2c-a16e-4f56-88a2-3e2710461b14",
+        "642467c3-8136-4523-b231-fa5aae9a075a",
         "13419db0-afcd-4c94-a571-35f6c62de3b4",
         "a782b30b-13a2-48f1-90f5-0569dba18c1c",
         "0f24d13c-8b25-4165-b0d4-197c059e4794",
