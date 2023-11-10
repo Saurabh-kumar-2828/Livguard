@@ -169,12 +169,12 @@ export default () => {
                         ]}
                         secondaryNavigationController={secondaryNavigationController}
                     >
-                        <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                        {/* <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}> */}
                             <InvestorPage
                                 userPreferences={userPreferences}
-                                secondaryNavigationController={secondaryNavigationController}
+                                // secondaryNavigationController={secondaryNavigationController}
                             />
-                        </SecondaryNavigationControllerContext.Provider>
+                        {/* </SecondaryNavigationControllerContext.Provider> */}
                     </PageScaffold>
                 </ContentProviderContext.Provider>
             </ImageProviderContext.Provider>

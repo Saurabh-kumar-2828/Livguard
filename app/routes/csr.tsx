@@ -453,10 +453,10 @@ function OurProjectsDesktop({userPreferences, className}: {userPreferences: User
             text: "6cf33ef3-328a-4ca5-b1bf-45cbe24eeefc",
         },
         {
-            image: "/livguard/csr/4/livelihood.jpg",
-            title: "0e69eb5a-a6eb-412e-a3b4-3462849b30ce",
-            buttontext: "f4dc779b-6680-4c34-8e60-5283b21a8ab5",
-            text: "6cf33ef3-328a-4ca5-b1bf-45cbe24eeefc",
+            image: "/livguard/csr/4/environment.jpg",
+            title: "705025d8-3bd7-44fa-9ab6-26d4c002d7fd",
+            buttontext: "9d9729a9-368b-4ffd-be0b-af85eaec59bf",
+            text: "4796d842-e26d-4ea1-9cd6-f6686b5458ad",
         },
     ];
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);

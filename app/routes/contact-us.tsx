@@ -434,7 +434,7 @@ function ContactPage({
             />
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
-            <div className="tw-row-start-4 tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-gap-x-16 lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto tw-w-full">
+            <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-gap-x-16 lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto tw-w-full">
                 {isScreenSizeBelow ? (
                     <>
                         <ClickConnectPowerUpSection
@@ -467,15 +467,15 @@ function ContactPage({
                 )}
             </div>
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-5 lg:tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
 
             <OurPresence
                 userPreferences={userPreferences}
-                className="tw-row-start-6 lg:tw-row-start-5 tw-col-start-1 lg:tw-col-span-full"
+                className="tw-row-start-5 tw-col-start-1 lg:tw-col-span-full"
                 headingTextContentId="contactUsS4H"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[7] lg:tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[6] tw-col-start-1 lg:tw-col-span-full" />
 
             {/* <ExploreCareers
                 userPreferences={userPreferences}

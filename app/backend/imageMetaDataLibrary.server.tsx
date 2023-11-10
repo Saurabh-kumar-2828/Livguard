@@ -7687,100 +7687,100 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         finalUrl: "/livguard/home/1/festive-mobile-352e8c.jpg",
     },
     "/livguard/e-rickshaw-batteries/4/c-1.png": {
-        "width": 612,
-        "height": 240,
-        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-1-8a93ac.png"
+        width: 612,
+        height: 240,
+        finalUrl: "/livguard/e-rickshaw-batteries/4/c-1-8a93ac.png",
     },
     "/livguard/e-rickshaw-batteries/4/c-2.png": {
-        "width": 612,
-        "height": 240,
-        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-2-beb18e.png"
+        width: 612,
+        height: 240,
+        finalUrl: "/livguard/e-rickshaw-batteries/4/c-2-beb18e.png",
     },
     "/livguard/e-rickshaw-batteries/4/c-3.png": {
-        "width": 612,
-        "height": 240,
-        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-3-783b1a.png"
+        width: 612,
+        height: 240,
+        finalUrl: "/livguard/e-rickshaw-batteries/4/c-3-783b1a.png",
     },
     "/livguard/e-rickshaw-batteries/4/c-4.png": {
-        "width": 612,
-        "height": 240,
-        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-4-0cad56.png"
+        width: 612,
+        height: 240,
+        finalUrl: "/livguard/e-rickshaw-batteries/4/c-4-0cad56.png",
     },
     "/livguard/e-rickshaw-batteries/4/c-5.png": {
-        "width": 612,
-        "height": 240,
-        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-5-a0a3eb.png"
+        width: 612,
+        height: 240,
+        finalUrl: "/livguard/e-rickshaw-batteries/4/c-5-a0a3eb.png",
     },
     "/livguard/e-rickshaw-batteries/4/c-6.png": {
-        "width": 612,
-        "height": 240,
-        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-6-80a733.png"
+        width: 612,
+        height: 240,
+        finalUrl: "/livguard/e-rickshaw-batteries/4/c-6-80a733.png",
     },
     "/livguard/e-rickshaw-batteries/4/c-7.png": {
-        "width": 612,
-        "height": 240,
-        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-7-f2a9a7.png"
+        width: 612,
+        height: 240,
+        finalUrl: "/livguard/e-rickshaw-batteries/4/c-7-f2a9a7.png",
     },
     "/livguard/e-rickshaw-batteries/4/c-8.png": {
-        "width": 612,
-        "height": 240,
-        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-8-521330.png"
+        width: 612,
+        height: 240,
+        finalUrl: "/livguard/e-rickshaw-batteries/4/c-8-521330.png",
     },
     "/livguard/e-rickshaw-batteries/4/c-9.png": {
-        "width": 612,
-        "height": 240,
-        "finalUrl": "/livguard/e-rickshaw-batteries/4/c-9-8154dd.png"
+        width: 612,
+        height: 240,
+        finalUrl: "/livguard/e-rickshaw-batteries/4/c-9-8154dd.png",
     },
     "/livguard/warranty/1/mobile-banner.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "L73b?;ZxRijXyGVqacj[j^acogkD",
-        "finalUrl": "/livguard/warranty/1/mobile-banner-78eb4c.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "L73b?;ZxRijXyGVqacj[j^acogkD",
+        finalUrl: "/livguard/warranty/1/mobile-banner-78eb4c.jpg",
     },
     "/livguard/all-category/4/charge-controller.png": {
-        "width": 3240,
-        "height": 3240,
-        "finalUrl": "/livguard/all-category/4/charge-controller-b0dfac.png"
+        width: 3240,
+        height: 3240,
+        finalUrl: "/livguard/all-category/4/charge-controller-b0dfac.png",
     },
     "/livguard/all-category/4/hybrid-inverter.png": {
-        "width": 3240,
-        "height": 3240,
-        "finalUrl": "/livguard/all-category/4/hybrid-inverter-6dae16.png"
+        width: 3240,
+        height: 3240,
+        finalUrl: "/livguard/all-category/4/hybrid-inverter-6dae16.png",
     },
     "/livguard/all-category/4/solar-batteries.png": {
-        "width": 3240,
-        "height": 3240,
-        "finalUrl": "/livguard/all-category/4/solar-batteries-cf6931.png"
+        width: 3240,
+        height: 3240,
+        finalUrl: "/livguard/all-category/4/solar-batteries-cf6931.png",
     },
     "/livguard/all-category/4/solar-management-unit.png": {
-        "width": 3240,
-        "height": 3240,
-        "finalUrl": "/livguard/all-category/4/solar-management-unit-73cd4a.png"
+        width: 3240,
+        height: 3240,
+        finalUrl: "/livguard/all-category/4/solar-management-unit-73cd4a.png",
     },
     "/livguard/all-category/4/solar-off-grid-inverter.png": {
-        "width": 3240,
-        "height": 3240,
-        "finalUrl": "/livguard/all-category/4/solar-off-grid-inverter-f07615.png"
+        width: 3240,
+        height: 3240,
+        finalUrl: "/livguard/all-category/4/solar-off-grid-inverter-f07615.png",
     },
     "/livguard/all-category/4/solar-on-grid-inverter.png": {
-        "width": 3240,
-        "height": 3240,
-        "finalUrl": "/livguard/all-category/4/solar-on-grid-inverter-c8f725.png"
+        width: 3240,
+        height: 3240,
+        finalUrl: "/livguard/all-category/4/solar-on-grid-inverter-c8f725.png",
     },
     "/livguard/all-category/4/solar-panel.png": {
-        "width": 3240,
-        "height": 3240,
-        "finalUrl": "/livguard/all-category/4/solar-panel-716df7.png"
+        width: 3240,
+        height: 3240,
+        finalUrl: "/livguard/all-category/4/solar-panel-716df7.png",
     },
     "/livguard/offers/2/offer-solar-offers-en-in.png": {
-        "width": 1791,
-        "height": 990,
-        "finalUrl": "/livguard/offers/2/offer-solar-offers-en-in-7aaa48.png"
+        width: 1791,
+        height: 990,
+        finalUrl: "/livguard/offers/2/offer-solar-offers-en-in-7aaa48.png",
     },
     "/livguard/offers/2/offer-solar-offers-hi-in.png": {
-        "width": 1794,
-        "height": 993,
-        "finalUrl": "/livguard/offers/2/offer-solar-offers-hi-in-223462.png"
+        width: 1794,
+        height: 993,
+        finalUrl: "/livguard/offers/2/offer-solar-offers-hi-in-223462.png",
     },
 };
 
@@ -7816,7 +7816,12 @@ const commonIcons = [
     "/livguard/find-the-thief/step-1-pattern.svg",
 ];
 
-const imageMetadataIdsAutomotiveTestimonials = [ "/livguard/products/peace-of-mind-combo/thumbnail.png", "/livguard/products/urban-combo/thumbnail.png", "/livguard/products/peace-of-mind-combo/thumbnail.png", "/livguard/products/urban-combo/thumbnail.png",]
+const imageMetadataIdsAutomotiveTestimonials = [
+    "/livguard/products/peace-of-mind-combo/thumbnail.png",
+    "/livguard/products/urban-combo/thumbnail.png",
+    "/livguard/products/peace-of-mind-combo/thumbnail.png",
+    "/livguard/products/urban-combo/thumbnail.png",
+];
 
 const imageMetadataForProductcardFour = [
     "/livguard/car-and-suv/3/3.polarity.svg",
@@ -8015,24 +8020,17 @@ const imageMetadataIdsForPage = {
         "/livguard/icons/waranty.png",
         "/livguard/products/it2272tt/thumbnail.png",
         "/livguard/icons/battery_capacity.png",
-        "/livguard/icons/waranty.png",
         "/livguard/icons/capacity.png",
-        "/livguard/icons/waranty.png",
         "/livguard/products/lg900/thumbnail.png",
         "/livguard/icons/capacity.png",
-        "/livguard/icons/waranty.png",
         "/livguard/products/lgs1100i/thumbnail.png",
         "/livguard/icons/capacity.png",
-        "/livguard/icons/waranty.png",
         "/livguard/products/lg1100/thumbnail.png",
         "/livguard/icons/battery_capacity.png",
-        "/livguard/icons/waranty.png",
         "/livguard/products/it2272tt/thumbnail.png",
         "/livguard/icons/battery_capacity.png",
-        "/livguard/icons/waranty.png",
         "/livguard/products/it2360tt/thumbnail.png",
         "/livguard/icons/battery_capacity.png",
-        "/livguard/icons/waranty.png",
         "/livguard/products/it2072tt/thumbnail.png",
         "/livguard/category/inverters/4/1.png",
         "/livguard/category/inverters/4/1.png",
@@ -8295,7 +8293,6 @@ const imageMetadataIdsForPage = {
         "/livguard/car-and-suv/3/3.polarity.svg",
         "/livguard/car-and-suv/3/3.dimensions.svg",
         "/livguard/products/zp38b20r/thumbnail.png",
-        "/livguard/car-and-suv/3/3.warranty.svg",
         "/livguard/car-and-suv/3/3.capacity.svg",
         "/livguard/car-and-suv/3/3.polarity.svg",
         "/livguard/car-and-suv/3/3.dimensions.svg",
@@ -8607,6 +8604,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/icons/waranty.png",
         ...imageMetadataForProductcardFour,
         "/livguard/battery-finder/battery-finder-og-banner.jpg",
         "/livguard/battery-finder/2/two-wheeler.svg",
@@ -9114,6 +9112,8 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/icons/inverter_capacity.png",
+        "/livguard/icons/waranty.png",
         "/livguard/icons/buyingGuide.png",
         "/livguard/icons/downloadCatalogue.png",
         "/livguard/products/peace-of-mind-combo/thumbnail.png",

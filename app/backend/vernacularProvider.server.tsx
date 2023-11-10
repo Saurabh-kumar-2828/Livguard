@@ -942,7 +942,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "लिवगार्ड",
     },
     landingPage2S5T1: {
-        [Language.English]: "AI Charing",
+        [Language.English]: "AI Charging",
         [Language.Hindi]: "एआई चार्जिंग",
     },
     landingPage2S5T2: {
@@ -1927,7 +1927,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "रोहित सिंह",
     },
     review3State: {
-        [Language.English]: "",
+        [Language.English]: "Maharashtra",
         [Language.Hindi]: "महाराष्ट्र",
     },
     review3Message: {
@@ -2506,7 +2506,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "मेरी इनवर्टर बैटरी कितना समय बैकअप प्रदान कर सकती है?",
     },
     categoryBatteryPageFAQQ4A: {
-        [Language.English]: `An inverter converts DC (direct current) power from a battery or solar panel into AC (alternating current) power, which can power appliances. <a href="/inverter-batteries" class="tw-underline">Livguard Inverters</a>come with a variety of features and options for an unlimited flow of energy for you.`,
+        [Language.English]: `An inverter converts DC (direct current) power from a battery or solar panel into AC (alternating current) power, which can power appliances. <a href="/inverter-batteries" class="tw-underline">Livguard Inverters</a> come with a variety of features and options for an unlimited flow of energy for you.`,
         [Language.Hindi]: `एक इन्वर्टर DC (डायरेक्ट करंट) पावर को बैटरी या सोलर पैनल से AC (अल्टरनेटिंग करंट) पावर में परिवर्तित करता है, जो बिजली के उपकरणों को चला सकता है। <a href="/inverter-batteries" class="tw-underline">लिवगार्ड इनवर्टर</a> आपके लिए ऊर्जा के असीमित प्रवाह के लिए कई प्रकार की विशेषताओं और विकल्पों के साथ आते हैं।`,
     },
     categoryBatteryPageFAQQ5Q: {
@@ -3658,7 +3658,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     "58490cb1-5f27-4f67-98d3-939b5a3b9b10": {
-        [Language.English]: `Request A <span class="lg-text-highlighted">Service</span>`,
+        [Language.English]: `Request a <span class="lg-text-highlighted">Service</span>`,
         [Language.Hindi]: `<span class="lg-text-highlighted">सर्विस</span>अनुरोध करें`,
     },
     "1cc00f3b-4b94-4e16-bc4f-a0337877d25e": {
@@ -7276,7 +7276,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `निरंतर ऊर्जा के लिए`,
     },
     "51d7f3dd-6922-4a86-8934-2eaf5ec55433": {
-        [Language.English]: `Request A Service`,
+        [Language.English]: `Request a Service`,
         [Language.Hindi]: `सर्विस अनुरोध करें`,
     },
     "b4c42c87-1ee1-4f06-8cff-abe7751a025c": {
@@ -8045,7 +8045,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     // CSR Page Vernac strings start
     "09b7690d-2117-461b-8a05-110dc4319240": {
         [Language.English]: `Our <span class="lg-text-highlighted">CSR Journey</span>`,
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
     },
     "b0e9add2-cb81-4ba8-a38b-ee9ac0734225": {
         [Language.English]: `<div class = "tw-text-center">At Livguard, our dedication to Corporate Social Responsibility (CSR) underpins our commitment to our stakeholders - within and beyond our community, reaching out wherever there's a need. Our aspiration is to bring about positive change by enhancing lives in our communities. We contribute to four fundamental domains of societal progress: nurturing education, fostering healthcare, boosting livelihoods, and promoting environmental sustainability.</div>`,
@@ -9505,7 +9505,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     "ce49a3f3-632d-40f4-ad37-af6549959d2f": {
         [Language.English]: "inverter",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
     },
     "2bff2acf-c753-43ec-88a0-01860d967c8b": {
         [Language.English]: "Top Household Inverters Suitable for Your Needs",
@@ -10498,7 +10498,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `????`,
     },
     "91a2a7a5-561e-4fd7-bb9f-76969e89b296": {
-        [Language.English]: `Request A Service`,
+        [Language.English]: `Request a Service`,
         [Language.Hindi]: `सर्विस अनुरोध करें`,
     },
     "8241d91a-5895-4c2f-bb29-81f1d508f4f9": {
@@ -15102,6 +15102,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     contactUsPage: [
         ...headerStrings,
         ...footerStrings,
+        "contactUsOTPT3E",
+        "phoneNumberChnage",
         "bbfcc492-d063-4024-bef5-605b7782bb80",
         "contactFormS1T1",
         "contactFormS1T2",
@@ -15174,6 +15176,10 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     csrPage: [
         ...headerStrings,
         ...footerStrings,
+        "f4dc779b-6680-4c34-8e60-5283b21a8ab5",
+        "9d9729a9-368b-4ffd-be0b-af85eaec59bf",
+        "d4c20c34-f47f-4fbf-bdfb-b04c242d6b6d",
+        "3cf2dca9-b278-4047-888a-c7f950364512",
         "705025d8-3bd7-44fa-9ab6-26d4c002d7fd",
         "9d9729a9-368b-4ffd-be0b-af85eaec59bf",
         "4796d842-e26d-4ea1-9cd6-f6686b5458ad",
