@@ -9625,7 +9625,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `बैटरी खोजक`,
     },
     "c5054f84-2266-408e-87f1-bf4cce619706": {
-        [Language.English]: `We use cookies (and similar techniques) on our site to improve the experience for you, enabling you to benefit from social sharing functionality (for Facebook, Instagram, etc.) and to tailor messages that are relevant to you (on our site, and others). They also help us understand how our site is being used. Read our <a href="privacy-policy" class="lg-link">Privacy Policy</a> for details. By clicking "Accept" you consent to our use of cookies.`,
+        [Language.English]: `We use cookies (and similar techniques) on our site to improve the experience for you, enabling you to benefit from social sharing functionality (for Facebook, Instagram, etc.) and to tailor messages that are relevant to you (on our site, and others). They also help us understand how our site is being used. Read our <a href="https://www.livguard.com/privacy-policy" class="tw-underline tw-font-bold">Privacy Policy</a> for details. By clicking "Accept" you consent to our use of cookies.`,
         [Language.Hindi]: `हम आपके अनुभव को बेहतर बनाने के लिए हमारी साइट पर कुकीज़ (और इसी तरह की तकनीकों) का उपयोग करते हैं, जिससे आप सामाजिक साझाकरण कार्यक्षमता (फेसबुक, इंस्टाग्राम इत्यादि के लिए) से लाभ उठा सकते हैं और उन संदेशों को तैयार कर सकते हैं जो आपके लिए प्रासंगिक हैं (हमारी साइट पर, और अन्य)। वे हमें यह समझने में भी मदद करते हैं कि हमारी साइट का उपयोग कैसे किया जा रहा है। "स्वीकार करें" पर क्लिक करके आप कुकीज़ के हमारे उपयोग के लिए सहमति देते हैं।`,
     },
     "286eb099-4488-4fa6-a2aa-23132972a9de": {
