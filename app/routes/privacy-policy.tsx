@@ -110,7 +110,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
 };
 
 export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/term-and-condition"}];
+    return [{rel: "canonical", href: "https://www.livguard.com/privacy-policy"}];
 };
 
 type LoaderData = {
