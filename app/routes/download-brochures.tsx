@@ -268,9 +268,45 @@ const galleryCardsData = [
         type: "Automotive",
     },
     {
-        imageRelativeUrl: "/livguard/download-brochures/2/Solar-Sol.png",
-        title: "homeS3Tab4H",
-        buttonLink: "https://www.livguard.com/static-assets/leaflet-solar-solutions.pdf",
+        imageRelativeUrl: "/livguard/all-category/4/charge-controller.png",
+        title: "46eb3f74-d78f-4ba2-b681-dd51a81bc914",
+        buttonLink: "https://www.livguard.com/static-assets/categories/charge-controller.pdf",
+        type: "Solar",
+    },
+    {
+        imageRelativeUrl: "/livguard/all-category/4/solar-batteries.png",
+        title: "036fe73d-7d0c-4221-ae1d-3101139338c6",
+        buttonLink: "https://www.livguard.com/static-assets/categories/solar-battery.pdf",
+        type: "Solar",
+    },
+    {
+        imageRelativeUrl: "/livguard/all-category/4/hybrid-inverter.png",
+        title: "ebb7642d-4c02-426e-83c0-06acd292ec33",
+        buttonLink: "https://www.livguard.com/static-assets/categories/solar-hybrid.pdf",
+        type: "Solar",
+    },
+    {
+        imageRelativeUrl: "/livguard/all-category/4/solar-management-unit.png",
+        title: "f12df3fc-ddaf-4809-b2dc-d34c218db76f",
+        buttonLink: "https://www.livguard.com/static-assets/categories/solar-management-unit.pdf",
+        type: "Solar",
+    },
+    {
+        imageRelativeUrl: "/livguard/all-category/4/solar-off-grid-inverter.png",
+        title: "f9c8836a-2d8d-4d40-916c-a6b5ae9fc0a6",
+        buttonLink: "https://www.livguard.com/static-assets/categories/solar-off-grid.pdf",
+        type: "Solar",
+    },
+    {
+        imageRelativeUrl: "/livguard/all-category/4/solar-on-grid-inverter.png",
+        title: "f4a2d034-5b81-4acc-9f92-5ac4f9c89809",
+        buttonLink: "https://www.livguard.com/static-assets/categories/ongrid.pdf",
+        type: "Solar",
+    },
+    {
+        imageRelativeUrl: "/livguard/all-category/4/solar-panel.png",
+        title: "c26206f2-c606-486f-b8bc-4072e9afbf86",
+        buttonLink: "https://www.livguard.com/static-assets/categories/solar-panel.pdf",
         type: "Solar",
     },
 ];

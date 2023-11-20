@@ -11819,7 +11819,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "हाइब्रिड इनवर्टर",
     },
     "46eb3f74-d78f-4ba2-b681-dd51a81bc914": {
-        [Language.English]: `Solar Charge Controllers`,
+        [Language.English]: `Solar Charge Controller`,
         [Language.Hindi]: "सोलर चार्ज कंट्रोलर",
     },
     "ad0d0afb-32f1-47e3-abb6-a2f6a1cdb1c0": {
@@ -16778,6 +16778,9 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "homeS3Tab2H",
         "footerDisclosure2T3",
         "review2ProductName",
+        "036fe73d-7d0c-4221-ae1d-3101139338c6",
+        "ebb7642d-4c02-426e-83c0-06acd292ec33",
+        "f9c8836a-2d8d-4d40-916c-a6b5ae9fc0a6",
         "6596ffc6-6377-4446-92b9-4cac254af278",
         "3be9fa84-b556-42a0-95d8-093c1254891a",
         "23384cb7-5097-4db3-964c-3010ed24ea63",
