@@ -407,7 +407,6 @@ function HomePage({
                 userPreferences={userPreferences}
                 className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-16 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
-
         </div>
     );
 }
@@ -433,13 +432,13 @@ function HeroSection({
     const [selectedBannerIndex, setSelectedBannerIndex] = useState(0);
 
     const banners = [
-        {
-            mobileImageRelativePath: "/livguard/home/1/festive-mobile.jpg",
-            desktopImageRelativePath: "/livguard/home/1/festive-desktop.jpg",
-            titleVernacId: "87a34c18-dea6-4303-b174-5a7b5bda3d1e",
-            subTitleVernacId: "homeS1T2",
-            textAlign: "left",
-        },
+        // {
+        //     mobileImageRelativePath: "/livguard/home/1/festive-mobile.jpg",
+        //     desktopImageRelativePath: "/livguard/home/1/festive-desktop.jpg",
+        //     titleVernacId: "87a34c18-dea6-4303-b174-5a7b5bda3d1e",
+        //     subTitleVernacId: "homeS1T2",
+        //     textAlign: "left",
+        // },
         // {
         //     mobileImageRelativePath: "/livguard/home/second-banner/mob-banner.jpg",
         //     desktopImageRelativePath: "/livguard/home/second-banner/desktop-banner.jpg",
@@ -474,9 +473,10 @@ function HeroSection({
                 <div
                     className={concatenateNonNullStringsWithSpaces(
                         "tw-h-full tw-overflow-hidden tw-grid tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate",
-                        selectedBannerIndex === 0
-                            ? " lg:tw-grid-rows-[0.5rem_1rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem] tw-grid-rows-[1rem_2rem_1rem_auto_1rem_auto_1rem_minmax(0,1fr)_3rem]"
-                            : "tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem]",
+                        // selectedBannerIndex === 0
+                        // ? " lg:tw-grid-rows-[0.5rem_1rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem] tw-grid-rows-[1rem_2rem_1rem_auto_1rem_auto_1rem_minmax(0,1fr)_3rem]"
+                        // : "tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem]",
+                        "tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_3rem]",
                     )}
                     key={selectedBannerIndex}
                 >
@@ -567,7 +567,7 @@ function HeroSection({
                     )}
                 </div>
             </div>
-            <button
+            {/* <button
                 type="button"
                 className="tw-h-fit tw-absolute tw-top-0 tw-bottom-0 tw-my-auto tw-left-4 tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light lg-bg-secondary-300"
                 onClick={() => {
@@ -587,7 +587,7 @@ function HeroSection({
                 }}
             >
                 <ChevronRightIcon className="tw-w-6 tw-h-6" />
-            </button>
+            </button> */}
         </div>
     );
 }

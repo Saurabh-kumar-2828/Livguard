@@ -12,6 +12,16 @@ pipeline {
     }
 
     stages {
+        stage("Slack message") {
+            steps {
+                script {
+                    if (env.BRANCH_NAME == "prod" || env.BRANCH_NAME == "stage") {
+                        slackSend channel: "C05CFBKKGMT", message: "The deployment process has started for ${JENKINS_JOB}. Branch is ${env.BRANCH_NAME}"
+                    }
+                }
+            }
+        }
+
         stage("Cloning git website") {
             steps {
                 git branch: env.BRANCH_NAME, credentialsId: "33c357dc-5f11-4930-9063-07bc866f7cff", url: "https://github.com/GrowthJockey/${GITHUB_REPOSITORY_NAME}.git"
@@ -106,6 +116,12 @@ pipeline {
                         sh """ssh ubuntu@43.204.40.59 '/home/ubuntu/sar-deployment/livguard-$DIRECTORY-deployment.sh'"""
                     }
                 }
+            }
+        }
+
+        stage("Workspace cleanup") {
+            steps {
+                cleanWs()
             }
         }
     }
