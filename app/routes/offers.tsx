@@ -543,6 +543,7 @@ export function BestOffers({
                                             userPreferences={userPreferences}
                                             tryToOpenContactUsDialog={tryToOpenContactUsDialog}
                                             key={categoryOfferIndex}
+                                            source={offers[selectedCategoryIndex][0].source}
                                         />
                                     );
                                 }}
@@ -780,7 +781,7 @@ function EmptyOfferCard({userPreferences, buttonText, buttonLink, target}: {user
     );
 }
 
-function OfferCard({offer, tryToOpenContactUsDialog, userPreferences, className}: {offer; tryToOpenContactUsDialog; userPreferences: UserPreferences; className?: string}) {
+function OfferCard({offer, tryToOpenContactUsDialog, userPreferences, className, source}: {offer; tryToOpenContactUsDialog; userPreferences: UserPreferences; className?: string; source: string}) {
     const contentData = useContext(ContentProviderContext);
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_auto] tw-gap-x-2 lg-card tw-rounded-lg", className)}>
@@ -793,26 +794,35 @@ function OfferCard({offer, tryToOpenContactUsDialog, userPreferences, className}
 
             <VerticalSpacer className="tw-h-4 lg:tw-col-span-2" />
 
-            <div
-                className="tw-text-center lg-text-title2 tw-px-4 lg:tw-col-span-2"
-                dangerouslySetInnerHTML={{__html: contentData.getContent("8110c3a9-9ce4-4fb6-9133-eed73ee34e88")}}
-            />
+            {source == "livguard" ? (
+                <div
+                    className="tw-text-center lg-text-title2 tw-px-4 lg:tw-col-span-2"
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("8110c3a9-9ce4-4fb6-9133-eed73ee34e88")}}
+                />
+            ) : (
+                <div
+                    className="tw-text-center lg-text-title2 tw-px-4 lg:tw-col-span-2"
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("2955ab5d-a342-46ab-8001-3bffae169e0f")}}
+                />
+            )}
 
             <VerticalSpacer className="tw-h-4 lg:tw-col-span-2" />
 
-            <div className="lg:tw-col-span-2 tw-grid tw-grid-cols-[repeat(2,minmax(0,1fr))] tw-gap-x-4 tw-px-4">
-                <img
-                    src="https://files.growthjockey.com/livguard/icons/offers/bajaj-finserv.png"
-                    alt="Bajaj Finserv Logo"
-                    className="tw-justify-self-end tw-px-4 tw-py-2 tw-rounded-lg"
-                />
+            {source == "livguard" && (
+                <div className="lg:tw-col-span-2 tw-grid tw-grid-cols-[repeat(2,minmax(0,1fr))] tw-gap-x-4 tw-px-4">
+                    <img
+                        src="https://files.growthjockey.com/livguard/icons/offers/bajaj-finserv.png"
+                        alt="Bajaj Finserv Logo"
+                        className="tw-justify-self-end tw-px-4 tw-py-2 tw-rounded-lg"
+                    />
 
-                <img
-                    src="https://files.growthjockey.com/livguard/icons/offers/paytail.png"
-                    alt="Paytail Logo"
-                    className="tw-justify-self-start dark:tw-bg-secondary-900-dark tw-px-4 tw-py-2 tw-rounded-lg"
-                />
-            </div>
+                    <img
+                        src="https://files.growthjockey.com/livguard/icons/offers/paytail.png"
+                        alt="Paytail Logo"
+                        className="tw-justify-self-start dark:tw-bg-secondary-900-dark tw-px-4 tw-py-2 tw-rounded-lg"
+                    />
+                </div>
+            )}
 
             <VerticalSpacer className="tw-h-4 lg:tw-col-span-2" />
 

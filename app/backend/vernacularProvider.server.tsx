@@ -3559,6 +3559,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Bring home the best products at <span class="lg-text-primary-500">0% interest</span> with our trusted finance partners`,
         [Language.Hindi]: `<span class="lg-text-highlighted">0% ब्याज</span> पर घर लाये बेहतरीन प्रोडक्ट्स, भरोसेमंद फाइनेंस पार्टनर्स के साथ`,
     },
+    "2955ab5d-a342-46ab-8001-3bffae169e0f": {
+        [Language.English]: `Bring home the best products at <span class="lg-text-primary-500">0% interest</span> `,
+        [Language.Hindi]: `<span class="lg-text-highlighted">0% ब्याज</span> पर घर लाये बेहतरीन प्रोडक्ट्स.`,
+    },
     "f0453469-c11f-46c4-b462-ad4445abfc46": {
         [Language.English]: "Offer valid till: ",
         [Language.Hindi]: "ऑफर की अवधि: ",
@@ -11915,7 +11919,7 @@ const automotiveTestimonials = [
     "review4Name",
     "review4State",
     "review4Message",
-]
+];
 
 const headerStrings: Array<string> = [
     "690c2edd-1a1c-47c2-a307-4fef4c8a6b0a",
@@ -14674,6 +14678,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "ddf400a4-3900-4561-85fb-1447c8693412",
         "46c68fad-1e6e-442c-ab3c-fc09234693d2",
         "8110c3a9-9ce4-4fb6-9133-eed73ee34e88",
+        "2955ab5d-a342-46ab-8001-3bffae169e0f",
         "4d53d9a4-bbd6-464b-be5c-f0bab1defe02",
         "5ac20616-07fb-44f4-bf6f-c5e16b272eb8",
         "abce92ec-fd9a-4578-ab56-ddfd9fdafe72",
