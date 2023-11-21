@@ -643,7 +643,7 @@ function HeroSection({
                                 alt="Livguard inverter-battery combo"
                                 className={concatenateNonNullStringsWithSpaces(
                                     "tw-absolute",
-                                    containerWidth < 768 ? "tw-bottom-0 tw-left-0 tw-w-2/5" : containerWidth < 1024 ? "tw-bottom-0 tw-left-0 tw-h-3/5" : "tw-bottom-[-5rem] tw-right-[20%] tw-h-3/5",
+                                    containerWidth < 768 ? "tw-bottom-0 tw-left-0 tw-w-1/2" : containerWidth < 1024 ? "tw-bottom-0 tw-left-0 tw-h-2/5" : "tw-bottom-0 tw-right-[20%] tw-h-2/5",
                                 )}
                             />
                         </>

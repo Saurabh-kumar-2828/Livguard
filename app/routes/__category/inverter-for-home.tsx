@@ -37,6 +37,8 @@ import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
+import {SocialMediaFeedsSection} from "..";
+import { CtaButton } from "~/components/scratchpad";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -189,6 +191,8 @@ export const loader: LoaderFunction = async ({request}) => {
         humanReadableModelNumbersForSuggestionsObj[slug] = getProductFromSlugAndLanguage(slug, userPreferences.language).humanReadableModelNumber;
     });
 
+    console.log("human >>>>>>", humanReadableModelNumbersForSuggestionsObj);
+
     const vernacularData = getVernacularFromBackend("homeInverterPage", userPreferences.language);
     const imageMetaDataLibrary = getImageMetadataLibraryFromBackend("inverterForHomePage");
     const ogBanner = getAbsolutePathForRelativePath(getMetadataForImageServerSide("/livguard/category/inverters/inverter-home-for.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null);
@@ -300,17 +304,6 @@ function CategoryPage({
                 humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
-
-            {/* <SideBySideOverviewSection userPreferences={userPreferences} />
-
-<VerticalSpacer className="tw-h-10" /> */}
-
-            <SuggestedComboSection
-                userPreferences={userPreferences}
-                className="lg:tw-px-[72px] xl:tw-px-[120px] "
-            />
-
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 " />
 
             <div className=" tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] lg:tw-items-center tw-max-w-7xl tw-mx-auto">
@@ -330,14 +323,19 @@ function CategoryPage({
 
             <VerticalSpacer className="lg:tw-h-20" />
 
-            <FaqSection
+            {/* <AboutLivguard
+                userPreferences={userPreferences}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            /> */}
+
+            <SocialMediaFeedsSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <AboutLivguard
+            <FaqSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
@@ -768,6 +766,17 @@ export function OurSuggestionsSection({
                     humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
                 />
             </div>
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
+
+            <SuggestedComboSection
+                userPreferences={userPreferences}
+                className=""
+                humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
+                items={selectedInverterType == InverterType.sine ? sectionData[0].relatedProducts : sectionData[1].relatedProducts}
+                vernacHeading="88b2c573-62ba-4013-a80d-af9a2843f575"
+                secondaryNavVernac="c8ff4d8e-09af-4842-ab13-fb94b7041685"
+            />
+
         </div>
     );
 }
@@ -897,27 +906,43 @@ export function SideBySideOverviewSection({userPreferences, className}: {userPre
     );
 }
 
-export function SuggestedComboSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+export function SuggestedComboSection({
+    userPreferences,
+    className,
+    humanReadableModelNumbersForSuggestions,
+    items,
+    vernacHeading,
+    secondaryNavVernac
+}: {
+    userPreferences: UserPreferences;
+    className: string;
+    humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
+    items: Array<string>;
+    vernacHeading: string;
+    secondaryNavVernac: string;
+}) {
     const contentData = useContext(ContentProviderContext);
+    const [isViewMore, setIsViewMore] = useState(false);
+
     const combosData: Array<ProductDetailsRecommendedProduct> = [
         {
             humanReadableModelNumber: contentData.getContent("categoryInvertersS6Combo1Title"),
-            slug: "urban-combo",
+            slug: "lg1550i",
             bestseller: false,
         },
         {
             humanReadableModelNumber: contentData.getContent("categoryInvertersS6Combo2Title"),
-            slug: "peace-of-mind-combo",
+            slug: "lg1450i",
             bestseller: true,
         },
         {
             humanReadableModelNumber: contentData.getContent("categoryInvertersS6Combo3Title"),
-            slug: "super-life-combo",
+            slug: "lgs1700",
             bestseller: true,
         },
         {
             humanReadableModelNumber: contentData.getContent("categoryInvertersS6Combo4Title"),
-            slug: "hi-power-combo",
+            slug: "lgs1600",
             bestseller: true,
         },
     ];
@@ -927,44 +952,50 @@ export function SuggestedComboSection({userPreferences, className}: {userPrefere
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
             "suggested-combo": {
-                humanReadableName: contentData.getContent("5270f2b4-c38b-45b7-8dac-0434f3e7bfcf"),
+                humanReadableName: contentData.getContent(secondaryNavVernac),
                 isCurrentlyVisible: sectionInView,
             },
         }));
     }, [sectionRef, sectionInView]);
     return (
         <div
-            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col adasdasdas tw-max-w-7xl tw-mx-auto", className)}
+            className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col adasdasdas tw-max-w-7xl tw-mx-auto", className)}
             id="suggested-combo"
             ref={sectionRef}
         >
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: contentData.getContent("categoryInvertersS6HT1")}} />
+                        <div dangerouslySetInnerHTML={{__html: contentData.getContent(vernacHeading)}} />
                     </DefaultTextAnimation>
                 </div>
             </div>
 
             <VerticalSpacer className="tw-h-10" />
 
-            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-4 tw-gap-x-2 lg:tw-gap-x-4 tw-gap-y-10">
+            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr) lg:tw-grid-rows-1 lg:tw-grid-cols-4 tw-gap-x-2 lg:tw-gap-x-4 tw-gap-y-10">
                 <ItemBuilder
-                    items={combosData}
+                    items={items}
                     itemBuilder={(recommendedProduct, recommendedProductIndex) => (
-                        <div
+                            (recommendedProductIndex<4 || isViewMore) &&  (<div
                             className={`tw-rounded-lg`}
                             key={recommendedProductIndex}
                         >
                             <ProductCardComponent
-                                recommendedProduct={recommendedProduct}
-                                ctaTextId="categoryViewComboButtontext"
+                                item={recommendedProduct}
+                                ctaTextId={secondaryNavVernac == "c8ff4d8e-09af-4842-ab13-fb94b7041685" ? "14ff9c61-2e86-48e2-a960-319a76b72dbc" : "f7b45469-6dc0-445a-946b-e1dd64d45828"}
                                 userPreferences={userPreferences}
+                                humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
                             />
-                        </div>
+                        </div>)
                     )}
                 />
             </div>
+
+            <VerticalSpacer className={concatenateNonNullStringsWithSpaces("tw-h-10", items.length > 4 ? "" : "tw-hidden")}/>
+
+            <CtaButton mainContainerClassName={concatenateNonNullStringsWithSpaces("tw-w-fit tw-m-auto", items.length > 4 ? "" : "tw-hidden")} onClick={()=>setIsViewMore(!isViewMore)} textVernacId={isViewMore ? "ac9a30fb-5654-4692-9995-84c2dbe8301b" : "030bbc5d-ed29-4f5e-a776-bbeff7ef8902"}/>
+
         </div>
     );
 }

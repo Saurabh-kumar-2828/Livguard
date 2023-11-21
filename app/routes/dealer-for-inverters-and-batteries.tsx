@@ -559,13 +559,6 @@ export function DealerLocatorPage({
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <FaqSection
-                userPreferences={userPreferences}
-                className="lg:tw-px-[72px] xl:tw-px-[120px]"
-            />
-
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
-
             <JoinLivguardNetwork
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
@@ -578,6 +571,13 @@ export function DealerLocatorPage({
             <SocialHandles
                 userPreferences={userPreferences}
                 heading={{text1: "dealerLocatorSocialHT1", text2: "dealerLocatorSocialHT2"}}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
+
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
+
+            <FaqSection
+                userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 

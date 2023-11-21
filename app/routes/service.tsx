@@ -1315,12 +1315,13 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                 <VerticalSpacer className="tw-h-4 lg:tw-h-4" />
 
                 <TestimonialsCarousel
+                    // snapDotsDivisionFactor={2}
                     userPreferences={userPreferences}
                     testimonials={[
                         {
                             video: (
                                 <EmbeddedYoutubeVideo
-                                    id="rVC-ncTBhls"
+                                    id="c1Y5SuVDPi0"
                                     style={{aspectRatio: "560/315"}}
                                     className="tw-rounded-lg"
                                 />
@@ -1332,35 +1333,52 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                             productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
                             // productName: `${contentData.getContent("review1ProductName")}`,
                         },
-                        // {
-                        //     video: (
-                        //         <EmbeddedYoutubeVideo
-                        //             id="pNMTMVDWtiU"
-                        //             style={{aspectRatio: "560/315"}}
-                        //         />
-                        //     ),
-                        //     name: `${contentData.getContent("review2Name")}`,
-                        //     rating: 5,
-                        //     state: `${contentData.getContent("review2State")}`,
-                        //     message: `${contentData.getContent("review2Message")}`,
-                        //     productImage: "/livguard/products/urban-combo/thumbnail.png",
-                        //     productName: `${contentData.getContent("review2ProductName")}`,
-                        // },
                         {
-                            name: `${contentData.getContent("review3Name")}`,
+                            video: (
+                                <EmbeddedYoutubeVideo
+                                    id="pNHmKwg073g"
+                                    style={{aspectRatio: "560/315"}}
+                                    className="tw-rounded-lg"
+                                />
+                            ),
+                            name: `${contentData.getContent("review2Name")}`,
                             rating: 5,
-                            state: `${contentData.getContent("review3State")}`,
-                            message: `${contentData.getContent("review3Message")}`,
-                            productImage: "/livguard/products/lgs1100i/thumbnail.png",
-                            // productName: `${contentData.getContent("review3ProductName")}`,
+                            // state: `${contentData.getContent("review2State")}`,
+                            state: ``,
+                            message: `${contentData.getContent("review2Message")}`,
+                            productImage: "/livguard/products/urban-combo/thumbnail.png",
+                            // productName: `${contentData.getContent("review2ProductName")}`,
                         },
                         {
+                            video: (
+                                <EmbeddedYoutubeVideo
+                                    id="RbRSzFRHkzo"
+                                    style={{aspectRatio: "560/315"}}
+                                    className="tw-rounded-lg"
+                                />
+                            ),
+                            name: `${contentData.getContent("review3Name")}`,
+                            rating: 5,
+                            // state: `${contentData.getContent("review3State")}`,
+                            state: ``,
+                            message: `${contentData.getContent("review3Message")}`,
+                            productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
+                            // productName: `${contentData.getContent("review1ProductName")}`,
+                        },
+                        {
+                            video: (
+                                <EmbeddedYoutubeVideo
+                                    id="Oaj6OiYSlYQ"
+                                    style={{aspectRatio: "560/315"}}
+                                    className="tw-rounded-lg"
+                                />
+                            ),
                             name: `${contentData.getContent("review4Name")}`,
-                            rating: 4,
+                            rating: 5,
                             state: `${contentData.getContent("review4State")}`,
                             message: `${contentData.getContent("review4Message")}`,
                             productImage: "/livguard/products/urban-combo/thumbnail.png",
-                            // productName: `${contentData.getContent("review4ProductName")}`,
+                            // productName: `${contentData.getContent("review2ProductName")}`,
                         },
                     ]}
                 />
