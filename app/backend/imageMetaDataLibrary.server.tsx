@@ -4240,9 +4240,9 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         finalUrl: "/livguard/lp3/1/bg-e624f7.jpg",
     },
     "/livguard/lp3/1/combo.png": {
-        width: 452,
-        height: 412,
-        finalUrl: "/livguard/lp3/1/combo-a25e68.png",
+        "width": 1354,
+        "height": 919,
+        "finalUrl": "/livguard/lp3/1/combo-7a02e9.png"
     },
     "/livguard/service/1/banner-desktop.jpg": {
         width: 1280,
@@ -7830,6 +7830,13 @@ const imageMetadataForProductcardFour = [
     "/livguard/car-and-suv/3/3.dimensions.svg"
 ]
 
+const imageMetadataForProductcardFour = [
+    "/livguard/car-and-suv/3/3.polarity.svg",
+    "/livguard/car-and-suv/3/3.warranty.svg",
+    "/livguard/car-and-suv/3/3.capacity.svg",
+    "/livguard/car-and-suv/3/3.dimensions.svg"
+]
+
 const imageMetadataIdsForPage = {
     homePage: [
         ...headerImages,
@@ -8604,8 +8611,8 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
-        "/livguard/icons/waranty.png",
         ...imageMetadataForProductcardFour,
+        "/livguard/icons/waranty.png",
         "/livguard/battery-finder/battery-finder-og-banner.jpg",
         "/livguard/battery-finder/2/two-wheeler.svg",
         "/livguard/battery-finder/2/three-wheeler.svg",

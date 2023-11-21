@@ -507,7 +507,7 @@ export function CtaButton({
     disabled,
     type,
 }: {
-    userPreferences: UserPreferences;
+    userPreferences?: UserPreferences;
     onClick: MouseEventHandler;
     textVernacId: string;
     buttonClassName?: string;
@@ -518,7 +518,7 @@ export function CtaButton({
 }) {
     const contentData = useContext(ContentProviderContext);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden", mainContainerClassName)}>
+        <div className={concatenateNonNullStringsWithSpaces("", mainContainerClassName)}>
             <div className="tw-overflow-hidden tw-h-[calc(100%+2px)] tw-w-[calc(100%+2px)]">
                 <div
                     className={concatenateNonNullStringsWithSpaces(

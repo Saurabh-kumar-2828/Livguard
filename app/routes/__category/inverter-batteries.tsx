@@ -53,6 +53,7 @@ import {getVernacularFromBackend} from "~/backend/vernacularProvider.server";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from "~/backend/imageMetaDataLibrary.server";
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
+import {SocialMediaFeedsSection} from "..";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -389,17 +390,6 @@ function CategoryPage({
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            {/* <SideBySideOverviewSection userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" /> */}
-
-            <SuggestedCombo
-                userPreferences={userPreferences}
-                className="lg:tw-px-[72px] xl:tw-px-[120px]"
-            />
-
-            <VerticalSpacer className="tw-h-10 llg:tw-h-20" />
-
             <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-items-center lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto">
                 <DealerLocator
                     userPreferences={userPreferences}
@@ -417,14 +407,19 @@ function CategoryPage({
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <FaqSection
+            {/* <AboutLivguard
+                userPreferences={userPreferences}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            /> */}
+
+            <SocialMediaFeedsSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <AboutLivguard
+            <FaqSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
@@ -966,7 +961,7 @@ export function OurSuggestionsSection({
             link: "/product/it1048st",
             exploreButton: contentData.getContent("categoryBatteriesS4BT"),
             relatedProductsHeading: contentData.getContent("categoryBatteriesS4RelatedProductsHeading"),
-            relatedProducts: ["it1550tt", "it1584tt", "it1642tt", "it1648tt", "it1672tt", "it1860tt", "it1872tt", "it2048tt", "it2060tt", "it2072tt", "it2272tt", "it2360tt", "it2672tt"],
+            relatedProducts: ["it1642tt", "it1648tt", "it2048tt", "it9048st", "it1548stt"],
         },
         {
             typeDescription: `${contentData.getContent("categoryBatteriesS4Slide2TypeDescription")}`,
@@ -999,7 +994,7 @@ export function OurSuggestionsSection({
             link: "/product/it1560stt",
             exploreButton: contentData.getContent("categoryBatteriesS4BT"),
             relatedProductsHeading: contentData.getContent("categoryBatteriesS4RelatedProductsHeading"),
-            relatedProducts: ["it9048st"],
+            relatedProducts: ["it1550tt", "it1860tt", "it2060tt", "it2360tt"],
         },
         {
             typeDescription: `${contentData.getContent("categoryBatteriesS4Slide3TypeDescription")}`,
@@ -1032,7 +1027,7 @@ export function OurSuggestionsSection({
             link: "/product/it1560stt",
             exploreButton: contentData.getContent("categoryBatteriesS4BT"),
             relatedProductsHeading: contentData.getContent("categoryBatteriesS4RelatedProductsHeading"),
-            relatedProducts: ["it1172stt", "it1548stt"],
+            relatedProducts: ["it1172stt", "it1584tt", "it1672tt", "it1872tt", "it2072tt", "it2272tt", "it2672tt"],
         },
     ];
 
@@ -1107,6 +1102,19 @@ export function OurSuggestionsSection({
                     humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
                 />
             </div>
+
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
+
+            <SuggestedComboSection
+                userPreferences={userPreferences}
+                className=""
+                humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
+                items={sectionData[selectedBatteryTypeIndex].relatedProducts}
+                vernacHeading="fbe6bb56-2584-4d9a-b759-cf83f5459033"
+                secondaryNavVernac="33fe96aa-63fb-4f68-9192-aa902d499967"
+            />
+
+            {/* <VerticalSpacer className="tw-h-10 lg:tw-h-20" /> */}
         </div>
     );
 }
@@ -1349,7 +1357,17 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
     );
 }
 
-function SuggestedCombo({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function SuggestedCombo({
+    userPreferences,
+    className,
+    humanReadableModelNumbersForSuggestions,
+    items,
+}: {
+    userPreferences: UserPreferences;
+    className?: string;
+    humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions;
+    items: Array<string>;
+}) {
     const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
@@ -1371,6 +1389,8 @@ function SuggestedCombo({userPreferences, className}: {userPreferences: UserPref
             <SuggestedComboSection
                 userPreferences={userPreferences}
                 className=""
+                humanReadableModelNumbersForSuggestions={humanReadableModelNumbersForSuggestions}
+                items={items}
             />
         </div>
     );

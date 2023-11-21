@@ -1256,8 +1256,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "505(L) x 188(W) x 367(H)",
     },
     categoryBatteriesS4Slide3Heading: {
-        [Language.English]: "IT1560STT",
-        [Language.Hindi]: "IT1560STT",
+        [Language.English]: "IT1172STT",
+        [Language.Hindi]: "IT1172STT",
     },
     categoryBatteriesS4Slide3Description: {
         [Language.English]:
@@ -1266,20 +1266,20 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
     },
     categoryBatteriesSlide3KS1Description: {
-        [Language.English]: "60 + 24* Months",
-        [Language.Hindi]: "60 + 24* महीने",
+        [Language.English]: "42 + 30* Months",
+        [Language.Hindi]: "42 + 30* महीने",
     },
     categoryBatteriesSlide3KS2Description: {
-        [Language.English]: "150 Ah",
-        [Language.Hindi]: "150 Ah",
+        [Language.English]: "110 Ah",
+        [Language.Hindi]: "110 Ah",
     },
     categoryBatteriesSlide3KS3Description: {
         [Language.English]: "Longer Life",
         [Language.Hindi]: "लम्बी अवधी",
     },
     categoryBatteriesSlide3KS4Description: {
-        [Language.English]: "505(L) x 188(W) x 410(H)",
-        [Language.Hindi]: "505(L) x 188(W) x 410(H)",
+        [Language.English]: "505(L) x 188(W) x 367(H)",
+        [Language.Hindi]: "505(L) x 188(W) x 367(H)",
     },
     categoryBatteriesS4Slide1TypeDescription: {
         [Language.English]: "Batteries with an assured 4-year warranty to power up your home",
@@ -1701,12 +1701,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     categoryInvertersS6HT1: {
-        [Language.English]: `Suggested <span class="lg-text-highlighted">Combos</span>`,
+        [Language.English]: `Suggested <span class="lg-text-highlighted">Inverters</span>`,
         [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted">कॉम्बो</span>`, // TODO: Fix
     },
     categoryInvertersS6Combo1Title: {
-        [Language.English]: "The Urban Combo",
-        [Language.Hindi]: "अर्बन कॉम्बो",
+        [Language.English]: "Square wave Inverter | 1250VA Capacity",
+        [Language.Hindi]: "स्क्वायर वेव इनवर्टर | 1250 VA क्षमता",
     },
     categoryInvertersS6Combo2Title: {
         [Language.English]: "The Peace Of Mind Combo",
@@ -1717,8 +1717,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "सुपर लाइफ कॉम्बो",
     },
     categoryInvertersS6Combo4Title: {
-        [Language.English]: "The Hi-Power Combo",
-        [Language.Hindi]: "हाई-पॉवर कॉम्बो",
+        [Language.English]: "Sine wave Inverter | 1500 VA Capacity",
+        [Language.Hindi]: "साइन वेव इनवर्टर | 1500 VA क्षमता",
     },
     categoryInvertersS6ComboButtontext: {
         [Language.English]: "Know More",
@@ -5092,7 +5092,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "05dd627c-2d81-4390-a8ec-4543cb8b8cd7": {
         [Language.English]: `Show Less`,
-        [Language.Hindi]: `कम देखे`,
+        [Language.Hindi]: `कम दिखाएं`,
     },
 
     //E Rickshaw Charger vernac start
@@ -6743,7 +6743,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "ac9a30fb-5654-4692-9995-84c2dbe8301b": {
         [Language.English]: `Show Less`,
-        [Language.Hindi]: `कम देखे`,
+        [Language.Hindi]: `कम दिखाएं`,
+    },
+    "030bbc5d-ed29-4f5e-a776-bbeff7ef8902": {
+        [Language.English]: `View More`,
+        [Language.Hindi]: `अधिक दिखाएं`,
     },
     "16052fa6-9c46-49f5-b3dc-a90ba4a0cd64": {
         [Language.English]: `Can an e-rickshaw charger recharge deeply discharged batteries?`,
@@ -11882,6 +11886,30 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Solar Management Units",
         [Language.Hindi]: "सोलर मैनेजमेंट यूनिट",
     },
+    "88b2c573-62ba-4013-a80d-af9a2843f575": {
+        [Language.English]: `Suggested <span class="lg-text-highlighted">Inverters</span>`,
+        [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted">इनवर्टर</span>`,
+    },
+    "c8ff4d8e-09af-4842-ab13-fb94b7041685": {
+        [Language.English]: `Suggested Inverters`,
+        [Language.Hindi]: `सुझायी गई इनवर्टर`,
+    },
+    "fbe6bb56-2584-4d9a-b759-cf83f5459033": {
+        [Language.English]: `Suggested <span class="lg-text-highlighted">Batteries</span>`,
+        [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted">बैटरी</span>`,
+    },
+    "33fe96aa-63fb-4f68-9192-aa902d499967": {
+        [Language.English]: `Suggested Batteries`,
+        [Language.Hindi]: `सुझायी गई बैटरी`,
+    },
+    "14ff9c61-2e86-48e2-a960-319a76b72dbc": {
+        [Language.English]: `View Inverter`,
+        [Language.Hindi]: `इनवर्टर देखें`,
+    },
+    "f7b45469-6dc0-445a-946b-e1dd64d45828": {
+        [Language.English]: `View Battery`,
+        [Language.Hindi]: `बैटरी देखें`,
+    },
 };
 
 const popUpFormStrings = [
@@ -12275,6 +12303,13 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     homeInverterPage: [
         ...headerStrings,
         ...footerStrings,
+        "14ff9c61-2e86-48e2-a960-319a76b72dbc",
+        "030bbc5d-ed29-4f5e-a776-bbeff7ef8902",
+        "ac9a30fb-5654-4692-9995-84c2dbe8301b",
+        "c8ff4d8e-09af-4842-ab13-fb94b7041685",
+        "88b2c573-62ba-4013-a80d-af9a2843f575",
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "642467c3-8136-4523-b231-fa5aae9a075a",
         "3a186513-50e2-4738-8d17-0f8691fa7b1c",
@@ -12711,6 +12746,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     hkvaInverterPage: [
         ...headerStrings,
         ...footerStrings,
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "f19bea1b-ce21-4a14-af85-b49b68827611",
         "5c88bf46-4d04-4588-ab8b-1be8ab296bf0",
         "a53c5496-6d8d-4650-bd9e-2f0af6e9da73",
@@ -13139,6 +13176,13 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     inverterBatteriesPage: [
         ...headerStrings,
         ...footerStrings,
+        "f7b45469-6dc0-445a-946b-e1dd64d45828",
+        "030bbc5d-ed29-4f5e-a776-bbeff7ef8902",
+        "ac9a30fb-5654-4692-9995-84c2dbe8301b",
+        "fbe6bb56-2584-4d9a-b759-cf83f5459033",
+        "33fe96aa-63fb-4f68-9192-aa902d499967",
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "774db10b-9d90-42dd-bf81-8a1b389178d3",
         "categoryBatteriesS1T1",
@@ -13428,6 +13472,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     inverterTrolleyPage: [
         ...headerStrings,
         ...footerStrings,
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "f19bea1b-ce21-4a14-af85-b49b68827611",
         "f4004e8d-d0a5-443f-91a0-9e97bc0b45ed",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
@@ -13519,6 +13565,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...footerStrings,
         ...automotiveTestimonials,
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "bee977fa-8e42-472e-8aef-d1076511495c",
         "75631f2e-d3eb-4845-92cb-84e6d7560027",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
@@ -13643,6 +13691,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...footerStrings,
         ...automotiveTestimonials,
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "bc05eaaf-05bc-45d2-b2b1-30386e1fc562",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "1f4dc0d2-b14b-4361-8af9-f19b722b7aff",
@@ -13739,6 +13789,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...footerStrings,
         ...automotiveTestimonials,
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "abce92ec-fd9a-4578-ab56-ddfd9fdafe72",
         "0044b486-6eca-4e3a-abf0-102eede6e10c",
         "abce92ec-fd9a-4578-ab56-ddfd9fdafe72",
@@ -13910,6 +13962,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...footerStrings,
         ...automotiveTestimonials,
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "abce92ec-fd9a-4578-ab56-ddfd9fdafe72",
         "0044b486-6eca-4e3a-abf0-102eede6e10c",
         "abce92ec-fd9a-4578-ab56-ddfd9fdafe72",
@@ -14061,6 +14115,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...footerStrings,
         ...automotiveTestimonials,
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "abce92ec-fd9a-4578-ab56-ddfd9fdafe72",
         "0044b486-6eca-4e3a-abf0-102eede6e10c",
         "abce92ec-fd9a-4578-ab56-ddfd9fdafe72",
@@ -14277,6 +14333,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...footerStrings,
         ...automotiveTestimonials,
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "01553562-bafd-4ad3-a18c-7b6cc113f03f",
         "f754b360-ca73-4b3c-a709-3e60470da0de",
         "ab5df361-c4a5-4f3a-b26e-21eff3cb23bc",
@@ -14389,6 +14447,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         ...headerStrings,
         ...footerStrings,
         ...automotiveTestimonials,
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "f19bea1b-ce21-4a14-af85-b49b68827611",
         "homeS10H1T1",
         "homeS10H1T2",
@@ -14750,6 +14810,9 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     servicePage: [
         ...headerStrings,
         ...footerStrings,
+        "call-us",
+        "review2Name",
+        "review2Message",
         "89840280-463a-4cd3-b9c4-1e94eb5babd7",
         "1f489840-705d-44b1-a18a-73a2645594de",
         "521eb4a5-fa32-4ac8-aa40-b8866848e565",
@@ -15001,6 +15064,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "homeS11T2",
         "homeS11T2",
         "homeS11T2",
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "cfab263f-0175-43fb-91e5-fccc64209d36",
         "ee7b3699-a35c-4ad9-981d-ee178abd03e3",
         "639fd244-9283-4467-b186-6ee26321127b",
@@ -15755,6 +15820,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     eWasteManagementPage: [
         ...headerStrings,
         ...footerStrings,
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "bda064ee-6cc6-43f7-a7cb-8f14d9e050d9",
         "4eb87934-841c-4c9f-898e-3bfbac44f2a2",
         "e7e9c51a-f71f-45dc-9607-93bd3236c6b5",
@@ -15933,6 +16000,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     stabilizerPage: [
         ...headerStrings,
         ...footerStrings,
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "dead4984-38fc-490e-8b38-0670a9a03631",
         "e716f6b1-74ad-4087-80e1-fb88fb9a44ce",
         "10653f56-45cc-4317-9951-d6db74523397",
@@ -16072,6 +16141,8 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     productPage: [
         ...headerStrings,
         ...footerStrings,
+        "34faf8f5-f199-4cb7-be52-dc46737415e6",
+        "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "774db10b-9d90-42dd-bf81-8a1b389178d3",
         "a3c3f514-2bf9-401e-9351-d921d4f1cbe4",

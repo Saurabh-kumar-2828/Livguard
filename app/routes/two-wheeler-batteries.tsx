@@ -42,6 +42,7 @@ import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from 
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 import {FancySearchableSelect} from "~/components/searchableSelects";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
+import { SocialMediaFeedsSection } from ".";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -292,24 +293,27 @@ function TwoWheelerBatteriesPage({
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full" />
 
-
                 <AutomotiveTestimonials
                     userPreferences={userPreferences}
                     className="tw-row-start-[12] lg:tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge-2"
                 />
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full" />
 
-                <FaqSection
+                {/* <SocialHandles
                     userPreferences={userPreferences}
-                    className="tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl"
+                    heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
+                    className="tw-row-start-[14] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                /> */}
+                <SocialMediaFeedsSection
+                    userPreferences={userPreferences}
+                    className="tw-row-start-[14] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[15] tw-col-start-1 lg:tw-col-span-full" />
 
-                <SocialHandles
+                <FaqSection
                     userPreferences={userPreferences}
-                    heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
-                    className="tw-row-start-[16] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-[16] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[17] tw-col-start-1 lg:tw-col-span-full" />
@@ -706,7 +710,7 @@ function OurSuggestionsBasedOnYourChoice({
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
     const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
-    const [brandIndex, setBrandIndex] = useState <number | null> (null);
+    const [brandIndex, setBrandIndex] = useState<number | null>(null);
     useEffect(() => {
         secondaryNavigationController.setSections((previousSections) => ({
             ...previousSections,
@@ -870,6 +874,8 @@ function OurSuggestionsBasedOnYourChoice({
                                 segmentFetcher={segmentFetcher}
                                 modelFetcher={modelFetcher}
                                 findBatteryFetcher={findBatteryFetcher}
+                                brandIndex={brandIndex}
+                                setBrandIndex={setBrandIndex}
                             />
                         </div>
                     }
@@ -1263,6 +1269,8 @@ export function FilterMobile({
     segmentFetcher,
     modelFetcher,
     findBatteryFetcher,
+    brandIndex,
+    setBrandIndex
 }: {
     userPreferences: UserPreferences;
     batteryFinderState: BatteryFinderState;
@@ -1271,13 +1279,15 @@ export function FilterMobile({
     segmentFetcher: FetcherWithComponents<any>;
     modelFetcher: FetcherWithComponents<any>;
     findBatteryFetcher: FetcherWithComponents<any>;
+    brandIndex: number | null;
+    setBrandIndex: React.Dispatch<React.SetStateAction<number | null>>
 }) {
     const contentData = useContext(ContentProviderContext);
     return (
         <>
             <div className="tw-place-self-center tw-w-full tw-grid tw-grid-flow-row tw-gap-y-6">
                 <div>
-                    <FormSelectComponent
+                    {/* <FormSelectComponent
                         items={brands}
                         itemBuilder={(item) => {
                             return item == null ? contentData.getContent("51d56374-4d1d-46c1-8ef1-f72396e12e6a") : item;
@@ -1291,6 +1301,47 @@ export function FilterMobile({
                             segmentFetcher.submit({selectedBrand: item}, {method: "GET", action: "/battery-finder/get-segments"});
                         }}
                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light"
+                    /> */}
+                    <FancySearchableSelect
+                        items={
+                            brands == null
+                                ? []
+                                : brands.map((brand, brandIndex) => {
+                                      return {
+                                          name: brand,
+                                          index: brandIndex,
+                                      };
+                                  })
+                        }
+                        selectedItem={
+                            brands == null || brandIndex == null
+                                ? null
+                                : {
+                                      name: brands[brandIndex],
+                                      index: brandIndex,
+                                  }
+                        }
+                        placeholder={contentData.getContent("51d56374-4d1d-46c1-8ef1-f72396e12e6a")}
+                        setSelectedItem={(item) => {
+                            if (item == null) {
+                                return null;
+                            }
+                            setBrandIndex(item.index);
+                            dispatch({
+                                actionType: BatteryFinderActionType.setSelectedBrand,
+                                payload: item.name,
+                            });
+                            segmentFetcher.submit({selectedBrand: item.name}, {method: "GET", action: "/battery-finder/get-segments"});
+                        }}
+                        filterFunction={(items, query) => items.filter((item) => item.name.toLowerCase().startsWith(query.toLowerCase()))}
+                        renderFunction={(item) => {
+                            if (item == null) {
+                                return "";
+                            }
+                            return `${item.name}`;
+                        }}
+                        disabled={brands == null}
+                        inputClassName="disabled:tw-opacity-[0.6] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark tw-rounded-lg"
                     />
                 </div>
                 <div>

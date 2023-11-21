@@ -42,6 +42,7 @@ import {getImageMetadataLibraryFromBackend, getMetadataForImageServerSide} from 
 import {ImageProviderContext} from "~/contexts/imageMetaDataContext";
 import {FancySearchableSelect} from "~/components/searchableSelects";
 import {AutomotiveTestimonials} from "~/routes/two-wheeler-batteries";
+import { SocialMediaFeedsSection } from ".";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -360,17 +361,21 @@ function CarAndSuvBatteriesPage({
 
                 <VerticalSpacer className="tw-h-11 lg:tw-h-20 tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full" />
 
-                <FaqSection
+                {/* <SocialHandles
                     userPreferences={userPreferences}
-                    className="tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
+                    heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
+                    className="tw-row-start-[14] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                /> */}
+                <SocialMediaFeedsSection
+                    userPreferences={userPreferences}
+                    className="tw-row-start-[14] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[15] tw-col-start-1 lg:tw-col-span-full" />
 
-                <SocialHandles
+                <FaqSection
                     userPreferences={userPreferences}
-                    heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
-                    className="tw-row-start-[16] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-[16] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[17] tw-col-start-1 lg:tw-col-span-full" />
@@ -783,6 +788,8 @@ function OurSuggestionsBasedOnYourChoice({
                                 modelFetcher={modelFetcher}
                                 fuelFetcher={fuelFetcher}
                                 findBatteryFetcher={findBatteryFetcher}
+                                brandIndex={brandIndex}
+                                setBrandIndex={setBrandIndex}
                             />
                         </div>
                     }
@@ -1327,6 +1334,8 @@ export function FilterMobile({
     modelFetcher,
     fuelFetcher,
     findBatteryFetcher,
+    brandIndex,
+    setBrandIndex
 }: {
     userPreferences: UserPreferences;
     batteryFinderState: BatteryFinderState;
@@ -1336,6 +1345,8 @@ export function FilterMobile({
     modelFetcher: FetcherWithComponents<any>;
     fuelFetcher: FetcherWithComponents<any>;
     findBatteryFetcher: FetcherWithComponents<any>;
+    brandIndex: number | null;
+    setBrandIndex: React.Dispatch<React.SetStateAction<number | null>>
 }) {
     const contentData = useContext(ContentProviderContext);
     const brands = batteryFinderState.brands;
@@ -1344,7 +1355,7 @@ export function FilterMobile({
         <>
             <div className="tw-place-self-center tw-w-full tw-grid tw-grid-flow-row tw-gap-y-6">
                 <div>
-                    <FormSelectComponent
+                    {/* <FormSelectComponent
                         items={batteryFinderBrands}
                         itemBuilder={(item) => {
                             return item == null ? contentData.getContent("38a5a09b-8b40-42ea-8d49-52cce1c949c2") : item;
@@ -1363,6 +1374,52 @@ export function FilterMobile({
                             );
                         }}
                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light"
+                    /> */}
+                    <FancySearchableSelect
+                        items={
+                            batteryFinderBrands == null
+                                ? []
+                                : batteryFinderBrands.map((brand, brandIndex) => {
+                                      return {
+                                          name: brand,
+                                          index: brandIndex,
+                                      };
+                                  })
+                        }
+                        selectedItem={
+                            batteryFinderBrands == null || brandIndex == null
+                                ? null
+                                : {
+                                      name: batteryFinderBrands[brandIndex],
+                                      index: brandIndex,
+                                  }
+                        }
+                        placeholder={contentData.getContent("38a5a09b-8b40-42ea-8d49-52cce1c949c2")}
+                        setSelectedItem={(item) => {
+                            if (item == null) {
+                                return null;
+                            }
+                            setBrandIndex(item.index);
+                            dispatch({
+                                actionType: BatteryFinderActionType.setSelectedBrand,
+                                payload: item.name,
+                            });
+                            segmentFetcher.submit(
+                                {
+                                    selectedBrand: item.name,
+                                },
+                                {method: "GET", action: `/battery-finder/get-segments`},
+                            );
+                        }}
+                        filterFunction={(items, query) => items.filter((item) => item.name.toLowerCase().startsWith(query.toLowerCase()))}
+                        renderFunction={(item) => {
+                            if (item == null) {
+                                return "";
+                            }
+                            return `${item.name}`;
+                        }}
+                        disabled={batteryFinderBrands == null}
+                        inputClassName="disabled:tw-opacity-[0.6] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark tw-rounded-lg"
                     />
                 </div>
                 <div>

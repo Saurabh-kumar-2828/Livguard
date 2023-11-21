@@ -202,25 +202,25 @@ export function OurSuggestionsComponent({
     );
 }
 
-export function ProductCardComponent({recommendedProduct, ctaTextId, userPreferences}: {recommendedProduct: ProductDetailsRecommendedProduct; ctaTextId?: string; userPreferences: UserPreferences}) {
+export function ProductCardComponent({recommendedProduct, ctaTextId, userPreferences, item, humanReadableModelNumbersForSuggestions}: {recommendedProduct?: ProductDetailsRecommendedProduct; ctaTextId?: string; userPreferences: UserPreferences; item?: string; humanReadableModelNumbersForSuggestions: HumanReadableModelNumbersForSuggestions; }) {
     const contentData = useContext(ContentProviderContext);
     return (
         <div className="tw-w-full tw-h-full tw-grid tw-grid-rows-[repeat(2,auto)_minmax(0,1fr)_repeat(2,auto)] tw-grid-flow-row tw-justify-stretch tw-relative tw-px-3 lg-card tw-rounded-lg">
-            {recommendedProduct.bestseller && (
+            {/* {item.bestseller && (
                 <div className="tw-absolute tw-right-0 tw-top-0 lg-text-icon tw-px-2 tw-rounded-tr-lg lg-bg-primary-500 lg-text-secondary-900 tw-text-white tw-pt-[2px]"> Best Seller </div>
-            )}
+            )} */}
 
             <VerticalSpacer className="tw-h-8" />
 
             <DefaultTextAnimation>
-                <div className="tw-text-body tw-text-center">{recommendedProduct.humanReadableModelNumber}</div>
+                <div className="tw-text-body tw-text-center">{humanReadableModelNumbersForSuggestions[item]}</div>
             </DefaultTextAnimation>
 
             {/* <VerticalSpacer className="tw-h-4" /> */}
 
             <DefaultImageAnimation className="tw-row-start-4">
                 <div className="tw-px-4 tw-rounded-lg">
-                    <FullWidthImage relativePath={`/livguard/products/${recommendedProduct.slug}/thumbnail.png`} />
+                    <FullWidthImage relativePath={`/livguard/products/${item}/thumbnail.png`} />
                 </div>
             </DefaultImageAnimation>
 
@@ -228,7 +228,7 @@ export function ProductCardComponent({recommendedProduct, ctaTextId, userPrefere
 
             <DefaultElementAnimation className="tw-row-start-6">
                 <Link
-                    to={`/product/${recommendedProduct.slug}`}
+                    to={`/product/${item}`}
                     className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center"
                 >
                     {contentData.getContent(ctaTextId ?? "categoryViewProductButtontext")}

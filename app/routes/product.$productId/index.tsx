@@ -26,7 +26,7 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import type {ProductDetails, ProductType} from "~/productData.types";
-import {ContactUsCta, FaqSection, TransformingLives} from "~/routes";
+import {ContactUsCta, FaqSection, SocialMediaFeedsSection, TransformingLives} from "~/routes";
 import {DealerLocator} from "~/reusableSections/dealerLocator";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
@@ -325,16 +325,15 @@ function ProductPage({
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <FaqSection
+            <SocialMediaFeedsSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <SocialHandles
+            <FaqSection
                 userPreferences={userPreferences}
-                heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 

@@ -1174,7 +1174,7 @@ function ChangePropertyTypeDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto lg-bg-secondary-100">
                             <div className="lg-text-title1">Are you sure you want to leave this section?</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -1300,7 +1300,7 @@ function NewRoomDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto lg-bg-new-background-border-500">
+                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto lg-bg-new-background-border-500 tw-relative">
                             <div className="lg-text-title1">Add Room</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -1317,7 +1317,7 @@ function NewRoomDialog({
                                     {getRoomTypeDetails(selectedRoomType).humanReadableString}
                                 </Listbox.Button>
 
-                                <Listbox.Options className="tw-absolute tw-z-50 tw-left-12 tw-right-12 tw-h-60 lg-text-secondary-900 tw-rounded-lg tw-overflow-auto">
+                                <Listbox.Options className="tw-absolute tw-z-50 tw-left-0 tw-right-0 tw-px-4 tw-h-60 lg-text-secondary-900 tw-rounded-lg tw-overflow-auto">
                                     <ItemBuilder
                                         items={Object.entries(roomTypeLibrary)}
                                         itemBuilder={(roomTypeKvp, roomTypeKvpIndex) => (
@@ -1327,7 +1327,7 @@ function NewRoomDialog({
                                                 as={React.Fragment}
                                             >
                                                 {({active, selected}) => (
-                                                    <li className={concatenateNonNullStringsWithSpaces("tw-p-4", selected ? "lg-bg-secondary-300" : "lg-card")}>
+                                                    <li className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selected ? "tw-bg-primary-500-light" : "lg-card lg-bg-secondary-100")}>
                                                         {roomTypeKvp[1].humanReadableString}
                                                     </li>
                                                 )}

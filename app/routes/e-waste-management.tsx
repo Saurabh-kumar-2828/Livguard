@@ -20,7 +20,7 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import {Language, UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getContentGenerator} from "~/vernacularProvider";
-import {ContactUsCta} from ".";
+import {ContactUsCta, SocialMediaFeedsSection} from ".";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
@@ -257,7 +257,11 @@ function EwasteManagementPage({
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <SocialHandlesSection
+            {/* <SocialHandlesSection
+                userPreferences={userPreferences}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            /> */}
+            <SocialMediaFeedsSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
