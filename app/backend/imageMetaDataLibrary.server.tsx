@@ -9245,6 +9245,7 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/products/it1584tt/thumbnail.png",
         "/livguard/all-category/4/solar-management-unit.png",
         "/livguard/all-category/4/solar-off-grid-inverter.png",
         "/livguard/all-category/4/solar-on-grid-inverter.png",

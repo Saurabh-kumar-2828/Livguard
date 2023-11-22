@@ -175,6 +175,7 @@ export function OurSuggestionsComponent({
                                 </Link>
                             ))}
                             className="lg:tw-max-w-[440px]"
+                            key={vernacularContent.relatedProducts.length}
                         />
                     ) : (
                         <div className="tw-flex tw-flex-row tw-justify-center tw-w-full tw-gap-x-2">

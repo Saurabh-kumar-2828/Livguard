@@ -226,7 +226,7 @@ const galleryCardsData = [
         type: "Home",
     },
     {
-        imageRelativeUrl: "/livguard/download-brochures/2/Inverter-battery.png",
+        imageRelativeUrl: "/livguard/products/it1584tt/thumbnail.png",
         title: "review2ProductName",
         buttonLink: "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf",
         type: "Home",
