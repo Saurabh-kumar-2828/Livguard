@@ -259,12 +259,12 @@ function WhoWeAre({userPreferences, className}: {userPreferences: UserPreference
 
     const whoWeAreCardsContent = [
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/about-us/2/our-mission.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/about-us/2/our-mission.svg",
             title: contentData.getContent("8a35dff2-079c-4638-a96a-8100d04a72b6"),
             description: contentData.getContent("4e49216b-9457-488a-860e-3fb97ba34100"),
         },
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/about-us/2/our-vision.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/about-us/2/our-vision.svg",
             title: contentData.getContent("68b1762f-e31f-4110-bf87-3afc487d7edf"),
             description: contentData.getContent("373fedff-da89-4396-b215-ed4099abfcf9"),
         },

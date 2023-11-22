@@ -468,19 +468,19 @@ export function BestOffers({
                 <ItemBuilder
                     items={[
                         {
-                            svgIcon: "https://files.growthjockey.com/livguard/icons/offers/inverter-and-battery-offers.svg",
+                            svgIcon: "https://www.livguard.com/static-assets/icons/offers/inverter-and-battery-offers.svg",
                             title: "7b226d84-b7f2-4f94-8626-67627cb47c28",
                         },
                         {
-                            svgIcon: "https://files.growthjockey.com/livguard/icons/offers/automotive-offers.svg",
+                            svgIcon: "https://www.livguard.com/static-assets/icons/offers/automotive-offers.svg",
                             title: "e3f844b6-79ab-47fd-a25c-67fadebeae73",
                         },
                         {
-                            svgIcon: "https://files.growthjockey.com/livguard/icons/offers/solar-offers.svg",
+                            svgIcon: "https://www.livguard.com/static-assets/icons/offers/solar-offers.svg",
                             title: "ddf400a4-3900-4561-85fb-1447c8693412",
                         },
                         {
-                            svgIcon: "https://files.growthjockey.com/livguard/icons/offers/accessories-offers.svg",
+                            svgIcon: "https://www.livguard.com/static-assets/icons/offers/accessories-offers.svg",
                             title: "46c68fad-1e6e-442c-ab3c-fc09234693d2",
                         },
                     ]}
@@ -811,13 +811,13 @@ function OfferCard({offer, tryToOpenContactUsDialog, userPreferences, className,
             {source == "livguard" && (
                 <div className="lg:tw-col-span-2 tw-grid tw-grid-cols-[repeat(2,minmax(0,1fr))] tw-gap-x-4 tw-px-4">
                     <img
-                        src="https://files.growthjockey.com/livguard/icons/offers/bajaj-finserv.png"
+                        src="https://www.livguard.com/static-assets/icons/offers/bajaj-finserv.png"
                         alt="Bajaj Finserv Logo"
                         className="tw-justify-self-end tw-px-4 tw-py-2 tw-rounded-lg"
                     />
 
                     <img
-                        src="https://files.growthjockey.com/livguard/icons/offers/paytail.png"
+                        src="https://www.livguard.com/static-assets/icons/offers/paytail.png"
                         alt="Paytail Logo"
                         className="tw-justify-self-start dark:tw-bg-secondary-900-dark tw-px-4 tw-py-2 tw-rounded-lg"
                     />

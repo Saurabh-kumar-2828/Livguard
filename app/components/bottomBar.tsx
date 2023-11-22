@@ -19,7 +19,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
                     <img
-                        src="https://files.growthjockey.com/livguard/icons/bottom-bar/energy-solution.svg"
+                        src="https://www.livguard.com/static-assets/icons/bottom-bar/energy-solution.svg"
                         className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
                     <div
@@ -35,7 +35,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
                     <img
-                        src="https://files.growthjockey.com/livguard/icons/bottom-bar/dealer.svg"
+                        src="https://www.livguard.com/static-assets/icons/bottom-bar/dealer.svg"
                         className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
                     <div className="lg-text-icon">{contentData.getContent("bottomBarT4")}</div>
@@ -50,7 +50,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                 >
                     <img
                         // src="https://growthjockey.imgix.net/livguard/bottom-bar/load-calculator.gif"
-                        src="https://files.growthjockey.com/livguard/icons/load-calculator-icon.svg"
+                        src="https://www.livguard.com/static-assets/icons/load-calculator-icon.svg"
                         width={64}
                         height={64}
                         className="tw-w-14 tw-h-14 tw-rounded-full"
@@ -68,7 +68,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
                     <img
-                        src="https://files.growthjockey.com/livguard/icons/bottom-bar/pricing.svg"
+                        src="https://www.livguard.com/static-assets/icons/bottom-bar/pricing.svg"
                         className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
                     <div className="lg-text-icon">{contentData.getContent("c13afdef-ed06-4b83-be72-772fbb7a5706")}</div>
@@ -81,7 +81,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
                     <img
-                        src="https://files.growthjockey.com/livguard/icons/bottom-bar/support.svg"
+                        src="https://www.livguard.com/static-assets/icons/bottom-bar/support.svg"
                         className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
 

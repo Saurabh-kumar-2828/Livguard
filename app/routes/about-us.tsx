@@ -383,7 +383,7 @@ function WhoWeAre({userPreferences, className}: {userPreferences: UserPreference
             description: contentData.getContent("4e49216b-9457-488a-860e-3fb97ba34100"),
         },
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/about-us/2/our-vision.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/about-us/2/our-vision.svg",
             title: contentData.getContent("68b1762f-e31f-4110-bf87-3afc487d7edf"),
             description: contentData.getContent("373fedff-da89-4396-b215-ed4099abfcf9"),
         },
@@ -667,7 +667,7 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
             <div className="tw-p-6 lg-contact-gradient-light dark:lg-contact-gradient-dark tw-rounded-lg tw-grid tw-grid-rows-[auto_1rem_auto_1rem_minmax(0,1fr)_1rem_auto] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_20rem_2rem_minmax(0,1fr)_2rem_auto] tw-items-center">
                 <div className="tw-w-[7.75rem] tw-h-[7.75rem] tw-col-start-1 tw-row-start-1 lg-bg-secondary-100 tw-rounded-full tw-grid tw-justify-center tw-items-center tw-place-self-center lg:tw-place-self-start">
                     <img
-                        src="https://files.growthjockey.com/livguard/icons/contact-us/hiring.svg"
+                        src="https://www.livguard.com/static-assets/icons/contact-us/hiring.svg"
                         alt="hiring"
                         className="tw-w-[4rem] tw-h-[4rem]"
                     />

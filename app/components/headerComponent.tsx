@@ -385,11 +385,11 @@ function SecondBar({
 
             <Link to="/">
                 <img
-                    src={userPreferences.theme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
+                    src={userPreferences.theme == Theme.Dark ? "https://www.livguard.com/static-assets/icons/logo-dark.svg" : "https://www.livguard.com/static-assets/icons/logo-light.svg"}
                     width={385}
                     height={96}
                     className="tw-w-auto tw-h-6 lg:tw-h-[2.2rem]"
-                    key={userPreferences.theme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
+                    key={userPreferences.theme == Theme.Dark ? "https://www.livguard.com/static-assets/icons/logo-dark.svg" : "https://www.livguard.com/static-assets/icons/logo-light.svg"}
                     alt="livguard-logo"
                 />
             </Link>
@@ -596,7 +596,7 @@ function SecondBar({
         //         <Link to="/">
         //             <div className="tw-block dark:tw-hidden">
         //                 <img
-        //                     src="https://files.growthjockey.com/livguard/icons/logo-light.svg"
+        //                     src="https://www.livguard.com/static-assets/icons/logo-light.svg"
         //                     width={385}
         //                     height={96}
         //                     className="tw-w-auto tw-h-6"
@@ -605,7 +605,7 @@ function SecondBar({
 
         //             <div className="dark:tw-block tw-hidden">
         //                 <img
-        //                     src="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+        //                     src="https://www.livguard.com/static-assets/icons/logo-dark.svg"
         //                     width={385}
         //                     height={96}
         //                     className="tw-w-auto tw-h-6"
@@ -1357,16 +1357,16 @@ function MenuDialogMobile({userPreferences, isMenuOpen, setIsMenuOpen}: {userPre
                                 <img
                                     src={
                                         userPreferences.theme == Theme.Dark
-                                            ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                                            : "https://files.growthjockey.com/livguard/icons/logo-light.svg"
+                                            ? "https://www.livguard.com/static-assets/icons/logo-dark.svg"
+                                            : "https://www.livguard.com/static-assets/icons/logo-light.svg"
                                     }
                                     width={385}
                                     height={96}
                                     className="tw-col-start-3 tw-w-auto tw-h-6"
                                     key={
                                         userPreferences.theme == Theme.Dark
-                                            ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                                            : "https://files.growthjockey.com/livguard/icons/logo-light.svg"
+                                            ? "https://www.livguard.com/static-assets/icons/logo-dark.svg"
+                                            : "https://www.livguard.com/static-assets/icons/logo-light.svg"
                                     }
                                 />
 

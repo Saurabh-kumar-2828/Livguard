@@ -689,19 +689,19 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
 
     const typeSelectorButtonsContent = [
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-AC.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/stabilizer/for-AC.svg",
             textContentPiece: "076cf02d-0b8a-4af2-9e0f-63d1804402d2",
         },
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-mains.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/stabilizer/for-mains.svg",
             textContentPiece: "c3597ec0-a4b1-47b6-bdba-13b6e53f3cd9",
         },
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-tvs.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/stabilizer/for-tvs.svg",
             textContentPiece: "b82414bd-0f13-4401-a592-84cbc4f9a4e2",
         },
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-refrigerator.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/stabilizer/for-refrigerator.svg",
             textContentPiece: "33655fc5-1527-4744-a163-bd6217eac5b4",
         },
     ];
@@ -867,7 +867,7 @@ function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences:
                 >
                     <img
                         className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
-                        src="https://files.growthjockey.com/livguard/icons/stabilizer/buying-guide.svg"
+                        src="https://www.livguard.com/static-assets/icons/stabilizer/buying-guide.svg"
                     />
                     <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">{contentData.getContent("b3660763-f092-42d4-a97d-76a34dd701f6")}</div>
                 </a>
@@ -879,7 +879,7 @@ function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences:
                 >
                     <img
                         className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
-                        src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
+                        src="https://www.livguard.com/static-assets/icons/stabilizer/download-catalogue.svg"
                     />
                     <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">{contentData.getContent("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26")}</div>
                 </a>

@@ -121,8 +121,8 @@ export function InternationalBusinessFooterComponent({
                         <img
                             src={
                                 userPreferences.theme == Theme.Dark
-                                    ? "https://files.growthjockey.com/livguard/icons/international-business/logo-dark.svg"
-                                    : "https://files.growthjockey.com/livguard/icons/international-business/logo-light.svg"
+                                    ? "https://www.livguard.com/static-assets/icons/international-business/logo-dark.svg"
+                                    : "https://www.livguard.com/static-assets/icons/international-business/logo-light.svg"
                             }
                             width={385}
                             height={96}

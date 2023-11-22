@@ -845,7 +845,7 @@ function DealerLocator({userPreferences, showCtaButton, className}: {userPrefere
                     <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                         <div className="tw-absolute tw-inset-0">
                             <video
-                                src="https://files.growthjockey.com/livguard/videos/home/10/1-dark.mp4"
+                                src="https://www.livguard.com/static-assets/videos/home/10/1-dark.mp4"
                                 className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover tw-hidden dark:tw-block"
                                 autoPlay={true}
                                 muted={true}
@@ -854,7 +854,7 @@ function DealerLocator({userPreferences, showCtaButton, className}: {userPrefere
                             />
 
                             <video
-                                src="https://files.growthjockey.com/livguard/videos/home/10/1-light.mp4"
+                                src="https://www.livguard.com/static-assets/videos/home/10/1-light.mp4"
                                 className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover dark:tw-hidden tw-block"
                                 autoPlay={true}
                                 muted={true}
@@ -893,7 +893,7 @@ function DealerLocator({userPreferences, showCtaButton, className}: {userPrefere
                         <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                             <div className="tw-absolute tw-inset-0">
                                 <video
-                                    src="https://files.growthjockey.com/livguard/videos/home/10/1-dark.mp4"
+                                    src="https://www.livguard.com/static-assets/videos/home/10/1-dark.mp4"
                                     className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-hidden dark:tw-block"
                                     autoPlay={true}
                                     muted={true}
@@ -902,7 +902,7 @@ function DealerLocator({userPreferences, showCtaButton, className}: {userPrefere
                                 />
 
                                 <video
-                                    src="https://files.growthjockey.com/livguard/videos/home/10/1-light.mp4"
+                                    src="https://www.livguard.com/static-assets/videos/home/10/1-light.mp4"
                                     className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full dark:tw-hidden tw-block"
                                     autoPlay={true}
                                     muted={true}

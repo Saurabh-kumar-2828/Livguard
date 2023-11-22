@@ -1461,19 +1461,19 @@ function ContactTeamOfExperts({userPreferences, className}: {userPreferences: Us
 
     const contactUsCardsContent = [
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/warranty/phone-signal.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/warranty/phone-signal.svg",
             cardTextID: "995ba2bf-62b1-402f-a8d0-9928081e37c5",
             buttonCtaTextID: "84b91d23-dc94-48a8-ac22-24fb97f95e4d",
             dialogType: "call-us",
         },
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/warranty/whatsapp-white.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/warranty/whatsapp-white.svg",
             cardTextID: "399595dc-4684-42cb-bf32-e0ce0ba8fc28",
             buttonCtaTextID: "793169c2-90d3-47a6-8d4e-ea93ae0ec10d",
             dialogType: "chat-with-us",
         },
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/warranty/email-white.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/warranty/email-white.svg",
             cardTextID: "a92293f2-bba1-45c6-83f0-b6b757d4fc89",
             buttonCtaTextID: "86298c75-2db2-45aa-8b4d-67be07715e63",
             dialogType: "email-us",

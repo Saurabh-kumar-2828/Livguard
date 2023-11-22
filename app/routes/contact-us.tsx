@@ -1515,7 +1515,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-card tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"}
-                        src="https://files.growthjockey.com/livguard/icons/contact-us/call-us.svg"
+                        src="https://www.livguard.com/static-assets/icons/contact-us/call-us.svg"
                     />
                 </div>
 
@@ -1544,7 +1544,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-card tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
-                        src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us.svg"
+                        src="https://www.livguard.com/static-assets/icons/contact-us/whatsapp-us.svg"
                     />
                 </div>
 
@@ -1573,7 +1573,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-card tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
-                        src="https://files.growthjockey.com/livguard/icons/contact-us/email-us.svg"
+                        src="https://www.livguard.com/static-assets/icons/contact-us/email-us.svg"
                     />
                 </div>
 
@@ -1602,7 +1602,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-card tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
-                        src="https://files.growthjockey.com/livguard/icons/contact-us/request-service.svg"
+                        src="https://www.livguard.com/static-assets/icons/contact-us/request-service.svg"
                     />
                 </div>
 
@@ -1751,21 +1751,21 @@ function ContactUsDialog({
                                     {dialogType == "call-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
+                                            src="https://www.livguard.com/static-assets/icons/contact-us/call-us-dialog.svg"
                                         />
                                     )}
 
                                     {dialogType == "email-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/contact-us/email-us-dialog.svg"
+                                            src="https://www.livguard.com/static-assets/icons/contact-us/email-us-dialog.svg"
                                         />
                                     )}
 
                                     {dialogType == "chat-with-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us-dialog.svg"
+                                            src="https://www.livguard.com/static-assets/icons/contact-us/whatsapp-us-dialog.svg"
                                         />
                                     )}
                                 </div>
@@ -1789,21 +1789,21 @@ function ContactUsDialog({
                                             {dialogType == "call-us" && (
                                                 <img
                                                     className="tw-w-6 tw-h-6 tw-flex-0"
-                                                    src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
+                                                    src="https://www.livguard.com/static-assets/icons/contact-us/call-us-dialog.svg"
                                                 />
                                             )}
 
                                             {dialogType == "email-us" && (
                                                 <img
                                                     className="tw-w-6 tw-h-6 tw-flex-0"
-                                                    src="https://files.growthjockey.com/livguard/icons/contact-us/email-us-dialog.svg"
+                                                    src="https://www.livguard.com/static-assets/icons/contact-us/email-us-dialog.svg"
                                                 />
                                             )}
 
                                             {dialogType == "chat-with-us" && (
                                                 <img
                                                     className="tw-w-6 tw-h-6 tw-flex-0"
-                                                    src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us-dialog.svg"
+                                                    src="https://www.livguard.com/static-assets/icons/contact-us/whatsapp-us-dialog.svg"
                                                 />
                                             )}
                                         </div>
@@ -1825,7 +1825,7 @@ function ContactUsDialog({
 
                                             <img
                                                 className="tw-w-6 tw-h-6 tw-flex-0"
-                                                src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
+                                                src="https://www.livguard.com/static-assets/icons/contact-us/call-us-dialog.svg"
                                             />
                                         </div>
                                     </Link>
@@ -1925,7 +1925,7 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
             <div className="tw-p-6 lg-contact-gradient-light dark:lg-contact-gradient-dark tw-rounded-lg tw-grid tw-grid-rows-[auto_1rem_auto_1rem_minmax(0,1fr)_1rem_auto] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_20rem_2rem_minmax(0,1fr)_2rem_auto] tw-items-center">
                 <div className="tw-w-[7.75rem] tw-h-[7.75rem] tw-col-start-1 tw-row-start-1 lg-bg-secondary-100 tw-rounded-full tw-grid tw-justify-center tw-items-center tw-place-self-center lg:tw-place-self-start">
                     <img
-                        src="https://files.growthjockey.com/livguard/icons/contact-us/hiring.svg"
+                        src="https://www.livguard.com/static-assets/icons/contact-us/hiring.svg"
                         alt="hiring"
                         className="tw-w-[4rem] tw-h-[4rem]"
                     />

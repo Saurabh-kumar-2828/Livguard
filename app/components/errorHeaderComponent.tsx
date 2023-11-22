@@ -8,7 +8,7 @@ export function ErrorHeaderComponent({className}: {className?: string}) {
                 <div className="lg-px-screen-edge tw-py-4 tw-bg-secondary-100-internalight tw-flex tw-flex-row tw-items-center">
                     <Link to="/">
                         <img
-                            src="https://files.growthjockey.com/livguard/icons/logo-light.svg"
+                            src="https://www.livguard.com/static-assets/icons/logo-light.svg"
                             width={385}
                             height={96}
                             className="tw-w-auto tw-h-6"

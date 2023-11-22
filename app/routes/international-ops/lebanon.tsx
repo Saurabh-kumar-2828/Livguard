@@ -1269,7 +1269,7 @@ function GetInTouchWithUsSection({userPreferences}: {userPreferences: UserPrefer
                 <div className="tw-row-start-1 tw-rounded-full lg-bg-secondary-100 lg-contact-us-card-shadow tw-h-16 tw-w-16 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 tw-invert dark:tw-invert-0"
-                        src="https://files.growthjockey.com/livguard/icons/contact-us/call-us.svg"
+                        src="https://www.livguard.com/static-assets/icons/contact-us/call-us.svg"
                     />
                 </div>
 
@@ -1295,7 +1295,7 @@ function GetInTouchWithUsSection({userPreferences}: {userPreferences: UserPrefer
                 <div className="tw-row-start-1 tw-rounded-full lg-bg-secondary-100 lg-contact-us-card-shadow tw-h-16 tw-w-16 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 tw-invert dark:tw-invert-0"
-                        src="https://files.growthjockey.com/livguard/icons/contact-us/email-us.svg"
+                        src="https://www.livguard.com/static-assets/icons/contact-us/email-us.svg"
                     />
                 </div>
 
@@ -1426,7 +1426,7 @@ function InternationalBusinessContactUsDialog({
                                             <div className="tw-flex-1">+96179312446</div>
                                             <img
                                                 className="tw-w-6 tw-h-6 tw-flex-0"
-                                                src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
+                                                src="https://www.livguard.com/static-assets/icons/contact-us/call-us-dialog.svg"
                                             />
                                         </div>
                                     </Link>
@@ -1441,7 +1441,7 @@ function InternationalBusinessContactUsDialog({
                                             <div className="tw-flex-1">info@gescolb.com</div>
                                             <img
                                                 className="tw-w-6 tw-h-6 tw-flex-0"
-                                                src="https://files.growthjockey.com/livguard/icons/contact-us/email-us-dialog.svg"
+                                                src="https://www.livguard.com/static-assets/icons/contact-us/email-us-dialog.svg"
                                             />
                                         </div>
                                     </Link>
@@ -1456,7 +1456,7 @@ function InternationalBusinessContactUsDialog({
                                             <div className="tw-flex-1">khushboo.sethi@sar-group.com</div>
                                             <img
                                                 className="tw-w-6 tw-h-6 tw-flex-0"
-                                                src="https://files.growthjockey.com/livguard/icons/contact-us/email-us-dialog.svg"
+                                                src="https://www.livguard.com/static-assets/icons/contact-us/email-us-dialog.svg"
                                             />
                                         </div>
                                     </Link>
@@ -1471,7 +1471,7 @@ function InternationalBusinessContactUsDialog({
                                             <div className="tw-flex-1">export@sar-group.com</div>
                                             <img
                                                 className="tw-w-6 tw-h-6 tw-flex-0"
-                                                src="https://files.growthjockey.com/livguard/icons/contact-us/email-us-dialog.svg"
+                                                src="https://www.livguard.com/static-assets/icons/contact-us/email-us-dialog.svg"
                                             />
                                         </div>
                                     </Link>
@@ -1614,7 +1614,7 @@ export function InternationalBusinessContactForm({
                 <div className="tw-absolute tw-top-[2.5rem] tw-left-0 tw-right-0 tw-h-[2.5rem] tw-grid tw-justify-center tw-z-10">
                     <div className="tw-w-[2.5rem] tw-h-[2.5rem] tw-rounded-full tw-bg-secondary-100-light tw-grid tw-items-center tw-justify-center">
                         <img
-                            src="https://files.growthjockey.com/livguard/icons/form/livguard.svg"
+                            src="https://www.livguard.com/static-assets/icons/form/livguard.svg"
                             alt="livguard"
                             className="tw-w-6 tw-h-6"
                         />
@@ -1866,7 +1866,7 @@ function InternationalBusinessContactFormSuccess({userPreferences, className}: {
                 <div className="tw-absolute tw-top-[2.5rem] tw-left-0 tw-right-0 tw-h-[2.5rem] tw-grid tw-justify-center tw-z-10">
                     <div className="tw-w-[2.5rem] tw-h-[2.5rem] tw-rounded-full tw-bg-secondary-100-light tw-grid tw-items-center tw-justify-center">
                         <img
-                            src="https://files.growthjockey.com/livguard/icons/form/livguard.svg"
+                            src="https://www.livguard.com/static-assets/icons/form/livguard.svg"
                             alt="livguard"
                             className="tw-w-6 tw-h-6"
                         />

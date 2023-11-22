@@ -68,7 +68,7 @@ export default function SupportDialog({isSupportDialogOpen, tryToCloseSupportDia
 
                                     <img
                                         className="tw-w-6 tw-h-6 tw-flex-0"
-                                        src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
+                                        src="https://www.livguard.com/static-assets/icons/contact-us/call-us-dialog.svg"
                                         alt="call-us"
                                     />
                                 </div>
@@ -89,7 +89,7 @@ export default function SupportDialog({isSupportDialogOpen, tryToCloseSupportDia
 
                                     <img
                                         className="tw-w-6 tw-h-6 tw-flex-0"
-                                        src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us-dialog.svg"
+                                        src="https://www.livguard.com/static-assets/icons/contact-us/whatsapp-us-dialog.svg"
                                     />
                                 </div>
                             </Link>
@@ -109,7 +109,7 @@ export default function SupportDialog({isSupportDialogOpen, tryToCloseSupportDia
 
                                     <img
                                         className="tw-w-6 tw-h-6 tw-flex-0"
-                                        src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
+                                        src="https://www.livguard.com/static-assets/icons/contact-us/call-us-dialog.svg"
                                         alt="call-us"
                                     />
                                 </div>

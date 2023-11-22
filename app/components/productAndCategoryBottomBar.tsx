@@ -25,7 +25,7 @@ export function ProductAndCategoryBottomBar({userPreferences, utmParameters, pag
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
                     <img
-                        src="https://files.growthjockey.com/livguard/icons/bottom-bar/4.svg"
+                        src="https://www.livguard.com/static-assets/icons/bottom-bar/4.svg"
                         className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
                     <div
@@ -76,7 +76,7 @@ export function ProductAndCategoryBottomBar({userPreferences, utmParameters, pag
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
                     <img
-                        src="https://files.growthjockey.com/livguard/icons/bottom-bar/5.svg"
+                        src="https://www.livguard.com/static-assets/icons/bottom-bar/5.svg"
                         className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
                     <div

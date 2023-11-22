@@ -663,7 +663,7 @@ function FindTheRightBattery({userPreferences, className}: {userPreferences: Use
                     >
                         <img
                             className="tw-row-start-1 tw-col-start-1 tw-h-4 tw-w-4 lg:tw-h-6 lg:tw-w-6 tw-place-self-center tw-transition-colors tw-duration-200 group-hover:tw-brightness-0 group-hover:tw-invert"
-                            src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
+                            src="https://www.livguard.com/static-assets/icons/stabilizer/download-catalogue.svg"
                         />
                         <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
                             {contentData.getContent("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26")}

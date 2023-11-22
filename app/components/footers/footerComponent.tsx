@@ -616,7 +616,7 @@ export function FooterComponent({
                 <div className="lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-pl-[72px]">
                     <Link to="/">
                         <img
-                            src={userPreferences.theme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
+                            src={userPreferences.theme == Theme.Dark ? "https://www.livguard.com/static-assets/icons/logo-dark.svg" : "https://www.livguard.com/static-assets/icons/logo-light.svg"}
                             width={385}
                             height={96}
                             className="tw-w-auto tw-h-6 lg:tw-h-12"

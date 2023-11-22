@@ -485,15 +485,15 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
 
     const serviceSpecialities = [
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/service/pan-india-presence.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/service/pan-india-presence.svg",
             title: contentData.getContent("521eb4a5-fa32-4ac8-aa40-b8866848e565"),
         },
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/service/service-excellence.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/service/service-excellence.svg",
             title: contentData.getContent("dce77179-dece-4a32-87e8-571459bccdbb"),
         },
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/service/quick-resolution.svg",
+            iconUrl: "https://www.livguard.com/static-assets/icons/service/quick-resolution.svg",
             title: contentData.getContent("4fc10235-8e85-48c9-9202-916a0bda22db"),
         },
     ];
@@ -1004,7 +1004,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full lg-card tw-rounded-full tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"}
-                        src="https://files.growthjockey.com/livguard/icons/service/call-us.svg"
+                        src="https://www.livguard.com/static-assets/icons/service/call-us.svg"
                     />
                 </div>
 
@@ -1033,7 +1033,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full lg-card tw-rounded-full tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
-                        src="https://files.growthjockey.com/livguard/icons/service/whatsapp-us.svg"
+                        src="https://www.livguard.com/static-assets/icons/service/whatsapp-us.svg"
                     />
                 </div>
 
@@ -1062,7 +1062,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full lg-card tw-rounded-full tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
-                        src="https://files.growthjockey.com/livguard/icons/service/email-us.svg"
+                        src="https://www.livguard.com/static-assets/icons/service/email-us.svg"
                     />
                 </div>
 
@@ -1218,21 +1218,21 @@ function ContactUsDialog({
                                     {dialogType == "call-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/service/call-us-dialog.svg"
+                                            src="https://www.livguard.com/static-assets/icons/service/call-us-dialog.svg"
                                         />
                                     )}
 
                                     {dialogType == "email-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/service/email-us-dialog.svg"
+                                            src="https://www.livguard.com/static-assets/icons/service/email-us-dialog.svg"
                                         />
                                     )}
 
                                     {dialogType == "chat-with-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/service/whatsapp-us-dialog.svg"
+                                            src="https://www.livguard.com/static-assets/icons/service/whatsapp-us-dialog.svg"
                                         />
                                     )}
                                 </div>
@@ -1256,21 +1256,21 @@ function ContactUsDialog({
                                             {dialogType == "call-us" && (
                                                 <img
                                                     className="tw-w-6 tw-h-6 tw-flex-0"
-                                                    src="https://files.growthjockey.com/livguard/icons/service/call-us-dialog.svg"
+                                                    src="https://www.livguard.com/static-assets/icons/service/call-us-dialog.svg"
                                                 />
                                             )}
 
                                             {dialogType == "email-us" && (
                                                 <img
                                                     className="tw-w-6 tw-h-6 tw-flex-0"
-                                                    src="https://files.growthjockey.com/livguard/icons/service/email-us-dialog.svg"
+                                                    src="https://www.livguard.com/static-assets/icons/service/email-us-dialog.svg"
                                                 />
                                             )}
 
                                             {dialogType == "chat-with-us" && (
                                                 <img
                                                     className="tw-w-6 tw-h-6 tw-flex-0"
-                                                    src="https://files.growthjockey.com/livguard/icons/service/whatsapp-us-dialog.svg"
+                                                    src="https://www.livguard.com/static-assets/icons/service/whatsapp-us-dialog.svg"
                                                 />
                                             )}
                                         </div>

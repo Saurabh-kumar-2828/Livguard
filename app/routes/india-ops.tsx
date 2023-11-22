@@ -800,7 +800,7 @@ function ChooseTheRightInverter({userPreferences, className, pageUrl}: {userPref
                     >
                         <img
                             className="tw-row-start-1 tw-col-start-1 tw-h-4 tw-w-4 lg:tw-h-6 lg:tw-w-6 tw-place-self-center tw-transition-colors tw-duration-200 group-hover:tw-brightness-0 group-hover:tw-invert"
-                            src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
+                            src="https://www.livguard.com/static-assets/icons/stabilizer/download-catalogue.svg"
                         />
                         <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
                             {contentData.getContent("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26")}
@@ -837,7 +837,7 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
             <Menu.Button className="tw-w-max lg-cta-outline-button lg-cta-outline-button-category-section-transition-ops tw-py-3 tw-rounded-full tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-group tw-h-full tw-px-4">
                 <img
                     className="tw-row-start-1 tw-col-start-1 tw-h-4 tw-w-4 lg:tw-h-6 lg:tw-w-6 tw-place-self-center tw-transition-colors tw-duration-200 group-hover:tw-brightness-0 group-hover:tw-invert"
-                    src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
+                    src="https://www.livguard.com/static-assets/icons/stabilizer/download-catalogue.svg"
                 />
                 <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
                     {contentData.getContent("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26")}

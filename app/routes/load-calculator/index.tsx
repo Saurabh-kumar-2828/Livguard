@@ -90,7 +90,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
                             item: "https://www.livguard.com/",
                             description:
                                 " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                            image: [" https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                            image: [" https://www.livguard.com/static-assets/icons/logo-dark.svg"],
                         },
                         {
                             "@type": "ListItem",
@@ -106,7 +106,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
                             url: "https://www.livguard.com/",
                             description:
                                 " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                            image: ["https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                            image: ["https://www.livguard.com/static-assets/icons/logo-dark.svg"],
                         },
                         {
                             "@type": "SiteNavigationElement",
@@ -563,32 +563,32 @@ function PropertySelectionForTeaser({
                     // TODO: Get this data from enum
                     items={[
                         {
-                            svgIcon: "/livguard/icons/home/5/1-bhk.svg",
+                            svgIcon: "/icons/home/5/1-bhk.svg",
                             content: "1 BHK",
                             value: "1-bhk",
                         },
                         {
-                            svgIcon: "/livguard/icons/home/5/2-bhk.svg",
+                            svgIcon: "/icons/home/5/2-bhk.svg",
                             content: "2 BHK",
                             value: "2-bhk",
                         },
                         {
-                            svgIcon: "/livguard/icons/home/5/3-bhk.svg",
+                            svgIcon: "/icons/home/5/3-bhk.svg",
                             content: "3 BHK",
                             value: "3-bhk",
                         },
                         {
-                            svgIcon: "/livguard/icons/home/5/4-bhk.svg",
+                            svgIcon: "/icons/home/5/4-bhk.svg",
                             content: "4 BHK",
                             value: "4-bhk",
                         },
                         {
-                            svgIcon: "/livguard/icons/home/5/villa.svg",
+                            svgIcon: "/icons/home/5/villa.svg",
                             content: "Villa",
                             value: "villa",
                         },
                         {
-                            svgIcon: "/livguard/icons/home/5/custom.svg",
+                            svgIcon: "/icons/home/5/custom.svg",
                             content: "Custom",
                             value: "custom",
                         },
@@ -620,7 +620,7 @@ function PropertySelectionForTeaser({
                                     relativePath={item.icon}
                                 /> */}
                                 <img
-                                    src={`https://files.growthjockey.com${item.svgIcon}`}
+                                    src={`https://www.livguard.com/static-assets${item.svgIcon}`}
                                     className={concatenateNonNullStringsWithSpaces(
                                         "tw-w-full tw-h-full dark:tw-invert",
                                         item.value == loadCalculatorInputs.property.propertyType ? "!tw-invert-0" : null,
@@ -905,7 +905,7 @@ function RoomSelection({
                                                     >
                                                         <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full tw-outline-3 tw-outline tw-outline-secondary-100-light dark:tw-outline-secondary-100-dark tw-flex tw-flex-col tw-justify-center tw-items-center">
                                                             <img
-                                                                src={`https://files.growthjockey.com/livguard/icons/load-calculator/devices/${deviceType}.svg`}
+                                                                src={`https://www.livguard.com/static-assets/icons/load-calculator/devices/${deviceType}.svg`}
                                                                 className="tw-w-5 tw-h-5 tw-invert dark:tw-invert-0"
                                                             />
                                                         </div>
@@ -1524,7 +1524,7 @@ function EditRoomDialog({
                                             >
                                                 <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full tw-flex tw-flex-col tw-justify-center tw-items-center">
                                                     <img
-                                                        src={`https://files.growthjockey.com/livguard/icons/load-calculator/devices/${deviceTypeToDeviceCount.deviceType}.svg`}
+                                                        src={`https://www.livguard.com/static-assets/icons/load-calculator/devices/${deviceTypeToDeviceCount.deviceType}.svg`}
                                                         className="tw-w-5 tw-h-5 tw-invert dark:tw-invert-0"
                                                     />
                                                 </div>
@@ -1582,7 +1582,7 @@ function EditRoomDialog({
                                                         >
                                                             <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full tw-flex tw-flex-col tw-justify-center tw-items-center">
                                                                 <img
-                                                                    src={`https://files.growthjockey.com/livguard/icons/load-calculator/devices/${deviceType}.svg`}
+                                                                    src={`https://www.livguard.com/static-assets/icons/load-calculator/devices/${deviceType}.svg`}
                                                                     className="tw-w-5 tw-h-5 tw-invert dark:tw-invert-0"
                                                                 />
                                                             </div>

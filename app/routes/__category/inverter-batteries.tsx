@@ -107,7 +107,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
                             item: "https://www.livguard.com/",
                             description:
                                 " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                            image: [" https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                            image: [" https://www.livguard.com/static-assets/icons/logo-dark.svg"],
                         },
                         {
                             "@type": "ListItem",
@@ -123,7 +123,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
                             url: "https://www.livguard.com/",
                             description:
                                 " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                            image: ["https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                            image: ["https://www.livguard.com/static-assets/icons/logo-dark.svg"],
                         },
                         {
                             "@type": "SiteNavigationElement",
@@ -186,7 +186,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
                             item: "https://www.livguard.com/",
                             description:
                                 " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                            image: [" https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                            image: [" https://www.livguard.com/static-assets/icons/logo-dark.svg"],
                         },
                         {
                             "@type": "ListItem",
@@ -202,7 +202,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
                             url: "https://www.livguard.com/",
                             description:
                                 " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                            image: ["https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                            image: ["https://www.livguard.com/static-assets/icons/logo-dark.svg"],
                         },
                         {
                             "@type": "SiteNavigationElement",

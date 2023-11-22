@@ -43,7 +43,7 @@ export function ContactFormSuccess({userPreferences, className}: {userPreference
                     <div className="tw-absolute tw-top-[2.5rem] tw-left-0 tw-right-0 tw-h-[2.5rem] tw-grid tw-justify-center tw-z-10">
                         <div className="tw-w-[2.5rem] tw-h-[2.5rem] tw-rounded-full tw-bg-secondary-100-light tw-grid tw-items-center tw-justify-center">
                             <img
-                                src="https://files.growthjockey.com/livguard/icons/form/livguard.svg"
+                                src="https://www.livguard.com/static-assets/icons/form/livguard.svg"
                                 alt="livguard"
                                 className="tw-w-6 tw-h-6"
                             />

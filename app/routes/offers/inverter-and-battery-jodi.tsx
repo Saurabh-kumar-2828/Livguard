@@ -268,27 +268,27 @@ export function StepsToAvailCashback({userPreferences, className}: {userPreferen
     const contentData = useContext(ContentProviderContext);
     const steps = [
         {
-            iconRelativePath: "livguard/icons/offers/step-1.svg",
+            iconRelativePath: "icons/offers/step-1.svg",
             stepVernacId: "OfferStep1",
         },
         {
-            iconRelativePath: "livguard/icons/offers/step-2.svg",
+            iconRelativePath: "icons/offers/step-2.svg",
             stepVernacId: "OfferStep2",
         },
         {
-            iconRelativePath: "livguard/icons/offers/step-3.svg",
+            iconRelativePath: "icons/offers/step-3.svg",
             stepVernacId: "OfferStep3",
         },
         {
-            iconRelativePath: "livguard/icons/offers/step-4.svg",
+            iconRelativePath: "icons/offers/step-4.svg",
             stepVernacId: "OfferStep4",
         },
         {
-            iconRelativePath: "livguard/icons/offers/step-5.svg",
+            iconRelativePath: "icons/offers/step-5.svg",
             stepVernacId: "OfferStep5",
         },
         {
-            iconRelativePath: "livguard/icons/offers/step-6.svg",
+            iconRelativePath: "icons/offers/step-6.svg",
             stepVernacId: "OfferStep6",
         },
     ];
@@ -337,7 +337,7 @@ export function StepsToAvailCashback({userPreferences, className}: {userPreferen
                                 <div className="tw-w-12 tw-h-12 lg-bg-secondary-300 tw-rounded-full tw-justify-items-center tw-grid">
                                     <div className="tw-w-6 tw-h-6 tw-place-self-center">
                                         <img
-                                            src={`https://files.growthjockey.com/${step.iconRelativePath}`}
+                                            src={`https://www.livguard.com/static-assets/${step.iconRelativePath}`}
                                             alt="step-icon"
                                             className="tw-w-full tw-h-full"
                                         />
