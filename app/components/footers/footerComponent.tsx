@@ -158,11 +158,15 @@ export function FooterComponent({
 
     const dealerLocatorAccordionList = [
         {
-            title: `${contentData.getContent("35178fbf-bc7e-4b8b-a49a-17bff7feaa18")}`,
+            title: `${contentData.getContent("c6cc6772-3776-4f4a-9b92-ccb32db1381e")}`,
             link: "/dealer-for-inverters-and-batteries",
             target: false,
         },
-
+        {
+            title: `${contentData.getContent("ea91e468-58cb-4af8-a8cd-9d8cd4117c1f")}`,
+            link: "https://www.livguardsolar.com/dealers",
+            target: true,
+        },
         // {
         //     title: `${contentData.getContent("footerDisclosure3T6")}`,
         //     link: "/car-and-suv-batteries/",

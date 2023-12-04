@@ -11954,6 +11954,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Select Nearest Dealer ",
         [Language.Hindi]: "निकटतम डीलर का चयन करें",
     },
+    "c6cc6772-3776-4f4a-9b92-ccb32db1381e": {
+        [Language.English]: "Livguard Dealer Near Me",
+        [Language.Hindi]: "मेरे निकट लिवगार्ड डीलर",
+    },
+    "ea91e468-58cb-4af8-a8cd-9d8cd4117c1f": {
+        [Language.English]: "LivguardSolar Dealer Near Me",
+        [Language.Hindi]: "मेरे निकट लिवगार्डसोलर डीलर",
+    },
+    "a4cdad94-3bca-44cd-b05c-2b4d5b2344e1": {
+        [Language.English]: "Livguard Blogs",
+        [Language.Hindi]: "लिवगार्ड ब्लॉग",
+    },
+    "9422ae55-d4b1-47c5-bebe-f3cc4b95f032": {
+        [Language.English]: "Solar Blogs",
+        [Language.Hindi]: "सोलर ब्लॉग",
+    },
 };
 
 const popUpFormStrings = [
@@ -12000,6 +12016,8 @@ const automotiveTestimonials = [
 ];
 
 const headerStrings: Array<string> = [
+    "9422ae55-d4b1-47c5-bebe-f3cc4b95f032",
+    "a4cdad94-3bca-44cd-b05c-2b4d5b2344e1",
     "27ab8917-5904-454d-aeda-a05effdba4eb",
     "690c2edd-1a1c-47c2-a307-4fef4c8a6b0a",
     "642467c3-8136-4523-b231-fa5aae9a075a",
@@ -12098,6 +12116,8 @@ const headerStrings: Array<string> = [
 
 const footerStrings = [
     ...popUpFormStrings,
+    "c6cc6772-3776-4f4a-9b92-ccb32db1381e",
+    "ea91e468-58cb-4af8-a8cd-9d8cd4117c1f",
     "27ab8917-5904-454d-aeda-a05effdba4eb",
     "407c0e47-9c3b-47b0-a1f2-13fc372dff9f",
     "c26206f2-c606-486f-b8bc-4072e9afbf86",
