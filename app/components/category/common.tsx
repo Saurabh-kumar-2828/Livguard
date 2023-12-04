@@ -64,6 +64,7 @@ export function OurSuggestionsComponent({
         keySpecifications: Array<{keySpecificationTitle: string; keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
         imagesRelativePath: string;
         link: string;
+        modelNumber: string;
         exploreButton: string;
         relatedProductsHeading: string;
         relatedProducts: Array<string>;
@@ -88,6 +89,7 @@ export function OurSuggestionsComponent({
 
                     <DefaultTextAnimation>
                         <div className="lg-text-title1 tw-text-center lg:tw-text-left">{humanReadableModelNumbersForSuggestions[vernacularContent.heading.toLocaleLowerCase()]}</div>
+                        <div className="lg-text-title1 tw-text-center lg:tw-text-left">{vernacularContent.modelNumber.toUpperCase()}</div>
                     </DefaultTextAnimation>
 
                     <VerticalSpacer className="tw-h-4" />
@@ -171,6 +173,7 @@ export function OurSuggestionsComponent({
                                     key={relatedProductIndex}
                                 >
                                     <div className="tw-w-full lg-text-body-bold tw-text-center">{humanReadableModelNumbersForSuggestions[relatedProduct]}</div>
+                                    <div className="tw-w-full lg-text-body-bold tw-text-center">{relatedProduct.toUpperCase()}</div>
                                     <FullWidthImage relativePath={`${vernacularContent.imagesRelativePath}${relatedProduct}/thumbnail.png`} />
                                 </Link>
                             ))}
@@ -189,6 +192,7 @@ export function OurSuggestionsComponent({
                                     >
                                         {/* <div className="tw-w-full lg-text-body-bold tw-text-center">{convertProductInternalNameToPublicName(item)}</div> */}
                                         <div className="tw-w-full lg-text-body-bold tw-text-center">{humanReadableModelNumbersForSuggestions[vernacularContent.heading.toLocaleLowerCase()]}</div>
+                                        <div className="tw-w-full lg-text-body-bold tw-text-center">{item.toUpperCase()}</div>
                                         <FullWidthImage relativePath={`${vernacularContent.imagesRelativePath}${item}/thumbnail.png`} />
                                     </Link>
                                 )}
@@ -215,6 +219,7 @@ export function ProductCardComponent({recommendedProduct, ctaTextId, userPrefere
 
             <DefaultTextAnimation>
                 <div className="tw-text-body tw-text-center">{humanReadableModelNumbersForSuggestions[item]}</div>
+                <div className="tw-text-body tw-text-center">{item.toUpperCase()}</div>
             </DefaultTextAnimation>
 
             {/* <VerticalSpacer className="tw-h-4" /> */}

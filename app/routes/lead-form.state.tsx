@@ -1,3 +1,5 @@
+import { Dealer } from "~/typeDefinitions";
+
 export enum FormStateInputsActionType {
     SetName,
     SetEmail,
@@ -5,6 +7,7 @@ export enum FormStateInputsActionType {
     SetOtpSubmitted,
     SetCity,
     setDealer,
+    setPinCode,
     SetFormSuccessfullySubmited,
     SetShowOtpButton,
     SetShowOtpField,
@@ -25,6 +28,7 @@ export type FormStateInputs = {
         city: string;
         dealer: string;
         otpSubmitted: string;
+        pinCode: string;
         termsAndConditionsChecked: boolean;
     };
     formSuccessfullySubmitted: boolean;
@@ -69,6 +73,16 @@ export function FormStateInputsReducer(state: FormStateInputs, action: FormState
             const newState: FormStateInputs = structuredClone(state);
 
             newState.inputData.phoneNumber = phoneNumber;
+
+            return newState;
+        }
+        case FormStateInputsActionType.setPinCode: {
+            // TODO: Validate that these exist?
+            const pinCode = action.payload;
+
+            const newState: FormStateInputs = structuredClone(state);
+
+            newState.inputData.pinCode = pinCode;
 
             return newState;
         }
@@ -217,7 +231,9 @@ export function createInitialFormState() {
             email: "",
             phoneNumber: "",
             city: "",
+            pinCode: "",
             otpSubmitted: "",
+            dealer: "",
             termsAndConditionsChecked: true,
         },
         formSuccessfullySubmitted: false,

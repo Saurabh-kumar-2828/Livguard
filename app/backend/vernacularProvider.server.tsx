@@ -970,7 +970,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `हमारे सबसे <span class="lg-text-highlighted">बेहतरीन उत्पाद</span>`,
     },
     landingPage2S7CTABT: {
-        [Language.English]: "View product",
+        [Language.English]: "View Product",
         [Language.Hindi]: "विस्तार से देखें",
     },
 
@@ -2303,8 +2303,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     loadCalculatorS1T1: {
         [Language.English]: `Plan Your Power Needs <br/>With Livguard <span class="lg-text-highlighted">Load Calculation</span>`,
         [Language.Hindi]: 'अपनी ऊर्जा ज़रूरतों को जानें <br/>हमारे <span class="lg-text-highlighted">लोड कैलकुलेशन</span> के साथ',
-        [Language.English]: `Plan Your Power Needs <br/>With Livguard <span class="lg-text-highlighted">Load Calculation</span>`,
-        [Language.Hindi]: 'अपनी ऊर्जा ज़रूरतों को जानें <br/>हमारे <span class="lg-text-highlighted">लोड कैलकुलेशन</span> के साथ',
     },
     loadCalculatorS1T2: {
         [Language.English]:
@@ -3549,7 +3547,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a": {
         [Language.English]: "72 Months Warranty",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "72 महीने वारंटी",
     },
     "b9e34b6e-972e-4246-a393-6450421e4813": {
         [Language.English]: "Offers coming soon!",
@@ -4767,7 +4765,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "c4d0e968-550c-4289-a333-6a4c7cc59a76": {
         [Language.English]: `24 Months`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `24 महीने`,
     },
     "7ee64780-1190-49dc-a305-0f6e9551e8aa": {
         [Language.English]: `Capacity`,
@@ -4819,7 +4817,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "348082cf-b5a1-43eb-bc24-9797a5b50d02": {
         [Language.English]: `72 Months Warranty`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `72 महीने वारंटी`,
     },
     "5a00bddd-f110-4ef7-8eae-40524a72dd91": {
         [Language.English]: `Starting from ₹`,
@@ -4831,7 +4829,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "b6b6bee5-c2b4-4221-8776-7e55212e5a0e": {
         [Language.English]: `View Product`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `विस्तार से देखें`,
     },
     "a5bdaea0-3ac4-4e61-bb56-15921022d881": {
         [Language.English]: `Your Guide to Finding The`,
@@ -4855,7 +4853,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "bfcd956a-49a7-4586-b645-b6b1a4e20a83": {
         [Language.English]: `Plan Your Power`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी ऊर्जा को जानें`,
     },
     "4810d194-34b9-4aec-b27b-61905a838517": {
         [Language.English]: `Can I use an inverter for fridge?`,
@@ -4965,7 +4963,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "965c45f7-f888-4d22-bd3a-cad183c42e7e": {
         [Language.English]: `24 Months`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `24 महीने`,
     },
     "71bd364d-bc35-416e-92ee-212a82b4d833": {
         [Language.English]: `Capacity`,
@@ -5017,7 +5015,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "fcb9e80f-e552-41af-81fc-6ade228105ab": {
         [Language.English]: `Plan Your Power`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी ऊर्जा को जानें`,
     },
     "a1d8ea9a-0849-49aa-826e-87bab380866b": {
         [Language.English]: `What is an inverter trolley?`,
@@ -5130,7 +5128,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "8b0eae76-d68a-41e3-ae04-ac2663f60e09": {
         [Language.English]: `24 + 24* Months`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `24 + 24* महीने`,
     },
     "761454b0-a898-4f44-a557-65fc8d21069f": {
         [Language.English]: `Capacity`,
@@ -5190,7 +5188,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "92797775-c5d0-49a7-93e4-b35314cddc6f": {
         [Language.English]: `Plan Your Power`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी ऊर्जा को जानें`,
     },
     "323526ea-ed1b-4b23-af2e-ecaed76b5b5b": {
         [Language.English]: `FAQ Q1`,
@@ -5496,7 +5494,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "a1ac20a8-c430-4a35-b262-2ff35b480344": {
         [Language.English]: `Plan Your Power`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी ऊर्जा को जानें`,
     },
     "897a4524-8f8b-4a11-9eab-0d08a2c6242d": {
         [Language.English]: "Starting from ₹",
@@ -5557,7 +5555,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "211ca435-d909-41ca-8a4a-8ecddfc46a30": {
         [Language.English]: `24 + 24* Months`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "24 + 24* महीने",
     },
     "a5e5e57c-b7a4-498c-a46b-11d7a196ccad": {
         [Language.English]: `7 Ah`,
@@ -5659,7 +5657,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "f31a5e79-e3fd-44a7-a077-b012913af431": {
         [Language.English]: "72 Months Warranty",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "72 महीने वारंटी",
     },
 
     //Car and SUV Vernac Strings Start
@@ -5783,7 +5781,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "aaabaf03-79df-4e72-9785-855769b39789": {
         [Language.English]: "30+30* Months",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "30+30* महीने",
     },
     "cb10db44-cef3-48d4-9e58-bdf3994ab36c": {
         [Language.English]: "Capacity",
@@ -5863,7 +5861,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "0061a02b-31d0-4ea3-a5a2-0eec5013365a": {
         [Language.English]: "72 Months Warranty",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "72 महीने वारंटी",
     },
     "00ffb138-e09f-4367-8122-f852a57f4c98": {
         [Language.English]: "Starting from  ₹ ",
@@ -5875,7 +5873,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "d93bb3f7-4979-4b40-88c8-fae1cee412e5": {
         [Language.English]: "View Product",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "विस्तार से देखें",
     },
     "16c43b68-0710-47d2-953d-2e0ac5c33f9d": {
         [Language.English]: "Zing Ultra",
@@ -6006,7 +6004,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "4f1fafa4-d985-4be7-a5d0-7f1e49255824": {
         [Language.English]: "36+36* Months Warranty",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "36+36* महीने वारंटी",
     },
     "ff61389f-35a0-4cf1-88cd-613b51b70ff8": {
         [Language.English]: "35 Ah @ C₂₀",
@@ -6014,7 +6012,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "3c8221ff-8df4-4cd0-ba47-930d75e848b9": {
         [Language.English]: "36+36* Months Warranty",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "36+36* महीने वारंटी",
     },
     "5295b378-d248-4114-bf3d-5a12db6e779e": {
         [Language.English]: "45 Ah @ C₂₀",
@@ -6022,7 +6020,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "dc12b69e-67f3-47c3-8887-4153756f4140": {
         [Language.English]: "36+36* Months Warranty",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "36+36* महीने वारंटी",
     },
 
     //Tractor Page Vernac Strings Start
@@ -6100,7 +6098,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "7df7a369-4108-454a-90e4-0846ad1610ee": {
         [Language.English]: "24 + 24* Months",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "24 + 24* महीने",
     },
     "20746cd1-a2d8-4dba-bc90-7632e05cc1f9": {
         [Language.English]: "Capacity",
@@ -6144,7 +6142,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "a586fc3e-db19-4e87-8a21-42606fadf4f1": {
         [Language.English]: "24 + 24* Months",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "24 + 24* महीने",
     },
     "d93b1f36-897b-4a48-bbdf-e711392d0d09": {
         [Language.English]: "7 Ah",
@@ -6298,7 +6296,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "9fb9e463-7ee3-42b3-96f2-858a032733ac": {
         [Language.English]: `72 Months Warranty`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `72 `,
     },
     "48ad8c65-8ec7-4a35-be5f-e73180099178": {
         [Language.English]: `Starting from ₹`,
@@ -8053,7 +8051,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     // CSR Page Vernac strings start
     "09b7690d-2117-461b-8a05-110dc4319240": {
         [Language.English]: `Our <span class="lg-text-highlighted">CSR Journey</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `हमारी <span class="lg-text-highlighted">CSR यात्रा</span>`,
     },
     "b0e9add2-cb81-4ba8-a38b-ee9ac0734225": {
         [Language.English]: `<div class = "tw-text-center">At Livguard, our dedication to Corporate Social Responsibility (CSR) underpins our commitment to our stakeholders - within and beyond our community, reaching out wherever there's a need. Our aspiration is to bring about positive change by enhancing lives in our communities. We contribute to four fundamental domains of societal progress: nurturing education, fostering healthcare, boosting livelihoods, and promoting environmental sustainability.</div>`,
@@ -9502,7 +9500,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "59671749-651b-4389-9e22-7f86515eb145": {
         [Language.English]: "Plan Your Power",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपनी ऊर्जा को जानें",
     },
     "a6db6f71-e1e6-4166-b5e0-9d2722918f17": {
         [Language.English]: "Find My Inverter",
@@ -9714,7 +9712,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "380adfbe-cb27-4b22-b601-db704a8d13ce": {
         [Language.English]: `E-Mobility`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इ-मोबिलिटी`,
     },
     "10a057de-1158-4f8b-8186-48571a720fc5": {
         [Language.English]: `Lithium Battery`,
@@ -10010,7 +10008,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "bfaf5f70-76d6-41fe-b11a-bf91f00af887": {
         [Language.English]: `Downloads`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `डाउनलोड`,
     },
     "639fd244-9283-4467-b186-6ee26321127b": {
         [Language.English]: `Get In Touch`,
@@ -10390,7 +10388,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "ccad5a29-0772-48cd-9ef7-cf443b5a9657": {
         [Language.English]: `<span class="lg-text-highlighted">E Rickshaw Charger</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted"></span> से`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">ई रिक्शा चार्जर</span> से`,
     },
     "f73b94be-d44a-48f8-a1b7-623071cf1fe0": {
         [Language.English]: `Energy Solutions`,
@@ -10459,7 +10457,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "6791d4aa-ae4c-4145-a535-b0bec4de6d64": {
         [Language.English]: `Our Journey`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारी यात्रा`,
     },
     "16248ec0-c540-495b-9340-724bc296c3cf": {
         [Language.English]: `CSR Efforts`,
@@ -11842,6 +11840,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Solar Dealer Locator`,
         [Language.Hindi]: "सोलर डीलर ढूँढें",
     },
+    "157fa5b7-ce5a-4397-b74b-9f756fb0fd07": {
+        [Language.English]: `LivMonitor 360`,
+        [Language.Hindi]: `लिवमॉनिटर 360`,
+    },
     "407c0e47-9c3b-47b0-a1f2-13fc372dff9f": {
         [Language.English]: `Solar Solutions`,
         [Language.Hindi]: "सोलर समाधान",
@@ -11910,9 +11912,57 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `View Battery`,
         [Language.Hindi]: `बैटरी देखें`,
     },
+    "0444375f-bd1a-44c9-8f30-0c77a5979459": {
+        [Language.English]: `Pin Code`,
+        [Language.Hindi]: `पिन कोड`,
+    },
+    "635c3fbf-8a42-48bb-8e28-778feb6a4ab2": {
+        [Language.English]: `Dealer`,
+        [Language.Hindi]: `डीलर`,
+    },
+    "0501c087-333d-4bf5-8ce9-af0a9d7e6a55": {
+        [Language.English]: `Please Enter Your Pin Code`,
+        [Language.Hindi]: "कृपया अपना पिन कोड डालें",
+    },
+    "05bbc22e-831a-4860-b4d2-ac1a9fb28022": {
+        [Language.English]: `Please Select Your Dealer`,
+        [Language.Hindi]: "कृपया अपना डीलर चुनें",
+    },
+    "27ab8917-5904-454d-aeda-a05effdba4eb": {
+        [Language.English]:
+            "*Colours, features and specifications are subject to change without prior notice. Actual application/features may differ from representative images shown above. Actual colours may vary due to digital medium constraints. Creative visualization applied. Images and depictions are for illustrative and representational purposes only. For more information, please reach out to your nearest Livguard dealer",
+        [Language.Hindi]:
+            "*रंग, विशेषताएं और विशिष्टताएं बिना किसी पूर्व सूचना के परिवर्तन के अधीन हैं। वास्तविक एप्लिकेशन/विशेषताएं ऊपर दिखाई गई प्रतिनिधि छवियों से भिन्न हो सकती हैं। डिजिटल माध्यम की बाधाओं के कारण वास्तविक रंग भिन्न हो सकते हैं। रचनात्मक विज़ुअलाइज़ेशन लागू किया गया है। छवियाँ और चित्रण केवल उदाहरणात्मक और प्रतिनिधित्वात्मक उद्देश्यों के लिए हैं। अधिक जानकारी के लिए कृपया अपने नजदीकी लिवगार्ड डीलर से संपर्क करें।",
+    },
+    "e32bf65b-db73-47c5-a8d6-c798ef566184": {
+        [Language.English]: "Full Name",
+        [Language.Hindi]: "पूरा नाम",
+    },
+    "d056bc12-4c0a-4385-9bdd-2d65ecead388": {
+        [Language.English]: "Email Address",
+        [Language.Hindi]: "मेल पता",
+    },
+    "389cd73a-d160-4b47-9bc3-3891a0499b2b": {
+        [Language.English]: "Mobile Number",
+        [Language.Hindi]: "मोबाइल नंबर",
+    },
+    "6e5f2f90-7ef6-4cec-a3bf-2ca5732ee276": {
+        [Language.English]: "Enter Pin Code",
+        [Language.Hindi]: "पिन कोड दर्ज करें",
+    },
+    "16424c8b-1f32-4e46-befe-d1b4b84a2ee0": {
+        [Language.English]: "Select Nearest Dealer ",
+        [Language.Hindi]: "निकटतम डीलर का चयन करें",
+    },
 };
 
 const popUpFormStrings = [
+    "16424c8b-1f32-4e46-befe-d1b4b84a2ee0",
+    "6e5f2f90-7ef6-4cec-a3bf-2ca5732ee276",
+    "OfferInvalidOTP",
+    "389cd73a-d160-4b47-9bc3-3891a0499b2b",
+    "e32bf65b-db73-47c5-a8d6-c798ef566184",
+    "d056bc12-4c0a-4385-9bdd-2d65ecead388",
     "contactUsT1",
     "contactUsT3",
     "7ce2eaa7-4d46-4f80-80d2-b91b81085a49",
@@ -11950,6 +12000,7 @@ const automotiveTestimonials = [
 ];
 
 const headerStrings: Array<string> = [
+    "27ab8917-5904-454d-aeda-a05effdba4eb",
     "690c2edd-1a1c-47c2-a307-4fef4c8a6b0a",
     "642467c3-8136-4523-b231-fa5aae9a075a",
     "3a186513-50e2-4738-8d17-0f8691fa7b1c",
@@ -12028,7 +12079,6 @@ const headerStrings: Array<string> = [
     "8c95d787-e92a-4e57-8eae-6402070e50db",
     "407c0e47-9c3b-47b0-a1f2-13fc372dff9f",
     "c22e2175-92ca-4d88-8fbe-3bbdce62ca16",
-    "57a03ee7-ca2c-4a65-99ca-f462af61147d",
     "f5ade0ea-e178-48ba-b86b-25923286d7f0",
     "77e7fb4d-ac75-46a6-a46c-4cadabcf9092",
     "d77ea485-ddbf-4530-9181-525fc5b8082b",
@@ -12043,10 +12093,12 @@ const headerStrings: Array<string> = [
     "57a03ee7-ca2c-4a65-99ca-f462af61147d",
     "407c0e47-9c3b-47b0-a1f2-13fc372dff9f",
     "phoneNumberChnage",
+    "157fa5b7-ce5a-4397-b74b-9f756fb0fd07",
 ];
 
 const footerStrings = [
     ...popUpFormStrings,
+    "27ab8917-5904-454d-aeda-a05effdba4eb",
     "407c0e47-9c3b-47b0-a1f2-13fc372dff9f",
     "c26206f2-c606-486f-b8bc-4072e9afbf86",
     "8609c5f9-8e8a-4410-a815-c5e8926dc94f",
@@ -12183,6 +12235,11 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     homePage: [
         ...headerStrings,
         ...footerStrings,
+        "05bbc22e-831a-4860-b4d2-ac1a9fb28022",
+        "0501c087-333d-4bf5-8ce9-af0a9d7e6a55",
+        "0444375f-bd1a-44c9-8f30-0c77a5979459",
+        "635c3fbf-8a42-48bb-8e28-778feb6a4ab2",
+        "de42afeb-0e61-47c6-917f-db597603506a",
         "380adfbe-cb27-4b22-b601-db704a8d13ce",
         "e9624c2c-a16e-4f56-88a2-3e2710461b14",
         "642467c3-8136-4523-b231-fa5aae9a075a",
@@ -12246,6 +12303,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
         "review3Message",
         "review4Name",
         "review4State",
+        "contactUsOTPT3E",
         "review4Message",
         "79c83c5f-5a33-4b6b-9b5f-789ee5d140a8",
         "homeS12H1T1",
@@ -14728,6 +14786,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     offersPage: [
         ...headerStrings,
         ...footerStrings,
+        "contactUsOTPT3E",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",
         "dfa03024-6e74-45c6-9634-8d83833930f3",
         "0931e2ce-74c8-49b3-84d0-760b290166eb",
@@ -15027,6 +15086,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     dealerLocatorPage: [
         ...headerStrings,
         ...footerStrings,
+        "contactUsOTPT3E",
         "dealerLocatorInputText",
         "dealerLocatorButtonText",
         "dealerLocatorS2H",
@@ -16141,6 +16201,7 @@ const vernacularStringIdsForPage: {[page: string]: Array<string>} = {
     productPage: [
         ...headerStrings,
         ...footerStrings,
+        "27ab8917-5904-454d-aeda-a05effdba4eb",
         "34faf8f5-f199-4cb7-be52-dc46737415e6",
         "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541",
         "0cb6d442-7df4-4272-a36d-9f956bdd8a54",

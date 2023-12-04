@@ -536,10 +536,12 @@ function TopTwoWheelerBatteryPicks({userPreferences, className, products}: {user
                         {/* {convertProductInternalNameToPublicName(slug)} */}
                         {productName}
                     </div>
+                    <div className="tw-row-start-5 tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">
+                        {slug.toUpperCase()}
+                    </div>
+                    <VerticalSpacer className="tw-row-start-6 tw-h-2" />
 
-                    <VerticalSpacer className="tw-row-start-5 tw-h-2" />
-
-                    <div className="tw-row-start-6 tw-place-self-center tw-grid tw-grid-cols-[minmax(0,1fr)_auto_0.5rem_70%_minmax(0,1fr)] tw-items-center tw-w-full">
+                    <div className="tw-row-start-7 tw-place-self-center tw-grid tw-grid-cols-[minmax(0,1fr)_auto_0.5rem_70%_minmax(0,1fr)] tw-items-center tw-w-full">
                         <img
                             className="tw-col-start-2 tw-invert dark:tw-invert-0"
                             src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/4/capacity.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
@@ -547,9 +549,9 @@ function TopTwoWheelerBatteryPicks({userPreferences, className, products}: {user
                         <span className="tw-col-start-4 tw-text-center">{capacity}</span>
                     </div>
 
-                    <VerticalSpacer className="tw-row-start-7 tw-h-2" />
+                    <VerticalSpacer className="tw-row-start-8 tw-h-2" />
 
-                    <div className="tw-row-start-8 tw-place-self-center tw-grid tw-grid-cols-[minmax(0,1fr)_auto_0.5rem_70%minmax(0,1fr)] tw-items-center tw-w-full">
+                    <div className="tw-row-start-9 tw-place-self-center tw-grid tw-grid-cols-[minmax(0,1fr)_auto_0.5rem_70%minmax(0,1fr)] tw-items-center tw-w-full">
                         <img
                             className="tw-col-start-2 tw-invert dark:tw-invert-0"
                             src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/4/warranty.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
@@ -557,9 +559,9 @@ function TopTwoWheelerBatteryPicks({userPreferences, className, products}: {user
                         <span className="tw-col-start-4 tw-text-center">{warranty}</span>
                     </div>
 
-                    <VerticalSpacer className="tw-row-start-9 tw-h-6" />
+                    <VerticalSpacer className="tw-row-start-[10] tw-h-6" />
 
-                    <div className="tw-row-start-10 tw-w-full tw-text-center lg-text-secondary-700">
+                    <div className="tw-row-start-[11] tw-w-full tw-text-center lg-text-secondary-700">
                         {productPrice == null
                             ? contentData.getContent("ccfce5e6-08ac-44b9-84ad-ef7891d7661b")
                             : `${contentData.getContent("abce92ec-fd9a-4578-ab56-ddfd9fdafe72")}${productPrice}${contentData.getContent(
@@ -568,9 +570,9 @@ function TopTwoWheelerBatteryPicks({userPreferences, className, products}: {user
                               )}`}
                     </div>
 
-                    <VerticalSpacer className="tw-row-start-11 tw-h-4" />
+                    <VerticalSpacer className="tw-row-start-[12] tw-h-4" />
 
-                    <button className="tw-row-start-12 lg-cta-outline-button lg-cta-outline-button-transition tw-text-primary-500-light dark:tw-text-secondary-100-light tw-w-full tw-text-center tw-px-1">
+                    <button className="tw-row-start-[13] lg-cta-outline-button lg-cta-outline-button-transition tw-text-primary-500-light dark:tw-text-secondary-100-light tw-w-full tw-text-center tw-px-1">
                         {contentData.getContent("063dc56b-910e-4a48-acb8-8f52668a4c72")}
                     </button>
                 </div>
@@ -917,6 +919,7 @@ function BatteryCard({
     capacity,
     polarity,
     dimensions,
+    modelNumber,
 }: {
     userPreferences: UserPreferences;
     batterySlug: string;
@@ -927,6 +930,7 @@ function BatteryCard({
     capacity: string;
     polarity: string;
     dimensions: string;
+    modelNumber: string;
 }) {
     const contentData = useContext(ContentProviderContext);
     return (
@@ -947,7 +951,7 @@ function BatteryCard({
 
             <div className="tw-col-start-1 lg:tw-col-start-2 tw-grid tw-grid-flow-row">
                 <div className="lg-text-title1 tw-text-center lg:tw-text-left">{name}</div>
-
+                <div className="lg-text-title1 tw-text-center lg:tw-text-left">{modelNumber.toUpperCase()}</div>
                 <VerticalSpacer className="tw-h-2" />
 
                 <div className="lg-text-body tw-text-center lg:tw-text-left">{description}</div>

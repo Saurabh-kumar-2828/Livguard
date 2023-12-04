@@ -59,6 +59,7 @@ export const loader: LoaderFunction = async ({request, params}) => {
                             productType: ProductType.automotiveBattery,
                             warranty: product.specifications[1].value,
                             isBestSeller: false,
+                            modelNumber: product.slug,
                         };
                     }
 

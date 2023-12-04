@@ -101,6 +101,7 @@ export function batteryFinderInitialState(language: Language, brands: Array<stri
             productType: ProductType.automotiveBattery,
             warranty: battery.specifications[1].value,
             isBestSeller: false,
+            modelNumber: battery.slug,
         })),
     };
 }

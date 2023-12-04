@@ -544,6 +544,7 @@ function BatteryCard({
 
             <div className="tw-col-start-1 lg:tw-col-start-2 tw-grid tw-grid-flow-row">
                 <div className="lg-text-title1 tw-text-center lg:tw-text-left">{name}</div>
+                <div className="lg-text-title1 tw-text-center lg:tw-text-left">{batterySlug.toUpperCase()}</div>
 
                 <VerticalSpacer className="tw-h-2" />
 

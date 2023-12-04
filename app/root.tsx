@@ -498,6 +498,13 @@ export function setHaptikLanguage(language: Language) {
     if (window._haptikLanguage == language) {
         return;
     }
+
+    if (window != undefined) {
+        if (!window.hasOwnProperty("HaptikSDK")) {
+            return;
+        }
+    }
+
     if (language == Language.English) {
         // HaptikSDK.launchMessage("welcome {english}", "TRUE", "FALSE");
         HaptikSDK?.changeLanguage("en");

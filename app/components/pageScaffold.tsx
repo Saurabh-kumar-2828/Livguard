@@ -7,6 +7,7 @@ import {HeaderComponent} from "~/components/headerComponent";
 import {SecondaryNavigation} from "~/components/secondaryNavigation";
 import {ContentProviderContext} from "~/contexts/contentProviderContext";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import type {SecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import type {UserPreferences} from "~/typeDefinitions";
@@ -63,7 +64,8 @@ export function PageScaffold({
                 <div className="tw-flex-grow" />
 
                 {secondaryNavigationController?.sections && <SecondaryNavigation secondaryNavigationController={secondaryNavigationController} />}
-
+                <div className="lg-px-screen-edge tw-max-w-7xl tw-mx-auto tw-text-left lg-text-icon">{contentData.getContent("27ab8917-5904-454d-aeda-a05effdba4eb")}</div>
+                <VerticalSpacer className="tw-h-2" />
                 {breadcrumbs == null ? null : (
                     <div className="lg-px-screen-edge lg-card tw-flex tw-flex-row tw-items-center tw-py-1">
                         <ItemBuilder

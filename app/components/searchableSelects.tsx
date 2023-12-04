@@ -13,6 +13,7 @@ export function FancySearchableSelect<T>({
     className,
     disabled,
     inputClassName,
+    listClassName,
 }: {
     items: Array<T>;
     selectedItem: T | null;
@@ -23,6 +24,7 @@ export function FancySearchableSelect<T>({
     className?: string;
     disabled?: boolean;
     inputClassName?: string;
+    listClassName?:string;
 }) {
     const [query, setQuery] = useState("");
     // const [isOpen, setIsOpen] = useState(false);
@@ -38,25 +40,26 @@ export function FancySearchableSelect<T>({
             >
                 <div className="tw-relative">
                     <div className="tw-grid tw-grid-cols-[minmax(0,1fr)_2.875rem]">
-                        <Combobox.Input
-                            className={concatenateNonNullStringsWithSpaces("tw-row-start-1 tw-col-start-1 tw-col-span-2 lg-text-input tw-w-full", inputClassName)}
-                            displayValue={renderFunction}
-                            placeholder={placeholder}
-                            onChange={(event) => {
-                                setQuery(event.target.value);
-                                // setIsOpen(true);
-                            }}
-                            // onFocus={() => {
-                            //     setIsOpen(true);
-                            // }}
-                            // onBlur={() => {
-                            //     setIsOpen(false);
-                            // }}
-                        />
-
-                        <Combobox.Button className="tw-row-start-1 tw-col-start-2 tw-grid tw-place-items-center">
-                            <ChevronUpDownIcon className="tw-h-4 tw-w-4" />
+                        <Combobox.Button className="tw-row-start-1 tw-col-start-1 tw-col-span-2 tw-w-full">
+                            <Combobox.Input
+                                className={concatenateNonNullStringsWithSpaces("tw-w-full lg-text-input", inputClassName)}
+                                displayValue={renderFunction}
+                                placeholder={placeholder}
+                                onChange={(event) => {
+                                    setQuery(event.target.value);
+                                    // setIsOpen(true);
+                                }}
+                                // onFocus={() => {
+                                //     setIsOpen(true);
+                                // }}
+                                // onBlur={() => {
+                                //     setIsOpen(false);
+                                // }}
+                            />
                         </Combobox.Button>
+                        {/* <Combobox.Button className="tw-row-start-1 tw-col-start-2 tw-grid tw-place-items-center">
+                            <ChevronUpDownIcon className="tw-h-4 tw-w-4" />
+                        </Combobox.Button> */}
                     </div>
 
                     <Transition
@@ -68,7 +71,7 @@ export function FancySearchableSelect<T>({
                     >
                         <Combobox.Options
                             // static={isOpen}
-                            className="tw-absolute tw-z-40 tw-mt-1 tw-max-h-60 tw-w-full tw-overflow-auto tw-rounded-md tw-bg-white tw-py-1 tw-text-base tw-shadow-lg tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none sm:tw-text-sm"
+                            className={concatenateNonNullStringsWithSpaces("tw-absolute tw-z-40 tw-mt-1 tw-max-h-60 tw-w-full tw-overflow-auto tw-rounded-md tw-bg-white tw-py-1 tw-text-base tw-shadow-lg tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none sm:tw-text-sm",listClassName)}
                         >
                             {items.length == 0 ? (
                                 <div className="tw-relative tw-cursor-default tw-select-none tw-py-2 tw-px-4 tw-text-gray-700">No results</div>
@@ -192,6 +195,7 @@ export function SearchableSelect<T>({
     className,
     disabled,
     inputClassName,
+    listClassName,
 }: {
     items: Array<T>;
     selectedItem: T | null;
@@ -202,6 +206,7 @@ export function SearchableSelect<T>({
     className?: string;
     disabled?: boolean;
     inputClassName?: string;
+    listClassName?: string;
 }) {
     const [query, setQuery] = useState("");
     // const [isOpen, setIsOpen] = useState(false);
@@ -218,25 +223,26 @@ export function SearchableSelect<T>({
             >
                 <div className="tw-relative">
                     <div className="tw-grid tw-grid-cols-[minmax(0,1fr)_2.875rem]">
-                        <Combobox.Input
-                            className={concatenateNonNullStringsWithSpaces("tw-row-start-1 tw-col-start-1 tw-col-span-2 lg-text-input tw-w-full", inputClassName)}
-                            displayValue={renderFunction}
-                            placeholder={placeholder}
-                            onChange={(event) => {
-                                setQuery(event.target.value);
-                                // setIsOpen(true);
-                            }}
-                            // onFocus={() => {
-                            //     setIsOpen(true);
-                            // }}
-                            // onBlur={() => {
-                            //     setIsOpen(false);
-                            // }}
-                        />
-
-                        <Combobox.Button className="tw-row-start-1 tw-col-start-2 tw-grid tw-place-items-center">
-                            <ChevronUpDownIcon className="tw-h-4 tw-w-4" />
+                        <Combobox.Button className="tw-row-start-1 tw-col-start-1 tw-col-span-2 tw-w-full">
+                            <Combobox.Input
+                                className={concatenateNonNullStringsWithSpaces("tw-w-full lg-text-input", inputClassName)}
+                                displayValue={renderFunction}
+                                placeholder={placeholder}
+                                onChange={(event) => {
+                                    setQuery(event.target.value);
+                                    // setIsOpen(true);
+                                }}
+                                // onFocus={() => {
+                                //     setIsOpen(true);
+                                // }}
+                                // onBlur={() => {
+                                //     setIsOpen(false);
+                                // }}
+                            />
                         </Combobox.Button>
+                        {/* <Combobox.Button className="tw-row-start-1 tw-col-start-2 tw-grid tw-place-items-center">
+                            <ChevronUpDownIcon className="tw-h-4 tw-w-4" />
+                        </Combobox.Button> */}
                     </div>
 
                     <Transition
@@ -248,7 +254,7 @@ export function SearchableSelect<T>({
                     >
                         <Combobox.Options
                             // static={isOpen}
-                            className="tw-absolute tw-z-40 tw-mt-1 tw-max-h-60 tw-w-full tw-overflow-auto tw-rounded-md tw-bg-white tw-py-1 tw-text-base tw-shadow-lg tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none sm:tw-text-sm"
+                            className={concatenateNonNullStringsWithSpaces("tw-absolute tw-z-40 tw-mt-1 tw-max-h-60 tw-w-full tw-overflow-auto tw-rounded-md tw-bg-white tw-py-1 tw-text-base tw-shadow-lg tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none sm:tw-text-sm", listClassName)}
                         >
                             {items.length == 0 ? (
                                 <div className="tw-relative tw-cursor-default tw-select-none tw-py-2 tw-px-4 tw-text-gray-700">No results</div>

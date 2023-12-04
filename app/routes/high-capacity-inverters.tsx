@@ -691,6 +691,7 @@ function InverterCard({
 
             <div className="tw-col-start-1 lg:tw-col-start-2 tw-grid tw-grid-flow-row">
                 <div className="lg-text-title1 tw-text-center lg:tw-text-left">{name}</div>
+                <div className="lg-text-title1 tw-text-center lg:tw-text-left">{inverterSlug.toUpperCase()}</div>
 
                 <VerticalSpacer className="tw-h-2" />
 
@@ -820,6 +821,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className, products}
                     </div>
 
                     <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">{productName}</div>
+                    <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">{slug.toUpperCase()}</div>
 
                     <VerticalSpacer className="tw-h-2" />
 

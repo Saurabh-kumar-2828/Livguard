@@ -926,6 +926,7 @@ export function OurSuggestionsSection({
         keySpecifications: Array<{keySpecificationTitle: string; keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
         imagesRelativePath: string;
         link: string;
+        modelNumber: string;
         exploreButton: string;
         relatedProductsHeading: string;
         relatedProducts: Array<string>;
@@ -959,6 +960,7 @@ export function OurSuggestionsSection({
             ],
             imagesRelativePath: "/livguard/products/",
             link: "/product/it1048st",
+            modelNumber: "it1048st",
             exploreButton: contentData.getContent("categoryBatteriesS4BT"),
             relatedProductsHeading: contentData.getContent("categoryBatteriesS4RelatedProductsHeading"),
             relatedProducts: ["it1642tt", "it1648tt", "it2048tt", "it9048st", "it1548stt"],
@@ -992,6 +994,7 @@ export function OurSuggestionsSection({
             ],
             imagesRelativePath: "/livguard/products/",
             link: "/product/it1560stt",
+            modelNumber: "it1560stt",
             exploreButton: contentData.getContent("categoryBatteriesS4BT"),
             relatedProductsHeading: contentData.getContent("categoryBatteriesS4RelatedProductsHeading"),
             relatedProducts: ["it1550tt", "it1860tt", "it2060tt", "it2360tt"],
@@ -1025,6 +1028,7 @@ export function OurSuggestionsSection({
             ],
             imagesRelativePath: "/livguard/products/",
             link: "/product/it1560stt",
+            modelNumber: "it1560stt",
             exploreButton: contentData.getContent("categoryBatteriesS4BT"),
             relatedProductsHeading: contentData.getContent("categoryBatteriesS4RelatedProductsHeading"),
             relatedProducts: ["it1172stt", "it1584tt", "it1672tt", "it1872tt", "it2072tt", "it2272tt", "it2672tt"],

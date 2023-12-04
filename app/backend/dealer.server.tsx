@@ -50,7 +50,7 @@ function rowToDealerInformation(row: any): Dealer {
         latitude: row.latitude,
         longitude: row.longitude,
         // stateCode: row.state_code,
-        area: row.area,
+        area: row.landmark,
         gmbLink: row.gmb_link,
     };
 
@@ -168,6 +168,7 @@ export async function insertOrUpdateLeadFormDetails(
         emailId?: string;
         city?: string;
         dealer?: string;
+        pinCode?: string;
         otpVerified: boolean;
         utmParameters: {
             [searchParameter: string]: string;

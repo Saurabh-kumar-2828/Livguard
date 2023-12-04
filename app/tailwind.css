@@ -664,6 +664,10 @@
         position: static !important;
     }
 
+    .lg-hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
     @keyframes blink-shadow {
         50% {
             box-shadow: 0px 0px 6px 0px #eb2a2b;

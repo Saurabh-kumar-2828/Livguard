@@ -1,5 +1,5 @@
 import {Dialog, Listbox, Popover, Transition} from "@headlessui/react";
-import {ChevronDoubleDownIcon, InformationCircleIcon} from "@heroicons/react/20/solid";
+import {ChevronDoubleDownIcon, ChevronLeftIcon, ChevronRightIcon, InformationCircleIcon} from "@heroicons/react/20/solid";
 import type {ActionFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {redirect} from "@remix-run/node";
 import {Form, Link, useActionData, useSearchParams} from "@remix-run/react";
@@ -272,7 +272,7 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
     const [searchParams, setSearchParams] = useSearchParams();
     const propertyType = searchParams.get("property_type");
 
-    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
+    // const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
 
     const [loadCalculatorInputs, dispatch] = useReducer(
         loadCalculatorInputsReducer,
@@ -309,6 +309,8 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
         }
     }, []);
 
+    const [selectedItems, setSelectedItems] = useState(0);
+
     return (
         <>
             <HeroSection userPreferences={userPreferences} />
@@ -335,15 +337,17 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <div className="tw-w-full tw-flex tw-flex-row tw-gap-x-4 tw-justify-center">
                 <button
-                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 0 ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-card")}
-                    onClick={() => emblaApi?.scrollTo(0)}
+                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedItems == 0 ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-card")}
+                    // onClick={() => emblaApi?.scrollTo(0)}
+                    onClick={() => setSelectedItems(0)}
                 >
                     {contentData.getContent("homeS5T5P4")}
                 </button>
 
                 <button
-                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 1 ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-card")}
-                    onClick={() => emblaApi?.scrollTo(1)}
+                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedItems == 1 ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-card")}
+                    // onClick={() => emblaApi?.scrollTo(1)}
+                    onClick={() => setSelectedItems(1)}
                 >
                     {contentData.getContent("homeS5T5P5")}
                 </button>
@@ -357,21 +361,23 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <div
                 className="tw-overflow-hidden tw-w-full tw-relative"
-                ref={emblaRef}
+                // ref={emblaRef}
             >
                 <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-start">
-                    <DeviceSelectionNewUi
-                        userPreferences={userPreferences}
-                        loadCalculatorInputs={loadCalculatorInputsNewUi}
-                        dispatch={dispatchNewUi}
-                        setIsDialogOpen={setIsDialogOpen}
-                    />
-
-                    <RoomSelection
-                        userPreferences={userPreferences}
-                        loadCalculatorInputs={loadCalculatorInputs}
-                        dispatch={dispatch}
-                    />
+                    {selectedItems == 0 ? (
+                        <DeviceSelectionNewUi
+                            userPreferences={userPreferences}
+                            loadCalculatorInputs={loadCalculatorInputsNewUi}
+                            dispatch={dispatchNewUi}
+                            setIsDialogOpen={setIsDialogOpen}
+                        />
+                    ) : (
+                        <RoomSelection
+                            userPreferences={userPreferences}
+                            loadCalculatorInputs={loadCalculatorInputs}
+                            dispatch={dispatch}
+                        />
+                    )}
                 </div>
             </div>
 
@@ -379,8 +385,8 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <AdditionalInputsSection
                 userPreferences={userPreferences}
-                loadCalculatorInputs={selectedIndex == 0 ? loadCalculatorInputsNewUi : loadCalculatorInputs}
-                dispatch={selectedIndex == 0 ? dispatchNewUi : dispatch}
+                loadCalculatorInputs={selectedItems == 0 ? loadCalculatorInputsNewUi : loadCalculatorInputs}
+                dispatch={selectedItems == 0 ? dispatchNewUi : dispatch}
             />
 
             <VerticalSpacer className="tw-h-8" />
@@ -392,7 +398,7 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                 <input
                     type="text"
                     name="loadCalculatorInputs"
-                    value={JSON.stringify(selectedIndex == 0 ? loadCalculatorInputsNewUi : loadCalculatorInputs)}
+                    value={JSON.stringify(selectedItems == 0 ? loadCalculatorInputsNewUi : loadCalculatorInputs)}
                     readOnly
                     className="tw-hidden"
                 />
@@ -1422,11 +1428,37 @@ function EditRoomDialog({
     setIsEditRoomDialogOpen: React.Dispatch<boolean>;
 }) {
     const contentData = useContext(ContentProviderContext);
+    const [selectedItems, setSelectedItems] = useState(0);
     const [selectedRoomName, setSelectedRoomName] = useState("");
     const [isNewDeviceDialogOpen, setIsNewDeviceDialogOpen] = useState(false);
     const [currentlyAddingDeviceType, setCurrentlyAddingDeviceType] = useState<string | null>(null);
     const [isEditDeviceDialogOpen, setIsEditDeviceDialogOpen] = useState(false);
     const [currentlyEditingDeviceType, setCurrentlyEditingDeviceType] = useState<string | null>(null);
+
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: false, align: "start"});
+
+    const [hasPrev, setHasPrev] = useState(false);
+    const [hasNext, setHasNext] = useState(false);
+
+    useEffect(() => {
+        const updateButtonStates = () => {
+            if (emblaApi) {
+                setHasPrev(emblaApi.canScrollPrev());
+                setHasNext(emblaApi.canScrollNext());
+            }
+        };
+
+        if (emblaApi) {
+            emblaApi.on("select", updateButtonStates);
+            updateButtonStates();
+        }
+
+        return () => {
+            if (emblaApi) {
+                emblaApi.off("select", updateButtonStates);
+            }
+        };
+    }, [emblaApi]);
 
     function tryToCloseEditRoomDialog() {
         setIsEditRoomDialogOpen(false);
@@ -1476,7 +1508,7 @@ function EditRoomDialog({
                     <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
                 </Transition.Child>
 
-                <Dialog.Panel className="tw-fixed tw-inset-0 tw-grid tw-grid-rows-[1fr_auto_1fr] tw-grid-cols-1 tw-justify-center tw-items-center">
+                <Dialog.Panel className="tw-fixed tw-inset-0 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-grid-cols-1 tw-justify-center tw-items-center tw-z-[100] lg:tw-mt-20">
                     <div />
 
                     <Transition.Child
@@ -1488,24 +1520,24 @@ function EditRoomDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-card tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto lg-bg-new-background-500">
-                            <div className="lg-text-title1 lg-px-screen-edge">Edit {room.roomName}</div>
+                        <div className="tw-w-full lg-card tw-py-4 tw-rounded-lg tw-max-w-lg tw-mx-auto lg-bg-new-background-500">
+                            <div className="lg-text-title2 tw-px-[2rem]">Edit {room.roomName}</div>
 
-                            <VerticalSpacer className="tw-h-4" />
+                            <VerticalSpacer className="tw-h-2" />
 
-                            <div className="lg-text-body-bold lg-px-screen-edge lg-text-secondary-900">Selected Devices</div>
+                            <div className="lg-text-body-bold tw-px-[2rem] lg-text-secondary-900">Selected Devices</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
                             {room.devices.length == 0 ? (
-                                <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-x-2 tw-gap-y-2 lg-px-screen-edge">
+                                <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-x-2 tw-gap-y-2 tw-px-[2rem]">
                                     <div className="tw-w-full tw-flex tw-flex-col tw-items-center tw-gap-y-2 tw-text-center">
                                         <PlusCircleFill className="tw-w-8 tw-h-8 lg-text-secondary-700" />
                                         <div className="lg-text-icon">No device</div>
                                     </div>
                                 </div>
                             ) : (
-                                <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-x-2 tw-gap-y-2 lg-px-screen-edge">
+                                <div className="tw-w-full tw-grid lg:tw-grid-cols-6 tw-grid-cols-4 tw-gap-x-2 tw-gap-y-2 tw-px-[2rem]">
                                     <ItemBuilder
                                         items={deviceTypeToDeviceCounts}
                                         itemBuilder={(deviceTypeToDeviceCount, deviceTypeToDeviceCountIndex) => (
@@ -1539,41 +1571,74 @@ function EditRoomDialog({
                             )}
 
                             <VerticalSpacer className="tw-h-3" />
-
-                            <div className="lg-text-body-bold lg-text-secondary-900 lg-px-screen-edge">Select Devices</div>
-
                             <VerticalSpacer className="tw-h-2" />
+                            <div className=" tw-bg-new-background-border-500-light lg-bg-new-background-border-500 tw-relative">
+                                <button
+                                    type="button"
+                                    className={concatenateNonNullStringsWithSpaces("tw-absolute tw-top-4 tw-z-10 lg-bg-secondary-100 tw-opacity-80 tw-rounded-full", !hasPrev ? "tw-hidden" : "")}
+                                    onClick={() => {
+                                        emblaApi?.scrollPrev();
+                                    }}
+                                >
+                                    <ChevronLeftIcon className="tw-w-6 tw-h-6" />
+                                </button>
 
-                            <div className="tw-h-96 tw-overflow-x-visible tw-overflow-y-auto tw-bg-new-background-border-500-light lg-bg-new-background-border-500 tw-relative">
-                                <ItemBuilder
-                                    items={distinct(Object.values(deviceTypeLibrary).map((deviceDetails) => deviceDetails.category))}
-                                    itemBuilder={(deviceCategory, deviceCategoryIndex) => (
+                                <div
+                                    className="tw-overflow-hidden tw-w-full"
+                                    ref={emblaRef}
+                                >
+                                    <div className="tw-flex tw-w-full tw-gap-1 tw-mx-4">
+                                        <ItemBuilder
+                                            items={distinct(Object.values(deviceTypeLibrary).map((deviceDetails) => deviceDetails.category))}
+                                            itemBuilder={(deviceCategory, deviceCategoryIndex) => (
+                                                <div
+                                                    className="tw-min-w-[max-content] tw-pt-2 tw-overflow-line-hidden"
+                                                    key={deviceCategoryIndex}
+                                                >
+                                                    <button
+                                                        className={concatenateNonNullStringsWithSpaces(
+                                                            "tw-px-4 tw-py-2 tw-rounded-lg tw-w-full",
+                                                            selectedItems === deviceCategoryIndex ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-card lg-bg-secondary-100",
+                                                        )}
+                                                        onClick={() => setSelectedItems(deviceCategoryIndex)}
+                                                    >
+                                                        {deviceCategory}
+                                                    </button>
+                                                    <VerticalSpacer className="tw-h-2" />
+                                                </div>
+                                            )}
+                                        />
+                                    </div>
+                                </div>
+                                <button
+                                    type="button"
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-absolute tw-right-0 tw-top-4 tw-z-10 lg-bg-secondary-100 tw-opacity-80 tw-rounded-full",
+                                        !hasNext ? "tw-hidden" : "",
+                                    )}
+                                    onClick={() => {
+                                        emblaApi?.scrollNext();
+                                    }}
+                                >
+                                    <ChevronRightIcon className="tw-w-6 tw-h-6" />
+                                </button>
+                                <div className="lg-text-body-bold lg-text-secondary-900 tw-px-[2rem]">Select Devices</div>
+                                <VerticalSpacer className="tw-h-2" />
+                                <div className="tw-w-full">
+                                    {distinct(Object.values(deviceTypeLibrary).map((deviceDetails) => deviceDetails.category)).map((deviceCategory, deviceCategoryIndex) => (
                                         <div
-                                            className="tw-p-4"
                                             key={deviceCategoryIndex}
+                                            className="tw-grid lg:tw-grid-cols-6 tw-grid-cols-4 tw-gap-2 tw-px-4"
                                         >
-                                            <div className="lg-text-body">{deviceCategory}</div>
-
-                                            <VerticalSpacer className="tw-h-2" />
-
-                                            <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-x-2 tw-gap-y-2">
+                                            {selectedItems === deviceCategoryIndex && (
                                                 <ItemBuilder
                                                     items={Object.entries(deviceTypeLibrary)
-                                                        .filter((kvp) => kvp[1].category == deviceCategory)
+                                                        .filter((kvp) => kvp[1].category === deviceCategory)
                                                         .map((kvp) => kvp[0])}
                                                     itemBuilder={(deviceType, deviceTypeIndex) => (
                                                         <button
                                                             type="button"
                                                             className="tw-w-full tw-flex tw-flex-col tw-items-center tw-gap-y-2 tw-text-center"
-                                                            // onClick={() => {
-                                                            //     setSelectedDevices([
-                                                            //         ...selectedDevices,
-                                                            //         {
-                                                            //             deviceType: deviceType,
-                                                            //             deviceDetails: {},
-                                                            //         },
-                                                            //     ]);
-                                                            // }}
                                                             onClick={() => {
                                                                 setCurrentlyAddingDeviceType(deviceType);
                                                                 tryToOpenNewDeviceDialog();
@@ -1590,15 +1655,12 @@ function EditRoomDialog({
                                                         </button>
                                                     )}
                                                 />
-                                            </div>
+                                            )}
                                         </div>
-                                    )}
-                                />
+                                    ))}
+                                </div>
                                 <div className="tw-sticky tw-w-full tw-bottom-0 tw-h-4 tw-bg-gradient-to-b dark:tw-from-[#1f202200] dark:tw-to-[#1f2022ff] tw-from-[#f2f2f200] tw-to-[#f2f2f2FF]"></div>
                             </div>
-
-                            <VerticalSpacer className="tw-h-6" />
-
                             {/* <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
                                 <button
                                     type="button"
@@ -1631,7 +1693,7 @@ function EditRoomDialog({
                                 </button>
                             </div> */}
 
-                            <div className="tw-flex tw-flex-row tw-justify-center tw-items-center lg-px-screen-edge">
+                            <div className="tw-flex tw-flex-row tw-justify-center tw-items-center tw-p-0">
                                 <button
                                     type="button"
                                     className=""
@@ -1740,7 +1802,7 @@ function NewDeviceDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                        <div className="tw-w-full lg-card lg-bg-new-background-500 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1">Add {getDeviceTypeDetails(currentlyAddingDeviceType).humanReadableString}</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -2095,7 +2157,7 @@ function EditDeviceDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-card tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                        <div className="tw-w-full lg-card lg-bg-new-background-500 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1">Edit {getDeviceTypeDetails(currentlyEditingDeviceType).humanReadableString}</div>
 
                             <VerticalSpacer className="tw-h-4" />

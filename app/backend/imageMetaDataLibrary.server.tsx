@@ -8811,6 +8811,8 @@ const imageMetadataIdsForPage = {
         ...headerImages,
         ...footerImages,
         ...commonIcons,
+        "/livguard/offers/2/offer-automotive-hi-in.png",
+        "/livguard/offers/2/offer-inverter-battery-hi-in.png",
         "/livguard/offers/2/offer-solar-offers-en-in.png",
         "/livguard/offers/2/offer-solar-offers-hi-in.png",
         "/livguard/offers/offer-og-banner.jpg",

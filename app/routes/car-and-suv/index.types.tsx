@@ -29,5 +29,6 @@ export type BatteryFinderState = {
         capacity: string;
         polarity: string;
         dimensions: string;
+        modelNumber: string;
     }> | null;
 };

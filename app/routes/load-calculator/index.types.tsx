@@ -517,6 +517,32 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 ],
             },
             {
+                roomName: "Bedroom 3",
+                roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
+                devices: [
+                    {
+                        // LED Bulb
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Phone Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
+                        deviceDetails: {},
+                    },
+                ],
+            },
+            {
                 roomName: "Kitchen",
                 roomType: "71824c29-731e-4625-9c66-cfde9763a46a",
                 devices: [
@@ -603,6 +629,58 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
             },
             {
                 roomName: "Bedroom 2",
+                roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
+                devices: [
+                    {
+                        // LED Bulb
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Phone Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
+                        deviceDetails: {},
+                    },
+                ],
+            },
+            {
+                roomName: "Bedroom 3",
+                roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
+                devices: [
+                    {
+                        // LED Bulb
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Phone Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
+                        deviceDetails: {},
+                    },
+                ],
+            },
+            {
+                roomName: "Bedroom 4",
                 roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
                 devices: [
                     {

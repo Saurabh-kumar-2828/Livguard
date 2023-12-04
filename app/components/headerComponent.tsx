@@ -1043,6 +1043,10 @@ const headerMenuItems: Array<HeaderItem> = [
                         contentId: "57a03ee7-ca2c-4a65-99ca-f462af61147d",
                         to: "https://www.livguardsolar.com/dealers",
                     },
+                    {
+                        contentId: "157fa5b7-ce5a-4397-b74b-9f756fb0fd07",
+                        to: "https://www.livguardsolar.com/livmonitor",
+                    },
                 ],
                 desktopClassName: "tw-row-start-4 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 dark:tw-bg-new-background-border-500-dark",
                 col: 1,

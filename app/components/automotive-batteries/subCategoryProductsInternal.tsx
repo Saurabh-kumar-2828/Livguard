@@ -262,6 +262,7 @@ function BatteryCard({
                 <FullWidthImage relativePath={`/livguard/products/${slug}/thumbnail.png`} />
 
                 <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">{productName}</div>
+                <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">{slug.toUpperCase()}</div>
 
                 <VerticalSpacer className="tw-h-2" />
 

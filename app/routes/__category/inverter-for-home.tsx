@@ -608,6 +608,7 @@ export function OurSuggestionsSection({
         keySpecifications: Array<{keySpecificationTitle: string; keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
         imagesRelativePath: string;
         link: string;
+        modelNumber: string;
         exploreButton: string;
         relatedProductsHeading: string;
         relatedProducts: Array<string>;
@@ -640,6 +641,7 @@ export function OurSuggestionsSection({
             ],
             imagesRelativePath: "/livguard/products/",
             link: "/product/lgs1100i",
+            modelNumber: "lgs1100i",
             exploreButton: contentData.getContent("categoryBatteriesS4BT"),
             relatedProductsHeading: contentData.getContent("categoryInvertersS4RelatedProductsHeading"),
             relatedProducts: ["lgs900i", "lgs1000i", "lgs1600", "lgs1700"],
@@ -672,6 +674,7 @@ export function OurSuggestionsSection({
             ],
             imagesRelativePath: "/livguard/products/",
             link: "/product/lg1550i",
+            modelNumber: "lg1550i",
             exploreButton: contentData.getContent("categoryBatteriesS4BT"),
             relatedProductsHeading: contentData.getContent("categoryInvertersS4RelatedProductsHeading"),
             relatedProducts: ["lg700e", "lg900", "lg1100", "lg1450i", "lg1950i"],

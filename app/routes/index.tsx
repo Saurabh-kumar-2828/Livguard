@@ -31,7 +31,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {ImageCdnProvider, ImageMetadata, type Uuid} from "~/common--type-definitions/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {emailIdValidationPattern, indianPhoneNumberValidationPattern, pinCodeValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
@@ -389,25 +389,23 @@ function HomePage({
 
             <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-11 tw-col-span-full" />
 
-            <FaqSection
-                userPreferences={userPreferences}
-                className="tw-row-start-10 lg:tw-row-start-16 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
-            />
-
-            <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-13 tw-col-span-full" />
-
             <InTheNewsSection
                 userPreferences={userPreferences}
                 className="tw-row-start-8 lg:tw-row-start-12 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-15 tw-col-span-full" />
+            <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-13 tw-col-span-full" />
 
             <PowerfulPurposePowerfulImpact
                 userPreferences={userPreferences}
                 className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-14 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
+            <VerticalSpacer className="max-lg:tw-hidden tw-h-20 tw-row-start-15 tw-col-span-full" />
 
+            <FaqSection
+                userPreferences={userPreferences}
+                className="tw-row-start-10 lg:tw-row-start-16 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
         </div>
     );
 }
@@ -1041,41 +1039,6 @@ export function SolarSolutions({userPreferences, className}: {userPreferences: U
     );
 }
 
-export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const faqs = [
-        {
-            question: "homeS9Q1Q",
-            answer: "homeS9Q1A",
-        },
-        {
-            question: "homeS9Q2Q",
-            answer: "homeS9Q2A",
-        },
-        {
-            question: "homeS9Q3Q",
-            answer: "homeS9Q3A",
-        },
-        {
-            question: "homeS9Q4Q",
-            answer: "homeS9Q4A",
-        },
-        {
-            question: "homeS9Q5Q",
-            answer: "homeS9Q5A",
-        },
-    ];
-
-    return (
-        <div className={className}>
-            <FaqSectionInternal
-                faqs={faqs}
-                userPreferences={userPreferences}
-                className="tw-h-full tw-w-full"
-            />
-        </div>
-    );
-}
-
 export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
     const contentData = useContext(ContentProviderContext);
     const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
@@ -1397,7 +1360,7 @@ export function ContactUsDialog({
     const dealerFetcher = useFetcher();
     const [selectedCityIndex, setSelectedCityIndex] = useState<number | null>(null);
     const [selectedDealerIndex, setSelectedDealerIndex] = useState<number | null>(null);
-    const [dealerList, setDealerList] = useState<Array<{name: string; code: string}>>([]);
+    const [dealers, setDealers] = useState<Array<Dealer> | null>(null);
 
     const [formStateInputs, dispatch] = useReducer(FormStateInputsReducer, createInitialFormState());
 
@@ -1457,6 +1420,20 @@ export function ContactUsDialog({
         }
     }, [formStateInputs.resendTimeOut]);
 
+    useEffect(() => {
+        if (dealerFetcher.data != null) {
+            if (dealerFetcher.data.error != null) {
+                toast.error(dealerFetcher.data.error);
+                return;
+            }
+            if (dealerFetcher.data.dealers.length === 0) {
+                toast.error("No dealers found for this pincode");
+            }
+
+            setDealers(dealerFetcher.data.dealers);
+        }
+    }, [dealerFetcher.data]);
+
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
         const action: FormStateInputsAction = {
@@ -1465,6 +1442,30 @@ export function ContactUsDialog({
         };
         dispatch(action);
     }
+
+    const [email, setEmail] = useState("");
+    const [isValidEmail, setIsValidEmail] = useState(true);
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const validateEmail = (email: string) => {
+        const result = email.match(emailIdValidationPattern);
+        return result != null && result.length > 0;
+    };
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handleBlur = () => {
+        const isValid = validateEmail(email);
+        setIsValidEmail(isValid);
+
+        if (!isValid && email !== "") {
+            setErrorMessage("please enter correct email address.");
+        } else {
+            setErrorMessage("");
+        }
+    };
 
     return (
         <>
@@ -1479,16 +1480,16 @@ export function ContactUsDialog({
                     method="post"
                     action="/lead-form-submission"
                 >
-                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsT3")}</div>
+                    {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsT3")}</div>
 
-                    <VerticalSpacer className="tw-h-1" />
+                    <VerticalSpacer className="tw-h-1" /> */}
 
                     <input
                         type="text"
                         name="name"
                         required
-                        className="lg-text-input"
-                        placeholder={contentData.getContent("7ce2eaa7-4d46-4f80-80d2-b91b81085a49")}
+                        className="lg-text-input tw-py-[0.5rem]"
+                        placeholder={contentData.getContent("e32bf65b-db73-47c5-a8d6-c798ef566184")}
                         onChange={(e) => {
                             const action: FormStateInputsAction = {
                                 actionType: FormStateInputsActionType.SetName,
@@ -1500,15 +1501,15 @@ export function ContactUsDialog({
 
                     <VerticalSpacer className="tw-h-2" />
 
-                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsT4")}</div>
+                    {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsT4")}</div>
 
-                    <VerticalSpacer className="tw-h-1" />
+                    <VerticalSpacer className="tw-h-1" /> */}
 
-                    <input
+                    {/* <input
                         type="text"
                         name="emailId"
                         placeholder={contentData.getContent("29ca1701-2fb9-49ec-a4d6-3af793c194b1")}
-                        className="lg-text-input"
+                        className="lg-text-input tw-py-[0.5rem]"
                         pattern={emailIdValidationPattern}
                         required
                         onChange={(e) => {
@@ -1518,18 +1519,37 @@ export function ContactUsDialog({
                             };
                             dispatch(action);
                         }}
+                    /> */}
+                    <input
+                        type="text"
+                        name="emailId"
+                        placeholder={contentData.getContent("d056bc12-4c0a-4385-9bdd-2d65ecead388")}
+                        className="lg-text-input tw-py-[0.5rem]"
+                        value={email}
+                        // required
+                        onChange={(e) => {
+                            const action: FormStateInputsAction = {
+                                actionType: FormStateInputsActionType.SetEmail,
+                                payload: e.target.value,
+                            };
+                            dispatch(action);
+                            setEmail(e.target.value);
+                        }}
+                        onBlur={handleBlur}
                     />
 
-                    <VerticalSpacer className="tw-h-2" />
+                    {!isValidEmail && <div className="error-message lg-text-icon tw-text-red-500 tw-pl-3 tw-py-1">{errorMessage}</div>}
+                    {/* <VerticalSpacer className="tw-h-2" /> */}
 
-                    <VerticalSpacer className="tw-h-2" />
+                    {isValidEmail && <VerticalSpacer className="tw-h-2" />}
 
                     {!formStateInputs.showOtpField ? (
-                        <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsT2")}</div>
+                        // <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("contactUsT2")}</div>""
+                        ""
                     ) : (
-                        <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
+                        <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)_minmax(0,1fr)] tw-pl-3">
                             <div
-                                className="tw-col-start-1 tw-text-primary-500-light hover:tw-cursor-pointer lg-text-body-bold"
+                                className="tw-col-start-1 tw-text-primary-500-light hover:tw-cursor-pointer lg-text-icon"
                                 onClick={(e) => {
                                     const action: FormStateInputsAction = {
                                         actionType: FormStateInputsActionType.EditPhoneNumber,
@@ -1543,7 +1563,54 @@ export function ContactUsDialog({
                             >
                                 {contentData.getContent("phoneNumberChnage")}
                             </div>
-                            <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{formStateInputs.inputData.phoneNumber}</div>
+                            <div className="tw-col-start-3 lg-text-secondary-900 lg-text-icon">{formStateInputs.inputData.phoneNumber}</div>
+                            <div
+                                className={concatenateNonNullStringsWithSpaces(
+                                    "tw-col-start-4  tw-w-full tw-px-3 tw-grid tw-justify-end",
+                                    formStateInputs.showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 tw-h-0 -tw-z-100",
+                                )}
+                            >
+                                {/* <div
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "lg-text-secondary-700 tw-text-[12px]",
+                                        `${formStateInputs.resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`,
+                                    )}
+                                    onClick={() => {
+                                        const action: FormStateInputsAction = {
+                                            actionType: FormStateInputsActionType.SetIsOtpResent,
+                                            payload: true,
+                                        };
+                                        dispatch(action);
+                                        const data = new FormData();
+                                        data.append("phoneNumber", formStateInputs.inputData.phoneNumber);
+                                        data.append("name", formStateInputs.inputData.name);
+                                        otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                                    }}
+                                >
+                                    {contentData.getContent("OfferResendOTP")}
+                                </div>
+                                <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${formStateInputs.resendTimeOut}`}</div> */}
+                                {formStateInputs.resendTimeOut === 0 ? (
+                                    <div
+                                        className="lg-text-secondary-700 tw-text-[12px] hover:tw-cursor-pointer"
+                                        onClick={() => {
+                                            const action: FormStateInputsAction = {
+                                                actionType: FormStateInputsActionType.SetIsOtpResent,
+                                                payload: true,
+                                            };
+                                            dispatch(action);
+                                            const data = new FormData();
+                                            data.append("phoneNumber", formStateInputs.inputData.phoneNumber);
+                                            data.append("name", formStateInputs.inputData.name);
+                                            otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                                        }}
+                                    >
+                                        {contentData.getContent("OfferResendOTP")}
+                                    </div>
+                                ) : (
+                                    <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${formStateInputs.resendTimeOut}`}</div>
+                                )}
+                            </div>
                         </div>
                     )}
 
@@ -1554,11 +1621,11 @@ export function ContactUsDialog({
                             <input
                                 type="text"
                                 name="phoneNumber"
-                                placeholder={contentData.getContent("10b102a7-4be9-4832-9240-f747cf81a855")}
+                                placeholder={contentData.getContent("389cd73a-d160-4b47-9bc3-3891a0499b2b")}
                                 pattern={indianPhoneNumberValidationPattern}
                                 required
                                 autoFocus={true}
-                                className="lg-text-input tw-w-full"
+                                className="lg-text-input tw-py-[0.5rem] tw-w-full"
                                 disabled={formStateInputs.showOtpField}
                                 defaultValue={formStateInputs.inputData.phoneNumber}
                                 ref={phoneNumberRef}
@@ -1641,7 +1708,7 @@ export function ContactUsDialog({
                                 <input
                                     type="text"
                                     name="otpSubmitted"
-                                    className="lg-text-input"
+                                    className="lg-text-input tw-py-[0.5rem]"
                                     required
                                     placeholder={contentData.getContent("contactUsOTPT3E")}
                                     ref={otpFieldRef}
@@ -1659,33 +1726,90 @@ export function ContactUsDialog({
                             </div>
                         </div>
                     )}
+                    <VerticalSpacer className="tw-h-2" />
 
-                    <VerticalSpacer className="tw-h-1" />
+                    {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("0444375f-bd1a-44c9-8f30-0c77a5979459")}</div>
 
-                    <div
-                        className={concatenateNonNullStringsWithSpaces(
-                            "tw-flex tw-flex-row tw-justify-between tw-w-full tw-px-3",
-                            formStateInputs.showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100",
-                        )}
-                    >
-                        <div
-                            className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${formStateInputs.resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
-                            onClick={() => {
-                                const action: FormStateInputsAction = {
-                                    actionType: FormStateInputsActionType.SetIsOtpResent,
-                                    payload: true,
-                                };
-                                dispatch(action);
+                    <VerticalSpacer className="tw-h-1" /> */}
+
+                    <input
+                        type="text"
+                        name="pinCode"
+                        pattern={pinCodeValidationPattern}
+                        required
+                        onChange={async (e) => {
+                            const action: FormStateInputsAction = {
+                                actionType: FormStateInputsActionType.setPinCode,
+                                payload: e.target.value,
+                            };
+                            dispatch(action);
+                            if (e.target.value.length == 6) {
                                 const data = new FormData();
-                                data.append("phoneNumber", formStateInputs.inputData.phoneNumber);
-                                data.append("name", formStateInputs.inputData.name);
-                                otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
-                            }}
-                        >
-                            {contentData.getContent("OfferResendOTP")}
-                        </div>
-                        <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${formStateInputs.resendTimeOut}`}</div>
-                    </div>
+                                data.append("pincode", e.target.value);
+                                dealerFetcher.submit(data, {method: "post", action: "/contact-us/get-dealers-for-pin-code"});
+                            } else {
+                                setDealers(null);
+                            }
+                        }}
+                        maxLength={6}
+                        className="lg-text-input tw-py-[0.5rem]"
+                        placeholder={contentData.getContent("6e5f2f90-7ef6-4cec-a3bf-2ca5732ee276")}
+                    />
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    {/* <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{contentData.getContent("635c3fbf-8a42-48bb-8e28-778feb6a4ab2")}</div>
+
+                    <VerticalSpacer className="tw-h-1" /> */}
+
+                    <FancySearchableSelect
+                        items={
+                            dealers == null
+                                ? []
+                                : dealers.map((dealer, dealerIndex) => {
+                                      return {
+                                          name: dealer.name,
+                                          area: dealer.area,
+                                          index: dealerIndex,
+                                      };
+                                  })
+                        }
+                        selectedItem={
+                            dealers == null || selectedDealerIndex == null
+                                ? null
+                                : {
+                                      name: dealers[selectedDealerIndex].name,
+                                      area: dealers[selectedDealerIndex].area,
+                                      index: selectedDealerIndex,
+                                  }
+                        }
+                        placeholder={contentData.getContent("16424c8b-1f32-4e46-befe-d1b4b84a2ee0")}
+                        setSelectedItem={(item) => {
+                            if (item == null) {
+                                return null;
+                            }
+                            setSelectedDealerIndex(item.index);
+                            const action: FormStateInputsAction = {
+                                actionType: FormStateInputsActionType.setDealer,
+                                payload: dealers == null ? "" : dealers[item.index].name,
+                            };
+                            dispatch(action);
+                            return {
+                                name: item.name,
+                                area: item.area,
+                            };
+                        }}
+                        filterFunction={(items, query) => items.filter((item) => item.name.toLowerCase().startsWith(query.toLowerCase()))}
+                        renderFunction={(item) => {
+                            if (item == null) {
+                                return "";
+                            }
+                            return `${item.name} - ${item.area}`;
+                        }}
+                        disabled={dealers == null}
+                        inputClassName="disabled:tw-opacity-[0.6] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark tw-py-[0.5rem]"
+                        listClassName="tw-max-h-[7.5rem]"
+                    />
 
                     <VerticalSpacer className="tw-h-4" />
 
@@ -1766,7 +1890,9 @@ export function ContactUsDialog({
                         disabled={
                             fetcher.state != "idle" ||
                             formStateInputs.inputData.name == "" ||
-                            formStateInputs.inputData.email == "" ||
+                            formStateInputs.inputData.pinCode.length != 6 ||
+                            // (email === "" || !isValidEmail) ||
+                            formStateInputs.inputData.dealer == "" ||
                             formStateInputs.inputData.phoneNumber == "" ||
                             formStateInputs.inputData.phoneNumber.length != 10 ||
                             formStateInputs.inputData.otpSubmitted == "" ||
@@ -1816,6 +1942,41 @@ export function SocialMediaFeedsSection({userPreferences, className}: {userPrefe
             ref={sectionRef}
         >
             {loadEmbeds == false ? null : <SocialMediaFeeds userPreferences={userPreferences} />}
+        </div>
+    );
+}
+
+export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const faqs = [
+        {
+            question: "homeS9Q1Q",
+            answer: "homeS9Q1A",
+        },
+        {
+            question: "homeS9Q2Q",
+            answer: "homeS9Q2A",
+        },
+        {
+            question: "homeS9Q3Q",
+            answer: "homeS9Q3A",
+        },
+        {
+            question: "homeS9Q4Q",
+            answer: "homeS9Q4A",
+        },
+        {
+            question: "homeS9Q5Q",
+            answer: "homeS9Q5A",
+        },
+    ];
+
+    return (
+        <div className={className}>
+            <FaqSectionInternal
+                faqs={faqs}
+                userPreferences={userPreferences}
+                className="tw-h-full tw-w-full"
+            />
         </div>
     );
 }

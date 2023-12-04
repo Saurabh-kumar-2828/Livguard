@@ -51,6 +51,7 @@ export const action: ActionFunction = async ({request, params}) => {
             name: inputData.name,
             emailId: inputData.email,
             city: inputData.city,
+            pinCode: inputData.pinCode,
             dealer: inputData.dealer,
             otpVerified: false,
             utmParameters: utmParametersDecoded,
@@ -102,6 +103,7 @@ export const action: ActionFunction = async ({request, params}) => {
             name: inputData.name,
             emailId: inputData.email,
             city: inputData.city,
+            pinCode: inputData.pinCode,
             dealer: inputData.dealer,
             otpVerified: true,
             utmParameters: utmParametersDecoded,
@@ -115,10 +117,18 @@ export const action: ActionFunction = async ({request, params}) => {
             return json(actionData);
         }
 
-        if(source == "livguard"){
+        if (source == "livguard") {
             const freshsalesResult = await sendDataToFreshsales(
                 leadId,
-                {mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, city: inputData.city, dealer: inputData.dealer, otpVerified: true},
+                {
+                    mobile_number: inputData.phoneNumber,
+                    first_name: inputData.name,
+                    email: inputData.email,
+                    city: inputData.city,
+                    dealer: inputData.dealer,
+                    pinCode: inputData.pinCode,
+                    otpVerified: true,
+                },
                 utmParametersDecoded,
                 pageUrl,
             );
@@ -128,7 +138,7 @@ export const action: ActionFunction = async ({request, params}) => {
                 };
                 return json(actionData);
             }
-        }else {
+        } else {
             const leadSquaredBody = [
                 {Attribute: "FirstName", Value: `${inputData.name}`},
                 {Attribute: "EmailAddress", Value: `${inputData.email}`},

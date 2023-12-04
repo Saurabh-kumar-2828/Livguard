@@ -21,6 +21,7 @@ export function ProductCardFourDetails({
     capacity,
     polarity,
     dimensions,
+    modelNumber,
 }: {
     userPreferences: UserPreferences;
     isBestSeller?: boolean;
@@ -33,6 +34,7 @@ export function ProductCardFourDetails({
     capacity: string;
     polarity: string;
     dimensions: string;
+    modelNumber: string;
 }) {
     const contentData = useContext(ContentProviderContext);
     return (
@@ -53,6 +55,7 @@ export function ProductCardFourDetails({
 
             <div className="tw-col-start-1 lg:tw-col-start-2 tw-grid tw-grid-flow-row">
                 <div className="lg-text-title1 tw-text-center lg:tw-text-left">{name}</div>
+                <div className="lg-text-title1 tw-text-center lg:tw-text-left">{modelNumber.toUpperCase()}</div>
 
                 <VerticalSpacer className="tw-h-2" />
 

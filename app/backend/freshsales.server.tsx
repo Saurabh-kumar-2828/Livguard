@@ -5,14 +5,14 @@ import {getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utili
 
 export async function sendDataToFreshsales(
     leadId: Uuid,
-    formResponse: {mobile_number?: string; first_name?: string; email?: string; city?: string; otpVerified?: boolean},
+    formResponse: {mobile_number?: string; first_name?: string; email?: string; city?: string; otpVerified?: boolean; dealer?: string; pinCode?: string},
     utmParameters: {[searchParameter: string]: string},
     pageUrl: string,
 ): Promise<void | Error> {
     const contactData = {
         first_name: formResponse.first_name,
         mobile_number: formResponse.mobile_number,
-        email: formResponse.email,
+        emails: formResponse.email,
         city: formResponse.city,
         lead_source_id: "401000150596",
         custom_field: {
@@ -26,7 +26,11 @@ export async function sendDataToFreshsales(
             cf_contact_id: `w: ${leadId}`,
         },
         created_at: getCurrentIsoTimestamp(),
+        zipcode: formResponse.pinCode,
+        sales_accounts: formResponse.dealer,
     };
+
+    console.log("COntact data :::::", contactData);
 
     const uniqueIdentifierData = {
         mobile_number: formResponse.mobile_number,
@@ -42,8 +46,11 @@ export async function sendDataToFreshsales(
             body: JSON.stringify({unique_identifier: uniqueIdentifierData, contact: contactData}),
         });
 
+        const responseData = await response.json();
+        console.log("Response from Freshsales", responseData);
+
         if (!response.ok) {
-            throw new Error(`Freshsales API call failed - status = ${response.status}, body = ${JSON.stringify(await response.text())}`);
+            throw new Error(`Freshsales API call failed - status = ${response.status}, body = ${JSON.stringify(responseData)}`);
         }
     } catch (error_: unknown) {
         const error = getErrorFromUnknown(error_);

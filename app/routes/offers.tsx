@@ -717,7 +717,7 @@ function RecommendationCard({
                     {humanReadableModelNumber}
                     {/* {name} */}
                 </div>
-
+                <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">{slug.toUpperCase()}</div>
                 <VerticalSpacer className="tw-h-2" />
 
                 <div className="tw-place-self-center tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_auto_0.5rem_70%_minmax(0,1fr)] tw-items-center">
