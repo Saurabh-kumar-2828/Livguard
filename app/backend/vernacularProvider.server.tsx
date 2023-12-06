@@ -11970,6 +11970,30 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Solar Blogs",
         [Language.Hindi]: "सोलर ब्लॉग",
     },
+    "a200a4ef-ca40-477a-89b7-75051e3e61bc": {
+        [Language.English]: "Inverter and Battery Blog",
+        [Language.Hindi]: "इनवर्टर और बैटरी ब्लॉग",
+    },
+    "29321114-f397-4263-81f7-75fc4cedb7e9": {
+        [Language.English]: "Solar Solution Blog",
+        [Language.Hindi]: "सोलर सलूशन ब्लॉग",
+    },
+    "e36a1f06-04ce-48ad-8b61-ec43fe07e7c4": {
+        [Language.English]: "Solar Solution Authorized Dealers",
+        [Language.Hindi]: "सोलर सलूशन के अधिकृत डीलर",
+    },
+    "6c20b0af-0c2a-4909-9b87-a297c669bc3c": {
+        [Language.English]: "Inverter & Battery Dealer Near Me",
+        [Language.Hindi]: "मेरे निकट इनवर्टर और बैटरी डीलर",
+    },
+    "ed904f15-4146-4a7b-adc1-bb088a4bd2b7": {
+        [Language.English]: "Solar Solution Dealers Near Me",
+        [Language.Hindi]: "मेरे निकट सोलर सलूशन डीलर",
+    },
+    "4ebbb1f9-c94f-4785-9243-515e2272c6fc": {
+        [Language.English]: "Inverter and Battery Authorized Dealers",
+        [Language.Hindi]: "इनवर्टर और बैटरी के अधिकृत डीलर",
+    },
 };
 
 const popUpFormStrings = [
@@ -12016,6 +12040,8 @@ const automotiveTestimonials = [
 ];
 
 const headerStrings: Array<string> = [
+    "29321114-f397-4263-81f7-75fc4cedb7e9",
+    "a200a4ef-ca40-477a-89b7-75051e3e61bc",
     "9422ae55-d4b1-47c5-bebe-f3cc4b95f032",
     "a4cdad94-3bca-44cd-b05c-2b4d5b2344e1",
     "27ab8917-5904-454d-aeda-a05effdba4eb",
@@ -12116,6 +12142,10 @@ const headerStrings: Array<string> = [
 
 const footerStrings = [
     ...popUpFormStrings,
+    "4ebbb1f9-c94f-4785-9243-515e2272c6fc",
+    "ed904f15-4146-4a7b-adc1-bb088a4bd2b7",
+    "e36a1f06-04ce-48ad-8b61-ec43fe07e7c4",
+    "6c20b0af-0c2a-4909-9b87-a297c669bc3c",
     "c6cc6772-3776-4f4a-9b92-ccb32db1381e",
     "ea91e468-58cb-4af8-a8cd-9d8cd4117c1f",
     "27ab8917-5904-454d-aeda-a05effdba4eb",

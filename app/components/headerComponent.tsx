@@ -1041,7 +1041,7 @@ const headerMenuItems: Array<HeaderItem> = [
                     },
                     {
                         contentId: "57a03ee7-ca2c-4a65-99ca-f462af61147d",
-                        to: "https://www.livguardsolar.com/dealers",
+                        to: "https://www.livguardsolar.com/solar-solution-dealers",
                     },
                     {
                         contentId: "157fa5b7-ce5a-4397-b74b-9f756fb0fd07",
@@ -1308,12 +1308,12 @@ const headerMenuItems: Array<HeaderItem> = [
                 contentId: "690c2edd-1a1c-47c2-a307-4fef4c8a6b0a",
                 children: [
                     {
-                        contentId: "a4cdad94-3bca-44cd-b05c-2b4d5b2344e1",
+                        contentId: "a200a4ef-ca40-477a-89b7-75051e3e61bc",
                         to: "https://www.livguard.com/blog",
                     },
                     {
-                        contentId: "9422ae55-d4b1-47c5-bebe-f3cc4b95f032",
-                        to: "https://www.livguard.com/blog",
+                        contentId: "29321114-f397-4263-81f7-75fc4cedb7e9",
+                        to: "https://blog.livguardsolar.com",
                     },
                 ],
                 desktopClassName: "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-6 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-border-500-dark",

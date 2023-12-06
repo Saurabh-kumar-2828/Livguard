@@ -158,15 +158,35 @@ export function FooterComponent({
 
     const dealerLocatorAccordionList = [
         {
-            title: `${contentData.getContent("c6cc6772-3776-4f4a-9b92-ccb32db1381e")}`,
+            title: `${contentData.getContent("4ebbb1f9-c94f-4785-9243-515e2272c6fc")}`,
             link: "/dealer-for-inverters-and-batteries",
             target: false,
         },
         {
-            title: `${contentData.getContent("ea91e468-58cb-4af8-a8cd-9d8cd4117c1f")}`,
-            link: "https://www.livguardsolar.com/dealers",
+            title: `${contentData.getContent("6c20b0af-0c2a-4909-9b87-a297c669bc3c")}`,
+            link: "https://battery-inverter-dealers.livguard.com/",
             target: true,
         },
+        {
+            title: `${contentData.getContent("e36a1f06-04ce-48ad-8b61-ec43fe07e7c4")}`,
+            link: "https://www.livguardsolar.com/solar-solution-dealers",
+            target: true,
+        },
+        {
+            title: `${contentData.getContent("ed904f15-4146-4a7b-adc1-bb088a4bd2b7")}`,
+            link: "https://solar-near-me.livguardsolar.com/",
+            target: true,
+        },
+        // {
+        //     title: `${contentData.getContent("c6cc6772-3776-4f4a-9b92-ccb32db1381e")}`,
+        //     link: "/dealer-for-inverters-and-batteries",
+        //     target: false,
+        // },
+        // {
+        //     title: `${contentData.getContent("ea91e468-58cb-4af8-a8cd-9d8cd4117c1f")}`,
+        //     link: "https://www.livguardsolar.com/solar-solution-dealers",
+        //     target: true,
+        // },
         // {
         //     title: `${contentData.getContent("footerDisclosure3T6")}`,
         //     link: "/car-and-suv-batteries/",
@@ -567,7 +587,7 @@ export function FooterComponent({
         },
         {
             title: `${contentData.getContent("57a03ee7-ca2c-4a65-99ca-f462af61147d")}`,
-            link: "https://www.livguardsolar.com/dealers",
+            link: "https://www.livguardsolar.com/solar-solution-dealers",
             target: false,
         },
     ];
