@@ -543,7 +543,10 @@ function DisclosureAndRetention({userPreferences, className}: {userPreferences: 
                         dangerouslySetInnerHTML={{__html: contentData.getContent("6d1e570d-cc89-4de6-b652-19f51c77c8e2")}}
                     ></div>
                 </div>
-
+                <div
+                    className="lg-text-body lg-text-secondary-900"
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("54c87390-7084-4cb1-b9c9-377079b0df17")}}
+                />
                 <div
                     className="lg-text-body lg-text-secondary-900"
                     dangerouslySetInnerHTML={{__html: contentData.getContent("7efe0543-f56d-4a42-94e8-071960afb913")}}
@@ -569,6 +572,10 @@ function DisclosureRetention({userPreferences, className}: {userPreferences: Use
                 <div
                     className=""
                     dangerouslySetInnerHTML={{__html: contentData.getContent("fd29f53e-96c6-4038-8427-9115cb09ecc3")}}
+                ></div>
+                <div
+                    className=""
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("ea272676-3802-4843-803a-e0ad13b065f5")}}
                 ></div>
             </div>
         </div>
@@ -605,6 +612,14 @@ function UserDiscretion({userPreferences, className}: {userPreferences: UserPref
                 <div
                     className=""
                     dangerouslySetInnerHTML={{__html: contentData.getContent("b331829c-16c8-4530-92b0-05dde534174c")}}
+                ></div>
+                <div
+                    className=""
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("1bdf42b3-3ccf-4beb-a596-175ec5d93b02")}}
+                ></div>
+                <div
+                    className=""
+                    dangerouslySetInnerHTML={{__html: contentData.getContent("156d8081-7106-4f47-99d5-82b2e05f3268")}}
                 ></div>
             </div>
         </div>
