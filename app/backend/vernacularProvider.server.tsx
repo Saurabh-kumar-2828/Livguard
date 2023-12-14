@@ -7754,8 +7754,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `<span class="lg-text-highlighted">गोपनीयता नीतियां </span>- अवलोकन`,
     },
     "44f6795e-31aa-489c-83cf-4855844e0c8f": {
-        [Language.English]: `Last Updated On - 31st Oct 2023`,
-        [Language.Hindi]: "आख़िरी बदलाव - 31 अक्टूबर 2023",
+        [Language.English]: `Last Updated On - 14th Dec 2023`,
+        [Language.Hindi]: "आख़िरी बदलाव - 14th दिसंबर 2023",
     },
     "58639d61-0980-400d-acca-4c01949569d3": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Privacy Policies - Introduction</div>`,

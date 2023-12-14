@@ -269,12 +269,12 @@ function PrivacyPolicyPage({userPreferences}: {userPreferences: UserPreferences}
                 userPreferences={userPreferences}
             />
 
-            <VerticalSpacer className="lg:tw-h-12 tw-h-6" />
+            {/* <VerticalSpacer className="lg:tw-h-12 tw-h-6" /> */}
 
-            <WhatsAppPrivacyPolicy
+            {/* <WhatsAppPrivacyPolicy
                 className="tw-max-w-7xl tw-mx-auto"
                 userPreferences={userPreferences}
-            />
+            /> */}
 
             <VerticalSpacer className="tw-h-20" />
         </div>
@@ -680,64 +680,64 @@ function GoverningLaw({userPreferences, className}: {userPreferences: UserPrefer
     );
 }
 
-function WhatsAppPrivacyPolicy({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const contentData = useContext(ContentProviderContext);
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
-            <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
-                <div
-                    className=""
-                    dangerouslySetInnerHTML={{__html: contentData.getContent("51d356d0-fd9e-4821-9d40-e4b5941a347d")}}
-                ></div>
-                <div
-                    className=""
-                    dangerouslySetInnerHTML={{__html: contentData.getContent("21b9fed2-0f6c-4f09-8558-a9ceeadb82b5")}}
-                ></div>
-                <div className="">
-                    <div
-                        className="lg-text-title2"
-                        dangerouslySetInnerHTML={{__html: contentData.getContent("cf616cbc-4f39-47ef-96ce-34ce5d7bac0c")}}
-                    ></div>
+// function WhatsAppPrivacyPolicy({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+//     const contentData = useContext(ContentProviderContext);
+//     return (
+//         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
+//             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
+//                 <div
+//                     className=""
+//                     dangerouslySetInnerHTML={{__html: contentData.getContent("51d356d0-fd9e-4821-9d40-e4b5941a347d")}}
+//                 ></div>
+//                 <div
+//                     className=""
+//                     dangerouslySetInnerHTML={{__html: contentData.getContent("21b9fed2-0f6c-4f09-8558-a9ceeadb82b5")}}
+//                 ></div>
+//                 <div className="">
+//                     <div
+//                         className="lg-text-title2"
+//                         dangerouslySetInnerHTML={{__html: contentData.getContent("cf616cbc-4f39-47ef-96ce-34ce5d7bac0c")}}
+//                     ></div>
 
-                    <div
-                        className="tw-pl-[3rem]"
-                        dangerouslySetInnerHTML={{__html: contentData.getContent("92511aa0-4496-4329-801a-e584523f43d3")}}
-                    ></div>
-                </div>
-                <div className="">
-                    <div
-                        className="lg-text-title2"
-                        dangerouslySetInnerHTML={{__html: contentData.getContent("68324170-b75f-47cc-9aaa-a476e21b39d2")}}
-                    ></div>
+//                     <div
+//                         className="tw-pl-[3rem]"
+//                         dangerouslySetInnerHTML={{__html: contentData.getContent("92511aa0-4496-4329-801a-e584523f43d3")}}
+//                     ></div>
+//                 </div>
+//                 <div className="">
+//                     <div
+//                         className="lg-text-title2"
+//                         dangerouslySetInnerHTML={{__html: contentData.getContent("68324170-b75f-47cc-9aaa-a476e21b39d2")}}
+//                     ></div>
 
-                    <div
-                        className="tw-pl-[3rem]"
-                        dangerouslySetInnerHTML={{__html: contentData.getContent("41a34384-a068-4c8d-b5c5-6445391e5cde")}}
-                    ></div>
-                </div>
-                <div className="">
-                    <div
-                        className="lg-text-title2"
-                        dangerouslySetInnerHTML={{__html: contentData.getContent("94a1d750-46d5-44d6-a7bb-b3c618d5c3d3")}}
-                    ></div>
+//                     <div
+//                         className="tw-pl-[3rem]"
+//                         dangerouslySetInnerHTML={{__html: contentData.getContent("41a34384-a068-4c8d-b5c5-6445391e5cde")}}
+//                     ></div>
+//                 </div>
+//                 <div className="">
+//                     <div
+//                         className="lg-text-title2"
+//                         dangerouslySetInnerHTML={{__html: contentData.getContent("94a1d750-46d5-44d6-a7bb-b3c618d5c3d3")}}
+//                     ></div>
 
-                    <div
-                        className="tw-pl-[3rem]"
-                        dangerouslySetInnerHTML={{__html: contentData.getContent("f640f948-c51f-4108-9a2d-819ac11a4dc1")}}
-                    ></div>
-                </div>
-                <div className="">
-                    <div
-                        className="lg-text-title2"
-                        dangerouslySetInnerHTML={{__html: contentData.getContent("f53f571a-74d1-4104-b9da-1820dbff78be")}}
-                    ></div>
+//                     <div
+//                         className="tw-pl-[3rem]"
+//                         dangerouslySetInnerHTML={{__html: contentData.getContent("f640f948-c51f-4108-9a2d-819ac11a4dc1")}}
+//                     ></div>
+//                 </div>
+//                 <div className="">
+//                     <div
+//                         className="lg-text-title2"
+//                         dangerouslySetInnerHTML={{__html: contentData.getContent("f53f571a-74d1-4104-b9da-1820dbff78be")}}
+//                     ></div>
 
-                    <div
-                        className="tw-pl-[3rem]"
-                        dangerouslySetInnerHTML={{__html: contentData.getContent("91471559-ce87-4196-b5de-2187d80cccb2")}}
-                    ></div>
-                </div>
-            </div>
-        </div>
-    );
-}
+//                     <div
+//                         className="tw-pl-[3rem]"
+//                         dangerouslySetInnerHTML={{__html: contentData.getContent("91471559-ce87-4196-b5de-2187d80cccb2")}}
+//                     ></div>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// }
